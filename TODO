@@ -1,0 +1,34 @@
+* Pending features.
+
+http://sourceforge.net/tracker/?func=browse&group_id=236429&atid=1100310
+
+2789350 add support for five row chromatic accordions
+2488019 Split channels
+2488015 Split note point
+2445772 Arpeggiator
+2230850 Chord generation
+2209711 Support both upper & lower case letters
+2142327 Play MIDI files
+
+* Implemented features
+
+MIDI CONTROLLERS, PROGRAMS
+2106035 controller value state remembered when changing from one 
+        controller to another one.
+2106031 settings persistence of controller values and bank/programs.    
+2790324 extra controllers and on/off controllers
+
+MIDI CONNECTIONS
+2106023 MIDI thru: optionally send the received events to the output port.
+2106026 store connection names instead of numbers in the settings
+
+PRESENTATION
+2106015 translation (Qt Linguist) support, and also Spanish translation
+2106021 let the user to choose a custom highligh color for the pressed keys
+2779744 keyboard window: always on top
+2488065 online help
+2107732 better mouse handling
+2109421 display key names
+2209692 Transpose
+2106022 better looking keys (realistic 3D, maybe SVG graphics)
+2848623 Raw keyboard support

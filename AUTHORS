@@ -1,0 +1,87 @@
+Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
+
+Translators:
+
+    Serdar Soytetir - Turkish translation
+        translations/vmpk_tr.ts
+        
+    Andreas Steinel - German translation
+        translations/vmpk_de.ts
+    
+    Pedro Lopez-Cabanillas - Spanish translation
+        translations/vmpk_es.ts
+        data/help_es.html
+
+    Serguey G Basalaev - Russian translation
+        translations/vmpk_ru.ts
+        data/help_ru.html
+        data/hm_ru.html
+	
+    Frank Kober - French and German translations
+        translations/vmpk_fr.ts
+        translations/vmpk_de.ts
+        data/help_de.html
+ 
+    Pavel Fric - Czech translation
+        translations/vmpk_cs.ts
+
+    Philip Edelmann - German translation
+        data/help_de.html
+        
+    Rui Fan - Chinese translation
+        translations/vmpk_zh_CN.ts
+
+    Wouter Reckman - Dutch translation
+        translations/vmpk_nl.ts
+        data/help_nl.html
+     
+    Magnus Johansson - Swedish translation
+        translations/vmpk_sv.ts
+
+    Nicolas Froment - French translation
+        data/help_fr.html
+
+Other copyright owners:
+
+    Gary P. Scavone     RtMIDI classes
+        src/RtError.h
+        src/RtMidi.h
+        src/RtMidi.cpp
+
+    Rui Nuno Capela     Instrument definition data classes, Knob widget, 
+                        Shortcuts Editor Dialog
+        src/instrument.h
+        src/instrument.cpp
+        src/knob.h
+        src/knob.cpp
+        src/shortcutdialog.h
+        src/shortcutdialog.ui
+        src/shortcutdialog.cpp
+
+    Chris Cannam, Pedro Lopez-Cabanillas, Queen Mary University of London
+        src/classicstyle.h
+        src/classicstyle.cpp
+
+    Theresa Knott       Artwork (www.openclipart.org)
+        data/TheresaKnott_piano.svg
+        data/vmpk_16x16.png
+        data/vmpk_32x32.png
+        data/vmpk_48x48.png
+        data/vmpk_64x64.png
+        data/vmpk.icns
+        src/vmpk.ico
+
+    Mehdi Dogguy        Man page, Debian packaging
+        man/vmpk.xml
+        man/vmpk.1
+
+    David Vignoni       Oxygen Icons. See: http://www.oxygen-icons.org
+    Nuno Pinheiro       licensed under the GNU LGPLv3
+    Kenneth Wimer       http://www.gnu.org/copyleft/lesser.html
+        data/list-add.svg
+        data/list-remove.svg
+
+    Benji Park          Artwork (www.openclipart.org)
+        data/led_green.svg
+        data/led_grey.svg
+

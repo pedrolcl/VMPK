@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <comment>
+    MIDI Virtual Piano Keyboard
+    Copyright (C) 2008-2011, Pedro Lopez-Cabanillas
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; If not, see http://www.gnu.org/licenses/
+ </comment>
+ <class>DialogExtraControls</class>
+ <widget class="QDialog" name="DialogExtraControls">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>376</width>
+    <height>267</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Extra Controls Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../data/vmpk.qrc">
+    <normaloff>:/vpiano/vmpk_32x32.png</normaloff>:/vpiano/vmpk_32x32.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_6">
+   <item row="0" column="0" rowspan="3">
+    <widget class="QListWidget" name="extraList">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QFrame" name="commonFrame">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblLabel">
+        <property name="text">
+         <string>Label:</string>
+        </property>
+        <property name="buddy">
+         <cstring>txtLabel</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QLineEdit" name="txtLabel"/>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="lblController">
+        <property name="text">
+         <string>MIDI Controller:</string>
+        </property>
+        <property name="buddy">
+         <cstring>spinController</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="spinController">
+        <property name="maximum">
+         <number>127</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="2" rowspan="3">
+    <widget class="QFrame" name="frameButtons">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="btnAdd">
+        <property name="text">
+         <string>Add</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../data/vmpk.qrc">
+          <normaloff>:/vpiano/list-add.svg</normaloff>:/vpiano/list-add.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRemove">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Remove</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../data/vmpk.qrc">
+          <normaloff>:/vpiano/list-remove.svg</normaloff>:/vpiano/list-remove.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnUp">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Up</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDown">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Down</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QComboBox" name="cboControlType">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Switch</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Knob</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Spin box</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Slider</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Button Ctl</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Button SysEx</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QStackedWidget" name="stackedPanel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="pageSwitch">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkSwitchDefOn">
+         <property name="text">
+          <string>Default ON</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblvalueOn">
+         <property name="text">
+          <string>value ON:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinValueOn</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spinValueOn">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblValueOff">
+         <property name="text">
+          <string>value OFF:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinValueOff</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinValueOff">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageKnob">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblKnobMin">
+         <property name="text">
+          <string>Min. value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinKnobMin</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinKnobMin">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblKnobMax">
+         <property name="text">
+          <string>Max. value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinKnobMax</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spinKnobMax">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelKnobDef">
+         <property name="text">
+          <string>Default value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinKnobDef</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinKnobDef">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageSpinbox">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblSpinMin">
+         <property name="text">
+          <string>Min. value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSpinMin</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinSpinMin">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblSpinMax">
+         <property name="text">
+          <string>Max. value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSpinMax</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spinSpinMax">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblSpinDef">
+         <property name="text">
+          <string>Default value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSpinDef</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinSpinDef">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageSlider">
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblSliderSize">
+         <property name="text">
+          <string>Display size:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSliderSize</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinSliderSize">
+         <property name="maximum">
+          <number>9999</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblSliderMin">
+         <property name="text">
+          <string>Min. value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSliderMin</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spinSliderMin">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblSliderMax">
+         <property name="text">
+          <string>Max. value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSliderMax</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinSliderMax">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblSliderDef">
+         <property name="text">
+          <string>Default value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinSliderDef</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spinSliderDef">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageButtonCtl">
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblvalue">
+         <property name="text">
+          <string>value:</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinValueOn</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinValue">
+         <property name="maximum">
+          <number>127</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageButtonSyx">
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblFileName">
+         <property name="text">
+          <string>File name:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="edtFileSyx">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QToolButton" name="btnFileSyx">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>extraList</tabstop>
+  <tabstop>txtLabel</tabstop>
+  <tabstop>spinController</tabstop>
+  <tabstop>chkSwitchDefOn</tabstop>
+  <tabstop>spinValueOn</tabstop>
+  <tabstop>spinValueOff</tabstop>
+  <tabstop>spinKnobMin</tabstop>
+  <tabstop>spinKnobMax</tabstop>
+  <tabstop>spinKnobDef</tabstop>
+  <tabstop>spinSpinMin</tabstop>
+  <tabstop>spinSpinMax</tabstop>
+  <tabstop>spinSpinDef</tabstop>
+  <tabstop>spinSliderSize</tabstop>
+  <tabstop>spinSliderMin</tabstop>
+  <tabstop>spinSliderMax</tabstop>
+  <tabstop>spinSliderDef</tabstop>
+  <tabstop>btnAdd</tabstop>
+  <tabstop>btnRemove</tabstop>
+  <tabstop>btnUp</tabstop>
+  <tabstop>btnDown</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../data/vmpk.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogExtraControls</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogExtraControls</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cboControlType</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>stackedPanel</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>273</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stackedPanel</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>cboControlType</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

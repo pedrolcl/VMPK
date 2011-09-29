@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardmap>
+<keyboardmap version="1.0">
+    <mapping key="'" note="25"/>
+    <mapping key="," note="21"/>
+    <mapping key="." note="23"/>
+    <mapping key="/" note="24"/>
+    <mapping key="A" note="8"/>
+    <mapping key="B" note="16"/>
+    <mapping key="C" note="12"/>
+    <mapping key="F" note="13"/>
+    <mapping key="G" note="15"/>
+    <mapping key="J" note="18"/>
+    <mapping key="K" note="20"/>
+    <mapping key="L" note="22"/>
+    <mapping key="M" note="19"/>
+    <mapping key="N" note="17"/>
+    <mapping key="S" note="10"/>
+    <mapping key="V" note="14"/>
+    <mapping key="X" note="11"/>
+    <mapping key="Z" note="9"/>
+    <mapping key="\" note="26"/>
+</keyboardmap>

@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir -p build
+pushd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
+         -DCMAKE_CXX_FLAGS="-W -Wall -fexceptions" \
+         -DCMAKE_BUILD_TYPE=release
+popd

@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/vpiano">
+    <file>vmpk_32x32.png</file>
+    <file>vmpk_128x128.png</file>
+    <file>blkey.svg</file>
+    <file>list-remove.svg</file>
+    <file>list-add.svg</file>
+    <file>led_green.svg</file>
+    <file>led_grey.svg</file>
+  </qresource>
+</RCC>

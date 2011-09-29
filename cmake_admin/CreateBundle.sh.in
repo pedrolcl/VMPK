@@ -1,0 +1,34 @@
+#!/bin/sh
+# Are we using Xcode to compile. If we are then the CMake variable
+# XCODE will be '1' otherwise it will be blank
+Xcode="@XCODE@x"
+InstallPrefix="@CMAKE_INSTALL_PREFIX@"
+OSX_App_Name="@target@.app"
+if [[ $Xcode == "1x" ]]; then
+  OSX_App="@CMAKE_CURRENT_BINARY_DIR@/build/$BUILD_STYLE/$OSX_App_Name"
+else
+  OSX_App="@CMAKE_CURRENT_BINARY_DIR@/build/$OSX_App_Name"
+fi
+Translations="@CMAKE_CURRENT_BINARY_DIR@/build/translations/*.qm"
+
+# Remove the previous @target@ app package so we start with a clean bundle
+echo "Removing Previous $OSX_App_Name bundle at $InstallPrefix/"
+rm -rf "$InstallPrefix/$OSX_App_Name"
+
+# copy the @target@.app bundle to the installation location
+echo "Copying $OSX_App_Name from the build tree to $InstallPrefix/"
+cp -Rp "$OSX_App" "$InstallPrefix/"
+
+OSX_App="@CMAKE_INSTALL_PREFIX@/$OSX_App_Name"
+ContentsDir="$OSX_App/Contents"
+SupportDir="$OSX_App/Contents/Support"
+LibrariesDir="$OSX_App/Contents/Libraries"
+FrameworksDir="$OSX_App/Contents/Frameworks"
+PluginsDir="$OSX_App/Contents/Plugins"
+ResourcesDir="$OSX_App/Contents/Resources"
+
+# create directories in the @target@.app bundle
+#mkdir -p "$SupportDir"
+#mkdir -p "$FrameworksDir"
+
+cp $Translations $ResourcesDir

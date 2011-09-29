@@ -1,0 +1,142 @@
+.\"     Title: vmpk
+.\"    Author: Mehdi Dogguy <dogguy@pps.jussieu.fr>
+.\" Generator: DocBook XSL Stylesheets v1.73.1 <http://docbook.sf.net/>
+.\"      Date: June 7, 2009
+.\"    Manual: User Commands
+.\"    Source: vmpk 0.3.3
+.\"
+.TH "VMPK" "1" "June 7, 2009" "vmpk 0\.3\.3" "User Commands"
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+vmpk - Virtual MIDI Piano Keyboard
+.SH "SYNOPSIS"
+.HP 5
+\fBvmpk\fR [Standard\ options\.\.\.]
+.SH "DESCRIPTION"
+.PP
+This manual page documents briefly the
+\fBvmpk\fR
+program\.
+.PP
+This program has standard Qt programs options\.
+.PP
+Virtual MIDI Piano Keyboard is a MIDI events generator and receiver\. It doesn\'t produce any sound by itself, but can be used to drive a MIDI synthesizer (either hardware or software, internal or external)\. You can use the computer\'s keyboard to play MIDI notes, and also the mouse\. You can use the Virtual MIDI Piano Keyboard to display the played MIDI notes from another instrument or MIDI file player\.
+.SH "OPTIONS"
+.PP
+\fB\-style=\fRstyle
+.RS 4
+sets the application GUI style\. Possible values are motif, windows, and platinum\. If you compiled Qt with additional styles or have additional styles as plugins these will be available to the
+\fB\-style\fR
+command line option
+.RE
+.PP
+\fB\-stylesheet=\fRstylesheet
+.RS 4
+sets the application styleSheet\. The value must be a path to a file that contains the Style Sheet\. Note: Relative URLs in the Style Sheet file are relative to the Style Sheet file\'s path\.
+.RE
+.PP
+\fB\-session=\fRsession
+.RS 4
+restores the application from an earlier session\.
+.RE
+.PP
+\fB\-widgetcount\fR
+.RS 4
+prints debug message at the end about number of widgets left undestroyed and maximum number of widgets existed at the same time
+.RE
+.PP
+\fB\-reverse\fR
+.RS 4
+sets the application\'s layout direction to
+\fBQt::RightToLeft\fR
+.RE
+.PP
+\fB\-graphicssystem\fR
+.RS 4
+sets the backend to be used for on\-screen widgets and QPixmaps\. Available options are raster and opengl\.
+.RE
+.PP
+\fB\-display\fR display
+.RS 4
+sets the X display (default is $DISPLAY)\.
+.RE
+.PP
+\fB\-geometry\fR geometry
+.RS 4
+sets the client geometry of the first window that is shown\.
+.RE
+.PP
+\fB\-fn|\-font\fR font
+.RS 4
+defines the application font\. The font should be specified using an X logical font description\.
+.RE
+.PP
+\fB\-bg|\-background\fR color
+.RS 4
+sets the default background color and an application palette (light and dark shades are calculated)\.
+.RE
+.PP
+\fB\-fg|\-foreground\fR color
+.RS 4
+sets the default foreground color\.
+.RE
+.PP
+\fB\-btn|\-button\fR color
+.RS 4
+sets the default button color\.
+.RE
+.PP
+\fB\-name\fR name
+.RS 4
+sets the application name\.
+.RE
+.PP
+\fB\-title\fR title
+.RS 4
+sets the application title\.
+.RE
+.PP
+\fB\-visual TrueColor\fR
+.RS 4
+forces the application to use a TrueColor visual on an 8\-bit display\.
+.RE
+.PP
+\fB\-ncols\fR count
+.RS 4
+limits the number of colors allocated in the color cube on an 8\-bit display, if the application is using the QApplication::ManyColor color specification\. If count is 216 then a 6x6x6 color cube is used (i\.e\. 6 levels of red, 6 of green, and 6 of blue); for other values, a cube approximately proportional to a 2x3x1 cube is used\.
+.RE
+.PP
+\fB\-cmap\fR
+.RS 4
+causes the application to install a private color map on an 8\-bit display\.
+.RE
+.PP
+\fB\-im\fR
+.RS 4
+sets the input method server (equivalent to setting the XMODIFIERS environment variable)
+.RE
+.PP
+\fB\-inputstyle\fR
+.RS 4
+defines how the input is inserted into the given widget, e\.g\., onTheSpot makes the input appear directly in the widget, while overTheSpot makes the input appear in a box floating over the widget and is not inserted until the editing is done\.
+.RE
+.SH "LICENSE"
+.PP
+This manual page was written by
+Mehdi Dogguy
+<dogguy@pps\.jussieu\.fr>
+for the Debian GNU/Linux system (but may be used by others)\. Permission is granted to copy, distribute and/or modify this document under the terms of the
+GNU
+General Public License, Version 3 or any later version published by the Free Software Foundation; considering as source code all the file that enable the production of this manpage\.
+.SH "AUTHOR"
+.PP
+\fBMehdi Dogguy\fR <\&dogguy@pps\.jussieu\.fr\&>
+.sp -1n
+.IP "" 4
+
+.SH "COPYRIGHT"
+Copyright \(co 2009 Mehdi Dogguy
+.br

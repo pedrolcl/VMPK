@@ -1,0 +1,7 @@
+#!/bin/bash
+rm -f  vmpk.spec
+rm -f  Makefile*
+rm -f  Info.plist
+rm -f  translations/*.qm
+rm -rf *.xcodeproj
+rm -rf build/*

@@ -1,0 +1,35 @@
+IDI_ICON1 ICON DISCARDABLE "vmpk.ico"
+
+1 VERSIONINFO
+ FILEVERSION    @VERSION_MAJOR@, @VERSION_MINOR@, @VERSION_PATCH@, 0
+ PRODUCTVERSION @VERSION_MAJOR@, @VERSION_MINOR@, @VERSION_PATCH@, 0
+ FILEOS         4 // VOS__WINDOWS32
+ FILETYPE       1 // VFT_APP         
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "vmpk.sf.net"
+      VALUE "FileDescription", "Virtual MIDI Piano Keyboard"
+      VALUE "FileVersion", "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@"
+      VALUE "Full Version", "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@@VERSION_SUFFIX@"
+      VALUE "InternalName", "VMPK"
+      VALUE "LegalCopyright", "Copyright \251 2008-2010 Pedro Lopez-Cabanillas. Licensed under the terms of the GPL v3 or later"
+      VALUE "OriginalFilename", "vmpk.exe"
+      VALUE "ProductName", "Virtual MIDI Piano Keyboard"
+      VALUE "ProductVersion", "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0405, 1200, // Czech
+                         0x0407, 1200, // German
+                         0x0409, 1200, // U.S. English
+                         0x040A, 1200, // Castilian Spanish
+                         0x040C, 1200, // French
+                         0x0413, 1200, // Dutch
+                         0x0419, 1200, // Russian
+                         0x0804, 1200  // Simplified Chinese
+  END
+END

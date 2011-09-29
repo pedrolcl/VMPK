@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <comment>
+    MIDI Virtual Piano Keyboard
+    Copyright (C) 2008-2011, Pedro Lopez-Cabanillas
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; If not, see http://www.gnu.org/licenses/
+ </comment>
+ <class>VPiano</class>
+ <widget class="QMainWindow" name="VPiano">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>573</width>
+    <height>223</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Virtual MIDI Piano Keyboard</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../data/vmpk.qrc">
+    <normaloff>:/vpiano/vmpk_32x32.png</normaloff>:/vpiano/vmpk_32x32.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="PianoKeybd" name="pianokeybd"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>573</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionImportSoundFont"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionConnections"/>
+    <addaction name="actionPreferences"/>
+    <addaction name="actionEditKM"/>
+    <addaction name="actionEditExtraControls"/>
+    <addaction name="actionShortcuts"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>&amp;Language</string>
+     </property>
+    </widget>
+    <addaction name="actionContents"/>
+    <addaction name="actionWebSite"/>
+    <addaction name="menuLanguage"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAboutTranslation"/>
+    <addaction name="actionAboutQt"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionNotes"/>
+    <addaction name="actionControllers"/>
+    <addaction name="actionBender"/>
+    <addaction name="actionPrograms"/>
+    <addaction name="actionExtraControls"/>
+    <addaction name="separator"/>
+    <addaction name="actionNoteNames"/>
+    <addaction name="actionStatusBar"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <widget class="QMenu" name="menuNotes">
+     <property name="title">
+      <string>Notes</string>
+     </property>
+     <addaction name="actionOctaveUp"/>
+     <addaction name="actionOctaveDown"/>
+     <addaction name="actionTransposeUp"/>
+     <addaction name="actionTransposeDown"/>
+     <addaction name="actionVelocityUp"/>
+     <addaction name="actionVelocityDown"/>
+    </widget>
+    <widget class="QMenu" name="menuControllers">
+     <property name="title">
+      <string>Controllers</string>
+     </property>
+     <addaction name="actionNextController"/>
+     <addaction name="actionPreviousController"/>
+     <addaction name="actionControllerUp"/>
+     <addaction name="actionControllerDown"/>
+    </widget>
+    <widget class="QMenu" name="menuPrograms">
+     <property name="title">
+      <string>Programs</string>
+     </property>
+     <addaction name="actionNextBank"/>
+     <addaction name="actionPreviousBank"/>
+     <addaction name="actionNextProgram"/>
+     <addaction name="actionPreviousProgram"/>
+    </widget>
+    <addaction name="actionChannelUp"/>
+    <addaction name="actionChannelDown"/>
+    <addaction name="menuNotes"/>
+    <addaction name="menuControllers"/>
+    <addaction name="menuPrograms"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="sizeGripEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBarNotes">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>&amp;Notes</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPanic"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarControllers">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>&amp;Controllers</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+   <addaction name="actionResetAll"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarBender">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>Pitch &amp;Bender</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+   <addaction name="actionReset"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarPrograms">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>&amp;Programs</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+   <addaction name="actionEditPrograms"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarExtra">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>&amp;Extra Controls</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+   <addaction name="actionEditExtra"/>
+   <addaction name="separator"/>
+  </widget>
+  <action name="actionExit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit the program</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+   <property name="statusTip">
+    <string>Edit the program settings</string>
+   </property>
+  </action>
+  <action name="actionConnections">
+   <property name="text">
+    <string>&amp;Connections</string>
+   </property>
+   <property name="statusTip">
+    <string>Edit the MIDI connections</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the About box</string>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Qt about box</string>
+   </property>
+  </action>
+  <action name="actionNotes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the Notes toolbar</string>
+   </property>
+  </action>
+  <action name="actionControllers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Controllers</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the Controller toolbar</string>
+   </property>
+  </action>
+  <action name="actionBender">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Pitch &amp;Bender</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the Pitch Bender toolbar</string>
+   </property>
+  </action>
+  <action name="actionPrograms">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Programs</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the Programs toolbar</string>
+   </property>
+  </action>
+  <action name="actionStatusBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Status Bar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the Status Bar</string>
+   </property>
+  </action>
+  <action name="actionPanic">
+   <property name="text">
+    <string>Panic</string>
+   </property>
+   <property name="statusTip">
+    <string>Stops all active notes</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Esc</string>
+   </property>
+  </action>
+  <action name="actionResetAll">
+   <property name="text">
+    <string>Reset All</string>
+   </property>
+   <property name="statusTip">
+    <string>Resets all the controllers</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="text">
+    <string>Reset</string>
+   </property>
+   <property name="statusTip">
+    <string>Resets the Bender value</string>
+   </property>
+  </action>
+  <action name="actionEditKM">
+   <property name="text">
+    <string>&amp;Keyboard Map</string>
+   </property>
+   <property name="statusTip">
+    <string>Edit the current keyboard layout</string>
+   </property>
+  </action>
+  <action name="actionContents">
+   <property name="text">
+    <string>&amp;Contents</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the index of the help document</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">F1</string>
+   </property>
+  </action>
+  <action name="actionWebSite">
+   <property name="text">
+    <string>VMPK &amp;Web site</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the VMPK web site address using a web browser</string>
+   </property>
+  </action>
+  <action name="actionImportSoundFont">
+   <property name="text">
+    <string>&amp;Import SoundFont...</string>
+   </property>
+   <property name="statusTip">
+    <string>Import SoundFont</string>
+   </property>
+  </action>
+  <action name="actionExtraControls">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Extra Controls</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the Extra Controls toolbar</string>
+   </property>
+  </action>
+  <action name="actionEditExtra">
+   <property name="text">
+    <string>Edit</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Extra Controls editor</string>
+   </property>
+  </action>
+  <action name="actionEditPrograms">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Banks/Programs editor</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionEditExtraControls">
+   <property name="text">
+    <string>&amp;Extra Controllers</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Extra Controls editor</string>
+   </property>
+  </action>
+  <action name="actionNoteNames">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>N&amp;ote Names</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the note names</string>
+   </property>
+  </action>
+  <action name="actionShortcuts">
+   <property name="text">
+    <string>&amp;Shortcuts</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Shortcuts editor</string>
+   </property>
+  </action>
+  <action name="actionOctaveUp">
+   <property name="text">
+    <string>Octave Up</string>
+   </property>
+   <property name="statusTip">
+    <string>Play one octave higher</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Right</string>
+   </property>
+  </action>
+  <action name="actionOctaveDown">
+   <property name="text">
+    <string>Octave Down</string>
+   </property>
+   <property name="statusTip">
+    <string>Play one octave lower</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Left</string>
+   </property>
+  </action>
+  <action name="actionTransposeUp">
+   <property name="text">
+    <string>Transpose Up</string>
+   </property>
+   <property name="statusTip">
+    <string>Transpose one semitone higher</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Right</string>
+   </property>
+  </action>
+  <action name="actionTransposeDown">
+   <property name="text">
+    <string>Transpose Down</string>
+   </property>
+   <property name="statusTip">
+    <string>Transpose one semitone lower</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Left</string>
+   </property>
+  </action>
+  <action name="actionChannelUp">
+   <property name="text">
+    <string>Next  Channel</string>
+   </property>
+   <property name="statusTip">
+    <string>Play and listen next channel</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Up</string>
+   </property>
+  </action>
+  <action name="actionChannelDown">
+   <property name="text">
+    <string>Previous Channel</string>
+   </property>
+   <property name="statusTip">
+    <string>Play and listen previous channel</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Down</string>
+   </property>
+  </action>
+  <action name="actionNextController">
+   <property name="text">
+    <string>Next Controller</string>
+   </property>
+   <property name="statusTip">
+    <string>Select the next controller</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl++</string>
+   </property>
+  </action>
+  <action name="actionPreviousController">
+   <property name="text">
+    <string>Previous Controller</string>
+   </property>
+   <property name="statusTip">
+    <string>Select the previous controller</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionControllerUp">
+   <property name="text">
+    <string>Controller Up</string>
+   </property>
+   <property name="statusTip">
+    <string>Increment the controller value</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">+</string>
+   </property>
+  </action>
+  <action name="actionControllerDown">
+   <property name="text">
+    <string>Controller Down</string>
+   </property>
+   <property name="statusTip">
+    <string>Decrement the controller value</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">-</string>
+   </property>
+  </action>
+  <action name="actionNextBank">
+   <property name="text">
+    <string>Next Bank</string>
+   </property>
+   <property name="statusTip">
+    <string>Select the next instrument bank</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+PgUp</string>
+   </property>
+  </action>
+  <action name="actionPreviousBank">
+   <property name="text">
+    <string>Previous Bank</string>
+   </property>
+   <property name="statusTip">
+    <string>Select the previous instrument bank</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+PgDown</string>
+   </property>
+  </action>
+  <action name="actionNextProgram">
+   <property name="text">
+    <string>Next Program</string>
+   </property>
+   <property name="statusTip">
+    <string>Select the next instrument program</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">PgUp</string>
+   </property>
+  </action>
+  <action name="actionPreviousProgram">
+   <property name="text">
+    <string>Previous Program</string>
+   </property>
+   <property name="statusTip">
+    <string>Select the previous instrument program</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">PgDown</string>
+   </property>
+  </action>
+  <action name="actionVelocityUp">
+   <property name="text">
+    <string>Velocity Up</string>
+   </property>
+   <property name="statusTip">
+    <string>Increment note velocity</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">End</string>
+   </property>
+  </action>
+  <action name="actionVelocityDown">
+   <property name="text">
+    <string>Velocity Down</string>
+   </property>
+   <property name="statusTip">
+    <string>Decrement note velocity</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Home</string>
+   </property>
+  </action>
+  <action name="actionAboutTranslation">
+   <property name="text">
+    <string>About &amp;Translation</string>
+   </property>
+   <property name="statusTip">
+    <string>Show information about the program language translation</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PianoKeybd</class>
+   <extends>QGraphicsView</extends>
+   <header>pianokeybd.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../data/vmpk.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>VPiano</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>335</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNotes</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolBarNotes</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>37</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionControllers</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolBarControllers</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBender</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolBarBender</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPrograms</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolBarPrograms</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>457</x>
+     <y>102</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionStatusBar</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>statusBar</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>335</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionExtraControls</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolBarExtra</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

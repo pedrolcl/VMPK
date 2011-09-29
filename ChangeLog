@@ -1,0 +1,302 @@
+2011-06-05
+    * release 0.4.0
+
+2011-05-01
+    * Symbian port started
+
+2011-04-23
+    * new Network MIDI driver, based on Qmidinet (http://qmidinet.sf.net) 
+    
+2011-04-22
+    * Merged RtMidi 1.0.14
+
+2011-04-17
+    * Jack: fixed RtMidiOut destructor and closePort(). Patch by Alexander Svetalkin 
+    * Build system updated to cmake-2.8, new options RTMIDI_DRIVER, PROGRAM_NAME
+
+2011-04-08
+    * Merged RtMidi 1.0.13
+    * build system: find jack
+    
+2011-04-03
+    * SVG icon: added a thin blurred background  
+
+2011-03-12
+    * Requires Qt >= 4.6.x
+    
+2011-03-08
+    * Touch events implementation
+
+2011-03-01
+    * Merged RtMidi 1.0.12
+    * build system: find library libX11 explicitly
+
+2010-12-24
+    * Fixed crash when changing the octave base while channel is 10.
+
+2010-11-20
+    * French translation (web site and help page) thanks to Nicolas Froment
+ 
+2010-10-14
+    * Swedish translation, thanks to Magnus Johansson
+    * Shortcuts are now untranslatable
+    * Preliminary CPack support
+     
+2010-10-05
+    * Dutch translation, thanks to Wouter Reckman
+
+2010-10-04
+    * release 0.3.3 
+
+2010-10-01
+    * Buildsystem updates
+    * exclude unmaintained translations from builds and distribution
+
+2010-09-29
+    * Set an application icon for Linux
+    * Display the tooltips over the knobs and sliders instead of the mouse pos.
+    * Language variants support fix 
+    * PianoScene fix: refactored allowing to trigger hidden keys
+
+2010-09-28
+    * Translation updates
+
+2010-09-26
+    * Process incoming controller events: all sounds off, all notes off, 
+      reset all controllers.
+      
+2010-09-25
+    * About translation dialog
+    * Dynamic language change without restart
+
+2010-09-24
+    * New option: Translate MIDI velocity into key pressed color tint 
+
+2010-09-23
+    * Language menu to select another language
+    * (Linux) translation files moved to $prefix/share/vmpk/locale
+
+2010-09-22
+    * Tool shortcuts 
+
+2010-09-21
+    * Shortcuts editor dialog (from Qtractor, by Rui Nuno Capela)  
+
+2010-06-18
+    * release 0.3.2
+
+2010-06-12
+    * basic d-bus service
+
+2010-06-09
+    * Chinese language translation by Rui Fan
+
+2010-04-13
+    * German translation of manual added, edited document provided by 
+      Philip Edelmann
+
+2010-03-13
+    * Larger shapes for switch extra controls, when using the custom qstyle.
+
+2010-02-23
+    * Fixed German note names: English note B as H in German, 
+      and English B♭ as B in German
+    * Install a compressed SVGZ icon instead of the plain one
+    * Note for Linux users, regarding docbook XSLT and man page.
+
+2010-02-20
+    * RtMIDI updated to 1.0.11 
+    * Compile using QT_STRICT_ITERATORS
+
+2009-12-15
+    * Explicit link against -framework Carbon in Mac OSX
+    * Release 0.3.1
+    
+2009-12-14
+    * Czech translation, by Pavel Fric
+ 
+2009-12-12
+    * French and German translations updated
+    
+2009-12-10
+    * show drums channel note names 
+
+2009-12-09
+    * per channel state for banks, instruments, controllers
+    * drums instrument  
+
+2009-12-08
+    * drums channel, new setting in preferences dialog
+
+2009-12-07
+    * extra controls: new button types
+
+2009-12-06
+    * moved the "show note names" option from preferences dialog to view menu
+    
+2009-11-28
+    * French translation, by Frank Kober
+    * updated German translation
+
+2009-11-09
+    * Russian translation, by Serguey G Basalaev
+
+2009-09-27
+    * Release 0.3.0
+
+2009-09-25
+    * Release candidate 3
+    * Fix the extra controllers toolbar
+
+2009-09-24
+    * Release candidate 2
+    * Mac OS X polishing and consistency fixes
+
+2009-09-21
+    * Release candidate 1
+    * build system updates
+    * fixed interaction for extra controllers
+
+2009-09-16
+    * merged vpiano 0.8 widget
+    * implemented RFE #2848623: Raw keyboard support, raw Keyboard Map editor
+    * implemented RFE #2790324 extra controls tool bar: new extra controllers 
+      (knobs and on/off buttons with customizable labels) which can be assigned 
+      to arbitrary MIDI controllers.
+    * implemented RFE #2106022 better looking keys using SVG graphics.
+
+2009-08-31
+    * Fix RtMidiOut port type flags
+
+2009-08-25
+    * German translation, by Andreas Steinel
+
+2009-08-03
+    * release 0.2.6
+
+2009-08-02
+    * merged vpiano 0.7 widget
+    * implemented RFE #2109421: new preferences option: show note names
+    * implemented RFE #2209692: new toolbar control: transpose in semitones
+
+2009-07-28
+    * merged RtMIDI 1.0.10
+
+2009-06-08
+    * check for Qt version >= 4.4.0
+    * updated documentation
+
+2009-06-07
+    * fixed release/grab keyboard and SoundFont import dialog
+
+2009-06-07
+    * private development files excluded from the tarball
+    * don't install documents, leave it to packagers
+    * removed shebang from the txt2ins.awk script
+    * man page, by Mehdi Dogguy. Thanks!
+
+2009-05-31
+    * release 0.2.5
+
+2009-05-30
+    * Spanish help file translated.
+
+2009-05-28
+    * Bender returns to zero when released
+
+2009-05-26
+    * Dialogs: help "WhatIsThis?" strings, layouts
+    * updated spanish translation  
+
+2009-05-25
+    * Import Sound Font Instruments
+
+2009-05-12
+    * fix for bug# 2790316 - startup crash in OSX when no MIDI port present 
+
+2009-04-23
+    * implemented RFE# 2779744 - keyboard window: always on top
+    * MIDI In always enabled on Linux and Mac
+
+2009-04-05
+    * release 0.2.4
+
+2009-02-08
+    * merged RtMIDI 1.0.8
+    * overhauled preferences: removed channels, velocity, base octave 
+
+2009-01-18
+    * implemented RFE #2488065 - online help
+    * applied patch #2490414 from Serdar Soytetir: Turkish translation
+    * build app bundle in Mac OSX 
+
+2008-12-03    
+    * version string = 0.2.4cvs
+    * better about dialog
+    * thru function: Send every incoming event to the output port, do not 
+      modify incoming channels. Process inside MIDI callback for better 
+      performance.
+
+2008-11-30 0.2.3
+    * fix for bug #2364787 Rosegarden renders vmpk input unusable
+    * optimization for Linux: do not create an ALSA queue
+
+2008-10-19 0.2.2
+    * true fix for RtMIDI bug #2158014 Crash in windows
+    * Spanish translation updated
+
+2008-10-14
+    * fix for bug: #2164586 segmentation fault at startup
+
+2008-10-13
+    * version string changed
+
+2008-10-12
+    * check for IO errors (keyboard map and instruments files)
+    * fix for bug: #2162189 No warning message despite keymap not saved 
+
+2008-10-11 0.2.1
+    * fix for bug #2143187 Documentation needed
+
+2008-10-10
+    * workaround for bug #2158014 Crash in windows
+
+2008-10-03
+    * fix for bug: #2142335 Keys played beyond the upper MIDI note limits
+    * fix for bug: #2142321 the reset all button
+
+2008-09-28
+    * grab keyboard: workaround for broken WMs, now this feature is optional
+    * fix generic Qt translations 
+
+2008-09-26 0.2.0
+    * implemented RFE: #2106023 MIDI thru
+
+2008-09-25
+    * implemented RFE: #2106026 store connection names in settings
+
+2008-09-21
+    * fix for bug: #2116713 - QJackCtl input port is shown for connections
+    * implemented RFE: #2106035 controllers state remembered
+    * implemented RFE: #2106031 settings persistence: controllers/bank/program
+
+2008-09-14
+    * implemented RFE: #2106015 translation (Qt Linguist) support
+  
+2008-09-13
+    * implemented RFE: #2107732 mouse handling
+    * implemented RFE: #2106021 let the user to choose a custom highligh color
+    * reorganisations    
+
+2008-09-11
+    * new icon, by Theresa Knott
+    * fix for bug: #2105246 Channel numbers starting from 1 instead of 0
+    * better About dialog
+    * toolbars: workaround for strange Qt4.4 behavior when restoring the main 
+      window state.
+ 
+2008-09-05 0.1.1 
+    * bugfixes and optimizations
+
+2008-08-31 0.1.0 
+    * first public release

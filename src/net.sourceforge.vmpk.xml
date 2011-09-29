@@ -1,0 +1,158 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" 
+  "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="net.sourceforge.vmpk">
+<!-- window/widget interface controls -->
+    <method name="close">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="hide">
+    </method>
+    <method name="lower">
+    </method>
+    <method name="raise">
+    </method>
+    <method name="repaint">
+    </method>
+    <method name="setDisabled">
+      <arg name="disable" type="b" direction="in"/>
+    </method> 
+    <method name="setEnabled">
+      <arg name="enable" type="b" direction="in"/>
+    </method> 
+    <method name="setFocus">
+    </method> 
+    <method name="setHidden">
+      <arg name="hidden" type="b" direction="in"/>
+    </method> 
+    <method name="setStyleSheet">
+      <arg name="styleSheet" type="s" direction="in"/>
+    </method> 
+    <method name="setVisible">
+      <arg name="visible" type="b" direction="in"/>
+    </method>
+    <method name="setWindowModified">
+      <arg name="modified" type="b" direction="in"/>
+    </method>
+    <method name="setWindowTitle">
+      <arg name="title" type="s" direction="in"/>
+    </method>
+    <method name="show">
+    </method>
+    <method name="showFullScreen">
+    </method>
+    <method name="showMaximized">
+    </method>
+    <method name="showMinimized">
+    </method>
+    <method name="showNormal">
+    </method>
+    <method name="update">
+    </method>
+    <method name="resize">
+      <arg name="width" type="i" direction="in"/>
+      <arg name="height" type="i" direction="in"/>
+    </method>
+    <method name="move">
+      <arg name="x" type="i" direction="in"/>
+      <arg name="y" type="i" direction="in"/>
+    </method>
+<!-- basic program interface controls -->
+    <method name="quit">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="panic">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="reset_controllers">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="channel">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="octave">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="transpose">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="velocity">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="connect_in">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="s" direction="in"/>
+    </method>
+    <method name="connect_out">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="s" direction="in"/>
+    </method>
+    <method name="connect_thru">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="b" direction="in"/>
+    </method>
+<!-- standard MIDI channel event generators -->
+    <method name="noteoff">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="note" type="i" direction="in"/>
+    </method>
+    <method name="noteon">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="note" type="i" direction="in"/>
+    </method>
+    <method name="polykeypress">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="note" type="i" direction="in"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="controlchange">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="control" type="i" direction="in"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="programchange">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="programnamechange">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="s" direction="in"/>
+    </method>
+    <method name="chankeypress">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+    <method name="pitchwheel">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="value" type="i" direction="in"/>
+    </method>
+<!-- standard MIDI channel events -->
+    <signal name="event_noteoff">
+      <arg name="note" type="i"/>
+    </signal>
+    <signal name="event_noteon">
+      <arg name="note" type="i"/>
+    </signal>
+    <signal name="event_polykeypress">
+      <arg name="note" type="i"/>
+      <arg name="value" type="i"/>
+    </signal>
+    <signal name="event_controlchange">
+      <arg name="control" type="i"/>
+      <arg name="value" type="i"/>
+    </signal>
+    <signal name="event_programchange">
+      <arg name="value" type="i"/>
+    </signal>
+    <signal name="event_chankeypress">
+      <arg name="value" type="i"/>
+    </signal>
+    <signal name="event_pitchwheel">
+      <arg name="value" type="i"/>
+    </signal>
+  </interface>
+</node>

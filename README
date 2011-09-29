@@ -1,0 +1,211 @@
+Virtual MIDI Piano Keyboard
+===========================
+
+This program is a MIDI events generator/receiver. It doesn't produce any sound
+by itself, but can be used to drive a MIDI synthesizer (either hardware or
+software, internal or external). You can use the computer's keyboard to play
+MIDI notes, and also the mouse. You can use the Virtual MIDI Piano Keyboard
+to display the played MIDI notes from another instrument or MIDI file player.
+To do so, connect the other MIDI port to the input port of VMPK.
+
+VMPK has been tested in Linux, Windows and Mac, but maybe you can build it also 
+in SGI Irix. If you can compile and test the program in this system, please drop
+a mail to the author.
+
+The Virtual Keyboard by Takashi Iway (vkeybd) has been the inspiration for this 
+one. It is a wonderful piece of software and has served us well for many years.
+Thanks!
+
+VMPK uses a modern GUI framework: Qt4, that gives excellent features and 
+performance. RtMIDI provides MIDI input/output features. Both frameworks are
+free and platform independent, available for Linux, Windows and Mac OSX.
+
+The alphanumeric keyboard mapping can be configured from inside the program
+using the GUI interface, and the settings are stored in XML files. Some maps
+for Spanish, German and French keyboard layouts are provided, translated from
+the ones provided by VKeybd. Raw keyboard mappings can also be defined,  
+translating X11, Windows or Mac keycodes to MIDI notes.
+
+VMPK can send program changes and controllers to a MIDI synth. The definitions 
+for different standards and devices can be provided as .INS files, the same 
+format used by QTractor and TSE3. It was developed by Cakewalk and used also 
+in Sonar.
+
+This software is in a very early alpha stage. See the TODO file for a list of 
+pending features. Please feel free to contact the author to ask questions, 
+report bugs, and propose new features. 
+
+See http://vmpk.sourceforge.net for more details.
+
+DOWNLOAD
+
+Latest release is available in Sourceforge:
+http://sourceforge.net/projects/vmpk/files
+
+REQUIREMENTS
+
+You need Qt 4.6 or newer. Install the -devel package for your system, or 
+download the open source edition from Nokia:
+
+    http://qt.nokia.com/downloads/
+
+RtMIDI is included in the source package. It uses the ALSA sequencer in Linux, 
+WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in 
+all the supported platforms.
+
+    http://www.music.mcgill.ca/~gary/rtmidi/
+
+The build system is based on CMake. You can download it from:
+
+    http://www.cmake.org
+    
+You need also the GCC C++ compiler.
+
+    http://gcc.gnu.org
+    http://www.mingw.org
+
+Optionally, you can build a Windows setup program using NSIS.
+    
+    http://nsis.sourceforge.net
+
+INSTALLATION
+
+Download the sources from http://sourceforge.net/projects/vmpk/files
+Unpack the sources in your home directory, and change to the unpacked dir.
+
+$ cd vmpk-x.x.x
+
+You can choose between CMake and Qmake to prepare the build system, but qmake is
+intended only for testing and development.
+
+$ cmake .
+or
+$ ccmake .
+or
+$ qmake
+
+After that, compile the program:
+
+$ make
+
+if the program has been compiled successfully, you can install it:
+
+$ make install
+
+There are more commands available:
+
+$ make uninstall
+$ make clean
+
+You can get some compiler optimisation when building the program, but don't 
+expect too much improvement. There are two ways. First, using a predefined 
+configuration type:
+
+$ cmake . -DCMAKE_BUILD_TYPE=Release 
+
+The CMake "Release" type uses the compiler flags: "-O3 -DNDEBUG". Other 
+predefined build types are "Debug", "RelWithDebInfo", and "MinSizeRel".
+The second way is to choose the compiler flags yourself:
+
+$ export CXXFLAGS="-O2 -march=native -mtune=native -DNDEBUG" 
+$ cmake .
+
+You need to find the better CXXFLAGS for your own system.
+
+If you want to install the program at some place other than the default 
+(/usr/local) use the following CMake option:
+$ cmake . -DCMAKE_INSTALL_PREFIX=/usr
+
+Other optional configuration options are:
+* ENABLE_DBUS: activates the DBus interface, enabled on Linux by default. 
+* RTMIDI_DRIVER: selects the RtMIDI backend. Default depends on the OS.  
+  Allowed values: ALSA, JACK, COREMIDI, IRIX, WINMM, NET
+* PROGRAM_NAME: selects the executable name.
+
+example:
+$ cmake . -DRTMIDI_DRIVER=JACK -DPROGRAM_NAME=vmpk-jack
+
+NOTES FOR LINUX USERS
+
+A man page is included in the source package, ready to be installed and used. 
+But if you prefer to generate the man page yourself, the build system can do it 
+if you have installed in your system the following packages:
+* xsltproc program.
+* docbook XSLT stylesheets.
+
+The package names depend on the Linux distribution. For Debian they are:
+xsltproc, docbook-xsl and docbook-xml. For openSUSE: libxslt, docbook_4, and 
+docbook-xsl-stylesheets.
+
+NOTES FOR WINDOWS USERS
+
+To compile the sources in Windows, you need to download either the .bz2 or .gz 
+archive and uncompress it using any utility that supports the format, like 
+7-Zip (http://www.7-zip.org)
+
+To configure the sources, you need qmake (from Qt4) or CMake. You need to set
+the PATH including the directories for Qt4 binaries, MinGW binaries, and also
+CMake binaries. The program CMakeSetup.exe is the graphic version of CMake for
+Windows.
+
+To use the program in Windows, you need some MIDI synth. It is possible to use  
+the "Microsoft GS Wavetable SW Synth" that cames with XP, but for better 
+performance and quality, you may want to try QSynth/FluidSynth:
+
+    http://qsynth.sourceforge.net
+
+Of course, an external MIDI hardware synth would be an even better approach. 
+
+To connect VMPK to/from other MIDI programs, you need some virtual MIDI cable 
+software, like MIDI Yoke, Maple, LoopBe1 or Sony Virtual MIDI Router.
+
+    http://www.midiox.com/myoke.htm
+    http://www.nerds.de/en/loopbe1.html
+    http://www.sonycreativesoftware.com/dl/dl.aspx?dwnid=77
+
+NOTES FOR MAC OSX USERS
+
+The build system is configured to create an universal binary (x86+ppc) into an 
+app bundle. You need the Apple development tools and frameworks, as well 
+as the Qt4 SDK from Nokia. Note that VMPK 0.3.x requires the Carbon framework,  
+with the corresponding Carbon version of Qt.
+
+To compile VMPK using Makefiles, generated by qmake:
+
+$ qmake vmpk.pro -spec macx-g++
+$ make
+$ macdeployqt build/vmpk.app
+
+To compile using Makefiles, generated by CMake:
+
+$ cmake -G "Unix Makefiles" .
+$ make
+
+To create Xcode project files:
+$ qmake vmpk.pro -spec macx-xcode
+or
+$ cmake -G Xcode .
+
+You can use the MIDI synth library that is included in Mac OSX, but a program
+is needed to do so, like SimpleSynth (http://notahat.com). Also from the same 
+author is MIDI Patchbay. You can use also QSynth for the same price.
+
+ACKNOWLEDGMENTS
+
+In addition to the aforementioned tools, VMPK uses work from the following
+open source projects. 
+
+* from Qtractor, by Rui Nuno Capela 
+  http://qtractor.sourceforge.net 
+  Instrument definition data classes, Shortcuts editor dialog
+  
+* from QSynth, by Rui Nuno Capela  
+  http://qsynth.sourceforge.net
+  Knob widget
+
+* Icon and logo by Theresa Knott
+  http://openclipart.org/media/files/TheresaKnott/346
+  
+See AUTHORS for a complete list of acknowledgments  
+  
+Thank you very much.

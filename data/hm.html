@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" />
+    <title>VMPK. Virtual MIDI Piano Keyboard</title>
+</head>
+<body>
+
+<h1>VMPK 0.4.0 - Virtual MIDI Piano Keyboard</h1>
+
+<p>
+Virtual MIDI Piano Keyboard is a MIDI events generator and receiver. It doesn&apos;t produce any sound by itself, but can be used to drive a MIDI synthesizer (either hardware or
+software, internal or external). This is the version for mobile devices with touch screen and wireless local area network. There is another version of <a href="http://vmpk.sourceforge.net/index.html">VMPK for  desktop computers</a> with similar features, available on the program&apos;s website <a href="http://sourceforge.net/projects/vmpk/files/vmpk/">download area</a>.</p>
+
+<p>VMPK has been successfully tested in Symbian^3, Meego, Linux, Windows and Mac OSX, but maybe you can build it also in other systems. If so, please drop an email to the to the project&apos;s mailing list <a href="mailto:vmpk-devel@lists.sourceforge.net"> vmpk-devel &lt;vmpk-devel@lists.sourceforge.net&gt;</a>.</p>
+
+<p>To use this version of VMPK, the mobile device must have a local network connection, usually WLAN, and a computer connected to the same local network. The computer can use WLAN or ethernet when sharing the same local network segment with the mobile device. GSM/GPRS or UMTS communications are not valid for this application. VMPK uses UDP multicast.</p>
+
+<p>When using a computer with a Linux operating system, you must install one of the following programs</p>
+<ul>
+<li><a href="http://qmidinet.sourceforge.net/qmidinet-index.html">QmidiNet</a></li>
+<li><a href="http://llg.cubic.org/tools/multimidicast/">multimidicast</a></li>
+</ul>
+
+<p>On the other hand, if you use a computer with Microsoft Windows or Apple Mac OSX, install ipMIDI</p>
+<ul>
+<li><a href="http://nerds.de/en/ipmidi.html">ipMIDI for Windows</a></li>
+<li><a href="http://nerds.de/en/ipmidi_osx.html">ipMIDI for Mac OSX</a></li>
+</ul>
+
+<p>If you use firewalls on your network, please remember to allow UDP traffic with the multicast address 225.0.0.37 and the port number (by default, 21928). It is necessary that both the computer and mobile device share the same port number.</p>
+
+<p>In addition to the software ipMIDI/QmidiNet that bridges between the local network and the MIDI subsystem, you also need a MIDI synthesizer to produce sound from MIDI events. You can use an external synthesizer device (hardware) connected to the computer, or alternatively a software synthesizer like <a href="http://qsynth.sourceforge.net">QSynth</a>, a graphical interface for <a href="http://www.fluidsynth.org">Fluidsynth</a> running on Linux, Windows and Mac OSX. You can also use the "Microsoft GS Wavetable SW Synth" in Windows, or the Apple Mac OSX DLS Synth. A simple graphical interface for the latter is <a href="http://notahat.com/simplesynth">SimpleSynth</a>.</p>
+
+<p>This software is in active development. Please contact with the developers team to ask questions, report bugs and propose new features. You can use the tracking system at 
+<a href="http://sourceforge.net/tracker2/?group_id=236429">SourceForge
+project site</a>.</p>
+<p>Copyright (C) 2008-2011, Pedro Lopez-Cabanillas &lt;plcl AT
+users.sourceforge.net&gt; and others</p>
+<p>Virtual MIDI Piano Keyboard is free software licensed under the terms of the
+<a href="http://www.gnu.org/copyleft/gpl.html">GPL v3 license</a>.</p>
+
+</body>
+</html>

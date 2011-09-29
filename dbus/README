@@ -1,0 +1,85 @@
+VMPK D-Bus interface
+====================
+
+The D-Bus interface is available in VMPK since the release 0.3.2 (June 2010). 
+
+Interface name: "net.sourceforge.vmpk"
+Path: "/"
+
+Window control methods:
+    void hide();
+    void lower();
+    void move(int x, int y);
+    void raise();
+    void repaint();
+    void resize(int width, int height);
+    void setDisabled(bool disable);
+    void setEnabled(bool enable);
+    void setFocus();
+    void setHidden(bool hidden);
+    void setStyleSheet(const QString &styleSheet);
+    void setVisible(bool visible);
+    void setWindowModified(bool modified);
+    void setWindowTitle(const QString &title);
+    void show();
+    void showFullScreen();
+    void showMaximized();
+    void showMinimized();
+    void showNormal();
+    void update();
+
+Program methods:
+    void quit();
+    void panic();
+    void reset_controllers();
+    void channel(int value);
+    void octave(int value);
+    void transpose(int value);
+    void velocity(int value);
+    void connect_in(const QString &value);
+    void connect_out(const QString &value);
+    void connect_thru(bool value);
+
+MIDI methods:
+    void noteoff(int note);
+    void noteon(int note);
+    void polykeypress(int note, int value);
+    void controlchange(int control, int value);
+    void programchange(int value);
+    void programnamechange(const QString &value);
+    void chankeypress(int value);
+    void pitchwheel(int value);
+
+Signals:
+    void event_noteoff(int note);
+    void event_noteon(int note);
+    void event_polykeypress(int note, int value);
+    void event_controlchange(int control, int value);
+    void event_programchange(int value);
+    void event_chankeypress(int value);
+    void event_pitchwheel(int value);
+
+Examples
+========
+
+Note: you need to execute VMPK before running any of the examples.
+
+Python:
+    dbus-client.py
+    dbus-signal-receiver.py
+ 
+Bash shell script:
+    bigben.sh
+
+BUILDING
+========
+
+CMake builds by default the D-Bus interface feature. To disable it, use this 
+option at configuration time:
+
+$ cmake . -DENABLE_DBUS=OFF
+
+On the other hand, the Qmake build system doesn't build the D_Bus interface 
+unless you explicitly enable it at configure time:
+
+$ qmake DEFINES+=ENABLE_DBUS

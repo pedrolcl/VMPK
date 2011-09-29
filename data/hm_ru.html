@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" />
+    <title>VMPK. Виртуальная MIDI Клавиатура-Пианино</title>
+</head>
+<body>
+
+<h1>VMPK 0.4.0 - Виртуальная MIDI Клавиатура-Пианино</h1>
+
+<p>
+Виртуальная MIDI Клавиатура-Пианино — это генератор и приёмник событий MIDI. Программа не производит звука сама по себе, но может быть использована для управления MIDI синтезатором (аппаратным,
+программным или внешним). Это версия для мобильных устройств с сенсорным экраном и беспроводной локальной сетью. Версию <a href="http://vmpk.sourceforge.net/index.html">VMPK для настольных компьютеров</a> можно скачать со <a href="http://sourceforge.net/projects/vmpk/files/vmpk/">страницы загрузок</a> сайта программы.</p>
+
+<p>VMPK была успешно протестирована на Symbian<sup>3</sup>, Meego, Linux, Windows и Mac OSX, но возможно вы сможете собрать её и на других системах. Если вы сделаете это, пожалуйста, пошлите email в список рассылки проекта <a href="mailto:vmpk-devel@lists.sourceforge.net"> vmpk-devel &lt;vmpk-devel@lists.sourceforge.net&gt;</a>.</p>
+
+<p>Чтобы использовать эту версию VMPK, мобильное устройство должно иметь локальное сетевое соединение, обычно WLAN, с компьютером в той же сети. Компьютер может использовать WLAN или ethernet при использовании общего сегмента сети с мобильным устройством. Приложение не может использовать соединения GSM/GPRS или UMTS. VMPK использует рассылку UDP.</p>
+
+<p>При использовании компьютера с операционной системой Linux, вы должны установить одну из следующих программ</p>
+<ul>
+<li><a href="http://qmidinet.sourceforge.net/qmidinet-index.html">QmidiNet</a></li>
+<li><a href="http://llg.cubic.org/tools/multimidicast/">multimidicast</a></li>
+</ul>
+
+<p>С другой стороны, если вы используете компьютер с Microsoft Windows или Apple Mac OSX, установите ipMIDI</p>
+<ul>
+<li><a href="http://nerds.de/en/ipmidi.html">ipMIDI для Windows</a></li>
+<li><a href="http://nerds.de/en/ipmidi_osx.html">ipMIDI для Mac OSX</a></li>
+</ul>
+
+<p>Если вы в вашей сети используете брандмауер, разрешите траффик UDP на широковещательный адрес 225.0.0.37 и номер порта (по умолчанию, 21928). Необходимо, чтобы и компьютер и мобильное устройство использовали один и тот же номер порта.</p>
+
+<p>В добавок к программам ipMIDI/QmidiNet, соединяющим локальную сеть с подсистемой MIDI, вам также понадобится MIDI синтезатор, чтобы превращать события MIDI в звуки. Вы можете использовать как внешний аппаратный синтезатор, присоединённый к компьютеру, так и программный синтезатор, например <a href="http://qsynth.sourceforge.net">QSynth</a>, графический интерфейс для <a href="http://www.fluidsynth.org">Fluidsynth</a>, работающий на Linux, Windows и Mac OSX. Также вы можете использовать &laquo;Microsoft GS Wavetable SW Synth&raquo; на Windows, или Apple Mac OSX DLS Synth. Для последнего есть простой графический интерфейс — <a href="http://notahat.com/simplesynth">SimpleSynth</a>.</p>
+
+<p>Эта программа находится в активной разработке. Пожалуйста, свяжитесь с командой разработчиков, чтобы задать вопросы, сообщить об ошибках и предложить новые возможности. Вы можете использовать систему трекинга ошибок на
+<a href="http://sourceforge.net/tracker2/?group_id=236429">сайте проекта SourceForge</a>.</p>
+<p>Copyright (C) 2008-2011, Pedro Lopez-Cabanillas &lt;plcl AT
+users.sourceforge.net&gt; и другие</p>
+<p>Виртуальная MIDI Клавиатура-Пианино — свободное программное обеспечение и распространяется на условиях
+<a href="http://www.gnu.org/copyleft/gpl.html">лицензии GPL v3</a>.</p>
+
+</body>
+</html>

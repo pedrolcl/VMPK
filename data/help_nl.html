@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+    <title>VMPK. Virtual MIDI Piano Keyboard</title>
+</head>
+<body>
+
+<h1>Virtual MIDI Piano Keyboard</h1>
+
+<div id="navcontainer">
+<ul>
+  <li><a href="#Introduction">Introductie</a></li>
+  <li><a href="#Getting_started">Hoe te beginnen</a>
+    <ul>
+      <li><a href="#MIDI_concepts">MIDI-concepten</a></li>
+      <li><a href="#maps_instruments">Toetsenbordtoewijzingen en instrumentdefinities</a></li>
+      <li><a href="#MIDI_Connections">MIDI-verbindingen en virtuele MIDI-kabels</a></li>
+    </ul>
+  </li>
+  <li><a href="#FAQ">Veelgestelde vragen</a></li>
+  <li><a href="#Download">Downloaden</a></li>
+  <li><a href="#Installation">Installatie vanuit de sourcecode</a>
+    <ul>
+      <li><a href="#Requirements">Benodigdheden</a></li>
+      <li><a href="#windows_notes">Opmerkingen voor windowsgebruikers</a></li>
+      <li><a href="#mac_notes">Opmerkingen voor Mac OSX-gebruikers</a></li>
+      <li><a href="#packager_notes">Opmerkingen voor geavanceerde gebruikers en samenstellers van packages</a></li>
+    </ul>
+  </li>
+  <li><a href="#Acknowledgements">Dankwoord</a></li>
+</ul>
+</div>
+
+<br>
+
+<style>
+.org { font-size: smaller; font-style: italic; padding-left: 2em; }
+.fix:before { color: #f00; font-weight: bold; font-family: sans-serif; font-size: smaller; content: "fix! "; }
+.fix {}
+</style>
+<h2><a name="Introduction"></a>Introductie</h2>
+
+Virtual MIDI Piano Keyboard is een MIDI-eventgenerator en -ontvanger. Het programma produceert
+zelf geen geluid, maar kan worden gebruikt om een MIDI-synthesizer aan te sturen (zowel hardware
+als software, intern of extern). U kunt het computertoetsenbord en/of de muis gebruiken om
+MIDI-noten te spelen. Daarnaast kunt u VMPK gebruiken om MIDI-noten weer te geven die worden
+afgespeeld door een ander instrument of door een programma om MIDI-bestanden af te spelen.
+Maak, om dat te doen een verbinding van de andere MIDI-poort naar de ingangspoort van VMPK.</p>
+
+<p>VMPK is getest in Linux, Windows en Mac OSX; mogelijk kan het ook worden gecompileerd op
+andere systemen. In dat geval stelt de auteur het zeer op prijs als u hem op de hoogte stelt.</p>
+
+<p>Het virtuele keyboard door Takashi Iway (VKeybd) is de inspiratie geweest voor dit virtuele keyboard.
+Het is een wonderbaarlijk programma en heeft vele jaren goede diensten bewezen. Erg bedankt!</p>
+
+<p>VMPK gebruikt Qt4, een modern GUI-framework dat erg veel mogelijkheden en hoge performance
+biedt. <a href="http://www.music.mcgill.ca/~gary/rtmidi/">RtMIDI</a> biedt daarnaast
+MIDI-input/-outputmogelijkheden. Beide frameworks zijn open source en platformonafhankelijk, 
+beschikbaar voor Linux, Windows en Mac OSX.</p>
+
+<p>De alfanumerieke toetsenbordtoewijzing kan worden geconfigureerd via de GUI van het programma,
+de instellingen worden opgeslagen in XML-bestanden. Voor een aantal toetsenbordindelingen
+(Spaans, Duits en Frans) zijn al toewijzingen aanwezig, deze zijn aangepast vanuit
+de indelingen in VKeybd.</p>
+
+<p>VMPK kan programma- en controllerchanges naar een MIDI-synthesizer sturen. De definities voor
+verschillende standaarden en apparaten kunnen worden aangeboden als .INS-bestanden, het formaat
+dat ook wordt gebruikt door QTractor en TSE3. Het is ontwikkeld door Cakewalk en wordt ook
+gebruikt in Sonar.</p>
+
+<p>Deze software bevindt zich in een vroeg alfastadium. Zie het TODO-bestand voor een lijst
+van mogelijkheden die nog zullen worden toegevoegd. Aarzel niet om contact op te nemen met de auteur als u
+vragen hebt, een bug wilt rapporteren, of nieuwe mogelijkheden wilt aandragen. U kunt het
+trackingsysteem op de <a HREF="http://sourceforge.net/tracker2/?group_id=236429">SourceForge
+projectwebsite</a> gebruiken.</p>
+<p>Copyright (C) 2008-2011, Pedro Lopez-Cabanillas <b>&lt;plcl AT
+users.sourceforge.net&gt; </b></p>
+<p>Virtual MIDI Piano Keyboard is vrije software gelicenseerd onder de voorwaarden
+van de <a href="http://www.gnu.org/copyleft/gpl.html">GPL v3-licentie</a>.<br>
+Een onoffici&euml;le vertaling van de GPL v3-licentie is op <a href="http://www.gnu.org/licenses/translations.html">deze website</a> te vinden.</p>
+
+
+<h2><a name="Getting_started"></a>Hoe te beginnen</h2>
+
+<h3><a name="MIDI_concepts"></a>MIDI-concepten</h3>
+
+<p>MIDI is een industriestandaard om muziekinstrumenten met elkaar te verbinden.
+De werking berust op het versturen van de gebeurtenissen op het ene instrument naar een ander
+instrument, waarbij het eerste wordt bespeeld door een muzikant. Gewoonlijk hebben muziekinstrumenten
+met een MIDI-interface twee DIN-poorten genaamd 'MIDI IN' en 'MIDI OUT'. Soms is er een derde poort
+met de naam 'MIDI THRU'. Om een MIDI-instrument met een ander te verbinden, moet een MIDI-kabel verbonden
+zijn met de MIDI OUT van het verzendende instrument en met de MIDI IN van het ontvangende instrument.
+Meer informatie en tutorials zoals <a href="http://home.roadrunner.com/~jgglatt/tutr/whatmidi.htm">deze</a>
+zijn overal op het Internet te vinden.</p>
+
+<p>Voor computers bestaan ook hardware-MIDI-interfaces met MIDI IN- en MIDI OUT-poorten,
+waardoor de computer met behulp van MIDI-kabels kan communiceren met externe MIDI-instrumenten.
+Echter, ook zonder hardware-interfaces nodig te hebben kan de computer MIDI-software gebruiken. Neem VMPK
+als voorbeeld: het stelt MIDI IN- en MIDI OUT-poorten ter beschikking waarmee het met behulp van virtuele
+MIDI-kabels kan worden verbonden met andere programma's of met fysieke MIDI-interfacepoorten. Verdere
+details hierover volgen nog.<br>
+Gewoonlijk wordt de MIDI-output van VMPK verbonden met de input van een synthesizer
+die geluid genereert op basis van MIDI. Een ander veelgebruikt eindpunt van de verbinding is een MIDI-monitor
+die MIDI-events omzet in leesbare tekst. Dit is handig om te zien wat voor informatie er wordt
+verzonden via het protocol. In Linux is <a href="http://kmetronome.sourceforge.net/kmidimon/">KMidimon</a>
+het proberen waard en in Windows <a href="http://www.midiox.com">MIDIOX</a>.</p>
+
+<p>VMPK produceert geen geluid, om de gespeelde noten te kunnen horen is er een MIDI-synthesizer nodig.
+Ik raad aan om <a href="http://qsynth.sourceforge.net">QSynth</a> te proberen,
+een grafisch front-end voor <a href="http://www.fluidsynth.org">Fluidsynth</a>. Het is ook
+mogelijk om de "Microsoft GS Wavetable SW Synth" te gebruiken die in Windows XP is ingebouwd.
+Een externe MIDI hardwaresynthesizer is natuurlijk een nog betere aanpak.</p>
+
+<h3><a name="maps_instruments"></a>Toetsenbordtoewijzingen en instrumentdefinities</h3>
+
+<p>VMPK kan helpen om van instrument te veranderen in een MIDI-synthesizer, maar heeft daar wel een
+definitie van de synthesizergeluiden voor nodig. De definities zijn tekstbestanden met de
+.INS-extensie, en gebruiken hetzelfde formaat dat wordt gebruikt door
+<a href="http://qtractor.sourceforge.net">Qtractor</a> (Linux) en <a href="http://www.cakewalk.com">Sonar</a> (Windows).</p>
+
+<p>Wanneer u VMPK voor het eerst gebruikt, opent u dan de dialoog Voorkeuren, laad een
+definitiebestand en kies dan een van de instrumentnamen die vanuit het definitiebestand zijn geladen.
+Er is een bestand met de naam "gmgsxg.ins" ge&iuml;nstalleerd in de data-directory van VMPK (gewoonlijk
+"/usr/share/vmpk" in Linux en "C:\Program Files\VMPK" in Windows). Dit bestand bevat definities voor de
+General MIDI-, Roland GS- en Yamaha XG-standaarden. Het is een eenvoudig formaat, u kunt een willekeurige
+teksteditor gebruiken om het te bekijken, aan te passen, of een nieuw bestand te maken. Een bibliotheek
+van instrumentdefinities is te vinden op de
+<a href="ftp://ftp.cakewalk.com/pub/InstrumentDefinitions/">Cakewalk FTP-server</a>.</p>
+
+<p>Sinds de 0.2.5-release is het mogelijk om SoundFontbestanden (in .SF2- of DLS-formaat)
+te importeren als instrumentdefinities, door middel van het menu Bestand->Importeer SoundFont.</p>
+
+<p>Andere instellingen die u mogelijk wilt aanpassen zijn de toetsenbordtoewijzingen. De
+standaardlayouts wijzen ongeveer twee&euml;nhalf octaaf toe aan het QWERTY-alfanumerieke toetsenbord;
+er zijn meer definities in de data-directory aanwezig die zijn aangepast voor andere
+internationale layouts. Daarnaast kunt u uw eigen toewijzingen defini&euml;ren met behulp van de
+dialoog in het menu Bewerken->Toetsenbordtoewijzingen. Ook bestaat de mogelijkheid om de
+toewijzingen te laden uit en op te slaan als XML-bestanden.<br>
+De laatst geladen toewijzing wordt onthouden voor de volgende keer dat het programma wordt gestart.
+Sterker nog, al uw voorkeuren, geselecteerde MIDI-bank en -programma en controllerwaarden worden
+opgeslagen tijdens het afsluiten van het programma, en hersteld wanneer VMPK de volgende keer weer
+wordt gestart.</p>
+
+<h3><a name="MIDI_Connections"></a>MIDI-verbindingen en virtuele MIDI-kabels</h3>
+
+<p>Om hardware-MIDI-apparaten te verbinden zijn fysieke MIDI-kabels nodig. Zo zijn er ook virtuele kabels
+nodig om MIDI-software te verbinden. In Windows kunt u gebruik maken van een aantal verschillende
+programma's voor virtuele MIDI-kabels, zoals:
+<a href="http://www.midiox.com/myoke.htm">MIDI Yoke</a>, Maple,
+<a href="http://www.nerds.de/en/loopbe1.html">LoopBe1</a> of
+<a href="http://www.sonycreativesoftware.com/dl/dl.aspx?dwnid=77">Sony Virtual MIDI Router</a>.</p>
+
+<p>De MIDI Yoke-setup installeert een driver en voegt een item toe aan het configuratiescherm
+waarmee het aantal beschikbare MIDI-poorten kan worden ingesteld (na het aanpassen van deze instelling moet
+de computer opnieuw worden gestart). MIDI Yoke stuurt ieder MIDI-event dat naar een OUT-poort wordt geschreven door
+naar de corresponderende IN-poort. VMPK kan bijvoorbeeld zijn uitgang verbinden met poort 1, waarna een ander
+programma zoals <a href="http://qsynth.sourceforge.net">QSynth</a> de verzonden events kan uitlezen op die poort.</p>
+
+<p>Door middel van <a href="http://www.midiox.com/moxdown.htm">MIDIOX</a> kunnen er meer routes worden
+toegevoegd tussen MIDI Yoke- en systeem-MIDI-poorten. Dit programma beschikt ook over andere interessante
+functionaliteit, zoals het afspelen van MIDI-bestanden. U kunt luisteren naar de muziek die wordt
+afgespeeld door een MIDI-synthesizer en tegelijkertijd in VMPK de afgespeelde noten zien (slechts &eacute;&eacute;n
+kanaal tegelijkertijd). U kunt dit doen door in het "Routes"-venster van MIDIOX een verbinding te maken
+tussen ingangspoort 1 en de Windows-synthesizerpoort. Configureer daarnaast de MIDI-poort van het afspeelprogramma
+om zijn MIDI-data naar poort 1 te sturen en stel tenslotte de ingangspoort van VMPK in om te lezen vanaf
+MIDI Yoke-poort 1. Het afspeelprogramma zal nu zijn events naar uitgangspoort 1 sturen, waar ze zowel naar de
+ingangspoort 1 als naar de synthesizerpoort verstuurd zullen worden.</p>
+
+<p>In Linux is er de <a href="http://www.alsa-project.org">ALSA</a>-sequencer om voor virtuele kabels te
+zorgen. De poorten worden dynamisch gecre&euml;rd wanneer u een programma start, er is dus geen vast
+aantal zoals in MIDI Yoke. Met het command-line-programma "aconnect" kunt u verbindingen tussen poorten
+maken en verbreken, of het nu applicaties of hardware interfaces zijn. Een handige GUI-applicatie om
+datzelfde te doen is <a href="http://qjackctl.sourceforge.net">QJackCtl</a>. Het hoofddoel van dit
+programma is het aansturen van de Jack-daemon (starten, stoppen en inspecteren van de huidige staat).
+Jack stelt virtuele audiokabels beschikbaar om poorten van de geluidskaart met audiosoftware te verbinden,
+dus net zoals de virtuele MIDI-kabels, maar in plaats daarvan voor digitale audio.</p>
+
+<h2><a name="FAQ"></a>Veelgestelde vragen</h2>
+
+<h3>Hoe kan ik 88 toetsen weergeven?</h3>
+<p>Het getal 88 is een willekeurig gekozen aantal dat door de meeste moderne pianofabrikanten wordt gebruikt,
+maar orgel- en synthesizerfabrikanten volgen deze conventie niet altijd.<br>
+VMPK kan worden geconfigureerd om tussen de een en tien octaven weer te geven. Met zeven octaven worden
+84 toetsen weergegeven en met acht octaven zijn dat er 98. Het is niet mogelijk om precies zeven en een kwart
+octaven weer te geven.</p>
+
+<h3>Er is geen geluid hoorbaar</h3>
+<p>VMPK produceert zelf geen geluid. U hebt een MIDI-synthesizer nodig, zoals duidelijk in de documentatie vermeld.</p>
+
+<h3>Sommige toetsen geven geen geluid</h3>
+<p>Wanneer u op een standaard MIDI-synthesizer kanaal 10 selecteert, zijn percussiegeluiden gekoppeld aan
+een groot deel van de toetsen, maar niet aan alle. Op melodische kanalen (alle behalve 10) kunt u een patch
+geselecteerd hebben met een beperkt notenbereik. In de muziek is dit bekend onder de naam omvang of
+<a href="http://nl.wikipedia.org/wiki/Tessituur">tessituur</a>.</p>
+
+<h3>De optie om het toetsenbord over te nemen werkt niet</h3>
+<p>Dit is een bekend probleem voor Linuxgebruikers. Deze optie werkt goed op KDE3/4-desktops die de
+standaard KWin-window manager gebruiken. Het werkt ook met Enlightenment en Window Maker, maar niet met
+de Metacity- en Compiz-window managers, die vaak worden gebruikt in combinatie met Gnome. Verder is
+het bekend dat het gebruik van deze optie normaal gebruik van dropdown-menu's in GTK2 onmogelijk maakt.
+Er is geen oplossing bekend voor dit probleem, behalve het ontwijken van de probleemscenario's tijdens
+het gebruik van de optie.</p>
+
+<h3>Patchnamen komen niet overeen met de daadwerkelijke geluiden</h3>
+<p>U hebt een .INS-bestand nodig dat precies overeenkomt met de geluiden danwel het SoundFont van uw synthesizer.
+Het meegeleverde bestand (gmgsxg.ins) bevat alleen definities voor standaard GM-, GS- en XG-instrumenten. Als uw
+MIDI-synthesizer niet geheel overeenkomt met &eacute;&eacute;n van die standaarden hebt u een ander .INS-bestand
+nodig, of moet u er zelf een maken.</p>
+
+<h3>Syntaxis van de instrumentdefinitiebestanden (.INS)</h3>
+<p>E&eacute;n mogelijke uitleg van het INS-formaat is <a href="http://tse3.sourceforge.net/doc/InsFiles.html">hier</a> te vinden.</p>
+
+<h3>Kan ik mijn instrumentdefinitie voor vkeybd naar een .INS-bestand converteren?</h3>
+<p>Natuurlijk, gebruik het AWK-script "txt2ins.awk". U kunt ook het hulpprogramma 'sftovkb' van vkeybd gebruiken om een .INS.bestand te genereren op basis van een SF2-SoundFont. Overigens heeft VMPK ook een functie om instrumentnamen te importeren vanuit SF2- en DLS-bestanden.</p>
+
+<pre>
+$ sftovkb SF2NAME.sf2 | sort -n -k1,1 -k2,2 > SF2NAME.txt
+$ awk -f txt2ins.awk SF2NAME.txt > SF2NAME.ins
+</pre>
+
+<p>Het AWK-script "txt2ins.awk" is te vinden in de data-directory van VMPK.</p>
+
+<h2><a name="Download"></a>Downloaden</h2>
+<p>De nieuwste source code, Windows- en Max OSX-packages kunt u vinden op de <a HREF="http://sourceforge.net/projects/vmpk/files">SourceForge projectwebsite</a>.</p>
+<p>Ook zijn direct installeerbare packages beschikbaar voor de volgende Linuxdistributies:
+<ul>
+  <li><a href="http://software.opensuse.org/search?baseproject=ALL&amp;p=1&amp;q=vmpk">openSUSE</a>, van de openSUSE Build Service</li>
+  <li><a href="http://packages.debian.org/vmpk">Debian</a>, offici&euml;le repositories</li>
+  <li><a href="http://ubuntufromscratch.tuxfamily.org/index.php?searchword=vmpk&amp;option=com_search">Ubuntu From Scratch</a></li>
+  <li><a href="http://aur.archlinux.org/packages.php?ID=20321">Arch Linux</a></li>
+  <li><a href="http://packages.pardus.org.tr/info/contrib-2008/binary/vmpk.html">Pardus</a></li>
+  <li><a href="http://packages.gentoo.org/package/media-sound/vmpk">Gentoo</a></li>
+  <li><a href="http://packages.zenwalk.org/?q=vmpk&amp;zversion=all">Zenwalk</a></li>
+</ul>
+
+<h2><a name="Installation"></a>Installatie vanuit de sourcecode</h2>
+
+<p>Download the sourcecode van <a href="http://sourceforge.net/projects/vmpk/files">http://sourceforge.net/projects/vmpk/files</a>.
+Pak het bestand uit in uw home-directory en ga naar de directory die nu is aangemaakt.</p>
+
+<pre>
+$ cd vmpk-x.y.z
+</pre>
+
+<p>Om het systeem te bouwen hebt u de keus tussen CMake en QMake; die laatste is alleen bedoeld
+voor test- en ontwikkeldoeleinden.</p>
+
+<pre>
+$ cmake .
+of
+$ ccmake .
+of
+$ qmake
+</pre>
+
+<p>Compileer daarna het programma:</p>
+
+<pre>
+$ make
+</pre>
+
+<p>Als het programma succesvol is gecompileerd, kunt u het installeren:</p>
+
+<pre>
+$ sudo make install
+</pre>
+
+<h3><a name="Requirements"></a>Benodigdheden</h3>
+
+<p>Om VMPK succesvol te kunnen bouwen en gebruiken, hebt u Qt 4.6 of nieuwer nodig.
+(Installeer het '-devel'-package voor uw systeem, of download de
+<ahref="ftp://ftp.qtsoftware.com/qt/source">opensource-editie</a> van qtsoftware.com,
+voorheen Trolltech.)</p>
+
+<p><a href="http://www.music.mcgill.ca/~gary/rtmidi/">RtMIDI</a> is in de sourcecode
+opgenomen. Het gebruikt de ALSA-sequencer in Linux, WinMM in windows en CoreMIDI in Mac OSX; deze subsystemen
+zijn ingebouwde onderdelen van hun respectievelijke platforms.</p>
+
+<p>Het buildsysteem is gebaseerd op <a href="http://www.cmake.org">CMake</a>.</p>
+
+<p>U hebt ook de <a href="http://gcc.gnu.org">GCC C++ compiler</a> nodig. MinGW is daarvan een
+<a href="http://www.mingw.org">Windows-port</a>.</p>
+
+<p>Optioneel kunt u een Windowssetup bouwen met behulp van <a href="http://nsis.sourceforge.net">NSIS</a>.</p>
+
+
+<h3><a name="windows_notes"></a>Opmerkingen voor windowsgebruikers</h3>
+
+<p>Om in Windows de sourcecode te kunnen compileren hebt u het .bz2- of het .gz-archief
+nodig, om dat uit te pakken hebt u een programma nodig dat het formaat ondersteunt, zoals
+<a href="http://www.7-zip.org">7-Zip</a>.</p>
+
+<p>Om de sourcecode te configureren hebt u QMake (onderdeel van Qt4) of CMake nodig. De
+PATH-variabele moet worden ingesteld om de directories te bevatten voor zowel de Qt4-binaries,
+de MinGW-binaries en de CMake-binaries.</p>
+
+<h3><a name="mac_notes"></a>Opmerkingen voor Mac OSX-gebruikers</h3>
+
+<p>Een vooraf gecompileerde applicatiebundel, die ook de Qt4-runtimebibliotheken bevat,
+is te vinden bij de <a href="http://sourceforge.net/projects/vmpk/files">projectdownloads</a>.
+Geeft u er de voorkeur aan te installeren vanuit de sourcecode, dan kunt u CMake of Qmake
+gebruiken om een applicatiebundel te bouwen die gebruik maakt van de
+ge&iuml;nstalleerde systeembibliotheken.</p>
+
+<p>Het buildsysteem is geconfigureerd om een zogenaamde universal binary (x86+ppc) te cre&euml;ren
+voor de applicatiebundel. U hebt de ontwikkeltools en frameworks van Apple nodig, en daarnaast ook
+de <a href="http://qt.nokia.com/downloads">Qt4-SDK van Nokia</a>.</p>
+
+<p>Om VMPK te compileren door middel van Makefiles gegenereerd door Qmake:</p>
+
+<pre>
+$ qmake vmpk.pro -spec macx-g++
+$ make
+en optioneel:
+$ macdeployqt build/vmpk.app
+</pre>
+
+<p>Om VMPK te compileren door middel van Makefiles gegenereerd door CMake:</p>
+
+<pre>
+$ cmake -G "Unix Makefiles" .
+$ make
+</pre>
+
+<p>Om projectbestanden voor Xcode te cre&euml;ren:</p>
+
+<pre>
+$ qmake vmpk.pro -spec macx-xcode
+of
+$ cmake -G Xcode .
+</pre>
+
+<p>Hebt u iets nodig om geluid te produceren, kijkt u dan eens naar
+<a href="http://notahat.com/simplesynth">SimpleSynth</a>, of
+<a href="http://www.fluidsynth.org/">FluidSynth</a> (beschikbaar in Fink). Voor routing
+van MIDI bestaat er <a href="http://notahat.com/midi_patchbay">MIDI Patchbay</a>.</p>
+
+<h3><a name="packager_notes"></a>Opmerkingen voor geavanceerde gebruikers en samenstellers van packages</h3>
+
+<p>U kunt de compiler vragen optimalisatie toe te passen tijdens het compileren van
+het programma. Er zijn twee mogelijkheden om dit te doen. Ten eerste:</p>
+
+<pre>
+$ cmake . -DCMAKE_BUILD_TYPE=Release
+</pre>
+
+<p>Het CMake "Release"-type gebruikt de compilervlaggen: "-O3 -DNDEBUG". Andere
+voorgedefinieerde buildtypes zijn "Debug", "RelWithDebInfo" en "MinSizeRel".<br>
+De tweede mogelijkheid om te optimaliseren is zelf compilervlaggen te kiezen:</p>
+
+<pre>
+$ export CXXFLAGS="-O2 -march=native -mtune=native -DNDEBUG"
+$ cmake .
+</pre>
+
+<p>Mochten deze vlaggen niet werken, kiest u dan zelf de goede CXXFLAGS-opties.</p>
+
+<p>Wilt u het programma niet op de standaardlocatie (/usr/local) installeren, gebruik
+dan de volgende CMake-optie:</p>
+
+<pre>
+$ cmake . -DCMAKE_INSTALL_PREFIX=/usr
+</pre>
+
+<p></p>
+
+<h2><a name="Acknowledgements"></a>Dankwoord</h2>
+
+<p>Behalve de eerder genoemde software gebruikt VMPK werk van de volgende opensource-projecten:</p>
+
+<ul>
+<li>van <a href="http://qtractor.sourceforge.net">Qtractor</a>, door Rui Nuno Capela<br>
+Classes voor instrumentdefinitiedata
+<li>van <a href="http://qsynth.sourceforge.net">QSynth</a>, door Rui Nuno Capela<br>
+Draaiknop-widget
+<li><a href="http://openclipart.org/media/files/TheresaKnott/346">Pictogram en logo</a> door Theresa Knott
+</ul>
+
+<p>Heel erg bedankt!</p>
+
+</body>
+</html>

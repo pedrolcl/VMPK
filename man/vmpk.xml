@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" 
+"/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY debian "Debian GNU/Linux">
+  <!ENTITY dhprg  "<command>vmpk</command>">
+]>
+
+<!--**********************************************************************-->
+<!-- Vmpk manpage                                                         -->
+<!--                                                                      -->
+<!-- Copyright (C) 2009 Mehdi Dogguy <dogguy@pps.jussieu.fr>              -->
+<!--                                                                      -->
+<!-- You have permission to copy, modify, and redistribute under the terms-->
+<!-- of the GNU GPL-3.0. For full license terms, see                      -->
+<!-- `/usr/share/common-licenses/GPL-3'.                                  -->
+<!--                                                                      -->
+<!--**********************************************************************-->
+
+<refentry>
+
+  <refentryinfo>
+    <author>
+      <firstname>Mehdi</firstname>
+      <surname>Dogguy</surname>
+      <email>dogguy@pps.jussieu.fr</email>
+      <personblurb><para></para></personblurb>
+    </author>
+    <copyright>
+      <year>2009</year>
+      <holder>Mehdi Dogguy</holder>
+    </copyright>
+    <date>June 7, 2009</date>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>vmpk</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class="version">0.3.3</refmiscinfo>
+    <refmiscinfo class="software">vmpk</refmiscinfo>
+    <refmiscinfo class="manual">User Commands</refmiscinfo>
+  </refmeta>
+
+  <refnamediv>
+    <refname>&dhprg;</refname>
+    <refpurpose>Virtual MIDI Piano Keyboard</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      &dhprg; 
+      <arg choice="opt">Standard options...</arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1>
+    <title>DESCRIPTION</title>
+
+    <para>This manual page documents briefly the &dhprg; program.</para>
+
+    <para>This program has standard Qt programs options.</para>
+
+    <para>Virtual MIDI Piano Keyboard is a MIDI events generator and
+      receiver. It doesn&apos;t produce any sound by itself, but can be used to
+      drive a MIDI synthesizer (either hardware or software, internal or
+      external). You can use the computer&apos;s keyboard to play MIDI notes,
+      and also the mouse. You can use the Virtual MIDI Piano Keyboard to
+      display the played MIDI notes from another instrument or MIDI file
+      player.
+    </para>
+
+  </refsect1>
+
+  <refsect1>
+    <title>OPTIONS</title>
+
+    <variablelist>
+      <varlistentry>
+	<term><option>-style=</option>style</term>
+	<listitem><para>sets the application GUI style. Possible
+	values are motif, windows, and platinum. If you compiled Qt
+	with additional styles or have additional styles as plugins
+	these will be available to the <command>-style</command>
+	command line option</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-stylesheet=</option>stylesheet</term>
+	<listitem><para>sets the application styleSheet. The value
+	must be a path to a file that contains the Style Sheet. Note:
+	Relative URLs in the Style Sheet file are relative to the
+	Style Sheet file&apos;s path.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-session=</option>session</term>
+	<listitem><para>restores the application from an earlier
+	session.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-widgetcount</option></term>
+	<listitem><para>prints debug message at the end about number
+	of widgets left undestroyed and maximum number of widgets
+	existed at the same time</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-reverse</option></term>
+	<listitem><para>sets the application&apos;s layout direction
+	to <command>Qt::RightToLeft</command></para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-graphicssystem</option></term>
+	<listitem><para>sets the backend to be used for on-screen
+	widgets and QPixmaps. Available options are raster and
+	opengl.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-display</option> display</term>
+	<listitem><para>sets the X display (default is
+	$DISPLAY).</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-geometry</option> geometry</term>
+	<listitem><para>sets the client geometry of the first window
+	that is shown.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-fn|-font</option> font</term>
+	<listitem><para>defines the application font. The font should
+	be specified using an X logical font
+	description.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-bg|-background</option> color</term>
+	<listitem><para>sets the default background color and an
+	application palette (light and dark shades are
+	calculated).</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-fg|-foreground</option> color</term>
+	<listitem><para>sets the default foreground
+	color.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-btn|-button</option> color</term>
+	<listitem><para>sets the default button
+	color.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-name</option> name</term>
+	<listitem><para>sets the application name.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-title</option> title</term>
+	<listitem><para>sets the application title.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-visual TrueColor</option></term>
+	<listitem><para>forces the application to use a TrueColor
+	visual on an 8-bit display.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-ncols</option> count</term>
+	<listitem><para>limits the number of colors allocated in the
+	color cube on an 8-bit display, if the application is using
+	the QApplication::ManyColor color specification. If count is
+	216 then a 6x6x6 color cube is used (i.e. 6 levels of red, 6
+	of green, and 6 of blue); for other values, a cube
+	approximately proportional to a 2x3x1 cube is
+	used.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-cmap</option></term>
+	<listitem><para>causes the application to install a private
+	color map on an 8-bit display.</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-im</option></term>
+	<listitem><para>sets the input method server (equivalent to
+	setting the XMODIFIERS environment variable)</para></listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>-inputstyle</option></term>
+	<listitem><para>defines how the input is inserted into the
+	given widget, e.g., onTheSpot makes the input appear directly
+	in the widget, while overTheSpot makes the input appear in a
+	box floating over the widget and is not inserted until the
+	editing is done.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+  </refsect1>
+
+  <refsect1>
+    <title>LICENSE</title>
+
+    <para>
+      This manual page was written by 
+      <personname>
+	<firstname>Mehdi</firstname>
+	<surname>Dogguy</surname>
+      </personname>
+      <email>dogguy@pps.jussieu.fr</email>
+      for the Debian GNU/Linux system (but may be used by others).
+      Permission is granted to copy, distribute and/or modify this document
+      under the terms of the <acronym>GNU</acronym> General Public
+      License, Version 3 or any later version published by the Free
+      Software Foundation; considering as source code all the file that
+      enable the production of this manpage.
+    </para>
+  </refsect1>
+
+</refentry>

@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <comment>
+    MIDI Virtual Piano Keyboard
+    Copyright (C) 2008-2011, Pedro Lopez-Cabanillas
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; If not, see http://www.gnu.org/licenses/
+ </comment>
+ <class>KMapDialogClass</class>
+ <widget class="QDialog" name="KMapDialogClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>255</width>
+    <height>382</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Key Map Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../data/vmpk.qrc">
+    <normaloff>:/vpiano/vmpk_32x32.png</normaloff>:/vpiano/vmpk_32x32.png</iconset>
+  </property>
+  <layout class="QGridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="labelMapName">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="whatsThis">
+      <string>This box displays the name of the current mapping file</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="whatsThis">
+      <string>This is the list of the PC keyboard mappings. Each row has a number corresponding to the MIDI note number, and you can type an alphanumeric Key name that will be translated to the given note</string>
+     </property>
+     <property name="rowCount">
+      <number>128</number>
+     </property>
+     <row>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>9</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>10</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>11</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>12</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>13</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>14</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>15</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>16</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>17</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>18</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>19</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>20</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>21</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>22</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>23</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>24</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>25</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>26</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>27</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>28</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>29</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>30</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>31</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>32</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>33</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>34</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>35</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>36</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>37</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>38</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>39</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>40</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>41</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>42</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>43</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>44</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>45</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>46</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>47</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>48</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>49</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>50</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>51</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>52</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>53</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>54</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>55</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>56</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>57</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>58</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>59</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>60</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>61</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>62</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>63</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>64</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>65</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>66</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>67</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>68</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>69</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>70</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>71</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>72</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>73</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>74</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>75</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>76</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>77</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>78</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>79</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>80</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>81</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>82</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>83</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>84</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>85</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>86</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>87</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>88</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>89</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>90</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>91</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>92</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>93</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>94</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>95</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>96</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>97</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>98</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>99</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>101</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>102</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>103</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>104</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>105</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>106</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>107</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>108</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>109</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>110</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>111</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>112</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>113</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>114</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>115</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>116</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>117</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>118</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>119</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>120</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>121</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>122</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>123</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>124</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>125</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>126</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>127</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Key</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../data/vmpk.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>KMapDialogClass</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>247</x>
+     <y>220</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>203</x>
+     <y>206</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>KMapDialogClass</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>243</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
