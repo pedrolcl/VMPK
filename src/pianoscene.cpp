@@ -187,6 +187,7 @@ void PianoScene::keyOff(const int note)
 
 PianoKey* PianoScene::getKeyForPos( const QPointF& p ) const
 {
+    /*
     QGraphicsItem *itm = itemAt(p);
     while (itm != NULL && itm->parentItem() != NULL)
         itm = itm->parentItem();
@@ -195,6 +196,16 @@ PianoKey* PianoScene::getKeyForPos( const QPointF& p ) const
         return key;
     }
     return NULL;
+    */
+
+    PianoKey* key = 0;
+    QList<QGraphicsItem *> ptitems = this->items(p, Qt::IntersectsItemShape, Qt::DescendingOrder);
+    foreach(QGraphicsItem *itm, ptitems) {
+        key = dynamic_cast<PianoKey*>(itm);
+        if (key != 0)
+            break;
+    }
+    return key;
 }
 
 void PianoScene::mouseMoveEvent ( QGraphicsSceneMouseEvent * mouseEvent )
