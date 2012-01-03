@@ -1,6 +1,6 @@
 #!/bin/bash
 # London Tower Big Ben tune as a simple bash script
-# Copyright (C) 2002-2011 Pedro Lopez-Cabanillas <plcl@users.sf.net>
+# Copyright (C) 2002-2012 Pedro Lopez-Cabanillas <plcl@users.sf.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

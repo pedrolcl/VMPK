@@ -65,7 +65,7 @@ VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
 VIAddVersionKey FileVersion "${VERSION}"
 VIAddVersionKey FileDescription "Virtual MIDI Piano Keyboard"
-VIAddVersionKey LegalCopyright "Copyright (C) 2008-2011 Pedro Lopez-Cabanillas and others"
+VIAddVersionKey LegalCopyright "Copyright (C) 2008-2012 Pedro Lopez-Cabanillas and others"
 InstallDirRegKey HKLM "${REGKEY}" Path
 ShowUninstDetails show
 Icon src/vmpk.ico
