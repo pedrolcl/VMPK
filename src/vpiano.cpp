@@ -40,6 +40,10 @@
 #include <QtDBus/QDBusConnection>
 #endif
 
+#if defined(NETWORK_MIDI)
+#include "netsettings.h"
+#endif
+
 #include <QtGui/QDesktopServices>
 #include <QtGui/QInputDialog>
 #include <QtGui/QFileDialog>
@@ -136,6 +140,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
 
 VPiano::~VPiano()
 {
+    //qDebug() << Q_FUNC_INFO;
     try {
         if (m_midiout != 0) {
             m_midiout->closePort();
@@ -151,7 +156,7 @@ VPiano::~VPiano()
             delete m_midiin;
         }
     } catch (RtError& err) {
-        qWarning() << QString::fromStdString(err.getMessage());
+        qWarning() << "XXX" << QString::fromStdString(err.getMessage());
     }
 }
 
@@ -616,12 +621,16 @@ void VPiano::readSettings()
     bool velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
 #if defined(NETWORK_MIDI)
-    g_iUdpPort = settings.value(QSTR_NETWORKPORT, NETWORKPORTNUMBER).toInt();
+    int udpPort = settings.value(QSTR_NETWORKPORT, NETWORKPORTNUMBER).toInt();
+    NetworkSettings::instance().setPort(udpPort);
+    QString iface = settings.value(QSTR_NETWORKIFACE).toString();
+    NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
 #endif
     settings.endGroup();
 
 #if defined(NETWORK_MIDI)
-    dlgPreferences()->setNetworkPort(g_iUdpPort);
+    dlgPreferences()->setNetworkPort(udpPort);
+    dlgPreferences()->setNetworkIface(iface);
 #endif
     dlgPreferences()->setNumOctaves(num_octaves);
     dlgPreferences()->setDrumsChannel(drumsChannel);
@@ -755,6 +764,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_VELOCITYCOLOR, dlgPreferences()->getVelocityColor());
 #if defined(NETWORK_MIDI)
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
+    settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterface());
 #endif
     settings.endGroup();
 
@@ -1350,7 +1360,10 @@ void VPiano::applyPreferences()
     ui.pianokeybd->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
 
 #if defined(NETWORK_MIDI)
-    g_iUdpPort = dlgPreferences()->getNetworkPort();
+    int udpPort = dlgPreferences()->getNetworkPort();
+    NetworkSettings::instance().setPort(udpPort);
+    QString iface = dlgPreferences()->getNetworkInterface();
+    NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
 #endif
 
     KeyboardMap* map = dlgPreferences()->getKeyboardMap();
@@ -1437,13 +1450,15 @@ void VPiano::applyInitialSettings()
 void VPiano::slotPreferences()
 {
 #if defined(NETWORK_MIDI)
-    int old_udpPort = g_iUdpPort;
+    int old_udpPort = NetworkSettings::instance().port();
+    QString old_iface = NetworkSettings::instance().iface().name();
 #endif
     releaseKb();
     if (dlgPreferences()->exec() == QDialog::Accepted) {
         applyPreferences();
 #if defined(NETWORK_MIDI)
-        if (old_udpPort != g_iUdpPort) {
+        if (old_udpPort != NetworkSettings::instance().port() ||
+            old_iface != NetworkSettings::instance().iface().name() ) {
             applyConnections();
         }
 #endif

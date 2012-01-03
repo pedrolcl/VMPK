@@ -12,18 +12,24 @@
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.4.0
+VERSION = 0.4.1
 QT += core \
     gui \
     xml \
     svg
-contains(DEFINES, ENABLE_DBUS) {
+dbus {
+    DEFINES += ENABLE_DBUS
     CONFIG += qdbus
+    QT += dbus
     DBUS_ADAPTORS += src/net.sourceforge.vmpk.xml
 }
-contains(QT_VERSION, ^4\\.[0-5]\\..*) {
+net_midi {
+    DEFINES += NETWORK_MIDI
+    QT += network
+}
+contains(QT_VERSION, ^4\\.[0-7]\\..*) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
-    error("Use at least Qt 4.6")
+    error("Use at least Qt 4.8")
 }
 VERSIONH = $$sprintf(const QString PGM_VERSION(\"%1\");,$$VERSION)
 win32|symbian {
@@ -33,7 +39,7 @@ else {
     system(echo \'$$VERSIONH\' > $$OUT_PWD/vmpk_version.h)
 }
 simulator|symbian {
-    DEFINES += NETWORK_MIDI
+    !net_midi:DEFINES += NETWORK_MIDI
     DEFINES += SMALL_SCREEN
 }
 symbian {
@@ -62,14 +68,14 @@ symbian {
     DEPLOYMENT += addFiles
 }
 win32:!simulator {
-    DEFINES += __WINDOWS_MM__
+    !net_midi:DEFINES += __WINDOWS_MM__
     DEFINES += RAWKBD_SUPPORT
     LIBS += -lwinmm
     RC_FILE = src/vpianoico.rc
 }
 win32:simulator: LIBS += -lws2_32
 linux*:!simulator {
-    DEFINES += __LINUX_ALSASEQ__
+    !net_midi:DEFINES += __LINUX_ALSASEQ__
     DEFINES += AVOID_TIMESTAMPING
     DEFINES += RAWKBD_SUPPORT
     CONFIG += link_pkgconfig x11
@@ -80,7 +86,7 @@ macx {
     CONFIG += x86 \
         ppc
     ICON = data/vmpk.icns
-    DEFINES += __MACOSX_CORE__
+    !net_midi:DEFINES += __MACOSX_CORE__
     DEFINES += RAWKBD_SUPPORT
     BUNDLE_RES.files = data/help.html \
         data/help_de.html \
@@ -124,7 +130,7 @@ macx {
 }
 irix* { 
     CONFIG += x11
-    DEFINES += __IRIX_MD__
+    !net_midi:DEFINES += __IRIX_MD__
     DEFINES += RAWKBD_SUPPORT
     LIBS += -laudio \
         -lpthread
@@ -162,7 +168,8 @@ HEADERS += src/about.h \
     src/riffimportdlg.h \
     src/RtError.h \
     src/RtMidi.h \
-    src/vpiano.h
+    src/vpiano.h \
+    netsettings.h
 
 SOURCES += src/about.cpp \
     src/classicstyle.cpp \

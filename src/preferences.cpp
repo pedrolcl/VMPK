@@ -26,6 +26,10 @@
 #include <QtGui/QColorDialog>
 #include <QtCore/QDebug>
 
+#ifdef NETWORK_MIDI
+#include <QNetworkInterface>
+#endif
+
 Preferences::Preferences(QWidget *parent)
     : QDialog(parent),
     m_numOctaves(DEFAULTNUMBEROFOCTAVES),
@@ -59,6 +63,16 @@ Preferences::Preferences(QWidget *parent)
 #if !defined(NETWORK_MIDI)
     ui.lblNetworkPort->setVisible(false);
     ui.txtNetworkPort->setVisible(false);
+    ui.lblNetworkIface->setVisible(false);
+    ui.cboNetworkIface->setVisible(false);
+#else
+    ui.cboNetworkIface->clear();
+    ui.cboNetworkIface->addItem(QString());
+    foreach ( const QNetworkInterface& iface,
+              QNetworkInterface::allInterfaces()) {
+        if ((iface.flags() & QNetworkInterface::CanMulticast) != 0)
+            ui.cboNetworkIface->addItem(iface.name());
+    }
 #endif
 #if defined(SMALL_SCREEN)
     ui.chkRawKeyboard->setVisible(false);
@@ -198,6 +212,17 @@ void Preferences::setInstrumentName( const QString name )
 QString Preferences::getInstrumentName()
 {
     return ui.cboInstrument->currentText();
+}
+
+void Preferences::setNetworkIface(const QString iface)
+{
+    int index = ui.cboNetworkIface->findText( iface );
+    ui.cboNetworkIface->setCurrentIndex( index );
+}
+
+QString Preferences::getNetworkInterface()
+{
+    return ui.cboNetworkIface->currentText();
 }
 
 void Preferences::setKeyPressedColor(QColor value)

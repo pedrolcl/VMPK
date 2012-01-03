@@ -17,61 +17,30 @@
 */
 
 /*
- *  This code is based on Qmidinet, by Rui Nuno Capela: http://qmidinet.sf.net
+ *  This code was based on Qmidinet, by Rui Nuno Capela: http://qmidinet.sf.net
+ *  later overhauled with Qt 4.8 support for UDP multicast.
  */
 
 #if defined(NETWORK_MIDI)
 
-#include <cstring>
 #include <sstream>
 
-#if defined(__SYMBIAN32__)
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <sys/select.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#else
-#if defined(WIN32)
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#else
-#include <unistd.h>
-#include <arpa/inet.h>
-#include <net/if.h>
-#endif
-#endif
-
+#include <QByteArray>
 #include <QThread>
+#include <QNetworkInterface>
+#include <QUdpSocket>
 #include <QDebug>
-#include "RtMidi.h"
-#include "preferences.h"
 
-int g_iUdpPort = NETWORKPORTNUMBER;
+#include "RtMidi.h"
+#include "netsettings.h"
+
+const QHostAddress MULTICAST_ADDRESS("225.0.0.37");
 
 struct NetworkMidiData {
     NetworkMidiData(): socket(0), thread(0) { }
-    int socket;
-    struct sockaddr_in sockaddr;
+    QUdpSocket *socket;
     class UdpDeviceThread *thread;
 };
-
-#if defined(WIN32)
-static WSADATA g_wsaData;
-typedef int socklen_t;
-
-static void __attribute__((constructor)) startup()
-{
-    qDebug() << "startup";
-    WSAStartup(MAKEWORD(1, 1), &g_wsaData);
-}
-
-static void __attribute__((destructor)) cleanup()
-{
-    qDebug() << "cleanup";
-    WSACleanup();
-}
-#endif
 
 /* RtMidiIn */
 
@@ -93,53 +62,28 @@ void UdpDeviceThread::run (void)
 {
     NetworkMidiData *apiData = static_cast<NetworkMidiData *> (m_data->apiData);
     RtMidiIn::MidiMessage message;
-    qDebug() << "running!";
+    QUdpSocket *socket = apiData->socket;
     while (m_data->doInput) {
-        fd_set fds;
-        FD_ZERO(&fds);
-        FD_SET(apiData->socket, &fds);
-        int fdmax = apiData->socket;
-        struct timeval tv;
-        tv.tv_sec  = 1; // timeout period (1 second)...
-        tv.tv_usec = 0;
-        int s = ::select(fdmax + 1, &fds, NULL, NULL, &tv);
-        if (s < 0) {
-            qDebug() << "RtMidiIn: select = " << s << ": " << ::strerror(s);
-            break;
-        }
-        if (s == 0) {
-            //qDebug() << "\nRtMidiIn: timeout";
-            continue;
-        }
-        // A Network event
-        if (FD_ISSET(apiData->socket, &fds)) {
-            // Read from network...
-            unsigned char buf[1024];
-            struct sockaddr_in sender;
-            socklen_t slen = sizeof(sender);
-            int r = ::recvfrom(apiData->socket, (char *) buf, sizeof(buf),
-                        0, (struct sockaddr *) &sender, &slen);
-            if (r > 0) {
-                message.timeStamp = 0;
-                message.bytes.clear();
-                for ( int i = 0; i < r; ++i ) {
-                      message.bytes.push_back( buf[i] );
-                }
-                if ( m_data->usingCallback ) {
-                    RtMidiIn::RtMidiCallback callback =
-                            (RtMidiIn::RtMidiCallback) m_data->userCallback;
-                    callback(message.timeStamp, &message.bytes, m_data->userData);
+        while (socket->hasPendingDatagrams()) {
+            QByteArray datagram;
+            datagram.resize(socket->pendingDatagramSize());
+            socket->readDatagram(datagram.data(), datagram.size());
+            message.timeStamp = 0;
+            message.bytes.clear();
+            message.bytes.assign(datagram.begin(), datagram.end());
+            if ( m_data->usingCallback ) {
+                RtMidiIn::RtMidiCallback callback =
+                        (RtMidiIn::RtMidiCallback) m_data->userCallback;
+                callback(message.timeStamp, &message.bytes, m_data->userData);
+            } else {
+                if ( m_data->queueLimit > m_data->queue.size() ) {
+                  m_data->queue.push( message );
                 } else {
-                    if ( m_data->queueLimit > m_data->queue.size() ) {
-                      m_data->queue.push( message );
-                    } else {
-                      qDebug() << "RtMidiIn: message queue limit reached!!\n\n";
-                    }
+                  qDebug() << "RtMidiIn: message queue limit reached!!\n\n";
                 }
-            } else if (r < 0) {
-                qDebug() << "RtMidiIn: recvfrom=" << r;
             }
         }
+        socket->waitForReadyRead(1000);
     }
 }
 
@@ -162,34 +106,17 @@ RtMidiIn :: ~RtMidiIn()
 void RtMidiIn :: openPort( unsigned int /*portNumber*/, const std::string /*portName*/ )
 {
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
-    // Setup network protocol...
-    data->socket = ::socket(PF_INET, SOCK_DGRAM, 0);
-    if (data->socket < 0) {
-        qDebug() << "socket(in)";
-        return;
-    }
-    struct sockaddr_in addrin;
-    ::memset(&addrin, 0, sizeof(addrin));
-    addrin.sin_family = AF_INET;
-    addrin.sin_addr.s_addr = htonl(INADDR_ANY);
-    addrin.sin_port = htons(g_iUdpPort);
-    if (::bind(data->socket, (struct sockaddr *) (&addrin), sizeof(addrin)) < 0) {
-        qDebug() << "bind";
-        return;
-    }
-    // Will Hall, 2007
-    // INADDR_ANY will bind to default interface,
-    struct in_addr if_addr_in;
-    if_addr_in.s_addr = htonl(INADDR_ANY);
-    struct ip_mreq mreq;
-    mreq.imr_multiaddr.s_addr = ::inet_addr("225.0.0.37");
-    mreq.imr_interface.s_addr = if_addr_in.s_addr;
-    if (::setsockopt (data->socket, IPPROTO_IP, IP_ADD_MEMBERSHIP,
-                     (char *) &mreq, sizeof(mreq)) < 0) {
-        qDebug() << "setsockopt(IP_ADD_MEMBERSHIP)";
-        errorString_ = "RtMidiIn::openPort: OS is probably missing multicast support.";
-        error( RtError::SYSTEM_ERROR );
-    }
+    QNetworkInterface iface = NetworkSettings::instance().iface();
+    int udpPort = NetworkSettings::instance().port();
+
+    data->socket = new QUdpSocket();
+    data->socket->bind(udpPort, QUdpSocket::ShareAddress);
+
+    if (iface.isValid())
+        data->socket->setMulticastInterface(iface);
+
+    data->socket->joinMulticastGroup(MULTICAST_ADDRESS);
+
     // start the input thread
     data->thread = new UdpDeviceThread(&inputData_);
     inputData_.doInput = true;
@@ -215,14 +142,15 @@ unsigned int RtMidiIn :: getPortCount()
 std::string RtMidiIn :: getPortName( unsigned int /*portNumber*/ )
 {
     std::ostringstream ost;
-    ost << "UDP/" << g_iUdpPort;
+    ost << "UDP/" << NetworkSettings::instance().port();
     return ost.str();
 }
 
 void RtMidiIn :: closePort()
 {
+    //qDebug() << Q_FUNC_INFO;
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
-    // Shutdown the input thread.
+    // Shutdown the input thread
     if (data->thread != 0) {
         if (data->thread->isRunning()) {
             inputData_.doInput = false;
@@ -231,15 +159,9 @@ void RtMidiIn :: closePort()
         delete data->thread;
         data->thread = 0;
     }
-    // close socket
-    if (data->socket >= 0) {
-#if defined(WIN32)
-        ::closesocket(data->socket);
-#else
-        ::close(data->socket);
-#endif
-        data->socket = 0;
-    }
+    // close and delete socket
+    delete data->socket;
+    data->socket = 0;
 }
 
 /* RtMidiOut */
@@ -262,22 +184,9 @@ RtMidiOut :: ~RtMidiOut()
 void RtMidiOut :: openPort( unsigned int /*portNumber*/, const std::string /*portName*/ )
 {
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
-    data->socket = ::socket(AF_INET, SOCK_DGRAM, 0);
-    if (data->socket < 0) {
-        errorString_ = "RtMidiOut::openPort: error creating a socket";
-        error( RtError::SYSTEM_ERROR );
-    }
-    ::memset(&data->sockaddr, 0, sizeof(data->sockaddr));
-    data->sockaddr.sin_family = AF_INET;
-    data->sockaddr.sin_addr.s_addr = ::inet_addr("225.0.0.37");
-    data->sockaddr.sin_port = htons(g_iUdpPort);
+    data->socket = new QUdpSocket();
     // Turn off loopback...
-    int loop = 0;
-    if (::setsockopt(data->socket, IPPROTO_IP, IP_MULTICAST_LOOP,
-                    (char *) &loop, sizeof (loop)) < 0) {
-        qDebug() << "setsockopt(IP_MULTICAST_LOOP)";
-        return;
-    }
+    data->socket->setSocketOption(QAbstractSocket::MulticastLoopbackOption, 0);
 }
 
 void RtMidiOut :: openVirtualPort( const std::string /*portName*/ )
@@ -294,21 +203,16 @@ unsigned int RtMidiOut :: getPortCount()
 std::string RtMidiOut :: getPortName( unsigned int /*portNumber*/ )
 {
     std::ostringstream ost;
-    ost << "UDP/" << g_iUdpPort;
+    ost << "UDP/" << NetworkSettings::instance().port();
     return ost.str();
 }
 
 void RtMidiOut :: closePort()
 {
+    //qDebug() << Q_FUNC_INFO;
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
-    if (data->socket >= 0) {
-#if defined(WIN32)
-        ::closesocket(data->socket);
-#else
-        ::close(data->socket);
-#endif
-        data->socket = 0;
-    }
+    delete data->socket;
+    data->socket = 0;
 }
 
 void RtMidiOut :: sendMessage( std::vector<unsigned char> *message )
@@ -318,11 +222,7 @@ void RtMidiOut :: sendMessage( std::vector<unsigned char> *message )
         qDebug() << "socket = " << data->socket;
         return;
     }
-    if (::sendto(data->socket, (char *) &((*message)[0]), message->size(), 0,
-            (struct sockaddr*) &data->sockaddr, sizeof(data->sockaddr)) < 0) {
-        qDebug() << "sendto";
-        return;
-    }
+    data->socket->writeDatagram((char *) &((*message)[0]), message->size(), MULTICAST_ADDRESS, NetworkSettings::instance().port());
 }
 
 #endif

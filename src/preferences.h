@@ -43,6 +43,8 @@ public:
     QString getInstrumentsFileName();
     void setInstrumentName( const QString name );
     QString getInstrumentName();
+    QString getNetworkInterface();
+    void setNetworkIface(const QString iface);
     void apply();
     Instrument* getInstrument();
     Instrument* getDrumsInstrument();

@@ -86,6 +86,7 @@ const QString QSTR_SHORTCUTS("Shortcuts");
 const QString QSTR_LANGUAGE("Language");
 const QString QSTR_VELOCITYCOLOR("VelocityColor");
 const QString QSTR_NETWORKPORT("NetworkPort");
+const QString QSTR_NETWORKIFACE("NetworkInterface");
 
 #if defined(SMALL_SCREEN)
 const QString QSTR_VMPKURL("http://vmpk.sourceforge.net/m/");
@@ -120,10 +121,6 @@ const int TOOLBARLABELMARGIN = 5;
 const int KEYLABELFONTSIZE = 7;
 #endif
 const int NETWORKPORTNUMBER = 21928;
-
-#if defined(NETWORK_MIDI)
-extern int g_iUdpPort;
-#endif
 
 #if defined(Q_WS_MAC) && defined(QT_MAC_USE_COCOA)
 #error "This program requires Qt built with the Carbon framework. Sorry."

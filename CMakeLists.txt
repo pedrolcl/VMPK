@@ -62,7 +62,7 @@ set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 # VMPK version string
 set (VERSION_MAJOR "0")
 set (VERSION_MINOR "4")
-set (VERSION_PATCH "0")
+set (VERSION_PATCH "1")
 set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 
@@ -74,7 +74,7 @@ message (STATUS "${PROGRAM_NAME} ${VERSION}
 message (STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
 
 # Check for Qt
-set (QT_MIN_VERSION "4.6.0")
+set (QT_MIN_VERSION "4.8.0")
 find_package (Qt4 REQUIRED)
 if (QT4_FOUND)
     message (STATUS "Found Qt4.${QT_EDITION} version = ${QTVERSION}")
