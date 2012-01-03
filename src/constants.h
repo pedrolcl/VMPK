@@ -21,12 +21,12 @@
 
 #include <QtGui/QApplication>
 #include <QtCore/QString>
-#include "vmpk_version.h"
 
 /* Don't translate any string defined in this header */
 
-//replaced with the generated header "vmpk_version.h"
-//const QString PGM_VERSION("0.2.4cvs");
+#define str(s) #s
+#define stringify(s) str(s)
+const QString PGM_VERSION(stringify(VERSION));
 
 const QString BLD_DATE(__DATE__);
 const QString BLD_TIME(__TIME__);

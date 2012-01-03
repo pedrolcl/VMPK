@@ -31,13 +31,9 @@ contains(QT_VERSION, ^4\\.[0-7]\\..*) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
     error("Use at least Qt 4.8")
 }
-VERSIONH = $$sprintf(const QString PGM_VERSION(\"%1\");,$$VERSION)
-win32|symbian {
-    system(echo $$VERSIONH > $$OUT_PWD/vmpk_version.h)
-}
-else {
-    system(echo \'$$VERSIONH\' > $$OUT_PWD/vmpk_version.h)
-}
+
+DEFINES += VERSION=$$VERSION
+
 simulator|symbian {
     !net_midi:DEFINES += NETWORK_MIDI
     DEFINES += SMALL_SCREEN
@@ -157,6 +153,7 @@ HEADERS += src/about.h \
     src/knob.h \
     src/mididefs.h \
     src/midisetup.h \
+    src/netsettings.h \
     src/pianodefs.h \
     src/pianokeybd.h \
     src/pianokey.h \
@@ -168,8 +165,7 @@ HEADERS += src/about.h \
     src/riffimportdlg.h \
     src/RtError.h \
     src/RtMidi.h \
-    src/vpiano.h \
-    netsettings.h
+    src/vpiano.h
 
 SOURCES += src/about.cpp \
     src/classicstyle.cpp \

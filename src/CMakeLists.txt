@@ -17,11 +17,6 @@
 include_directories (${CMAKE_CURRENT_BINARY_DIR})
 link_directories (${CMAKE_CURRENT_BINARY_DIR})
 
-if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/vmpk_version.h)
-    file (WRITE ${CMAKE_CURRENT_BINARY_DIR}/vmpk_version.h
-          "const QString PGM_VERSION(\"${VERSION}\");\n")
-endif (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/vmpk_version.h)
-
 set (vmpk_forms_SRCS
     about.ui
     extracontrols.ui

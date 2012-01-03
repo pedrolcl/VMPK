@@ -65,6 +65,7 @@ set (VERSION_MINOR "4")
 set (VERSION_PATCH "1")
 set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
+add_definitions (-DVERSION=${VERSION})
 
 message (STATUS "${PROGRAM_NAME} ${VERSION} 
     install prefix: ${CMAKE_INSTALL_PREFIX} 
@@ -79,7 +80,7 @@ find_package (Qt4 REQUIRED)
 if (QT4_FOUND)
     message (STATUS "Found Qt4.${QT_EDITION} version = ${QTVERSION}")
 else ()
-    message (FATAL_ERROR "Qt4 >= 4.6 not found")
+    message (FATAL_ERROR "Qt4 >= 4.8 not found")
 endif ()
 
 set (QT_USE_QTXML TRUE)
