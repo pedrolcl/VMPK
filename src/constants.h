@@ -24,9 +24,9 @@
 
 /* Don't translate any string defined in this header */
 
-#define str(s) #s
-#define stringify(s) str(s)
-const QString PGM_VERSION(stringify(VERSION));
+#define LITERAL(s) #s
+#define STRINGIFY(s) LITERAL(s)
+const QString PGM_VERSION(STRINGIFY(VERSION));
 
 const QString BLD_DATE(__DATE__);
 const QString BLD_TIME(__TIME__);
