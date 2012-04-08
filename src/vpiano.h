@@ -60,6 +60,8 @@ public:
     // static methods
     static QString dataDirectory();
     static QString localeDirectory();
+    static RtMidiOut *MIDIOutDriverFactory(const QString driver, const QString portName);
+    static RtMidiIn *MIDIInDriverFactory(const QString driver, const QString portName);
 
 #if ENABLE_DBUS
 
@@ -147,6 +149,8 @@ private:
     void initialization();
     bool initMidi();
     void readSettings();
+    void readConnectionSettings();
+    void readMidiControllerSettings();
     void writeSettings();
     void applyPreferences();
     void applyConnections();

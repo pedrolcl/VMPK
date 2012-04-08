@@ -54,6 +54,27 @@ Preferences::Preferences(QWidget *parent)
     connect(ui.btnRawKmap, SIGNAL(clicked()), SLOT(slotOpenRawKeymapFile()));
     QPushButton *btnDefaults = ui.buttonBox->button(QDialogButtonBox::RestoreDefaults);
     connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
+
+    ui.cboMIDIDriver->clear();
+#if defined(__LINUX_ALSASEQ__)
+    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEALSA);
+#endif
+#if defined(__LINUX_JACK__)
+    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEJACK);
+#endif
+#if defined(__MACOSX_CORE__)
+    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEMACOSX);
+#endif
+#if defined(__IRIX_MD__)
+    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEIRIX);
+#endif
+#if defined(__WINDOWS_MM__)
+    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEWINMM);
+#endif
+#if defined(NETWORK_MIDI)
+    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMENET);
+#endif
+
 #if !defined(RAWKBD_SUPPORT)
     ui.chkRawKeyboard->setVisible(false);
     ui.lblRawKmap->setVisible(false);
@@ -305,4 +326,20 @@ void Preferences::slotRestoreDefaults()
 void Preferences::retranslateUi()
 {
     ui.retranslateUi(this);
+}
+
+void Preferences::setDriver(QString value)
+{
+    int index = ui.cboMIDIDriver->findText(value);
+    if (index < 0)
+        index = ui.cboMIDIDriver->findText(QSTR_DRIVERDEFAULT);
+    ui.cboMIDIDriver->setCurrentIndex(index);
+}
+
+QString Preferences::getDriver()
+{
+    QString driver = ui.cboMIDIDriver->currentText();
+    if (driver.isEmpty())
+        driver = QSTR_DRIVERDEFAULT;
+    return driver;
 }

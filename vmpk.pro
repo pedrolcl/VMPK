@@ -23,10 +23,8 @@ dbus {
     QT += dbus
     DBUS_ADAPTORS += src/net.sourceforge.vmpk.xml
 }
-net_midi {
-    DEFINES += NETWORK_MIDI
-    QT += network
-}
+DEFINES += NETWORK_MIDI
+QT += network
 contains(QT_VERSION, ^4\\.[0-7]\\..*) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
     error("Use at least Qt 4.8")
@@ -165,7 +163,8 @@ HEADERS += src/about.h \
     src/riffimportdlg.h \
     src/RtError.h \
     src/RtMidi.h \
-    src/vpiano.h
+    src/vpiano.h \
+    src/udpmidi.h
 
 SOURCES += src/about.cpp \
     src/classicstyle.cpp \

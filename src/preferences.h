@@ -45,6 +45,7 @@ public:
     QString getInstrumentName();
     QString getNetworkInterface();
     void setNetworkIface(const QString iface);
+    QString getDriver();
     void apply();
     Instrument* getInstrument();
     Instrument* getDrumsInstrument();
@@ -64,6 +65,7 @@ public slots:
     void setRawKeyboard(bool value) { m_rawKeyboard = value; }
     void setVelocityColor(bool value) { m_velocityColor = value; }
     void setKeyPressedColor(QColor value);
+    void setDriver(QString value);
     void slotOpenInstrumentFile();
     void slotSelectColor();
     void slotOpenKeymapFile();

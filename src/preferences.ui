@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>482</width>
-    <height>388</height>
+    <width>480</width>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,8 +54,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>476</width>
-        <height>355</height>
+        <width>474</width>
+        <height>381</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -365,7 +365,7 @@
          </item>
         </widget>
        </item>
-       <item row="8" column="0">
+       <item row="9" column="0">
         <widget class="QLabel" name="lblNetworkPort">
          <property name="text">
           <string>Network Port</string>
@@ -375,10 +375,10 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="9" column="1">
         <widget class="QLineEdit" name="txtNetworkPort"/>
        </item>
-       <item row="10" column="0">
+       <item row="11" column="0">
         <widget class="QCheckBox" name="chkStyledKnobs">
          <property name="whatsThis">
           <string>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</string>
@@ -391,7 +391,7 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="0">
+       <item row="12" column="0">
         <widget class="QCheckBox" name="chkAlwaysOnTop">
          <property name="whatsThis">
           <string>Check this box to keep the keyboard window always visible, on top of other windows.</string>
@@ -401,7 +401,7 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0" colspan="2">
+       <item row="14" column="0" colspan="2">
         <widget class="QCheckBox" name="chkRawKeyboard">
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -418,7 +418,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="14" column="0" colspan="2">
+       <item row="15" column="0" colspan="2">
         <widget class="QCheckBox" name="chkVelocityColor">
          <property name="text">
           <string>Translate MIDI velocity to key pressed color tint</string>
@@ -428,7 +428,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="12" column="0" colspan="2">
+       <item row="13" column="0" colspan="2">
         <widget class="QCheckBox" name="chkGrabKb">
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -442,15 +442,31 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="10" column="0">
         <widget class="QLabel" name="lblNetworkIface">
          <property name="text">
           <string>Network Interface</string>
          </property>
+         <property name="buddy">
+          <cstring>cboNetworkIface</cstring>
+         </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="10" column="1">
         <widget class="QComboBox" name="cboNetworkIface"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lblMIDIDriver">
+         <property name="text">
+          <string>MIDI Driver</string>
+         </property>
+         <property name="buddy">
+          <cstring>cboMIDIDriver</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="cboMIDIDriver"/>
        </item>
       </layout>
      </widget>
@@ -478,7 +494,9 @@ p, li { white-space: pre-wrap; }
   <tabstop>txtFileRawKmap</tabstop>
   <tabstop>btnRawKmap</tabstop>
   <tabstop>cboDrumsChannel</tabstop>
+  <tabstop>cboMIDIDriver</tabstop>
   <tabstop>txtNetworkPort</tabstop>
+  <tabstop>cboNetworkIface</tabstop>
   <tabstop>chkStyledKnobs</tabstop>
   <tabstop>chkAlwaysOnTop</tabstop>
   <tabstop>chkGrabKb</tabstop>
@@ -497,8 +515,8 @@ p, li { white-space: pre-wrap; }
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>228</x>
-     <y>185</y>
+     <x>231</x>
+     <y>397</y>
     </hint>
     <hint type="destinationlabel">
      <x>263</x>
@@ -513,8 +531,8 @@ p, li { white-space: pre-wrap; }
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>118</x>
-     <y>179</y>
+     <x>121</x>
+     <y>397</y>
     </hint>
     <hint type="destinationlabel">
      <x>155</x>

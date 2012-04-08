@@ -31,7 +31,7 @@
 #include <QUdpSocket>
 #include <QDebug>
 
-#include "RtMidi.h"
+#include "udpmidi.h"
 #include "netsettings.h"
 
 const QHostAddress MULTICAST_ADDRESS("225.0.0.37");
@@ -42,7 +42,7 @@ struct NetworkMidiData {
     class UdpDeviceThread *thread;
 };
 
-/* RtMidiIn */
+/* NetMidiIn */
 
 class UdpDeviceThread : public QThread
 {
@@ -76,8 +76,11 @@ void UdpDeviceThread::run (void)
                         (RtMidiIn::RtMidiCallback) m_data->userCallback;
                 callback(message.timeStamp, &message.bytes, m_data->userData);
             } else {
-                if ( m_data->queueLimit > m_data->queue.size() ) {
-                  m_data->queue.push( message );
+                if ( m_data->queue.size < m_data->queue.ringSize ) {
+                  m_data->queue.ring[m_data->queue.back++] = message;
+                  if ( m_data->queue.back == m_data->queue.ringSize )
+                    m_data->queue.back = 0;
+                  m_data->queue.size++;
                 } else {
                   qDebug() << "RtMidiIn: message queue limit reached!!\n\n";
                 }
@@ -87,14 +90,19 @@ void UdpDeviceThread::run (void)
     }
 }
 
-void RtMidiIn :: initialize( const std::string& /*clientName*/ )
+NetMidiIn :: NetMidiIn( const std::string clientName, unsigned int queueSizeLimit ) : RtMidiIn(queueSizeLimit)
+{
+    initialize( clientName );
+}
+
+void NetMidiIn ::initialize( const std::string& /*clientName*/ )
 {
     NetworkMidiData *data = new NetworkMidiData;
     apiData_ = (void *) data;
     inputData_.apiData = (void *) data;
 }
 
-RtMidiIn :: ~RtMidiIn()
+NetMidiIn :: ~NetMidiIn()
 {
     // Close a connection if it exists.
     closePort();
@@ -103,7 +111,7 @@ RtMidiIn :: ~RtMidiIn()
     delete data;
 }
 
-void RtMidiIn :: openPort( unsigned int /*portNumber*/, const std::string /*portName*/ )
+void NetMidiIn ::openPort( unsigned int /*portNumber*/, const std::string /*portName*/ )
 {
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
     QNetworkInterface iface = NetworkSettings::instance().iface();
@@ -128,25 +136,25 @@ void RtMidiIn :: openPort( unsigned int /*portNumber*/, const std::string /*port
     }
 }
 
-void RtMidiIn :: openVirtualPort( const std::string /*portName*/ )
+void NetMidiIn ::openVirtualPort( const std::string /*portName*/ )
 {
     errorString_ = "RtMidiIn::openVirtualPort: cannot be implemented in UDP!";
     error( RtError::WARNING );
 }
 
-unsigned int RtMidiIn :: getPortCount()
+unsigned int NetMidiIn ::getPortCount()
 {
     return 1;
 }
 
-std::string RtMidiIn :: getPortName( unsigned int /*portNumber*/ )
+std::string NetMidiIn ::getPortName( unsigned int /*portNumber*/ )
 {
     std::ostringstream ost;
     ost << "UDP/" << NetworkSettings::instance().port();
     return ost.str();
 }
 
-void RtMidiIn :: closePort()
+void NetMidiIn ::closePort()
 {
     //qDebug() << Q_FUNC_INFO;
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
@@ -164,15 +172,20 @@ void RtMidiIn :: closePort()
     data->socket = 0;
 }
 
-/* RtMidiOut */
+/* NetMidiOut */
 
-void RtMidiOut :: initialize( const std::string& /*clientName*/ )
+NetMidiOut :: NetMidiOut( const std::string clientName ) : RtMidiOut()
+{
+    initialize(clientName);
+}
+
+void NetMidiOut ::initialize( const std::string& /*clientName*/ )
 {
     NetworkMidiData *data = new NetworkMidiData;
     apiData_ = (void *) data;
 }
 
-RtMidiOut :: ~RtMidiOut()
+NetMidiOut :: ~NetMidiOut()
 {
     // Close a connection if it exists.
     closePort();
@@ -181,7 +194,7 @@ RtMidiOut :: ~RtMidiOut()
     delete data;
 }
 
-void RtMidiOut :: openPort( unsigned int /*portNumber*/, const std::string /*portName*/ )
+void NetMidiOut ::openPort( unsigned int /*portNumber*/, const std::string /*portName*/ )
 {
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
     data->socket = new QUdpSocket();
@@ -189,25 +202,25 @@ void RtMidiOut :: openPort( unsigned int /*portNumber*/, const std::string /*por
     data->socket->setSocketOption(QAbstractSocket::MulticastLoopbackOption, 0);
 }
 
-void RtMidiOut :: openVirtualPort( const std::string /*portName*/ )
+void NetMidiOut ::openVirtualPort( const std::string /*portName*/ )
 {
     errorString_ = "RtMidiOut::openVirtualPort: cannot be implemented in UDP!";
     error( RtError::WARNING );
 }
 
-unsigned int RtMidiOut :: getPortCount()
+unsigned int NetMidiOut ::getPortCount()
 {
     return 1;
 }
 
-std::string RtMidiOut :: getPortName( unsigned int /*portNumber*/ )
+std::string NetMidiOut ::getPortName( unsigned int /*portNumber*/ )
 {
     std::ostringstream ost;
     ost << "UDP/" << NetworkSettings::instance().port();
     return ost.str();
 }
 
-void RtMidiOut :: closePort()
+void NetMidiOut ::closePort()
 {
     //qDebug() << Q_FUNC_INFO;
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
@@ -215,7 +228,7 @@ void RtMidiOut :: closePort()
     data->socket = 0;
 }
 
-void RtMidiOut :: sendMessage( std::vector<unsigned char> *message )
+void NetMidiOut ::sendMessage( std::vector<unsigned char> *message )
 {
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
     if (data->socket <= 0) {

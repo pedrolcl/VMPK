@@ -42,6 +42,7 @@
 
 #if defined(NETWORK_MIDI)
 #include "netsettings.h"
+#include "udpmidi.h"
 #endif
 
 #include <QtGui/QDesktopServices>
@@ -162,9 +163,11 @@ VPiano::~VPiano()
 
 void VPiano::initialization()
 {
+    readSettings();
     if ((m_initialized = initMidi())) {
         refreshConnections();
-        readSettings();
+        readConnectionSettings();
+        readMidiControllerSettings();
         createLanguageMenu();
         initToolBars();
         applyPreferences();
@@ -235,11 +238,78 @@ void midiCallback( double /*deltatime*/,
         QApplication::postEvent(instance, ev);
 }
 
+RtMidiOut *
+VPiano::MIDIOutDriverFactory(const QString driverName, const QString clientName)
+{
+    RtMidiOut *driver = 0;
+#if defined(__LINUX_ALSASEQ__)
+    if (driverName == QSTR_DRIVERNAMEALSA)
+        driver = new RtMidiOutAlsa(clientName.toStdString());
+#endif
+#if defined(__LINUX_JACK__)
+    if (driverName == QSTR_DRIVERNAMEJACK)
+        driver = new RtMidiOutJack(clientName.toStdString());
+#endif
+#if defined(__IRIX_MD__)
+    if (driverName == QSTR_DRIVERNAMEIRIX)
+        driver = new RtMidiOutIrix(clientName.toStdString());
+#endif
+#if defined(__MACOSX_CORE__)
+    if (driverName == QSTR_DRIVERNAMEMACOSX)
+        driver = new RtMidiOutCoreMidi(clientName.toStdString());
+#endif
+#if defined(__WINDOWS_MM__)
+    if (driverName == QSTR_DRIVERNAMEWINMM)
+        driver = new RtMidiOutWinMM(clientName.toStdString());
+#endif
+#if defined(NETWORK_MIDI)
+    if (driverName == QSTR_DRIVERNAMENET)
+        driver = new NetMidiOut(clientName.toStdString());
+#endif
+    if (driver == 0 && driverName != QSTR_DRIVERDEFAULT)
+        driver = MIDIOutDriverFactory(QSTR_DRIVERDEFAULT, clientName);
+    return driver;
+}
+
+RtMidiIn *
+VPiano::MIDIInDriverFactory(const QString driverName, const QString clientName)
+{
+    RtMidiIn *driver = 0;
+#if defined(__LINUX_ALSASEQ__)
+    if (driverName == QSTR_DRIVERNAMEALSA)
+        driver = new RtMidiInAlsa(clientName.toStdString());
+#endif
+#if defined(__LINUX_JACK__)
+    if (driverName == QSTR_DRIVERNAMEJACK)
+        driver = new RtMidiInJack(clientName.toStdString());
+#endif
+#if defined(__IRIX_MD__)
+    if (driverName == QSTR_DRIVERNAMEIRIX)
+        driver = new RtMidiInIrix(clientName.toStdString());
+#endif
+#if defined(__MACOSX_CORE__)
+    if (driverName == QSTR_DRIVERNAMEMACOSX)
+        driver = new RtMidiInCoreMidi(clientName.toStdString());
+#endif
+#if defined(__WINDOWS_MM__)
+    if (driverName == QSTR_DRIVERNAMEWINMM)
+        driver = new RtMidiInWinMM(clientName.toStdString());
+#endif
+#if defined(NETWORK_MIDI)
+    if (driverName == QSTR_DRIVERNAMENET)
+        driver = new NetMidiIn(clientName.toStdString());
+#endif
+    if (driver == 0 && driverName != QSTR_DRIVERDEFAULT)
+        driver = MIDIInDriverFactory(QSTR_DRIVERDEFAULT, clientName);
+    return driver;
+}
+
 bool VPiano::initMidi()
 {
     try {
-        m_midiout = new RtMidiOut(QSTR_VMPKOUTPUT.toStdString());
-        m_midiin = new RtMidiIn(QSTR_VMPKINPUT.toStdString());
+        QString mdriver = dlgPreferences()->getDriver();
+        m_midiout = MIDIOutDriverFactory(mdriver, QSTR_VMPKOUTPUT);
+        m_midiin = MIDIInDriverFactory(mdriver, QSTR_VMPKINPUT);
 #if !defined(__LINUX_ALSASEQ__) && !defined(__MACOSX_CORE__) && !defined(__LINUX_JACK__)
         int nOutPorts = m_midiout->getPortCount();
         if (nOutPorts == 0) {
@@ -274,7 +344,7 @@ bool VPiano::initMidi()
                                QString::fromStdString(err.getMessage()));
         return false;
     }
-    return true;
+    return (m_midiout != 0 && m_midiin != 0);
 }
 
 void VPiano::initToolBars()
@@ -620,6 +690,7 @@ void VPiano::readSettings()
     bool showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
     bool velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
+    QString midiDriver = settings.value(QSTR_MIDIDRIVER, QSTR_DRIVERDEFAULT).toString();
 #if defined(NETWORK_MIDI)
     int udpPort = settings.value(QSTR_NETWORKPORT, NETWORKPORTNUMBER).toInt();
     NetworkSettings::instance().setPort(udpPort);
@@ -627,7 +698,7 @@ void VPiano::readSettings()
     NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
 #endif
     settings.endGroup();
-
+    dlgPreferences()->setDriver(midiDriver);
 #if defined(NETWORK_MIDI)
     dlgPreferences()->setNetworkPort(udpPort);
     dlgPreferences()->setNetworkIface(iface);
@@ -650,13 +721,35 @@ void VPiano::readSettings()
         }
     }
 
+    settings.beginGroup(QSTR_KEYBOARD);
+    bool rawKeyboard = settings.value(QSTR_RAWKEYBOARDMODE, false).toBool();
+    QString mapFile = settings.value(QSTR_MAPFILE, QSTR_DEFAULT).toString();
+    QString rawMapFile = settings.value(QSTR_RAWMAPFILE, QSTR_DEFAULT).toString();
+    settings.endGroup();
+    dlgPreferences()->setRawKeyboard(rawKeyboard);
+
+    ui.pianokeybd->getKeyboardMap()->setRawMode(false);
+    ui.pianokeybd->getRawKeyboardMap()->setRawMode(true);
+    if (!mapFile.isEmpty() && mapFile != QSTR_DEFAULT) {
+        dlgPreferences()->setKeyMapFileName(mapFile);
+        ui.pianokeybd->setKeyboardMap(dlgPreferences()->getKeyboardMap());
+    }
+    if (!rawMapFile.isEmpty() && rawMapFile != QSTR_DEFAULT) {
+        dlgPreferences()->setRawKeyMapFileName(rawMapFile);
+        ui.pianokeybd->setRawKeyboardMap(dlgPreferences()->getKeyboardMap());
+    }
+}
+
+void VPiano::readConnectionSettings()
+{
+    QSettings settings;
     settings.beginGroup(QSTR_CONNECTIONS);
     bool inEnabled = settings.value(QSTR_INENABLED, true).toBool();
     bool thruEnabled = settings.value(QSTR_THRUENABLED, false).toBool();
-#if !defined(NETWORK_MIDI)
+//#if !defined(NETWORK_MIDI)
     QString in_port = settings.value(QSTR_INPORT).toString();
     QString out_port = settings.value(QSTR_OUTPORT).toString();
-#endif
+//#endif
     settings.endGroup();
 #if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
     inEnabled = true;
@@ -667,20 +760,18 @@ void VPiano::readSettings()
     } else {
         dlgMidiSetup()->setInputEnabled(inEnabled);
         dlgMidiSetup()->setThruEnabled(thruEnabled);
-#if !defined(NETWORK_MIDI)
+//#if !defined(NETWORK_MIDI)
         dlgMidiSetup()->setCurrentInput(in_port);
-#endif
+//#endif
     }
-#if !defined(NETWORK_MIDI)
+//#if !defined(NETWORK_MIDI)
     dlgMidiSetup()->setCurrentOutput(out_port);
-#endif
-    settings.beginGroup(QSTR_KEYBOARD);
-    bool rawKeyboard = settings.value(QSTR_RAWKEYBOARDMODE, false).toBool();
-    QString mapFile = settings.value(QSTR_MAPFILE, QSTR_DEFAULT).toString();
-    QString rawMapFile = settings.value(QSTR_RAWMAPFILE, QSTR_DEFAULT).toString();
-    settings.endGroup();
-    dlgPreferences()->setRawKeyboard(rawKeyboard);
+//#endif
+}
 
+void VPiano::readMidiControllerSettings()
+{
+    QSettings settings;
     for (int chan=0; chan<MIDICHANNELS; ++chan) {
         QString group = QSTR_INSTRUMENT + QString::number(chan);
         settings.beginGroup(group);
@@ -722,17 +813,6 @@ void VPiano::readSettings()
         pAction->setShortcut(QKeySequence(sValue));
     }
     settings.endGroup();
-
-    ui.pianokeybd->getKeyboardMap()->setRawMode(false);
-    ui.pianokeybd->getRawKeyboardMap()->setRawMode(true);
-    if (!mapFile.isEmpty() && mapFile != QSTR_DEFAULT) {
-        dlgPreferences()->setKeyMapFileName(mapFile);
-        ui.pianokeybd->setKeyboardMap(dlgPreferences()->getKeyboardMap());
-    }
-    if (!rawMapFile.isEmpty() && rawMapFile != QSTR_DEFAULT) {
-        dlgPreferences()->setRawKeyMapFileName(rawMapFile);
-        ui.pianokeybd->setRawKeyboardMap(dlgPreferences()->getKeyboardMap());
-    }
 }
 
 void VPiano::writeSettings()
@@ -762,6 +842,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_SHOWSTATUSBAR, ui.actionStatusBar->isChecked());
     settings.setValue(QSTR_DRUMSCHANNEL, dlgPreferences()->getDrumsChannel());
     settings.setValue(QSTR_VELOCITYCOLOR, dlgPreferences()->getVelocityColor());
+    settings.setValue(QSTR_MIDIDRIVER, dlgPreferences()->getDriver());
 #if defined(NETWORK_MIDI)
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
     settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterface());
@@ -771,10 +852,10 @@ void VPiano::writeSettings()
     settings.beginGroup(QSTR_CONNECTIONS);
     settings.setValue(QSTR_INENABLED, dlgMidiSetup()->inputIsEnabled());
     settings.setValue(QSTR_THRUENABLED, dlgMidiSetup()->thruIsEnabled());
-#if !defined(NETWORK_MIDI)
+//#if !defined(NETWORK_MIDI)
     settings.setValue(QSTR_INPORT,  dlgMidiSetup()->selectedInputName());
     settings.setValue(QSTR_OUTPORT, dlgMidiSetup()->selectedOutputName());
-#endif
+//#endif
     settings.endGroup();
 
     settings.beginGroup(QSTR_KEYBOARD);

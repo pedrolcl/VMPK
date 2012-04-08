@@ -88,6 +88,26 @@ const QString QSTR_VELOCITYCOLOR("VelocityColor");
 const QString QSTR_NETWORKPORT("NetworkPort");
 const QString QSTR_NETWORKIFACE("NetworkInterface");
 
+const QString QSTR_MIDIDRIVER("MIDIDriver");
+const QString QSTR_DRIVERNAMEALSA("ALSA Sequencer");
+const QString QSTR_DRIVERNAMEJACK("Jack MIDI");
+const QString QSTR_DRIVERNAMEMACOSX("Mac OSX CoreMIDI");
+const QString QSTR_DRIVERNAMEIRIX("SGI Irix MD");
+const QString QSTR_DRIVERNAMEWINMM("Windows MM");
+const QString QSTR_DRIVERNAMENET("Network UDP");
+
+#if defined(Q_OS_LINUX)
+const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEALSA);
+#elif defined(Q_OS_MAC)
+const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEMACOSX);
+#elif defined(Q_OS_IRIX)
+const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEIRIX);
+#elif defined(Q_OS_WIN)
+const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEWINMM);
+#else
+const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMENET);
+#endif
+
 #if defined(SMALL_SCREEN)
 const QString QSTR_VMPKURL("http://vmpk.sourceforge.net/m/");
 const QString QSTR_HELP("hm.html");
