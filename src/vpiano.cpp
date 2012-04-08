@@ -347,6 +347,29 @@ bool VPiano::initMidi()
     return (m_midiout != 0 && m_midiin != 0);
 }
 
+void VPiano::switchMIDIDriver()
+{
+    try {
+        if (m_midiout != 0) {
+            m_midiout->closePort();
+        }
+        if (m_midiin != 0) {
+            if (m_inputActive) {
+                m_midiin->cancelCallback();
+                m_inputActive = false;
+            }
+            if (m_currentIn > -1)
+                m_midiin->closePort();
+        }
+    } catch (RtError& err) {
+        qWarning() << "XXX" << QString::fromStdString(err.getMessage());
+    }
+    if ((m_initialized = initMidi())) {
+        refreshConnections();
+        applyConnections();
+    }
+}
+
 void VPiano::initToolBars()
 {
     //QLabel *lbl;
@@ -1534,9 +1557,13 @@ void VPiano::slotPreferences()
     int old_udpPort = NetworkSettings::instance().port();
     QString old_iface = NetworkSettings::instance().iface().name();
 #endif
+    QString old_driver = dlgPreferences()->getDriver();
     releaseKb();
     if (dlgPreferences()->exec() == QDialog::Accepted) {
         applyPreferences();
+        if (old_driver != dlgPreferences()->getDriver()) {
+            switchMIDIDriver();
+        }
 #if defined(NETWORK_MIDI)
         if (old_udpPort != NetworkSettings::instance().port() ||
             old_iface != NetworkSettings::instance().iface().name() ) {

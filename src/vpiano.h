@@ -148,6 +148,7 @@ protected:
 private:
     void initialization();
     bool initMidi();
+    void switchMIDIDriver();
     void readSettings();
     void readConnectionSettings();
     void readMidiControllerSettings();

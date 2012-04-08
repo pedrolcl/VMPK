@@ -75,7 +75,12 @@ linux*:!simulator {
     CONFIG += link_pkgconfig x11
     PKGCONFIG += alsa
     LIBS += -lpthread
+    jack_midi {
+        PKGCONFIG += jack
+        DEFINES += __LINUX_JACK__
+    }
 }
+
 macx { 
     CONFIG += x86 \
         ppc
