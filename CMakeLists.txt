@@ -17,30 +17,32 @@
 project (VMPK)
 cmake_minimum_required (VERSION 2.8)
 
+set (DBUS_INIT OFF)
+set (ALSA_INIT OFF)
+set (JACK_INIT OFF)
+set (CORE_INIT OFF)
+set (IRIX_INIT OFF)
+set (WIN_INIT OFF)
+set (NET_INIT ON)
 if (${CMAKE_SYSTEM} MATCHES "Linux")
-    set (MIDI_DRIVER_INIT "ALSA")
     set (DBUS_INIT ON)
+    set (ALSA_INIT ON)
+    set (JACK_INIT ON)
 elseif (${CMAKE_SYSTEM} MATCHES "IRIX")
-    set (MIDI_DRIVER_INIT "IRIX")
-    set (DBUS_INIT OFF)
+    set (IRIX_INIT ON)
 elseif (APPLE)
-    set (MIDI_DRIVER_INIT "COREMIDI")
-    set (DBUS_INIT OFF)
+    set (CORE_INIT ON)
 elseif (WIN32)
-    set (MIDI_DRIVER_INIT "WINMM")
-    set (DBUS_INIT OFF)
-else ()
-    set (MIDI_DRIVER_INIT "NET")
-    set (DBUS_INIT OFF)
+    set (WIN_INIT ON)
 endif ()
 
-set (PROGRAM_NAME_INIT "vmpk")
-
-set (RTMIDI_DRIVER ${MIDI_DRIVER_INIT} CACHE STRING
-     "RtMIDI driver: ALSA, JACK, COREMIDI, IRIX, WINMM, NET")
-set (PROGRAM_NAME ${PROGRAM_NAME_INIT} CACHE STRING
-     "Executable program name")
 option (ENABLE_DBUS "Enable experimental VMPK DBus interface" ${DBUS_INIT})
+option (ENABLE_ALSA "Enable ALSA Sequencer driver" ${ALSA_INIT})
+option (ENABLE_JACK "Enable Jack MIDI driver" ${JACK_INIT})
+option (ENABLE_CORE "Enable Mac OSX CoreMIDI driver" ${CORE_INIT})
+option (ENABLE_IRIX "Enable SGI Irix MD driver" ${IRIX_INIT})
+option (ENABLE_WIN "Enable Windows MM driver" ${WIN_INIT})
+option (ENABLE_NET "Enable UDP Network driver" ${NET_INIT})
 
 # Show full commands and messages. 
 # set(CMAKE_VERBOSE_MAKEFILE ON CACHE BOOL)
@@ -67,9 +69,16 @@ set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
 
-message (STATUS "${PROGRAM_NAME} ${VERSION} 
+message (STATUS "VMPK ${VERSION}
     install prefix: ${CMAKE_INSTALL_PREFIX} 
-    RtMIDI driver: ${RTMIDI_DRIVER}")
+     D-Bus support: ${ENABLE_DBUS}
+    RtMIDI drivers
+              ALSA: ${ENABLE_ALSA}
+              JACK: ${ENABLE_JACK}
+              Irix: ${ENABLE_IRIX}
+          CoreMIDI: ${ENABLE_CORE}
+           Windows: ${ENABLE_WIN}
+           UDP Net: ${ENABLE_NET}")
 
 # User options
 message (STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
@@ -89,6 +98,10 @@ if (ENABLE_DBUS)
     set (QT_USE_QTDBUS TRUE)
     add_definitions (-DENABLE_DBUS)
 endif ()
+if (${ENABLE_NET})
+    set (QT_USE_QTNETWORK TRUE)
+    add_definitions (-DNETWORK_MIDI)
+endif()
 include (${QT_USE_FILE})
 include_directories (${QT_INCLUDES}) 
 link_directories (${QT_LIBRARY_DIR})
@@ -109,7 +122,7 @@ if (UNIX AND NOT APPLE)
     link_libraries (${X11_X11_LIB})
 endif ()
 
-if (RTMIDI_DRIVER STREQUAL "JACK")
+if (${ENABLE_JACK})
     # Check Jack
     set (HAVE_JACK FALSE)
     PKG_CHECK_MODULES (JACK REQUIRED jack)
@@ -128,7 +141,7 @@ if (RTMIDI_DRIVER STREQUAL "JACK")
     endif ()
 endif ()
 
-if (RTMIDI_DRIVER STREQUAL "ALSA")        
+if (${ENABLE_ALSA})
     find_package (Threads REQUIRED)
     # Check ALSA 1.0
     set (HAVE_ALSA FALSE)
@@ -149,27 +162,23 @@ if (RTMIDI_DRIVER STREQUAL "ALSA")
     endif ()
 endif ()
 
-if (RTMIDI_DRIVER STREQUAL "COREMIDI")        
+if (${ENABLE_CORE})
     add_definitions (-D__MACOSX_CORE__)
     link_libraries ("-framework CoreMidi -framework CoreAudio -framework CoreFoundation -framework Carbon")
 endif ()
 
-if (RTMIDI_DRIVER STREQUAL "IRIX")        
+if (${ENABLE_IRIX})
     find_package (Threads REQUIRED)
     add_definitions (-D__IRIX_MD__)
     link_libraries (audio ${CMAKE_THREAD_LIBS_INIT})
 endif ()
 
-if (RTMIDI_DRIVER STREQUAL "WINMM")        
+if (${ENABLE_WIN})
     find_package (WINDRES REQUIRED)
     add_definitions (-D__WINDOWS_MM__)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
     link_libraries (winmm)
 endif ()
-
-if (RTMIDI_DRIVER STREQUAL "NET")
-    add_definitions (-DNETWORK_MIDI)
-endif()
 
 add_subdirectory (src)
 add_subdirectory (translations)

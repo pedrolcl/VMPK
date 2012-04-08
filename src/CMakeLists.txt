@@ -160,5 +160,3 @@ if (APPLE)
 					${vmpk_SRCS}
 					${vmpk_RSC})
 endif ()
-
-set_target_properties (vmpk PROPERTIES OUTPUT_NAME ${PROGRAM_NAME})
