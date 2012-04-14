@@ -310,29 +310,38 @@ bool VPiano::initMidi()
         QString mdriver = dlgPreferences()->getDriver();
         m_midiout = MIDIOutDriverFactory(mdriver, QSTR_VMPKOUTPUT);
         m_midiin = MIDIInDriverFactory(mdriver, QSTR_VMPKINPUT);
-#if !defined(__LINUX_ALSASEQ__) && !defined(__MACOSX_CORE__) && !defined(__LINUX_JACK__)
-        int nOutPorts = m_midiout->getPortCount();
-        if (nOutPorts == 0) {
-            delete m_midiout;
-            m_midiout = 0;
-            QMessageBox::critical( this, tr("Error"),
-                tr("No MIDI output ports available. Aborting") );
-            return false;
+//#if !defined(__LINUX_ALSASEQ__) && !defined(__MACOSX_CORE__) && !defined(__LINUX_JACK__)
+        if (mdriver != QSTR_DRIVERNAMEALSA && mdriver != QSTR_DRIVERNAMEMACOSX && mdriver != QSTR_DRIVERNAMEJACK)
+        {
+            int nOutPorts = m_midiout->getPortCount();
+            if (nOutPorts == 0) {
+                delete m_midiout;
+                m_midiout = 0;
+                QMessageBox::critical( this, tr("Error"),
+                    tr("No MIDI output ports available. Aborting") );
+                return false;
+            }
+            int nInPorts = m_midiin->getPortCount();
+            if (nInPorts == 0) {
+                delete m_midiin;
+                m_midiin = 0;
+            }
         }
-        int nInPorts = m_midiin->getPortCount();
-        if (nInPorts == 0) {
-            delete m_midiin;
-            m_midiin = 0;
+//#endif
+//#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__) || defined(__LINUX_JACK__)
+        if (mdriver == QSTR_DRIVERNAMEALSA || mdriver == QSTR_DRIVERNAMEMACOSX || mdriver == QSTR_DRIVERNAMEJACK)
+        {
+            if (m_midiout != 0)
+                m_midiout->openVirtualPort(QSTR_VMPKOUTPUT.toStdString());
+            if (m_midiin != 0)
+                m_midiin->openVirtualPort(QSTR_VMPKINPUT.toStdString());
         }
-#endif
-#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__) || defined(__LINUX_JACK__)
-        if (m_midiout != 0)
-            m_midiout->openVirtualPort(QSTR_VMPKOUTPUT.toStdString());
-        if (m_midiin != 0)
-            m_midiin->openVirtualPort(QSTR_VMPKINPUT.toStdString());
-#else //if defined(__WINDOWS_MM__) || defined(__IRIX_MD__)
-        m_midiout->openPort( m_currentOut = 0 );
-#endif
+//#else //if defined(__WINDOWS_MM__) || defined(__IRIX_MD__)
+        else
+        {
+            m_midiout->openPort( m_currentOut = 0 );
+        }
+//#endif
         if (m_midiin != 0) {
             // ignore SYX, clock and active sense
             m_midiin->ignoreTypes(true,true,true);
@@ -751,6 +760,34 @@ void VPiano::readSettings()
     settings.endGroup();
     dlgPreferences()->setRawKeyboard(rawKeyboard);
 
+    settings.beginGroup(QSTR_SHORTCUTS);
+    QList<QAction *> actions = findChildren<QAction *> ();
+    foreach(QAction* pAction, actions)
+    {
+        if (pAction->objectName().isEmpty())
+            continue;
+        const QString& sKey = '/' + pAction->objectName();
+        QList<QKeySequence> sShortcuts = pAction->shortcuts();
+        m_defaultShortcuts.insert(sKey, sShortcuts);
+        const QString& sValue = settings.value('/' + sKey).toString();
+        if (sValue.isEmpty())
+        {
+            if(sShortcuts.count() == 0)
+            {
+                continue;
+            }
+            else
+            {
+                pAction->setShortcuts(QList<QKeySequence>());
+            }
+        }
+        else
+        {
+            pAction->setShortcut(QKeySequence(sValue));
+        }
+    }
+    settings.endGroup();
+
     ui.pianokeybd->getKeyboardMap()->setRawMode(false);
     ui.pianokeybd->getRawKeyboardMap()->setRawMode(true);
     if (!mapFile.isEmpty() && mapFile != QSTR_DEFAULT) {
@@ -819,21 +856,6 @@ void VPiano::readMidiControllerSettings()
     keys.sort();
     foreach(const QString& key, keys) {
         m_extraControls << settings.value(key, QString()).toString();
-    }
-    settings.endGroup();
-
-    settings.beginGroup(QSTR_SHORTCUTS);
-    QList<QAction *> actions = findChildren<QAction *> ();
-    QListIterator<QAction *> iter(actions);
-    while (iter.hasNext()) {
-        QAction *pAction = iter.next();
-        if (pAction->objectName().isEmpty())
-            continue;
-        const QString& sKey = '/' + pAction->objectName();
-        const QString& sValue = settings.value('/' + sKey).toString();
-        if (sValue.isEmpty())
-            continue;
-        pAction->setShortcut(QKeySequence(sValue));
     }
     settings.endGroup();
 }
@@ -916,17 +938,22 @@ void VPiano::writeSettings()
 
     settings.beginGroup(QSTR_SHORTCUTS);
     QList<QAction *> actions = findChildren<QAction *> ();
-    QListIterator<QAction *> iter(actions);
-    while (iter.hasNext()) {
-        QAction *pAction = iter.next();
+    foreach(QAction *pAction, actions)
+    {
         if (pAction->objectName().isEmpty())
             continue;
         const QString& sKey = '/' + pAction->objectName();
         const QString& sValue = QString(pAction->shortcut());
-        if (!sValue.isEmpty())
-            settings.setValue(sKey, sValue);
-        else if (settings.contains(sKey))
+        QList<QKeySequence> defShortcuts = m_defaultShortcuts.value(sKey);
+        if (sValue.isEmpty() && defShortcuts.count() == 0)
+        {
+            if (settings.contains(sKey))
                 settings.remove(sKey);
+        }
+        else
+        {
+            settings.setValue(sKey, sValue);
+        }
     }
     settings.endGroup();
 

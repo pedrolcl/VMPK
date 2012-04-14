@@ -250,6 +250,7 @@ private:
     QMap<QString, QString> m_supportedLangs;
     QTranslator *m_trq, *m_trp;
     QAction *m_currentLang;
+    QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
 };
 
 #endif // VPIANO_H
