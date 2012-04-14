@@ -744,7 +744,10 @@ void VPiano::readSettings()
     dlgPreferences()->setVelocityColor(velocityColor);
     ui.actionNoteNames->setChecked(showNames);
     ui.actionStatusBar->setChecked(showStatusBar);
-    ui.pianokeybd->setVelocity( velocityColor ? m_velocity : MIDIVELOCITY );
+    ui.pianokeybd->setVelocity(velocityColor ? m_velocity : MIDIVELOCITY);
+    ui.pianokeybd->setTranspose(m_transpose);
+    ui.pianokeybd->setBaseOctave(m_baseOctave);
+    ui.pianokeybd->setNumOctaves(num_octaves);
     slotShowNoteNames();
     if (!insFileName.isEmpty()) {
         dlgPreferences()->setInstrumentsFileName(insFileName);
@@ -1480,9 +1483,6 @@ void VPiano::applyPreferences()
 {
     ui.pianokeybd->allKeysOff();
 
-    if (ui.pianokeybd->baseOctave() != m_baseOctave) {
-        ui.pianokeybd->setBaseOctave(m_baseOctave);
-    }
     if (ui.pianokeybd->numOctaves() != dlgPreferences()->getNumOctaves()) {
         ui.pianokeybd->setNumOctaves(dlgPreferences()->getNumOctaves());
     }
