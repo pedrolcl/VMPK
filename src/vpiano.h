@@ -189,6 +189,7 @@ private:
     QByteArray readSysexDataFile(const QString& fileName);
     void createLanguageMenu();
     QString configuredLanguage();
+    void enforceMIDIChannelState();
 
     About *dlgAbout();
     Preferences *dlgPreferences();
@@ -250,6 +251,7 @@ private:
     QMap<QString, QString> m_supportedLangs;
     QTranslator *m_trq, *m_trp;
     QAction *m_currentLang;
+    QString m_midiDriver;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
 };
 

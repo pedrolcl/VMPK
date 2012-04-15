@@ -39,6 +39,7 @@ public:
     bool getAlwaysOnTop() const { return m_alwaysOnTop; }
     bool getRawKeyboard() const { return m_rawKeyboard; }
     bool getVelocityColor() const { return m_velocityColor; }
+    bool getEnforceChannelState() const { return m_enforceChannelState; }
     void setInstrumentsFileName( const QString fileName );
     QString getInstrumentsFileName();
     void setInstrumentName( const QString name );
@@ -64,6 +65,7 @@ public slots:
     void setAlwaysOnTop(bool value) { m_alwaysOnTop = value; }
     void setRawKeyboard(bool value) { m_rawKeyboard = value; }
     void setVelocityColor(bool value) { m_velocityColor = value; }
+    void setEnforceChannelState(bool value) { m_enforceChannelState = value; }
     void setKeyPressedColor(QColor value);
     void setDriver(QString value);
     void slotOpenInstrumentFile();
@@ -89,6 +91,7 @@ private:
     bool m_alwaysOnTop;
     bool m_rawKeyboard;
     bool m_velocityColor;
+    bool m_enforceChannelState;
     QColor m_keyPressedColor;
     KeyboardMap m_keymap;
     KeyboardMap m_rawmap;

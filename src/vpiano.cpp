@@ -174,6 +174,7 @@ void VPiano::initialization()
         applyConnections();
         applyInitialSettings();
         initExtraControllers();
+        enforceMIDIChannelState();
         activateWindow();
     }
 }
@@ -307,11 +308,11 @@ VPiano::MIDIInDriverFactory(const QString driverName, const QString clientName)
 bool VPiano::initMidi()
 {
     try {
-        QString mdriver = dlgPreferences()->getDriver();
-        m_midiout = MIDIOutDriverFactory(mdriver, QSTR_VMPKOUTPUT);
-        m_midiin = MIDIInDriverFactory(mdriver, QSTR_VMPKINPUT);
+        m_midiDriver = dlgPreferences()->getDriver();
+        m_midiout = MIDIOutDriverFactory(m_midiDriver, QSTR_VMPKOUTPUT);
+        m_midiin = MIDIInDriverFactory(m_midiDriver, QSTR_VMPKINPUT);
 //#if !defined(__LINUX_ALSASEQ__) && !defined(__MACOSX_CORE__) && !defined(__LINUX_JACK__)
-        if (mdriver != QSTR_DRIVERNAMEALSA && mdriver != QSTR_DRIVERNAMEMACOSX && mdriver != QSTR_DRIVERNAMEJACK)
+        if (m_midiDriver != QSTR_DRIVERNAMEALSA && m_midiDriver != QSTR_DRIVERNAMEMACOSX && m_midiDriver != QSTR_DRIVERNAMEJACK)
         {
             int nOutPorts = m_midiout->getPortCount();
             if (nOutPorts == 0) {
@@ -329,7 +330,7 @@ bool VPiano::initMidi()
         }
 //#endif
 //#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__) || defined(__LINUX_JACK__)
-        if (mdriver == QSTR_DRIVERNAMEALSA || mdriver == QSTR_DRIVERNAMEMACOSX || mdriver == QSTR_DRIVERNAMEJACK)
+        if (m_midiDriver == QSTR_DRIVERNAMEALSA || m_midiDriver == QSTR_DRIVERNAMEMACOSX || m_midiDriver == QSTR_DRIVERNAMEJACK)
         {
             if (m_midiout != 0)
                 m_midiout->openVirtualPort(QSTR_VMPKOUTPUT.toStdString());
@@ -361,14 +362,19 @@ void VPiano::switchMIDIDriver()
     try {
         if (m_midiout != 0) {
             m_midiout->closePort();
+            delete m_midiout;
+            m_midiout = 0;
         }
         if (m_midiin != 0) {
             if (m_inputActive) {
                 m_midiin->cancelCallback();
                 m_inputActive = false;
             }
-            if (m_currentIn > -1)
+            if (m_currentIn > -1) {
                 m_midiin->closePort();
+                delete m_midiin;
+                m_midiin = 0;
+            }
         }
     } catch (RtError& err) {
         qWarning() << "XXX" << QString::fromStdString(err.getMessage());
@@ -376,6 +382,7 @@ void VPiano::switchMIDIDriver()
     if ((m_initialized = initMidi())) {
         refreshConnections();
         applyConnections();
+        enforceMIDIChannelState();
     }
 }
 
@@ -721,8 +728,9 @@ void VPiano::readSettings()
     bool showNames = settings.value(QSTR_SHOWNOTENAMES, false).toBool();
     bool showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
     bool velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
+    bool enforceChanState = settings.value(QSTR_ENFORCECHANSTATE, false).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
-    QString midiDriver = settings.value(QSTR_MIDIDRIVER, QSTR_DRIVERDEFAULT).toString();
+    m_midiDriver = settings.value(QSTR_MIDIDRIVER, QSTR_DRIVERDEFAULT).toString();
 #if defined(NETWORK_MIDI)
     int udpPort = settings.value(QSTR_NETWORKPORT, NETWORKPORTNUMBER).toInt();
     NetworkSettings::instance().setPort(udpPort);
@@ -730,7 +738,7 @@ void VPiano::readSettings()
     NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
 #endif
     settings.endGroup();
-    dlgPreferences()->setDriver(midiDriver);
+    dlgPreferences()->setDriver(m_midiDriver);
 #if defined(NETWORK_MIDI)
     dlgPreferences()->setNetworkPort(udpPort);
     dlgPreferences()->setNetworkIface(iface);
@@ -742,6 +750,7 @@ void VPiano::readSettings()
     dlgPreferences()->setStyledWidgets(styledKnobs);
     dlgPreferences()->setAlwaysOnTop(alwaysOnTop);
     dlgPreferences()->setVelocityColor(velocityColor);
+    dlgPreferences()->setEnforceChannelState(enforceChanState);
     ui.actionNoteNames->setChecked(showNames);
     ui.actionStatusBar->setChecked(showStatusBar);
     ui.pianokeybd->setVelocity(velocityColor ? m_velocity : MIDIVELOCITY);
@@ -805,18 +814,24 @@ void VPiano::readSettings()
 
 void VPiano::readConnectionSettings()
 {
+    QString in_port, out_port;
     QSettings settings;
     settings.beginGroup(QSTR_CONNECTIONS);
     bool inEnabled = settings.value(QSTR_INENABLED, true).toBool();
     bool thruEnabled = settings.value(QSTR_THRUENABLED, false).toBool();
 //#if !defined(NETWORK_MIDI)
-    QString in_port = settings.value(QSTR_INPORT).toString();
-    QString out_port = settings.value(QSTR_OUTPORT).toString();
+    if (m_midiDriver != QSTR_DRIVERNAMENET) {
+        in_port = settings.value(QSTR_INPORT).toString();
+        out_port = settings.value(QSTR_OUTPORT).toString();
+    }
 //#endif
     settings.endGroup();
-#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
-    inEnabled = true;
-#endif
+//#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
+    if ( m_midiDriver == QSTR_DRIVERNAMEALSA ||
+         m_midiDriver == QSTR_DRIVERNAMEMACOSX ||
+         m_midiDriver == QSTR_DRIVERNAMEJACK )
+        inEnabled = true;
+//#endif
 
     if (m_midiin == 0) {
         dlgMidiSetup()->inputNotAvailable();
@@ -824,11 +839,13 @@ void VPiano::readConnectionSettings()
         dlgMidiSetup()->setInputEnabled(inEnabled);
         dlgMidiSetup()->setThruEnabled(thruEnabled);
 //#if !defined(NETWORK_MIDI)
-        dlgMidiSetup()->setCurrentInput(in_port);
+        if (m_midiDriver != QSTR_DRIVERNAMENET)
+            dlgMidiSetup()->setCurrentInput(in_port);
 //#endif
     }
 //#if !defined(NETWORK_MIDI)
-    dlgMidiSetup()->setCurrentOutput(out_port);
+    if (m_midiDriver != QSTR_DRIVERNAMENET)
+        dlgMidiSetup()->setCurrentOutput(out_port);
 //#endif
 }
 
@@ -890,6 +907,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_SHOWSTATUSBAR, ui.actionStatusBar->isChecked());
     settings.setValue(QSTR_DRUMSCHANNEL, dlgPreferences()->getDrumsChannel());
     settings.setValue(QSTR_VELOCITYCOLOR, dlgPreferences()->getVelocityColor());
+    settings.setValue(QSTR_ENFORCECHANSTATE, dlgPreferences()->getEnforceChannelState());
     settings.setValue(QSTR_MIDIDRIVER, dlgPreferences()->getDriver());
 #if defined(NETWORK_MIDI)
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
@@ -901,8 +919,10 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_INENABLED, dlgMidiSetup()->inputIsEnabled());
     settings.setValue(QSTR_THRUENABLED, dlgMidiSetup()->thruIsEnabled());
 //#if !defined(NETWORK_MIDI)
-    settings.setValue(QSTR_INPORT,  dlgMidiSetup()->selectedInputName());
-    settings.setValue(QSTR_OUTPORT, dlgMidiSetup()->selectedOutputName());
+    if (m_midiDriver != QSTR_DRIVERNAMENET) {
+        settings.setValue(QSTR_INPORT,  dlgMidiSetup()->selectedInputName());
+        settings.setValue(QSTR_OUTPORT, dlgMidiSetup()->selectedOutputName());
+    }
 //#endif
     settings.endGroup();
 
@@ -1402,6 +1422,7 @@ void VPiano::slotConnections()
     releaseKb();
     if (dlgMidiSetup()->exec() == QDialog::Accepted) {
         applyConnections();
+        enforceMIDIChannelState();
     }
     grabKb();
 }
@@ -1702,7 +1723,7 @@ void VPiano::slotTransposeValueChanged(const int transpose)
     if (transpose != m_transpose) {
         ui.pianokeybd->setTranspose(transpose);
         m_transpose = transpose;
-        }
+    }
 }
 
 void VPiano::updateNoteNames(bool drums)
@@ -1744,6 +1765,7 @@ void VPiano::slotChannelValueChanged(const int channel)
         }
         updateBankChange(m_lastBank[m_channel]);
         updateProgramChange(m_lastProg[m_channel]);
+        enforceMIDIChannelState();
     }
 }
 
@@ -2380,4 +2402,22 @@ QMenu * VPiano::createPopupMenu ()
 #else
     return QMainWindow::createPopupMenu();
 #endif
+}
+
+void VPiano::enforceMIDIChannelState()
+{
+    if (dlgPreferences()->getEnforceChannelState()) {
+        //qDebug() << Q_FUNC_INFO << "channel=" << m_channel << endl;
+        QMap<int,int>::Iterator i, end;
+        i = m_ctlSettings[m_channel].begin();
+        end = m_ctlSettings[m_channel].end();
+        for (; i != end; ++i) {
+            //qDebug() << "ctl=" << i.key() << "val=" << i.value();
+            sendController(i.key(), i.value());
+        }
+        //qDebug() << "bank=" << m_lastBank[m_channel];
+        sendBankChange(m_lastBank[m_channel]);
+        //qDebug() << "prog=" << m_lastProg[m_channel];
+        sendProgramChange(m_lastProg[m_channel]);
+    }
 }

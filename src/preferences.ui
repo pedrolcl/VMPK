@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>414</height>
+    <width>478</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,8 +54,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>474</width>
-        <height>381</height>
+        <width>472</width>
+        <height>398</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -467,6 +467,13 @@ p, li { white-space: pre-wrap; }
        </item>
        <item row="8" column="1">
         <widget class="QComboBox" name="cboMIDIDriver"/>
+       </item>
+       <item row="16" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkEnforceChannelState">
+         <property name="text">
+          <string>Enforce MIDI channel state</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

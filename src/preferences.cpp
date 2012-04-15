@@ -122,6 +122,7 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkAlwaysOnTop->setChecked( m_alwaysOnTop );
         ui.chkRawKeyboard->setChecked( m_rawKeyboard );
         ui.chkVelocityColor->setChecked( m_velocityColor );
+        ui.chkEnforceChannelState->setChecked( m_enforceChannelState );
         ui.txtNetworkPort->setText( QString::number( m_networkPort ));
         if (!m_keyPressedColor.isValid()) {
             setKeyPressedColor(QApplication::palette().highlight().color());
@@ -138,6 +139,7 @@ void Preferences::apply()
     m_alwaysOnTop = ui.chkAlwaysOnTop->isChecked();
     m_rawKeyboard = ui.chkRawKeyboard->isChecked();
     m_velocityColor = ui.chkVelocityColor->isChecked();
+    m_enforceChannelState = ui.chkEnforceChannelState->isChecked();
     if ( ui.txtFileRawKmap->text().isEmpty() ||
          ui.txtFileRawKmap->text() == QSTR_DEFAULT)
         m_rawmap.setFileName(QSTR_DEFAULT);
@@ -312,6 +314,7 @@ void Preferences::restoreDefaults()
     ui.txtFileKmap->setText(QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);
     ui.chkVelocityColor->setChecked(true);
+    ui.chkEnforceChannelState->setChecked(false);
     setInstrumentsFileName(VPiano::dataDirectory() + QSTR_DEFAULTINS);
     ui.cboInstrument->setCurrentIndex(0);
     ui.txtNetworkPort->setText(QString::number(NETWORKPORTNUMBER));
