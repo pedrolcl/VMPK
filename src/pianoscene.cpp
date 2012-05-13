@@ -395,7 +395,8 @@ void PianoScene::setBaseOctave(const int base)
 QString PianoScene::noteName(const int note)
 {
     int num = (note + m_transpose + 12) % 12;
-    int oct = m_baseOctave + ((note + m_transpose) / 12) - 1;
+    int adj = (note + m_transpose < 0) ? 2 : 1;
+    int oct = m_baseOctave + ((note + m_transpose) / 12) - adj;
     if (m_noteNames.isEmpty()) {
         QString name;
         if (!m_names_f.isEmpty() && !m_names_s.isEmpty())
