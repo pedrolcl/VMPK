@@ -50,7 +50,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program har öppen och fri källkod. Det kan återutges eller ändras i enlighet med GNU GPL (GNU:s General Public License), publicerad av Free Software Foundation, antingen enligt version 3 eller senare version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program ges ut med förhoppningen att det ska vara användbart, dock UTAN GARANTIER, såsom FÖRSÄLJNINGSGARANTIER eller GARANTIER FÖR ÄNDAMÅLSENLIGHET. Ytterligare detaljer finns i GNU GPL som levereras med detta program. Om inte licensen  finns medskickad, se &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Följande kopieringsrättsnotis är under alla omständigheter gällande:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program innehåller &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: in- och utmatningsklasser i C++ för realtids-MIDI&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {2008-2011,?} {9p?} {0057a?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {3 ?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0057a?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0057a?} {2003-2010 ?}</translation>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program innehåller &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: in- och utmatningsklasser i C++ för realtids-MIDI&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message utf8="true">
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -242,12 +242,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.cpp" line="43"/>
         <source>Raw Key Map Editor</source>
-        <translation>Tangentbordseditor - rådata</translation>
+        <translation>Tangentbordseditor</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="43"/>
         <source>Key Map Editor</source>
-        <translation>TangentbordseditorTastaturbelegungseditor</translation>
+        <translation>Tangentbindningar</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="45"/>
@@ -291,7 +291,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="67"/>
         <source>This is the list of the PC keyboard mappings. Each row has a number corresponding to the MIDI note number, and you can type an alphanumeric Key name that will be translated to the given note</source>
-        <translation>Detta är listan över tangentbindningar. Varje rad har ett nummer motsvarande MIDI-tonnumret, och du kan ange en alfanumerisk tangent som kommer att översättas till den aktuella tonen.</translation>
+        <translation>Detta är listan över tangentbindningar. Varje rad har ett nummer motsvarande MIDI-tonnumret, och du kan ange en alfanumerisk tangent som kommer att bindas till den aktuella tonen.</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="74"/>
@@ -984,7 +984,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="60"/>
         <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
-        <translation>Sätt en bock i denna ruta för att aktivera MIDI-genommatning: alla MIDI-händelser som tas emot kommer att kopieras till utmatningsporten.</translation>
+        <translation>Sätt en bock i denna ruta för att aktivera MIDI-genommatning: alla MIDI-signaler som tas emot kommer att kopieras till utmatningsporten.</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="63"/>
@@ -994,22 +994,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="76"/>
         <source>Input MIDI Connection</source>
-        <translation>MIDI-inmatningsanslutning</translation>
+        <translation>MIDI-inmatningsenhet</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="98"/>
         <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
-        <translation>Använd denna kontroll för att ändra anslutning till MIDI-inmatningsporten, om den är aktiverad.</translation>
+        <translation>Använd denna kontroll för att ändra enhet för MIDI-inmatningsporten, om den är aktiverad.</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="111"/>
         <source>Output MIDI Connection</source>
-        <translation>MIDI-utmatningsanslutning</translation>
+        <translation>MIDI-utmatningsenhet</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="133"/>
         <source>Use this control to change the connection for the MIDI output port</source>
-        <translation>Använd denna kontroll för att ändra anslutningen till MIDI-utmatningsporten.</translation>
+        <translation>Använd denna kontroll för att ändra enheten för MIDI-utmatningsporten.</translation>
     </message>
 </context>
 <context>
@@ -1163,13 +1163,13 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences.cpp" line="201"/>
         <location filename="../src/preferences.cpp" line="212"/>
         <source>Open keyboard map definition</source>
-        <translation>Öppna teckenbindningsschema</translation>
+        <translation>Öppna tangentbindningslista</translation>
     </message>
     <message>
         <location filename="../src/preferences.cpp" line="203"/>
         <location filename="../src/preferences.cpp" line="214"/>
         <source>Keyboard map (*.xml)</source>
-        <translation>Teckenbindningsschema (*.xml)</translation>
+        <translation>Teckenbindningslista (*.xml)</translation>
     </message>
 </context>
 <context>
@@ -1187,7 +1187,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="57"/>
         <source>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</source>
-        <translation>Antalet oktaver, från 1 till 10. Varje oktav har tolv tangenter: 7 vita och 5 svarta. MIDI-stadarden har 128 toner, men inte alla instrument kan spela allihop.</translation>
+        <translation>Antalet oktaver, från 1 till 10. Varje oktav har tolv tangenter: 7 vita och 5 svarta. MIDI-standarden har 128 toner, men inte alla instrument kan spela allihop.</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="76"/>
@@ -1253,23 +1253,22 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences.ui" line="205"/>
         <location filename="../src/preferences.ui" line="225"/>
         <source>Load...</source>
-        <translation>Öffnen...</translation>
+        <translation>Öppna ...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="212"/>
         <source>Raw Keyboard Map</source>
-        <translatorcomment>There is no good/short way to translate this to german :-/</translatorcomment>
-        <translation>Tastenbelegung - Rohdaten</translation>
+        <translation>Tangentbindningar (rådata)</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="232"/>
         <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation>Den Stil der Drehregler und Schalter ändern, entweder den eigenen oder den in qtconfig bestimmten Stil verwenden.</translation>
+        <translation>Ändra kontrollreglagens utseende genom att antingen använda anpassat utseende eller att återgå till utseendet sparat i qtconfig.</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="235"/>
         <source>Styled Widgets</source>
-        <translation>Eigener Bedienelemente-Stil</translation>
+        <translation>Anpassade kontrollreglage</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="269"/>
@@ -1285,25 +1284,25 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Dies ankreuzen, um die Rohdaten der Tastatur zu verwenden. Dieses System hat mehrere Vorteile:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Es ist möglich, auch Steuertasten zu verwenden, z.B Akzent- und Sondertasten)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Die Zuweisungsdefinitionen sind unabhängig von der Sprache, aber nicht von Hardware und Betriebssystem)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Schnellere Bearbeitung&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna bockruta för att använda lågnivåtangentkommandon. Detta har flera fördelar.:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Det är då möjligt att använda &quot;döda tangenter&quot; såsom accenter och andra diakritiska tecken.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tangentbindningar är oberoende av språk men inte av maskinvara eller operativsystem.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Kortare processtid&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="293"/>
         <source>Drums Channel</source>
-        <translation>Drumkit Kanal</translation>
+        <translation>Trumsetskanal</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="304"/>
         <source>None</source>
-        <translation>Kein Kanal</translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="309"/>
         <source>1</source>
-        <translation></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="314"/>
@@ -1378,7 +1377,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="387"/>
         <source>Translate MIDI velocity to key pressed color tint</source>
-        <translation>MIDI Anschlagsdynamik bestimmt die Tastenfarbe</translation>
+        <translation>Översätt MIDI-anslag till markeringsfärg för tangent</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="397"/>
@@ -1396,12 +1395,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="245"/>
         <source>Check this box to keep the keyboard window always visible, on top of other windows.</source>
-        <translation>Diese Option hebt das Tastaturfenster in den Vordergrund und behält es immer über allen anderen Fenstern.</translation>
+        <translation>Markera denna bockruta för att alltid hålla klaviaturfönstret öppet ovanpå andra fönster.</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="248"/>
         <source>Always On Top</source>
-        <translation>Im Vordergrund bleiben</translation>
+        <translation>Alltid ovanpå</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="255"/>
@@ -1410,17 +1409,21 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>Diese Option fängt die Tastatur ein, sodaß jeder Tastendruck unmittelbar an die Anwendung gesendet wird. (Unter Linux funktioniert dies nur unter KDE)</translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna bockruta för att gripa tag i tangentbordet, även när tangentbordskontrollen inte är i fokus.&lt;span style=&quot; font-weight:600;&quot;&gt;Anmärkning för Linux:&lt;/span&gt; Detta alternativ fungerar bra på standard-KDE-skrivbord, men inte med fönsterhanterare som Metacity och Compiz. Det är också känt att detta alternativ förstör rullgardinsmenyer i GTK-program.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="262"/>
         <source>Grab Computer Keyboard</source>
-        <translation>Computertastatur behalten</translation>
+        <translation>Behåll tangentbord</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="279"/>
         <source>Raw Computer Keyboard</source>
-        <translation>Computertastatur-Rohdaten verwenden</translation>
+        <translation>Använd tangentrådata</translation>
     </message>
     <message>
         <source>Grab keyboard</source>
@@ -1468,68 +1471,68 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/riffimportdlg.cpp" line="59"/>
         <source>Output</source>
-        <translation>Ausgabedatei</translation>
+        <translation>Utmatning</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.cpp" line="59"/>
         <source>Instrument definitions (*.ins)</source>
-        <translation>Instrumentdefinitionen (*.ins)</translation>
+        <translation>Instrumentdefinitioner (*.ins)</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
-        <translation>SoundFont importieren</translation>
+        <translation>Importera SoundFont-instrument</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="50"/>
         <source>Input File</source>
-        <translation>Eingabedatei</translation>
+        <translation>Inmatningsfil</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="63"/>
         <source>This text box displays the path and name of the selected SoundFont to be  imported</source>
-        <translation>Dieses Eingabefeld gibt den Pfad und den Namen der ausgewählten Musikschriftart an, die importiert werden soll</translation>
+        <translation>Detta fält visar sökväg och namn för den valda ljudfonten som ska importeras</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="85"/>
         <source>Press this button to select a SoundFont file to be imported</source>
-        <translation>Hier klicken, um eine SoundFont-Datei zu importieren</translation>
+        <translation>Klicka på denna knapp för att välja SoundFont-fil att importera</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="88"/>
         <location filename="../src/riffimportdlg.ui" line="161"/>
         <source>...</source>
-        <translation></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="95"/>
         <source>Name</source>
-        <translation></translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="109"/>
         <source>Version</source>
-        <translation></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="119"/>
         <source>Copyright</source>
-        <translation></translation>
+        <translation>Kopieringsrättighet</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="129"/>
         <source>Output File</source>
-        <translation>Ausgabedatei</translation>
+        <translation>Utmatningsfil</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="139"/>
         <source>This text box displays the name of the output file in .INS format that will be created</source>
-        <translation>Dieses Eingabefeld zeigt den Namen der zu erstellenden Ausgabedatei im .INS Format an</translation>
+        <translation>Detta fält visar namnet på utmatningsfilen i INS-format som kommer att skapas</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="158"/>
         <source>Press this button to select a path and file name for the output file</source>
-        <translation>Hier kann man den Pfad und die Datei für die Ausgabedatei auswählen</translation>
+        <translation>Klicka på denna knapp för att välja sökväg och namn för utmatningsfilen</translation>
     </message>
 </context>
 <context>
@@ -1537,7 +1540,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/shortcutdialog.ui" line="32"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Kortkommandon</translation>
+        <translation>Tangentkommandon</translation>
     </message>
     <message>
         <location filename="../src/shortcutdialog.ui" line="64"/>
@@ -1547,26 +1550,26 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/shortcutdialog.ui" line="69"/>
         <source>Description</source>
-        <translation>Beschreibung</translation>
+        <translation>Beskrivning</translation>
     </message>
     <message>
         <location filename="../src/shortcutdialog.ui" line="74"/>
         <source>Shortcut</source>
-        <translation>Kürzel</translation>
+        <translation>Tangentbordskommando</translation>
     </message>
     <message>
         <location filename="../src/shortcutdialog.cpp" line="335"/>
         <source>Warning</source>
-        <translation>Warnung</translation>
+        <translation>Varning</translation>
     </message>
     <message>
         <location filename="../src/shortcutdialog.cpp" line="336"/>
         <source>Keyboard shortcuts have been changed.
 
 Do you want to apply the changes?</source>
-        <translation>Die Tastenkürzel wurden geändert.
+        <translation>Tangentkommandona har ändrats.
 
-Wollen Sie die Änderungen anwenden?</translation>
+Vill du verkställa ändringarna?</translation>
     </message>
 </context>
 <context>
@@ -1575,7 +1578,7 @@ Wollen Sie die Änderungen anwenden?</translation>
         <location filename="../src/vpiano.cpp" line="231"/>
         <location filename="../src/vpiano.cpp" line="1696"/>
         <source>Error</source>
-        <translation>Fel</translation>
+        <translation type="unfinished">Fel</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="232"/>
@@ -1693,7 +1696,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2087"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;Översatt av Erik Magnus Johansson (e.m.johansson@spray.se) &lt;/p&gt;%1</translation>
+        <translation>&lt;p&gt;Översatt av Magnus Johansson (e.m.johansson@spray.se) &lt;/p&gt;%1</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2121"/>
@@ -1796,7 +1799,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;Fil</translation>
+        <translation>&amp;Ljudfil</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="66"/>
@@ -1830,7 +1833,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
         <source>Notes</source>
-        <translation>Noter</translation>
+        <translation>Toner</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="121"/>
@@ -1846,7 +1849,7 @@ Wollen Sie die Änderungen anwenden?</translation>
         <location filename="../src/vpiano.ui" line="162"/>
         <location filename="../src/vpiano.ui" line="308"/>
         <source>&amp;Notes</source>
-        <translation>&amp;Noter</translation>
+        <translation>&amp;Toner</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="184"/>
@@ -1880,7 +1883,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="268"/>
         <source>Exit the program</source>
-        <translation>Programmet avslutas</translation>
+        <translation>Avsluta programmet</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="273"/>
@@ -1929,12 +1932,12 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="311"/>
         <source>Show or hide the Notes toolbar</source>
-        <translation>Visa eller göm verktygslisten Noter</translation>
+        <translation>Visa eller göm verktygslisten Toner</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="322"/>
         <source>Show or hide the Controller toolbar</source>
-        <translation>Visa eller göm verktygslisten Kontroll</translation>
+        <translation>Visa eller göm verktygslisten Kontroller</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="333"/>
@@ -2019,7 +2022,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="450"/>
         <source>Open the Banks/Programs editor</source>
-        <translation>Öppna editorn för bank och program</translation>
+        <translation>Öppna editorn för ljudbank och ljudprogram</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="461"/>
@@ -2039,12 +2042,12 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="480"/>
         <source>&amp;Shortcuts</source>
-        <translation>&amp;Kortkommandon</translation>
+        <translation>&amp;Tangentkommandon</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="483"/>
         <source>Open the Shortcuts editor</source>
-        <translation>Öppna editorn för kortkommandon</translation>
+        <translation>Öppna editorn för tangentkommandon</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="488"/>
@@ -2203,7 +2206,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="598"/>
         <source>Next Bank</source>
-        <translation>Nästa bank</translation>
+        <translation>Nästa ljudbank</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="601"/>
@@ -2217,7 +2220,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="609"/>
         <source>Previous Bank</source>
-        <translation>Föregående bank</translation>
+        <translation>Föregående ljudbank</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="612"/>
@@ -2231,7 +2234,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="620"/>
         <source>Next Program</source>
-        <translation>Nästa program</translation>
+        <translation>Nästa ljudprogram</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="623"/>
@@ -2245,7 +2248,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="631"/>
         <source>Previous Program</source>
-        <translation>Föregående program</translation>
+        <translation>Föregående ljudprogram</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="634"/>
@@ -2278,7 +2281,7 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="656"/>
         <source>Decrement note velocity</source>
-        <translation>Minska anslag</translation>
+        <translation>Minska anslagsstyrka</translation>
     </message>
     <message>
         <source>Load...</source>
