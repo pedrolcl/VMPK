@@ -31,8 +31,10 @@ public:
     void inputNotAvailable();
     bool inputIsEnabled() const;
     bool thruIsEnabled() const;
+    bool omniIsEnabled() const;
     void setInputEnabled(const bool state);
     void setThruEnabled(const bool state);
+    void setOmniEnabled(const bool state);
     void clearCombos();
     void addInputPortName(const QString& name, int index);
     void addOutputPortName(const QString& output, int index);

@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>573</width>
-    <height>223</height>
+    <width>571</width>
+    <height>221</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,8 +49,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>573</width>
-     <height>20</height>
+     <width>571</width>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -278,7 +278,7 @@
   </action>
   <action name="actionConnections">
    <property name="text">
-    <string>&amp;Connections</string>
+    <string>MIDI &amp;Connections</string>
    </property>
    <property name="statusTip">
     <string>Edit the MIDI connections</string>

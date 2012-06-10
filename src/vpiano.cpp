@@ -77,6 +77,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_currentIn(-1),
     m_inputActive(false),
     m_midiThru(false),
+    m_midiOmni(false),
     m_initialized(false),
     m_dlgAbout(0),
     m_dlgPreferences(0),
@@ -179,11 +180,6 @@ void VPiano::initialization()
     }
 }
 
-int VPiano::getInputChannel()
-{
-    return m_channel;
-}
-
 void midiCallback( double /*deltatime*/,
                    std::vector< unsigned char > *message,
                    void *userData )
@@ -191,19 +187,21 @@ void midiCallback( double /*deltatime*/,
     QEvent* ev = 0;
     VPiano* instance = static_cast<VPiano*>(userData);
     instance->midiThru(message);
-    unsigned char status = message->at(0) & MASK_STATUS;
     unsigned char channel = message->at(0) & MASK_CHANNEL;
-    unsigned char channelFilter = instance->getInputChannel();
-    if (channel == channelFilter) {
+    unsigned char status = message->at(0) & MASK_STATUS;
+    bool messageAccepted = (instance->baseChannel() == channel) ||
+                           (instance->omniMode() &&
+                             (status == STATUS_NOTEON || status == STATUS_NOTEOFF));
+    if (messageAccepted) {
         switch( status ) {
         case STATUS_NOTEOFF:
         case STATUS_NOTEON: {
                 unsigned char midi_note = message->at(1);
                 unsigned char vel = message->at(2);
                 if ((status == STATUS_NOTEOFF) || (vel == 0))
-                    ev = new NoteOffEvent(midi_note, vel);
+                    ev = new NoteOffEvent(channel, midi_note, vel);
                 else
-                    ev = new NoteOnEvent(midi_note, vel);
+                    ev = new NoteOnEvent(channel, midi_note, vel);
             }
             break;
         case STATUS_POLYAFT: {
@@ -311,7 +309,6 @@ bool VPiano::initMidi()
         m_midiDriver = dlgPreferences()->getDriver();
         m_midiout = MIDIOutDriverFactory(m_midiDriver, QSTR_VMPKOUTPUT);
         m_midiin = MIDIInDriverFactory(m_midiDriver, QSTR_VMPKINPUT);
-//#if !defined(__LINUX_ALSASEQ__) && !defined(__MACOSX_CORE__) && !defined(__LINUX_JACK__)
         if (m_midiDriver != QSTR_DRIVERNAMEALSA && m_midiDriver != QSTR_DRIVERNAMEMACOSX && m_midiDriver != QSTR_DRIVERNAMEJACK)
         {
             int nOutPorts = m_midiout->getPortCount();
@@ -328,8 +325,6 @@ bool VPiano::initMidi()
                 m_midiin = 0;
             }
         }
-//#endif
-//#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__) || defined(__LINUX_JACK__)
         if (m_midiDriver == QSTR_DRIVERNAMEALSA || m_midiDriver == QSTR_DRIVERNAMEMACOSX || m_midiDriver == QSTR_DRIVERNAMEJACK)
         {
             if (m_midiout != 0)
@@ -337,12 +332,10 @@ bool VPiano::initMidi()
             if (m_midiin != 0)
                 m_midiin->openVirtualPort(QSTR_VMPKINPUT.toStdString());
         }
-//#else //if defined(__WINDOWS_MM__) || defined(__IRIX_MD__)
         else
         {
             m_midiout->openPort( m_currentOut = 0 );
         }
-//#endif
         if (m_midiin != 0) {
             // ignore SYX, clock and active sense
             m_midiin->ignoreTypes(true,true,true);
@@ -388,34 +381,21 @@ void VPiano::switchMIDIDriver()
 
 void VPiano::initToolBars()
 {
-    //QLabel *lbl;
     m_dialStyle = new ClassicStyle();
     m_dialStyle->setParent(this);
     // Notes tool bar
     QWidget *w = ui.toolBarNotes->widgetForAction(ui.actionPanic);
     w->setMaximumWidth(120);
-    m_lblChannel = new QLabel(
-#if defined(SMALL_SCREEN)
-        tr("Chan:")
-#else
-        tr("Channel:")
-#endif
-    , this);
+    m_lblChannel = new QLabel(this);
     ui.toolBarNotes->addWidget(m_lblChannel);
     m_lblChannel->setMargin(TOOLBARLABELMARGIN);
     m_sboxChannel = new QSpinBox(this);
     m_sboxChannel->setMinimum(1);
     m_sboxChannel->setMaximum(MIDICHANNELS);
-    m_sboxChannel->setValue(m_channel + 1);
+    m_sboxChannel->setValue(m_baseChannel + 1);
     m_sboxChannel->setFocusPolicy(Qt::NoFocus);
     ui.toolBarNotes->addWidget(m_sboxChannel);
-    m_lblBaseOctave = new QLabel(
-#if defined(SMALL_SCREEN)
-        tr("Oct:")
-#else
-        tr("Base Octave:")
-#endif
-    , this);
+    m_lblBaseOctave = new QLabel(this);
     ui.toolBarNotes->addWidget(m_lblBaseOctave);
     m_lblBaseOctave->setMargin(TOOLBARLABELMARGIN);
     m_sboxOctave = new QSpinBox(this);
@@ -424,13 +404,7 @@ void VPiano::initToolBars()
     m_sboxOctave->setValue(m_baseOctave);
     m_sboxOctave->setFocusPolicy(Qt::NoFocus);
     ui.toolBarNotes->addWidget(m_sboxOctave);
-    m_lblTranspose = new QLabel(
-#if defined(SMALL_SCREEN)
-        tr("Trans:")
-#else
-        tr("Transpose:")
-#endif
-    , this);
+    m_lblTranspose = new QLabel(this);
     ui.toolBarNotes->addWidget(m_lblTranspose);
     m_lblTranspose->setMargin(TOOLBARLABELMARGIN);
     m_sboxTranspose = new QSpinBox(this);
@@ -439,13 +413,7 @@ void VPiano::initToolBars()
     m_sboxTranspose->setValue(m_transpose);
     m_sboxTranspose->setFocusPolicy(Qt::NoFocus);
     ui.toolBarNotes->addWidget(m_sboxTranspose);
-    m_lblVelocity = new QLabel(
-#if defined(SMALL_SCREEN)
-        tr("Vel:")
-#else
-        tr("Velocity:")
-#endif
-    , this);
+    m_lblVelocity = new QLabel(this);
     ui.toolBarNotes->addWidget(m_lblVelocity);
     m_lblVelocity->setMargin(TOOLBARLABELMARGIN);
     m_Velocity = new Knob(this);
@@ -484,14 +452,14 @@ void VPiano::initToolBars()
     connect( ui.actionVelocityDown, SIGNAL(triggered()),
              SLOT(slotVelocityDown()) );
     // Controllers tool bar
-    m_lblControl = new QLabel(tr("Control:"), this);
+    m_lblControl = new QLabel(this);
     ui.toolBarControllers->addWidget(m_lblControl);
     m_lblControl ->setMargin(TOOLBARLABELMARGIN);
     m_comboControl = new QComboBox(this);
     m_comboControl->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboControl->setFocusPolicy(Qt::NoFocus);
     ui.toolBarControllers->addWidget(m_comboControl);
-    m_lblValue = new QLabel(tr("Value:"), this);
+    m_lblValue = new QLabel(this);
     ui.toolBarControllers->addWidget(m_lblValue);
     m_lblValue->setMargin(TOOLBARLABELMARGIN);
     m_Control= new Knob(this);
@@ -510,7 +478,7 @@ void VPiano::initToolBars()
     connect( m_Control, SIGNAL(sliderMoved(int)),
              SLOT(slotControlSliderMoved(int)) );
     // Pitch bender tool bar
-    m_lblBender = new QLabel(tr("Bender:"), this);
+    m_lblBender = new QLabel(this);
     ui.toolBarBender->addWidget(m_lblBender);
     m_lblBender->setMargin(TOOLBARLABELMARGIN);
     m_bender = new QSlider(this);
@@ -527,14 +495,14 @@ void VPiano::initToolBars()
     connect( m_bender, SIGNAL(sliderReleased()),
              SLOT(slotBenderSliderReleased()) );
     // Programs tool bar
-    m_lblBank = new QLabel(tr("Bank:"), this);
+    m_lblBank = new QLabel(this);
     ui.toolBarPrograms->addWidget(m_lblBank);
     m_lblBank->setMargin(TOOLBARLABELMARGIN);
     m_comboBank = new QComboBox(this);
     m_comboBank->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboBank->setFocusPolicy(Qt::NoFocus);
     ui.toolBarPrograms->addWidget(m_comboBank);
-    m_lblProgram = new QLabel(tr("Program:"), this);
+    m_lblProgram = new QLabel(this);
     ui.toolBarPrograms->addWidget(m_lblProgram);
     m_lblProgram->setMargin(TOOLBARLABELMARGIN);
     m_comboProg = new QComboBox(this);
@@ -573,6 +541,7 @@ void VPiano::initToolBars()
              SLOT(slotControllerUp()) );
     /* connect( ui.actionEditPrograms, SIGNAL(triggered()),
              SLOT(slotEditPrograms())); */
+    retranslateToolbars();
 }
 
 //void VPiano::slotDebugDestroyed(QObject *obj)
@@ -624,8 +593,8 @@ void VPiano::initExtraControllers()
         ExtraControl::decodeString( s, lbl, control, type,
                                     minValue, maxValue, defValue,
                                     size, fileName );
-        if (m_ctlState[m_channel].contains(control))
-            value = m_ctlState[m_channel][control];
+        if (m_ctlState[m_baseChannel].contains(control))
+            value = m_ctlState[m_baseChannel][control];
         else
             value = defValue;
         switch(type) {
@@ -714,7 +683,7 @@ void VPiano::readSettings()
     settings.endGroup();
 
     settings.beginGroup(QSTR_PREFERENCES);
-    m_channel = settings.value(QSTR_CHANNEL, 0).toInt();
+    m_baseChannel = settings.value(QSTR_CHANNEL, 0).toInt();
     m_velocity = settings.value(QSTR_VELOCITY, MIDIVELOCITY).toInt();
     m_baseOctave = settings.value(QSTR_BASEOCTAVE, 3).toInt();
     m_transpose = settings.value(QSTR_TRANSPOSE, 0).toInt();
@@ -819,34 +788,28 @@ void VPiano::readConnectionSettings()
     settings.beginGroup(QSTR_CONNECTIONS);
     bool inEnabled = settings.value(QSTR_INENABLED, true).toBool();
     bool thruEnabled = settings.value(QSTR_THRUENABLED, false).toBool();
-//#if !defined(NETWORK_MIDI)
+    bool omniEnabled = settings.value(QSTR_OMNIENABLED, false).toBool();
     if (m_midiDriver != QSTR_DRIVERNAMENET) {
         in_port = settings.value(QSTR_INPORT).toString();
         out_port = settings.value(QSTR_OUTPORT).toString();
     }
-//#endif
     settings.endGroup();
-//#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
     if ( m_midiDriver == QSTR_DRIVERNAMEALSA ||
          m_midiDriver == QSTR_DRIVERNAMEMACOSX ||
          m_midiDriver == QSTR_DRIVERNAMEJACK )
         inEnabled = true;
-//#endif
 
     if (m_midiin == 0) {
         dlgMidiSetup()->inputNotAvailable();
     } else {
         dlgMidiSetup()->setInputEnabled(inEnabled);
         dlgMidiSetup()->setThruEnabled(thruEnabled);
-//#if !defined(NETWORK_MIDI)
+        dlgMidiSetup()->setOmniEnabled(omniEnabled);
         if (m_midiDriver != QSTR_DRIVERNAMENET)
             dlgMidiSetup()->setCurrentInput(in_port);
-//#endif
     }
-//#if !defined(NETWORK_MIDI)
     if (m_midiDriver != QSTR_DRIVERNAMENET)
         dlgMidiSetup()->setCurrentOutput(out_port);
-//#endif
 }
 
 void VPiano::readMidiControllerSettings()
@@ -891,7 +854,7 @@ void VPiano::writeSettings()
     settings.endGroup();
 
     settings.beginGroup(QSTR_PREFERENCES);
-    settings.setValue(QSTR_CHANNEL, m_channel);
+    settings.setValue(QSTR_CHANNEL, m_baseChannel);
     settings.setValue(QSTR_VELOCITY, m_velocity);
     settings.setValue(QSTR_BASEOCTAVE, m_baseOctave);
     settings.setValue(QSTR_TRANSPOSE, m_transpose);
@@ -918,6 +881,7 @@ void VPiano::writeSettings()
     settings.beginGroup(QSTR_CONNECTIONS);
     settings.setValue(QSTR_INENABLED, dlgMidiSetup()->inputIsEnabled());
     settings.setValue(QSTR_THRUENABLED, dlgMidiSetup()->thruIsEnabled());
+    settings.setValue(QSTR_OMNIENABLED, dlgMidiSetup()->omniIsEnabled());
 //#if !defined(NETWORK_MIDI)
     if (m_midiDriver != QSTR_DRIVERNAMENET) {
         settings.setValue(QSTR_INPORT,  dlgMidiSetup()->selectedInputName());
@@ -1111,7 +1075,7 @@ void VPiano::sendNoteOn(const int midiNote, const int vel)
 {
     std::vector<unsigned char> message;
     if ((midiNote & MASK_SAFETY) == midiNote) {
-        unsigned char chan = static_cast<unsigned char>(m_channel);
+        unsigned char chan = static_cast<unsigned char>(m_baseChannel);
         //unsigned char vel = static_cast<unsigned char>(m_velocity);
         // Note On: 0x90 + channel, note, vel
         message.push_back(STATUS_NOTEON + (chan & MASK_CHANNEL));
@@ -1133,7 +1097,7 @@ void VPiano::sendNoteOff(const int midiNote, const int vel)
 {
     std::vector<unsigned char> message;
     if ((midiNote & MASK_SAFETY) == midiNote) {
-        unsigned char chan = static_cast<unsigned char>(m_channel);
+        unsigned char chan = static_cast<unsigned char>(m_baseChannel);
         //unsigned char vel = static_cast<unsigned char>(m_velocity);
         // Note Off: 0x80 + channel, note, vel
         message.push_back(STATUS_NOTEOFF + (chan & MASK_CHANNEL));
@@ -1154,7 +1118,7 @@ void VPiano::noteOff(const int midiNote, const int vel)
 void VPiano::sendController(const int controller, const int value)
 {
     std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_channel);
+    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
     unsigned char ctl  = static_cast<unsigned char>(controller);
     unsigned char val  = static_cast<unsigned char>(value);
     // Controller: 0xB0 + channel, ctl, val
@@ -1174,8 +1138,8 @@ void VPiano::initializeAllControllers()
 {
     int index = m_comboControl->currentIndex();
     int ctl = m_comboControl->itemData(index).toInt();
-    int val = m_ctlState[m_channel][ctl];
-    initControllers(m_channel);
+    int val = m_ctlState[m_baseChannel][ctl];
+    initControllers(m_baseChannel);
     m_comboControl->setCurrentIndex(index);
     m_Control->setValue(val);
     m_Control->setToolTip(QString::number(val));
@@ -1185,8 +1149,8 @@ void VPiano::initializeAllControllers()
         QVariant c = w->property(MIDICTLNUMBER);
         if (c.isValid()) {
             ctl = c.toInt();
-            if (m_ctlState[m_channel].contains(ctl)) {
-                val = m_ctlState[m_channel][ctl];
+            if (m_ctlState[m_baseChannel].contains(ctl)) {
+                val = m_ctlState[m_baseChannel][ctl];
                 QVariant p = w->property("value");
                 if (p.isValid()) {
                     w->setProperty("value", val);
@@ -1212,7 +1176,7 @@ void VPiano::allNotesOff()
 void VPiano::sendProgramChange(const int program)
 {
     std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_channel);
+    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
     unsigned char pgm  = static_cast<unsigned char>(program);
     // Program: 0xC0 + channel, pgm
     message.push_back(STATUS_PROGRAM + (chan & MASK_CHANNEL));
@@ -1240,13 +1204,13 @@ void VPiano::sendBankChange(const int bank)
     default: /* if method is 3 or above, do nothing */
         break;
     }
-    m_lastBank[m_channel] = bank;
+    m_lastBank[m_baseChannel] = bank;
 }
 
 void VPiano::sendPolyKeyPress(const int note, const int value)
 {
     std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_channel);
+    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
     unsigned char midi_note  = static_cast<unsigned char>(note);
     unsigned char val  = static_cast<unsigned char>(value);
     // Polyphonic After-touch: 0xA0 + channel, note, value
@@ -1259,7 +1223,7 @@ void VPiano::sendPolyKeyPress(const int note, const int value)
 void VPiano::sendChanKeyPress(const int value)
 {
     std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_channel);
+    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
     unsigned char val  = static_cast<unsigned char>(value);
     // Channel After-touch: 0xD0 + channel, value
     message.push_back(STATUS_CHANAFT + (chan & MASK_CHANNEL));
@@ -1271,7 +1235,7 @@ void VPiano::sendBender(const int value)
 {
     std::vector<unsigned char> message;
     int v = value + BENDER_MID; // v >= 0, v <= 16384
-    unsigned char chan = static_cast<unsigned char>(m_channel);
+    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
     unsigned char lsb  = static_cast<unsigned char>(CALC_LSB(v));
     unsigned char msb  = static_cast<unsigned char>(CALC_MSB(v));
     // Program: 0xE0 + channel, lsb, msb
@@ -1350,7 +1314,7 @@ void VPiano::slotControlSliderMoved(const int value)
     int controller = m_comboControl->itemData(index).toInt();
     sendController( controller, value );
     updateExtraController( controller, value );
-    m_ctlState[m_channel][controller] = value;
+    m_ctlState[m_baseChannel][controller] = value;
     setWidgetTip(m_Control, value);
 }
 
@@ -1455,6 +1419,7 @@ void VPiano::applyConnections()
             }
             m_currentIn = i;
             m_midiThru = dlgMidiSetup()->thruIsEnabled();
+            m_midiOmni = dlgMidiSetup()->omniIsEnabled();
         }
     } catch (RtError& err) {
         ui.statusBar->showMessage(QString::fromStdString(err.getMessage()));
@@ -1554,7 +1519,7 @@ void VPiano::populateInstruments()
     m_comboProg->clear();
     if (!dlgPreferences()->getInstrumentsFileName().isEmpty() &&
          dlgPreferences()->getInstrumentsFileName() != QSTR_DEFAULT) {
-        if (m_channel == dlgPreferences()->getDrumsChannel())
+        if (m_baseChannel == dlgPreferences()->getDrumsChannel())
             m_ins = dlgPreferences()->getDrumsInstrument();
         else
             m_ins = dlgPreferences()->getInstrument();
@@ -1569,7 +1534,7 @@ void VPiano::populateInstruments()
                 m_comboBank->addItem(patch.name(), j.key());
                 //qDebug() << "---- Bank[" << j.key() << "]=" << patch.name();
             }
-            updateBankChange(m_lastBank[m_channel]);
+            updateBankChange(m_lastBank[m_baseChannel]);
         }
     }
 }
@@ -1588,13 +1553,13 @@ void VPiano::applyInitialSettings()
                 m_ctlState[ch][i.key()] = i.value();
         }
     }
-    ctl = m_lastCtl[m_channel];
+    ctl = m_lastCtl[m_baseChannel];
     idx = m_comboControl->findData(ctl);
     if (idx != -1)
         m_comboControl->setCurrentIndex(idx);
     //slotControlSliderMoved(m_ctlState[m_channel][ctl]);
-    updateBankChange(m_lastBank[m_channel]);
-    idx = m_comboProg->findData(m_lastProg[m_channel]);
+    updateBankChange(m_lastBank[m_baseChannel]);
+    idx = m_comboProg->findData(m_lastProg[m_baseChannel]);
     m_comboProg->setCurrentIndex(idx);
     //slotComboProgActivated(idx);
 }
@@ -1699,14 +1664,14 @@ void VPiano::slotComboProgActivated(const int index)
     int bank = m_comboBank->itemData(bankIdx).toInt();
     if (bank >= 0) {
         sendBankChange(bank);
-        m_lastBank[m_channel] = bank;
+        m_lastBank[m_baseChannel] = bank;
     }
     int pgm = m_comboProg->itemData(idx).toInt();
     if (pgm >= 0) {
         sendProgramChange(pgm);
-        m_lastProg[m_channel] = pgm;
+        m_lastProg[m_baseChannel] = pgm;
     }
-    updateNoteNames(m_channel == dlgPreferences()->getDrumsChannel());
+    updateNoteNames(m_baseChannel == dlgPreferences()->getDrumsChannel());
 }
 
 void VPiano::slotBaseOctaveValueChanged(const int octave)
@@ -1729,8 +1694,8 @@ void VPiano::slotTransposeValueChanged(const int transpose)
 void VPiano::updateNoteNames(bool drums)
 {
     if (drums && (m_ins != 0)) {
-        int b = m_lastBank[m_channel];
-        int p = m_lastProg[m_channel];
+        int b = m_lastBank[m_baseChannel];
+        int p = m_lastProg[m_baseChannel];
         const InstrumentData& notes = m_ins->notes(b, p);
         QStringList noteNames;
         for(int n=0; n<128; ++n) {
@@ -1748,23 +1713,23 @@ void VPiano::slotChannelValueChanged(const int channel)
 {
     int idx;
     int c = channel - 1;
-    if (c != m_channel) {
+    if (c != m_baseChannel) {
         int drms = dlgPreferences()->getDrumsChannel();
-        bool updDrums = ((c == drms) || (m_channel == drms));
-        m_channel = c;
+        bool updDrums = ((c == drms) || (m_baseChannel == drms));
+        m_baseChannel = c;
         if (updDrums) {
             populateInstruments();
             populateControllers();
         }
-        idx = m_comboControl->findData(m_lastCtl[m_channel]);
+        idx = m_comboControl->findData(m_lastCtl[m_baseChannel]);
         if (idx != -1) {
-            int ctl = m_lastCtl[m_channel];
+            int ctl = m_lastCtl[m_baseChannel];
             m_comboControl->setCurrentIndex(idx);
-            updateController(ctl, m_ctlState[m_channel][ctl]);
-            updateExtraController(ctl, m_ctlState[m_channel][ctl]);
+            updateController(ctl, m_ctlState[m_baseChannel][ctl]);
+            updateExtraController(ctl, m_ctlState[m_baseChannel][ctl]);
         }
-        updateBankChange(m_lastBank[m_channel]);
-        updateProgramChange(m_lastProg[m_channel]);
+        updateBankChange(m_lastBank[m_baseChannel]);
+        updateProgramChange(m_lastProg[m_baseChannel]);
         enforceMIDIChannelState();
     }
 }
@@ -1777,15 +1742,15 @@ void VPiano::updateController(int ctl, int val)
         m_Control->setValue(val);
         m_Control->setToolTip(QString::number(val));
     }
-    m_ctlState[m_channel][ctl] = val;
+    m_ctlState[m_baseChannel][ctl] = val;
     if ((ctl == CTL_MSB || ctl == CTL_LSB ) && m_ins != 0) {
         if (m_ins->bankSelMethod() == 0)
-            m_lastBank[m_channel] = m_ctlState[m_channel][CTL_MSB] << 7 |
-                                    m_ctlState[m_channel][CTL_LSB];
+            m_lastBank[m_baseChannel] = m_ctlState[m_baseChannel][CTL_MSB] << 7 |
+                                    m_ctlState[m_baseChannel][CTL_LSB];
         else
-            m_lastBank[m_channel] = val;
+            m_lastBank[m_baseChannel] = val;
 
-        updateBankChange(m_lastBank[m_channel]);
+        updateBankChange(m_lastBank[m_baseChannel]);
     }
 }
 
@@ -1823,7 +1788,7 @@ void VPiano::updateBankChange(int bank)
         idx = m_comboBank->findData(bank);
         if (idx != -1) {
             m_comboBank->setCurrentIndex(idx);
-            m_lastBank[m_channel] = bank;
+            m_lastBank[m_baseChannel] = bank;
         }
     }
     populatePrograms(bank);
@@ -1840,19 +1805,19 @@ void VPiano::updateProgramChange(int program)
         idx = m_comboProg->findData(program);
         if (idx != -1) {
             m_comboProg->setCurrentIndex(idx);
-            m_lastProg[m_channel] = program;
+            m_lastProg[m_baseChannel] = program;
         }
     }
-    updateNoteNames(m_channel == dlgPreferences()->getDrumsChannel());
+    updateNoteNames(m_baseChannel == dlgPreferences()->getDrumsChannel());
 }
 
 void VPiano::slotComboControlCurrentIndexChanged(const int index)
 {
     int ctl = m_comboControl->itemData(index).toInt();
-    int val = m_ctlState[m_channel][ctl];
+    int val = m_ctlState[m_baseChannel][ctl];
     m_Control->setValue(val);
     m_Control->setToolTip(QString::number(val));
-    m_lastCtl[m_channel] = ctl;
+    m_lastCtl[m_baseChannel] = ctl;
     //slotControlSliderMoved(val);
 }
 
@@ -2093,14 +2058,14 @@ void VPiano::connect_thru(bool value)
 void VPiano::noteoff(int note)
 {
     sendNoteOff(note, 0);
-    NoteOffEvent *ev = new NoteOffEvent(note, 0);
+    NoteOffEvent *ev = new NoteOffEvent(m_baseChannel, note, 0);
     QApplication::postEvent(this, ev);
 }
 
 void VPiano::noteon(int note)
 {
     sendNoteOn(note, m_velocity);
-    NoteOnEvent *ev = new NoteOnEvent(note, m_velocity);
+    NoteOnEvent *ev = new NoteOnEvent(m_baseChannel, note, m_velocity);
     QApplication::postEvent(this, ev);
 }
 
@@ -2409,15 +2374,15 @@ void VPiano::enforceMIDIChannelState()
     if (dlgPreferences()->getEnforceChannelState()) {
         //qDebug() << Q_FUNC_INFO << "channel=" << m_channel << endl;
         QMap<int,int>::Iterator i, end;
-        i = m_ctlSettings[m_channel].begin();
-        end = m_ctlSettings[m_channel].end();
+        i = m_ctlSettings[m_baseChannel].begin();
+        end = m_ctlSettings[m_baseChannel].end();
         for (; i != end; ++i) {
             //qDebug() << "ctl=" << i.key() << "val=" << i.value();
             sendController(i.key(), i.value());
         }
         //qDebug() << "bank=" << m_lastBank[m_channel];
-        sendBankChange(m_lastBank[m_channel]);
+        sendBankChange(m_lastBank[m_baseChannel]);
         //qDebug() << "prog=" << m_lastProg[m_channel];
-        sendProgramChange(m_lastProg[m_channel]);
+        sendProgramChange(m_lastProg[m_baseChannel]);
     }
 }

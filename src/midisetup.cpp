@@ -53,6 +53,11 @@ bool MidiSetup::thruIsEnabled() const
     return ui.chkEnableThru->isChecked();
 }
 
+bool MidiSetup::omniIsEnabled() const
+{
+    return ui.chkOmni->isChecked();
+}
+
 void MidiSetup::setInputEnabled(const bool state)
 {
     ui.chkEnableInput->setChecked(state);
@@ -61,6 +66,11 @@ void MidiSetup::setInputEnabled(const bool state)
 void MidiSetup::setThruEnabled(const bool state)
 {
     ui.chkEnableThru->setChecked(state);
+}
+
+void MidiSetup::setOmniEnabled(const bool state)
+{
+    ui.chkOmni->setChecked(state);
 }
 
 void MidiSetup::clearCombos()

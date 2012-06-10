@@ -58,6 +58,7 @@ const QString QSTR_KEYPRESSEDCOLOR("KeyPressedColor");
 const QString QSTR_CONNECTIONS("Connections");
 const QString QSTR_INENABLED("InEnabled");
 const QString QSTR_THRUENABLED("ThruEnabled");
+const QString QSTR_OMNIENABLED("OmniEnabled");
 const QString QSTR_INPORT("InPort");
 const QString QSTR_OUTPORT("OutPort");
 const QString QSTR_KEYBOARD("Keyboard");
@@ -95,7 +96,7 @@ const QString QSTR_DRIVERNAMEJACK("Jack MIDI");
 const QString QSTR_DRIVERNAMEMACOSX("Mac OSX CoreMIDI");
 const QString QSTR_DRIVERNAMEIRIX("SGI Irix MD");
 const QString QSTR_DRIVERNAMEWINMM("Windows MM");
-const QString QSTR_DRIVERNAMENET("Network UDP");
+const QString QSTR_DRIVERNAMENET("Network UDP (IpMIDI)");
 
 #if defined(Q_OS_LINUX)
 const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEALSA);

@@ -4,10 +4,10 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/about.cpp" line="32"/>
+        <location filename="../src/about.cpp" line="37"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="106"/>
+        <location filename="../src/about.ui" line="152"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -27,7 +27,7 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="../src/about.ui" line="129"/>
+        <location filename="../src/about.ui" line="189"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -68,7 +68,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Ce programme contient des classes C++&lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="160"/>
+        <location filename="../src/about.ui" line="163"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -80,17 +80,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DialogExtraControls</name>
     <message>
-        <location filename="../src/extracontrols.cpp" line="69"/>
+        <location filename="../src/extracontrols.cpp" line="74"/>
         <source>New Control</source>
         <translation>Nouveau contrôleur</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="234"/>
+        <location filename="../src/extracontrols.cpp" line="239"/>
         <source>System Exclusive File</source>
         <translation>Fichier System Exclusive</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="234"/>
+        <location filename="../src/extracontrols.cpp" line="239"/>
         <source>System Exclusive (*.syx)</source>
         <translation></translation>
     </message>
@@ -1002,12 +1002,17 @@ p, li { white-space: pre-wrap; }
         <source>Use this control to change the connection for the MIDI output port</source>
         <translation>Ici vous pouvez établir et changer la connexion du port MIDI de sortie</translation>
     </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="150"/>
+        <source>MIDI Omni mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PianoScene</name>
     <message>
-        <location filename="../src/pianoscene.cpp" line="468"/>
         <location filename="../src/pianoscene.cpp" line="480"/>
+        <location filename="../src/pianoscene.cpp" line="492"/>
         <source>C</source>
         <translation>Do</translation>
     </message>
@@ -1016,8 +1021,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Do♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="470"/>
         <location filename="../src/pianoscene.cpp" line="482"/>
+        <location filename="../src/pianoscene.cpp" line="494"/>
         <source>D</source>
         <translation>Re</translation>
     </message>
@@ -1026,64 +1031,64 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Re♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="469"/>
+        <location filename="../src/pianoscene.cpp" line="481"/>
         <source>C#</source>
         <translation>Do#</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="471"/>
+        <location filename="../src/pianoscene.cpp" line="483"/>
         <source>D#</source>
         <translation>Re#</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="472"/>
         <location filename="../src/pianoscene.cpp" line="484"/>
+        <location filename="../src/pianoscene.cpp" line="496"/>
         <source>E</source>
         <translation>Mi</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="473"/>
         <location filename="../src/pianoscene.cpp" line="485"/>
+        <location filename="../src/pianoscene.cpp" line="497"/>
         <source>F</source>
         <translation>Fa</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="474"/>
+        <location filename="../src/pianoscene.cpp" line="486"/>
         <source>F#</source>
         <translation>Fa#</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="476"/>
+        <location filename="../src/pianoscene.cpp" line="488"/>
         <source>G#</source>
         <translation>Sol#</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="478"/>
+        <location filename="../src/pianoscene.cpp" line="490"/>
         <source>A#</source>
         <translation>La#</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="481"/>
+        <location filename="../src/pianoscene.cpp" line="493"/>
         <source>Db</source>
         <translation>Reb</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="483"/>
+        <location filename="../src/pianoscene.cpp" line="495"/>
         <source>Eb</source>
         <translation>Mib</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="486"/>
+        <location filename="../src/pianoscene.cpp" line="498"/>
         <source>Gb</source>
         <translation>Solb</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="488"/>
+        <location filename="../src/pianoscene.cpp" line="500"/>
         <source>Ab</source>
         <translation>Solb</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="490"/>
+        <location filename="../src/pianoscene.cpp" line="502"/>
         <source>Bb</source>
         <translation>Bb</translation>
     </message>
@@ -1092,8 +1097,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Fa♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="475"/>
         <location filename="../src/pianoscene.cpp" line="487"/>
+        <location filename="../src/pianoscene.cpp" line="499"/>
         <source>G</source>
         <translation>Sol</translation>
     </message>
@@ -1102,8 +1107,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Sol♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="477"/>
         <location filename="../src/pianoscene.cpp" line="489"/>
+        <location filename="../src/pianoscene.cpp" line="501"/>
         <source>A</source>
         <translation>La</translation>
     </message>
@@ -1112,8 +1117,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">La♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="479"/>
         <location filename="../src/pianoscene.cpp" line="491"/>
+        <location filename="../src/pianoscene.cpp" line="503"/>
         <source>B</source>
         <translation>Si</translation>
     </message>
@@ -1141,24 +1146,24 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Preferences</name>
     <message>
-        <location filename="../src/preferences.cpp" line="113"/>
+        <location filename="../src/preferences.cpp" line="165"/>
         <source>Open instruments definition</source>
         <translation>Ouvrir un fichier de définition d&apos;instrument</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="115"/>
+        <location filename="../src/preferences.cpp" line="167"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>Définition d&apos;instrument (*.ins)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="201"/>
-        <location filename="../src/preferences.cpp" line="212"/>
+        <location filename="../src/preferences.cpp" line="264"/>
+        <location filename="../src/preferences.cpp" line="275"/>
         <source>Open keyboard map definition</source>
         <translation>Ouvrir un fichier d&apos;attribution clavier</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="203"/>
-        <location filename="../src/preferences.cpp" line="214"/>
+        <location filename="../src/preferences.cpp" line="266"/>
+        <location filename="../src/preferences.cpp" line="277"/>
         <source>Keyboard map (*.xml)</source>
         <translation>Fichier d&apos;attribution clavier (*.xml)</translation>
     </message>
@@ -1171,99 +1176,99 @@ p, li { white-space: pre-wrap; }
         <translation>Préférences</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="47"/>
+        <location filename="../src/preferences.ui" line="92"/>
         <source>Number of octaves</source>
         <translation>Nombre d&apos;octaves</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="57"/>
+        <location filename="../src/preferences.ui" line="102"/>
         <source>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</source>
         <translation>Le nombre d&apos;octaves de 1 à 10. Chaque octave a 12 touches, 7 blanches et 5 noires. Le standard MIDI a 128 notes, mais la plupart des instruments ne peuvent pas toutes les jouer.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="76"/>
+        <location filename="../src/preferences.ui" line="121"/>
         <source>Key pressed color</source>
         <translation>Couleur des touches appuyées</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="89"/>
+        <location filename="../src/preferences.ui" line="134"/>
         <source>This box displays the highligh color and code used to paint the keys that are being activated.</source>
         <translation>Diese Auswahl zeigt die Markierungsfarbe und den Farbcode die zum zeichnen gedrückter Tasten benutzt werden soll.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="102"/>
+        <location filename="../src/preferences.ui" line="147"/>
         <source>Press this button to change the highligh color used to paint the keys that are being activated.</source>
         <translation>Appuyer ici pour changer la couleur de contraste pour les touches jouées.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="105"/>
+        <location filename="../src/preferences.ui" line="150"/>
         <source>color...</source>
         <translation>Modifier...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="118"/>
+        <location filename="../src/preferences.ui" line="163"/>
         <source>Instruments file</source>
         <translation>Définition d&apos;instrument</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="134"/>
+        <location filename="../src/preferences.ui" line="179"/>
         <source>The instruments definition file currently loaded</source>
         <translation>Le fichier de définition d&apos;instrument actuellement chargé</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="137"/>
+        <location filename="../src/preferences.ui" line="182"/>
         <source>default</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="147"/>
+        <location filename="../src/preferences.ui" line="192"/>
         <source>Press this button to load an instruments definition file from disk.</source>
         <translation>Appuyer ici pour ouvrir un fichier de définition d&apos;instrument.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="150"/>
+        <location filename="../src/preferences.ui" line="195"/>
         <source>load...</source>
         <translation>Ouvrir...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="163"/>
+        <location filename="../src/preferences.ui" line="208"/>
         <source>Instrument</source>
         <translation>Instrument</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="185"/>
+        <location filename="../src/preferences.ui" line="230"/>
         <source>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</source>
         <translation>Changer la définition d&apos;instrument actuelle. Chaque fichier peut contenir plusieurs instruments.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="192"/>
+        <location filename="../src/preferences.ui" line="237"/>
         <source>Keyboard Map</source>
         <translation>Attribution clavier</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="205"/>
-        <location filename="../src/preferences.ui" line="225"/>
+        <location filename="../src/preferences.ui" line="250"/>
+        <location filename="../src/preferences.ui" line="270"/>
         <source>Load...</source>
         <translation>Ouvrir...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="212"/>
+        <location filename="../src/preferences.ui" line="257"/>
         <source>Raw Keyboard Map</source>
         <translatorcomment>There is no good/short way to translate this to german :-/</translatorcomment>
         <translation>Attribution clavier - brut</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="232"/>
+        <location filename="../src/preferences.ui" line="384"/>
         <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
         <translation>Changer le style graphique des éléments de contrôle (boutons rotatifs et commutateurs), soit le style propre de VMPK ou le style prédéfini dans qtconfig.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="235"/>
+        <location filename="../src/preferences.ui" line="387"/>
         <source>Styled Widgets</source>
         <translation>Style propre pour les contrôles</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="269"/>
+        <location filename="../src/preferences.ui" line="407"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1282,97 +1287,112 @@ p, li { white-space: pre-wrap; }
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Traitement plus rapide&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="293"/>
+        <location filename="../src/preferences.ui" line="448"/>
+        <source>Network Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="461"/>
+        <source>MIDI Driver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="474"/>
+        <source>Enforce MIDI channel state</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="277"/>
         <source>Drums Channel</source>
         <translation>Canal de Batterie</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="304"/>
+        <location filename="../src/preferences.ui" line="288"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="309"/>
+        <location filename="../src/preferences.ui" line="293"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="314"/>
+        <location filename="../src/preferences.ui" line="298"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="319"/>
+        <location filename="../src/preferences.ui" line="303"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="324"/>
+        <location filename="../src/preferences.ui" line="308"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="329"/>
+        <location filename="../src/preferences.ui" line="313"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="334"/>
+        <location filename="../src/preferences.ui" line="318"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="339"/>
+        <location filename="../src/preferences.ui" line="323"/>
         <source>7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="344"/>
+        <location filename="../src/preferences.ui" line="328"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="349"/>
+        <location filename="../src/preferences.ui" line="333"/>
         <source>9</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="354"/>
+        <location filename="../src/preferences.ui" line="338"/>
         <source>10</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="359"/>
+        <location filename="../src/preferences.ui" line="343"/>
         <source>11</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="364"/>
+        <location filename="../src/preferences.ui" line="348"/>
         <source>12</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="369"/>
+        <location filename="../src/preferences.ui" line="353"/>
         <source>13</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="374"/>
+        <location filename="../src/preferences.ui" line="358"/>
         <source>14</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="379"/>
+        <location filename="../src/preferences.ui" line="363"/>
         <source>15</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="387"/>
+        <location filename="../src/preferences.ui" line="424"/>
         <source>Translate MIDI velocity to key pressed color tint</source>
         <translation>Traduire la vélocité MIDI à la couleur des touches</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="397"/>
+        <location filename="../src/preferences.ui" line="371"/>
         <source>Network Port</source>
         <translation>Port Réseau</translation>
     </message>
@@ -1385,17 +1405,17 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Stylische Knöpfe</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="245"/>
+        <location filename="../src/preferences.ui" line="397"/>
         <source>Check this box to keep the keyboard window always visible, on top of other windows.</source>
         <translation>Cocher cette option pour garder la fenêtre du clavier toujours visible devant toutes les autres fenêtres.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="248"/>
+        <location filename="../src/preferences.ui" line="400"/>
         <source>Always On Top</source>
         <translation>Rester au premier plan</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="255"/>
+        <location filename="../src/preferences.ui" line="434"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1408,12 +1428,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cocher cette option pour capturer le clavier de l&apos;ordinateur même si vmpk n&apos;est pas l&apos;application actuellement dans le focus&lt;span style=&quot; font-weight:600;&quot;&gt;Note pour les utilisateurs linux:&lt;/span&gt;Cette option fonctionne bien sous KDE, mais échoue dans des gestionnaires de fenêtres comme metacity ou compiz. Elle mêne également au dysfonctionnement des menus déroulants d&apos;applications GTK.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="262"/>
+        <location filename="../src/preferences.ui" line="441"/>
         <source>Grab Computer Keyboard</source>
         <translation>Capturer le clavier d&apos;ordinateur</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="279"/>
+        <location filename="../src/preferences.ui" line="417"/>
         <source>Raw Computer Keyboard</source>
         <translation>Données brutes du clavier</translation>
     </message>
@@ -1567,161 +1587,148 @@ Voulez-vous appliquer ces modifications?</translation>
 <context>
     <name>VPiano</name>
     <message>
-        <location filename="../src/vpiano.cpp" line="231"/>
-        <location filename="../src/vpiano.cpp" line="1696"/>
+        <location filename="../src/vpiano.cpp" line="318"/>
+        <location filename="../src/vpiano.cpp" line="1884"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="232"/>
+        <location filename="../src/vpiano.cpp" line="319"/>
         <source>No MIDI output ports available. Aborting</source>
         <translation>Aucun port de sortie MIDI disponible. Abandon</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="256"/>
+        <location filename="../src/vpiano.cpp" line="346"/>
         <source>Error. Aborting</source>
         <translation>Erreur. Abandon</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="271"/>
-        <location filename="../src/vpiano.cpp" line="2136"/>
+        <location filename="../src/vpiano.cpp" line="2330"/>
         <source>Chan:</source>
         <translation>Can:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="273"/>
-        <location filename="../src/vpiano.cpp" line="2138"/>
+        <location filename="../src/vpiano.cpp" line="2332"/>
         <source>Channel:</source>
         <translation>Canal:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="286"/>
-        <location filename="../src/vpiano.cpp" line="2143"/>
+        <location filename="../src/vpiano.cpp" line="2337"/>
         <source>Oct:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="288"/>
-        <location filename="../src/vpiano.cpp" line="2145"/>
+        <location filename="../src/vpiano.cpp" line="2339"/>
         <source>Base Octave:</source>
         <translation>Octave de base:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="301"/>
-        <location filename="../src/vpiano.cpp" line="2150"/>
+        <location filename="../src/vpiano.cpp" line="2344"/>
         <source>Trans:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="303"/>
-        <location filename="../src/vpiano.cpp" line="2152"/>
+        <location filename="../src/vpiano.cpp" line="2346"/>
         <source>Transpose:</source>
         <translation>Transposer:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="316"/>
-        <location filename="../src/vpiano.cpp" line="2157"/>
+        <location filename="../src/vpiano.cpp" line="2351"/>
         <source>Vel:</source>
         <translation>Vél:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="318"/>
-        <location filename="../src/vpiano.cpp" line="2159"/>
+        <location filename="../src/vpiano.cpp" line="2353"/>
         <source>Velocity:</source>
         <translation>Vélocité:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="359"/>
-        <location filename="../src/vpiano.cpp" line="2164"/>
+        <location filename="../src/vpiano.cpp" line="2358"/>
         <source>Control:</source>
         <translation>Contrôle:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="366"/>
-        <location filename="../src/vpiano.cpp" line="2166"/>
+        <location filename="../src/vpiano.cpp" line="2360"/>
         <source>Value:</source>
         <translation>Valeur:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="385"/>
-        <location filename="../src/vpiano.cpp" line="2163"/>
+        <location filename="../src/vpiano.cpp" line="2357"/>
         <source>Bender:</source>
         <translation>Pitchbend:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="402"/>
-        <location filename="../src/vpiano.cpp" line="2162"/>
+        <location filename="../src/vpiano.cpp" line="2356"/>
         <source>Bank:</source>
         <translation>Banque:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="409"/>
-        <location filename="../src/vpiano.cpp" line="2165"/>
+        <location filename="../src/vpiano.cpp" line="2359"/>
         <source>Program:</source>
         <translation>Programme:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2025"/>
+        <location filename="../src/vpiano.cpp" line="2217"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>La langue de cette application va changer à %1. Voulez-vous continuer?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2068"/>
+        <location filename="../src/vpiano.cpp" line="2260"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK est développé et traduit grâce au travail volontaire fourni par de nombreuses personnes du monde entier. Si vous souhaitez rejoindre l&apos;équipe ou si vous avez d&apos;autres questions, n&apos;hésitez pas à rejoindre les forums sur &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2089"/>
+        <location filename="../src/vpiano.cpp" line="2281"/>
         <source>Translation Information</source>
         <translation>Informations sur la traduction</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
+        <location filename="../src/vpiano.cpp" line="2322"/>
         <source>Swedish</source>
         <translation>Suédois</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2086"/>
+        <location filename="../src/vpiano.cpp" line="2278"/>
         <source>Translation</source>
         <translation>Traduction</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2087"/>
+        <location filename="../src/vpiano.cpp" line="2279"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Traduit par Frank Kober (emuse@users.sourceforge.net)&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2121"/>
+        <location filename="../src/vpiano.cpp" line="2315"/>
         <source>Czech</source>
         <translation>Tchèque</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2122"/>
+        <location filename="../src/vpiano.cpp" line="2316"/>
         <source>German</source>
         <translation>Allemand</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2123"/>
+        <location filename="../src/vpiano.cpp" line="2317"/>
         <source>English</source>
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2124"/>
+        <location filename="../src/vpiano.cpp" line="2318"/>
         <source>Spanish</source>
         <translation>Espagnol</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2125"/>
+        <location filename="../src/vpiano.cpp" line="2319"/>
         <source>French</source>
         <translation>Français</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
+        <location filename="../src/vpiano.cpp" line="2320"/>
         <source>Dutch</source>
         <translation>Hollandais</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2127"/>
+        <location filename="../src/vpiano.cpp" line="2321"/>
         <source>Russian</source>
         <translation>Russe</translation>
     </message>
@@ -1730,12 +1737,12 @@ Voulez-vous appliquer ces modifications?</translation>
         <translation type="obsolete">Turque</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2129"/>
+        <location filename="../src/vpiano.cpp" line="2323"/>
         <source>Chinese</source>
         <translation>Chinois</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2024"/>
+        <location filename="../src/vpiano.cpp" line="2216"/>
         <source>Language Changed</source>
         <translation>La langue a changé</translation>
     </message>
@@ -1780,7 +1787,7 @@ Voulez-vous appliquer ces modifications?</translation>
         <translation type="obsolete">Speichere Tastaturbelegung</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1696"/>
+        <location filename="../src/vpiano.cpp" line="1884"/>
         <source>No help file found</source>
         <translation>Impossible de trouver un fichier d&apos;aide</translation>
     </message>
@@ -1888,9 +1895,8 @@ Voulez-vous appliquer ces modifications?</translation>
         <translation>Modifier les préférences du logiciel</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="281"/>
         <source>&amp;Connections</source>
-        <translation>&amp;Connexions MIDI</translation>
+        <translation type="obsolete">&amp;Connexions MIDI</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="284"/>
@@ -2130,6 +2136,11 @@ Voulez-vous appliquer ces modifications?</translation>
     <message>
         <source>Down</source>
         <translation type="obsolete">Descendre</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="281"/>
+        <source>MIDI &amp;Connections</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="554"/>

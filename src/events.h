@@ -49,18 +49,28 @@ protected:
     unsigned char m_value;
 };
 
-class NoteOffEvent : public NoteEvent
+class ChannelEvent : public NoteEvent
 {
 public:
-    NoteOffEvent(unsigned char note, unsigned char vel)
-        : NoteEvent(note, vel, NoteOffEventType) { }
+    ChannelEvent(unsigned char chan, unsigned char note, unsigned char vel, QEvent::Type type)
+        : NoteEvent(note, vel, type), m_channel(chan) { }
+    unsigned char getChannel() const { return m_channel; }
+protected:
+    unsigned char m_channel;
 };
 
-class NoteOnEvent : public NoteEvent
+class NoteOffEvent : public ChannelEvent
 {
 public:
-    NoteOnEvent(unsigned char note, unsigned char vel)
-        : NoteEvent(note, vel, NoteOnEventType) { }
+    NoteOffEvent(unsigned char chan, unsigned char note, unsigned char vel)
+        : ChannelEvent(chan, note, vel, NoteOffEventType) { }
+};
+
+class NoteOnEvent : public ChannelEvent
+{
+public:
+    NoteOnEvent(unsigned char chan, unsigned char note, unsigned char vel)
+        : ChannelEvent(chan, note, vel, NoteOnEventType) { }
 };
 
 class PolyKeyPressEvent : public NoteEvent

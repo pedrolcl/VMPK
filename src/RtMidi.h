@@ -310,22 +310,6 @@ class RtMidiInCoreMidi : public RtMidiIn
   */
   void openVirtualPort( const std::string portName = std::string( "RtMidi Input" ) );
 
-  //! Set a callback function to be invoked for incoming MIDI messages.
-  /*!
-      The callback function will be called whenever an incoming MIDI
-      message is received.  While not absolutely necessary, it is best
-      to set the callback function before opening a MIDI port to avoid
-      leaving some messages in the queue.
-  */
-  void setCallback( RtMidiCallback callback, void *userData = 0 );
-
-  //! Cancel use of the current callback function (if one exists).
-  /*!
-      Subsequent incoming MIDI messages will be written to the queue
-      and can be retrieved with the \e getMessage function.
-  */
-  void cancelCallback();
-
   //! Close an open MIDI connection (if one exists).
   void closePort( void );
 
@@ -338,37 +322,9 @@ class RtMidiInCoreMidi : public RtMidiIn
   */
   std::string getPortName( unsigned int portNumber = 0 );
 
-  //! Set the maximum number of MIDI messages to be saved in the queue.
-  /*!
-      If the queue size limit is reached, incoming messages will be
-      ignored.  The default limit is 1024.
-  */
-  void setQueueSizeLimit( unsigned int queueSize );
-
-  //! Specify whether certain MIDI message types should be queued or ignored during input.
-  /*!
-      By default, MIDI timing and active sensing messages are ignored
-      during message input because of their relative high data rates.
-      MIDI sysex messages are ignored by default as well.  Variable
-      values of "true" imply that the respective message type will be
-      ignored.
-  */
-  void ignoreTypes( bool midiSysex = true, bool midiTime = true, bool midiSense = true );
-
-  //! Fill the user-provided vector with the data bytes for the next available MIDI message in the input queue and return the event delta-time in seconds.
-  /*!
-      This function returns immediately whether a new message is
-      available or not.  A valid message is indicated by a non-zero
-      vector size.  An exception is thrown if an error occurs during
-      message retrieval or an input connection was not previously
-      established.
-  */
-  double getMessage( std::vector<unsigned char> *message );
-
  private:
 
   void initialize( const std::string& clientName );
-  RtMidiInData inputData_;
 
 };
 
@@ -429,6 +385,7 @@ class RtMidiOutCoreMidi : public RtMidiOut
       output connection was not previously established.
   */
   virtual void sendMessage( std::vector<unsigned char> *message );
+
  private:
 
   void initialize( const std::string& clientName );
@@ -471,22 +428,6 @@ class RtMidiInAlsa : public RtMidiIn
   */
   void openVirtualPort( const std::string portName = std::string( "RtMidi Input" ) );
 
-  //! Set a callback function to be invoked for incoming MIDI messages.
-  /*!
-      The callback function will be called whenever an incoming MIDI
-      message is received.  While not absolutely necessary, it is best
-      to set the callback function before opening a MIDI port to avoid
-      leaving some messages in the queue.
-  */
-  void setCallback( RtMidiCallback callback, void *userData = 0 );
-
-  //! Cancel use of the current callback function (if one exists).
-  /*!
-      Subsequent incoming MIDI messages will be written to the queue
-      and can be retrieved with the \e getMessage function.
-  */
-  void cancelCallback();
-
   //! Close an open MIDI connection (if one exists).
   void closePort( void );
 
@@ -499,37 +440,9 @@ class RtMidiInAlsa : public RtMidiIn
   */
   std::string getPortName( unsigned int portNumber = 0 );
 
-  //! Set the maximum number of MIDI messages to be saved in the queue.
-  /*!
-      If the queue size limit is reached, incoming messages will be
-      ignored.  The default limit is 1024.
-  */
-  void setQueueSizeLimit( unsigned int queueSize );
-
-  //! Specify whether certain MIDI message types should be queued or ignored during input.
-  /*!
-      By default, MIDI timing and active sensing messages are ignored
-      during message input because of their relative high data rates.
-      MIDI sysex messages are ignored by default as well.  Variable
-      values of "true" imply that the respective message type will be
-      ignored.
-  */
-  void ignoreTypes( bool midiSysex = true, bool midiTime = true, bool midiSense = true );
-
-  //! Fill the user-provided vector with the data bytes for the next available MIDI message in the input queue and return the event delta-time in seconds.
-  /*!
-      This function returns immediately whether a new message is
-      available or not.  A valid message is indicated by a non-zero
-      vector size.  An exception is thrown if an error occurs during
-      message retrieval or an input connection was not previously
-      established.
-  */
-  double getMessage( std::vector<unsigned char> *message );
-
  private:
 
   void initialize( const std::string& clientName );
-  RtMidiInData inputData_;
 
 };
 
@@ -585,6 +498,7 @@ class RtMidiOutAlsa : public RtMidiOut
   std::string getPortName( unsigned int portNumber = 0 );
 
   virtual void sendMessage( std::vector<unsigned char> *message );
+
  private:
 
   void initialize( const std::string& clientName );
@@ -627,22 +541,6 @@ class RtMidiInIrix : public RtMidiIn
   */
   void openVirtualPort( const std::string portName = std::string( "RtMidi Input" ) );
 
-  //! Set a callback function to be invoked for incoming MIDI messages.
-  /*!
-      The callback function will be called whenever an incoming MIDI
-      message is received.  While not absolutely necessary, it is best
-      to set the callback function before opening a MIDI port to avoid
-      leaving some messages in the queue.
-  */
-  void setCallback( RtMidiCallback callback, void *userData = 0 );
-
-  //! Cancel use of the current callback function (if one exists).
-  /*!
-      Subsequent incoming MIDI messages will be written to the queue
-      and can be retrieved with the \e getMessage function.
-  */
-  void cancelCallback();
-
   //! Close an open MIDI connection (if one exists).
   void closePort( void );
 
@@ -655,37 +553,9 @@ class RtMidiInIrix : public RtMidiIn
   */
   std::string getPortName( unsigned int portNumber = 0 );
 
-  //! Set the maximum number of MIDI messages to be saved in the queue.
-  /*!
-      If the queue size limit is reached, incoming messages will be
-      ignored.  The default limit is 1024.
-  */
-  void setQueueSizeLimit( unsigned int queueSize );
-
-  //! Specify whether certain MIDI message types should be queued or ignored during input.
-  /*!
-      By default, MIDI timing and active sensing messages are ignored
-      during message input because of their relative high data rates.
-      MIDI sysex messages are ignored by default as well.  Variable
-      values of "true" imply that the respective message type will be
-      ignored.
-  */
-  void ignoreTypes( bool midiSysex = true, bool midiTime = true, bool midiSense = true );
-
-  //! Fill the user-provided vector with the data bytes for the next available MIDI message in the input queue and return the event delta-time in seconds.
-  /*!
-      This function returns immediately whether a new message is
-      available or not.  A valid message is indicated by a non-zero
-      vector size.  An exception is thrown if an error occurs during
-      message retrieval or an input connection was not previously
-      established.
-  */
-  double getMessage( std::vector<unsigned char> *message );
-
  private:
 
   void initialize( const std::string& clientName );
-  RtMidiInData inputData_;
 
 };
 
@@ -741,6 +611,7 @@ class RtMidiOutIrix : public RtMidiOut
   std::string getPortName( unsigned int portNumber = 0 );
 
   virtual void sendMessage( std::vector<unsigned char> *message );
+
  private:
 
   void initialize( const std::string& clientName );
@@ -783,22 +654,6 @@ class RtMidiInWinMM : public RtMidiIn
   */
   void openVirtualPort( const std::string portName = std::string( "RtMidi Input" ) );
 
-  //! Set a callback function to be invoked for incoming MIDI messages.
-  /*!
-      The callback function will be called whenever an incoming MIDI
-      message is received.  While not absolutely necessary, it is best
-      to set the callback function before opening a MIDI port to avoid
-      leaving some messages in the queue.
-  */
-  void setCallback( RtMidiCallback callback, void *userData = 0 );
-
-  //! Cancel use of the current callback function (if one exists).
-  /*!
-      Subsequent incoming MIDI messages will be written to the queue
-      and can be retrieved with the \e getMessage function.
-  */
-  void cancelCallback();
-
   //! Close an open MIDI connection (if one exists).
   void closePort( void );
 
@@ -811,37 +666,9 @@ class RtMidiInWinMM : public RtMidiIn
   */
   std::string getPortName( unsigned int portNumber = 0 );
 
-  //! Set the maximum number of MIDI messages to be saved in the queue.
-  /*!
-      If the queue size limit is reached, incoming messages will be
-      ignored.  The default limit is 1024.
-  */
-  void setQueueSizeLimit( unsigned int queueSize );
-
-  //! Specify whether certain MIDI message types should be queued or ignored during input.
-  /*!
-      By default, MIDI timing and active sensing messages are ignored
-      during message input because of their relative high data rates.
-      MIDI sysex messages are ignored by default as well.  Variable
-      values of "true" imply that the respective message type will be
-      ignored.
-  */
-  void ignoreTypes( bool midiSysex = true, bool midiTime = true, bool midiSense = true );
-
-  //! Fill the user-provided vector with the data bytes for the next available MIDI message in the input queue and return the event delta-time in seconds.
-  /*!
-      This function returns immediately whether a new message is
-      available or not.  A valid message is indicated by a non-zero
-      vector size.  An exception is thrown if an error occurs during
-      message retrieval or an input connection was not previously
-      established.
-  */
-  double getMessage( std::vector<unsigned char> *message );
-
  private:
 
   void initialize( const std::string& clientName );
-  RtMidiInData inputData_;
 
 };
 
@@ -897,6 +724,7 @@ class RtMidiOutWinMM : public RtMidiOut
   std::string getPortName( unsigned int portNumber = 0 );
 
   virtual void sendMessage( std::vector<unsigned char> *message );
+
  private:
 
   void initialize( const std::string& clientName );
@@ -939,22 +767,6 @@ class RtMidiInJack : public RtMidiIn
   */
   void openVirtualPort( const std::string portName = std::string( "RtMidi Input" ) );
 
-  //! Set a callback function to be invoked for incoming MIDI messages.
-  /*!
-      The callback function will be called whenever an incoming MIDI
-      message is received.  While not absolutely necessary, it is best
-      to set the callback function before opening a MIDI port to avoid
-      leaving some messages in the queue.
-  */
-  void setCallback( RtMidiCallback callback, void *userData = 0 );
-
-  //! Cancel use of the current callback function (if one exists).
-  /*!
-      Subsequent incoming MIDI messages will be written to the queue
-      and can be retrieved with the \e getMessage function.
-  */
-  void cancelCallback();
-
   //! Close an open MIDI connection (if one exists).
   void closePort( void );
 
@@ -967,37 +779,9 @@ class RtMidiInJack : public RtMidiIn
   */
   std::string getPortName( unsigned int portNumber = 0 );
 
-  //! Set the maximum number of MIDI messages to be saved in the queue.
-  /*!
-      If the queue size limit is reached, incoming messages will be
-      ignored.  The default limit is 1024.
-  */
-  void setQueueSizeLimit( unsigned int queueSize );
-
-  //! Specify whether certain MIDI message types should be queued or ignored during input.
-  /*!
-      By default, MIDI timing and active sensing messages are ignored
-      during message input because of their relative high data rates.
-      MIDI sysex messages are ignored by default as well.  Variable
-      values of "true" imply that the respective message type will be
-      ignored.
-  */
-  void ignoreTypes( bool midiSysex = true, bool midiTime = true, bool midiSense = true );
-
-  //! Fill the user-provided vector with the data bytes for the next available MIDI message in the input queue and return the event delta-time in seconds.
-  /*!
-      This function returns immediately whether a new message is
-      available or not.  A valid message is indicated by a non-zero
-      vector size.  An exception is thrown if an error occurs during
-      message retrieval or an input connection was not previously
-      established.
-  */
-  double getMessage( std::vector<unsigned char> *message );
-
  private:
 
   void initialize( const std::string& clientName );
-  RtMidiInData inputData_;
 
 };
 
@@ -1053,9 +837,11 @@ class RtMidiOutJack : public RtMidiOut
   std::string getPortName( unsigned int portNumber = 0 );
 
   virtual void sendMessage( std::vector<unsigned char> *message );
+
  private:
 
   void initialize( const std::string& clientName );
+
 };
 #endif
 #endif

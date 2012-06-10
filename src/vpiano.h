@@ -47,7 +47,8 @@ class VPiano : public QMainWindow, public PianoHandler
 public:
     VPiano( QWidget * parent = 0, Qt::WindowFlags flags = 0 );
     virtual ~VPiano();
-    int getInputChannel();
+    unsigned char baseChannel() const { return m_baseChannel; }
+    bool omniMode() const { return m_midiOmni; }
     void midiThru(std::vector<unsigned char> *message) const;
     bool isInitialized() const { return m_initialized; }
     void retranslateUi();
@@ -207,6 +208,7 @@ private:
     int m_currentIn;
     bool m_inputActive;
     bool m_midiThru;
+    bool m_midiOmni;
     bool m_initialized;
 
     About *m_dlgAbout;
@@ -243,7 +245,7 @@ private:
     QMap<int,int> m_lastBank;
     QMap<int,int> m_lastProg;
     QMap<int,int> m_lastCtl;
-    int m_channel;
+    int m_baseChannel;
     int m_velocity;
     int m_baseOctave;
     int m_transpose;
