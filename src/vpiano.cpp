@@ -347,7 +347,7 @@ bool VPiano::initMidi()
                                QString::fromStdString(err.getMessage()));
         return false;
     }
-    return (m_midiout != 0 && m_midiin != 0);
+    return (m_midiout != 0);
 }
 
 void VPiano::switchMIDIDriver()
@@ -710,7 +710,7 @@ void VPiano::readSettings()
     dlgPreferences()->setDriver(m_midiDriver);
 #if defined(NETWORK_MIDI)
     dlgPreferences()->setNetworkPort(udpPort);
-    dlgPreferences()->setNetworkIface(iface);
+    dlgPreferences()->setNetworkIfaceName(iface);
 #endif
     dlgPreferences()->setNumOctaves(num_octaves);
     dlgPreferences()->setDrumsChannel(drumsChannel);
@@ -874,7 +874,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_MIDIDRIVER, dlgPreferences()->getDriver());
 #if defined(NETWORK_MIDI)
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
-    settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterface());
+    settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterfaceName());
 #endif
     settings.endGroup();
 
@@ -1479,8 +1479,7 @@ void VPiano::applyPreferences()
 #if defined(NETWORK_MIDI)
     int udpPort = dlgPreferences()->getNetworkPort();
     NetworkSettings::instance().setPort(udpPort);
-    QString iface = dlgPreferences()->getNetworkInterface();
-    NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
+    NetworkSettings::instance().setIface(dlgPreferences()->getNetworkInterface());
 #endif
 
     KeyboardMap* map = dlgPreferences()->getKeyboardMap();

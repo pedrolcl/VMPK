@@ -23,6 +23,9 @@
 #include "instrument.h"
 #include "keyboardmap.h"
 #include <QtGui/QDialog>
+#ifdef NETWORK_MIDI
+#include <QNetworkInterface>
+#endif
 
 class Preferences : public QDialog
 {
@@ -44,8 +47,11 @@ public:
     QString getInstrumentsFileName();
     void setInstrumentName( const QString name );
     QString getInstrumentName();
-    QString getNetworkInterface();
-    void setNetworkIface(const QString iface);
+#ifdef NETWORK_MIDI
+    QNetworkInterface getNetworkInterface();
+#endif
+    QString getNetworkInterfaceName();
+    void setNetworkIfaceName(const QString iface);
     QString getDriver();
     void apply();
     Instrument* getInstrument();

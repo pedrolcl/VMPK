@@ -91,8 +91,9 @@ Preferences::Preferences(QWidget *parent)
     ui.cboNetworkIface->addItem(QString());
     foreach ( const QNetworkInterface& iface,
               QNetworkInterface::allInterfaces()) {
-        if ((iface.flags() & QNetworkInterface::CanMulticast) != 0)
-            ui.cboNetworkIface->addItem(iface.name());
+        if (iface.flags().testFlag(QNetworkInterface::CanMulticast) &&
+            !iface.flags().testFlag(QNetworkInterface::IsLoopBack))
+            ui.cboNetworkIface->addItem(iface.humanReadableName(), iface.name());
     }
 #endif
 #if defined(SMALL_SCREEN)
@@ -237,16 +238,25 @@ QString Preferences::getInstrumentName()
     return ui.cboInstrument->currentText();
 }
 
-void Preferences::setNetworkIface(const QString iface)
+void Preferences::setNetworkIfaceName(const QString iface)
 {
     int index = ui.cboNetworkIface->findText( iface );
     ui.cboNetworkIface->setCurrentIndex( index );
 }
 
-QString Preferences::getNetworkInterface()
+QString Preferences::getNetworkInterfaceName()
 {
     return ui.cboNetworkIface->currentText();
 }
+
+#ifdef NETWORK_MIDI
+QNetworkInterface Preferences::getNetworkInterface()
+{
+    int idx = ui.cboNetworkIface->currentIndex();
+    QString iname = ui.cboNetworkIface->itemData(idx).toString();
+    return QNetworkInterface::interfaceFromName(iname);
+}
+#endif
 
 void Preferences::setKeyPressedColor(QColor value)
 {

@@ -63,10 +63,10 @@ class NetMidiIn : public RtMidiIn
   */
   std::string getPortName( unsigned int portNumber = 0 );
 
+private:
+
   void initialize( const std::string& clientName );
 
-private:
-  RtMidiInData inputData_;
 };
 
 class NetMidiOut : public RtMidiOut

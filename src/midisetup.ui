@@ -153,6 +153,14 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>chkEnableInput</tabstop>
+  <tabstop>chkEnableThru</tabstop>
+  <tabstop>chkOmni</tabstop>
+  <tabstop>comboInput</tabstop>
+  <tabstop>comboOutput</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources>
   <include location="../data/vmpk.qrc"/>
  </resources>
@@ -218,6 +226,22 @@
     <hint type="destinationlabel">
      <x>193</x>
      <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkEnableInput</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>chkOmni</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>259</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>76</y>
     </hint>
    </hints>
   </connection>
