@@ -37,12 +37,14 @@
 const QHostAddress MULTICAST_ADDRESS("225.0.0.37");
 
 struct NetworkMidiData {
-    NetworkMidiData(): socket(0), thread(0) { }
+    NetworkMidiData(): socket(0) {} //, thread(0) { }
     QUdpSocket *socket;
-    class UdpDeviceThread *thread;
+    //class UdpDeviceThread *thread;
 };
 
 /* NetMidiIn */
+
+/*
 
 class UdpDeviceThread : public QThread
 {
@@ -90,7 +92,9 @@ void UdpDeviceThread::run (void)
     }
 }
 
-NetMidiIn :: NetMidiIn( const std::string clientName, unsigned int queueSizeLimit ) : RtMidiIn(queueSizeLimit)
+*/
+
+NetMidiIn :: NetMidiIn( const std::string clientName, unsigned int queueSizeLimit ) : QObject(0), RtMidiIn(queueSizeLimit)
 {
     initialize( clientName );
 }
@@ -125,15 +129,17 @@ void NetMidiIn ::openPort( unsigned int /*portNumber*/, const std::string /*port
 
     data->socket->joinMulticastGroup(MULTICAST_ADDRESS);
 
+    connect(data->socket, SIGNAL(readyRead()), SLOT(processIncomingMessages()));
+
     // start the input thread
-    data->thread = new UdpDeviceThread(&inputData_);
+    // data->thread = new UdpDeviceThread(&inputData_);
     inputData_.doInput = true;
-    data->thread->start();
+    /*data->thread->start();
     if (data->thread == 0 || !data->thread->isRunning()) {
         inputData_.doInput = false;
         errorString_ = "RtMidiIn::openPort: error starting MIDI input thread!";
         error( RtError::THREAD_ERROR );
-    }
+    }*/
 }
 
 void NetMidiIn ::openVirtualPort( const std::string /*portName*/ )
@@ -159,17 +165,49 @@ void NetMidiIn ::closePort()
     //qDebug() << Q_FUNC_INFO;
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
     // Shutdown the input thread
-    if (data->thread != 0) {
+    /*if (data->thread != 0) {
         if (data->thread->isRunning()) {
             inputData_.doInput = false;
             data->thread->wait(1200); // Timeout>1sec.
         }
         delete data->thread;
         data->thread = 0;
-    }
+    }*/
+    inputData_.doInput = false;
     // close and delete socket
     delete data->socket;
     data->socket = 0;
+}
+
+
+void NetMidiIn ::processIncomingMessages()
+{
+    NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
+    RtMidiIn::MidiMessage message;
+    if (inputData_.doInput) {
+        while (data->socket->hasPendingDatagrams()) {
+            QByteArray datagram;
+            datagram.resize(data->socket->pendingDatagramSize());
+            data->socket->readDatagram(datagram.data(), datagram.size());
+            message.timeStamp = 0;
+            message.bytes.clear();
+            message.bytes.assign(datagram.begin(), datagram.end());
+            if ( inputData_.usingCallback ) {
+                RtMidiIn::RtMidiCallback callback =
+                        (RtMidiIn::RtMidiCallback) inputData_.userCallback;
+                callback(message.timeStamp, &message.bytes, inputData_.userData);
+            } else {
+                if ( inputData_.queue.size < inputData_.queue.ringSize ) {
+                  inputData_.queue.ring[inputData_.queue.back++] = message;
+                  if ( inputData_.queue.back == inputData_.queue.ringSize )
+                    inputData_.queue.back = 0;
+                  inputData_.queue.size++;
+                } else {
+                  qDebug() << "NetMidiIn: message queue limit reached!!\n\n";
+                }
+            }
+        }
+    }
 }
 
 /* NetMidiOut */

@@ -19,12 +19,17 @@
 #ifndef UDPMIDI_H
 #define UDPMIDI_H
 
+#include <QObject>
 #include <RtMidi.h>
 
 #if defined(NETWORK_MIDI)
-class NetMidiIn : public RtMidiIn
+
+class NetMidiIn : public QObject, public RtMidiIn
 {
- public:
+
+  Q_OBJECT
+
+public:
 
   //! Default constructor that allows an optional client name.
   /*!
@@ -62,6 +67,10 @@ class NetMidiIn : public RtMidiIn
       An empty string is returned if an invalid port specifier is provided.
   */
   std::string getPortName( unsigned int portNumber = 0 );
+
+public slots:
+
+  void processIncomingMessages();
 
 private:
 
