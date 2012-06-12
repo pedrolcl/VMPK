@@ -19,10 +19,10 @@
 #ifndef UDPMIDI_H
 #define UDPMIDI_H
 
+#if defined(NETWORK_MIDI)
+
 #include <QObject>
 #include <RtMidi.h>
-
-#if defined(NETWORK_MIDI)
 
 class NetMidiIn : public QObject, public RtMidiIn
 {
