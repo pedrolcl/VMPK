@@ -137,6 +137,9 @@ protected Q_SLOTS:
     void slotControllerUp();
     void slotControllerDown();
     void slotSwitchLanguage(QAction *action);
+    void slotKeyboardInput(bool value);
+    void slotMouseInput(bool value);
+    void slotTouchScreenInput(bool value);
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 

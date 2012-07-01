@@ -87,6 +87,12 @@ public:
     void useStandardNoteNames() { m_scene->useStandardNoteNames(); }
     int getVelocity() { return m_scene->getVelocity(); }
     void setVelocity(const int velocity) { m_scene->setVelocity(velocity); }
+    bool isKeyboardEnabled() const { return m_scene->isKeyboardEnabled(); }
+    void setKeyboardEnabled(const bool b) { m_scene->setKeyboardEnabled(b); }
+    bool isMouseEnabled() const { return m_scene->isMouseEnabled(); }
+    void setMouseEnabled(const bool b) { m_scene->setMouseEnabled(b); }
+    bool isTouchEnabled() const { return m_scene->isTouchEnabled(); }
+    void setTouchEnabled(const bool b) { m_scene->setTouchEnabled(b); }
     void retranslate();
 #if defined(RAWKBD_SUPPORT)
 // RawKbdHandler methods

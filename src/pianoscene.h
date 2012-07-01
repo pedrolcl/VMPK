@@ -60,6 +60,12 @@ public:
     void setShowLabels(const bool show);
     bool useFlats() const { return m_useFlats; }
     void setUseFlats(const bool use);
+    bool isKeyboardEnabled() const { return m_keyboardEnabled; }
+    void setKeyboardEnabled( const bool enable );
+    bool isMouseEnabled() const { return m_mouseEnabled; }
+    void setMouseEnabled( const bool enable );
+    bool isTouchEnabled() const { return m_touchEnabled; }
+    void setTouchEnabled( const bool enable );
 
     void showNoteOn( const int note, int vel = -1 );
     void showNoteOff( const int note, int vel = -1 );
@@ -113,6 +119,9 @@ private:
     bool m_showLabels;
     bool m_useFlats;
     bool m_rawkbd;
+    bool m_keyboardEnabled;
+    bool m_mouseEnabled;
+    bool m_touchEnabled;
     QColor m_keyPressedColor;
     bool m_mousePressed;
     int m_velocity;

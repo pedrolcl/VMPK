@@ -1,14 +1,14 @@
 Name "Virtual MIDI Piano Keyboard"
 
 # Defines
-!define QTFILES "D:\QtSDK\Desktop\Qt\4.7.3\mingw\bin"
-!define QTLANG "D:\QtSDK\Desktop\Qt\4.7.3\mingw\translations"
-!define MINGWFILES "D:\QtSDK\Desktop\Qt\4.7.3\mingw\bin"
-!define VMPKSRC "D:\Projects\vmpk"
-!define VMPKBLD "D:\Projects\vmpk-build-desktop-release"
+!define QTFILES "C:\QtSDK\Desktop\Qt\4.8.1\mingw\bin"
+!define QTLANG "C:\QtSDK\Desktop\Qt\4.8.1\mingw\translations"
+!define MINGWFILES "C:\QtSDK\mingw\bin"
+!define VMPKSRC "C:\Users\pedro\Projects\vmpk-desktop"
+!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Release"
 
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.4.0
+!define VERSION 0.5.0
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -58,7 +58,7 @@ InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.4.0.0
+VIProductVersion 0.5.0.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -121,6 +121,9 @@ Section -Main SEC0000
 
     # Installing library QtSvg4.dll
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtSvg4.dll $INSTDIR\QtSvg4.dll $INSTDIR
+
+	# Installing library QtNetwork4.dll
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtNetwork4.dll $INSTDIR\QtNetwork4.dll $INSTDIR
 
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
@@ -207,6 +210,9 @@ Section /o -un.Main UNSEC0000
 
     # Uninstalling library $INSTDIR\QtSvg4.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtSvg4.dll
+
+    # Uninstalling library $INSTDIR\QtNetwork4.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtNetwork4.dll
 
     DeleteRegValue HKLM "${REGKEY}\Components" Main
 SectionEnd

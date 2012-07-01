@@ -67,6 +67,7 @@ win32:!simulator {
     LIBS += -lwinmm
     RC_FILE = src/vpianoico.rc
 }
+
 win32:simulator: LIBS += -lws2_32
 linux*:!simulator {
     !net_midi:DEFINES += __LINUX_ALSASEQ__

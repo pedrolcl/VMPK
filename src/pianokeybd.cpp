@@ -254,10 +254,16 @@ void PianoKeybd::setNumOctaves(const int numOctaves)
         QColor color = m_scene->getKeyPressedColor();
         PianoHandler* handler = m_scene->getPianoHandler();
         KeyboardMap* keyMap = m_scene->getKeyboardMap();
+        bool keyboardEnabled = m_scene->isKeyboardEnabled();
+        bool mouseEnabled = m_scene->isMouseEnabled();
+        bool touchEnabled = m_scene->isTouchEnabled();
         delete m_scene;
         initScene(baseOctave, numOctaves, color);
         m_scene->setPianoHandler(handler);
         m_scene->setKeyboardMap(keyMap);
+        m_scene->setKeyboardEnabled(keyboardEnabled);
+        m_scene->setMouseEnabled(mouseEnabled);
+        m_scene->setTouchEnabled(touchEnabled);
         fitInView(m_scene->sceneRect(), Qt::KeepAspectRatio);
     }
 }
@@ -280,7 +286,7 @@ QSize PianoKeybd::sizeHint() const
 #if defined(RAWKBD_SUPPORT)
 bool PianoKeybd::handleKeyPressed(int keycode)
 {
-    if (m_rawMap != NULL && m_rawMap->contains(keycode)) {
+    if (m_scene->isKeyboardEnabled() && m_rawMap != NULL && m_rawMap->contains(keycode)) {
         m_scene->keyOn(m_rawMap->value(keycode));
         return true;
     }
@@ -289,7 +295,7 @@ bool PianoKeybd::handleKeyPressed(int keycode)
 
 bool PianoKeybd::handleKeyReleased(int keycode)
 {
-    if (m_rawMap != NULL && m_rawMap->contains(keycode)) {
+    if (m_scene->isKeyboardEnabled() && m_rawMap != NULL && m_rawMap->contains(keycode)) {
         m_scene->keyOff(m_rawMap->value(keycode));
         return true;
     }

@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>478</width>
-    <height>431</height>
+    <width>388</width>
+    <height>426</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,6 +41,13 @@
    <property name="spacing">
     <number>0</number>
    </property>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QScrollArea" name="scrollArea">
      <property name="frameShape">
@@ -54,9 +61,15 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>472</width>
-        <height>398</height>
+        <width>382</width>
+        <height>397</height>
        </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>382</width>
+        <height>394</height>
+       </size>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <property name="sizeConstraint">
@@ -196,7 +209,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item row="3" column="0" rowspan="2">
         <widget class="QLabel" name="lblInstrument">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -231,7 +244,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="0" rowspan="2">
+       <item row="5" column="0">
         <widget class="QLabel" name="lblKmap">
          <property name="text">
           <string>Keyboard Map</string>
@@ -401,7 +414,7 @@
          </property>
         </widget>
        </item>
-       <item row="14" column="0" colspan="2">
+       <item row="15" column="0" colspan="2">
         <widget class="QCheckBox" name="chkRawKeyboard">
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -418,7 +431,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="15" column="0" colspan="2">
+       <item row="16" column="0" colspan="2">
         <widget class="QCheckBox" name="chkVelocityColor">
          <property name="text">
           <string>Translate MIDI velocity to key pressed color tint</string>
@@ -428,7 +441,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="13" column="0" colspan="2">
+       <item row="14" column="0" colspan="2">
         <widget class="QCheckBox" name="chkGrabKb">
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -468,22 +481,45 @@ p, li { white-space: pre-wrap; }
        <item row="8" column="1">
         <widget class="QComboBox" name="cboMIDIDriver"/>
        </item>
-       <item row="16" column="0" colspan="2">
+       <item row="17" column="0" colspan="2">
         <widget class="QCheckBox" name="chkEnforceChannelState">
          <property name="text">
           <string>Enforce MIDI channel state</string>
          </property>
         </widget>
        </item>
+       <item row="20" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkEnableTouch">
+         <property name="text">
+          <string>Enable Touch Screen Input</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkEnableMouse">
+         <property name="text">
+          <string>Enable Mouse Input</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkEnableKeyboard">
+         <property name="text">
+          <string>Enable Computer Keyboard Input</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
-     </property>
     </widget>
    </item>
   </layout>
@@ -522,8 +558,8 @@ p, li { white-space: pre-wrap; }
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>231</x>
-     <y>397</y>
+     <x>234</x>
+     <y>425</y>
     </hint>
     <hint type="destinationlabel">
      <x>263</x>
@@ -538,8 +574,8 @@ p, li { white-space: pre-wrap; }
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>121</x>
-     <y>397</y>
+     <x>124</x>
+     <y>425</y>
     </hint>
     <hint type="destinationlabel">
      <x>155</x>
@@ -547,5 +583,54 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>chkEnableKeyboard</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>chkGrabKb</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>280</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkEnableKeyboard</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>chkRawKeyboard</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>281</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>39</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>

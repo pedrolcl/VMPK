@@ -39,7 +39,11 @@ Preferences::Preferences(QWidget *parent)
     m_styledKnobs(true),
     m_alwaysOnTop(false),
     m_rawKeyboard(false),
-    m_velocityColor(true)
+    m_velocityColor(true),
+    m_enforceChannelState(false),
+    m_enableKeyboard(true),
+    m_enableMouse(true),
+    m_enableTouch(true)
 {
     ui.setupUi( this );
     ui.txtFileInstrument->setText(QSTR_DEFAULT);
@@ -106,9 +110,10 @@ Preferences::Preferences(QWidget *parent)
     ui.btnKmap->setVisible(false);
     ui.chkAlwaysOnTop->setVisible(false);
     ui.chkGrabKb->setVisible(false);
+    ui.chkEnableKeyboard->setVisible(false);
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
-    setMinimumSize(480,320);
+    setMinimumSize(480,420);
     adjustSize();
 #endif
 }
@@ -124,6 +129,9 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkRawKeyboard->setChecked( m_rawKeyboard );
         ui.chkVelocityColor->setChecked( m_velocityColor );
         ui.chkEnforceChannelState->setChecked( m_enforceChannelState );
+        ui.chkEnableKeyboard->setChecked( m_enableKeyboard );
+        ui.chkEnableMouse->setChecked( m_enableMouse );
+        ui.chkEnableTouch->setChecked( m_enableTouch );
         ui.txtNetworkPort->setText( QString::number( m_networkPort ));
         if (!m_keyPressedColor.isValid()) {
             setKeyPressedColor(QApplication::palette().highlight().color());
@@ -141,6 +149,9 @@ void Preferences::apply()
     m_rawKeyboard = ui.chkRawKeyboard->isChecked();
     m_velocityColor = ui.chkVelocityColor->isChecked();
     m_enforceChannelState = ui.chkEnforceChannelState->isChecked();
+    m_enableKeyboard = ui.chkEnableKeyboard->isChecked();
+    m_enableMouse = ui.chkEnableMouse->isChecked();
+    m_enableTouch = ui.chkEnableTouch->isChecked();
     if ( ui.txtFileRawKmap->text().isEmpty() ||
          ui.txtFileRawKmap->text() == QSTR_DEFAULT)
         m_rawmap.setFileName(QSTR_DEFAULT);
@@ -325,6 +336,9 @@ void Preferences::restoreDefaults()
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);
     ui.chkVelocityColor->setChecked(true);
     ui.chkEnforceChannelState->setChecked(false);
+    ui.chkEnableKeyboard->setChecked(true);
+    ui.chkEnableMouse->setChecked(true);
+    ui.chkEnableTouch->setChecked(true);
     setInstrumentsFileName(VPiano::dataDirectory() + QSTR_DEFAULTINS);
     ui.cboInstrument->setCurrentIndex(0);
     ui.txtNetworkPort->setText(QString::number(NETWORKPORTNUMBER));

@@ -43,6 +43,10 @@ public:
     bool getRawKeyboard() const { return m_rawKeyboard; }
     bool getVelocityColor() const { return m_velocityColor; }
     bool getEnforceChannelState() const { return m_enforceChannelState; }
+    bool getEnabledKeyboard() const { return m_enableKeyboard; }
+    bool getEnabledMouse() const { return m_enableMouse; }
+    bool getEnabledTouch() const { return m_enableTouch; }
+
     void setInstrumentsFileName( const QString fileName );
     QString getInstrumentsFileName();
     void setInstrumentName( const QString name );
@@ -72,6 +76,9 @@ public slots:
     void setRawKeyboard(bool value) { m_rawKeyboard = value; }
     void setVelocityColor(bool value) { m_velocityColor = value; }
     void setEnforceChannelState(bool value) { m_enforceChannelState = value; }
+    void setEnabledKeyboard(bool value) { m_enableKeyboard = value; }
+    void setEnabledMouse(bool value) { m_enableMouse = value; }
+    void setEnabledTouch(bool value) { m_enableTouch = value; }
     void setKeyPressedColor(QColor value);
     void setDriver(QString value);
     void slotOpenInstrumentFile();
@@ -98,6 +105,9 @@ private:
     bool m_rawKeyboard;
     bool m_velocityColor;
     bool m_enforceChannelState;
+    bool m_enableKeyboard;
+    bool m_enableMouse;
+    bool m_enableTouch;
     QColor m_keyPressedColor;
     KeyboardMap m_keymap;
     KeyboardMap m_rawmap;

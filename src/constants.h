@@ -89,6 +89,9 @@ const QString QSTR_VELOCITYCOLOR("VelocityColor");
 const QString QSTR_NETWORKPORT("NetworkPort");
 const QString QSTR_NETWORKIFACE("NetworkInterface");
 const QString QSTR_ENFORCECHANSTATE("EnforceChannelState");
+const QString QSTR_ENABLEKEYBOARDINPUT("EnableKeyboardInput");
+const QString QSTR_ENABLEMOUSEINPUT("EnableMouseInput");
+const QString QSTR_ENABLETOUCHINPUT("EnableTouchInput");
 
 const QString QSTR_MIDIDRIVER("MIDIDriver");
 const QString QSTR_DRIVERNAMEALSA("ALSA Sequencer");

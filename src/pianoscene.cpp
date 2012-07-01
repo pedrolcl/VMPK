@@ -42,6 +42,9 @@ PianoScene::PianoScene ( const int baseOctave,
     m_showLabels( false ),
     m_useFlats( false ),
     m_rawkbd( false ),
+    m_keyboardEnabled( true ),
+    m_mouseEnabled( true ),
+    m_touchEnabled( true ),
     m_keyPressedColor( keyPressedColor ),
     m_mousePressed( false ),
     m_velocity( 100 ),
@@ -73,6 +76,7 @@ PianoScene::PianoScene ( const int baseOctave,
             lbl->setDefaultTextColor(Qt::white);
             lbl->setPos(x - 3, KEYHEIGHT * 6/10 - 3);
         }
+        key->setAcceptTouchEvents(true);
         if (m_keyPressedColor.isValid())
             key->setPressedBrush(hilightBrush);
         m_keys.insert(i, key);
@@ -210,43 +214,49 @@ PianoKey* PianoScene::getKeyForPos( const QPointF& p ) const
 
 void PianoScene::mouseMoveEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 {
-    if (m_mousePressed) {
-        PianoKey* key = getKeyForPos(mouseEvent->scenePos());
-        PianoKey* lastkey = getKeyForPos(mouseEvent->lastScenePos());
-        if ((lastkey != NULL) && (lastkey != key) && lastkey->isPressed()) {
-            keyOff(lastkey);
+    if (m_mouseEnabled) {
+        if (m_mousePressed) {
+            PianoKey* key = getKeyForPos(mouseEvent->scenePos());
+            PianoKey* lastkey = getKeyForPos(mouseEvent->lastScenePos());
+            if ((lastkey != NULL) && (lastkey != key) && lastkey->isPressed()) {
+                keyOff(lastkey);
+            }
+            if ((key != NULL) && !key->isPressed()) {
+                keyOn(key);
+            }
+            mouseEvent->accept();
+            return;
         }
-        if ((key != NULL) && !key->isPressed()) { 
-            keyOn(key);
-        }
-        mouseEvent->accept();
-        return;
     }
-    mouseEvent->ignore();
+    //mouseEvent->ignore();
 }
 
 void PianoScene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 {
-    PianoKey* key = getKeyForPos(mouseEvent->scenePos());
-    if (key != NULL && !key->isPressed()) {
-        keyOn(key);
-        m_mousePressed = true;
-        mouseEvent->accept();
-        return;
+    if (m_mouseEnabled) {
+        PianoKey* key = getKeyForPos(mouseEvent->scenePos());
+        if (key != NULL && !key->isPressed()) {
+            keyOn(key);
+            m_mousePressed = true;
+            mouseEvent->accept();
+            return;
+        }
     }
-    mouseEvent->ignore();
+    //mouseEvent->ignore();
 }
 
 void PianoScene::mouseReleaseEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 {
-    m_mousePressed = false; 
-    PianoKey* key = getKeyForPos(mouseEvent->scenePos());
-    if (key != NULL && key->isPressed()) {
-        keyOff(key);
-        mouseEvent->accept();
-        return;
+    if (m_mouseEnabled) {
+        m_mousePressed = false;
+        PianoKey* key = getKeyForPos(mouseEvent->scenePos());
+        if (key != NULL && key->isPressed()) {
+            keyOff(key);
+            mouseEvent->accept();
+            return;
+        }
     }
-    mouseEvent->ignore();
+    //mouseEvent->ignore();
 }
 
 int PianoScene::getNoteFromKey( const int key ) const
@@ -271,22 +281,30 @@ PianoKey* PianoScene::getPianoKey( const int key ) const
 
 void PianoScene::keyPressEvent ( QKeyEvent * keyEvent )
 {
-    if ( !m_rawkbd && !keyEvent->isAutoRepeat() ) { // ignore auto-repeats
-        int note = getNoteFromKey(keyEvent->key());
-        if (note > -1)
-            keyOn(note);
+    if ( m_keyboardEnabled) {
+        if ( !m_rawkbd && !keyEvent->isAutoRepeat() ) { // ignore auto-repeats
+            int note = getNoteFromKey(keyEvent->key());
+            if (note > -1)
+                keyOn(note);
+        }
+        keyEvent->accept();
+        return;
     }
-    keyEvent->accept();
+    keyEvent->ignore();
 }
 
 void PianoScene::keyReleaseEvent ( QKeyEvent * keyEvent )
 {
-    if ( !m_rawkbd && !keyEvent->isAutoRepeat() ) { // ignore auto-repeats
-        int note = getNoteFromKey(keyEvent->key());
-        if (note > -1)
-            keyOff(note);
-    }   
-    keyEvent->accept();
+    if (m_keyboardEnabled) {
+        if ( !m_rawkbd && !keyEvent->isAutoRepeat() ) { // ignore auto-repeats
+            int note = getNoteFromKey(keyEvent->key());
+            if (note > -1)
+                keyOff(note);
+        }
+        keyEvent->accept();
+        return;
+    }
+    keyEvent->ignore();
 }
 
 bool PianoScene::event(QEvent *event)
@@ -294,11 +312,16 @@ bool PianoScene::event(QEvent *event)
     switch(event->type()) {
     case QEvent::TouchBegin:
     case QEvent::TouchEnd:
-    case QEvent::TouchUpdate: {
+    case QEvent::TouchUpdate:
+    {
+        if (m_touchEnabled) {
             QTouchEvent *touchEvent = static_cast<QTouchEvent*>(event);
             QList<QTouchEvent::TouchPoint> touchPoints = touchEvent->touchPoints();
             foreach(const QTouchEvent::TouchPoint& touchPoint, touchPoints) {
                 switch (touchPoint.state()) {
+                case Qt::TouchPointPrimary:
+                case Qt::TouchPointStationary:
+                    continue;
                 case Qt::TouchPointReleased: {
                         PianoKey* key = getKeyForPos(touchPoint.scenePos());
                         if (key != NULL && key->isPressed()) {
@@ -310,6 +333,7 @@ bool PianoScene::event(QEvent *event)
                         PianoKey* key = getKeyForPos(touchPoint.scenePos());
                         if (key != NULL && !key->isPressed()) {
                             keyOn(key, touchPoint.pressure());
+                            key->ensureVisible();
                         }
                         break;
                     }
@@ -325,16 +349,21 @@ bool PianoScene::event(QEvent *event)
                         break;
                     }
                 default:
+                    //qDebug() << "TouchPoint state: " << touchPoint.state();
                     break;
                 }
             }
-            break;
+            //qDebug() << "accepted event: " << event;
+            event->accept();
+            return true;
         }
-    default:
-        return QGraphicsScene::event(event);
+        break;
     }
-    event->accept();
-    return true;
+    default:
+        break;
+    }
+    //qDebug() << "unprocessed event: " << event;
+    return QGraphicsScene::event(event);
 }
 
 void PianoScene::allKeysOff()
@@ -471,6 +500,27 @@ void PianoScene::useStandardNoteNames()
 {
     m_noteNames.clear();
     refreshLabels();
+}
+
+void PianoScene::setKeyboardEnabled(const bool enable)
+{
+    if (enable != m_keyboardEnabled) {
+        m_keyboardEnabled = enable;
+    }
+}
+
+void PianoScene::setMouseEnabled(const bool enable)
+{
+    if (enable != m_mouseEnabled) {
+        m_mouseEnabled = enable;
+    }
+}
+
+void PianoScene::setTouchEnabled(const bool enable)
+{
+    if (enable != m_touchEnabled) {
+        m_touchEnabled = enable;
+    }
 }
 
 void PianoScene::retranslate()

@@ -50,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>571</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -134,11 +134,20 @@
      <addaction name="actionNextProgram"/>
      <addaction name="actionPreviousProgram"/>
     </widget>
+    <widget class="QMenu" name="menuNote_Input">
+     <property name="title">
+      <string>Note Input</string>
+     </property>
+     <addaction name="actionKeyboardInput"/>
+     <addaction name="actionMouseInput"/>
+     <addaction name="actionTouchScreenInput"/>
+    </widget>
     <addaction name="actionChannelUp"/>
     <addaction name="actionChannelDown"/>
     <addaction name="menuNotes"/>
     <addaction name="menuControllers"/>
     <addaction name="menuPrograms"/>
+    <addaction name="menuNote_Input"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -665,6 +674,39 @@
    </property>
    <property name="statusTip">
     <string>Show information about the program language translation</string>
+   </property>
+  </action>
+  <action name="actionKeyboardInput">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Computer Keyboard</string>
+   </property>
+  </action>
+  <action name="actionMouseInput">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mouse</string>
+   </property>
+  </action>
+  <action name="actionTouchScreenInput">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Touch Screen</string>
    </property>
   </action>
  </widget>

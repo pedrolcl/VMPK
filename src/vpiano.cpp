@@ -114,6 +114,9 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionEditExtraControls, SIGNAL(triggered()), SLOT(slotEditExtraControls()));
     connect(ui.actionNoteNames, SIGNAL(triggered()), SLOT(slotShowNoteNames()));
     connect(ui.actionShortcuts, SIGNAL(triggered()), SLOT(slotShortcuts()));
+    connect(ui.actionKeyboardInput, SIGNAL(toggled(bool)), SLOT(slotKeyboardInput(bool)));
+    connect(ui.actionMouseInput, SIGNAL(toggled(bool)), SLOT(slotMouseInput(bool)));
+    connect(ui.actionTouchScreenInput, SIGNAL(toggled(bool)), SLOT(slotTouchScreenInput(bool)));
     // Toolbars actions: toggle view
     connect(ui.toolBarNotes->toggleViewAction(), SIGNAL(toggled(bool)),
             ui.actionNotes, SLOT(setChecked(bool)));
@@ -137,6 +140,8 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     setWindowTitle("VMPK " + PGM_VERSION);
 #endif
     ui.pianokeybd->setPianoHandler(this);
+//    PianoScene *scene = (PianoScene *) ui.pianokeybd->scene();
+//    scene->setMouseEnabled(false);
     initialization();
 }
 
@@ -698,6 +703,9 @@ void VPiano::readSettings()
     bool showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
     bool velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
     bool enforceChanState = settings.value(QSTR_ENFORCECHANSTATE, false).toBool();
+    bool enableKeyboard = settings.value(QSTR_ENABLEKEYBOARDINPUT, true).toBool();
+    bool enableMouse = settings.value(QSTR_ENABLEMOUSEINPUT, true).toBool();
+    bool enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, true).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
     m_midiDriver = settings.value(QSTR_MIDIDRIVER, QSTR_DRIVERDEFAULT).toString();
 #if defined(NETWORK_MIDI)
@@ -720,12 +728,18 @@ void VPiano::readSettings()
     dlgPreferences()->setAlwaysOnTop(alwaysOnTop);
     dlgPreferences()->setVelocityColor(velocityColor);
     dlgPreferences()->setEnforceChannelState(enforceChanState);
+    dlgPreferences()->setEnabledKeyboard(enableKeyboard);
+    dlgPreferences()->setEnabledMouse(enableMouse);
+    dlgPreferences()->setEnabledTouch(enableTouch);
     ui.actionNoteNames->setChecked(showNames);
     ui.actionStatusBar->setChecked(showStatusBar);
+    ui.pianokeybd->setNumOctaves(num_octaves);
     ui.pianokeybd->setVelocity(velocityColor ? m_velocity : MIDIVELOCITY);
     ui.pianokeybd->setTranspose(m_transpose);
     ui.pianokeybd->setBaseOctave(m_baseOctave);
-    ui.pianokeybd->setNumOctaves(num_octaves);
+    ui.pianokeybd->setKeyboardEnabled(enableKeyboard);
+    ui.pianokeybd->setMouseEnabled(enableMouse);
+    ui.pianokeybd->setTouchEnabled(enableTouch);
     slotShowNoteNames();
     if (!insFileName.isEmpty()) {
         dlgPreferences()->setInstrumentsFileName(insFileName);
@@ -871,6 +885,9 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_DRUMSCHANNEL, dlgPreferences()->getDrumsChannel());
     settings.setValue(QSTR_VELOCITYCOLOR, dlgPreferences()->getVelocityColor());
     settings.setValue(QSTR_ENFORCECHANSTATE, dlgPreferences()->getEnforceChannelState());
+    settings.setValue(QSTR_ENABLEKEYBOARDINPUT, dlgPreferences()->getEnabledKeyboard());
+    settings.setValue(QSTR_ENABLEMOUSEINPUT, dlgPreferences()->getEnabledMouse());
+    settings.setValue(QSTR_ENABLETOUCHINPUT, dlgPreferences()->getEnabledTouch());
     settings.setValue(QSTR_MIDIDRIVER, dlgPreferences()->getDriver());
 #if defined(NETWORK_MIDI)
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
@@ -1475,6 +1492,15 @@ void VPiano::applyPreferences()
     ui.pianokeybd->setKeyPressedColor(dlgPreferences()->getKeyPressedColor());
     ui.pianokeybd->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
     ui.pianokeybd->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
+    bool enableKeyboard = dlgPreferences()->getEnabledKeyboard();
+    bool enableMouse = dlgPreferences()->getEnabledMouse();
+    bool enableTouch = dlgPreferences()->getEnabledTouch();
+    ui.pianokeybd->setKeyboardEnabled(enableKeyboard);
+    ui.pianokeybd->setMouseEnabled(enableMouse);
+    ui.pianokeybd->setTouchEnabled(enableTouch);
+    ui.actionKeyboardInput->setChecked(enableKeyboard);
+    ui.actionMouseInput->setChecked(enableMouse);
+    ui.actionTouchScreenInput->setChecked(enableTouch);
 
 #if defined(NETWORK_MIDI)
     int udpPort = dlgPreferences()->getNetworkPort();
@@ -2384,4 +2410,22 @@ void VPiano::enforceMIDIChannelState()
         //qDebug() << "prog=" << m_lastProg[m_channel];
         sendProgramChange(m_lastProg[m_baseChannel]);
     }
+}
+
+void VPiano::slotKeyboardInput(bool value)
+{
+    dlgPreferences()->setEnabledKeyboard(value);
+    ui.pianokeybd->setKeyboardEnabled(value);
+}
+
+void VPiano::slotMouseInput(bool value)
+{
+    dlgPreferences()->setEnabledMouse(value);
+    ui.pianokeybd->setMouseEnabled(value);
+}
+
+void VPiano::slotTouchScreenInput(bool value)
+{
+    dlgPreferences()->setEnabledTouch(value);
+    ui.pianokeybd->setTouchEnabled(value);
 }
