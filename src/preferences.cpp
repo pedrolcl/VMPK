@@ -113,7 +113,7 @@ Preferences::Preferences(QWidget *parent)
     ui.chkEnableKeyboard->setVisible(false);
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
-    setMinimumSize(480,420);
+    setMinimumSize(480,450);
     adjustSize();
 #endif
 }

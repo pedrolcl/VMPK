@@ -90,6 +90,7 @@ set (vmpk_qtobject_SRCS
     preferences.h
     riff.h
     riffimportdlg.h
+    udpmidi.h
     vpiano.h
     shortcutdialog.h)
 
