@@ -59,6 +59,7 @@ public:
     void setRawKeyboardMap(KeyboardMap* m) { m_rawMap = m; }
     KeyboardMap* getRawKeyboardMap() { return m_rawMap; }
     void resetRawKeyboardMap() { m_rawMap = &m_defaultRawMap; }
+    PianoScene* getPianoScene() { return (PianoScene *) scene(); }
 
     int baseOctave() const { return m_scene->baseOctave(); }
     int numOctaves() const { return m_scene->numOctaves(); }
@@ -100,6 +101,7 @@ public:
     bool handleKeyReleased(int keycode);
 #endif
 public slots:
+    void showNoteOn( int midiNote, QColor color, int vel = -1 );
     void showNoteOn( int midiNote, int vel = -1 );
     void showNoteOff( int midiNote, int vel = -1 );
 

@@ -35,6 +35,9 @@ public:
     void setPressedBrush(const QBrush& b) { m_selectedBrush = b; }
     bool isPressed() const { return m_pressed; }
     void setPressed(bool p);
+    int getDegree() const { return m_note % 12; }
+    int getType() const { return (m_black ? 1 : 0); }
+
 private:
     bool m_pressed;
     QBrush m_selectedBrush;

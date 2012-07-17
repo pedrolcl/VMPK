@@ -44,6 +44,7 @@ public:
         : QEvent(type), m_note(note), m_value(val) { }
     unsigned char getNote() const { return m_note; }
     unsigned char getValue() const { return m_value; }
+
 protected:
     unsigned char m_note;
     unsigned char m_value;
@@ -71,6 +72,15 @@ class NoteOnEvent : public ChannelEvent
 public:
     NoteOnEvent(unsigned char chan, unsigned char note, unsigned char vel)
         : ChannelEvent(chan, note, vel, NoteOnEventType) { }
+
+    int getDegree() const { return m_note % 12; }
+    int getType() const
+    {
+        int g = getDegree();
+        if (g == 1 || g == 3 || g == 6 || g == 8 || g == 10)
+            return 1;
+        return 0;
+    }
 };
 
 class PolyKeyPressEvent : public NoteEvent

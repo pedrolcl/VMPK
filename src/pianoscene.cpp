@@ -48,7 +48,9 @@ PianoScene::PianoScene ( const int baseOctave,
     m_keyPressedColor( keyPressedColor ),
     m_mousePressed( false ),
     m_velocity( 100 ),
-    m_handler( 0 )
+    m_channel( 0 ),
+    m_handler( 0 ),
+    m_palette( 0 )
 {
     QBrush hilightBrush(m_keyPressedColor.isValid() ? m_keyPressedColor : QApplication::palette().highlight());
     QFont lblFont(QApplication::font());
@@ -93,11 +95,24 @@ QSize PianoScene::sizeHint() const
     return QSize(KEYWIDTH * m_numOctaves * 7, KEYHEIGHT);
 }
 
+void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )
+{
+    if (vel >= 0 && color.isValid() ) {
+        QBrush hilightBrush(color.lighter(200 - vel));
+        key->setPressedBrush(hilightBrush);
+    }
+    key->setPressed(true);
+}
+
 void PianoScene::showKeyOn( PianoKey* key, int vel )
 {
-    if (vel >= 0 && m_keyPressedColor.isValid() ) {
-        QBrush hilightBrush(m_keyPressedColor.lighter(200 - vel));
-        key->setPressedBrush(hilightBrush);
+    if (vel >= 0) {
+        if (m_palette == 0 && m_keyPressedColor.isValid()) {
+            QBrush hilightBrush(m_keyPressedColor.lighter(200 - vel));
+            key->setPressedBrush(hilightBrush);
+        } else {
+            setColorFromPolicy(key);
+        }
     }
     key->setPressed(true);
 }
@@ -105,6 +120,14 @@ void PianoScene::showKeyOn( PianoKey* key, int vel )
 void PianoScene::showKeyOff( PianoKey* key, int )
 {
     key->setPressed(false);
+}
+
+void PianoScene::showNoteOn( const int note, QColor color, int vel )
+{
+    int n = note - m_baseOctave*12 - m_transpose;
+    if ((note >= m_minNote) && (note <= m_maxNote) &&
+        (n >= 0) && (n < m_keys.size()))
+        showKeyOn(m_keys[n], color, vel);
 }
 
 void PianoScene::showNoteOn( const int note, int vel )
@@ -144,6 +167,27 @@ void PianoScene::triggerNoteOff( const int note, const int vel )
         } else {
             emit noteOff(n, vel);
         }
+    }
+}
+
+void PianoScene::setColorFromPolicy(PianoKey* key)
+{
+    QColor c;
+    switch (m_palette->paletteId()) {
+    case PAL_SINGLE:
+        c = m_palette->getColor(0);
+        break;
+    case PAL_DOUBLE:
+        c = m_palette->getColor(key->getType());
+        break;
+    case PAL_CHANNELS:
+        c = m_palette->getColor(m_channel);
+        break;
+    case PAL_SCALE:
+        c = m_palette->getColor(key->getDegree());
+    }
+    if (c.isValid()) {
+        key->setPressedBrush(c);
     }
 }
 

@@ -19,6 +19,7 @@
 #include "preferences.h"
 #include "constants.h"
 #include "vpiano.h"
+#include "colordialog.h"
 
 #include <QtGui/QPushButton>
 #include <QtGui/QShowEvent>
@@ -43,7 +44,8 @@ Preferences::Preferences(QWidget *parent)
     m_enforceChannelState(false),
     m_enableKeyboard(true),
     m_enableMouse(true),
-    m_enableTouch(true)
+    m_enableTouch(true),
+    m_colorDialog(0)
 {
     ui.setupUi( this );
     ui.txtFileInstrument->setText(QSTR_DEFAULT);
@@ -113,7 +115,7 @@ Preferences::Preferences(QWidget *parent)
     ui.chkEnableKeyboard->setVisible(false);
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
-    setMinimumSize(480,450);
+    setMinimumSize(480,500);
     adjustSize();
 #endif
 }
@@ -133,16 +135,13 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkEnableMouse->setChecked( m_enableMouse );
         ui.chkEnableTouch->setChecked( m_enableTouch );
         ui.txtNetworkPort->setText( QString::number( m_networkPort ));
-        if (!m_keyPressedColor.isValid()) {
-            setKeyPressedColor(QApplication::palette().highlight().color());
-        }
+        ui.cboColorPolicy->setCurrentIndex(m_colorDialog->currentPalette()->paletteId());
     }
 }
 
 void Preferences::apply()
 {
     m_numOctaves = ui.spinNumOctaves->value();
-    m_keyPressedColor = QColor(ui.lblColorName->text());
     m_grabKb = ui.chkGrabKb->isChecked();
     m_styledKnobs = ui.chkStyledKnobs->isChecked();
     m_alwaysOnTop = ui.chkAlwaysOnTop->isChecked();
@@ -163,6 +162,7 @@ void Preferences::apply()
         m_insFileName = QSTR_DEFAULT;
     m_drumsChannel = ui.cboDrumsChannel->currentIndex() - 1;
     m_networkPort = ui.txtNetworkPort->text().toInt();
+    m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
 }
 
 void Preferences::accept()
@@ -184,8 +184,12 @@ void Preferences::slotOpenInstrumentFile()
 
 void Preferences::slotSelectColor()
 {
-    QColor color = QColorDialog::getColor(m_keyPressedColor, this);
-    setKeyPressedColor(color);
+    if (m_colorDialog != 0) {
+        m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
+        if(m_colorDialog->exec() == QDialog::Accepted) {
+            ui.cboColorPolicy->setCurrentIndex(m_colorDialog->currentPalette()->paletteId());
+        }
+    }
 }
 
 Instrument* Preferences::getInstrument()
@@ -269,16 +273,6 @@ QNetworkInterface Preferences::getNetworkInterface()
 }
 #endif
 
-void Preferences::setKeyPressedColor(QColor value)
-{
-    if (m_keyPressedColor != value && value.isValid()) {
-        m_keyPressedColor = value;
-        ui.lblColorName->setText(value.name());
-        ui.lblColorName->setPalette(QPalette(value));
-        ui.lblColorName->setAutoFillBackground(true);
-    }
-}
-
 void Preferences::slotOpenKeymapFile()
 {
     QString fileName = QFileDialog::getOpenFileName(0,
@@ -342,12 +336,12 @@ void Preferences::restoreDefaults()
     setInstrumentsFileName(VPiano::dataDirectory() + QSTR_DEFAULTINS);
     ui.cboInstrument->setCurrentIndex(0);
     ui.txtNetworkPort->setText(QString::number(NETWORKPORTNUMBER));
+    ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
 }
 
 void Preferences::slotRestoreDefaults()
 {
     restoreDefaults();
-    setKeyPressedColor(QApplication::palette().highlight().color());
 }
 
 void Preferences::retranslateUi()
@@ -369,4 +363,12 @@ QString Preferences::getDriver()
     if (driver.isEmpty())
         driver = QSTR_DRIVERDEFAULT;
     return driver;
+}
+
+void Preferences::setColorPolicyDialog(ColorDialog *value)
+{
+    if (value != 0) {
+        m_colorDialog = value;
+        ui.cboColorPolicy->addItems(m_colorDialog->availablePaletteNames());
+    }
 }

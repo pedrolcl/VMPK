@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>388</width>
-    <height>426</height>
+    <width>405</width>
+    <height>441</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,8 +61,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>382</width>
-        <height>397</height>
+        <width>399</width>
+        <height>408</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -93,7 +93,7 @@
        <property name="verticalSpacing">
         <number>1</number>
        </property>
-       <item row="0" column="0" colspan="2">
+       <item row="0" column="0">
         <widget class="QLabel" name="lblNumOctaves">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -109,20 +109,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QSpinBox" name="spinNumOctaves">
-         <property name="whatsThis">
-          <string>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</string>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>9</number>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
+       <item row="2" column="0">
         <widget class="QLabel" name="lblKeyPressColor">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -131,40 +118,24 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Key pressed color</string>
+          <string>Note color policy</string>
+         </property>
+         <property name="buddy">
+          <cstring>cboColorPolicy</cstring>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="lblColorName">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="whatsThis">
-          <string>This box displays the highligh color and code used to paint the keys that are being activated.</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Sunken</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
+       <item row="2" column="2">
         <widget class="QPushButton" name="btnColor">
          <property name="whatsThis">
           <string>Press this button to change the highligh color used to paint the keys that are being activated.</string>
          </property>
          <property name="text">
-          <string>color...</string>
+          <string>colors...</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="3" column="0">
         <widget class="QLabel" name="lblFileInstrument">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -180,7 +151,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="3" column="1">
         <widget class="QLineEdit" name="txtFileInstrument">
          <property name="minimumSize">
           <size>
@@ -199,7 +170,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
+       <item row="3" column="2">
         <widget class="QPushButton" name="btnInstrument">
          <property name="whatsThis">
           <string>Press this button to load an instruments definition file from disk.</string>
@@ -209,7 +180,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0" rowspan="2">
+       <item row="4" column="0" rowspan="2">
         <widget class="QLabel" name="lblInstrument">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -225,26 +196,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1" rowspan="2">
-        <widget class="QComboBox" name="cboInstrument">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="whatsThis">
-          <string>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
+       <item row="6" column="0">
         <widget class="QLabel" name="lblKmap">
          <property name="text">
           <string>Keyboard Map</string>
@@ -254,17 +206,17 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="6" column="1">
         <widget class="QLineEdit" name="txtFileKmap"/>
        </item>
-       <item row="5" column="2">
+       <item row="6" column="2">
         <widget class="QPushButton" name="btnKmap">
          <property name="text">
           <string>Load...</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="0">
+       <item row="7" column="0">
         <widget class="QLabel" name="lblRawKmap">
          <property name="text">
           <string>Raw Keyboard Map</string>
@@ -274,17 +226,17 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
+       <item row="7" column="1">
         <widget class="QLineEdit" name="txtFileRawKmap"/>
        </item>
-       <item row="6" column="2">
+       <item row="7" column="2">
         <widget class="QPushButton" name="btnRawKmap">
          <property name="text">
           <string>Load...</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
+       <item row="8" column="0">
         <widget class="QLabel" name="lblDrumsChannel">
          <property name="text">
           <string>Drums Channel</string>
@@ -294,7 +246,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="8" column="1">
         <widget class="QComboBox" name="cboDrumsChannel">
          <item>
           <property name="text">
@@ -378,7 +330,7 @@
          </item>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="10" column="0">
         <widget class="QLabel" name="lblNetworkPort">
          <property name="text">
           <string>Network Port</string>
@@ -388,10 +340,10 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="10" column="1">
         <widget class="QLineEdit" name="txtNetworkPort"/>
        </item>
-       <item row="11" column="0">
+       <item row="12" column="0" colspan="3">
         <widget class="QCheckBox" name="chkStyledKnobs">
          <property name="whatsThis">
           <string>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</string>
@@ -404,7 +356,7 @@
          </property>
         </widget>
        </item>
-       <item row="12" column="0">
+       <item row="13" column="0" colspan="3">
         <widget class="QCheckBox" name="chkAlwaysOnTop">
          <property name="whatsThis">
           <string>Check this box to keep the keyboard window always visible, on top of other windows.</string>
@@ -414,7 +366,7 @@
          </property>
         </widget>
        </item>
-       <item row="15" column="0" colspan="2">
+       <item row="16" column="0" colspan="3">
         <widget class="QCheckBox" name="chkRawKeyboard">
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -431,7 +383,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="16" column="0" colspan="2">
+       <item row="17" column="0" colspan="3">
         <widget class="QCheckBox" name="chkVelocityColor">
          <property name="text">
           <string>Translate MIDI velocity to key pressed color tint</string>
@@ -441,7 +393,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="14" column="0" colspan="2">
+       <item row="15" column="0" colspan="3">
         <widget class="QCheckBox" name="chkGrabKb">
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -455,7 +407,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="10" column="0">
+       <item row="11" column="0">
         <widget class="QLabel" name="lblNetworkIface">
          <property name="text">
           <string>Network Interface</string>
@@ -465,10 +417,10 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="11" column="1">
         <widget class="QComboBox" name="cboNetworkIface"/>
        </item>
-       <item row="8" column="0">
+       <item row="9" column="0">
         <widget class="QLabel" name="lblMIDIDriver">
          <property name="text">
           <string>MIDI Driver</string>
@@ -478,17 +430,17 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="9" column="1">
         <widget class="QComboBox" name="cboMIDIDriver"/>
        </item>
-       <item row="17" column="0" colspan="2">
+       <item row="18" column="0" colspan="3">
         <widget class="QCheckBox" name="chkEnforceChannelState">
          <property name="text">
           <string>Enforce MIDI channel state</string>
          </property>
         </widget>
        </item>
-       <item row="20" column="0" colspan="2">
+       <item row="21" column="0" colspan="3">
         <widget class="QCheckBox" name="chkEnableTouch">
          <property name="text">
           <string>Enable Touch Screen Input</string>
@@ -498,7 +450,7 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="19" column="0" colspan="2">
+       <item row="20" column="0" colspan="3">
         <widget class="QCheckBox" name="chkEnableMouse">
          <property name="text">
           <string>Enable Mouse Input</string>
@@ -508,13 +460,36 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="13" column="0" colspan="2">
+       <item row="14" column="0" colspan="3">
         <widget class="QCheckBox" name="chkEnableKeyboard">
          <property name="text">
           <string>Enable Computer Keyboard Input</string>
          </property>
          <property name="checked">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="cboColorPolicy"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinNumOctaves">
+         <property name="whatsThis">
+          <string>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>9</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="cboInstrument">
+         <property name="whatsThis">
+          <string>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</string>
          </property>
         </widget>
        </item>
@@ -527,11 +502,9 @@ p, li { white-space: pre-wrap; }
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>scrollArea</tabstop>
-  <tabstop>spinNumOctaves</tabstop>
   <tabstop>btnColor</tabstop>
   <tabstop>txtFileInstrument</tabstop>
   <tabstop>btnInstrument</tabstop>
-  <tabstop>cboInstrument</tabstop>
   <tabstop>txtFileKmap</tabstop>
   <tabstop>btnKmap</tabstop>
   <tabstop>txtFileRawKmap</tabstop>

@@ -140,6 +140,7 @@ INCLUDEPATH += src
 
 # Input
 FORMS += src/about.ui \
+    src/colordialog.ui \
     src/extracontrols.ui \
     src/midisetup.ui \
     src/preferences.ui \
@@ -148,6 +149,8 @@ FORMS += src/about.ui \
 
 HEADERS += src/about.h \
     src/classicstyle.h \
+    src/colordialog.h \
+    src/colorwidget.h \
     src/constants.h \
     src/events.h \
     src/extracontrols.h \
@@ -161,6 +164,7 @@ HEADERS += src/about.h \
     src/pianodefs.h \
     src/pianokeybd.h \
     src/pianokey.h \
+    src/pianopalette.h \
     src/pianoscene.h \
     src/preferences.h \
     src/qticonloader.h \
@@ -169,11 +173,13 @@ HEADERS += src/about.h \
     src/riffimportdlg.h \
     src/RtError.h \
     src/RtMidi.h \
-    src/vpiano.h \
-    src/udpmidi.h
+    src/udpmidi.h \
+    src/vpiano.h
 
 SOURCES += src/about.cpp \
     src/classicstyle.cpp \
+    src/colordialog.cpp \
+    src/colorwidget.cpp \
     src/extracontrols.cpp \
     src/instrument.cpp \
     src/keyboardmap.cpp \
@@ -183,6 +189,7 @@ SOURCES += src/about.cpp \
     src/midisetup.cpp \
     src/pianokeybd.cpp \
     src/pianokey.cpp \
+    src/pianopalette.cpp \
     src/pianoscene.cpp \
     src/preferences.cpp \
     src/qticonloader.cpp \

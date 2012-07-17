@@ -39,6 +39,8 @@ class MidiSetup;
 class KMapDialog;
 class DialogExtraControls;
 class RiffImportDlg;
+class ColorDialog;
+class NoteOnEvent;
 
 class VPiano : public QMainWindow, public PianoHandler
 {
@@ -140,6 +142,7 @@ protected Q_SLOTS:
     void slotKeyboardInput(bool value);
     void slotMouseInput(bool value);
     void slotTouchScreenInput(bool value);
+    void slotColorPolicy();
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 
@@ -194,6 +197,7 @@ private:
     void createLanguageMenu();
     QString configuredLanguage();
     void enforceMIDIChannelState();
+    QColor getColorFromPolicy(NoteOnEvent *ev);
 
     About *dlgAbout();
     Preferences *dlgPreferences();
@@ -201,6 +205,7 @@ private:
     KMapDialog *dlgKeyMap();
     DialogExtraControls *dlgExtra();
     RiffImportDlg *dlgRiffImport();
+    ColorDialog *dlgColorPolicy();
 
     void initLanguages();
     void retranslateToolbars();
@@ -220,6 +225,7 @@ private:
     KMapDialog *m_dlgKeyMap;
     DialogExtraControls *m_dlgExtra;
     RiffImportDlg *m_dlgRiffImport;
+    ColorDialog *m_dlgColorPolicy;
 
     Ui::VPiano ui;
 
@@ -258,6 +264,7 @@ private:
     QAction *m_currentLang;
     QString m_midiDriver;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
+    int m_currentPalette;
 };
 
 #endif // VPIANO_H

@@ -29,6 +29,7 @@
 #include "preferences.h"
 #include "midisetup.h"
 #include "events.h"
+#include "colordialog.h"
 
 #if !defined(SMALL_SCREEN)
 #include "kmapdialog.h"
@@ -84,7 +85,8 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_dlgMidiSetup(0),
     m_dlgKeyMap(0),
     m_dlgExtra(0),
-    m_dlgRiffImport(0)
+    m_dlgRiffImport(0),
+    m_dlgColorPolicy(0)
 {
 #if ENABLE_DBUS
     new VmpkAdaptor(this);
@@ -117,6 +119,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionKeyboardInput, SIGNAL(toggled(bool)), SLOT(slotKeyboardInput(bool)));
     connect(ui.actionMouseInput, SIGNAL(toggled(bool)), SLOT(slotMouseInput(bool)));
     connect(ui.actionTouchScreenInput, SIGNAL(toggled(bool)), SLOT(slotTouchScreenInput(bool)));
+    connect(ui.actionColorPalette, SIGNAL(triggered()), SLOT(slotColorPolicy()));
     // Toolbars actions: toggle view
     connect(ui.toolBarNotes->toggleViewAction(), SIGNAL(toggled(bool)),
             ui.actionNotes, SLOT(setChecked(bool)));
@@ -695,7 +698,7 @@ void VPiano::readSettings()
     int num_octaves = settings.value(QSTR_NUMOCTAVES, DEFAULTNUMBEROFOCTAVES).toInt();
     QString insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
     QString insName = settings.value(QSTR_INSTRUMENTNAME).toString();
-    QColor keyColor = settings.value(QSTR_KEYPRESSEDCOLOR, QColor()).value<QColor>();
+    //QColor keyColor = settings.value(QSTR_KEYPRESSEDCOLOR, QColor()).value<QColor>();
     bool grabKb = settings.value(QSTR_GRABKB, false).toBool();
     bool styledKnobs = settings.value(QSTR_STYLEDKNOBS, true).toBool();
     bool alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
@@ -714,7 +717,10 @@ void VPiano::readSettings()
     QString iface = settings.value(QSTR_NETWORKIFACE).toString();
     NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
 #endif
+    m_currentPalette = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
     settings.endGroup();
+
+    dlgColorPolicy()->loadPalette(m_currentPalette);
     dlgPreferences()->setDriver(m_midiDriver);
 #if defined(NETWORK_MIDI)
     dlgPreferences()->setNetworkPort(udpPort);
@@ -722,7 +728,7 @@ void VPiano::readSettings()
 #endif
     dlgPreferences()->setNumOctaves(num_octaves);
     dlgPreferences()->setDrumsChannel(drumsChannel);
-    dlgPreferences()->setKeyPressedColor(keyColor);
+    //dlgPreferences()->setKeyPressedColor(keyColor);
     dlgPreferences()->setGrabKeyboard(grabKb);
     dlgPreferences()->setStyledWidgets(styledKnobs);
     dlgPreferences()->setAlwaysOnTop(alwaysOnTop);
@@ -740,6 +746,7 @@ void VPiano::readSettings()
     ui.pianokeybd->setKeyboardEnabled(enableKeyboard);
     ui.pianokeybd->setMouseEnabled(enableMouse);
     ui.pianokeybd->setTouchEnabled(enableTouch);
+    ui.pianokeybd->getPianoScene()->setChannel(m_baseChannel);
     slotShowNoteNames();
     if (!insFileName.isEmpty()) {
         dlgPreferences()->setInstrumentsFileName(insFileName);
@@ -876,7 +883,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NUMOCTAVES, dlgPreferences()->getNumOctaves());
     settings.setValue(QSTR_INSTRUMENTSDEFINITION, dlgPreferences()->getInstrumentsFileName());
     settings.setValue(QSTR_INSTRUMENTNAME, dlgPreferences()->getInstrumentName());
-    settings.setValue(QSTR_KEYPRESSEDCOLOR, dlgPreferences()->getKeyPressedColor());
+    //settings.setValue(QSTR_KEYPRESSEDCOLOR, dlgPreferences()->getKeyPressedColor());
     settings.setValue(QSTR_GRABKB, dlgPreferences()->getGrabKeyboard());
     settings.setValue(QSTR_STYLEDKNOBS, dlgPreferences()->getStyledWidgets());
     settings.setValue(QSTR_ALWAYSONTOP, dlgPreferences()->getAlwaysOnTop());
@@ -893,6 +900,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
     settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterfaceName());
 #endif
+    settings.setValue(QSTR_CURRENTPALETTE, m_currentPalette);
     settings.endGroup();
 
     settings.beginGroup(QSTR_CONNECTIONS);
@@ -961,6 +969,8 @@ void VPiano::writeSettings()
     }
     settings.endGroup();
 
+    dlgColorPolicy()->saveCurrentPalette();
+
     settings.sync();
 }
 
@@ -972,14 +982,31 @@ void VPiano::closeEvent( QCloseEvent *event )
     event->accept();
 }
 
+QColor VPiano::getColorFromPolicy(NoteOnEvent *ev)
+{
+    PianoPalette *palette = dlgColorPolicy()->currentPalette();
+    switch (palette->paletteId()) {
+    case PAL_SINGLE:
+        return palette->getColor(0);
+    case PAL_DOUBLE:
+        return palette->getColor(ev->getType());
+    case PAL_CHANNELS:
+        return palette->getColor(ev->getChannel());
+    case PAL_SCALE:
+        return palette->getColor(ev->getDegree());
+    }
+    return QColor();
+}
+
 void VPiano::customEvent ( QEvent *event )
 {
     //qDebug() << "customEvent:" << event->type();
     if ( event->type() == NoteOnEventType ) {
         NoteOnEvent *ev = static_cast<NoteOnEvent*>(event);
         int n = ev->getNote();
+        QColor c = getColorFromPolicy(ev);
         int v = (dlgPreferences()->getVelocityColor() ? ev->getValue() : MIDIVELOCITY );
-        ui.pianokeybd->showNoteOn(n, v);
+        ui.pianokeybd->showNoteOn(n, c, v);
 #ifdef ENABLE_DBUS
         emit event_noteon(n);
 #endif
@@ -1489,7 +1516,7 @@ void VPiano::applyPreferences()
     if (ui.pianokeybd->numOctaves() != dlgPreferences()->getNumOctaves()) {
         ui.pianokeybd->setNumOctaves(dlgPreferences()->getNumOctaves());
     }
-    ui.pianokeybd->setKeyPressedColor(dlgPreferences()->getKeyPressedColor());
+    //ui.pianokeybd->setKeyPressedColor(dlgPreferences()->getKeyPressedColor());
     ui.pianokeybd->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
     ui.pianokeybd->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
     bool enableKeyboard = dlgPreferences()->getEnabledKeyboard();
@@ -1519,6 +1546,9 @@ void VPiano::applyPreferences()
         ui.pianokeybd->setRawKeyboardMap(map);
     else
         ui.pianokeybd->resetRawKeyboardMap();
+
+    m_currentPalette = dlgColorPolicy()->currentPalette()->paletteId();
+    ui.pianokeybd->getPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
 
     populateInstruments();
     populateControllers();
@@ -1742,6 +1772,7 @@ void VPiano::slotChannelValueChanged(const int channel)
         int drms = dlgPreferences()->getDrumsChannel();
         bool updDrums = ((c == drms) || (m_baseChannel == drms));
         m_baseChannel = c;
+        ui.pianokeybd->getPianoScene()->setChannel(c);
         if (updDrums) {
             populateInstruments();
             populateControllers();
@@ -1964,6 +1995,7 @@ Preferences* VPiano::dlgPreferences()
 {
     if (m_dlgPreferences == 0) {
         m_dlgPreferences = new Preferences(this);
+        m_dlgPreferences->setColorPolicyDialog(dlgColorPolicy());
     }
     return m_dlgPreferences;
 }
@@ -2000,6 +2032,14 @@ RiffImportDlg* VPiano::dlgRiffImport()
         m_dlgRiffImport = new RiffImportDlg(this);
     }
     return m_dlgRiffImport;
+}
+
+ColorDialog* VPiano::dlgColorPolicy()
+{
+    if (m_dlgColorPolicy == 0) {
+        m_dlgColorPolicy = new ColorDialog(this);
+    }
+    return m_dlgColorPolicy;
 }
 
 void VPiano::setWidgetTip(QWidget* w, int val)
@@ -2428,4 +2468,12 @@ void VPiano::slotTouchScreenInput(bool value)
 {
     dlgPreferences()->setEnabledTouch(value);
     ui.pianokeybd->setTouchEnabled(value);
+}
+
+void VPiano::slotColorPolicy()
+{
+    if (dlgColorPolicy()->exec() == QDialog::Accepted) {
+        m_currentPalette = dlgColorPolicy()->currentPalette()->paletteId();
+        ui.pianokeybd->getPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
+    }
 }

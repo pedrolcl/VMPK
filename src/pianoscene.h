@@ -22,6 +22,8 @@
 #include "pianokey.h"
 #include "keylabel.h"
 #include "keyboardmap.h"
+#include "pianopalette.h"
+
 #include <QtGui/QGraphicsScene>
 #include <QtCore/QHash>
 
@@ -48,6 +50,9 @@ public:
     KeyboardMap* getKeyboardMap() const { return m_keybdMap; }
     PianoHandler* getPianoHandler() const { return m_handler; }
     void setPianoHandler(PianoHandler* handler) { m_handler = handler; }
+    PianoPalette* getPianoPalette() const { return m_palette; }
+    void setPianoPalette( PianoPalette* p ) { m_palette = p; }
+
     QColor getKeyPressedColor() const { return m_keyPressedColor; }
     void setKeyPressedColor(const QColor& color);
     int getMinNote() const { return m_minNote; } 
@@ -67,6 +72,7 @@ public:
     bool isTouchEnabled() const { return m_touchEnabled; }
     void setTouchEnabled( const bool enable );
 
+    void showNoteOn( const int note, QColor color, int vel = -1 );
     void showNoteOn( const int note, int vel = -1 );
     void showNoteOff( const int note, int vel = -1 );
     int baseOctave() const { return m_baseOctave; }
@@ -81,6 +87,8 @@ public:
     void useStandardNoteNames();
     int getVelocity() { return m_velocity; }
     void setVelocity(const int velocity) { m_velocity = velocity; }
+    int getChannel() const { return m_channel; }
+    void setChannel(const int channel) { m_channel = channel; }
     void retranslate();
 
 signals:
@@ -88,6 +96,7 @@ signals:
     void noteOff(int n, int v);
 
 protected:
+    void showKeyOn( PianoKey* key, QColor color, int vel );
     void showKeyOn( PianoKey* key, int vel );
     void showKeyOff( PianoKey* key, int vel );
     void keyOn( PianoKey* key );
@@ -110,7 +119,8 @@ private:
     void triggerNoteOn( const int note, const int vel );
     void triggerNoteOff( const int note, const int vel );
     int getNoteFromKey( const int key ) const;
-    
+    void setColorFromPolicy(PianoKey* key);
+
     int m_baseOctave;
     int m_numOctaves;
     int m_minNote;
@@ -125,6 +135,7 @@ private:
     QColor m_keyPressedColor;
     bool m_mousePressed;
     int m_velocity;
+    int m_channel;
     PianoHandler* m_handler;
     KeyboardMap* m_keybdMap;
     QList<PianoKey*> m_keys;
@@ -132,6 +143,7 @@ private:
     QStringList m_noteNames;
     QStringList m_names_s;
     QStringList m_names_f;
+    PianoPalette* m_palette;
 };
 
 #endif /*PIANOSCENE_H_*/

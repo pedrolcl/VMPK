@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>571</width>
-    <height>221</height>
+    <width>569</width>
+    <height>219</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,8 +49,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>571</width>
-     <height>21</height>
+     <width>569</width>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -70,6 +70,7 @@
     <addaction name="actionEditKM"/>
     <addaction name="actionEditExtraControls"/>
     <addaction name="actionShortcuts"/>
+    <addaction name="actionColorPalette"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -707,6 +708,11 @@
    </property>
    <property name="text">
     <string>Touch Screen</string>
+   </property>
+  </action>
+  <action name="actionColorPalette">
+   <property name="text">
+    <string>Color Palette</string>
    </property>
   </action>
  </widget>

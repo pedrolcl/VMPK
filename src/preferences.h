@@ -27,6 +27,8 @@
 #include <QNetworkInterface>
 #endif
 
+class ColorDialog;
+
 class Preferences : public QDialog
 {
     Q_OBJECT
@@ -36,7 +38,6 @@ public:
     int getNumOctaves() const { return m_numOctaves; }
     int getDrumsChannel() const { return m_drumsChannel; }
     int getNetworkPort() const { return m_networkPort; }
-    QColor getKeyPressedColor() const { return m_keyPressedColor; }
     bool getGrabKeyboard() const { return m_grabKb; }
     bool getStyledWidgets() const { return m_styledKnobs; }
     bool getAlwaysOnTop() const { return m_alwaysOnTop; }
@@ -65,6 +66,7 @@ public:
     KeyboardMap* getKeyboardMap() { return &m_keymap; }
     KeyboardMap* getRawKeyboardMap() { return &m_rawmap; }
     void retranslateUi();
+    void setColorPolicyDialog(ColorDialog *value);
 
 public slots:
     void setNumOctaves(int value) { m_numOctaves = value; }
@@ -79,7 +81,6 @@ public slots:
     void setEnabledKeyboard(bool value) { m_enableKeyboard = value; }
     void setEnabledMouse(bool value) { m_enableMouse = value; }
     void setEnabledTouch(bool value) { m_enableTouch = value; }
-    void setKeyPressedColor(QColor value);
     void setDriver(QString value);
     void slotOpenInstrumentFile();
     void slotSelectColor();
@@ -108,9 +109,9 @@ private:
     bool m_enableKeyboard;
     bool m_enableMouse;
     bool m_enableTouch;
-    QColor m_keyPressedColor;
     KeyboardMap m_keymap;
     KeyboardMap m_rawmap;
+    ColorDialog* m_colorDialog;
 };
 
 #endif // PREFERENCES_H

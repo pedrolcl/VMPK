@@ -19,6 +19,7 @@ link_directories (${CMAKE_CURRENT_BINARY_DIR})
 
 set (vmpk_forms_SRCS
     about.ui
+    colordialog.ui
     extracontrols.ui
     kmapdialog.ui
     midisetup.ui
@@ -34,6 +35,10 @@ set (vmpk_SRCS
     about.h
     classicstyle.cpp
     classicstyle.h
+    colordialog.cpp
+    colordialog.h
+    colorwidget.cpp
+    colorwidget.h
     constants.h
     extracontrols.cpp
     extracontrols.h
@@ -56,6 +61,8 @@ set (vmpk_SRCS
     pianokeybd.h
     pianokey.cpp
     pianokey.h
+    pianopalette.cpp
+    pianopalette.h
     pianoscene.cpp
     pianoscene.h
     preferences.cpp
@@ -71,16 +78,18 @@ set (vmpk_SRCS
     RtError.h
     RtMidi.cpp
     RtMidi.h
+    shortcutdialog.cpp
+    shortcutdialog.h
     udpmidi.cpp
     vpiano.cpp
-    vpiano.h
-    shortcutdialog.cpp
-    shortcutdialog.h )
+    vpiano.h )
 
 QT4_ADD_RESOURCES (vmpk_SRCS ../data/vmpk.qrc)
 
 set (vmpk_qtobject_SRCS
     about.h
+    colordialog.h
+    colorwidget.h
     extracontrols.h
     kmapdialog.h
     knob.h

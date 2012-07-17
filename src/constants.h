@@ -54,7 +54,7 @@ const QString QSTR_TRANSPOSE("Transpose");
 const QString QSTR_NUMOCTAVES("NumOctaves");
 const QString QSTR_INSTRUMENTSDEFINITION("InstrumentsDefinition");
 const QString QSTR_INSTRUMENTNAME("InstrumentName");
-const QString QSTR_KEYPRESSEDCOLOR("KeyPressedColor");
+//const QString QSTR_KEYPRESSEDCOLOR("KeyPressedColor");
 const QString QSTR_CONNECTIONS("Connections");
 const QString QSTR_INENABLED("InEnabled");
 const QString QSTR_THRUENABLED("ThruEnabled");
@@ -101,6 +101,8 @@ const QString QSTR_DRIVERNAMEIRIX("SGI Irix MD");
 const QString QSTR_DRIVERNAMEWINMM("Windows MM");
 const QString QSTR_DRIVERNAMENET("Network UDP (IpMIDI)");
 const QString QSTR_MULTICAST_ADDRESS("225.0.0.37");
+const QString QSTR_PALETTEPREFIX("Palette_");
+const QString QSTR_CURRENTPALETTE("CurrentPalette");
 
 #if defined(Q_OS_LINUX)
 const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEALSA);
@@ -147,6 +149,11 @@ const int TOOLBARLABELMARGIN = 5;
 const int KEYLABELFONTSIZE = 7;
 #endif
 const int NETWORKPORTNUMBER = 21928;
+
+const int PAL_SINGLE = 0;
+const int PAL_DOUBLE = 1;
+const int PAL_CHANNELS = 2;
+const int PAL_SCALE = 3;
 
 #if defined(Q_WS_MAC) && defined(QT_MAC_USE_COCOA)
 #error "This program requires Qt built with the Carbon framework. Sorry."

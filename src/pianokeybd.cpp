@@ -75,6 +75,11 @@ void PianoKeybd::resizeEvent(QResizeEvent *event)
     fitInView(m_scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
+void PianoKeybd::showNoteOn(int midiNote, QColor color, int vel)
+{
+    m_scene->showNoteOn(midiNote, color, vel);
+}
+
 void PianoKeybd::showNoteOn(int midiNote, int vel)
 {
     m_scene->showNoteOn(midiNote, vel);
