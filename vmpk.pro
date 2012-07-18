@@ -33,7 +33,6 @@ contains(QT_VERSION, ^4\\.[0-7]\\..*) {
 DEFINES += VERSION=$$VERSION
 
 simulator|symbian {
-    !net_midi:DEFINES += NETWORK_MIDI
     DEFINES += SMALL_SCREEN
 }
 symbian {
@@ -61,16 +60,20 @@ symbian {
         translations/vmpk_sv.qm
     DEPLOYMENT += addFiles
 }
-win32:!simulator {
-    !net_midi:DEFINES += __WINDOWS_MM__
-    DEFINES += RAWKBD_SUPPORT
+
+win32 {
+    DEFINES += __WINDOWS_MM__
     LIBS += -lwinmm
+    LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }
 
-win32:simulator: LIBS += -lws2_32
+win32:!simulator {
+    DEFINES += RAWKBD_SUPPORT
+}
+
 linux*:!simulator {
-    !net_midi:DEFINES += __LINUX_ALSASEQ__
+    DEFINES += __LINUX_ALSASEQ__
     DEFINES += AVOID_TIMESTAMPING
     DEFINES += RAWKBD_SUPPORT
     CONFIG += link_pkgconfig x11
@@ -86,7 +89,7 @@ macx {
     CONFIG += x86 \
         ppc
     ICON = data/vmpk.icns
-    !net_midi:DEFINES += __MACOSX_CORE__
+    DEFINES += __MACOSX_CORE__
     DEFINES += RAWKBD_SUPPORT
     BUNDLE_RES.files = data/help.html \
         data/help_de.html \
@@ -130,7 +133,7 @@ macx {
 }
 irix* { 
     CONFIG += x11
-    !net_midi:DEFINES += __IRIX_MD__
+    DEFINES += __IRIX_MD__
     DEFINES += RAWKBD_SUPPORT
     LIBS += -laudio \
         -lpthread
@@ -138,7 +141,6 @@ irix* {
 debug:DEFINES += __RTMIDI_DEBUG__
 INCLUDEPATH += src
 
-# Input
 FORMS += src/about.ui \
     src/colordialog.ui \
     src/extracontrols.ui \

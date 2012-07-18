@@ -48,13 +48,14 @@ void ColorWidget::paintEvent(QPaintEvent *ev)
 {
     if (m_fillColor.isValid())
     {
-        const int LBLSIZE = 24;
         QPainter painter(this);
         painter.fillRect(rect(), m_fillColor);
         if (!m_colorName.isEmpty()) {
-            QRect lblRect((rect().width() - LBLSIZE) / 2,
-                          (rect().height() - LBLSIZE) / 2,
-                          LBLSIZE, LBLSIZE);
+            QRect maxRect = painter.fontMetrics().boundingRect(m_colorName);
+            int bsize = painter.fontMetrics().xHeight()*3;
+            int w = maxRect.width() > bsize ? maxRect.width() : bsize;
+            int h = maxRect.height() > bsize ? maxRect.height() : bsize;
+            QRect lblRect((rect().width() - w) / 2, (rect().height() - h) / 2, w, h);
             painter.fillRect(lblRect, Qt::black);
             painter.setPen(Qt::white);
             painter.drawText(lblRect, Qt::AlignCenter, m_colorName);

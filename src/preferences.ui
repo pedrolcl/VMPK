@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>405</width>
-    <height>441</height>
+    <width>403</width>
+    <height>439</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,8 +61,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>399</width>
-        <height>408</height>
+        <width>397</width>
+        <height>406</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -118,7 +118,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Note color policy</string>
+          <string>Note highligh color</string>
          </property>
          <property name="buddy">
           <cstring>cboColorPolicy</cstring>
@@ -436,7 +436,7 @@ p, li { white-space: pre-wrap; }
        <item row="18" column="0" colspan="3">
         <widget class="QCheckBox" name="chkEnforceChannelState">
          <property name="text">
-          <string>Enforce MIDI channel state</string>
+          <string>MIDI channel state consistency</string>
          </property>
         </widget>
        </item>

@@ -127,28 +127,28 @@ void ColorDialog::resetPaletteSingle(PianoPalette *palette)
 
 void ColorDialog::resetPaletteDouble(PianoPalette *palette)
 {
-    palette->setColor(0, tr("N"), qApp->palette().highlight().color());
-    palette->setColor(1, tr("#"), QColor("lawngreen"));
+    palette->setColor(0, trUtf8("N"), qApp->palette().highlight().color());
+    palette->setColor(1, trUtf8("#"), QColor("lawngreen"));
 }
 
 void ColorDialog::resetPaletteChannels(PianoPalette *palette)
 {
-    palette->setColor(0, "1", QColor("blue"));
-    palette->setColor(1, "2", QColor("green"));
-    palette->setColor(2, "3", QColor("yellow"));
-    palette->setColor(3, "4", QColor("orange"));
-    palette->setColor(4, "5", QColor("chocolate"));
-    palette->setColor(5, "6", QColor("fuchsia"));
-    palette->setColor(6, "7", QColor("cyan"));
-    palette->setColor(7, "8", QColor("darkgreen"));
-    palette->setColor(8, "9", QColor("lime"));
-    palette->setColor(9, "10", QColor("red"));
-    palette->setColor(10, "11", QColor("darkblue"));
-    palette->setColor(11, "12", QColor("olive"));
-    palette->setColor(12, "13", QColor("gold"));
-    palette->setColor(13, "14", QColor("maroon"));
-    palette->setColor(14, "15", QColor("crimson"));
-    palette->setColor(15, "16", QColor("purple"));
+    palette->setColor(0, trUtf8("1"), QColor("red"));
+    palette->setColor(1, trUtf8("2"), QColor("lime"));
+    palette->setColor(2, trUtf8("3"), QColor("blue"));
+    palette->setColor(3, trUtf8("4"), QColor("gold"));
+    palette->setColor(4, trUtf8("5"), QColor("maroon"));
+    palette->setColor(5, trUtf8("6"), QColor("green"));
+    palette->setColor(6, trUtf8("7"), QColor("navy"));
+    palette->setColor(7, trUtf8("8"), QColor("darkorange"));
+    palette->setColor(8, trUtf8("9"), QColor("purple"));
+    palette->setColor(9, trUtf8("10"), QColor());
+    palette->setColor(10, trUtf8("11"), QColor("teal"));
+    palette->setColor(11, trUtf8("12"), QColor("chocolate"));
+    palette->setColor(12, trUtf8("13"), QColor("fuchsia"));
+    palette->setColor(13, trUtf8("14"), QColor("olivedrab"));
+    palette->setColor(14, trUtf8("15"), QColor("aqua"));
+    palette->setColor(15, trUtf8("16"), QColor("greenyellow"));
 }
 
 void ColorDialog::resetPaletteScale(PianoPalette *palette)
@@ -168,18 +168,18 @@ void ColorDialog::resetPaletteScale(PianoPalette *palette)
             A#      -       100%    100%    10
             B       -       50%     100%    11
     */
-    palette->setColor(0, tr("C"), QColor::fromRgb(0,0,255));
-    palette->setColor(1, tr("C#"), QColor::fromRgb(127,0,255));
-    palette->setColor(2, tr("D"), QColor::fromRgb(255,0,255));
-    palette->setColor(3, tr("D#"), QColor::fromRgb(255,0,127));
-    palette->setColor(4, tr("E"), QColor::fromRgb(255,0,0));
-    palette->setColor(5, tr("F"), QColor::fromRgb(255,127,0));
-    palette->setColor(6, tr("F#"), QColor::fromRgb(255,255,0));
-    palette->setColor(7, tr("G"), QColor::fromRgb(127,255,0));
-    palette->setColor(8, tr("G#"), QColor::fromRgb(0,255,0));
-    palette->setColor(9, tr("A"), QColor::fromRgb(0,255,127));
-    palette->setColor(10, tr("A#"), QColor::fromRgb(0,255,255));
-    palette->setColor(11, tr("B"), QColor::fromRgb(0,127,255));
+    palette->setColor(0, trUtf8("C"), QColor::fromRgb(0,0,255));
+    palette->setColor(1, trUtf8("C#"), QColor::fromRgb(127,0,255));
+    palette->setColor(2, trUtf8("D"), QColor::fromRgb(255,0,255));
+    palette->setColor(3, trUtf8("D#"), QColor::fromRgb(255,0,127));
+    palette->setColor(4, trUtf8("E"), QColor::fromRgb(255,0,0));
+    palette->setColor(5, trUtf8("F"), QColor::fromRgb(255,127,0));
+    palette->setColor(6, trUtf8("F#"), QColor::fromRgb(255,255,0));
+    palette->setColor(7, trUtf8("G"), QColor::fromRgb(127,255,0));
+    palette->setColor(8, trUtf8("G#"), QColor::fromRgb(0,255,0));
+    palette->setColor(9, trUtf8("A"), QColor::fromRgb(0,255,127));
+    palette->setColor(10, trUtf8("A#"), QColor::fromRgb(0,255,255));
+    palette->setColor(11, trUtf8("B"), QColor::fromRgb(0,127,255));
 }
 
 void
@@ -188,25 +188,25 @@ ColorDialog::initializePalettes()
     PianoPalette *palette;
 
     palette = new PianoPalette(1, PAL_SINGLE);
-    palette->setPaletteName(tr("Single color"));
-    palette->setPaletteText(tr("A single color to highlight all note events"));
+    palette->setPaletteName(trUtf8("Single color"));
+    palette->setPaletteText(trUtf8("A single color to highlight all note events"));
     insertPalette(PAL_SINGLE, palette);
 
     palette = new PianoPalette(2, PAL_DOUBLE);
-    palette->setPaletteName(tr("Two colors"));
-    palette->setPaletteText(tr("One color to highlight natural notes and a different one for alterations"));
+    palette->setPaletteName(trUtf8("Two colors"));
+    palette->setPaletteText(trUtf8("One color to highlight natural notes and a different one for accidentals"));
     resetPaletteDouble(palette);
     insertPalette(PAL_DOUBLE, palette);
 
     palette = new PianoPalette(16, PAL_CHANNELS);
-    palette->setPaletteName(tr("MIDI Channels"));
-    palette->setPaletteText(tr("A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection"));
+    palette->setPaletteName(trUtf8("MIDI Channels"));
+    palette->setPaletteText(trUtf8("A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection"));
     resetPaletteChannels(palette);
     insertPalette(PAL_CHANNELS, palette);
 
     palette = new PianoPalette(12, PAL_SCALE);
-    palette->setPaletteName(tr("Chromatic scale"));
-    palette->setPaletteText(tr("One color for each note in the chromatic scale"));
+    palette->setPaletteName(trUtf8("Chromatic scale"));
+    palette->setPaletteText(trUtf8("One color for each note in the chromatic scale"));
     resetPaletteScale(palette);
     insertPalette(PAL_SCALE, palette);
 }
