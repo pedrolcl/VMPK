@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>569</width>
-    <height>219</height>
+    <width>567</width>
+    <height>217</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,7 +49,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>569</width>
+     <width>567</width>
      <height>24</height>
     </rect>
    </property>
@@ -100,6 +100,7 @@
     <addaction name="actionExtraControls"/>
     <addaction name="separator"/>
     <addaction name="actionNoteNames"/>
+    <addaction name="actionColorScale"/>
     <addaction name="actionStatusBar"/>
    </widget>
    <widget class="QMenu" name="menuTools">
@@ -713,6 +714,14 @@
   <action name="actionColorPalette">
    <property name="text">
     <string>Color Palette</string>
+   </property>
+  </action>
+  <action name="actionColorScale">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color Scale</string>
    </property>
   </action>
  </widget>

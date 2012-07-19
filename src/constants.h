@@ -103,6 +103,7 @@ const QString QSTR_DRIVERNAMENET("Network UDP (IpMIDI)");
 const QString QSTR_MULTICAST_ADDRESS("225.0.0.37");
 const QString QSTR_PALETTEPREFIX("Palette_");
 const QString QSTR_CURRENTPALETTE("CurrentPalette");
+const QString QSTR_SHOWCOLORSCALE("ShowColorScale");
 
 #if defined(Q_OS_LINUX)
 const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEALSA);

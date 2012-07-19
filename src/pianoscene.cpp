@@ -49,8 +49,10 @@ PianoScene::PianoScene ( const int baseOctave,
     m_mousePressed( false ),
     m_velocity( 100 ),
     m_channel( 0 ),
+    m_showColorScale( false ),
     m_handler( 0 ),
-    m_palette( 0 )
+    m_palette( 0 ),
+    m_scalePalette( 0 )
 {
     QBrush hilightBrush(m_keyPressedColor.isValid() ? m_keyPressedColor : QApplication::palette().highlight());
     QFont lblFont(QApplication::font());
@@ -498,6 +500,21 @@ void PianoScene::refreshLabels()
     }
 }
 
+void PianoScene::refreshKeys()
+{
+    QList<PianoKey*>::ConstIterator it;
+    for(it = m_keys.constBegin(); it != m_keys.constEnd(); ++it) {
+        PianoKey* key = (*it);
+        if (m_showColorScale && m_scalePalette != 0) {
+            int degree = key->getNote() % 12;
+            key->setBrush(m_scalePalette->getColor(degree));
+        } else {
+            key->resetBrush();
+        }
+        key->setPressed(false);
+    }
+}
+
 void PianoScene::setShowLabels(bool show)
 {
     if (m_showLabels != show) {
@@ -596,4 +613,13 @@ void PianoScene::retranslate()
               << trUtf8("Bb")
               << trUtf8("B");
     refreshLabels();
+}
+
+void PianoScene::setShowColorScale(const bool show)
+{
+    if (m_showColorScale != show && m_scalePalette != 0 ) {
+        m_showColorScale = show;
+        refreshKeys();
+        invalidate();
+    }
 }

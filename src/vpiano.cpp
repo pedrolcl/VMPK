@@ -120,6 +120,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionMouseInput, SIGNAL(toggled(bool)), SLOT(slotMouseInput(bool)));
     connect(ui.actionTouchScreenInput, SIGNAL(toggled(bool)), SLOT(slotTouchScreenInput(bool)));
     connect(ui.actionColorPalette, SIGNAL(triggered()), SLOT(slotColorPolicy()));
+    connect(ui.actionColorScale, SIGNAL(toggled(bool)), SLOT(slotColorScale(bool)));
     // Toolbars actions: toggle view
     connect(ui.toolBarNotes->toggleViewAction(), SIGNAL(toggled(bool)),
             ui.actionNotes, SLOT(setChecked(bool)));
@@ -143,8 +144,6 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     setWindowTitle("VMPK " + PGM_VERSION);
 #endif
     ui.pianokeybd->setPianoHandler(this);
-//    PianoScene *scene = (PianoScene *) ui.pianokeybd->scene();
-//    scene->setMouseEnabled(false);
     initialization();
 }
 
@@ -718,6 +717,7 @@ void VPiano::readSettings()
     NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
 #endif
     m_currentPalette = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
+    bool colorScale = settings.value(QSTR_SHOWCOLORSCALE, false).toBool();
     settings.endGroup();
 
     dlgColorPolicy()->loadPalette(m_currentPalette);
@@ -747,6 +747,7 @@ void VPiano::readSettings()
     ui.pianokeybd->setMouseEnabled(enableMouse);
     ui.pianokeybd->setTouchEnabled(enableTouch);
     ui.pianokeybd->getPianoScene()->setChannel(m_baseChannel);
+    ui.actionColorScale->setChecked(colorScale);
     slotShowNoteNames();
     if (!insFileName.isEmpty()) {
         dlgPreferences()->setInstrumentsFileName(insFileName);
@@ -901,6 +902,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterfaceName());
 #endif
     settings.setValue(QSTR_CURRENTPALETTE, m_currentPalette);
+    settings.setValue(QSTR_SHOWCOLORSCALE, ui.actionColorScale->isChecked());
     settings.endGroup();
 
     settings.beginGroup(QSTR_CONNECTIONS);
@@ -1548,7 +1550,9 @@ void VPiano::applyPreferences()
         ui.pianokeybd->resetRawKeyboardMap();
 
     m_currentPalette = dlgColorPolicy()->currentPalette()->paletteId();
-    ui.pianokeybd->getPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
+    currentPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
+    currentPianoScene()->setColorScalePalette(dlgColorPolicy()->getPalette(PAL_SCALE));
+    currentPianoScene()->setShowColorScale(ui.actionColorScale->isChecked());
 
     populateInstruments();
     populateControllers();
@@ -2476,4 +2480,14 @@ void VPiano::slotColorPolicy()
         m_currentPalette = dlgColorPolicy()->currentPalette()->paletteId();
         ui.pianokeybd->getPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
     }
+}
+
+void VPiano::slotColorScale(bool value)
+{
+    currentPianoScene()->setShowColorScale(value);
+}
+
+PianoScene *VPiano::currentPianoScene()
+{
+    return ui.pianokeybd->getPianoScene();
 }

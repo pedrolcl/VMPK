@@ -81,3 +81,11 @@ void PianoKey::setPressed(bool p)
         update();
     }
 }
+
+void PianoKey::resetBrush()
+{
+    if (m_black)
+        m_brush = blackBrush;
+    else
+        m_brush = whiteBrush;
+}

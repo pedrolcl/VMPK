@@ -52,6 +52,7 @@ public:
     void setPianoHandler(PianoHandler* handler) { m_handler = handler; }
     PianoPalette* getPianoPalette() const { return m_palette; }
     void setPianoPalette( PianoPalette* p ) { m_palette = p; }
+    void setColorScalePalette( PianoPalette* p ) { m_scalePalette = p; }
 
     QColor getKeyPressedColor() const { return m_keyPressedColor; }
     void setKeyPressedColor(const QColor& color);
@@ -71,6 +72,8 @@ public:
     void setMouseEnabled( const bool enable );
     bool isTouchEnabled() const { return m_touchEnabled; }
     void setTouchEnabled( const bool enable );
+    bool showColorScale() const { return m_showColorScale; }
+    void setShowColorScale(const bool show);
 
     void showNoteOn( const int note, QColor color, int vel = -1 );
     void showNoteOn( const int note, int vel = -1 );
@@ -116,6 +119,7 @@ protected:
 private:
     void hideOrShowKeys();
     void refreshLabels();
+    void refreshKeys();
     void triggerNoteOn( const int note, const int vel );
     void triggerNoteOff( const int note, const int vel );
     int getNoteFromKey( const int key ) const;
@@ -136,6 +140,7 @@ private:
     bool m_mousePressed;
     int m_velocity;
     int m_channel;
+    bool m_showColorScale;
     PianoHandler* m_handler;
     KeyboardMap* m_keybdMap;
     QList<PianoKey*> m_keys;
@@ -144,6 +149,7 @@ private:
     QStringList m_names_s;
     QStringList m_names_f;
     PianoPalette* m_palette;
+    PianoPalette* m_scalePalette;
 };
 
 #endif /*PIANOSCENE_H_*/

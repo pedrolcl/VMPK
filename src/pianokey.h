@@ -32,7 +32,9 @@ public:
     PianoKey(const QRectF &rect, const bool black, const int note);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
     int getNote() const { return m_note; }
+    void setBrush(const QBrush& b) { m_brush = b; }
     void setPressedBrush(const QBrush& b) { m_selectedBrush = b; }
+    void resetBrush();
     bool isPressed() const { return m_pressed; }
     void setPressed(bool p);
     int getDegree() const { return m_note % 12; }

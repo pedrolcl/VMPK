@@ -36,6 +36,7 @@ public:
     explicit ColorDialog(QWidget *parent = 0);
     ~ColorDialog();
     PianoPalette *currentPalette();
+    PianoPalette *getPalette(int pal);
     QList<QString> availablePaletteNames();
     QColor getColor(int i);
     void saveCurrentPalette();

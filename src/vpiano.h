@@ -143,6 +143,7 @@ protected Q_SLOTS:
     void slotMouseInput(bool value);
     void slotTouchScreenInput(bool value);
     void slotColorPolicy();
+    void slotColorScale(bool value);
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 
@@ -198,6 +199,7 @@ private:
     QString configuredLanguage();
     void enforceMIDIChannelState();
     QColor getColorFromPolicy(NoteOnEvent *ev);
+    PianoScene *currentPianoScene();
 
     About *dlgAbout();
     Preferences *dlgPreferences();

@@ -226,6 +226,15 @@ ColorDialog::currentPalette()
     return m_currentPalette;
 }
 
+PianoPalette *
+ColorDialog::getPalette(int pal)
+{
+    if (pal >= 0 && pal < m_paletteList.count()) {
+        return m_paletteList[pal];
+    }
+    return 0;
+}
+
 QList<QString>
 ColorDialog::availablePaletteNames()
 {
