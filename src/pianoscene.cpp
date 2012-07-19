@@ -126,7 +126,7 @@ void PianoScene::showNoteOn( const int note, QColor color, int vel )
 {
     int n = note - m_baseOctave*12 - m_transpose;
     if ((note >= m_minNote) && (note <= m_maxNote) &&
-        (n >= 0) && (n < m_keys.size()))
+        (n >= 0) && (n < m_keys.size()) && color.isValid())
         showKeyOn(m_keys[n], color, vel);
 }
 

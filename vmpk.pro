@@ -12,7 +12,7 @@
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.4.1
+VERSION = 0.4.99
 QT += core \
     gui \
     xml \
@@ -169,7 +169,6 @@ HEADERS += src/about.h \
     src/pianopalette.h \
     src/pianoscene.h \
     src/preferences.h \
-    src/qticonloader.h \
     src/rawkeybdapp.h \
     src/riff.h \
     src/riffimportdlg.h \
@@ -194,7 +193,6 @@ SOURCES += src/about.cpp \
     src/pianopalette.cpp \
     src/pianoscene.cpp \
     src/preferences.cpp \
-    src/qticonloader.cpp \
     src/riff.cpp \
     src/riffimportdlg.cpp \
     src/RtMidi.cpp \
