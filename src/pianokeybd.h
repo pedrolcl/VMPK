@@ -53,57 +53,34 @@ public:
     PianoKeybd(QWidget *parent = 0);
     PianoKeybd(const int baseOctave, const int numOctaves, QWidget *parent = 0);
     virtual ~PianoKeybd();
-    void setKeyboardMap(KeyboardMap* m) { m_scene->setKeyboardMap(m); }
-    void resetKeyboardMap() { m_scene->setKeyboardMap(&m_defaultMap); }
-    KeyboardMap* getKeyboardMap() { return m_scene->getKeyboardMap(); }
-    void setRawKeyboardMap(KeyboardMap* m) { m_rawMap = m; }
-    KeyboardMap* getRawKeyboardMap() { return m_rawMap; }
-    void resetRawKeyboardMap() { m_rawMap = &m_defaultRawMap; }
-    PianoScene* getPianoScene() { return (PianoScene *) scene(); }
 
     int baseOctave() const { return m_scene->baseOctave(); }
-    int numOctaves() const { return m_scene->numOctaves(); }
     void setBaseOctave(const int baseOctave) { m_scene->setBaseOctave(baseOctave); }
+    int numOctaves() const { return m_scene->numOctaves(); }
     void setNumOctaves(const int numOctaves);
-    QSize sizeHint() const;
     int getRotation() const { return m_rotation; }
     void setRotation(int r);
     QColor getKeyPressedColor() const { return m_scene->getKeyPressedColor(); }
     void setKeyPressedColor(const QColor& c) { m_scene->setKeyPressedColor(c); }
-    void allKeysOff() { m_scene->allKeysOff(); }
-    void setPianoHandler(PianoHandler* handler) { m_scene->setPianoHandler(handler); }
-    int minNote() const { return m_scene->getMinNote(); }
-    void setMinNote(int n) { m_scene->setMinNote(n); }
-    int maxNote() const { return m_scene->getMaxNote(); }
-    void setMaxNote(int n) { m_scene->setMaxNote(n); }
-    int getTranspose() const { return m_scene->getTranspose(); }
-    void setTranspose(int t) { m_scene->setTranspose(t); }
     bool showLabels() const { return m_scene->showLabels(); }
     void setShowLabels(bool show) { m_scene->setShowLabels(show); }
     bool useFlats() const { return m_scene->useFlats(); }
     void setUseFlats(bool use) { m_scene->setUseFlats(use); }
-    bool getRawKeyboardMode() const { return m_scene->getRawKeyboardMode(); }
-    void setRawKeyboardMode(const bool b) { m_scene->setRawKeyboardMode(b); }
-    void useCustomNoteNames(const QStringList& names) { m_scene->useCustomNoteNames(names); }
-    void useStandardNoteNames() { m_scene->useStandardNoteNames(); }
-    int getVelocity() { return m_scene->getVelocity(); }
-    void setVelocity(const int velocity) { m_scene->setVelocity(velocity); }
-    bool isKeyboardEnabled() const { return m_scene->isKeyboardEnabled(); }
-    void setKeyboardEnabled(const bool b) { m_scene->setKeyboardEnabled(b); }
-    bool isMouseEnabled() const { return m_scene->isMouseEnabled(); }
-    void setMouseEnabled(const bool b) { m_scene->setMouseEnabled(b); }
-    bool isTouchEnabled() const { return m_scene->isTouchEnabled(); }
-    void setTouchEnabled(const bool b) { m_scene->setTouchEnabled(b); }
-    void retranslate();
+    int getTranspose() const { return m_scene->getTranspose(); }
+    void setTranspose(int t) { m_scene->setTranspose(t); }
+
+    QSize sizeHint() const;
+    PianoScene* getPianoScene() { return m_scene; }
+    void setRawKeyboardMap(KeyboardMap* m) { m_rawMap = m; }
+    KeyboardMap* getRawKeyboardMap() { return m_rawMap; }
+    void resetRawKeyboardMap() { m_rawMap = &m_defaultRawMap; }
+    void resetKeyboardMap() { m_scene->setKeyboardMap(&m_defaultMap); }
+
 #if defined(RAWKBD_SUPPORT)
 // RawKbdHandler methods
     bool handleKeyPressed(int keycode);
     bool handleKeyReleased(int keycode);
 #endif
-public slots:
-    void showNoteOn( int midiNote, QColor color, int vel = -1 );
-    void showNoteOn( int midiNote, int vel = -1 );
-    void showNoteOff( int midiNote, int vel = -1 );
 
 signals:
     void noteOn( int midiNote, int vel );

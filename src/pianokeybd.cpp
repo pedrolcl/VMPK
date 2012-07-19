@@ -34,7 +34,7 @@ PianoKeybd::PianoKeybd(const int baseOctave, const int numOctaves, QWidget *pare
 
 PianoKeybd::~PianoKeybd()
 {
-    setRawKeyboardMode(false);
+    m_scene->setRawKeyboardMode(false);
     setRawKeyboardMap(NULL);
 }
 
@@ -73,21 +73,6 @@ void PianoKeybd::resizeEvent(QResizeEvent *event)
 {
     QGraphicsView::resizeEvent(event);
     fitInView(m_scene->sceneRect(), Qt::KeepAspectRatio);
-}
-
-void PianoKeybd::showNoteOn(int midiNote, QColor color, int vel)
-{
-    m_scene->showNoteOn(midiNote, color, vel);
-}
-
-void PianoKeybd::showNoteOn(int midiNote, int vel)
-{
-    m_scene->showNoteOn(midiNote, vel);
-}
-
-void PianoKeybd::showNoteOff(int midiNote, int vel)
-{
-    m_scene->showNoteOff(midiNote, vel);
 }
 
 void PianoKeybd::initDefaultMap()
@@ -307,8 +292,3 @@ bool PianoKeybd::handleKeyReleased(int keycode)
     return false;
 }
 #endif
-
-void PianoKeybd::retranslate()
-{
-    m_scene->retranslate();
-}

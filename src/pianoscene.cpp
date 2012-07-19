@@ -431,6 +431,14 @@ void PianoScene::setKeyPressedColor(const QColor& color)
     }
 }
 
+void PianoScene::resetKeyPressedColor()
+{
+    QBrush hilightBrush(m_keyPressedColor.isValid() ? m_keyPressedColor : QApplication::palette().highlight());
+    foreach(PianoKey* key, m_keys) {
+        key->setPressedBrush(hilightBrush);
+    }
+}
+
 void PianoScene::hideOrShowKeys()
 {
     QListIterator<PianoKey*> it(m_keys);
@@ -502,9 +510,7 @@ void PianoScene::refreshLabels()
 
 void PianoScene::refreshKeys()
 {
-    QList<PianoKey*>::ConstIterator it;
-    for(it = m_keys.constBegin(); it != m_keys.constEnd(); ++it) {
-        PianoKey* key = (*it);
+    foreach(PianoKey* key, m_keys) {
         if (m_showColorScale && m_scalePalette != 0) {
             int degree = key->getNote() % 12;
             key->setBrush(m_scalePalette->getColor(degree));
@@ -622,4 +628,11 @@ void PianoScene::setShowColorScale(const bool show)
         refreshKeys();
         invalidate();
     }
+}
+
+void PianoScene::setPianoPalette(PianoPalette *p)
+{
+    //qDebug() << Q_FUNC_INFO;
+    resetKeyPressedColor();
+    m_palette = p;
 }

@@ -91,10 +91,11 @@ ColorDialog::refreshPalette()
             if (i < currentPalette()->getNumColors()) {
                 QColor color = currentPalette()->getColor(i);
                 QString name = currentPalette()->getColorName(i);
-                if (color.isValid()) {
-                    wdg->setFillColor(color);
-                    wdg->setColorName(name);
+                wdg->setColorName(name);
+                if (!color.isValid()) {
+                    color = qApp->palette().window().color();
                 }
+                wdg->setFillColor(color);
             } else {
                 wdg->disable();
             }

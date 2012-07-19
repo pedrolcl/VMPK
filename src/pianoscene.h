@@ -51,11 +51,12 @@ public:
     PianoHandler* getPianoHandler() const { return m_handler; }
     void setPianoHandler(PianoHandler* handler) { m_handler = handler; }
     PianoPalette* getPianoPalette() const { return m_palette; }
-    void setPianoPalette( PianoPalette* p ) { m_palette = p; }
+    void setPianoPalette( PianoPalette* p );
     void setColorScalePalette( PianoPalette* p ) { m_scalePalette = p; }
 
     QColor getKeyPressedColor() const { return m_keyPressedColor; }
     void setKeyPressedColor(const QColor& color);
+    void resetKeyPressedColor();
     int getMinNote() const { return m_minNote; } 
     void setMinNote(const int note);
     int getMaxNote() const { return m_maxNote; }

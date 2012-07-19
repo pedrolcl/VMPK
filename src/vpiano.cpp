@@ -143,7 +143,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     ui.actionStatusBar->setVisible(false);
     setWindowTitle("VMPK " + PGM_VERSION);
 #endif
-    ui.pianokeybd->setPianoHandler(this);
+    currentPianoScene()->setPianoHandler(this);
     initialization();
 }
 
@@ -697,7 +697,6 @@ void VPiano::readSettings()
     int num_octaves = settings.value(QSTR_NUMOCTAVES, DEFAULTNUMBEROFOCTAVES).toInt();
     QString insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
     QString insName = settings.value(QSTR_INSTRUMENTNAME).toString();
-    //QColor keyColor = settings.value(QSTR_KEYPRESSEDCOLOR, QColor()).value<QColor>();
     bool grabKb = settings.value(QSTR_GRABKB, false).toBool();
     bool styledKnobs = settings.value(QSTR_STYLEDKNOBS, true).toBool();
     bool alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
@@ -740,13 +739,13 @@ void VPiano::readSettings()
     ui.actionNoteNames->setChecked(showNames);
     ui.actionStatusBar->setChecked(showStatusBar);
     ui.pianokeybd->setNumOctaves(num_octaves);
-    ui.pianokeybd->setVelocity(velocityColor ? m_velocity : MIDIVELOCITY);
+    currentPianoScene()->setVelocity(velocityColor ? m_velocity : MIDIVELOCITY);
     ui.pianokeybd->setTranspose(m_transpose);
     ui.pianokeybd->setBaseOctave(m_baseOctave);
-    ui.pianokeybd->setKeyboardEnabled(enableKeyboard);
-    ui.pianokeybd->setMouseEnabled(enableMouse);
-    ui.pianokeybd->setTouchEnabled(enableTouch);
-    ui.pianokeybd->getPianoScene()->setChannel(m_baseChannel);
+    currentPianoScene()->setKeyboardEnabled(enableKeyboard);
+    currentPianoScene()->setMouseEnabled(enableMouse);
+    currentPianoScene()->setTouchEnabled(enableTouch);
+    currentPianoScene()->setChannel(m_baseChannel);
     ui.actionColorScale->setChecked(colorScale);
     slotShowNoteNames();
     if (!insFileName.isEmpty()) {
@@ -791,11 +790,11 @@ void VPiano::readSettings()
     }
     settings.endGroup();
 
-    ui.pianokeybd->getKeyboardMap()->setRawMode(false);
+    currentPianoScene()->getKeyboardMap()->setRawMode(false);
     ui.pianokeybd->getRawKeyboardMap()->setRawMode(true);
     if (!mapFile.isEmpty() && mapFile != QSTR_DEFAULT) {
         dlgPreferences()->setKeyMapFileName(mapFile);
-        ui.pianokeybd->setKeyboardMap(dlgPreferences()->getKeyboardMap());
+        currentPianoScene()->setKeyboardMap(dlgPreferences()->getKeyboardMap());
     }
     if (!rawMapFile.isEmpty() && rawMapFile != QSTR_DEFAULT) {
         dlgPreferences()->setRawKeyMapFileName(rawMapFile);
@@ -884,7 +883,6 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NUMOCTAVES, dlgPreferences()->getNumOctaves());
     settings.setValue(QSTR_INSTRUMENTSDEFINITION, dlgPreferences()->getInstrumentsFileName());
     settings.setValue(QSTR_INSTRUMENTNAME, dlgPreferences()->getInstrumentName());
-    //settings.setValue(QSTR_KEYPRESSEDCOLOR, dlgPreferences()->getKeyPressedColor());
     settings.setValue(QSTR_GRABKB, dlgPreferences()->getGrabKeyboard());
     settings.setValue(QSTR_STYLEDKNOBS, dlgPreferences()->getStyledWidgets());
     settings.setValue(QSTR_ALWAYSONTOP, dlgPreferences()->getAlwaysOnTop());
@@ -909,17 +907,15 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_INENABLED, dlgMidiSetup()->inputIsEnabled());
     settings.setValue(QSTR_THRUENABLED, dlgMidiSetup()->thruIsEnabled());
     settings.setValue(QSTR_OMNIENABLED, dlgMidiSetup()->omniIsEnabled());
-//#if !defined(NETWORK_MIDI)
     if (m_midiDriver != QSTR_DRIVERNAMENET) {
         settings.setValue(QSTR_INPORT,  dlgMidiSetup()->selectedInputName());
         settings.setValue(QSTR_OUTPORT, dlgMidiSetup()->selectedOutputName());
     }
-//#endif
     settings.endGroup();
 
     settings.beginGroup(QSTR_KEYBOARD);
     settings.setValue(QSTR_RAWKEYBOARDMODE, dlgPreferences()->getRawKeyboard());
-    settings.setValue(QSTR_MAPFILE, ui.pianokeybd->getKeyboardMap()->getFileName());
+    settings.setValue(QSTR_MAPFILE, currentPianoScene()->getKeyboardMap()->getFileName());
     settings.setValue(QSTR_RAWMAPFILE, ui.pianokeybd->getRawKeyboardMap()->getFileName());
     settings.endGroup();
 
@@ -1008,7 +1004,7 @@ void VPiano::customEvent ( QEvent *event )
         int n = ev->getNote();
         QColor c = getColorFromPolicy(ev);
         int v = (dlgPreferences()->getVelocityColor() ? ev->getValue() : MIDIVELOCITY );
-        ui.pianokeybd->showNoteOn(n, c, v);
+        currentPianoScene()->showNoteOn(n, c, v);
 #ifdef ENABLE_DBUS
         emit event_noteon(n);
 #endif
@@ -1016,7 +1012,7 @@ void VPiano::customEvent ( QEvent *event )
     else if ( event->type() == NoteOffEventType ) {
         NoteOffEvent *ev = static_cast<NoteOffEvent*>(event);
         int n = ev->getNote();
-        ui.pianokeybd->showNoteOff(n);
+        currentPianoScene()->showNoteOff(n);
 #ifdef ENABLE_DBUS
         emit event_noteoff(n);
 #endif
@@ -1036,7 +1032,7 @@ void VPiano::customEvent ( QEvent *event )
         switch (ctl) {
         case CTL_ALL_SOUND_OFF:
         case CTL_ALL_NOTES_OFF:
-            ui.pianokeybd->allKeysOff();
+            currentPianoScene()->allKeysOff();
             break;
         case CTL_RESET_ALL_CTL:
             initializeAllControllers();
@@ -1216,7 +1212,7 @@ void VPiano::initializeAllControllers()
 void VPiano::allNotesOff()
 {
     sendController(CTL_ALL_NOTES_OFF, 0);
-    ui.pianokeybd->allKeysOff();
+    currentPianoScene()->allKeysOff();
 }
 
 void VPiano::sendProgramChange(const int program)
@@ -1339,7 +1335,7 @@ void VPiano::slotVelocityValueChanged(int value)
 {
     m_velocity = value;
     setWidgetTip(m_Velocity, value);
-    ui.pianokeybd->setVelocity(dlgPreferences()->getVelocityColor() ? value : MIDIVELOCITY);
+    currentPianoScene()->setVelocity(dlgPreferences()->getVelocityColor() ? value : MIDIVELOCITY);
 }
 
 void VPiano::slotExtraController(const int value)
@@ -1513,20 +1509,19 @@ void VPiano::populateControllers()
 
 void VPiano::applyPreferences()
 {
-    ui.pianokeybd->allKeysOff();
+    currentPianoScene()->allKeysOff();
 
     if (ui.pianokeybd->numOctaves() != dlgPreferences()->getNumOctaves()) {
         ui.pianokeybd->setNumOctaves(dlgPreferences()->getNumOctaves());
     }
-    //ui.pianokeybd->setKeyPressedColor(dlgPreferences()->getKeyPressedColor());
-    ui.pianokeybd->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
-    ui.pianokeybd->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
+    currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
+    currentPianoScene()->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
     bool enableKeyboard = dlgPreferences()->getEnabledKeyboard();
     bool enableMouse = dlgPreferences()->getEnabledMouse();
     bool enableTouch = dlgPreferences()->getEnabledTouch();
-    ui.pianokeybd->setKeyboardEnabled(enableKeyboard);
-    ui.pianokeybd->setMouseEnabled(enableMouse);
-    ui.pianokeybd->setTouchEnabled(enableTouch);
+    currentPianoScene()->setKeyboardEnabled(enableKeyboard);
+    currentPianoScene()->setMouseEnabled(enableMouse);
+    currentPianoScene()->setTouchEnabled(enableTouch);
     ui.actionKeyboardInput->setChecked(enableKeyboard);
     ui.actionMouseInput->setChecked(enableMouse);
     ui.actionTouchScreenInput->setChecked(enableTouch);
@@ -1539,7 +1534,7 @@ void VPiano::applyPreferences()
 
     KeyboardMap* map = dlgPreferences()->getKeyboardMap();
     if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
-        ui.pianokeybd->setKeyboardMap(map);
+        currentPianoScene()->setKeyboardMap(map);
     else
         ui.pianokeybd->resetKeyboardMap();
 
@@ -1677,14 +1672,14 @@ void VPiano::slotEditKeyboardMap()
     if (dlgPreferences()->getRawKeyboard())
         map = ui.pianokeybd->getRawKeyboardMap();
     else
-        map = ui.pianokeybd->getKeyboardMap();
+        map = currentPianoScene()->getKeyboardMap();
     dlgKeyMap()->displayMap(map);
     if (dlgKeyMap()->exec() == QDialog::Accepted) {
         dlgKeyMap()->getMap(map);
         if (dlgPreferences()->getRawKeyboard())
             ui.pianokeybd->setRawKeyboardMap(map);
         else
-            ui.pianokeybd->setKeyboardMap(map);
+            currentPianoScene()->setKeyboardMap(map);
     }
     grabKb();
 #endif
@@ -1736,7 +1731,7 @@ void VPiano::slotComboProgActivated(const int index)
 void VPiano::slotBaseOctaveValueChanged(const int octave)
 {
     if (octave != m_baseOctave) {
-        ui.pianokeybd->allKeysOff();
+        currentPianoScene()->allKeysOff();
         ui.pianokeybd->setBaseOctave(octave);
         m_baseOctave = octave;
     }
@@ -1763,9 +1758,9 @@ void VPiano::updateNoteNames(bool drums)
             else
                 noteNames << QString();
         }
-        ui.pianokeybd->useCustomNoteNames(noteNames);
+        currentPianoScene()->useCustomNoteNames(noteNames);
     } else
-        ui.pianokeybd->useStandardNoteNames();
+        currentPianoScene()->useStandardNoteNames();
 }
 
 void VPiano::slotChannelValueChanged(const int channel)
@@ -1791,6 +1786,7 @@ void VPiano::slotChannelValueChanged(const int channel)
         updateBankChange(m_lastBank[m_baseChannel]);
         updateProgramChange(m_lastProg[m_baseChannel]);
         enforceMIDIChannelState();
+        currentPianoScene()->resetKeyPressedColor();
     }
 }
 
@@ -1878,7 +1874,6 @@ void VPiano::slotComboControlCurrentIndexChanged(const int index)
     m_Control->setValue(val);
     m_Control->setToolTip(QString::number(val));
     m_lastCtl[m_baseChannel] = ctl;
-    //slotControlSliderMoved(val);
 }
 
 void VPiano::grabKb()
@@ -1887,7 +1882,7 @@ void VPiano::grabKb()
     if (dlgPreferences()->getGrabKeyboard()) {
         ui.pianokeybd->grabKeyboard();
     }
-    ui.pianokeybd->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
+    currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
 #endif
 }
 
@@ -1897,7 +1892,7 @@ void VPiano::releaseKb()
     if (dlgPreferences()->getGrabKeyboard()) {
         ui.pianokeybd->releaseKeyboard();
     }
-    ui.pianokeybd->setRawKeyboardMode(false);
+    currentPianoScene()->setRawKeyboardMode(false);
 #endif
 }
 
@@ -2357,7 +2352,7 @@ void VPiano::retranslateUi()
     m_trp->load( QSTR_VMPKPX + configuredLanguage(),
                  VPiano::localeDirectory() );
     ui.retranslateUi(this);
-    ui.pianokeybd->retranslate();
+    currentPianoScene()->retranslate();
     initLanguages();
     ui.menuLanguage->clear();
     createLanguageMenu();
@@ -2459,26 +2454,26 @@ void VPiano::enforceMIDIChannelState()
 void VPiano::slotKeyboardInput(bool value)
 {
     dlgPreferences()->setEnabledKeyboard(value);
-    ui.pianokeybd->setKeyboardEnabled(value);
+    currentPianoScene()->setKeyboardEnabled(value);
 }
 
 void VPiano::slotMouseInput(bool value)
 {
     dlgPreferences()->setEnabledMouse(value);
-    ui.pianokeybd->setMouseEnabled(value);
+    currentPianoScene()->setMouseEnabled(value);
 }
 
 void VPiano::slotTouchScreenInput(bool value)
 {
     dlgPreferences()->setEnabledTouch(value);
-    ui.pianokeybd->setTouchEnabled(value);
+    currentPianoScene()->setTouchEnabled(value);
 }
 
 void VPiano::slotColorPolicy()
 {
     if (dlgColorPolicy()->exec() == QDialog::Accepted) {
         m_currentPalette = dlgColorPolicy()->currentPalette()->paletteId();
-        ui.pianokeybd->getPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
+        currentPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
     }
 }
 
