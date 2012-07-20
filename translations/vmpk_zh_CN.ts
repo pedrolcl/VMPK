@@ -1535,11 +1535,6 @@ p, li { white-space: pre-wrap; }
         <translation>键盘映射</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="121"/>
-        <source>Note highligh color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/preferences.ui" line="215"/>
         <location filename="../src/preferences.ui" line="235"/>
         <source>Load...</source>
@@ -1583,6 +1578,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences.ui" line="242"/>
         <source>Drums Channel</source>
         <translation>鼓通道</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="121"/>
+        <source>Note highlight color</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="134"/>

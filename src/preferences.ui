@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>403</width>
-    <height>439</height>
+    <width>401</width>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,8 +61,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>397</width>
-        <height>406</height>
+        <width>395</width>
+        <height>404</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -118,7 +118,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Note highligh color</string>
+          <string>Note highlight color</string>
          </property>
          <property name="buddy">
           <cstring>cboColorPolicy</cstring>

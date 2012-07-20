@@ -1512,9 +1512,8 @@ p, li { white-space: pre-wrap; }
         <translation>Mapa de teclado</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="121"/>
         <source>Note highligh color</source>
-        <translation>Color de resaltado de notas</translation>
+        <translation type="obsolete">Color de resaltado de notas</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="215"/>
@@ -1564,6 +1563,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Note color policy</source>
         <translation type="obsolete">Política de color de notas</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="121"/>
+        <source>Note highlight color</source>
+        <translation>Color de resaltado de notas</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="134"/>
