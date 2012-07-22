@@ -113,7 +113,7 @@ void PianoScene::showKeyOn( PianoKey* key, int vel )
             QBrush hilightBrush(m_keyPressedColor.lighter(200 - vel));
             key->setPressedBrush(hilightBrush);
         } else {
-            setColorFromPolicy(key);
+            setColorFromPolicy(key, vel);
         }
     }
     key->setPressed(true);
@@ -172,7 +172,7 @@ void PianoScene::triggerNoteOff( const int note, const int vel )
     }
 }
 
-void PianoScene::setColorFromPolicy(PianoKey* key)
+void PianoScene::setColorFromPolicy(PianoKey* key, int vel)
 {
     QColor c;
     switch (m_palette->paletteId()) {
@@ -189,7 +189,8 @@ void PianoScene::setColorFromPolicy(PianoKey* key)
         c = m_palette->getColor(key->getDegree());
     }
     if (c.isValid()) {
-        key->setPressedBrush(c);
+        QBrush h(c.lighter(200 - vel));
+        key->setPressedBrush(h);
     }
 }
 

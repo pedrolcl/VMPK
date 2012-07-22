@@ -124,7 +124,7 @@ private:
     void triggerNoteOn( const int note, const int vel );
     void triggerNoteOff( const int note, const int vel );
     int getNoteFromKey( const int key ) const;
-    void setColorFromPolicy(PianoKey* key);
+    void setColorFromPolicy(PianoKey* key, const int vel);
 
     int m_baseOctave;
     int m_numOctaves;
