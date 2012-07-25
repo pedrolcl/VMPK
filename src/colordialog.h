@@ -40,6 +40,7 @@ public:
     QList<QString> availablePaletteNames();
     QColor getColor(int i);
     void saveCurrentPalette();
+    void retranslateUi();
 
 public slots:
     void loadPalette(int i);
@@ -49,8 +50,8 @@ private slots:
     void resetCurrentPalette();
 
 private:
+    void initializePaletteStrings();
     void initializePalettes();
-    void insertPalette(const int i, PianoPalette *p);
     void resetPaletteSingle(PianoPalette *palette);
     void resetPaletteDouble(PianoPalette *palette);
     void resetPaletteChannels(PianoPalette *palette);

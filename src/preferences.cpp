@@ -347,6 +347,10 @@ void Preferences::slotRestoreDefaults()
 void Preferences::retranslateUi()
 {
     ui.retranslateUi(this);
+    if (m_colorDialog != 0) {
+        ui.cboColorPolicy->clear();
+        ui.cboColorPolicy->addItems(m_colorDialog->availablePaletteNames());
+    }
 }
 
 void Preferences::setDriver(QString value)

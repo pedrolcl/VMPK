@@ -2357,20 +2357,15 @@ void VPiano::retranslateUi()
     ui.menuLanguage->clear();
     createLanguageMenu();
     retranslateToolbars();
-    if (m_dlgAbout != 0)
-        m_dlgAbout->retranslateUi();
-    if (m_dlgPreferences != 0)
-        m_dlgPreferences->retranslateUi();
-    if (m_dlgMidiSetup != 0)
-        m_dlgMidiSetup->retranslateUi();
+    dlgAbout()->retranslateUi();
+    dlgColorPolicy()->retranslateUi();
+    dlgPreferences()->retranslateUi();
+    dlgMidiSetup()->retranslateUi();
 #if !defined(SMALL_SCREEN)
-    if (m_dlgKeyMap != 0)
-        m_dlgKeyMap->retranslateUi();
+    dlgKeyMap()->retranslateUi();
 #endif
-    if (m_dlgExtra != 0)
-        m_dlgExtra->retranslateUi();
-    if (m_dlgRiffImport != 0)
-        m_dlgRiffImport->retranslateUi();
+    dlgExtra()->retranslateUi();
+    dlgRiffImport()->retranslateUi();
 }
 
 void VPiano::initLanguages()

@@ -184,38 +184,47 @@ void ColorDialog::resetPaletteScale(PianoPalette *palette)
 }
 
 void
+ColorDialog::initializePaletteStrings()
+{
+    PianoPalette *palette;
+    palette = m_paletteList[PAL_SINGLE];
+    palette->setPaletteName(trUtf8("Single color"));
+    palette->setPaletteText(trUtf8("A single color to highlight all note events"));
+
+    palette = m_paletteList[PAL_DOUBLE];
+    palette->setPaletteName(trUtf8("Two colors"));
+    palette->setPaletteText(trUtf8("One color to highlight natural notes and a different one for accidentals"));
+
+    palette = m_paletteList[PAL_CHANNELS];
+    palette->setPaletteName(trUtf8("MIDI Channels"));
+    palette->setPaletteText(trUtf8("A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection"));
+
+    palette = m_paletteList[PAL_SCALE];
+    palette->setPaletteName(trUtf8("Chromatic scale"));
+    palette->setPaletteText(trUtf8("One color for each note in the chromatic scale"));
+}
+
+void
 ColorDialog::initializePalettes()
 {
     PianoPalette *palette;
 
     palette = new PianoPalette(1, PAL_SINGLE);
-    palette->setPaletteName(trUtf8("Single color"));
-    palette->setPaletteText(trUtf8("A single color to highlight all note events"));
-    insertPalette(PAL_SINGLE, palette);
+    m_paletteList.insert(PAL_SINGLE, palette);
 
     palette = new PianoPalette(2, PAL_DOUBLE);
-    palette->setPaletteName(trUtf8("Two colors"));
-    palette->setPaletteText(trUtf8("One color to highlight natural notes and a different one for accidentals"));
     resetPaletteDouble(palette);
-    insertPalette(PAL_DOUBLE, palette);
+    m_paletteList.insert(PAL_DOUBLE, palette);
 
     palette = new PianoPalette(16, PAL_CHANNELS);
-    palette->setPaletteName(trUtf8("MIDI Channels"));
-    palette->setPaletteText(trUtf8("A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection"));
     resetPaletteChannels(palette);
-    insertPalette(PAL_CHANNELS, palette);
+    m_paletteList.insert(PAL_CHANNELS, palette);
 
     palette = new PianoPalette(12, PAL_SCALE);
-    palette->setPaletteName(trUtf8("Chromatic scale"));
-    palette->setPaletteText(trUtf8("One color for each note in the chromatic scale"));
     resetPaletteScale(palette);
-    insertPalette(PAL_SCALE, palette);
-}
+    m_paletteList.insert(PAL_SCALE, palette);
 
-void
-ColorDialog::insertPalette(const int i, PianoPalette *p)
-{
-    m_paletteList.insert(i, p);
+    initializePaletteStrings();
 }
 
 PianoPalette *
@@ -267,4 +276,14 @@ ColorDialog::resetCurrentPalette()
         return;
     }
     refreshPalette();
+}
+
+void
+ColorDialog::retranslateUi()
+{
+    m_ui->retranslateUi(this);
+    initializePaletteStrings();
+    m_ui->paletteNames->clear();
+    m_ui->paletteNames->addItems(availablePaletteNames());
+    loadPalette(currentPalette()->paletteId());
 }
