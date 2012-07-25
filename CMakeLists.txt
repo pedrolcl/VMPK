@@ -11,7 +11,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
-# You should have received a copy of the GNU General Public License along 
+# You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
 project (VMPK)
@@ -44,7 +44,7 @@ option (ENABLE_IRIX "Enable SGI Irix MD driver" ${IRIX_INIT})
 option (ENABLE_WIN "Enable Windows MM driver" ${WIN_INIT})
 option (ENABLE_NET "Enable UDP Network driver" ${NET_INIT})
 
-# Show full commands and messages. 
+# Show full commands and messages.
 # set(CMAKE_VERBOSE_MAKEFILE ON CACHE BOOL)
 
 # If relative paths break the link scripts, set it OFF
@@ -63,14 +63,14 @@ set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 
 # VMPK version string
 set (VERSION_MAJOR "0")
-set (VERSION_MINOR "4")
-set (VERSION_PATCH "99")
-set (VERSION_SUFFIX "")
+set (VERSION_MINOR "5")
+set (VERSION_PATCH "0")
+set (VERSION_SUFFIX "rc")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
 
 message (STATUS "VMPK ${VERSION}
-    install prefix: ${CMAKE_INSTALL_PREFIX} 
+    install prefix: ${CMAKE_INSTALL_PREFIX}
      D-Bus support: ${ENABLE_DBUS}
     RtMIDI drivers
               ALSA: ${ENABLE_ALSA}
@@ -103,7 +103,7 @@ if (${ENABLE_NET})
     add_definitions (-DNETWORK_MIDI)
 endif()
 include (${QT_USE_FILE})
-include_directories (${QT_INCLUDES}) 
+include_directories (${QT_INCLUDES})
 link_directories (${QT_LIBRARY_DIR})
 link_libraries (${QT_LIBRARIES})
 add_definitions (-DQT_STRICT_ITERATORS)
@@ -116,7 +116,7 @@ if (UNIX AND NOT APPLE)
     else ()
         message (FATAL_ERROR "Program pkg-config not found")
     endif ()
-# Check for libX11    
+# Check for libX11
     find_package (X11 REQUIRED)
     include_directories (${X11_X11_INCLUDE_PATH})
     link_libraries (${X11_X11_LIB})
@@ -212,7 +212,7 @@ set (vmpk_DATA_FILES
     data/help_es.html
     data/help_fr.html
     data/help_nl.html
-    data/help_ru.html 
+    data/help_ru.html
 )
 
 if (UNIX)
@@ -245,28 +245,28 @@ if (UNIX AND NOT APPLE)
     install (FILES ${vmpk_DATA_FILES}
              DESTINATION share/vmpk )
 
-    install (FILES data/vmpk_16x16.png 
-             DESTINATION share/icons/hicolor/16x16/apps   
+    install (FILES data/vmpk_16x16.png
+             DESTINATION share/icons/hicolor/16x16/apps
              RENAME vmpk.png)
 
-    install (FILES data/vmpk_32x32.png 
-             DESTINATION share/icons/hicolor/32x32/apps   
+    install (FILES data/vmpk_32x32.png
+             DESTINATION share/icons/hicolor/32x32/apps
              RENAME vmpk.png)
 
-    install (FILES data/vmpk_48x48.png 
-             DESTINATION share/icons/hicolor/48x48/apps   
+    install (FILES data/vmpk_48x48.png
+             DESTINATION share/icons/hicolor/48x48/apps
              RENAME vmpk.png)
 
-    install (FILES data/vmpk_64x64.png 
-             DESTINATION share/icons/hicolor/64x64/apps   
+    install (FILES data/vmpk_64x64.png
+             DESTINATION share/icons/hicolor/64x64/apps
              RENAME vmpk.png)
 
-    install (FILES data/vmpk_128x128.png 
-             DESTINATION share/icons/hicolor/128x128/apps   
+    install (FILES data/vmpk_128x128.png
+             DESTINATION share/icons/hicolor/128x128/apps
              RENAME vmpk.png)
 
     install (FILES data/vmpk.svgz
-             DESTINATION share/icons/hicolor/scalable/apps )   
+             DESTINATION share/icons/hicolor/scalable/apps )
 
     install (FILES vmpk.desktop
              DESTINATION share/applications )
@@ -282,7 +282,7 @@ if (WIN32)
                  DESTINATION .)
     endforeach (qtlib)
     if (MINGW)
-        install (FILES ${QT_DLL_PATH_tmp}/mingwm10.dll 
+        install (FILES ${QT_DLL_PATH_tmp}/mingwm10.dll
                        ${QT_DLL_PATH_tmp}/libgcc_s_dw2-1.dll
                  DESTINATION .)
     endif ()
@@ -299,7 +299,7 @@ if (APPLE)
     install (SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake")
 endif ()
 
-# CPack support 
+# CPack support
 include (InstallRequiredSystemLibraries)
 set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "Virtual MIDI Piano Keyboard")
 set (CPACK_PACKAGE_VENDOR "vmpk.sourceforge.net")
@@ -314,7 +314,7 @@ set (CPACK_PACKAGE_EXECUTABLES "vmpk" "Virtual MIDI Piano Keyboard")
 # source packages
 set (CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
 set (CPACK_SOURCE_IGNORE_FILES "/.svn/;/build/;/share/;~$;.cproject;.project;.user;${CPACK_SOURCE_IGNORE_FILES}")
-set (CPACK_SOURCE_PACKAGE_FILE_NAME "vmpk-${VERSION}") 
+set (CPACK_SOURCE_PACKAGE_FILE_NAME "vmpk-${VERSION}")
 set (CPACK_SOURCE_STRIP_FILES OFF)
 
 # linux binary packages
