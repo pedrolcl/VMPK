@@ -1,15 +1,15 @@
 2012-07-XX
-	* release 0.5.0
-	* Qt 4.8.x is required 
-	* RtMidi 1.0.15 patched by Gilles Filippini <pini@debian.org> enabling several MIDI drivers to be compiled at once into the same program, and allowing the user to select one at runtime.
-	* Fixed Bug #3507732. Transpose does not update correctly the octave in note name. 				Thanks to Patrick Meaney for the bug report
-	* Fixed Bug #3503768. Removing the shortcut for an action having default shortcut keys, the change is not saved upon exit, so the shortcut appears again the next execution.
-	* Fixed Bug #3502659. Saved preferences not set correctly 	
-	* New implementation of the Network MIDI driver (UDP multicast).
-	* MIDI channel state enforcement (RFE #3517750)
-	* MIDI IN Omni mode.
-	* Independently enable/disable note input using keyboard, mouse, and touch screen.
-	* Note highlight color policies (single, double, one color for each MIDI channel, one color for each grade in the chromatic scale). Color palettes editor dialog. Option to show a colorized scale.
+    * release 0.5.0
+    * Qt 4.8.x is required 
+    * RtMidi 1.0.15 patched by Gilles Filippini <pini@debian.org> enabling several MIDI drivers to be compiled at once into the same program, and allowing the user to select one at runtime.
+    * Fixed Bug #3507732. Transpose does not update correctly the octave in note name. Thanks to Patrick Meaney for the bug report
+    * Fixed Bug #3503768. Removing the shortcut for an action having default shortcut keys, the change is not saved upon exit, so the shortcut appears again the next execution.
+    * Fixed Bug #3502659. Saved preferences not set correctly.
+    * New implementation of the Network MIDI driver (UDP multicast).
+    * MIDI channel state enforcement (RFE #3517750)
+    * MIDI IN Omni mode.
+    * Independently enable/disable note input using keyboard, mouse, and touch screen.
+    * Note highlight color policies (single, double, one color for each MIDI channel, one color for each grade in the chromatic scale). Color palettes editor dialog. Option to show a colorized scale.
 
 2011-06-05
     * release 0.4.0

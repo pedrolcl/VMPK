@@ -15,8 +15,8 @@ URL:            http://vmpk.sourceforge.net
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  cmake
 BuildRequires:  alsa-devel
-BuildRequires:	libqt4-devel
-BuildRequires:	update-desktop-files
+BuildRequires:  libqt4-devel
+BuildRequires:  update-desktop-files
 
 %description
 VMPK is a MIDI event generator/receiver. It doesn't produce any sound by itself, 

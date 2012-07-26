@@ -65,7 +65,7 @@ set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 set (VERSION_MAJOR "0")
 set (VERSION_MINOR "5")
 set (VERSION_PATCH "0")
-set (VERSION_SUFFIX "rc")
+set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
 
@@ -228,7 +228,7 @@ if (UNIX)
         COMMAND cp -r src vmpk-${VERSION}
         COMMAND cp -r man vmpk-${VERSION}
         COMMAND cp -r dbus vmpk-${VERSION}
-        COMMAND cp translations/vmpk_{cs,de,es,fr,nl,ru,sv,zh_CN}.ts vmpk-${VERSION}/translations/
+        COMMAND cp translations/vmpk_{cs,es,ru,sv}.ts vmpk-${VERSION}/translations/
         COMMAND cp translations/CMakeLists.txt vmpk-${VERSION}/translations/
         COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README *.nsi TODO vmpk.desktop vmpk.pro updateqm.pri vmpk.spec.in qt.conf vmpk-${VERSION}
         COMMAND tar -cj --exclude=.* -f vmpk-${VERSION}.tar.bz2 vmpk-${VERSION}

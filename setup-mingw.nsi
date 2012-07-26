@@ -8,7 +8,7 @@ Name "Virtual MIDI Piano Keyboard"
 !define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Release"
 
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.4.99
+!define VERSION 0.5.0
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -43,11 +43,11 @@ Var StartMenuGroup
 
 # Installer languages
 !insertmacro MUI_LANGUAGE "English"
-!insertmacro MUI_LANGUAGE "SimpChinese"
+#!insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "Czech"
-!insertmacro MUI_LANGUAGE "Dutch"
-!insertmacro MUI_LANGUAGE "French"
-!insertmacro MUI_LANGUAGE "German"
+#!insertmacro MUI_LANGUAGE "Dutch"
+#!insertmacro MUI_LANGUAGE "French"
+#!insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_LANGUAGE "Swedish"
@@ -58,7 +58,7 @@ InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.4.99.0
+VIProductVersion 0.5.0.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -89,20 +89,20 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\help_nl.html
     File ${VMPKSRC}\data\help_ru.html
     File ${VMPKBLD}\vmpk_cs.qm
-    File ${VMPKBLD}\vmpk_de.qm
+#   File ${VMPKBLD}\vmpk_de.qm
     File ${VMPKBLD}\vmpk_es.qm
-    File ${VMPKBLD}\vmpk_fr.qm
-    File ${VMPKBLD}\vmpk_nl.qm
+#   File ${VMPKBLD}\vmpk_fr.qm
+#   File ${VMPKBLD}\vmpk_nl.qm
     File ${VMPKBLD}\vmpk_ru.qm
     File ${VMPKBLD}\vmpk_sv.qm
-    File ${VMPKBLD}\vmpk_zh_CN.qm
+#   File ${VMPKBLD}\vmpk_zh_CN.qm
     File ${QTLANG}\qt_cs.qm
-    File ${QTLANG}\qt_de.qm
+#   File ${QTLANG}\qt_de.qm
     File ${QTLANG}\qt_es.qm
-    File ${QTLANG}\qt_fr.qm
+#   File ${QTLANG}\qt_fr.qm
     File ${QTLANG}\qt_ru.qm
     File ${QTLANG}\qt_sv.qm
-    File ${QTLANG}\qt_zh_CN.qm
+#   File ${QTLANG}\qt_zh_CN.qm
 
     # Installing library mingwm10.dll
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\mingwm10.dll $INSTDIR\mingwm10.dll $INSTDIR
@@ -122,7 +122,7 @@ Section -Main SEC0000
     # Installing library QtSvg4.dll
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtSvg4.dll $INSTDIR\QtSvg4.dll $INSTDIR
 
-	# Installing library QtNetwork4.dll
+    # Installing library QtNetwork4.dll
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtNetwork4.dll $INSTDIR\QtNetwork4.dll $INSTDIR
 
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
@@ -165,20 +165,20 @@ done${UNSECTION_ID}:
 Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\qt.conf
     Delete /REBOOTOK $INSTDIR\qt_cs.qm
-    Delete /REBOOTOK $INSTDIR\qt_de.qm
+#   Delete /REBOOTOK $INSTDIR\qt_de.qm
     Delete /REBOOTOK $INSTDIR\qt_es.qm
-    Delete /REBOOTOK $INSTDIR\qt_fr.qm
+#   Delete /REBOOTOK $INSTDIR\qt_fr.qm
     Delete /REBOOTOK $INSTDIR\qt_ru.qm
     Delete /REBOOTOK $INSTDIR\qt_sv.qm
-    Delete /REBOOTOK $INSTDIR\qt_zh_CN.qm
+#   Delete /REBOOTOK $INSTDIR\qt_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\vmpk_cs.qm
-    Delete /REBOOTOK $INSTDIR\vmpk_de.qm
+#   Delete /REBOOTOK $INSTDIR\vmpk_de.qm
     Delete /REBOOTOK $INSTDIR\vmpk_es.qm
-    Delete /REBOOTOK $INSTDIR\vmpk_fr.qm
-    Delete /REBOOTOK $INSTDIR\vmpk_nl.qm
+#   Delete /REBOOTOK $INSTDIR\vmpk_fr.qm
+#   Delete /REBOOTOK $INSTDIR\vmpk_nl.qm
     Delete /REBOOTOK $INSTDIR\vmpk_ru.qm
     Delete /REBOOTOK $INSTDIR\vmpk_sv.qm
-    Delete /REBOOTOK $INSTDIR\vmpk_zh_CN.qm
+#   Delete /REBOOTOK $INSTDIR\vmpk_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\vmpk.exe
     Delete /REBOOTOK $INSTDIR\spanish.xml
     Delete /REBOOTOK $INSTDIR\german.xml

@@ -44,7 +44,7 @@ http://sourceforge.net/projects/vmpk/files
 
 REQUIREMENTS
 
-You need Qt 4.6 or newer. Install the -devel package for your system, or 
+You need Qt 4.8 or newer. Install the -devel package for your system, or 
 download the open source edition from Nokia:
 
     http://qt.nokia.com/downloads/
@@ -58,14 +58,14 @@ all the supported platforms.
 The build system is based on CMake. You can download it from:
 
     http://www.cmake.org
-    
+
 You need also the GCC C++ compiler.
 
     http://gcc.gnu.org
     http://www.mingw.org
 
 Optionally, you can build a Windows setup program using NSIS.
-    
+
     http://nsis.sourceforge.net
 
 INSTALLATION
@@ -101,7 +101,7 @@ You can get some compiler optimisation when building the program, but don't
 expect too much improvement. There are two ways. First, using a predefined 
 configuration type:
 
-$ cmake . -DCMAKE_BUILD_TYPE=Release 
+$ cmake . -DCMAKE_BUILD_TYPE=Release
 
 The CMake "Release" type uses the compiler flags: "-O3 -DNDEBUG". Other 
 predefined build types are "Debug", "RelWithDebInfo", and "MinSizeRel".
@@ -117,13 +117,16 @@ If you want to install the program at some place other than the default
 $ cmake . -DCMAKE_INSTALL_PREFIX=/usr
 
 Other optional configuration options are:
-* ENABLE_DBUS: activates the DBus interface, enabled on Linux by default. 
-* RTMIDI_DRIVER: selects the RtMIDI backend. Default depends on the OS.  
-  Allowed values: ALSA, JACK, COREMIDI, IRIX, WINMM, NET
-* PROGRAM_NAME: selects the executable name.
+* ENABLE_DBUS: activates the DBus interface, enabled on Linux by default.
+* ENABLE_ALSA: ALSA Sequencer driver, enabled on Linux by default.
+* ENABLE_JACK: Jack MIDI driver, enabled on Linux by default.
+* ENABLE_CORE: Mac OSX CoreMIDI driver, enabled on Mac by default.
+* ENABLE_IRIX: SGI Irix MD driver. Untested.
+* ENABLE_WIN:  Windows MM driver, enabled on Windows by default.
+* ENABLE_NET:  UDP Network driver (IP MIDI), enabled by default.
 
 example:
-$ cmake . -DRTMIDI_DRIVER=JACK -DPROGRAM_NAME=vmpk-jack
+$ cmake . -DENABLE_DBUS=No
 
 NOTES FOR LINUX USERS
 
@@ -198,14 +201,14 @@ open source projects.
 * from Qtractor, by Rui Nuno Capela 
   http://qtractor.sourceforge.net 
   Instrument definition data classes, Shortcuts editor dialog
-  
+
 * from QSynth, by Rui Nuno Capela  
   http://qsynth.sourceforge.net
   Knob widget
 
 * Icon and logo by Theresa Knott
   http://openclipart.org/media/files/TheresaKnott/346
-  
+
 See AUTHORS for a complete list of acknowledgments  
-  
+
 Thank you very much.
