@@ -3,13 +3,13 @@
 
 SET( TRANSLATIONS_FILES
      vmpk_cs.ts
-#     vmpk_de.ts
+     vmpk_de.ts
      vmpk_es.ts
-#     vmpk_fr.ts
-#     vmpk_nl.ts
+     vmpk_fr.ts
+#    vmpk_nl.ts
      vmpk_ru.ts
      vmpk_sv.ts
-#     vmpk_zh_CN.ts
+#    vmpk_zh_CN.ts
 )
 
 QT4_ADD_TRANSLATION(QM_FILES ${TRANSLATIONS_FILES})

@@ -290,7 +290,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/colordialog.cpp" line="204"/>
         <source>A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection</source>
-        <translation>UN color diferente para cada canal MIDI. Habilite el modo Omni en la conexión de la entrada MIDI</translation>
+        <translation>Un color diferente para cada canal MIDI. Habilite el modo Omni en la conexión de la entrada MIDI</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="209"/>
@@ -1989,7 +1989,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2386"/>
         <source>Swedish</source>
-        <translation>Sueco</translation>
+        <translation>sueco</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2342"/>
@@ -2029,7 +2029,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2384"/>
         <source>Dutch</source>
-        <translation>Holandés</translation>
+        <translation>holandés</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2385"/>

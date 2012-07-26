@@ -46,8 +46,8 @@ Var StartMenuGroup
 #!insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "Czech"
 #!insertmacro MUI_LANGUAGE "Dutch"
-#!insertmacro MUI_LANGUAGE "French"
-#!insertmacro MUI_LANGUAGE "German"
+!insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_LANGUAGE "Swedish"
@@ -89,17 +89,17 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\help_nl.html
     File ${VMPKSRC}\data\help_ru.html
     File ${VMPKBLD}\vmpk_cs.qm
-#   File ${VMPKBLD}\vmpk_de.qm
+    File ${VMPKBLD}\vmpk_de.qm
     File ${VMPKBLD}\vmpk_es.qm
-#   File ${VMPKBLD}\vmpk_fr.qm
+    File ${VMPKBLD}\vmpk_fr.qm
 #   File ${VMPKBLD}\vmpk_nl.qm
     File ${VMPKBLD}\vmpk_ru.qm
     File ${VMPKBLD}\vmpk_sv.qm
 #   File ${VMPKBLD}\vmpk_zh_CN.qm
     File ${QTLANG}\qt_cs.qm
-#   File ${QTLANG}\qt_de.qm
+    File ${QTLANG}\qt_de.qm
     File ${QTLANG}\qt_es.qm
-#   File ${QTLANG}\qt_fr.qm
+    File ${QTLANG}\qt_fr.qm
     File ${QTLANG}\qt_ru.qm
     File ${QTLANG}\qt_sv.qm
 #   File ${QTLANG}\qt_zh_CN.qm
@@ -165,16 +165,16 @@ done${UNSECTION_ID}:
 Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\qt.conf
     Delete /REBOOTOK $INSTDIR\qt_cs.qm
-#   Delete /REBOOTOK $INSTDIR\qt_de.qm
+    Delete /REBOOTOK $INSTDIR\qt_de.qm
     Delete /REBOOTOK $INSTDIR\qt_es.qm
-#   Delete /REBOOTOK $INSTDIR\qt_fr.qm
+    Delete /REBOOTOK $INSTDIR\qt_fr.qm
     Delete /REBOOTOK $INSTDIR\qt_ru.qm
     Delete /REBOOTOK $INSTDIR\qt_sv.qm
 #   Delete /REBOOTOK $INSTDIR\qt_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\vmpk_cs.qm
-#   Delete /REBOOTOK $INSTDIR\vmpk_de.qm
+    Delete /REBOOTOK $INSTDIR\vmpk_de.qm
     Delete /REBOOTOK $INSTDIR\vmpk_es.qm
-#   Delete /REBOOTOK $INSTDIR\vmpk_fr.qm
+    Delete /REBOOTOK $INSTDIR\vmpk_fr.qm
 #   Delete /REBOOTOK $INSTDIR\vmpk_nl.qm
     Delete /REBOOTOK $INSTDIR\vmpk_ru.qm
     Delete /REBOOTOK $INSTDIR\vmpk_sv.qm

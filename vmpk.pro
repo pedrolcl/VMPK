@@ -53,9 +53,9 @@ symbian {
         data/gmgsxg.ins \
         qt.conf \
         translations/vmpk_cs.qm \
-        #translations/vmpk_de.qm \
+        translations/vmpk_de.qm \
         translations/vmpk_es.qm \
-        #translations/vmpk_fr.qm \
+        translations/vmpk_fr.qm \
         translations/vmpk_ru.qm \
         translations/vmpk_sv.qm
     DEPLOYMENT += addFiles
@@ -106,16 +106,16 @@ macx {
         data/pc102mac.xml \
         qt.conf \
         $$[QT_INSTALL_TRANSLATIONS]/qt_cs.qm \
-        #$$[QT_INSTALL_TRANSLATIONS]/qt_de.qm \
+        $$[QT_INSTALL_TRANSLATIONS]/qt_de.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_es.qm \
-        #$$[QT_INSTALL_TRANSLATIONS]/qt_fr.qm \
+        $$[QT_INSTALL_TRANSLATIONS]/qt_fr.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
         #$$[QT_INSTALL_TRANSLATIONS]/qt_zh_CN.qm \
         vmpk_cs.qm \
-        #vmpk_de.qm \
+        vmpk_de.qm \
         vmpk_es.qm \
-        #vmpk_fr.qm \
+        vmpk_fr.qm \
         #vmpk_nl.qm \
         vmpk_ru.qm \
         vmpk_sv.qm
@@ -212,9 +212,9 @@ SOURCES += src/kmapdialog.cpp \
 RESOURCES += data/vmpk.qrc
 
 TRANSLATIONS +=  translations/vmpk_cs.ts \
-    #translations/vmpk_de.ts \
+    translations/vmpk_de.ts \
     translations/vmpk_es.ts \
-    #translations/vmpk_fr.ts \
+    translations/vmpk_fr.ts \
     #translations/vmpk_nl.ts \
     translations/vmpk_ru.ts \
     translations/vmpk_sv.ts
