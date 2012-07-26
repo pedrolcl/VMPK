@@ -7,7 +7,8 @@
         <location filename="../src/about.cpp" line="37"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Date de construction: %2&lt;br/&gt;Temps de construction: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -82,202 +83,202 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/colordialog.ui" line="37"/>
         <source>Color Palette</source>
-        <translation type="unfinished"></translation>
+        <translation>Palette couleurs</translation>
     </message>
     <message>
         <location filename="../src/colordialog.ui" line="57"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleurs</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="131"/>
         <source>N</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="132"/>
         <source>#</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="137"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="138"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="139"/>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="140"/>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="141"/>
         <source>5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="142"/>
         <source>6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="143"/>
         <source>7</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="144"/>
         <source>8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="145"/>
         <source>9</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="146"/>
         <source>10</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="147"/>
         <source>11</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="148"/>
         <source>12</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="149"/>
         <source>13</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="150"/>
         <source>14</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="151"/>
         <source>15</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="152"/>
         <source>16</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="172"/>
         <source>C</source>
-        <translation type="unfinished">Do</translation>
+        <translation>Do</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="173"/>
         <source>C#</source>
-        <translation type="unfinished">Do#</translation>
+        <translation>Do#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="174"/>
         <source>D</source>
-        <translation type="unfinished">Re</translation>
+        <translation>Re</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="175"/>
         <source>D#</source>
-        <translation type="unfinished">Re#</translation>
+        <translation>Re#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="176"/>
         <source>E</source>
-        <translation type="unfinished">Mi</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="177"/>
         <source>F</source>
-        <translation type="unfinished">Fa</translation>
+        <translation>Fa</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="178"/>
         <source>F#</source>
-        <translation type="unfinished">Fa#</translation>
+        <translation>Fa#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="179"/>
         <source>G</source>
-        <translation type="unfinished">Sol</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="180"/>
         <source>G#</source>
-        <translation type="unfinished">Sol#</translation>
+        <translation>Sol#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="181"/>
         <source>A</source>
-        <translation type="unfinished">La</translation>
+        <translation>La</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="182"/>
         <source>A#</source>
-        <translation type="unfinished">La#</translation>
+        <translation>La#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="183"/>
         <source>B</source>
-        <translation type="unfinished">Si</translation>
+        <translation>Si</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="192"/>
         <source>Single color</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur unique</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="193"/>
         <source>A single color to highlight all note events</source>
-        <translation type="unfinished"></translation>
+        <translation>Une couleur pour marquer tous les évênements de notes</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="197"/>
         <source>Two colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Deux couleurs</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="198"/>
         <source>One color to highlight natural notes and a different one for accidentals</source>
-        <translation type="unfinished"></translation>
+        <translation>Une couleur pour les notes naturelles, une autre pour les notes accidentées</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="203"/>
         <source>MIDI Channels</source>
-        <translation type="unfinished"></translation>
+        <translation>Canaux MIDI</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="204"/>
         <source>A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Une couleur différente pour chaque canal MIDI (Activez le mode Omni dans les connexions MIDI IN)</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="209"/>
         <source>Chromatic scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Echelle chromatique</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="210"/>
         <source>One color for each note in the chromatic scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Une couleur pour chaque note dans l&apos;échelle chromatique</translation>
     </message>
 </context>
 <context>
@@ -1208,7 +1209,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="150"/>
         <source>MIDI Omni mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode MIDI Omni</translation>
     </message>
 </context>
 <context>
@@ -1438,22 +1439,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="439"/>
         <source>MIDI channel state consistency</source>
-        <translation type="unfinished"></translation>
+        <translation>Consistence d&apos;état des canaux MIDI</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="446"/>
         <source>Enable Touch Screen Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le jeu à l&apos;écran tactile</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="456"/>
         <source>Enable Mouse Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le jeu avec la souris</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="466"/>
         <source>Enable Computer Keyboard Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le jeu par clavier d&apos;ordinateur</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="492"/>
@@ -1509,12 +1510,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="413"/>
         <source>Network Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface réseau</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="426"/>
         <source>MIDI Driver</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilote MIDI</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="242"/>
@@ -1524,12 +1525,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="121"/>
         <source>Note highlight color</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur de notes marquées</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="134"/>
         <source>colors...</source>
-        <translation type="unfinished"></translation>
+        <translation>couleurs...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="253"/>
@@ -2072,7 +2073,7 @@ Voulez-vous appliquer ces modifications?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="141"/>
         <source>Note Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrée de notes</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="173"/>
@@ -2370,7 +2371,7 @@ Voulez-vous appliquer ces modifications?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="292"/>
         <source>MIDI &amp;Connections</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Connexions MIDI</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="565"/>
@@ -2465,27 +2466,27 @@ Voulez-vous appliquer ces modifications?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="689"/>
         <source>Computer Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Clavier d&apos;ordinateur</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="700"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Souris</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="711"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ecran tactile</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="716"/>
         <source>Color Palette</source>
-        <translation type="unfinished"></translation>
+        <translation>Palette de couleurs</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="724"/>
         <source>Color Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Echelle de couleurs</translation>
     </message>
     <message>
         <source>End</source>
