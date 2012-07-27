@@ -18,6 +18,7 @@
 
 #include "keyboardmap.h"
 
+//#include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtXml/QXmlStreamReader>
 #include <QtXml/QXmlStreamWriter>
@@ -61,8 +62,10 @@ void KeyboardMap::initializeFromXML(QIODevice *dev)
         if (reader.isStartElement()) {
             if (reader.name() == (m_rawMode?"rawkeymap":"keyboardmap")) {
                 reader.readNext();
-                while (reader.isWhitespace())
+                while (reader.isWhitespace() || reader.isComment()) {
+                    //qDebug() << "1st. junk place" << reader.text();
                     reader.readNext();
+                }
                 while (reader.isStartElement()) {
                     if (reader.name() == "mapping") {
                         QString key = reader.attributes().value(m_rawMode?"keycode":"key").toString();
@@ -80,8 +83,10 @@ void KeyboardMap::initializeFromXML(QIODevice *dev)
                         }
                     }
                     reader.readNext();
-                    while (reader.isWhitespace() || reader.isEndElement())
+                    while (reader.isWhitespace() || reader.isEndElement() || reader.isComment()) {
+                        //qDebug() << "2nd. junk place" << reader.text();
                         reader.readNext();
+                    }
                 }
             } else {
                 reader.readNext();
