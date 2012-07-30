@@ -1,4 +1,4 @@
-2012-07-XX
+2012-07-31
     * release 0.5.0
     * Qt 4.8.x is required 
     * RtMidi 1.0.15 patched by Gilles Filippini <pini@debian.org> enabling several MIDI drivers to be compiled at once into the same program, and allowing the user to select one at runtime.
@@ -10,6 +10,7 @@
     * MIDI IN Omni mode.
     * Independently enable/disable note input using keyboard, mouse, and touch screen.
     * Note highlight color policies (single, double, one color for each MIDI channel, one color for each grade in the chromatic scale). Color palettes editor dialog. Option to show a colorized scale.
+    * Allow XML comments within keyboard map files.
 
 2011-06-05
     * release 0.4.0
