@@ -1,11 +1,10 @@
 Name "Virtual MIDI Piano Keyboard"
 
 # Defines
-!define QTFILES "C:\QtSDK\Desktop\Qt\4.8.1\mingw\bin"
-!define QTLANG "C:\QtSDK\Desktop\Qt\4.8.1\mingw\translations"
-!define MINGWFILES "C:\QtSDK\mingw\bin"
+!define QTFILES "C:\Qt\4.8.2\msvc2010\bin"
+!define QTLANG "C:\Qt\4.8.2\msvc2010\translations"
 !define VMPKSRC "C:\Users\pedro\Projects\vmpk-desktop"
-!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Release"
+!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-msvc"
 
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.5.0
@@ -54,7 +53,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE "Swedish"
 
 # Installer attributes
-OutFile vmpk-${VERSION}-win32-setup.exe
+OutFile vmpk-${VERSION}-win32-msvc-setup.exe
 InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
@@ -106,10 +105,10 @@ Section -Main SEC0000
 #   File ${QTLANG}\qt_zh_CN.qm
 
     # Installing library mingwm10.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\mingwm10.dll $INSTDIR\mingwm10.dll $INSTDIR
+    #!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\mingwm10.dll $INSTDIR\mingwm10.dll $INSTDIR
 
     # Installing library libgcc_s_dw2-1.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libgcc_s_dw2-1.dll $INSTDIR\libgcc_s_dw2-1.dll $INSTDIR
+    #!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libgcc_s_dw2-1.dll $INSTDIR\libgcc_s_dw2-1.dll $INSTDIR
 
     # Installing library QtCore4.dll
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtCore4.dll $INSTDIR\QtCore4.dll $INSTDIR
@@ -195,10 +194,10 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\help_ru.html
 
     # Uninstalling library $INSTDIR\mingwm10.dll
-    !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\mingwm10.dll
+    #!insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\mingwm10.dll
 
     # Uninstalling library $INSTDIR\libgcc_s_dw2-1.dll
-    !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libgcc_s_dw2-1.dll
+    #!insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libgcc_s_dw2-1.dll
 
     # Uninstalling library $INSTDIR\QtCore4.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtCore4.dll
