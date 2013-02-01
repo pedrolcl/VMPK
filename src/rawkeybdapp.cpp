@@ -1,6 +1,6 @@
 /*
     Virtual Piano Widget for Qt4
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #include "rawkeybdapp.h"
 
 #if defined(Q_WS_X11)
-#include <QtGui/QX11Info>
+#include <QX11Info>
 #include <X11/Xlib.h>
 struct qt_auto_repeat_data
 {

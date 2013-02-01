@@ -2,8 +2,8 @@
 <ui version="4.0">
  <comment>
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas
-    Copyright (C) 2005-2012, rncbc aka Rui Nuno Capela. All rights reserved.
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas
+    Copyright (C) 2005-2013, rncbc aka Rui Nuno Capela. All rights reserved.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -82,7 +82,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
      </property>
     </widget>
    </item>

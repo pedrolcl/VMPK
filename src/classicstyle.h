@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     Based on an original design by Thorsten Wilms.
     Implemented as a widget for the Rosegarden MIDI and audio sequencer
@@ -32,7 +32,7 @@
 #ifndef CLASSICTYLE_H_
 #define CLASSICTYLE_H_
 
-#include <QtGui/QCommonStyle>
+#include <QCommonStyle>
 
 class ClassicStyle : public QCommonStyle
 {

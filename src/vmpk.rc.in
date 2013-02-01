@@ -15,7 +15,7 @@ BEGIN
       VALUE "FileVersion", "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@"
       VALUE "Full Version", "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@@VERSION_SUFFIX@"
       VALUE "InternalName", "VMPK"
-      VALUE "LegalCopyright", "Copyright \251 2008-2010 Pedro Lopez-Cabanillas. Licensed under the terms of the GPL v3 or later"
+      VALUE "LegalCopyright", "Copyright \251 2008-2013 Pedro Lopez-Cabanillas. Licensed under the terms of the GPL v3 or later"
       VALUE "OriginalFilename", "vmpk.exe"
       VALUE "ProductName", "Virtual MIDI Piano Keyboard"
       VALUE "ProductVersion", "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@"

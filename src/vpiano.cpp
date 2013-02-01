@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -46,29 +46,29 @@
 #include "udpmidi.h"
 #endif
 
-#include <QtGui/QDesktopServices>
-#include <QtGui/QInputDialog>
-#include <QtGui/QFileDialog>
-#include <QtGui/QMessageBox>
-#include <QtGui/QApplication>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QComboBox>
-#include <QtGui/QSlider>
-#include <QtGui/QSpinBox>
-#include <QtGui/QDial>
-#include <QtGui/QToolButton>
-#include <QtGui/QToolTip>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QTextBrowser>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QDialog>
-#include <QtCore/QUrl>
-#include <QtCore/QString>
-#include <QtCore/QSettings>
-#include <QtCore/QTranslator>
-#include <QtCore/QLibraryInfo>
-#include <QtCore/QMapIterator>
-#include <QtCore/QDebug>
+#include <QDesktopServices>
+#include <QInputDialog>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QApplication>
+#include <QCloseEvent>
+#include <QComboBox>
+#include <QSlider>
+#include <QSpinBox>
+#include <QDial>
+#include <QToolButton>
+#include <QToolTip>
+#include <QVBoxLayout>
+#include <QTextBrowser>
+#include <QDialogButtonBox>
+#include <QDialog>
+#include <QUrl>
+#include <QString>
+#include <QSettings>
+#include <QTranslator>
+#include <QLibraryInfo>
+#include <QMapIterator>
+#include <QDebug>
 
 VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     : QMainWindow(parent, flags),
@@ -763,6 +763,8 @@ void VPiano::readSettings()
     dlgPreferences()->setRawKeyboard(rawKeyboard);
 
     settings.beginGroup(QSTR_SHORTCUTS);
+    //qDebug() << "settings.childKeys:" << settings.childKeys().count();
+    bool savedShortcuts = (settings.childKeys().count() > 0);
     QList<QAction *> actions = findChildren<QAction *> ();
     foreach(QAction* pAction, actions)
     {
@@ -771,21 +773,24 @@ void VPiano::readSettings()
         const QString& sKey = '/' + pAction->objectName();
         QList<QKeySequence> sShortcuts = pAction->shortcuts();
         m_defaultShortcuts.insert(sKey, sShortcuts);
-        const QString& sValue = settings.value('/' + sKey).toString();
-        if (sValue.isEmpty())
+        if (savedShortcuts)
         {
-            if(sShortcuts.count() == 0)
+            const QString& sValue = settings.value('/' + sKey).toString();
+            if (sValue.isEmpty())
             {
-                continue;
+                if(sShortcuts.count() == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    pAction->setShortcuts(QList<QKeySequence>());
+                }
             }
             else
             {
-                pAction->setShortcuts(QList<QKeySequence>());
+                pAction->setShortcut(QKeySequence(sValue));
             }
-        }
-        else
-        {
-            pAction->setShortcut(QKeySequence(sValue));
         }
     }
     settings.endGroup();
@@ -953,7 +958,7 @@ void VPiano::writeSettings()
         if (pAction->objectName().isEmpty())
             continue;
         const QString& sKey = '/' + pAction->objectName();
-        const QString& sValue = QString(pAction->shortcut());
+        const QString& sValue = pAction->shortcut().toString();
         QList<QKeySequence> defShortcuts = m_defaultShortcuts.value(sKey);
         if (sValue.isEmpty() && defShortcuts.count() == 0)
         {
@@ -2184,6 +2189,7 @@ void VPiano::slotShortcuts()
 #if !defined(SMALL_SCREEN)
     ShortcutDialog shcutDlg(findChildren<QAction*>());
     releaseKb();
+    shcutDlg.setDefaultShortcuts(m_defaultShortcuts);
     shcutDlg.exec();
     grabKb();
 #endif

@@ -1,6 +1,6 @@
 /*
     Virtual Piano Widget for Qt4 
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,11 +20,11 @@
 #if defined(RAWKBD_SUPPORT)
 #include "rawkeybdapp.h"
 #endif
-#include <QtGui/QApplication>
-#include <QtGui/QPalette>
-#include <QtGui/QGraphicsSceneMouseEvent>
-#include <QtGui/QKeyEvent>
-#include <QtCore/QDebug>
+#include <QApplication>
+#include <QPalette>
+#include <QGraphicsSceneMouseEvent>
+#include <QKeyEvent>
+#include <QDebug>
 
 #define KEYWIDTH  18
 #define KEYHEIGHT 72
@@ -366,7 +366,7 @@ bool PianoScene::event(QEvent *event)
             QList<QTouchEvent::TouchPoint> touchPoints = touchEvent->touchPoints();
             foreach(const QTouchEvent::TouchPoint& touchPoint, touchPoints) {
                 switch (touchPoint.state()) {
-                case Qt::TouchPointPrimary:
+                //case Qt::TouchPointPrimary:
                 case Qt::TouchPointStationary:
                     continue;
                 case Qt::TouchPointReleased: {

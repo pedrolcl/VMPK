@@ -1,6 +1,6 @@
 /*
     Virtual Piano Widget for Qt4 
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
 #if defined(RAWKBD_SUPPORT)
 #include "rawkeybdapp.h"
 #endif
-#include <QtGui/QGraphicsView>
+#include <QGraphicsView>
 
 #if defined(VPIANO_PLUGIN)
 #include <QtDesigner/QDesignerExportWidget>

@@ -1,5 +1,5 @@
 # Virtual MIDI Piano Keyboard
-# Copyright (C) 2008-2012 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
+# Copyright (C) 2008-2013 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
@@ -12,7 +12,7 @@
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.5.0
+VERSION = 0.5.1
 QT += core \
     gui \
     xml \
@@ -25,10 +25,13 @@ dbus {
 }
 DEFINES += NETWORK_MIDI
 QT += network
+
 contains(QT_VERSION, ^4\\.[0-7]\\..*) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
-    error("Use at least Qt 4.8")
+    error("Use Qt 4.8 or newer")
 }
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 DEFINES += VERSION=$$VERSION
 

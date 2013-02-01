@@ -8,7 +8,7 @@ Name "Virtual MIDI Piano Keyboard"
 !define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Release"
 
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.5.0
+!define VERSION 0.5.1
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -59,14 +59,14 @@ InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.5.0.0
+VIProductVersion 0.5.1.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
 VIAddVersionKey FileVersion "${VERSION}"
 VIAddVersionKey FileDescription "Virtual MIDI Piano Keyboard"
-VIAddVersionKey LegalCopyright "Copyright (C) 2008-2012 Pedro Lopez-Cabanillas and others"
+VIAddVersionKey LegalCopyright "Copyright (C) 2008-2013 Pedro Lopez-Cabanillas and others"
 InstallDirRegKey HKLM "${REGKEY}" Path
 ShowUninstDetails show
 Icon src/vmpk.ico

@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,12 +18,12 @@
 
 #include "keyboardmap.h"
 
-//#include <QtCore/QDebug>
-#include <QtCore/QFile>
-#include <QtXml/QXmlStreamReader>
-#include <QtXml/QXmlStreamWriter>
-#include <QtGui/QKeySequence>
-#include <QtGui/QMessageBox>
+#include <QDebug>
+#include <QFile>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QKeySequence>
+#include <QMessageBox>
 
 void KeyboardMap::loadFromXMLFile(const QString fileName)
 {
@@ -32,7 +32,7 @@ void KeyboardMap::loadFromXMLFile(const QString fileName)
         initializeFromXML(&f);
         f.close();
         m_fileName = fileName;
-        //qDebug() << "Loaded Map: " << fileName;
+        qDebug() << "Loaded Map: " << fileName;
     }
     if (f.error() != QFile::NoError) {
         reportError(fileName, tr("Error loading a file"), f.errorString());
@@ -46,7 +46,7 @@ void KeyboardMap::saveToXMLFile(const QString fileName)
         serializeToXML(&f);
         f.close();
         m_fileName = fileName;
-        //qDebug() << "Saved Map: " << fileName;
+        qDebug() << "Saved Map: " << fileName;
     }
     if (f.error() != QFile::NoError) {
         reportError(fileName, tr("Error saving a file"), f.errorString());

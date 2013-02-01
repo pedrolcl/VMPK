@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,8 +19,8 @@
 #ifndef RIFF_H
 #define RIFF_H
 
-#include <QtCore/QObject>
-#include <QtCore/QDataStream>
+#include <QObject>
+#include <QDataStream>
 
 #define CKID_RIFF 0x46464952
 #define CKID_LIST 0x5453494c

@@ -1,6 +1,6 @@
 /*
     Virtual Piano Widget for Qt4
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,12 +18,13 @@
 
 #include "keylabel.h"
 #include "pianokey.h"
-#include <QtGui/QFont>
+#include <QFont>
 
 KeyLabel::KeyLabel(QGraphicsItem *parent) : QGraphicsTextItem(parent)
 {
     setAcceptedMouseButtons(Qt::NoButton);
-    rotate(270);
+    //rotate(270);
+    setRotation(rotation() + 270);
 }
 
 QRectF KeyLabel::boundingRect() const

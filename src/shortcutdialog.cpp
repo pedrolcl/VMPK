@@ -1,7 +1,7 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
-    Copyright (C) 2005-2012, rncbc aka Rui Nuno Capela. All rights reserved.
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2005-2013, rncbc aka Rui Nuno Capela. All rights reserved.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ public:
 		: QTableWidgetItem(sText)
 		{ setFlags(flags() & ~Qt::ItemIsEditable); }
 	ShortcutTableItem(const QKeySequence& shortcut)
-		: QTableWidgetItem(QString(shortcut)) {}
+        : QTableWidgetItem(shortcut.toString()) {}
 };
 
 
@@ -84,7 +84,7 @@ protected:
 		if (modifiers & Qt::AltModifier)
 			iKey |= Qt::ALT;
 
-		QLineEdit::setText(QString(QKeySequence(iKey)));
+        QLineEdit::setText(QKeySequence(iKey).toString());
 	}
 };
 
@@ -291,6 +291,10 @@ ShortcutDialog::ShortcutDialog ( QList<QAction *> actions,
 	QObject::connect(m_ui.DialogButtonBox,
 		SIGNAL(rejected()),
 		SLOT(reject()));
+
+    QPushButton *btnDefaults = m_ui.DialogButtonBox->button(QDialogButtonBox::RestoreDefaults);
+    QObject::connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
+
 }
 
 
@@ -302,7 +306,7 @@ void ShortcutDialog::actionActivated ( QTableWidgetItem *pItem )
 
 void ShortcutDialog::actionChanged ( QTableWidgetItem *pItem )
 {
-	pItem->setText(QString(QKeySequence(pItem->text().trimmed())));
+    pItem->setText(QKeySequence(pItem->text().trimmed()).toString());
 	m_iDirtyCount++;
 }
 
@@ -353,6 +357,21 @@ void ShortcutDialog::reject (void)
 void ShortcutDialog::retranslateUi()
 {
     m_ui.retranslateUi(this);
+}
+
+void ShortcutDialog::slotRestoreDefaults()
+{
+    for (int iRow = 0; iRow < m_actions.count(); ++iRow) {
+        QAction *pAction = m_actions[iRow];
+        QString sKey = '/' + pAction->objectName();
+        pAction->setShortcuts(m_defaultShortcuts[sKey]);
+        m_ui.ShortcutTable->item(iRow, 2)->setText(pAction->shortcut().toString());
+    }
+}
+
+void ShortcutDialog::setDefaultShortcuts(QHash<QString,QList<QKeySequence> > &defs)
+{
+    m_defaultShortcuts = defs;
 }
 
 // end of ShortcutDialog.cpp

@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2012, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,11 +16,11 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
-#include <QtGui/QFileDialog>
-#include <QtGui/QDesktopServices>
+#include <QFileInfo>
+#include <QFile>
+#include <QTextStream>
+#include <QFileDialog>
+#include <QDesktopServices>
 
 #include "riffimportdlg.h"
 #include "ui_riffimportdlg.h"
@@ -69,6 +69,7 @@ void RiffImportDlg::setInput(QString fileName)
 #if QT_VERSION < 0x040400
         QDir dir = QDir::home();
 #else
+        //QDir dir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
         QDir dir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
 #endif
         QString fullFilespec = dir.absoluteFilePath(f.baseName() + ".ins");
