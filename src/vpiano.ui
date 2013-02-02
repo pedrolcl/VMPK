@@ -24,7 +24,7 @@
     <x>0</x>
     <y>0</y>
     <width>567</width>
-    <height>217</height>
+    <height>274</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>567</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -688,6 +688,9 @@
    <property name="text">
     <string>Computer Keyboard</string>
    </property>
+   <property name="statusTip">
+    <string>Enable computer keyboard triggered note input</string>
+   </property>
   </action>
   <action name="actionMouseInput">
    <property name="checkable">
@@ -699,6 +702,9 @@
    <property name="text">
     <string>Mouse</string>
    </property>
+   <property name="statusTip">
+    <string>Enable mouse triggered note input</string>
+   </property>
   </action>
   <action name="actionTouchScreenInput">
    <property name="checkable">
@@ -709,6 +715,9 @@
    </property>
    <property name="text">
     <string>Touch Screen</string>
+   </property>
+   <property name="statusTip">
+    <string>Enable screen touch triggered note input</string>
    </property>
   </action>
   <action name="actionColorPalette">
