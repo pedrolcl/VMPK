@@ -724,6 +724,9 @@
    <property name="text">
     <string>Color Palette</string>
    </property>
+   <property name="statusTip">
+    <string>Open the color palette editor</string>
+   </property>
   </action>
   <action name="actionColorScale">
    <property name="checkable">
@@ -731,6 +734,9 @@
    </property>
    <property name="text">
     <string>Color Scale</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the colorized keys</string>
    </property>
   </action>
  </widget>
