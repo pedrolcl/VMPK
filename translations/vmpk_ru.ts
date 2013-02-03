@@ -43,12 +43,32 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2010, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Эта программа является свободным программным обеспечением: Вы можете распространять и модифицировать её в соответствии с положениями GNU General Public License, изданной Free Software Foundation, либо третьей версии лицензии, либо (на ваше усмотрение) любой более поздней версии.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Эта программа распространяется в надежде, что она будет полезна, но БЕЗ КАКИХ ЛИБО ГАРАНТИЙ;  не гарантируется даже, что она ПРИГОДНА К ПРОДАЖЕ или ПОДХОДИТ ДЛЯ ОПРЕДЕЛЁННЫХ ЦЕЛЕЙ. Смотрите GNU General Public License, чтобы получить больше информации. Вы должны были получить копию GNU General Public License  вместе с этой программой. Если нет, смотрите &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Также прилагается следующее замечание об авторских правах:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Эта программа содержит &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: классы C++ для ввода/вывода MIDI времени выполнения &lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {2008-2013,?} {9p?} {0057a?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {3 ?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0057a?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0057a?} {2003-2010 ?}</translation>
+    </message>
+    <message utf8="true">
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2011, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -275,42 +295,42 @@ p, li { white-space: pre-wrap; }
         <translation>Си</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="192"/>
+        <location filename="../src/colordialog.cpp" line="191"/>
         <source>Single color</source>
         <translation>Один цвет</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="193"/>
+        <location filename="../src/colordialog.cpp" line="192"/>
         <source>A single color to highlight all note events</source>
         <translation>Один цвет, чтобы подсвечивать все нотные события</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="197"/>
+        <location filename="../src/colordialog.cpp" line="195"/>
         <source>Two colors</source>
         <translation>Два цвета</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="198"/>
+        <location filename="../src/colordialog.cpp" line="196"/>
         <source>One color to highlight natural notes and a different one for accidentals</source>
         <translation>Один цвет, чтобы подсвечивать естественные ноты, и другой для случайных нот</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="203"/>
+        <location filename="../src/colordialog.cpp" line="199"/>
         <source>MIDI Channels</source>
         <translation>Каналы MIDI</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="204"/>
+        <location filename="../src/colordialog.cpp" line="200"/>
         <source>A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection</source>
         <translation>Разные цвета для каждого канала MIDI. Включите режим Omni в соединении MIDI IN</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="209"/>
+        <location filename="../src/colordialog.cpp" line="203"/>
         <source>Chromatic scale</source>
         <translation>Хроматическая шкала</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="210"/>
+        <location filename="../src/colordialog.cpp" line="204"/>
         <source>One color for each note in the chromatic scale</source>
         <translation>Один цвет для каждой ноты в хроматической шкале</translation>
     </message>
@@ -1172,22 +1192,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>KeyboardMap</name>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="37"/>
+        <location filename="../src/keyboardmap.cpp" line="38"/>
         <source>Error loading a file</source>
         <translation>Ошибка загрузки файла</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="51"/>
+        <location filename="../src/keyboardmap.cpp" line="52"/>
         <source>Error saving a file</source>
         <translation>Ошибка сохранения файла</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="92"/>
+        <location filename="../src/keyboardmap.cpp" line="97"/>
         <source>Error reading XML</source>
         <translation>Ошибка чтения XML</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="133"/>
+        <location filename="../src/keyboardmap.cpp" line="138"/>
         <source>File: %1
 %2</source>
         <translation>Файл: %1
@@ -1250,8 +1270,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PianoScene</name>
     <message>
-        <location filename="../src/pianoscene.cpp" line="597"/>
-        <location filename="../src/pianoscene.cpp" line="609"/>
+        <location filename="../src/pianoscene.cpp" line="598"/>
+        <location filename="../src/pianoscene.cpp" line="610"/>
         <source>C</source>
         <translation>До</translation>
     </message>
@@ -1260,8 +1280,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">До♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="599"/>
-        <location filename="../src/pianoscene.cpp" line="611"/>
+        <location filename="../src/pianoscene.cpp" line="600"/>
+        <location filename="../src/pianoscene.cpp" line="612"/>
         <source>D</source>
         <translation>Ре</translation>
     </message>
@@ -1270,64 +1290,64 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Ре♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="598"/>
+        <location filename="../src/pianoscene.cpp" line="599"/>
         <source>C#</source>
         <translation>До #</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="600"/>
+        <location filename="../src/pianoscene.cpp" line="601"/>
         <source>D#</source>
         <translation>Ре #</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="601"/>
-        <location filename="../src/pianoscene.cpp" line="613"/>
+        <location filename="../src/pianoscene.cpp" line="602"/>
+        <location filename="../src/pianoscene.cpp" line="614"/>
         <source>E</source>
         <translation>Ми</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="602"/>
-        <location filename="../src/pianoscene.cpp" line="614"/>
+        <location filename="../src/pianoscene.cpp" line="603"/>
+        <location filename="../src/pianoscene.cpp" line="615"/>
         <source>F</source>
         <translation>Фа</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="603"/>
+        <location filename="../src/pianoscene.cpp" line="604"/>
         <source>F#</source>
         <translation>Фа #</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="605"/>
+        <location filename="../src/pianoscene.cpp" line="606"/>
         <source>G#</source>
         <translation>Соль #</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="607"/>
+        <location filename="../src/pianoscene.cpp" line="608"/>
         <source>A#</source>
         <translation>Ля #</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="610"/>
+        <location filename="../src/pianoscene.cpp" line="611"/>
         <source>Db</source>
         <translation>Ре b</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="612"/>
+        <location filename="../src/pianoscene.cpp" line="613"/>
         <source>Eb</source>
         <translation>Ми b</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="615"/>
+        <location filename="../src/pianoscene.cpp" line="616"/>
         <source>Gb</source>
         <translation>Соль b</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="617"/>
+        <location filename="../src/pianoscene.cpp" line="618"/>
         <source>Ab</source>
         <translation>Ля b</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="619"/>
+        <location filename="../src/pianoscene.cpp" line="620"/>
         <source>Bb</source>
         <translation>Си b</translation>
     </message>
@@ -1336,8 +1356,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Фа♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="604"/>
-        <location filename="../src/pianoscene.cpp" line="616"/>
+        <location filename="../src/pianoscene.cpp" line="605"/>
+        <location filename="../src/pianoscene.cpp" line="617"/>
         <source>G</source>
         <translation>Соль</translation>
     </message>
@@ -1346,8 +1366,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Соль♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="606"/>
-        <location filename="../src/pianoscene.cpp" line="618"/>
+        <location filename="../src/pianoscene.cpp" line="607"/>
+        <location filename="../src/pianoscene.cpp" line="619"/>
         <source>A</source>
         <translation>Ля</translation>
     </message>
@@ -1356,8 +1376,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Ля♯</translation>
     </message>
     <message>
-        <location filename="../src/pianoscene.cpp" line="608"/>
-        <location filename="../src/pianoscene.cpp" line="620"/>
+        <location filename="../src/pianoscene.cpp" line="609"/>
+        <location filename="../src/pianoscene.cpp" line="621"/>
         <source>B</source>
         <translation>Си</translation>
     </message>
@@ -1502,9 +1522,8 @@ p, li { white-space: pre-wrap; }
         <translation>Привязка клавиш</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="121"/>
         <source>Note highligh color</source>
-        <translation>Цвет подсветки ноты</translation>
+        <translation type="obsolete">Цвет подсветки ноты</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="215"/>
@@ -1823,12 +1842,12 @@ p, li { white-space: pre-wrap; }
         <translation>Клавиша</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.cpp" line="335"/>
+        <location filename="../src/shortcutdialog.cpp" line="339"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.cpp" line="336"/>
+        <location filename="../src/shortcutdialog.cpp" line="340"/>
         <source>Keyboard shortcuts have been changed.
 
 Do you want to apply the changes?</source>
@@ -1841,7 +1860,7 @@ Do you want to apply the changes?</source>
     <name>VPiano</name>
     <message>
         <location filename="../src/vpiano.cpp" line="325"/>
-        <location filename="../src/vpiano.cpp" line="1939"/>
+        <location filename="../src/vpiano.cpp" line="1944"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -1856,137 +1875,137 @@ Do you want to apply the changes?</source>
         <translation>Ошибка. Завершение</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2394"/>
+        <location filename="../src/vpiano.cpp" line="2395"/>
         <source>Chan:</source>
         <translation>Кан:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2396"/>
+        <location filename="../src/vpiano.cpp" line="2397"/>
         <source>Channel:</source>
         <translation>Канал:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2401"/>
+        <location filename="../src/vpiano.cpp" line="2402"/>
         <source>Oct:</source>
         <translation>Окт:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2403"/>
+        <location filename="../src/vpiano.cpp" line="2404"/>
         <source>Base Octave:</source>
         <translation>Базовая октава:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2408"/>
+        <location filename="../src/vpiano.cpp" line="2409"/>
         <source>Trans:</source>
         <translation>Пер:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2410"/>
+        <location filename="../src/vpiano.cpp" line="2411"/>
         <source>Transpose:</source>
         <translation>Перенос:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2415"/>
+        <location filename="../src/vpiano.cpp" line="2416"/>
         <source>Vel:</source>
         <translation>Громк:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2417"/>
+        <location filename="../src/vpiano.cpp" line="2418"/>
         <source>Velocity:</source>
         <translation>Громкость:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2422"/>
+        <location filename="../src/vpiano.cpp" line="2423"/>
         <source>Control:</source>
         <translation>Регулятор:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2424"/>
+        <location filename="../src/vpiano.cpp" line="2425"/>
         <source>Value:</source>
         <translation>Значение:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2421"/>
+        <location filename="../src/vpiano.cpp" line="2422"/>
         <source>Bender:</source>
         <translation>Зажим:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2420"/>
+        <location filename="../src/vpiano.cpp" line="2421"/>
         <source>Bank:</source>
         <translation>Банк:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2423"/>
+        <location filename="../src/vpiano.cpp" line="2424"/>
         <source>Program:</source>
         <translation>Программа:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1939"/>
+        <location filename="../src/vpiano.cpp" line="1944"/>
         <source>No help file found</source>
         <translation>Не найден файл справки</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2281"/>
+        <location filename="../src/vpiano.cpp" line="2287"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>Язык этого приложения изменится на %1. Хотите продолжить?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2324"/>
+        <location filename="../src/vpiano.cpp" line="2330"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK разрабатывается и переводится благодаря работе добровольцев со всего мира. Если Вы хотите присоединиться к команде или у Вас есть какие-нибудь вопросы, посетите форумы на &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2345"/>
+        <location filename="../src/vpiano.cpp" line="2351"/>
         <source>Translation Information</source>
         <translation>Информация о переводе</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2386"/>
+        <location filename="../src/vpiano.cpp" line="2387"/>
         <source>Swedish</source>
         <translation>Шведский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2342"/>
+        <location filename="../src/vpiano.cpp" line="2348"/>
         <source>Translation</source>
         <translation>Перевод</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2343"/>
+        <location filename="../src/vpiano.cpp" line="2349"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Перевёл Сергей Басалаев &amp;lt;sbasalaev@gmail.com&amp;gt;&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2379"/>
+        <location filename="../src/vpiano.cpp" line="2380"/>
         <source>Czech</source>
         <translation>Чешский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2380"/>
+        <location filename="../src/vpiano.cpp" line="2381"/>
         <source>German</source>
         <translation>Немецкий</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2381"/>
+        <location filename="../src/vpiano.cpp" line="2382"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2382"/>
+        <location filename="../src/vpiano.cpp" line="2383"/>
         <source>Spanish</source>
         <translation>Испанский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2383"/>
+        <location filename="../src/vpiano.cpp" line="2384"/>
         <source>French</source>
         <translation>Французский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2384"/>
+        <location filename="../src/vpiano.cpp" line="2385"/>
         <source>Dutch</source>
         <translation>Голландский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2385"/>
+        <location filename="../src/vpiano.cpp" line="2386"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
@@ -1995,12 +2014,12 @@ Do you want to apply the changes?</source>
         <translation type="obsolete">Турецкий</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2387"/>
+        <location filename="../src/vpiano.cpp" line="2388"/>
         <source>Chinese</source>
         <translation>Китайский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2280"/>
+        <location filename="../src/vpiano.cpp" line="2286"/>
         <source>Language Changed</source>
         <translation>Язык изменён</translation>
     </message>
@@ -2368,24 +2387,49 @@ Do you want to apply the changes?</source>
         <translation>Клавиатура компьютера</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="700"/>
+        <location filename="../src/vpiano.ui" line="692"/>
+        <source>Enable computer keyboard triggered note input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="703"/>
         <source>Mouse</source>
         <translation>Мышь</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="711"/>
+        <location filename="../src/vpiano.ui" line="706"/>
+        <source>Enable mouse triggered note input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="717"/>
         <source>Touch Screen</source>
         <translation>Сенсорный экран</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="716"/>
+        <location filename="../src/vpiano.ui" line="720"/>
+        <source>Enable screen touch triggered note input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="725"/>
         <source>Color Palette</source>
         <translation>Палитра цветов</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="724"/>
+        <location filename="../src/vpiano.ui" line="728"/>
+        <source>Open the color palette editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="736"/>
         <source>Color Scale</source>
         <translation>Шкала цветов</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="739"/>
+        <source>Show or hide the colorized keys</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="565"/>
