@@ -1650,12 +1650,12 @@ QString VPiano::dataDirectory()
 {
 #if defined(Q_OS_WIN32)
     return QApplication::applicationDirPath() + "/";
-#elif defined(Q_OS_LINUX)
-    return QApplication::applicationDirPath() + "/../share/vmpk/";
 #elif defined(Q_OS_DARWIN)
     return QApplication::applicationDirPath() + "/../Resources/";
 #elif defined(Q_OS_SYMBIAN)
     return QApplication::applicationDirPath() + "/";
+#elif defined(Q_OS_UNIX)
+    return QApplication::applicationDirPath() + "/../share/vmpk/";
 #endif
     return QString();
 }

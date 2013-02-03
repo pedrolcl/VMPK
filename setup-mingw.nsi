@@ -1,8 +1,9 @@
 Name "Virtual MIDI Piano Keyboard"
+SetCompressor /SOLID lzma
 
 # Defines
-!define QTFILES "C:\QtSDK\Desktop\Qt\4.8.1\mingw\bin"
-!define QTLANG "C:\QtSDK\Desktop\Qt\4.8.1\mingw\translations"
+!define QTFILES "C:\Qt\4.8.4\mingw\bin"
+!define QTLANG "C:\Qt\4.8.4\mingw\translations"
 !define MINGWFILES "C:\QtSDK\mingw\bin"
 !define VMPKSRC "C:\Users\pedro\Projects\vmpk-desktop"
 !define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Release"
@@ -26,7 +27,7 @@ Name "Virtual MIDI Piano Keyboard"
 
 # Included files
 !include Sections.nsh
-!include MUI.nsh
+!include MUI2.nsh
 !include Library.nsh
 
 # Variables
@@ -76,7 +77,7 @@ Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
     File ${VMPKSRC}\qt.conf
-    File ${VMPKBLD}\release\vmpk.exe
+    File ${VMPKBLD}\src\vmpk.exe
     File ${VMPKSRC}\data\spanish.xml
     File ${VMPKSRC}\data\german.xml
     File ${VMPKSRC}\data\azerty.xml
@@ -89,14 +90,14 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\help_es.html
     File ${VMPKSRC}\data\help_nl.html
     File ${VMPKSRC}\data\help_ru.html
-    File ${VMPKBLD}\vmpk_cs.qm
-    File ${VMPKBLD}\vmpk_de.qm
-    File ${VMPKBLD}\vmpk_es.qm
-    File ${VMPKBLD}\vmpk_fr.qm
-#   File ${VMPKBLD}\vmpk_nl.qm
-    File ${VMPKBLD}\vmpk_ru.qm
-    File ${VMPKBLD}\vmpk_sv.qm
-#   File ${VMPKBLD}\vmpk_zh_CN.qm
+    File ${VMPKBLD}\translations\vmpk_cs.qm
+    File ${VMPKBLD}\translations\vmpk_de.qm
+    File ${VMPKBLD}\translations\vmpk_es.qm
+    File ${VMPKBLD}\translations\vmpk_fr.qm
+#   File ${VMPKBLD}\translations\vmpk_nl.qm
+    File ${VMPKBLD}\translations\vmpk_ru.qm
+    File ${VMPKBLD}\translations\vmpk_sv.qm
+#   File ${VMPKBLD}\translations\vmpk_zh_CN.qm
     File ${QTLANG}\qt_cs.qm
     File ${QTLANG}\qt_de.qm
     File ${QTLANG}\qt_es.qm
@@ -231,8 +232,14 @@ Section -un.post UNSEC0001
     RmDir /REBOOTOK $INSTDIR
 SectionEnd
 
+#Installer Functions
+Function .onInit
+    !insertmacro MUI_LANGDLL_DISPLAY
+FunctionEnd
+
 # Uninstaller functions
 Function un.onInit
+    !insertmacro MUI_UNGETLANGUAGE
     ReadRegStr $INSTDIR HKLM "${REGKEY}" Path
     !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
     !insertmacro SELECT_UNSECTION Main ${UNSEC0000}

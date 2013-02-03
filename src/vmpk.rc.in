@@ -28,8 +28,9 @@ BEGIN
                          0x0409, 1200, // U.S. English
                          0x040A, 1200, // Castilian Spanish
                          0x040C, 1200, // French
-                         0x0413, 1200, // Dutch
+                     //  0x0413, 1200,    Dutch
                          0x0419, 1200, // Russian
-                         0x0804, 1200  // Simplified Chinese
+                     //  0x0804, 1200,    Simplified Chinese
+                         0x041d, 1200  // Swedish
   END
 END

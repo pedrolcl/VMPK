@@ -1,10 +1,11 @@
 Name "Virtual MIDI Piano Keyboard"
+SetCompressor /SOLID lzma
 
 # Defines
-!define QTFILES "C:\Qt\4.8.2\msvc2010\bin"
-!define QTLANG "C:\Qt\4.8.2\msvc2010\translations"
+!define QTFILES "C:\Qt\4.8.4\msvc2010\bin"
+!define QTLANG "C:\Qt\4.8.4\msvc2010\translations"
 !define VMPKSRC "C:\Users\pedro\Projects\vmpk-desktop"
-!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-msvc"
+!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Qt_4_8_4__msvc2010__Release"
 
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.5.1
@@ -25,7 +26,7 @@ Name "Virtual MIDI Piano Keyboard"
 
 # Included files
 !include Sections.nsh
-!include MUI.nsh
+!include MUI2.nsh
 !include Library.nsh
 
 # Variables
@@ -230,8 +231,14 @@ Section -un.post UNSEC0001
     RmDir /REBOOTOK $INSTDIR
 SectionEnd
 
+#Installer Functions
+Function .onInit
+    !insertmacro MUI_LANGDLL_DISPLAY
+FunctionEnd
+
 # Uninstaller functions
 Function un.onInit
+    !insertmacro MUI_UNGETLANGUAGE
     ReadRegStr $INSTDIR HKLM "${REGKEY}" Path
     !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
     !insertmacro SELECT_UNSECTION Main ${UNSEC0000}
