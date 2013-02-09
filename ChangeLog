@@ -1,3 +1,6 @@
+2013-02-09
+    * release 0.5.1
+
 2013-02-01
     * Fixed bug #3599827. No default keyboard shortcuts available in 0.5.0 on fresh installations
     * Qt5 build compatibility (but not fully functional)
