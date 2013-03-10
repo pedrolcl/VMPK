@@ -1,3 +1,9 @@
+2013-03-10
+    * version string 0.5.99
+    * Port to Qt5 (unfinished). Mostly changes for raw keyboard support
+    * removed class RawKeybdApp, replaced by class NativeFilter
+    * Linux: switch from libX11 to libXCB
+
 2013-02-09
     * release 0.5.1
 

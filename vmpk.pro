@@ -10,77 +10,50 @@
 # GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
+
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.5.1
+VERSION = 0.5.99 # will become 0.6 upon release
 QT += core \
     gui \
+    widgets \
     xml \
     svg
+
 dbus {
     DEFINES += ENABLE_DBUS
     CONFIG += qdbus
     QT += dbus
     DBUS_ADAPTORS += src/net.sourceforge.vmpk.xml
 }
+
 DEFINES += NETWORK_MIDI
 QT += network
 
-contains(QT_VERSION, ^4\\.[0-7]\\..*) {
+lessThan(QT_MAJOR_VERSION, 5) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
-    error("Use Qt 4.8 or newer")
+    error("Use Qt 5.0 or newer")
 }
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+# greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 DEFINES += VERSION=$$VERSION
-
-simulator|symbian {
-    DEFINES += SMALL_SCREEN
-}
-symbian {
-    LIBS += -lcone -leikcore -lavkon
-    ICON = data/vmpk_symbian.svg
-    TARGET.CAPABILITY += NetworkServices \
-        UserEnvironment \
-        LocalServices \
-        ReadUserData \
-        WriteUserData
-    TARGET.UID3 = 0x20041DD7
-    vendorinfo = "%{\"Pedro Lopez-Cabanillas\"}" ":\"Pedro Lopez-Cabanillas\""
-    addFiles.pkg_prerules = vendorinfo
-    addFiles.path = .
-    addFiles.sources = data/hm.html \
-        data/hm_es.html \
-        data/hm_ru.html \
-        data/gmgsxg.ins \
-        qt.conf \
-        translations/vmpk_cs.qm \
-        translations/vmpk_de.qm \
-        translations/vmpk_es.qm \
-        translations/vmpk_fr.qm \
-        translations/vmpk_ru.qm \
-        translations/vmpk_sv.qm
-    DEPLOYMENT += addFiles
-}
 
 win32 {
     DEFINES += __WINDOWS_MM__
     LIBS += -lwinmm
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
-}
-
-win32:!simulator {
     DEFINES += RAWKBD_SUPPORT
 }
 
-linux*:!simulator {
+linux* {
+    QT += gui-private
     DEFINES += __LINUX_ALSASEQ__
     DEFINES += AVOID_TIMESTAMPING
     DEFINES += RAWKBD_SUPPORT
-    CONFIG += link_pkgconfig x11
-    PKGCONFIG += alsa
+    CONFIG += link_pkgconfig
+    PKGCONFIG += xcb alsa
     LIBS += -lpthread
     jack_midi {
         PKGCONFIG += jack
@@ -89,8 +62,7 @@ linux*:!simulator {
 }
 
 macx {
-    CONFIG += x86 \
-        ppc
+    CONFIG += x86
     ICON = data/vmpk.icns
     DEFINES += __MACOSX_CORE__
     DEFINES += RAWKBD_SUPPORT
@@ -125,14 +97,10 @@ macx {
         #vmpk_zh_CN.qm
     BUNDLE_RES.path = Contents/Resources
     QMAKE_BUNDLE_DATA += BUNDLE_RES
-    LIBS += -framework \
-        CoreMidi \
-        -framework \
-        CoreAudio \
-        -framework \
-        CoreFoundation \
-        -framework \
-        Carbon
+    LIBS += -framework CoreMidi \
+        -framework CoreAudio \
+        -framework CoreFoundation
+        #-framework Carbon (using Cocoa instead)
 }
 irix* {
     CONFIG += x11
@@ -172,7 +140,8 @@ HEADERS += src/about.h \
     src/pianopalette.h \
     src/pianoscene.h \
     src/preferences.h \
-    src/rawkeybdapp.h \
+    src/nativefilter.h \
+#    src/rawkeybdapp.h \
     src/riff.h \
     src/riffimportdlg.h \
     src/RtError.h \
@@ -202,15 +171,14 @@ SOURCES += src/about.cpp \
     src/udpmidi.cpp \
     src/vpiano.cpp
 
-!symbian:!simulator {
 FORMS += src/kmapdialog.ui \
     src/shortcutdialog.ui
 HEADERS += src/kmapdialog.h \
     src/shortcutdialog.h
 SOURCES += src/kmapdialog.cpp \
     src/shortcutdialog.cpp \
-    src/rawkeybdapp.cpp
-}
+    src/nativefilter.cpp
+#    src/rawkeybdapp.cpp
 
 RESOURCES += data/vmpk.qrc
 

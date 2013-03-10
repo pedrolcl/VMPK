@@ -1,5 +1,5 @@
 /*
-    Virtual Piano Widget for Qt4
+    MIDI Virtual Piano Keyboard
     Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
@@ -16,11 +16,11 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef RAWKEYBDAPP_H
-#define RAWKEYBDAPP_H
+#ifndef NATIVEFILTER_H
+#define NATIVEFILTER_H
 
+#include <QAbstractNativeEventFilter>
 #include "pianodefs.h"
-#include <QApplication>
 
 class RawKbdHandler {
 public:
@@ -29,33 +29,22 @@ public:
     virtual bool handleKeyReleased(int keycode) = 0;
 };
 
-class VPIANO_EXPORT RawKeybdApp : public QApplication
+class VPIANO_EXPORT NativeFilter : public QAbstractNativeEventFilter
 {
 public:
-    RawKeybdApp( int & argc, char ** argv ) : QApplication(argc, argv),
-        m_enabled(false), m_handler(NULL) {}
-    virtual ~RawKeybdApp() {}
+    NativeFilter(): m_enabled(false), m_handler(0) {}
+    virtual ~NativeFilter() {}
 
     RawKbdHandler *getRawKbdHandler() { return m_handler; }
     void setRawKbdHandler(RawKbdHandler* h) { m_handler = h; }
     bool getRawKbdEnable() { return m_enabled; }
     void setRawKbdEnable(bool b) { m_enabled = b; }
 
-#if defined(Q_WS_X11)
-    bool x11EventFilter ( XEvent * event );
-#endif
-
-#if defined(Q_WS_MAC)
-    bool macEventFilter ( EventHandlerCallRef caller, EventRef event );
-#endif
-
-#if defined(Q_WS_WIN)
-    bool winEventFilter ( MSG * msg, long * result );
-#endif
+    virtual bool nativeEventFilter(const QByteArray &eventType, void *message, long *) Q_DECL_OVERRIDE;
 
 private:
     bool m_enabled;
     RawKbdHandler *m_handler;
 };
 
-#endif // RAWKEYBDAPP_H
+#endif // NATIVEFILTER_H

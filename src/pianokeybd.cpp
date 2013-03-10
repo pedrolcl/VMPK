@@ -35,7 +35,7 @@ PianoKeybd::PianoKeybd(const int baseOctave, const int numOctaves, QWidget *pare
 PianoKeybd::~PianoKeybd()
 {
     m_scene->setRawKeyboardMode(false);
-    setRawKeyboardMap(NULL);
+    setRawKeyboardMap(0);
 }
 
 void PianoKeybd::initScene(int base, int num, const QColor& c)
@@ -61,12 +61,12 @@ void PianoKeybd::initialize()
     setOptimizationFlag(DontAdjustForAntialiasing, true);
     setBackgroundBrush(QApplication::palette().background());
     initDefaultMap();
-#if defined(RAWKBD_SUPPORT)
-    RawKeybdApp* rapp = dynamic_cast<RawKeybdApp*>(qApp);
-    if (rapp != NULL) {
-        rapp->setRawKbdHandler(this);
-    }
-#endif
+//#if defined(RAWKBD_SUPPORT)
+    //RawKeybdApp* rapp = dynamic_cast<RawKeybdApp*>(qApp);
+    //if (rapp != NULL) {
+    //    rapp->setRawKbdHandler(this);
+    //}
+//#endif
 }
 
 void PianoKeybd::resizeEvent(QResizeEvent *event)

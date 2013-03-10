@@ -21,6 +21,9 @@
 
 #include "ui_vpiano.h"
 #include "pianoscene.h"
+#if defined(RAWKBD_SUPPORT)
+#include "nativefilter.h"
+#endif
 #include <QMainWindow>
 
 class QTranslator;
@@ -228,6 +231,9 @@ private:
     DialogExtraControls *m_dlgExtra;
     RiffImportDlg *m_dlgRiffImport;
     ColorDialog *m_dlgColorPolicy;
+#if defined(RAWKBD_SUPPORT)
+    NativeFilter *m_filter;
+#endif
 
     Ui::VPiano ui;
 

@@ -86,7 +86,8 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_dlgKeyMap(0),
     m_dlgExtra(0),
     m_dlgRiffImport(0),
-    m_dlgColorPolicy(0)
+    m_dlgColorPolicy(0),
+    m_filter(0)
 {
 #if ENABLE_DBUS
     new VmpkAdaptor(this);
@@ -144,11 +145,21 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     setWindowTitle("VMPK " + PGM_VERSION);
 #endif
     currentPianoScene()->setPianoHandler(this);
+#if defined(RAWKBD_SUPPORT)
+    m_filter = new NativeFilter;
+    m_filter->setRawKbdHandler(ui.pianokeybd);
+    qApp->installNativeEventFilter(m_filter);
+#endif
     initialization();
 }
 
 VPiano::~VPiano()
 {
+#if defined(RAWKBD_SUPPORT)
+    m_filter->setRawKbdEnable(false);
+    qApp->removeNativeEventFilter(m_filter);
+    delete m_filter;
+#endif
     //qDebug() << Q_FUNC_INFO;
     try {
         if (m_midiout != 0) {
@@ -1519,6 +1530,7 @@ void VPiano::applyPreferences()
     if (ui.pianokeybd->numOctaves() != dlgPreferences()->getNumOctaves()) {
         ui.pianokeybd->setNumOctaves(dlgPreferences()->getNumOctaves());
     }
+    m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
     currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
     currentPianoScene()->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
     bool enableKeyboard = dlgPreferences()->getEnabledKeyboard();
@@ -1650,10 +1662,8 @@ QString VPiano::dataDirectory()
 {
 #if defined(Q_OS_WIN32)
     return QApplication::applicationDirPath() + "/";
-#elif defined(Q_OS_DARWIN)
+#elif defined(Q_OS_MAC)
     return QApplication::applicationDirPath() + "/../Resources/";
-#elif defined(Q_OS_SYMBIAN)
-    return QApplication::applicationDirPath() + "/";
 #elif defined(Q_OS_UNIX)
     return QApplication::applicationDirPath() + "/../share/vmpk/";
 #endif
@@ -1888,6 +1898,7 @@ void VPiano::grabKb()
         ui.pianokeybd->grabKeyboard();
     }
     currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
+    m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
 #endif
 }
 
@@ -1897,6 +1908,7 @@ void VPiano::releaseKb()
     if (dlgPreferences()->getGrabKeyboard()) {
         ui.pianokeybd->releaseKeyboard();
     }
+    m_filter->setRawKbdEnable(false);
     currentPianoScene()->setRawKeyboardMode(false);
 #endif
 }

@@ -14,10 +14,10 @@
 # You should have received a copy of the GNU General Public License along 
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
-include_directories (${CMAKE_CURRENT_BINARY_DIR})
-link_directories (${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+link_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-set (vmpk_forms_SRCS
+set(vmpk_forms_SRCS
     about.ui
     colordialog.ui
     extracontrols.ui
@@ -28,9 +28,9 @@ set (vmpk_forms_SRCS
     vpiano.ui
     shortcutdialog.ui)
 
-QT4_WRAP_UI (vmpk_ui_SRCS ${vmpk_forms_SRCS})
+QT5_WRAP_UI(vmpk_ui_SRCS ${vmpk_forms_SRCS})
 
-set (vmpk_SRCS
+set(vmpk_SRCS
     about.cpp
     about.h
     classicstyle.cpp
@@ -67,8 +67,10 @@ set (vmpk_SRCS
     pianoscene.h
     preferences.cpp
     preferences.h
-    rawkeybdapp.cpp
-    rawkeybdapp.h
+#    rawkeybdapp.cpp
+#    rawkeybdapp.h
+    nativefilter.cpp
+    nativefilter.h
     riff.cpp
     riff.h
     riffimportdlg.cpp
@@ -82,9 +84,9 @@ set (vmpk_SRCS
     vpiano.cpp
     vpiano.h )
 
-QT4_ADD_RESOURCES (vmpk_SRCS ../data/vmpk.qrc)
+QT5_ADD_RESOURCES(vmpk_SRCS ../data/vmpk.qrc)
 
-set (vmpk_qtobject_SRCS
+set(vmpk_qtobject_SRCS
     about.h
     colordialog.h
     colorwidget.h
@@ -101,26 +103,26 @@ set (vmpk_qtobject_SRCS
     vpiano.h
     shortcutdialog.h)
 
-if (ENABLE_DBUS)
-    QT4_ADD_DBUS_ADAPTOR (vmpk_SRCS 
+if(ENABLE_DBUS)
+    QT5_ADD_DBUS_ADAPTOR (vmpk_SRCS
                           net.sourceforge.vmpk.xml 
                           vpiano.h 
                           VPiano
                           vmpk_adaptor)
-endif ()
+endif()
 
-QT4_WRAP_CPP (vmpk_moc_SRCS ${vmpk_qtobject_SRCS})
+QT5_WRAP_CPP(vmpk_moc_SRCS ${vmpk_qtobject_SRCS})
 
-if (UNIX AND NOT APPLE)
+if(UNIX AND NOT APPLE)
     add_executable (vmpk
 					${vmpk_ui_SRCS}
 					${vmpk_moc_SRCS}
 					${vmpk_SRCS})
     install (TARGETS vmpk
              RUNTIME DESTINATION bin)
-endif ()
+endif()
 
-if (WIN32)
+if(WIN32)
     set (vmpk_RESOURCES)
     configure_file (vmpk.rc.in ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc 
                     IMMEDIATE @ONLY)
@@ -137,9 +139,9 @@ if (WIN32)
 					${vmpk_RESOURCES})
     install (TARGETS vmpk
 			 RUNTIME DESTINATION .)
-endif ()
+endif()
 
-if (APPLE)
+if(APPLE)
     set (MACOSX_BUNDLE_INFO_STRING "Virtual MIDI Piano Keyboard" )
     set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION} )
     set (MACOSX_BUNDLE_ICON_FILE "vmpk.icns" )
@@ -167,4 +169,4 @@ if (APPLE)
 					${vmpk_moc_SRCS}
 					${vmpk_SRCS}
 					${vmpk_RSC})
-endif ()
+endif()

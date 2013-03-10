@@ -18,7 +18,8 @@
 
 #include "pianoscene.h"
 #if defined(RAWKBD_SUPPORT)
-#include "rawkeybdapp.h"
+//#include "rawkeybdapp.h"
+#include "nativefilter.h"
 #endif
 #include <QApplication>
 #include <QPalette>
@@ -551,10 +552,10 @@ void PianoScene::setRawKeyboardMode(bool b)
 {
     if (m_rawkbd != b) {
         m_rawkbd = b;
-#if defined(RAWKBD_SUPPORT)
-        RawKeybdApp* rapp = dynamic_cast<RawKeybdApp*>(qApp);
-        if (rapp != NULL) rapp->setRawKbdEnable(m_rawkbd);
-#endif
+//#if defined(RAWKBD_SUPPORT)
+//        RawKeybdApp* rapp = dynamic_cast<RawKeybdApp*>(qApp);
+//        if (rapp != NULL) rapp->setRawKbdEnable(m_rawkbd);
+//#endif
     }
 }
 

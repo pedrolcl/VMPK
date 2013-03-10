@@ -21,7 +21,8 @@
 
 #include "pianoscene.h"
 #if defined(RAWKBD_SUPPORT)
-#include "rawkeybdapp.h"
+//#include "rawkeybdapp.h"
+#include "nativefilter.h"
 #endif
 #include <QGraphicsView>
 
