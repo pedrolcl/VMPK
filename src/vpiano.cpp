@@ -1530,7 +1530,9 @@ void VPiano::applyPreferences()
     if (ui.pianokeybd->numOctaves() != dlgPreferences()->getNumOctaves()) {
         ui.pianokeybd->setNumOctaves(dlgPreferences()->getNumOctaves());
     }
+#if defined(RAWKBD_SUPPORT)
     m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
+#endif
     currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
     currentPianoScene()->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
     bool enableKeyboard = dlgPreferences()->getEnabledKeyboard();
@@ -1898,7 +1900,9 @@ void VPiano::grabKb()
         ui.pianokeybd->grabKeyboard();
     }
     currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
+#if defined(RAWKBD_SUPPORT)
     m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
+#endif
 #endif
 }
 
@@ -1908,7 +1912,9 @@ void VPiano::releaseKb()
     if (dlgPreferences()->getGrabKeyboard()) {
         ui.pianokeybd->releaseKeyboard();
     }
+#if defined(RAWKBD_SUPPORT)
     m_filter->setRawKbdEnable(false);
+#endif
     currentPianoScene()->setRawKeyboardMode(false);
 #endif
 }

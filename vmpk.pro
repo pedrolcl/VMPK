@@ -62,7 +62,7 @@ linux* {
 }
 
 macx {
-    CONFIG += x86
+    #CONFIG += x86
     ICON = data/vmpk.icns
     DEFINES += __MACOSX_CORE__
     DEFINES += RAWKBD_SUPPORT
@@ -79,7 +79,7 @@ macx {
         data/it-qwerty.xml \
         data/vkeybd-default.xml \
         data/pc102mac.xml \
-        qt.conf \
+        #qt.conf \
         $$[QT_INSTALL_TRANSLATIONS]/qt_cs.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_de.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_es.qm \
@@ -99,8 +99,8 @@ macx {
     QMAKE_BUNDLE_DATA += BUNDLE_RES
     LIBS += -framework CoreMidi \
         -framework CoreAudio \
-        -framework CoreFoundation
-        #-framework Carbon (using Cocoa instead)
+        -framework CoreFoundation \
+        -framework Cocoa
 }
 irix* {
     CONFIG += x11
@@ -141,13 +141,13 @@ HEADERS += src/about.h \
     src/pianoscene.h \
     src/preferences.h \
     src/nativefilter.h \
-#    src/rawkeybdapp.h \
     src/riff.h \
     src/riffimportdlg.h \
     src/RtError.h \
     src/RtMidi.h \
     src/udpmidi.h \
-    src/vpiano.h
+    src/vpiano.h \
+    src/maceventhelper.h
 
 SOURCES += src/about.cpp \
     src/classicstyle.cpp \
@@ -178,7 +178,11 @@ HEADERS += src/kmapdialog.h \
 SOURCES += src/kmapdialog.cpp \
     src/shortcutdialog.cpp \
     src/nativefilter.cpp
-#    src/rawkeybdapp.cpp
+
+macx {
+    OBJECTIVE_SOURCES += \
+        src/maceventhelper.mm
+}
 
 RESOURCES += data/vmpk.qrc
 

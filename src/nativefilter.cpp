@@ -31,12 +31,11 @@
 #endif
 
 #if defined(Q_OS_MAC)
-// TODO
+#include "maceventhelper.h"
 #endif
 
 bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message, long *)
 {
-    bool isRepeat = false;
 
     if (!m_enabled || (m_handler == 0)) {
         return false;
@@ -47,6 +46,7 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
         static xcb_timestamp_t last_rel_time = 0;
         static xcb_keycode_t last_rel_code = 0;
         static xcb_connection_t *connection = 0;
+        bool isRepeat = false;
         if (connection == 0) {
             QPlatformNativeInterface *native = qApp->platformNativeInterface();
             void *conn = native->nativeResourceForWindow(QByteArray("connection"), 0);
@@ -90,6 +90,7 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
 #endif
     } else if (eventType == "windows_dispatcher_MSG" || eventType == "windows_generic_MSG") {
 #if defined(Q_OS_WIN)
+        bool isRepeat = false;
         MSG* msg = static_cast<MSG *>(message);
         if (msg->message == WM_KEYDOWN || msg->message == WM_KEYUP) {
             int keycode = HIWORD(msg->lParam) & 0xff;
@@ -104,6 +105,23 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
                     //qDebug() << "key released:" << keycode;
             }
         }
+#endif
+    } else if (eventType == "mac_generic_NSEvent") {
+#if defined(Q_OS_MAC)
+        static MacEventHelper *helper = new MacEventHelper();
+        helper->setNativeEvent(static_cast<void *>(message));
+        if (helper->isKeyEvent()) {
+            int keycode = helper->rawKeyCode();
+            if (helper->isNotRepeated()) {
+                if (helper->isKeyPress())
+                    return m_handler->handleKeyPressed(keycode);
+                    //qDebug() << "key pressed:" << keycode;
+                else
+                    return m_handler->handleKeyReleased(keycode);
+                    //qDebug() << "key pressed:" << keycode;
+            }
+        }
+        helper->clearNativeEvent();
 #endif
     }
     return false;

@@ -61,12 +61,6 @@ void PianoKeybd::initialize()
     setOptimizationFlag(DontAdjustForAntialiasing, true);
     setBackgroundBrush(QApplication::palette().background());
     initDefaultMap();
-//#if defined(RAWKBD_SUPPORT)
-    //RawKeybdApp* rapp = dynamic_cast<RawKeybdApp*>(qApp);
-    //if (rapp != NULL) {
-    //    rapp->setRawKbdHandler(this);
-    //}
-//#endif
 }
 
 void PianoKeybd::resizeEvent(QResizeEvent *event)
@@ -109,7 +103,7 @@ void PianoKeybd::initDefaultMap()
     m_defaultMap.insert(Qt::Key_P, 40);
 
     // Default Raw Keyboard Map
-#if defined(Q_WS_X11)
+#if defined(Q_OS_LINUX)
     m_defaultRawMap.insert(94, 11);
     m_defaultRawMap.insert(52, 12);
     m_defaultRawMap.insert(39, 13);
@@ -151,7 +145,7 @@ void PianoKeybd::initDefaultMap()
     m_defaultRawMap.insert(35, 48);
 #endif
 
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
     m_defaultRawMap.insert(86, 11);
     m_defaultRawMap.insert(44, 12);
     m_defaultRawMap.insert(31, 13);
@@ -193,7 +187,7 @@ void PianoKeybd::initDefaultMap()
     m_defaultRawMap.insert(27, 48);
 #endif
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     m_defaultRawMap.insert(50, 11);
     m_defaultRawMap.insert(6, 12);
     m_defaultRawMap.insert(1, 13);

@@ -16,12 +16,9 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QApplication>
 #include "constants.h"
 #include "vpiano.h"
-#if defined(RAWKBD_SUPPORT)
-#include "nativefilter.h"
-#endif
-#include <QApplication>
 
 int main(int argc, char *argv[])
 {

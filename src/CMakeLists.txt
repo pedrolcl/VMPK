@@ -142,6 +142,7 @@ if(WIN32)
 endif()
 
 if(APPLE)
+    set(vmpk_SRCS ${vmpk_SRCS} maceventhelper.mm)
     set (MACOSX_BUNDLE_INFO_STRING "Virtual MIDI Piano Keyboard" )
     set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION} )
     set (MACOSX_BUNDLE_ICON_FILE "vmpk.icns" )
