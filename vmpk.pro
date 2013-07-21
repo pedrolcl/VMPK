@@ -84,6 +84,7 @@ macx {
         $$[QT_INSTALL_TRANSLATIONS]/qt_de.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_es.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_fr.qm \
+        $$[QT_INSTALL_TRANSLATIONS]/qt_gl.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
         #$$[QT_INSTALL_TRANSLATIONS]/qt_zh_CN.qm \
@@ -190,6 +191,7 @@ TRANSLATIONS +=  translations/vmpk_cs.ts \
     translations/vmpk_de.ts \
     translations/vmpk_es.ts \
     translations/vmpk_fr.ts \
+    translations/vmpk_gl.ts \
     #translations/vmpk_nl.ts \
     translations/vmpk_ru.ts \
     translations/vmpk_sv.ts

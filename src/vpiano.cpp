@@ -2400,6 +2400,7 @@ void VPiano::initLanguages()
     m_supportedLangs.insert(QLatin1String("en"), tr("English"));
     m_supportedLangs.insert(QLatin1String("es"), tr("Spanish"));
     m_supportedLangs.insert(QLatin1String("fr"), tr("French"));
+    m_supportedLangs.insert(QLatin1String("gl"), tr("Galician"));
     m_supportedLangs.insert(QLatin1String("nl"), tr("Dutch"));
     m_supportedLangs.insert(QLatin1String("ru"), tr("Russian"));
     m_supportedLangs.insert(QLatin1String("sv"), tr("Swedish"));

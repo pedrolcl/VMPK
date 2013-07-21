@@ -6,6 +6,7 @@ SET( TRANSLATIONS_FILES
      vmpk_de.ts
      vmpk_es.ts
      vmpk_fr.ts
+     vmpk_gl.ts
 #    vmpk_nl.ts
      vmpk_ru.ts
      vmpk_sv.ts
