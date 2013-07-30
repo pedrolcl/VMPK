@@ -1888,67 +1888,72 @@ Chcete použít tyto změny?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2414"/>
+        <location filename="../src/vpiano.cpp" line="2406"/>
+        <source>Serbian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2415"/>
         <source>Chan:</source>
         <translation>Kan:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2416"/>
+        <location filename="../src/vpiano.cpp" line="2417"/>
         <source>Channel:</source>
         <translation>Kanál:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2421"/>
+        <location filename="../src/vpiano.cpp" line="2422"/>
         <source>Oct:</source>
         <translation>Okt:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2423"/>
+        <location filename="../src/vpiano.cpp" line="2424"/>
         <source>Base Octave:</source>
         <translation>Základní oktáva:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2428"/>
+        <location filename="../src/vpiano.cpp" line="2429"/>
         <source>Trans:</source>
         <translation>Přev:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2430"/>
+        <location filename="../src/vpiano.cpp" line="2431"/>
         <source>Transpose:</source>
         <translation>Převést:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2435"/>
+        <location filename="../src/vpiano.cpp" line="2436"/>
         <source>Vel:</source>
         <translation>Rych:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2437"/>
+        <location filename="../src/vpiano.cpp" line="2438"/>
         <source>Velocity:</source>
         <translation>Rychlost:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2442"/>
+        <location filename="../src/vpiano.cpp" line="2443"/>
         <source>Control:</source>
         <translation>Ovládací prvek:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2444"/>
+        <location filename="../src/vpiano.cpp" line="2445"/>
         <source>Value:</source>
         <translation>Hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2441"/>
+        <location filename="../src/vpiano.cpp" line="2442"/>
         <source>Bender:</source>
         <translation>Měnič:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2440"/>
+        <location filename="../src/vpiano.cpp" line="2441"/>
         <source>Bank:</source>
         <translation>Banka:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2443"/>
+        <location filename="../src/vpiano.cpp" line="2444"/>
         <source>Program:</source>
         <translation>Program:</translation>
     </message>
@@ -1968,7 +1973,7 @@ Chcete použít tyto změny?</translation>
         <translation>Informace o překladech</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2406"/>
+        <location filename="../src/vpiano.cpp" line="2407"/>
         <source>Swedish</source>
         <translation>Švédština</translation>
     </message>
@@ -2022,7 +2027,7 @@ Chcete použít tyto změny?</translation>
         <translation type="obsolete">Turečtina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2407"/>
+        <location filename="../src/vpiano.cpp" line="2408"/>
         <source>Chinese</source>
         <translation>Čínština</translation>
     </message>

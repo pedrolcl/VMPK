@@ -92,8 +92,10 @@ macx {
         vmpk_de.qm \
         vmpk_es.qm \
         vmpk_fr.qm \
+        vmpk_gl.qm \
         #vmpk_nl.qm \
         vmpk_ru.qm \
+        vmpk_sr.qm \
         vmpk_sv.qm
         #vmpk_zh_CN.qm
     BUNDLE_RES.path = Contents/Resources
@@ -194,6 +196,7 @@ TRANSLATIONS +=  translations/vmpk_cs.ts \
     translations/vmpk_gl.ts \
     #translations/vmpk_nl.ts \
     translations/vmpk_ru.ts \
+    translations/vmpk_sr.ts \
     translations/vmpk_sv.ts
     #translations/vmpk_zh_CN.ts
 

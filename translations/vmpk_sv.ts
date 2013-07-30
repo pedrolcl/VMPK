@@ -1867,67 +1867,72 @@ Vill du verkställa ändringarna?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2414"/>
+        <location filename="../src/vpiano.cpp" line="2406"/>
+        <source>Serbian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2415"/>
         <source>Chan:</source>
         <translation>Kanal:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2416"/>
+        <location filename="../src/vpiano.cpp" line="2417"/>
         <source>Channel:</source>
         <translation>Kanal:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2421"/>
+        <location filename="../src/vpiano.cpp" line="2422"/>
         <source>Oct:</source>
         <translation>Oktav:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2423"/>
+        <location filename="../src/vpiano.cpp" line="2424"/>
         <source>Base Octave:</source>
         <translation>Oktav för Z-M:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2428"/>
+        <location filename="../src/vpiano.cpp" line="2429"/>
         <source>Trans:</source>
         <translation>Transposition:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2430"/>
+        <location filename="../src/vpiano.cpp" line="2431"/>
         <source>Transpose:</source>
         <translation>Transponera:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2435"/>
+        <location filename="../src/vpiano.cpp" line="2436"/>
         <source>Vel:</source>
         <translation>Hastighet:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2437"/>
+        <location filename="../src/vpiano.cpp" line="2438"/>
         <source>Velocity:</source>
         <translation>Anslag:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2442"/>
+        <location filename="../src/vpiano.cpp" line="2443"/>
         <source>Control:</source>
         <translation>Kontroll:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2444"/>
+        <location filename="../src/vpiano.cpp" line="2445"/>
         <source>Value:</source>
         <translation>Värde:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2441"/>
+        <location filename="../src/vpiano.cpp" line="2442"/>
         <source>Bender:</source>
         <translation>Tonbändning:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2440"/>
+        <location filename="../src/vpiano.cpp" line="2441"/>
         <source>Bank:</source>
         <translation>Bank:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2443"/>
+        <location filename="../src/vpiano.cpp" line="2444"/>
         <source>Program:</source>
         <translation>Program:</translation>
     </message>
@@ -1947,7 +1952,7 @@ Vill du verkställa ändringarna?</translation>
         <translation>Om översättningarna</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2406"/>
+        <location filename="../src/vpiano.cpp" line="2407"/>
         <source>Swedish</source>
         <translation>Svenska</translation>
     </message>
@@ -2001,7 +2006,7 @@ Vill du verkställa ändringarna?</translation>
         <translation type="obsolete">Turkiska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2407"/>
+        <location filename="../src/vpiano.cpp" line="2408"/>
         <source>Chinese</source>
         <translation>Kinesiska</translation>
     </message>

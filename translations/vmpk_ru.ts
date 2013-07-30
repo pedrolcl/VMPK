@@ -1880,67 +1880,72 @@ Do you want to apply the changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2414"/>
+        <location filename="../src/vpiano.cpp" line="2406"/>
+        <source>Serbian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2415"/>
         <source>Chan:</source>
         <translation>Кан:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2416"/>
+        <location filename="../src/vpiano.cpp" line="2417"/>
         <source>Channel:</source>
         <translation>Канал:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2421"/>
+        <location filename="../src/vpiano.cpp" line="2422"/>
         <source>Oct:</source>
         <translation>Окт:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2423"/>
+        <location filename="../src/vpiano.cpp" line="2424"/>
         <source>Base Octave:</source>
         <translation>Базовая октава:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2428"/>
+        <location filename="../src/vpiano.cpp" line="2429"/>
         <source>Trans:</source>
         <translation>Пер:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2430"/>
+        <location filename="../src/vpiano.cpp" line="2431"/>
         <source>Transpose:</source>
         <translation>Перенос:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2435"/>
+        <location filename="../src/vpiano.cpp" line="2436"/>
         <source>Vel:</source>
         <translation>Громк:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2437"/>
+        <location filename="../src/vpiano.cpp" line="2438"/>
         <source>Velocity:</source>
         <translation>Громкость:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2442"/>
+        <location filename="../src/vpiano.cpp" line="2443"/>
         <source>Control:</source>
         <translation>Регулятор:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2444"/>
+        <location filename="../src/vpiano.cpp" line="2445"/>
         <source>Value:</source>
         <translation>Значение:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2441"/>
+        <location filename="../src/vpiano.cpp" line="2442"/>
         <source>Bender:</source>
         <translation>Зажим:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2440"/>
+        <location filename="../src/vpiano.cpp" line="2441"/>
         <source>Bank:</source>
         <translation>Банк:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2443"/>
+        <location filename="../src/vpiano.cpp" line="2444"/>
         <source>Program:</source>
         <translation>Программа:</translation>
     </message>
@@ -1965,7 +1970,7 @@ Do you want to apply the changes?</source>
         <translation>Информация о переводе</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2406"/>
+        <location filename="../src/vpiano.cpp" line="2407"/>
         <source>Swedish</source>
         <translation>Шведский</translation>
     </message>
@@ -2019,7 +2024,7 @@ Do you want to apply the changes?</source>
         <translation type="obsolete">Турецкий</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2407"/>
+        <location filename="../src/vpiano.cpp" line="2408"/>
         <source>Chinese</source>
         <translation>Китайский</translation>
     </message>

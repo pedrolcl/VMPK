@@ -9,6 +9,7 @@ SET( TRANSLATIONS_FILES
      vmpk_gl.ts
 #    vmpk_nl.ts
      vmpk_ru.ts
+     vmpk_sr.ts
      vmpk_sv.ts
 #    vmpk_zh_CN.ts
 )
