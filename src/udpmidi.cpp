@@ -199,8 +199,8 @@ void NetMidiOut ::closePort()
 void NetMidiOut ::sendMessage( std::vector<unsigned char> *message )
 {
     NetworkMidiData *data = static_cast<NetworkMidiData *> (apiData_);
-    if (data->socket <= 0) {
-        qDebug() << "socket = " << data->socket;
+    if (data->socket == 0) {
+        qDebug() << "udp socket is null";
         return;
     }
     data->socket->writeDatagram((char *) &((*message)[0]), message->size(), MULTICAST_ADDRESS, NetworkSettings::instance().port());

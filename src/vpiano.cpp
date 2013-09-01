@@ -750,7 +750,8 @@ void VPiano::readSettings()
     ui.actionNoteNames->setChecked(showNames);
     ui.actionStatusBar->setChecked(showStatusBar);
     ui.pianokeybd->setNumOctaves(num_octaves);
-    currentPianoScene()->setVelocity(velocityColor ? m_velocity : MIDIVELOCITY);
+    currentPianoScene()->setVelocityTint(velocityColor);
+    currentPianoScene()->setVelocity(m_velocity);
     ui.pianokeybd->setTranspose(m_transpose);
     ui.pianokeybd->setBaseOctave(m_baseOctave);
     currentPianoScene()->setKeyboardEnabled(enableKeyboard);
@@ -1351,7 +1352,7 @@ void VPiano::slotVelocityValueChanged(int value)
 {
     m_velocity = value;
     setWidgetTip(m_Velocity, value);
-    currentPianoScene()->setVelocity(dlgPreferences()->getVelocityColor() ? value : MIDIVELOCITY);
+    currentPianoScene()->setVelocity(value);
 }
 
 void VPiano::slotExtraController(const int value)
@@ -1534,7 +1535,8 @@ void VPiano::applyPreferences()
     m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
 #endif
     currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
-    currentPianoScene()->setVelocity(dlgPreferences()->getVelocityColor() ? m_velocity : MIDIVELOCITY );
+    currentPianoScene()->setVelocityTint(dlgPreferences()->getVelocityColor());
+    currentPianoScene()->setVelocity(m_velocity);
     bool enableKeyboard = dlgPreferences()->getEnabledKeyboard();
     bool enableMouse = dlgPreferences()->getEnabledMouse();
     bool enableTouch = dlgPreferences()->getEnabledTouch();

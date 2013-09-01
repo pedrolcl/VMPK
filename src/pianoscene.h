@@ -75,6 +75,8 @@ public:
     void setTouchEnabled( const bool enable );
     bool showColorScale() const { return m_showColorScale; }
     void setShowColorScale(const bool show);
+    bool velocityTint() const { return m_velocityTint; }
+    void setVelocityTint( const bool enable ) { m_velocityTint = enable; }
 
     void showNoteOn( const int note, QColor color, int vel = -1 );
     void showNoteOn( const int note, int vel = -1 );
@@ -142,6 +144,7 @@ private:
     int m_velocity;
     int m_channel;
     bool m_showColorScale;
+    bool m_velocityTint;
     PianoHandler* m_handler;
     KeyboardMap* m_keybdMap;
     QList<PianoKey*> m_keys;

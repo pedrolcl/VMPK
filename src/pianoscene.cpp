@@ -18,7 +18,6 @@
 
 #include "pianoscene.h"
 #if defined(RAWKBD_SUPPORT)
-//#include "rawkeybdapp.h"
 #include "nativefilter.h"
 #endif
 #include <QApplication>
@@ -51,6 +50,7 @@ PianoScene::PianoScene ( const int baseOctave,
     m_velocity( 100 ),
     m_channel( 0 ),
     m_showColorScale( false ),
+    m_velocityTint( true ),
     m_handler( 0 ),
     m_palette( 0 ),
     m_scalePalette( 0 )
@@ -100,7 +100,7 @@ QSize PianoScene::sizeHint() const
 
 void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )
 {
-    if (vel >= 0 && color.isValid() ) {
+    if (m_velocityTint && vel >= 0 && color.isValid() ) {
         QBrush hilightBrush(color.lighter(200 - vel));
         key->setPressedBrush(hilightBrush);
     }
@@ -110,7 +110,7 @@ void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )
 void PianoScene::showKeyOn( PianoKey* key, int vel )
 {
     if (vel >= 0) {
-        if (m_palette == 0 && m_keyPressedColor.isValid()) {
+        if (m_velocityTint && m_palette == 0 && m_keyPressedColor.isValid()) {
             QBrush hilightBrush(m_keyPressedColor.lighter(200 - vel));
             key->setPressedBrush(hilightBrush);
         } else {
@@ -189,7 +189,7 @@ void PianoScene::setColorFromPolicy(PianoKey* key, int vel)
     case PAL_SCALE:
         c = m_palette->getColor(key->getDegree());
     }
-    if (c.isValid()) {
+    if (m_velocityTint && c.isValid()) {
         QBrush h(c.lighter(200 - vel));
         key->setPressedBrush(h);
     }

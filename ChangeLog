@@ -1,3 +1,12 @@
+2013-09-01
+    * MIDI OUT velocity is now independent from the "highlight color tint" setting.
+
+2013-07-30
+    * new Serbian translation. Thanks to Jay Alexander Fleming
+
+2013-07-21
+    * new Galician translation. Thanks to Miguel Bouzada
+
 2013-03-10
     * version string 0.5.99
     * Port to Qt5 (unfinished). Mostly changes for raw keyboard support
