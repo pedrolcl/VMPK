@@ -39,7 +39,7 @@ class QDESIGNER_WIDGET_EXPORT PianoKeybd : public QGraphicsView
 {
     Q_OBJECT
     Q_PROPERTY( int baseOctave READ baseOctave WRITE setBaseOctave )
-    Q_PROPERTY( int numOctaves READ numOctaves WRITE setNumOctaves )
+    Q_PROPERTY( int numKeys READ numKeys WRITE setNumKeys )
     Q_PROPERTY( int rotation READ getRotation WRITE setRotation )
     Q_PROPERTY( QColor keyPressedColor READ getKeyPressedColor WRITE setKeyPressedColor )
     Q_PROPERTY( bool showLabels READ showLabels WRITE setShowLabels )
@@ -52,13 +52,14 @@ class QDESIGNER_WIDGET_EXPORT PianoKeybd : public QGraphicsView
 #endif
 public:
     PianoKeybd(QWidget *parent = 0);
-    PianoKeybd(const int baseOctave, const int numOctaves, QWidget *parent = 0);
+    PianoKeybd(const int baseOctave, const int numKeys, const int startKey, QWidget *parent = 0);
     virtual ~PianoKeybd();
 
     int baseOctave() const { return m_scene->baseOctave(); }
     void setBaseOctave(const int baseOctave) { m_scene->setBaseOctave(baseOctave); }
-    int numOctaves() const { return m_scene->numOctaves(); }
-    void setNumOctaves(const int numOctaves);
+    int numKeys() const { return m_scene->numKeys(); }
+    int startKey() const { return m_scene->startKey(); }
+    void setNumKeys(const int numKeys, const int startKey = DEFAULTSTARTINGKEY);
     int getRotation() const { return m_rotation; }
     void setRotation(int r);
     QColor getKeyPressedColor() const { return m_scene->getKeyPressedColor(); }
@@ -90,7 +91,7 @@ signals:
 protected:
     void initialize();
     void initDefaultMap();
-    void initScene(int base, int num, const QColor& c = QColor());
+    void initScene(int base, int num, int ini, const QColor& c = QColor());
     void resizeEvent(QResizeEvent *event);
 
 private:

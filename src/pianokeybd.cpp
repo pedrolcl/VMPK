@@ -22,14 +22,14 @@ PianoKeybd::PianoKeybd(QWidget *parent)
     : QGraphicsView(parent), m_rotation(0), m_scene(NULL), m_rawMap(NULL)
 {
     initialize();
-    initScene(3, 5);
+    initScene(DEFAULTBASEOCTAVE, DEFAULTNUMBEROFKEYS, DEFAULTSTARTINGKEY);
 }
 
-PianoKeybd::PianoKeybd(const int baseOctave, const int numOctaves, QWidget *parent) 
+PianoKeybd::PianoKeybd(const int baseOctave, const int numKeys, const int startKey, QWidget *parent)
     : QGraphicsView(parent), m_rotation(0), m_scene(NULL), m_rawMap(NULL)
 {
     initialize();
-    initScene(baseOctave, numOctaves);
+    initScene(baseOctave, numKeys, startKey);
 }
 
 PianoKeybd::~PianoKeybd()
@@ -38,9 +38,9 @@ PianoKeybd::~PianoKeybd()
     setRawKeyboardMap(0);
 }
 
-void PianoKeybd::initScene(int base, int num, const QColor& c)
+void PianoKeybd::initScene(int base, int num, int strt, const QColor& c)
 {
-    m_scene = new PianoScene(base, num, c, this);
+    m_scene = new PianoScene(base, num, strt, c, this);
     m_scene->setKeyboardMap(&m_defaultMap);
     connect(m_scene, SIGNAL(noteOn(int,int)), SIGNAL(noteOn(int,int)));
     connect(m_scene, SIGNAL(noteOff(int,int)), SIGNAL(noteOff(int,int)));
@@ -231,9 +231,10 @@ void PianoKeybd::initDefaultMap()
     m_rawMap = &m_defaultRawMap;
 }
 
-void PianoKeybd::setNumOctaves(const int numOctaves)
+void PianoKeybd::setNumKeys(const int numKeys, const int startKey)
 {
-    if (numOctaves != m_scene->numOctaves()) {
+    if ( numKeys != m_scene->numKeys() || startKey != m_scene->startKey() )
+    {
         int baseOctave = m_scene->baseOctave();
         QColor color = m_scene->getKeyPressedColor();
         PianoHandler* handler = m_scene->getPianoHandler();
@@ -242,7 +243,7 @@ void PianoKeybd::setNumOctaves(const int numOctaves)
         bool mouseEnabled = m_scene->isMouseEnabled();
         bool touchEnabled = m_scene->isTouchEnabled();
         delete m_scene;
-        initScene(baseOctave, numOctaves, color);
+        initScene(baseOctave, numKeys, startKey, color);
         m_scene->setPianoHandler(handler);
         m_scene->setKeyboardMap(keyMap);
         m_scene->setKeyboardEnabled(keyboardEnabled);

@@ -24,18 +24,25 @@
 #include <QPalette>
 #include <QGraphicsSceneMouseEvent>
 #include <QKeyEvent>
+#include <qmath.h>
 #include <QDebug>
 
 #define KEYWIDTH  18
 #define KEYHEIGHT 72
 
-PianoScene::PianoScene ( const int baseOctave, 
-                         const int numOctaves, 
+static qreal sceneWidth(int keys) {
+    return KEYWIDTH * qCeil( keys * 7.0 / 12.0 );
+}
+
+PianoScene::PianoScene ( const int baseOctave,
+                         const int numKeys,
+                         const int startKey,
                          const QColor& keyPressedColor,
                          QObject * parent )
-    : QGraphicsScene( QRectF(0, 0, KEYWIDTH * numOctaves * 7, KEYHEIGHT), parent ),
+    : QGraphicsScene( QRectF(0, 0, sceneWidth(numKeys), KEYHEIGHT), parent ),
     m_baseOctave( baseOctave ),
-    m_numOctaves( numOctaves ),
+    m_numKeys( numKeys ),
+    m_startKey( startKey ),
     m_minNote( 0 ),
     m_maxNote( 127 ),
     m_transpose( 0 ),
@@ -57,30 +64,33 @@ PianoScene::PianoScene ( const int baseOctave,
 {
     QBrush hilightBrush(m_keyPressedColor.isValid() ? m_keyPressedColor : QApplication::palette().highlight());
     QFont lblFont(QApplication::font());
-    int i, numkeys = m_numOctaves * 12;
+    //int i,  numkeys = m_numKeys * 12;
     lblFont.setPointSize(KEYLABELFONTSIZE);
-    for(i = 0; i < numkeys; ++i)
+    int adj = m_startKey % 12;
+    if (adj >= 5) adj++;
+    for(int i = m_startKey; i < m_numKeys + m_startKey; ++i)
     {
         float x = 0;
         PianoKey* key = NULL;
         KeyLabel* lbl = NULL;
-        int octave = i / 12 * 7;
+        int ocs = i / 12 * 7;
         int j = i % 12;
         if (j >= 5) j++;
         if ((j % 2) == 0) {
-            x = (octave + j / 2) * KEYWIDTH;
+            x = (ocs + qFloor((j-adj) / 2.0)) * KEYWIDTH;
             key = new PianoKey( QRectF(x, 0, KEYWIDTH, KEYHEIGHT), false, i );
             lbl = new KeyLabel(key);
             lbl->setDefaultTextColor(Qt::black);
             lbl->setPos(x, KEYHEIGHT);
         } else {
-            x = (octave + j / 2) * KEYWIDTH + KEYWIDTH * 6/10 + 1;
+            x = (ocs + qFloor((j-adj) / 2.0)) * KEYWIDTH + KEYWIDTH * 6/10 + 1;
             key = new PianoKey( QRectF( x, 0, KEYWIDTH * 8/10 - 1, KEYHEIGHT * 6/10 ), true, i );
             key->setZValue( 1 );
             lbl = new KeyLabel(key);
             lbl->setDefaultTextColor(Qt::white);
             lbl->setPos(x - 3, KEYHEIGHT * 6/10 - 3);
         }
+        //qDebug() << "i=" << i << "ocs=" << ocs << "j=" << j << "x=" << x;
         key->setAcceptTouchEvents(true);
         if (m_keyPressedColor.isValid())
             key->setPressedBrush(hilightBrush);
@@ -95,7 +105,7 @@ PianoScene::PianoScene ( const int baseOctave,
 
 QSize PianoScene::sizeHint() const
 {
-    return QSize(KEYWIDTH * m_numOctaves * 7, KEYHEIGHT);
+    return QSize(sceneWidth(m_numKeys), KEYHEIGHT);
 }
 
 void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )

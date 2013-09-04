@@ -24,7 +24,7 @@
     <x>0</x>
     <y>0</y>
     <width>401</width>
-    <height>437</height>
+    <height>434</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,16 @@
     <normaloff>:/vpiano/vmpk_32x32.png</normaloff>:/vpiano/vmpk_32x32.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>3</number>
+   </property>
+   <property name="topMargin">
+    <number>3</number>
+   </property>
+   <property name="rightMargin">
+    <number>3</number>
+   </property>
+   <property name="bottomMargin">
     <number>3</number>
    </property>
    <property name="spacing">
@@ -62,7 +71,7 @@
         <x>0</x>
         <y>0</y>
         <width>395</width>
-        <height>404</height>
+        <height>406</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -94,7 +103,7 @@
         <number>1</number>
        </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="lblNumOctaves">
+        <widget class="QLabel" name="lblNumKeys">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -102,10 +111,10 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Number of octaves</string>
+          <string>Number of keys</string>
          </property>
          <property name="buddy">
-          <cstring>spinNumOctaves</cstring>
+          <cstring>spinNumKeys</cstring>
          </property>
         </widget>
        </item>
@@ -474,7 +483,7 @@ p, li { white-space: pre-wrap; }
         <widget class="QComboBox" name="cboColorPolicy"/>
        </item>
        <item row="0" column="1">
-        <widget class="QSpinBox" name="spinNumOctaves">
+        <widget class="QSpinBox" name="spinNumKeys">
          <property name="whatsThis">
           <string>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</string>
          </property>
@@ -482,7 +491,7 @@ p, li { white-space: pre-wrap; }
           <number>1</number>
          </property>
          <property name="maximum">
-          <number>9</number>
+          <number>121</number>
          </property>
         </widget>
        </item>
@@ -492,6 +501,16 @@ p, li { white-space: pre-wrap; }
           <string>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</string>
          </property>
         </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblStartingKey">
+         <property name="text">
+          <string>Starting Key</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cboStartingKey"/>
        </item>
       </layout>
      </widget>

@@ -41,7 +41,8 @@ class VPIANO_EXPORT PianoScene : public QGraphicsScene
     
 public:
     PianoScene ( const int baseOctave, 
-                 const int numOctaves,
+                 const int numKeys,
+                 const int startKey,
                  const QColor& keyPressedColor = QColor(),
                  QObject * parent = 0 );
     
@@ -83,7 +84,8 @@ public:
     void showNoteOff( const int note, int vel = -1 );
     int baseOctave() const { return m_baseOctave; }
     void setBaseOctave( const int base );
-    int numOctaves() const { return m_numOctaves; }
+    int numKeys() const { return m_numKeys; }
+    int startKey() const { return m_startKey; }
     void allKeysOff();
     void keyOn( const int note );
     void keyOff( const int note );
@@ -96,6 +98,7 @@ public:
     int getChannel() const { return m_channel; }
     void setChannel(const int channel) { m_channel = channel; }
     void retranslate();
+    QStringList noteNames() const { return m_names_s; }
 
 signals:
     void noteOn(int n, int v);
@@ -129,7 +132,8 @@ private:
     void setColorFromPolicy(PianoKey* key, const int vel);
 
     int m_baseOctave;
-    int m_numOctaves;
+    int m_numKeys;
+    int m_startKey;
     int m_minNote;
     int m_maxNote;
     int m_transpose;

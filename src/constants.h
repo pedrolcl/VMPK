@@ -51,7 +51,8 @@ const QString QSTR_CHANNEL("Channel");
 const QString QSTR_VELOCITY("Velocity");
 const QString QSTR_BASEOCTAVE("BaseOctave");
 const QString QSTR_TRANSPOSE("Transpose");
-const QString QSTR_NUMOCTAVES("NumOctaves");
+const QString QSTR_NUMKEYS("NumKeys");
+const QString QSTR_STARTINGKEY("StartingKey");
 const QString QSTR_INSTRUMENTSDEFINITION("InstrumentsDefinition");
 const QString QSTR_INSTRUMENTNAME("InstrumentName");
 const QString QSTR_CONNECTIONS("Connections");
@@ -138,13 +139,15 @@ const int MIDIVELOCITY = 100;
 const int MIDIPAN = 64;
 const int MIDIVOLUME = 100;
 const int MIDIEXPRESSION = 127;
+const int DEFAULTSTARTINGKEY = 0;
+const int DEFAULTBASEOCTAVE = 3;
 
 #if defined(SMALL_SCREEN)
-const int DEFAULTNUMBEROFOCTAVES = 2;
+const int DEFAULTNUMBEROFKEYS = 25;
 const int TOOLBARLABELMARGIN = 2;
 const int KEYLABELFONTSIZE = 3;
 #else
-const int DEFAULTNUMBEROFOCTAVES = 5;
+const int DEFAULTNUMBEROFKEYS = 61;
 const int TOOLBARLABELMARGIN = 5;
 const int KEYLABELFONTSIZE = 7;
 #endif

@@ -33,7 +33,7 @@
 
 Preferences::Preferences(QWidget *parent)
     : QDialog(parent),
-    m_numOctaves(DEFAULTNUMBEROFOCTAVES),
+    m_numKeys(DEFAULTNUMBEROFKEYS),
     m_drumsChannel(MIDIGMDRUMSCHANNEL),
     m_networkPort(NETWORKPORTNUMBER),
     m_grabKb(false),
@@ -60,7 +60,7 @@ Preferences::Preferences(QWidget *parent)
     connect(ui.btnRawKmap, SIGNAL(clicked()), SLOT(slotOpenRawKeymapFile()));
     QPushButton *btnDefaults = ui.buttonBox->button(QDialogButtonBox::RestoreDefaults);
     connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
-
+    ui.cboStartingKey->clear();
     ui.cboMIDIDriver->clear();
 #if defined(__LINUX_ALSASEQ__)
     ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEALSA);
@@ -123,7 +123,7 @@ Preferences::Preferences(QWidget *parent)
 void Preferences::showEvent ( QShowEvent *event )
 {
     if (event->type() == QEvent::Show) {
-        ui.spinNumOctaves->setValue( m_numOctaves );
+        ui.spinNumKeys->setValue( m_numKeys );
         ui.cboDrumsChannel->setCurrentIndex(m_drumsChannel+1);
         ui.chkGrabKb->setChecked( m_grabKb );
         ui.chkStyledKnobs->setChecked( m_styledKnobs );
@@ -135,13 +135,14 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkEnableMouse->setChecked( m_enableMouse );
         ui.chkEnableTouch->setChecked( m_enableTouch );
         ui.txtNetworkPort->setText( QString::number( m_networkPort ));
-        ui.cboColorPolicy->setCurrentIndex(m_colorDialog->currentPalette()->paletteId());
+        ui.cboColorPolicy->setCurrentIndex( m_colorDialog->currentPalette()->paletteId() );
+        ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData(m_startingKey));
     }
 }
 
 void Preferences::apply()
 {
-    m_numOctaves = ui.spinNumOctaves->value();
+    m_numKeys = ui.spinNumKeys->value();
     m_grabKb = ui.chkGrabKb->isChecked();
     m_styledKnobs = ui.chkStyledKnobs->isChecked();
     m_alwaysOnTop = ui.chkAlwaysOnTop->isChecked();
@@ -163,6 +164,7 @@ void Preferences::apply()
     m_drumsChannel = ui.cboDrumsChannel->currentIndex() - 1;
     m_networkPort = ui.txtNetworkPort->text().toInt();
     m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
+    m_startingKey = ui.cboStartingKey->itemData(ui.cboStartingKey->currentIndex()).toInt();
 }
 
 void Preferences::accept()
@@ -325,7 +327,7 @@ void Preferences::restoreDefaults()
     ui.chkGrabKb->setChecked(false);
     ui.chkRawKeyboard->setChecked(false);
     ui.chkStyledKnobs->setChecked(true);
-    ui.spinNumOctaves->setValue(DEFAULTNUMBEROFOCTAVES);
+    ui.spinNumKeys->setValue(DEFAULTNUMBEROFKEYS);
     ui.txtFileKmap->setText(QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);
     ui.chkVelocityColor->setChecked(true);
@@ -337,6 +339,7 @@ void Preferences::restoreDefaults()
     ui.cboInstrument->setCurrentIndex(0);
     ui.txtNetworkPort->setText(QString::number(NETWORKPORTNUMBER));
     ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
+    ui.cboStartingKey->setCurrentIndex(DEFAULTSTARTINGKEY);
 }
 
 void Preferences::slotRestoreDefaults()
@@ -374,5 +377,17 @@ void Preferences::setColorPolicyDialog(ColorDialog *value)
     if (value != 0) {
         m_colorDialog = value;
         ui.cboColorPolicy->addItems(m_colorDialog->availablePaletteNames());
+    }
+}
+
+void Preferences::setNoteNames(const QStringList& noteNames)
+{
+    ui.cboStartingKey->clear();
+    for(int i=0; i<noteNames.length(); ++i) {
+        int j = i;
+        if (j >= 5) j++;
+        if (j % 2 == 0) {
+            ui.cboStartingKey->addItem(noteNames[i], i);
+        }
     }
 }

@@ -1,3 +1,7 @@
+2013-09-04
+    * Arbitrary number of keys, instead of whole octaves
+    * Arbitrary starting key, instead of C.
+
 2013-09-01
     * MIDI OUT velocity is now independent from the "highlight color tint" setting.
 

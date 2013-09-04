@@ -705,7 +705,7 @@ void VPiano::readSettings()
     m_velocity = settings.value(QSTR_VELOCITY, MIDIVELOCITY).toInt();
     m_baseOctave = settings.value(QSTR_BASEOCTAVE, 3).toInt();
     m_transpose = settings.value(QSTR_TRANSPOSE, 0).toInt();
-    int num_octaves = settings.value(QSTR_NUMOCTAVES, DEFAULTNUMBEROFOCTAVES).toInt();
+    int num_keys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
     QString insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
     QString insName = settings.value(QSTR_INSTRUMENTNAME).toString();
     bool grabKb = settings.value(QSTR_GRABKB, false).toBool();
@@ -719,6 +719,7 @@ void VPiano::readSettings()
     bool enableMouse = settings.value(QSTR_ENABLEMOUSEINPUT, true).toBool();
     bool enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, true).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
+    int startingKey = settings.value(QSTR_STARTINGKEY, DEFAULTSTARTINGKEY).toInt();
     m_midiDriver = settings.value(QSTR_MIDIDRIVER, QSTR_DRIVERDEFAULT).toString();
 #if defined(NETWORK_MIDI)
     int udpPort = settings.value(QSTR_NETWORKPORT, NETWORKPORTNUMBER).toInt();
@@ -736,7 +737,7 @@ void VPiano::readSettings()
     dlgPreferences()->setNetworkPort(udpPort);
     dlgPreferences()->setNetworkIfaceName(iface);
 #endif
-    dlgPreferences()->setNumOctaves(num_octaves);
+    dlgPreferences()->setNumKeys(num_keys);
     dlgPreferences()->setDrumsChannel(drumsChannel);
     //dlgPreferences()->setKeyPressedColor(keyColor);
     dlgPreferences()->setGrabKeyboard(grabKb);
@@ -747,9 +748,10 @@ void VPiano::readSettings()
     dlgPreferences()->setEnabledKeyboard(enableKeyboard);
     dlgPreferences()->setEnabledMouse(enableMouse);
     dlgPreferences()->setEnabledTouch(enableTouch);
+    dlgPreferences()->setStartingKey(startingKey);
     ui.actionNoteNames->setChecked(showNames);
     ui.actionStatusBar->setChecked(showStatusBar);
-    ui.pianokeybd->setNumOctaves(num_octaves);
+    ui.pianokeybd->setNumKeys(num_keys, startingKey);
     currentPianoScene()->setVelocityTint(velocityColor);
     currentPianoScene()->setVelocity(m_velocity);
     ui.pianokeybd->setTranspose(m_transpose);
@@ -897,7 +899,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_BASEOCTAVE, m_baseOctave);
     settings.setValue(QSTR_TRANSPOSE, m_transpose);
     settings.setValue(QSTR_LANGUAGE, m_language);
-    settings.setValue(QSTR_NUMOCTAVES, dlgPreferences()->getNumOctaves());
+    settings.setValue(QSTR_NUMKEYS, dlgPreferences()->getNumKeys());
     settings.setValue(QSTR_INSTRUMENTSDEFINITION, dlgPreferences()->getInstrumentsFileName());
     settings.setValue(QSTR_INSTRUMENTNAME, dlgPreferences()->getInstrumentName());
     settings.setValue(QSTR_GRABKB, dlgPreferences()->getGrabKeyboard());
@@ -916,6 +918,7 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
     settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterfaceName());
 #endif
+    settings.setValue(QSTR_STARTINGKEY, dlgPreferences()->getStartingKey());
     settings.setValue(QSTR_CURRENTPALETTE, m_currentPalette);
     settings.setValue(QSTR_SHOWCOLORSCALE, ui.actionColorScale->isChecked());
     settings.endGroup();
@@ -1528,8 +1531,10 @@ void VPiano::applyPreferences()
 {
     currentPianoScene()->allKeysOff();
 
-    if (ui.pianokeybd->numOctaves() != dlgPreferences()->getNumOctaves()) {
-        ui.pianokeybd->setNumOctaves(dlgPreferences()->getNumOctaves());
+    if ( ui.pianokeybd->numKeys() != dlgPreferences()->getNumKeys() ||
+         ui.pianokeybd->startKey() != dlgPreferences()->getStartingKey() )
+    {
+        ui.pianokeybd->setNumKeys(dlgPreferences()->getNumKeys(), dlgPreferences()->getStartingKey());
     }
 #if defined(RAWKBD_SUPPORT)
     m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
@@ -2020,6 +2025,7 @@ Preferences* VPiano::dlgPreferences()
     if (m_dlgPreferences == 0) {
         m_dlgPreferences = new Preferences(this);
         m_dlgPreferences->setColorPolicyDialog(dlgColorPolicy());
+        m_dlgPreferences->setNoteNames(currentPianoScene()->noteNames());
     }
     return m_dlgPreferences;
 }
@@ -2386,6 +2392,7 @@ void VPiano::retranslateUi()
     dlgAbout()->retranslateUi();
     dlgColorPolicy()->retranslateUi();
     dlgPreferences()->retranslateUi();
+    dlgPreferences()->setNoteNames(currentPianoScene()->noteNames());
     dlgMidiSetup()->retranslateUi();
 #if !defined(SMALL_SCREEN)
     dlgKeyMap()->retranslateUi();
