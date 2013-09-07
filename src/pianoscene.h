@@ -151,8 +151,8 @@ private:
     bool m_velocityTint;
     PianoHandler* m_handler;
     KeyboardMap* m_keybdMap;
-    QList<PianoKey*> m_keys;
-    QList<KeyLabel*> m_labels;
+    QHash<int, PianoKey*> m_keys;
+    QMap<int, KeyLabel*> m_labels;
     QStringList m_noteNames;
     QStringList m_names_s;
     QStringList m_names_f;

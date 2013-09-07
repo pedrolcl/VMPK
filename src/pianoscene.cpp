@@ -64,11 +64,11 @@ PianoScene::PianoScene ( const int baseOctave,
 {
     QBrush hilightBrush(m_keyPressedColor.isValid() ? m_keyPressedColor : QApplication::palette().highlight());
     QFont lblFont(QApplication::font());
-    //int i,  numkeys = m_numKeys * 12;
     lblFont.setPointSize(KEYLABELFONTSIZE);
+    int upperLimit = m_numKeys + m_startKey;
     int adj = m_startKey % 12;
     if (adj >= 5) adj++;
-    for(int i = m_startKey; i < m_numKeys + m_startKey; ++i)
+    for(int i = m_startKey; i < upperLimit; ++i)
     {
         float x = 0;
         PianoKey* key = NULL;
@@ -138,25 +138,22 @@ void PianoScene::showKeyOff( PianoKey* key, int )
 void PianoScene::showNoteOn( const int note, QColor color, int vel )
 {
     int n = note - m_baseOctave*12 - m_transpose;
-    if ((note >= m_minNote) && (note <= m_maxNote) &&
-        (n >= 0) && (n < m_keys.size()) && color.isValid())
-        showKeyOn(m_keys[n], color, vel);
+    if ((note >= m_minNote) && (note <= m_maxNote) && m_keys.contains(n) && color.isValid())
+        showKeyOn(m_keys.value(n), color, vel);
 }
 
 void PianoScene::showNoteOn( const int note, int vel )
 {
     int n = note - m_baseOctave*12 - m_transpose;
-    if ((note >= m_minNote) && (note <= m_maxNote) &&
-        (n >= 0) && (n < m_keys.size()))
-        showKeyOn(m_keys[n], vel);
+    if ((note >= m_minNote) && (note <= m_maxNote) && m_keys.contains(n))
+        showKeyOn(m_keys.value(n), vel);
 }
 
 void PianoScene::showNoteOff( const int note, int vel )
 {
     int n = note - m_baseOctave*12 - m_transpose;
-    if ((note >= m_minNote) && (note <= m_maxNote) &&
-        (n >= 0) && (n < m_keys.size()))
-        showKeyOff(m_keys[n], vel);
+    if ((note >= m_minNote) && (note <= m_maxNote) && m_keys.contains(n))
+        showKeyOff(m_keys.value(n), vel);
 }
 
 void PianoScene::triggerNoteOn( const int note, const int vel )
@@ -233,16 +230,16 @@ void PianoScene::keyOff( PianoKey* key, qreal pressure )
 
 void PianoScene::keyOn(const int note)
 {
-    if (note >=0 && note < m_keys.size())
-        keyOn(m_keys[note]);
+    if (m_keys.contains(note))
+        keyOn(m_keys.value(note));
     else
         triggerNoteOn(note, m_velocity);
 }
 
 void PianoScene::keyOff(const int note)
 {
-    if (note >=0 && note < m_keys.size())
-        keyOff(m_keys[note]);
+    if (m_keys.contains(note))
+        keyOff(m_keys.value(note));
     else
         triggerNoteOff(note, m_velocity);
 }
@@ -332,8 +329,8 @@ int PianoScene::getNoteFromKey( const int key ) const
 PianoKey* PianoScene::getPianoKey( const int key ) const
 {
     int note = getNoteFromKey(key);
-    if ((note >= 0) && (note < m_keys.size()))
-        return m_keys[note];
+    if (m_keys.contains(note))
+        return m_keys.value(note);
     return NULL;
 }
 
@@ -426,9 +423,8 @@ bool PianoScene::event(QEvent *event)
 
 void PianoScene::allKeysOff()
 {
-    QList<PianoKey*>::ConstIterator it; 
-    for(it = m_keys.constBegin(); it != m_keys.constEnd(); ++it) {
-        (*it)->setPressed(false);
+    foreach(PianoKey* key, m_keys) {
+        key->setPressed(false);
     }
 }
 
@@ -453,9 +449,7 @@ void PianoScene::resetKeyPressedColor()
 
 void PianoScene::hideOrShowKeys()
 {
-    QListIterator<PianoKey*> it(m_keys);
-    while(it.hasNext()) {
-        PianoKey* key = it.next();
+    foreach(PianoKey* key, m_keys) {
         int n = m_baseOctave*12 + key->getNote() + m_transpose;
         bool b = !(n > m_maxNote) && !(n < m_minNote);
         key->setVisible(b);
@@ -509,9 +503,7 @@ QString PianoScene::noteName(const int note)
 
 void PianoScene::refreshLabels()
 {
-    QListIterator<KeyLabel*> it(m_labels);
-    while(it.hasNext()) {
-        KeyLabel* lbl = it.next();
+    foreach(KeyLabel* lbl, m_labels) {
         PianoKey* key = dynamic_cast<PianoKey*>(lbl->parentItem());
         if(key != NULL) {
             lbl->setHtml(noteName(key->getNote()));
