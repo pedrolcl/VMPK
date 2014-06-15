@@ -20,7 +20,7 @@
 #include "instrument.h"
 #include "mididefs.h"
 #include "knob.h"
-#include "classicstyle.h"
+//#include "classicstyle.h"
 #include "RtMidi.h"
 #include "constants.h"
 #include "riffimportdlg.h"
@@ -156,7 +156,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
 VPiano::~VPiano()
 {
 #if defined(RAWKBD_SUPPORT)
-    m_filter->setRawKbdEnable(false);
+    m_filter->setRawKbdEnabled(false);
     qApp->removeNativeEventFilter(m_filter);
     delete m_filter;
 #endif
@@ -399,8 +399,8 @@ void VPiano::switchMIDIDriver()
 
 void VPiano::initToolBars()
 {
-    m_dialStyle = new ClassicStyle();
-    m_dialStyle->setParent(this);
+    //m_dialStyle = new ClassicStyle();
+    //m_dialStyle->setParent(this);
     // Notes tool bar
     QWidget *w = ui.toolBarNotes->widgetForAction(ui.actionPanic);
     w->setMaximumWidth(120);
@@ -436,7 +436,7 @@ void VPiano::initToolBars()
     m_lblVelocity->setMargin(TOOLBARLABELMARGIN);
     m_Velocity = new Knob(this);
     m_Velocity->setFixedSize(32, 32);
-    m_Velocity->setStyle(dlgPreferences()->getStyledWidgets()? m_dialStyle : 0);
+    //m_Velocity->setStyle(dlgPreferences()->getStyledWidgets()? m_dialStyle : 0);
     m_Velocity->setMinimum(0);
     m_Velocity->setMaximum(127);
     m_Velocity->setDefaultValue(MIDIVELOCITY);
@@ -482,7 +482,7 @@ void VPiano::initToolBars()
     m_lblValue->setMargin(TOOLBARLABELMARGIN);
     m_Control= new Knob(this);
     m_Control->setFixedSize(32, 32);
-    m_Control->setStyle(dlgPreferences()->getStyledWidgets()? m_dialStyle : 0);
+    //m_Control->setStyle(dlgPreferences()->getStyledWidgets()? m_dialStyle : 0);
     m_Control->setMinimum(0);
     m_Control->setMaximum(127);
     m_Control->setValue(0);
@@ -618,7 +618,8 @@ void VPiano::initExtraControllers()
         switch(type) {
         case 0:
             chkbox = new QCheckBox(this);
-            chkbox->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
+            //chkbox->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
+            chkbox->setStyleSheet(QSTR_CHKBOXSTYLE);
             chkbox->setProperty(MIDICTLONVALUE, maxValue);
             chkbox->setProperty(MIDICTLOFFVALUE, minValue);
             chkbox->setChecked(bool(value));
@@ -628,7 +629,7 @@ void VPiano::initExtraControllers()
         case 1:
             knob = new Knob(this);
             knob->setFixedSize(32, 32);
-            knob->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
+            //knob->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
             knob->setMinimum(minValue);
             knob->setMaximum(maxValue);
             knob->setValue(value);
@@ -708,8 +709,8 @@ void VPiano::readSettings()
     int num_keys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
     QString insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
     QString insName = settings.value(QSTR_INSTRUMENTNAME).toString();
-    bool grabKb = settings.value(QSTR_GRABKB, false).toBool();
-    bool styledKnobs = settings.value(QSTR_STYLEDKNOBS, true).toBool();
+    //bool grabKb = settings.value(QSTR_GRABKB, false).toBool();
+    //bool styledKnobs = settings.value(QSTR_STYLEDKNOBS, true).toBool();
     bool alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
     bool showNames = settings.value(QSTR_SHOWNOTENAMES, false).toBool();
     bool showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
@@ -740,8 +741,8 @@ void VPiano::readSettings()
     dlgPreferences()->setNumKeys(num_keys);
     dlgPreferences()->setDrumsChannel(drumsChannel);
     //dlgPreferences()->setKeyPressedColor(keyColor);
-    dlgPreferences()->setGrabKeyboard(grabKb);
-    dlgPreferences()->setStyledWidgets(styledKnobs);
+    //dlgPreferences()->setGrabKeyboard(grabKb);
+    //dlgPreferences()->setStyledWidgets(styledKnobs);
     dlgPreferences()->setAlwaysOnTop(alwaysOnTop);
     dlgPreferences()->setVelocityColor(velocityColor);
     dlgPreferences()->setEnforceChannelState(enforceChanState);
@@ -902,8 +903,8 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NUMKEYS, dlgPreferences()->getNumKeys());
     settings.setValue(QSTR_INSTRUMENTSDEFINITION, dlgPreferences()->getInstrumentsFileName());
     settings.setValue(QSTR_INSTRUMENTNAME, dlgPreferences()->getInstrumentName());
-    settings.setValue(QSTR_GRABKB, dlgPreferences()->getGrabKeyboard());
-    settings.setValue(QSTR_STYLEDKNOBS, dlgPreferences()->getStyledWidgets());
+    //settings.setValue(QSTR_GRABKB, dlgPreferences()->getGrabKeyboard());
+    //settings.setValue(QSTR_STYLEDKNOBS, dlgPreferences()->getStyledWidgets());
     settings.setValue(QSTR_ALWAYSONTOP, dlgPreferences()->getAlwaysOnTop());
     settings.setValue(QSTR_SHOWNOTENAMES, ui.actionNoteNames->isChecked());
     settings.setValue(QSTR_SHOWSTATUSBAR, ui.actionStatusBar->isChecked());
@@ -1107,9 +1108,9 @@ void VPiano::showEvent ( QShowEvent *event )
 void VPiano::hideEvent( QHideEvent *event )
 {
     //qDebug() << "hideEvent:" << event->type();
-#if !defined(SMALL_SCREEN)
-    releaseKb();
-#endif
+//#if !defined(SMALL_SCREEN)
+    //releaseKb();
+//#endif
     QMainWindow::hideEvent(event);
 }
 
@@ -1537,7 +1538,7 @@ void VPiano::applyPreferences()
         ui.pianokeybd->setNumKeys(dlgPreferences()->getNumKeys(), dlgPreferences()->getStartingKey());
     }
 #if defined(RAWKBD_SUPPORT)
-    m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
+    m_filter->setRawKbdEnabled(dlgPreferences()->getRawKeyboard());
 #endif
     currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
     currentPianoScene()->setVelocityTint(dlgPreferences()->getVelocityColor());
@@ -1588,7 +1589,7 @@ void VPiano::applyPreferences()
     move(wpos);
 
     slotShowNoteNames();
-    updateStyles();
+    //updateStyles();
     show();
 }
 
@@ -1902,28 +1903,28 @@ void VPiano::slotComboControlCurrentIndexChanged(const int index)
 
 void VPiano::grabKb()
 {
-#if !defined(SMALL_SCREEN)
-    if (dlgPreferences()->getGrabKeyboard()) {
-        ui.pianokeybd->grabKeyboard();
-    }
-    currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
+//#if !defined(SMALL_SCREEN)
+//    if (dlgPreferences()->getGrabKeyboard()) {
+//        ui.pianokeybd->grabKeyboard();
+//    }
+//    currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
 #if defined(RAWKBD_SUPPORT)
-    m_filter->setRawKbdEnable(dlgPreferences()->getRawKeyboard());
+    m_filter->setRawKbdEnabled(dlgPreferences()->getRawKeyboard());
 #endif
-#endif
+//#endif
 }
 
 void VPiano::releaseKb()
 {
-#if !defined(SMALL_SCREEN)
-    if (dlgPreferences()->getGrabKeyboard()) {
-        ui.pianokeybd->releaseKeyboard();
-    }
+//#if !defined(SMALL_SCREEN)
+//    if (dlgPreferences()->getGrabKeyboard()) {
+//        ui.pianokeybd->releaseKeyboard();
+//    }
 #if defined(RAWKBD_SUPPORT)
-    m_filter->setRawKbdEnable(false);
+    m_filter->setRawKbdEnabled(false);
 #endif
-    currentPianoScene()->setRawKeyboardMode(false);
-#endif
+//    currentPianoScene()->setRawKeyboardMode(false);
+//#endif
 }
 
 class HelpDialog : public QDialog
@@ -1975,17 +1976,17 @@ void VPiano::slotOpenWebSite()
     QDesktopServices::openUrl(url);
 }
 
-void VPiano::updateStyles()
+/*void VPiano::updateStyles()
 {
-    QList<Knob *> allKnobs = findChildren<Knob *> ();
-    foreach(Knob* knob, allKnobs) {
-        knob->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
-    }
+//    QList<Knob *> allKnobs = findChildren<Knob *> ();
+//    foreach(Knob* knob, allKnobs) {
+//        knob->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
+//    }
     QList<QCheckBox *> allChkbox = ui.toolBarExtra->findChildren<QCheckBox *> ();
     foreach(QCheckBox* chkbox, allChkbox) {
-        chkbox->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
+        //chkbox->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
     }
-}
+}*/
 
 void VPiano::slotImportSF()
 {

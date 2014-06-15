@@ -1,3 +1,8 @@
+2014-06-15
+    * Removed styles for rotary knobs
+    * Removed option to grab keyboard
+    * A few other cleanups
+
 2013-09-04
     * Arbitrary number of keys, instead of whole octaves
     * Arbitrary starting key, instead of C.

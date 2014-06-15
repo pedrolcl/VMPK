@@ -194,7 +194,7 @@ private:
     void updateProgramChange(int program = -1);
     void grabKb();
     void releaseKb();
-    void updateStyles();
+    //void updateStyles();
     void updateNoteNames(bool drums);
     void setWidgetTip(QWidget* w, int val);
     QByteArray readSysexDataFile(const QString& fileName);
@@ -255,7 +255,7 @@ private:
     QSlider* m_bender;
     QComboBox* m_comboBank;
     QComboBox* m_comboProg;
-    QStyle* m_dialStyle;
+    //QStyle* m_dialStyle;
     Instrument* m_ins;
     QStringList m_extraControls;
     QMap<int,QMap<int,int> > m_ctlState, m_ctlSettings;

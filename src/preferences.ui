@@ -102,6 +102,42 @@
        <property name="verticalSpacing">
         <number>1</number>
        </property>
+       <item row="9" column="0">
+        <widget class="QLabel" name="lblMIDIDriver">
+         <property name="text">
+          <string>MIDI Driver</string>
+         </property>
+         <property name="buddy">
+          <cstring>cboMIDIDriver</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="0" colspan="3">
+        <widget class="QCheckBox" name="chkEnableTouch">
+         <property name="text">
+          <string>Enable Touch Screen Input</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="txtFileKmap"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinNumKeys">
+         <property name="whatsThis">
+          <string>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>121</number>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="lblNumKeys">
          <property name="sizePolicy">
@@ -118,8 +154,21 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="lblKeyPressColor">
+       <item row="2" column="1">
+        <widget class="QComboBox" name="cboColorPolicy"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="lblNetworkPort">
+         <property name="text">
+          <string>Network Port</string>
+         </property>
+         <property name="buddy">
+          <cstring>txtNetworkPort</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" rowspan="2">
+        <widget class="QLabel" name="lblInstrument">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -127,20 +176,40 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Note highlight color</string>
+          <string>Instrument</string>
          </property>
          <property name="buddy">
-          <cstring>cboColorPolicy</cstring>
+          <cstring>cboInstrument</cstring>
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
-        <widget class="QPushButton" name="btnColor">
+       <item row="7" column="2">
+        <widget class="QPushButton" name="btnRawKmap">
+         <property name="text">
+          <string>Load...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="lblNetworkIface">
+         <property name="text">
+          <string>Network Interface</string>
+         </property>
+         <property name="buddy">
+          <cstring>cboNetworkIface</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QComboBox" name="cboNetworkIface"/>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="btnInstrument">
          <property name="whatsThis">
-          <string>Press this button to change the highligh color used to paint the keys that are being activated.</string>
+          <string>Press this button to load an instruments definition file from disk.</string>
          </property>
          <property name="text">
-          <string>colors...</string>
+          <string>load...</string>
          </property>
         </widget>
        </item>
@@ -157,6 +226,52 @@
          </property>
          <property name="buddy">
           <cstring>txtFileInstrument</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="btnColor">
+         <property name="whatsThis">
+          <string>Press this button to change the highligh color used to paint the keys that are being activated.</string>
+         </property>
+         <property name="text">
+          <string>colors...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QComboBox" name="cboMIDIDriver"/>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="txtFileRawKmap"/>
+       </item>
+       <item row="20" column="0" colspan="3">
+        <widget class="QCheckBox" name="chkEnableMouse">
+         <property name="text">
+          <string>Enable Mouse Input</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lblKmap">
+         <property name="text">
+          <string>Keyboard Map</string>
+         </property>
+         <property name="buddy">
+          <cstring>txtFileKmap</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0" colspan="3">
+        <widget class="QCheckBox" name="chkAlwaysOnTop">
+         <property name="whatsThis">
+          <string>Check this box to keep the keyboard window always visible, on top of other windows.</string>
+         </property>
+         <property name="text">
+          <string>Always On Top</string>
          </property>
         </widget>
        </item>
@@ -179,18 +294,28 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="2">
-        <widget class="QPushButton" name="btnInstrument">
-         <property name="whatsThis">
-          <string>Press this button to load an instruments definition file from disk.</string>
-         </property>
+       <item row="15" column="0" colspan="3">
+        <widget class="QCheckBox" name="chkEnableKeyboard">
          <property name="text">
-          <string>load...</string>
+          <string>Enable Computer Keyboard Input</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="4" column="0" rowspan="2">
-        <widget class="QLabel" name="lblInstrument">
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblStartingKey">
+         <property name="text">
+          <string>Starting Key</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="txtNetworkPort"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblKeyPressColor">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -198,30 +323,10 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Instrument</string>
+          <string>Note highlight color</string>
          </property>
          <property name="buddy">
-          <cstring>cboInstrument</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="lblKmap">
-         <property name="text">
-          <string>Keyboard Map</string>
-         </property>
-         <property name="buddy">
-          <cstring>txtFileKmap</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QLineEdit" name="txtFileKmap"/>
-       </item>
-       <item row="6" column="2">
-        <widget class="QPushButton" name="btnKmap">
-         <property name="text">
-          <string>Load...</string>
+          <cstring>cboColorPolicy</cstring>
          </property>
         </widget>
        </item>
@@ -235,16 +340,6 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
-        <widget class="QLineEdit" name="txtFileRawKmap"/>
-       </item>
-       <item row="7" column="2">
-        <widget class="QPushButton" name="btnRawKmap">
-         <property name="text">
-          <string>Load...</string>
-         </property>
-        </widget>
-       </item>
        <item row="8" column="0">
         <widget class="QLabel" name="lblDrumsChannel">
          <property name="text">
@@ -252,6 +347,33 @@
          </property>
          <property name="buddy">
           <cstring>cboDrumsChannel</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="QPushButton" name="btnKmap">
+         <property name="text">
+          <string>Load...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cboStartingKey"/>
+       </item>
+       <item row="16" column="0" colspan="3">
+        <widget class="QCheckBox" name="chkRawKeyboard">
+         <property name="whatsThis">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Raw Computer Keyboard</string>
          </property>
         </widget>
        </item>
@@ -339,159 +461,13 @@
          </item>
         </widget>
        </item>
-       <item row="10" column="0">
-        <widget class="QLabel" name="lblNetworkPort">
-         <property name="text">
-          <string>Network Port</string>
-         </property>
-         <property name="buddy">
-          <cstring>txtNetworkPort</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <widget class="QLineEdit" name="txtNetworkPort"/>
-       </item>
-       <item row="12" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkStyledKnobs">
-         <property name="whatsThis">
-          <string>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</string>
-         </property>
-         <property name="text">
-          <string>Styled Widgets</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="13" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkAlwaysOnTop">
-         <property name="whatsThis">
-          <string>Check this box to keep the keyboard window always visible, on top of other windows.</string>
-         </property>
-         <property name="text">
-          <string>Always On Top</string>
-         </property>
-        </widget>
-       </item>
-       <item row="16" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkRawKeyboard">
-         <property name="whatsThis">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>Raw Computer Keyboard</string>
-         </property>
-        </widget>
-       </item>
-       <item row="17" column="0" colspan="3">
+       <item row="13" column="0">
         <widget class="QCheckBox" name="chkVelocityColor">
          <property name="text">
           <string>Translate MIDI velocity to key pressed color tint</string>
          </property>
          <property name="checked">
           <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="15" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkGrabKb">
-         <property name="whatsThis">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>Grab Computer Keyboard</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0">
-        <widget class="QLabel" name="lblNetworkIface">
-         <property name="text">
-          <string>Network Interface</string>
-         </property>
-         <property name="buddy">
-          <cstring>cboNetworkIface</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
-        <widget class="QComboBox" name="cboNetworkIface"/>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="lblMIDIDriver">
-         <property name="text">
-          <string>MIDI Driver</string>
-         </property>
-         <property name="buddy">
-          <cstring>cboMIDIDriver</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QComboBox" name="cboMIDIDriver"/>
-       </item>
-       <item row="18" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkEnforceChannelState">
-         <property name="text">
-          <string>MIDI channel state consistency</string>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkEnableTouch">
-         <property name="text">
-          <string>Enable Touch Screen Input</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkEnableMouse">
-         <property name="text">
-          <string>Enable Mouse Input</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="14" column="0" colspan="3">
-        <widget class="QCheckBox" name="chkEnableKeyboard">
-         <property name="text">
-          <string>Enable Computer Keyboard Input</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QComboBox" name="cboColorPolicy"/>
-       </item>
-       <item row="0" column="1">
-        <widget class="QSpinBox" name="spinNumKeys">
-         <property name="whatsThis">
-          <string>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</string>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>121</number>
          </property>
         </widget>
        </item>
@@ -502,15 +478,12 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="lblStartingKey">
+       <item row="12" column="0">
+        <widget class="QCheckBox" name="chkEnforceChannelState">
          <property name="text">
-          <string>Starting Key</string>
+          <string>MIDI channel state consistency</string>
          </property>
         </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="cboStartingKey"/>
        </item>
       </layout>
      </widget>
@@ -532,11 +505,8 @@ p, li { white-space: pre-wrap; }
   <tabstop>cboMIDIDriver</tabstop>
   <tabstop>txtNetworkPort</tabstop>
   <tabstop>cboNetworkIface</tabstop>
-  <tabstop>chkStyledKnobs</tabstop>
   <tabstop>chkAlwaysOnTop</tabstop>
-  <tabstop>chkGrabKb</tabstop>
   <tabstop>chkRawKeyboard</tabstop>
-  <tabstop>chkVelocityColor</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources>
@@ -572,22 +542,6 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>155</x>
      <y>14</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkEnableKeyboard</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>chkGrabKb</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>63</x>
-     <y>280</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>66</x>
-     <y>299</y>
     </hint>
    </hints>
   </connection>

@@ -36,8 +36,8 @@ Preferences::Preferences(QWidget *parent)
     m_numKeys(DEFAULTNUMBEROFKEYS),
     m_drumsChannel(MIDIGMDRUMSCHANNEL),
     m_networkPort(NETWORKPORTNUMBER),
-    m_grabKb(false),
-    m_styledKnobs(true),
+    //m_grabKb(false),
+    //m_styledKnobs(true),
     m_alwaysOnTop(false),
     m_rawKeyboard(false),
     m_velocityColor(true),
@@ -125,8 +125,8 @@ void Preferences::showEvent ( QShowEvent *event )
     if (event->type() == QEvent::Show) {
         ui.spinNumKeys->setValue( m_numKeys );
         ui.cboDrumsChannel->setCurrentIndex(m_drumsChannel+1);
-        ui.chkGrabKb->setChecked( m_grabKb );
-        ui.chkStyledKnobs->setChecked( m_styledKnobs );
+        //ui.chkGrabKb->setChecked( m_grabKb );
+        //ui.chkStyledKnobs->setChecked( m_styledKnobs );
         ui.chkAlwaysOnTop->setChecked( m_alwaysOnTop );
         ui.chkRawKeyboard->setChecked( m_rawKeyboard );
         ui.chkVelocityColor->setChecked( m_velocityColor );
@@ -143,8 +143,8 @@ void Preferences::showEvent ( QShowEvent *event )
 void Preferences::apply()
 {
     m_numKeys = ui.spinNumKeys->value();
-    m_grabKb = ui.chkGrabKb->isChecked();
-    m_styledKnobs = ui.chkStyledKnobs->isChecked();
+    //m_grabKb = ui.chkGrabKb->isChecked();
+    //m_styledKnobs = ui.chkStyledKnobs->isChecked();
     m_alwaysOnTop = ui.chkAlwaysOnTop->isChecked();
     m_rawKeyboard = ui.chkRawKeyboard->isChecked();
     m_velocityColor = ui.chkVelocityColor->isChecked();
@@ -324,9 +324,9 @@ void Preferences::setKeyMapFileName( const QString fileName )
 void Preferences::restoreDefaults()
 {
     ui.chkAlwaysOnTop->setChecked(false);
-    ui.chkGrabKb->setChecked(false);
+    //ui.chkGrabKb->setChecked(false);
     ui.chkRawKeyboard->setChecked(false);
-    ui.chkStyledKnobs->setChecked(true);
+    //ui.chkStyledKnobs->setChecked(true);
     ui.spinNumKeys->setValue(DEFAULTNUMBEROFKEYS);
     ui.txtFileKmap->setText(QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);

@@ -26,7 +26,8 @@
 #endif
 
 #if defined(Q_OS_LINUX)
-#include <qpa/qplatformnativeinterface.h>
+//#include <qpa/qplatformnativeinterface.h>
+#include <QX11Info>
 #include <xcb/xcb.h>
 #endif
 
@@ -48,9 +49,10 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
         static xcb_connection_t *connection = 0;
         bool isRepeat = false;
         if (connection == 0) {
-            QPlatformNativeInterface *native = qApp->platformNativeInterface();
-            void *conn = native->nativeResourceForWindow(QByteArray("connection"), 0);
-            connection = reinterpret_cast<xcb_connection_t *>(conn);
+            //QPlatformNativeInterface *native = qApp->platformNativeInterface();
+            //void *conn = native->nativeResourceForWindow(QByteArray("connection"), 0);
+            //connection = reinterpret_cast<xcb_connection_t *>(conn);
+            connection = QX11Info::connection();
         }
         xcb_generic_event_t* ev = reinterpret_cast<xcb_generic_event_t *>(message);
         switch (ev->response_type & ~0x80) {

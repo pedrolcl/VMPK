@@ -58,10 +58,6 @@ Other copyright owners:
         src/shortcutdialog.ui
         src/shortcutdialog.cpp
 
-    Chris Cannam, Pedro Lopez-Cabanillas, Queen Mary University of London
-        src/classicstyle.h
-        src/classicstyle.cpp
-
     Theresa Knott       Artwork (www.openclipart.org)
         data/TheresaKnott_piano.svg
         data/vmpk_16x16.png

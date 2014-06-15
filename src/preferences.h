@@ -39,8 +39,8 @@ public:
     int getDrumsChannel() const { return m_drumsChannel; }
     int getNetworkPort() const { return m_networkPort; }
     int getStartingKey() const { return m_startingKey; }
-    bool getGrabKeyboard() const { return m_grabKb; }
-    bool getStyledWidgets() const { return m_styledKnobs; }
+    //bool getGrabKeyboard() const { return m_grabKb; }
+    //bool getStyledWidgets() const { return m_styledKnobs; }
     bool getAlwaysOnTop() const { return m_alwaysOnTop; }
     bool getRawKeyboard() const { return m_rawKeyboard; }
     bool getVelocityColor() const { return m_velocityColor; }
@@ -75,8 +75,8 @@ public slots:
     void setDrumsChannel(int value) { m_drumsChannel = value; }
     void setNetworkPort(int value) { m_networkPort = value; }
     void setStartingKey(int value) { m_startingKey = value; }
-    void setGrabKeyboard(bool value) { m_grabKb = value; }
-    void setStyledWidgets(bool value) { m_styledKnobs = value; }
+    //void setGrabKeyboard(bool value) { m_grabKb = value; }
+    //void setStyledWidgets(bool value) { m_styledKnobs = value; }
     void setAlwaysOnTop(bool value) { m_alwaysOnTop = value; }
     void setRawKeyboard(bool value) { m_rawKeyboard = value; }
     void setVelocityColor(bool value) { m_velocityColor = value; }
@@ -104,8 +104,8 @@ private:
     int m_drumsChannel;
     int m_networkPort;
     int m_startingKey;
-    bool m_grabKb;
-    bool m_styledKnobs;
+    //bool m_grabKb;
+    //bool m_styledKnobs;
     bool m_alwaysOnTop;
     bool m_rawKeyboard;
     bool m_velocityColor;

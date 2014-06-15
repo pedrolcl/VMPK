@@ -14,6 +14,12 @@
 TEMPLATE = app
 TARGET = vmpk
 VERSION = 0.5.99 # will become 0.6 upon release
+
+lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
+    message("Cannot build VMPK with Qt $${QT_VERSION}")
+    error("Use Qt 5.1 or newer")
+}
+
 QT += core \
     gui \
     widgets \
@@ -27,16 +33,8 @@ dbus {
     DBUS_ADAPTORS += src/net.sourceforge.vmpk.xml
 }
 
-DEFINES += NETWORK_MIDI
 QT += network
-
-lessThan(QT_MAJOR_VERSION, 5) {
-    message("Cannot build VMPK with Qt $${QT_VERSION}")
-    error("Use Qt 5.0 or newer")
-}
-
-# greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+DEFINES += NETWORK_MIDI
 DEFINES += VERSION=$$VERSION
 
 win32 {
@@ -48,7 +46,7 @@ win32 {
 }
 
 linux* {
-    QT += gui-private
+    QT += x11extras
     DEFINES += __LINUX_ALSASEQ__
     DEFINES += AVOID_TIMESTAMPING
     DEFINES += RAWKBD_SUPPORT
@@ -62,7 +60,6 @@ linux* {
 }
 
 macx {
-    #CONFIG += x86
     ICON = data/vmpk.icns
     DEFINES += __MACOSX_CORE__
     DEFINES += RAWKBD_SUPPORT
@@ -105,6 +102,7 @@ macx {
         -framework CoreFoundation \
         -framework Cocoa
 }
+
 irix* {
     CONFIG += x11
     DEFINES += __IRIX_MD__
@@ -112,6 +110,7 @@ irix* {
     LIBS += -laudio \
         -lpthread
 }
+
 debug:DEFINES += __RTMIDI_DEBUG__
 INCLUDEPATH += src
 
@@ -124,7 +123,6 @@ FORMS += src/about.ui \
     src/vpiano.ui
 
 HEADERS += src/about.h \
-    src/classicstyle.h \
     src/colordialog.h \
     src/colorwidget.h \
     src/constants.h \
@@ -153,7 +151,6 @@ HEADERS += src/about.h \
     src/maceventhelper.h
 
 SOURCES += src/about.cpp \
-    src/classicstyle.cpp \
     src/colordialog.cpp \
     src/colorwidget.cpp \
     src/extracontrols.cpp \
@@ -201,3 +198,5 @@ TRANSLATIONS +=  translations/vmpk_cs.ts \
     #translations/vmpk_zh_CN.ts
 
 include(updateqm.pri)
+
+OTHER_FILES +=

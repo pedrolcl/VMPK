@@ -37,8 +37,8 @@ public:
 
     RawKbdHandler *getRawKbdHandler() { return m_handler; }
     void setRawKbdHandler(RawKbdHandler* h) { m_handler = h; }
-    bool getRawKbdEnable() { return m_enabled; }
-    void setRawKbdEnable(bool b) { m_enabled = b; }
+    bool isRawKbdEnabled() { return m_enabled; }
+    void setRawKbdEnabled(bool b) { m_enabled = b; }
 
     virtual bool nativeEventFilter(const QByteArray &eventType, void *message, long *) Q_DECL_OVERRIDE;
 
