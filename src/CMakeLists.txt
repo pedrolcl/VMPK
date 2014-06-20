@@ -33,8 +33,6 @@ QT5_WRAP_UI(vmpk_ui_SRCS ${vmpk_forms_SRCS})
 set(vmpk_SRCS
     about.cpp
     about.h
-    classicstyle.cpp
-    classicstyle.h
     colordialog.cpp
     colordialog.h
     colorwidget.cpp
@@ -67,8 +65,6 @@ set(vmpk_SRCS
     pianoscene.h
     preferences.cpp
     preferences.h
-#    rawkeybdapp.cpp
-#    rawkeybdapp.h
     nativefilter.cpp
     nativefilter.h
     riff.cpp

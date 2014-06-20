@@ -101,7 +101,6 @@ endif()
 
 include_directories(
     ${Qt5Widgets_INCLUDE_DIRS}
-    ${Qt5Widgets_PRIVATE_INCLUDE_DIRS}
     ${Qt5Xml_INCLUDE_DIRS}
     ${Qt5Svg_INCLUDE_DIRS}
     ${Qt5DBus_INCLUDE_DIRS}
@@ -123,13 +122,17 @@ add_definitions(
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
 if (UNIX AND NOT APPLE)
-# Check for PKG-CONFIG
+    find_package(Qt5X11Extras REQUIRED)
+    include_directories(${Qt5X11Extras_INCLUDE_DIRS})
+    link_libraries(${Qt5X11Extras_LIBRARIES})
+
     find_package(PkgConfig REQUIRED)
     if(PKG_CONFIG_FOUND)
         message(STATUS "Program pkg-config found (${PKG_CONFIG_EXECUTABLE})")
     else()
         message(FATAL_ERROR "Program pkg-config not found")
     endif()
+
 # Check for libxcb
     pkg_check_modules(XCB REQUIRED xcb)
     if(XCB_FOUND)
