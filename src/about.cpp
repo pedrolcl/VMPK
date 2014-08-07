@@ -16,18 +16,22 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QUrl>
+#include <QDesktopServices>
 #include "about.h"
 #include "constants.h"
 
 About::About(QWidget *parent)
-    : QDialog(parent)
+    : QDialog(parent),
+      m_lang("en")
 {
     ui.setupUi(this);
     retranslateUi();
+    connect(ui.btnAndroid, SIGNAL(clicked()), SLOT(openGooglePlay()));
 #if defined(SMALL_SCREEN)
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
-    setMinimumSize(550,580);
+    adjustSize();
 #endif
 }
 
@@ -48,4 +52,16 @@ void About::retranslateUi()
               "</p>"
             "</body>"
             "</html>").arg(PGM_VERSION, BLD_DATE, BLD_TIME, CMP_VERSION));
+
+    QPixmap andpix(":/android/" + m_lang + ".png");
+    if (andpix.isNull()) {
+        andpix = QPixmap(":/android/en.png");
+    }
+    ui.btnAndroid->setIcon(andpix);
+}
+
+void About::openGooglePlay()
+{
+    QUrl url("http://play.google.com/store/apps/details?id=net.sourceforge.vmpk.free");
+    QDesktopServices::openUrl(url);
 }

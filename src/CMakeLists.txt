@@ -48,8 +48,6 @@ set(vmpk_SRCS
     keylabel.h
     kmapdialog.cpp
     kmapdialog.h
-    knob.cpp
-    knob.h
     main.cpp
     mididefs.h
     midisetup.cpp
@@ -71,14 +69,18 @@ set(vmpk_SRCS
     riff.h
     riffimportdlg.cpp
     riffimportdlg.h
-    RtError.h
-    RtMidi.cpp
-    RtMidi.h
     shortcutdialog.cpp
     shortcutdialog.h
-    udpmidi.cpp
     vpiano.cpp
     vpiano.h )
+
+#    knob.cpp
+#    knob.h
+#    RtError.h
+#    RtMidi.cpp
+#    RtMidi.h
+#    udpmidi.h
+#    udpmidi.cpp
 
 QT5_ADD_RESOURCES(vmpk_SRCS ../data/vmpk.qrc)
 
@@ -88,14 +90,12 @@ set(vmpk_qtobject_SRCS
     colorwidget.h
     extracontrols.h
     kmapdialog.h
-    knob.h
     midisetup.h
     pianokeybd.h
     pianoscene.h
     preferences.h
     riff.h
     riffimportdlg.h
-    udpmidi.h
     vpiano.h
     shortcutdialog.h)
 
@@ -111,9 +111,9 @@ QT5_WRAP_CPP(vmpk_moc_SRCS ${vmpk_qtobject_SRCS})
 
 if(UNIX AND NOT APPLE)
     add_executable (vmpk
-					${vmpk_ui_SRCS}
-					${vmpk_moc_SRCS}
-					${vmpk_SRCS})
+                    ${vmpk_ui_SRCS}
+                    ${vmpk_moc_SRCS}
+                    ${vmpk_SRCS})
     install (TARGETS vmpk
              RUNTIME DESTINATION bin)
 endif()
@@ -129,10 +129,10 @@ if(WIN32)
         set (vmpk_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc)
     endif ()
     add_executable (vmpk WIN32
-					${vmpk_ui_SRCS}
-					${vmpk_moc_SRCS}
-					${vmpk_SRCS} 
-					${vmpk_RESOURCES})
+                    ${vmpk_ui_SRCS}
+                    ${vmpk_moc_SRCS}
+                    ${vmpk_SRCS}
+                    ${vmpk_RESOURCES})
     install (TARGETS vmpk
 			 RUNTIME DESTINATION .)
 endif()
@@ -167,3 +167,12 @@ if(APPLE)
 					${vmpk_SRCS}
 					${vmpk_RSC})
 endif()
+
+target_link_libraries(vmpk
+    Qt5::Widgets
+    Qt5::Xml
+    Qt5::Svg
+    Qt5::DBus
+    Qt5::X11Extras
+)
+

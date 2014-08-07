@@ -37,7 +37,7 @@ public:
     Preferences(QWidget *parent = 0);
     int getNumKeys() const { return m_numKeys; }
     int getDrumsChannel() const { return m_drumsChannel; }
-    int getNetworkPort() const { return m_networkPort; }
+    //int getNetworkPort() const { return m_networkPort; }
     int getStartingKey() const { return m_startingKey; }
     //bool getGrabKeyboard() const { return m_grabKb; }
     //bool getStyledWidgets() const { return m_styledKnobs; }
@@ -53,12 +53,12 @@ public:
     QString getInstrumentsFileName();
     void setInstrumentName( const QString name );
     QString getInstrumentName();
-#ifdef NETWORK_MIDI
-    QNetworkInterface getNetworkInterface();
-#endif
-    QString getNetworkInterfaceName();
-    void setNetworkIfaceName(const QString iface);
-    QString getDriver();
+////#ifdef NETWORK_MIDI
+////    QNetworkInterface getNetworkInterface();
+////#endif
+//    QString getNetworkInterfaceName();
+//    void setNetworkIfaceName(const QString iface);
+//    QString getDriver();
     void apply();
     Instrument* getInstrument();
     Instrument* getDrumsInstrument();
@@ -73,7 +73,7 @@ public:
 public slots:
     void setNumKeys(int value) { m_numKeys = value; }
     void setDrumsChannel(int value) { m_drumsChannel = value; }
-    void setNetworkPort(int value) { m_networkPort = value; }
+    //void setNetworkPort(int value) { m_networkPort = value; }
     void setStartingKey(int value) { m_startingKey = value; }
     //void setGrabKeyboard(bool value) { m_grabKb = value; }
     //void setStyledWidgets(bool value) { m_styledKnobs = value; }
@@ -84,7 +84,7 @@ public slots:
     void setEnabledKeyboard(bool value) { m_enableKeyboard = value; }
     void setEnabledMouse(bool value) { m_enableMouse = value; }
     void setEnabledTouch(bool value) { m_enableTouch = value; }
-    void setDriver(QString value);
+    //void setDriver(QString value);
     void slotOpenInstrumentFile();
     void slotSelectColor();
     void slotOpenKeymapFile();
@@ -102,7 +102,7 @@ private:
     InstrumentList m_ins;
     int m_numKeys;
     int m_drumsChannel;
-    int m_networkPort;
+    //int m_networkPort;
     int m_startingKey;
     //bool m_grabKb;
     //bool m_styledKnobs;

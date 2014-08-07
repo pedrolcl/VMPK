@@ -1,6 +1,6 @@
 /*
-    Virtual Piano Widget for Qt4 
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Virtual Piano Widget for Qt5
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -56,11 +56,13 @@ PianoScene::PianoScene ( const int baseOctave,
     m_mousePressed( false ),
     m_velocity( 100 ),
     m_channel( 0 ),
-    m_showColorScale( false ),
     m_velocityTint( true ),
-    m_handler( 0 ),
-    m_palette( 0 ),
-    m_scalePalette( 0 )
+    m_handler( 0 )
+#if defined(PALETTE_SUPPORT)
+    ,m_showColorScale( false )
+    ,m_palette( 0 )
+    ,m_scalePalette( 0 )
+#endif
 {
     QBrush hilightBrush(m_keyPressedColor.isValid() ? m_keyPressedColor : QApplication::palette().highlight());
     QFont lblFont(QApplication::font());
@@ -120,7 +122,7 @@ void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )
 void PianoScene::showKeyOn( PianoKey* key, int vel )
 {
     if (vel >= 0) {
-        if (m_velocityTint && m_palette == 0 && m_keyPressedColor.isValid()) {
+        if (m_velocityTint && m_keyPressedColor.isValid()) {
             QBrush hilightBrush(m_keyPressedColor.lighter(200 - vel));
             key->setPressedBrush(hilightBrush);
         } else {
@@ -183,6 +185,7 @@ void PianoScene::triggerNoteOff( const int note, const int vel )
 void PianoScene::setColorFromPolicy(PianoKey* key, int vel)
 {
     QColor c;
+#if defined(PALETTE_SUPPORT)
     switch (m_palette->paletteId()) {
     case PAL_SINGLE:
         c = m_palette->getColor(0);
@@ -196,6 +199,9 @@ void PianoScene::setColorFromPolicy(PianoKey* key, int vel)
     case PAL_SCALE:
         c = m_palette->getColor(key->getDegree());
     }
+#else
+    c = QApplication::palette().highlight().color();
+#endif
     if (m_velocityTint && c.isValid()) {
         QBrush h(c.lighter(200 - vel));
         key->setPressedBrush(h);
@@ -246,17 +252,6 @@ void PianoScene::keyOff(const int note)
 
 PianoKey* PianoScene::getKeyForPos( const QPointF& p ) const
 {
-    /*
-    QGraphicsItem *itm = itemAt(p);
-    while (itm != NULL && itm->parentItem() != NULL)
-        itm = itm->parentItem();
-    if (itm != NULL) {
-        PianoKey* key = dynamic_cast<PianoKey*>(itm);
-        return key;
-    }
-    return NULL;
-    */
-
     PianoKey* key = 0;
     QList<QGraphicsItem *> ptitems = this->items(p, Qt::IntersectsItemShape, Qt::DescendingOrder);
     foreach(QGraphicsItem *itm, ptitems) {
@@ -283,7 +278,6 @@ void PianoScene::mouseMoveEvent ( QGraphicsSceneMouseEvent * mouseEvent )
             return;
         }
     }
-    //mouseEvent->ignore();
 }
 
 void PianoScene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
@@ -297,7 +291,6 @@ void PianoScene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
             return;
         }
     }
-    //mouseEvent->ignore();
 }
 
 void PianoScene::mouseReleaseEvent ( QGraphicsSceneMouseEvent * mouseEvent )
@@ -311,7 +304,6 @@ void PianoScene::mouseReleaseEvent ( QGraphicsSceneMouseEvent * mouseEvent )
             return;
         }
     }
-    //mouseEvent->ignore();
 }
 
 int PianoScene::getNoteFromKey( const int key ) const
@@ -515,12 +507,14 @@ void PianoScene::refreshLabels()
 void PianoScene::refreshKeys()
 {
     foreach(PianoKey* key, m_keys) {
+#if defined(PALETTE_SUPPORT)
         if (m_showColorScale && m_scalePalette != 0) {
             int degree = key->getNote() % 12;
             key->setBrush(m_scalePalette->getColor(degree));
         } else {
             key->resetBrush();
         }
+#endif
         key->setPressed(false);
     }
 }
@@ -554,10 +548,6 @@ void PianoScene::setRawKeyboardMode(bool b)
 {
     if (m_rawkbd != b) {
         m_rawkbd = b;
-//#if defined(RAWKBD_SUPPORT)
-//        RawKeybdApp* rapp = dynamic_cast<RawKeybdApp*>(qApp);
-//        if (rapp != NULL) rapp->setRawKbdEnable(m_rawkbd);
-//#endif
     }
 }
 
@@ -599,32 +589,33 @@ void PianoScene::retranslate()
     m_names_s.clear();
     m_names_f.clear();
     m_names_s << trUtf8("C")
-              << trUtf8("C#")
+              << trUtf8("C♯")
               << trUtf8("D")
-              << trUtf8("D#")
+              << trUtf8("D♯")
               << trUtf8("E")
               << trUtf8("F")
-              << trUtf8("F#")
+              << trUtf8("F♯")
               << trUtf8("G")
-              << trUtf8("G#")
+              << trUtf8("G♯")
               << trUtf8("A")
-              << trUtf8("A#")
+              << trUtf8("A♯")
               << trUtf8("B");
     m_names_f << trUtf8("C")
-              << trUtf8("Db")
+              << trUtf8("D♭")
               << trUtf8("D")
-              << trUtf8("Eb")
+              << trUtf8("E♭")
               << trUtf8("E")
               << trUtf8("F")
-              << trUtf8("Gb")
+              << trUtf8("G♭")
               << trUtf8("G")
-              << trUtf8("Ab")
+              << trUtf8("A♭")
               << trUtf8("A")
-              << trUtf8("Bb")
+              << trUtf8("B♭")
               << trUtf8("B");
     refreshLabels();
 }
 
+#if defined(PALETTE_SUPPORT)
 void PianoScene::setShowColorScale(const bool show)
 {
     if (m_showColorScale != show && m_scalePalette != 0 ) {
@@ -640,3 +631,4 @@ void PianoScene::setPianoPalette(PianoPalette *p)
     resetKeyPressedColor();
     m_palette = p;
 }
+#endif

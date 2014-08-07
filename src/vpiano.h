@@ -32,10 +32,11 @@ class QComboBox;
 class QSpinBox;
 class QSlider;
 class QStyle;
-class Knob;
+//class Knob;
+class QDial;
 class Instrument;
-class RtMidiIn;
-class RtMidiOut;
+//class RtMidiIn;
+//class RtMidiOut;
 class About;
 class Preferences;
 class MidiSetup;
@@ -43,7 +44,14 @@ class KMapDialog;
 class DialogExtraControls;
 class RiffImportDlg;
 class ColorDialog;
-class NoteOnEvent;
+//class NoteOnEvent;
+
+namespace drumstick {
+namespace rt {
+    class MIDIInput;
+    class MIDIOutput;
+    class BackendManager;
+}}
 
 class VPiano : public QMainWindow, public PianoHandler
 {
@@ -52,9 +60,9 @@ class VPiano : public QMainWindow, public PianoHandler
 public:
     VPiano( QWidget * parent = 0, Qt::WindowFlags flags = 0 );
     virtual ~VPiano();
-    unsigned char baseChannel() const { return m_baseChannel; }
-    bool omniMode() const { return m_midiOmni; }
-    void midiThru(std::vector<unsigned char> *message) const;
+    //unsigned char baseChannel() const { return m_baseChannel; }
+    //bool omniMode() const { return m_midiOmni; }
+    //void midiThru(std::vector<unsigned char> *message) const;
     bool isInitialized() const { return m_initialized; }
     void retranslateUi();
     QMenu *createPopupMenu ();
@@ -66,8 +74,11 @@ public:
     // static methods
     static QString dataDirectory();
     static QString localeDirectory();
-    static RtMidiOut *MIDIOutDriverFactory(const QString driver, const QString portName);
-    static RtMidiIn *MIDIInDriverFactory(const QString driver, const QString portName);
+    //static RtMidiOut *MIDIOutDriverFactory(const QString driver, const QString portName);
+    //static RtMidiIn *MIDIInDriverFactory(const QString driver, const QString portName);
+
+    void findInput(QString name, QList<drumstick::rt::MIDIInput*> &inputs);
+    void findOutput(QString name, QList<drumstick::rt::MIDIOutput*> &outputs);
 
 #if ENABLE_DBUS
 
@@ -150,18 +161,28 @@ protected Q_SLOTS:
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 
+    //drumstick-rt slots
+    void slotNoteOn(const int chan, const int note, const int vel);
+    void slotNoteOff(const int chan, const int note, const int vel);
+    void slotKeyPressure(const int chan, const int note, const int value);
+    void slotController(const int chan, const int control, const int value);
+    void slotProgram(const int chan, const int program);
+    void slotChannelPressure(const int chan, const int value);
+    void slotPitchBend(const int chan, const int value);
+    void toggleWindowFrame(const bool state);
+
 protected:
     void closeEvent ( QCloseEvent *event );
-    void customEvent ( QEvent *event );
+    //void customEvent ( QEvent *event );
     void showEvent ( QShowEvent *event );
     void hideEvent( QHideEvent *event );
 
 private:
     void initialization();
     bool initMidi();
-    void switchMIDIDriver();
+    //void switchMIDIDriver();
     void readSettings();
-    void readConnectionSettings();
+    //void readConnectionSettings();
     void readMidiControllerSettings();
     void writeSettings();
     void applyPreferences();
@@ -187,7 +208,7 @@ private:
     void sendPolyKeyPress(const int note, const int value);
     void sendChanKeyPress(const int value);
     void sendSysex(const QByteArray& data);
-    void sendMessageWrapper(std::vector<unsigned char> *message) const;
+    //void sendMessageWrapper(std::vector<unsigned char> *message) const;
     void updateController(int ctl, int val);
     void updateExtraController(int ctl, int val);
     void updateBankChange(int bank = -1);
@@ -201,7 +222,10 @@ private:
     void createLanguageMenu();
     QString configuredLanguage();
     void enforceMIDIChannelState();
-    QColor getColorFromPolicy(NoteOnEvent *ev);
+    //QColor getColorFromPolicy(NoteOnEvent *ev);
+    QColor getColorFromPolicy(const int chan, const int note, const int vel);
+    int getType(const int note) const;
+    int getDegree(const int note) const;
     PianoScene *currentPianoScene();
 
     About *dlgAbout();
@@ -215,10 +239,15 @@ private:
     void initLanguages();
     void retranslateToolbars();
 
-    RtMidiOut* m_midiout;
-    RtMidiIn* m_midiin;
-    int m_currentOut;
-    int m_currentIn;
+    //RtMidiOut* m_midiout;
+    //RtMidiIn* m_midiin;
+
+    drumstick::rt::MIDIOutput* m_midiout;
+    drumstick::rt::MIDIInput* m_midiin;
+    drumstick::rt::BackendManager* m_backendManager;
+
+//    int m_currentOut;
+//    int m_currentIn;
     bool m_inputActive;
     bool m_midiThru;
     bool m_midiOmni;
@@ -249,9 +278,9 @@ private:
     QSpinBox* m_sboxChannel;
     QSpinBox* m_sboxOctave;
     QSpinBox* m_sboxTranspose;
-    Knob* m_Velocity;
+    QDial* m_Velocity;
     QComboBox* m_comboControl;
-    Knob* m_Control;
+    QDial* m_Control;
     QSlider* m_bender;
     QComboBox* m_comboBank;
     QComboBox* m_comboProg;
@@ -270,9 +299,16 @@ private:
     QMap<QString, QString> m_supportedLangs;
     QTranslator *m_trq, *m_trp;
     QAction *m_currentLang;
-    QString m_midiDriver;
+    //QString m_midiDriver;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
     int m_currentPalette;
+
+    QString m_lastInputBackend;
+    QString m_lastOutputBackend;
+    QString m_lastInputConnection;
+    QString m_lastOutputConnection;
+    bool m_advanced;
+    bool m_inputEnabled;
 };
 
 #endif // VPIANO_H

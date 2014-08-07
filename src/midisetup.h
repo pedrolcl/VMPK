@@ -19,8 +19,12 @@
 #ifndef MIDISETUP_H
 #define MIDISETUP_H
 
-#include "ui_midisetup.h"
 #include <QDialog>
+#include <drumstick/rtmidiinput.h>
+#include <drumstick/rtmidioutput.h>
+#include "ui_midisetup.h"
+
+using namespace drumstick::rt;
 
 class MidiSetup : public QDialog
 {
@@ -36,23 +40,48 @@ public:
     void setThruEnabled(const bool state);
     void setOmniEnabled(const bool state);
     void clearCombos();
-    void addInputPortName(const QString& name, int index);
-    void addOutputPortName(const QString& output, int index);
-    void setCurrentInput(int index);
-    void setCurrentInput(const QString name);
-    void setCurrentOutput(int index);
-    void setCurrentOutput(const QString name);
-    int  selectedInput();
-    int  selectedOutput();
-    QString selectedInputName() const;
-    QString selectedOutputName() const;
     void retranslateUi();
 
+//    void addInputPortName(const QString& name, int index);
+//    void addOutputPortName(const QString& output, int index);
+//    void setCurrentInput(int index);
+//    void setCurrentOutput(int index);
+//    int  selectedInput();
+//    int  selectedOutput();
+
+//    void setCurrentInputName(const QString name);
+//    void setCurrentOutputName(const QString name);
+//    QString selectedInputName() const;
+//    QString selectedOutputName() const;
+
+    void setInput(MIDIInput *in) { m_midiIn = in; }
+    void setOutput(MIDIOutput *out) { m_midiOut = out; }
+    void setInputs(QList<MIDIInput *> ins);
+    void setOutputs(QList<MIDIOutput *> outs);
+    MIDIInput *getInput() { return m_midiIn; }
+    MIDIOutput *getOutput() { return m_midiOut; }
+    void setAdvanced(bool value);
+    bool advanced();
+    bool midiThru();
+
 public slots:
+    void clickedAdvanced(bool value);
+    void setMidiThru(bool value);
     void toggledInput(bool state);
+    void refreshInputs(QString id);
+    void refreshOutputs(QString id);
+    void refresh();
+    void accept();
 
 private:
+    bool m_advanced;
+    bool m_thru;
     Ui::MidiSetupClass ui;
+    MIDIInput* m_midiIn;
+    MIDIOutput* m_midiOut;
+    //QHash<QString, MIDIInput*> m_inputs;
+    //QHash<QString, MIDIOutput*> m_outputs;
+
 };
 
 #endif /* MIDISETUP_H */

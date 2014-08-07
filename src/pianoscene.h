@@ -1,6 +1,6 @@
 /*
-    Virtual Piano Widget for Qt4 
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Virtual Piano Widget for Qt5
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,7 +22,9 @@
 #include "pianokey.h"
 #include "keylabel.h"
 #include "keyboardmap.h"
+#if defined(PALETTE_SUPPORT)
 #include "pianopalette.h"
+#endif
 
 #include <QGraphicsScene>
 #include <QHash>
@@ -51,9 +53,14 @@ public:
     KeyboardMap* getKeyboardMap() const { return m_keybdMap; }
     PianoHandler* getPianoHandler() const { return m_handler; }
     void setPianoHandler(PianoHandler* handler) { m_handler = handler; }
+
+#if defined(PALETTE_SUPPORT)
     PianoPalette* getPianoPalette() const { return m_palette; }
     void setPianoPalette( PianoPalette* p );
     void setColorScalePalette( PianoPalette* p ) { m_scalePalette = p; }
+    bool showColorScale() const { return m_showColorScale; }
+    void setShowColorScale(const bool show);
+#endif
 
     QColor getKeyPressedColor() const { return m_keyPressedColor; }
     void setKeyPressedColor(const QColor& color);
@@ -74,8 +81,6 @@ public:
     void setMouseEnabled( const bool enable );
     bool isTouchEnabled() const { return m_touchEnabled; }
     void setTouchEnabled( const bool enable );
-    bool showColorScale() const { return m_showColorScale; }
-    void setShowColorScale(const bool show);
     bool velocityTint() const { return m_velocityTint; }
     void setVelocityTint( const bool enable ) { m_velocityTint = enable; }
 
@@ -147,7 +152,6 @@ private:
     bool m_mousePressed;
     int m_velocity;
     int m_channel;
-    bool m_showColorScale;
     bool m_velocityTint;
     PianoHandler* m_handler;
     KeyboardMap* m_keybdMap;
@@ -156,8 +160,11 @@ private:
     QStringList m_noteNames;
     QStringList m_names_s;
     QStringList m_names_f;
+#if defined(PALETTE_SUPPORT)
+    bool m_showColorScale;
     PianoPalette* m_palette;
     PianoPalette* m_scalePalette;
+#endif
 };
 
 #endif /*PIANOSCENE_H_*/

@@ -36,7 +36,16 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout">
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
     <item row="0" column="0">
@@ -50,7 +59,7 @@
      <x>0</x>
      <y>0</y>
      <width>567</width>
-     <height>25</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -102,6 +111,7 @@
     <addaction name="actionNoteNames"/>
     <addaction name="actionColorScale"/>
     <addaction name="actionStatusBar"/>
+    <addaction name="actionWindowFrame"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -737,6 +747,20 @@
    </property>
    <property name="statusTip">
     <string>Show or hide the colorized keys</string>
+   </property>
+  </action>
+  <action name="actionWindowFrame">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Window frame</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+F</string>
    </property>
   </action>
  </widget>

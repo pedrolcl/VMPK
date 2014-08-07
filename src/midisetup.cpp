@@ -15,22 +15,32 @@
     You should have received a copy of the GNU General Public License along
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
-
+#include <QDebug>
 #include "midisetup.h"
 
-MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent)
+MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
+    m_advanced(false),
+    m_thru(false),
+    m_midiIn(0),
+    m_midiOut(0)
 {
     ui.setupUi(this);
     connect(ui.chkEnableInput, SIGNAL(toggled(bool)), SLOT(toggledInput(bool)));
-#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
-    ui.chkEnableInput->setEnabled(false);
-#endif
+    connect(ui.chkAdvanced, SIGNAL(clicked(bool)), SLOT(clickedAdvanced(bool)));
+//#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
+//    ui.chkEnableInput->setEnabled(false);
+//#endif
+    connect(ui.comboinputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshInputs(QString)));
+    connect(ui.comboOutputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshOutputs(QString)));
+    ui.chkAdvanced->setChecked(m_advanced);
+    ui.chkEnableThru->setChecked(m_thru);
 }
 
 void MidiSetup::toggledInput(bool state)
 {
     if (!state) {
         ui.chkEnableThru->setChecked(false);
+        ui.comboinputBackends->setCurrentIndex(-1);
         ui.comboInput->setCurrentIndex(-1);
     }
 }
@@ -40,6 +50,7 @@ void MidiSetup::inputNotAvailable()
     setInputEnabled(false);
     ui.chkEnableInput->setEnabled(false);
     ui.chkEnableThru->setEnabled(false);
+    ui.comboinputBackends->setCurrentIndex(-1);
     ui.comboInput->setCurrentIndex(-1);
 }
 
@@ -79,7 +90,7 @@ void MidiSetup::clearCombos()
     ui.comboOutput->clear();
 }
 
-void MidiSetup::addInputPortName(const QString& input, int index)
+/*void MidiSetup::addInputPortName(const QString& input, int index)
 {
     ui.comboInput->addItem(input, index);
 }
@@ -97,9 +108,9 @@ void MidiSetup::setCurrentInput(int index)
             }
         }
     }
-}
+}*/
 
-void MidiSetup::setCurrentInput(const QString name)
+/*void MidiSetup::setCurrentInputName(const QString name)
 {
     int i;
     for (i = 0; i < ui.comboInput->count(); ++i) {
@@ -109,9 +120,9 @@ void MidiSetup::setCurrentInput(const QString name)
         }
     }
     ui.comboInput->setCurrentIndex(-1);
-}
+}*/
 
-void MidiSetup::setCurrentOutput(int index)
+/*void MidiSetup::setCurrentOutput(int index)
 {
     if (index < 0)
         ui.comboOutput->setCurrentIndex(index);
@@ -124,9 +135,9 @@ void MidiSetup::setCurrentOutput(int index)
             }
         }
     }
-}
+}*/
 
-void MidiSetup::setCurrentOutput(const QString name)
+/*void MidiSetup::setCurrentOutputName(const QString name)
 {
     int i;
     for (i = 0; i < ui.comboOutput->count(); ++i) {
@@ -136,9 +147,9 @@ void MidiSetup::setCurrentOutput(const QString name)
         }
     }
     ui.comboOutput->setCurrentIndex(-1);
-}
+}*/
 
-void MidiSetup::addOutputPortName(const QString& output, int index)
+/*void MidiSetup::addOutputPortName(const QString& output, int index)
 {
     ui.comboOutput->addItem(output, index);
 }
@@ -159,9 +170,9 @@ int MidiSetup::selectedOutput()
         return ui.comboOutput->itemData(idx).toInt();
     else
         return -1;
-}
+}*/
 
-QString MidiSetup::selectedInputName() const
+/*QString MidiSetup::selectedInputName() const
 {
     int idx = ui.comboInput->currentIndex();
     if (idx >= 0)
@@ -177,9 +188,139 @@ QString MidiSetup::selectedOutputName() const
         return ui.comboOutput->itemText(idx);
     else
         return QString();
-}
+}*/
 
 void MidiSetup::retranslateUi()
 {
     ui.retranslateUi(this);
+}
+
+void MidiSetup::setInputs(QList<MIDIInput *> ins)
+{
+    ui.comboinputBackends->disconnect();
+    ui.comboinputBackends->clear();
+    foreach(MIDIInput *i, ins) {
+        ui.comboinputBackends->addItem(i->backendName(), qVariantFromValue((void *) i));
+    }
+    connect(ui.comboinputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshInputs(QString)));
+
+
+}
+
+void MidiSetup::setOutputs(QList<MIDIOutput *> outs)
+{
+    ui.comboOutputBackends->disconnect();
+    foreach(MIDIOutput *o, outs) {
+        ui.comboOutputBackends->addItem(o->backendName(), qVariantFromValue((void *) o));
+    }
+    connect(ui.comboOutputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshOutputs(QString)));
+}
+
+void MidiSetup::accept()
+{
+    QString conn;
+    QSettings settings;
+    m_advanced = ui.chkAdvanced->isChecked();
+    m_thru = ui.chkEnableThru->isChecked();
+    if (m_midiOut != 0) {
+        conn = ui.comboOutput->currentText();
+        if (conn != m_midiOut->currentConnection()) {
+            m_midiOut->close();
+            if (!conn.isEmpty()) {
+                m_midiOut->initialize(&settings);
+                m_midiOut->open(conn);
+            }
+        }
+    }
+    if (m_midiIn != 0) {
+        conn = ui.comboInput->currentText();
+        if (conn != m_midiIn->currentConnection()) {
+            m_midiIn->close();
+            if (!conn.isEmpty()) {
+                m_midiIn->initialize(&settings);
+                m_midiIn->open(conn);
+            }
+        }
+        m_midiIn->enableMIDIThru(ui.chkEnableThru->isChecked());
+        m_midiIn->setMIDIThruDevice(m_midiOut);
+    }
+    QDialog::accept();
+}
+
+void MidiSetup::refresh()
+{
+    m_advanced = ui.chkAdvanced->isChecked();
+    if (m_midiIn != 0) {
+        ui.comboinputBackends->setCurrentText(m_midiIn->backendName());
+        refreshInputs(m_midiIn->backendName());
+    }
+    if (m_midiOut != 0) {
+        ui.comboOutputBackends->setCurrentText(m_midiOut->backendName());
+        refreshOutputs(m_midiOut->backendName());
+    }
+}
+
+void MidiSetup::refreshInputs(QString id)
+{
+    qDebug() << Q_FUNC_INFO << id;
+    if (m_midiIn != 0 && m_midiIn->backendName() != id) {
+        m_midiIn->close();
+        int idx = ui.comboinputBackends->findText(id, Qt::MatchStartsWith);
+        if (idx > -1)
+            m_midiIn = (MIDIInput *) ui.comboinputBackends->itemData(idx).value<void *>();
+        else
+            m_midiIn = 0;
+    }
+    ui.comboInput->clear();
+    if (m_midiIn != 0) {
+        ui.comboInput->addItem(QString());
+        ui.comboInput->addItems(m_midiIn->connections(m_advanced));
+        ui.comboInput->setCurrentText(m_midiIn->currentConnection());
+    }
+}
+
+void MidiSetup::refreshOutputs(QString id)
+{
+    qDebug() << Q_FUNC_INFO << id;
+    if (m_midiOut != 0 && m_midiOut->backendName() != id) {
+        m_midiOut->close();
+        int idx = ui.comboOutputBackends->findText(id, Qt::MatchStartsWith);
+        if (idx > -1)
+            m_midiOut = (MIDIOutput *) ui.comboOutputBackends->itemData(idx).value<void *>();
+        else
+            m_midiOut = 0;
+    }
+    ui.comboOutput->clear();
+    if (m_midiOut != 0) {
+        ui.comboOutput->addItems(m_midiOut->connections(m_advanced));
+        ui.comboOutput->setCurrentText(m_midiOut->currentConnection());
+    }
+}
+
+void MidiSetup::setAdvanced(bool value)
+{
+    ui.chkAdvanced->setChecked(value);
+    refresh();
+}
+
+void MidiSetup::clickedAdvanced(bool value)
+{
+    m_advanced = value;
+    refresh();
+}
+
+void MidiSetup::setMidiThru(bool value)
+{
+    m_thru = value;
+    ui.chkEnableThru->setChecked(value);
+}
+
+bool MidiSetup::advanced()
+{
+    return ui.chkAdvanced->isChecked();
+}
+
+bool MidiSetup::midiThru()
+{
+    return ui.chkEnableThru->isChecked();
 }

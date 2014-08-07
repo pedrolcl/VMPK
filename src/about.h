@@ -29,9 +29,14 @@ class About : public QDialog
 public:
     About(QWidget *parent = 0);
     void retranslateUi();
+    void setLanguage(const QString lang) { m_lang = lang; }
+
+protected slots:
+    void openGooglePlay();
 
 private:
     Ui::AboutClass ui;
+    QString m_lang;
 };
 
 #endif // ABOUT_H
