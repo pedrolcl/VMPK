@@ -123,17 +123,17 @@ endif ()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
+find_package(PkgConfig REQUIRED)
+if(PKG_CONFIG_FOUND)
+    message(STATUS "Program pkg-config found (${PKG_CONFIG_EXECUTABLE})")
+else()
+    message(FATAL_ERROR "Program pkg-config not found")
+endif()
+
 if (UNIX AND NOT APPLE)
     find_package(Qt5X11Extras REQUIRED)
     #include_directories(${Qt5X11Extras_INCLUDE_DIRS})
     #link_libraries(${Qt5X11Extras_LIBRARIES})
-
-    find_package(PkgConfig REQUIRED)
-    if(PKG_CONFIG_FOUND)
-        message(STATUS "Program pkg-config found (${PKG_CONFIG_EXECUTABLE})")
-    else()
-        message(FATAL_ERROR "Program pkg-config not found")
-    endif()
 
 # Check for libxcb
     pkg_check_modules(XCB REQUIRED xcb)
