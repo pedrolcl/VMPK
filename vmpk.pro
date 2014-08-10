@@ -25,7 +25,8 @@ QT += core \
     gui \
     widgets \
     xml \
-    svg
+    svg \
+    network
 
 dbus {
     DEFINES += ENABLE_DBUS
@@ -120,7 +121,9 @@ FORMS += src/about.ui \
     src/midisetup.ui \
     src/preferences.ui \
     src/riffimportdlg.ui \
-    src/vpiano.ui
+    src/vpiano.ui \
+    src/networksettingsdialog.ui \
+    src/fluidsettingsdialog.ui
 
 HEADERS += src/about.h \
     src/colordialog.h \
@@ -148,7 +151,9 @@ HEADERS += src/about.h \
  #   src/RtMidi.h \
  #   src/udpmidi.h \
     src/vpiano.h \
-    src/maceventhelper.h
+    src/maceventhelper.h \
+    src/networksettingsdialog.h \
+    src/fluidsettingsdialog.h
 
 SOURCES += src/about.cpp \
     src/colordialog.cpp \
@@ -169,7 +174,9 @@ SOURCES += src/about.cpp \
     src/riffimportdlg.cpp \
 #    src/RtMidi.cpp \
 #    src/udpmidi.cpp \
-    src/vpiano.cpp
+    src/vpiano.cpp \
+    src/networksettingsdialog.cpp \
+    src/fluidsettingsdialog.cpp
 
 FORMS += src/kmapdialog.ui \
     src/shortcutdialog.ui

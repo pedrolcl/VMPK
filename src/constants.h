@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ const QString CMP_VERSION(QString::number(_MSC_VER/100.0,'g',2));
 const QString CMP_VERSION(QString());
 #endif
 
-const QString QSTR_APPNAME("Virtual MIDI Piano Keyboard");
+const QString QSTR_APPNAME("VMPK-Virtual MIDI Piano Keyboard");
 const QString QSTR_DOMAIN("vmpk.sourceforge.net");
 const QString QSTR_VMPKPX("vmpk_");
 const QString QSTR_QTPX("qt_");

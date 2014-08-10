@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <comment>
+     MIDI Virtual Piano Keyboard
+     Copyright (C) 2008-2014, Pedro Lopez-Cabanillas
+
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 3 of the License, or
+     (at your option) any later version.
+
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+
+     You should have received a copy of the GNU General Public License along
+     with this program; If not, see http://www.gnu.org/licenses/
+ </comment>
+ <class>FluidSettingsDialog</class>
+ <widget class="QDialog" name="FluidSettingsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>316</width>
+    <height>312</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FluidSynth Driver Settings</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="periodSize"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="soundFont"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="sampleRate"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblSampleRate">
+        <property name="text">
+         <string>Sample Rate:</string>
+        </property>
+        <property name="buddy">
+         <cstring>sampleRate</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblPeriodSize">
+        <property name="text">
+         <string>Period Size:</string>
+        </property>
+        <property name="buddy">
+         <cstring>periodSize</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="polyphony"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblPeriods">
+        <property name="text">
+         <string># of Periods:</string>
+        </property>
+        <property name="buddy">
+         <cstring>periods</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="audioDriver"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblDriver">
+        <property name="text">
+         <string>Audio Driver:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="lblPolyphony">
+        <property name="text">
+         <string>Polyphony:</string>
+        </property>
+        <property name="buddy">
+         <cstring>polyphony</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="periods"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="lblSoundFont">
+        <property name="text">
+         <string>Sound Font:</string>
+        </property>
+        <property name="buddy">
+         <cstring>soundFont</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="lblGain">
+        <property name="text">
+         <string>Gain:</string>
+        </property>
+        <property name="buddy">
+         <cstring>gain</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="gain"/>
+      </item>
+      <item row="8" column="2">
+       <widget class="QToolButton" name="btnFile">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QCheckBox" name="chorus">
+        <property name="text">
+         <string>Chorus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QCheckBox" name="reverb">
+        <property name="text">
+         <string>Reverb</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>FluidSettingsDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>FluidSettingsDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

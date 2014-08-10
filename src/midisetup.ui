@@ -2,7 +2,7 @@
 <ui version="4.0">
  <comment>
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,65 +47,28 @@
       <string>Check this box to enable MIDI input for the program. In Linux and Mac OSX the input port is always enabled and can't be un-ckecked</string>
      </property>
      <property name="text">
-      <string>Enable MIDI input</string>
+      <string>Enable MIDI Input</string>
      </property>
      <property name="checked">
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="9" column="0" colspan="3">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QCheckBox" name="chkEnableThru">
-     <property name="whatsThis">
-      <string>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</string>
-     </property>
-     <property name="text">
-      <string>Enable MIDI Thru on MIDI Output</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="labelOutputBackend">
-     <property name="text">
-      <string>MIDI OUT System</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="1" colspan="2">
-    <widget class="QComboBox" name="comboOutputBackends">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0" colspan="3">
     <widget class="QCheckBox" name="chkOmni">
      <property name="text">
-      <string>MIDI Omni mode</string>
+      <string>MIDI Omni Mode</string>
      </property>
     </widget>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="labelInputBackend">
      <property name="text">
-      <string>MIDI IN System</string>
+      <string>MIDI IN Driver</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1" colspan="2">
+   <item row="2" column="1">
     <widget class="QComboBox" name="comboinputBackends">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -115,14 +78,17 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="0" colspan="3">
-    <widget class="QCheckBox" name="chkAdvanced">
+   <item row="2" column="2">
+    <widget class="QToolButton" name="btnConfigInput">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="text">
-      <string>Show advanced connections</string>
+      <string>...</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
+   <item row="3" column="0">
     <widget class="QLabel" name="labelInput">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -138,23 +104,7 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="0">
-    <widget class="QLabel" name="labelOutput">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>Output MIDI Connection</string>
-     </property>
-     <property name="buddy">
-      <cstring>comboOutput</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1" colspan="2">
+   <item row="3" column="1" colspan="2">
     <widget class="QComboBox" name="comboInput">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -173,7 +123,60 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="1" colspan="2">
+   <item row="4" column="0" colspan="3">
+    <widget class="QCheckBox" name="chkEnableThru">
+     <property name="whatsThis">
+      <string>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</string>
+     </property>
+     <property name="text">
+      <string>Enable MIDI Thru on MIDI Output</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="labelOutputBackend">
+     <property name="text">
+      <string>MIDI OUT Driver</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QComboBox" name="comboOutputBackends">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QToolButton" name="btnConfigOutput">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="labelOutput">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>Output MIDI Connection</string>
+     </property>
+     <property name="buddy">
+      <cstring>comboOutput</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
     <widget class="QComboBox" name="comboOutput">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -189,6 +192,23 @@
      </property>
      <property name="whatsThis">
       <string>Use this control to change the connection for the MIDI output port</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="3">
+    <widget class="QCheckBox" name="chkAdvanced">
+     <property name="text">
+      <string>Show Advanced Connections</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>

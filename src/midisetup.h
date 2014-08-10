@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -70,12 +70,15 @@ public slots:
     void toggledInput(bool state);
     void refreshInputs(QString id);
     void refreshOutputs(QString id);
+    void configureInput();
+    void configureOutput();
     void refresh();
     void accept();
 
 private:
     bool m_advanced;
     bool m_thru;
+    bool m_settingsChanged;
     Ui::MidiSetupClass ui;
     MIDIInput* m_midiIn;
     MIDIOutput* m_midiOut;

@@ -2,7 +2,7 @@
 <ui version="4.0">
  <comment>
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -600,7 +600,7 @@
     <string>Increment the controller value</string>
    </property>
    <property name="shortcut">
-    <string notr="true">+</string>
+    <string>Alt++</string>
    </property>
   </action>
   <action name="actionControllerDown">
@@ -611,7 +611,7 @@
     <string>Decrement the controller value</string>
    </property>
    <property name="shortcut">
-    <string notr="true">-</string>
+    <string>Alt+-</string>
    </property>
   </action>
   <action name="actionNextBank">
@@ -758,6 +758,12 @@
    </property>
    <property name="text">
     <string>Window frame</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide window decorations</string>
+   </property>
+   <property name="whatsThis">
+    <string/>
    </property>
    <property name="shortcut">
     <string>Alt+F</string>

@@ -1,5 +1,5 @@
 /*
-    Virtual Piano Widget for Qt4
+    MIDI Virtual Piano Keyboard
     Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
@@ -16,19 +16,35 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "keylabel.h"
-#include "pianokey.h"
-#include <QFont>
+#ifndef FLUIDSETTINGSDIALOG_H
+#define FLUIDSETTINGSDIALOG_H
 
-KeyLabel::KeyLabel(QGraphicsItem *parent) : QGraphicsTextItem(parent)
-{
-    setAcceptedMouseButtons(Qt::NoButton);
-    //rotate(270);
-    setRotation(rotation() + 270);
+#include <QDialog>
+#include <QShowEvent>
+
+namespace Ui {
+    class FluidSettingsDialog;
 }
 
-QRectF KeyLabel::boundingRect() const
+class FluidSettingsDialog : public QDialog
 {
-    PianoKey* key = static_cast<PianoKey*>(parentItem());
-    return mapRectFromScene(key->rect());
-}
+    Q_OBJECT
+
+public:
+    explicit FluidSettingsDialog(QWidget *parent = 0);
+    ~FluidSettingsDialog();
+    void readSettings();
+    void writeSettings();
+
+public slots:
+    void accept();
+    void showEvent(QShowEvent *event);
+    void restoreDefaults();
+    void showFileDialog();
+
+private:
+    QString defaultAudioDriver() const;
+    Ui::FluidSettingsDialog *ui;
+};
+
+#endif // FLUIDSETTINGSDIALOG_H

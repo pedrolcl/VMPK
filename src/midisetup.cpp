@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,21 +17,23 @@
 */
 #include <QDebug>
 #include "midisetup.h"
+#include "fluidsettingsdialog.h"
+#include "networksettingsdialog.h"
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_advanced(false),
     m_thru(false),
+    m_settingsChanged(false),
     m_midiIn(0),
     m_midiOut(0)
 {
     ui.setupUi(this);
     connect(ui.chkEnableInput, SIGNAL(toggled(bool)), SLOT(toggledInput(bool)));
     connect(ui.chkAdvanced, SIGNAL(clicked(bool)), SLOT(clickedAdvanced(bool)));
-//#if defined(__LINUX_ALSASEQ__) || defined(__MACOSX_CORE__)
-//    ui.chkEnableInput->setEnabled(false);
-//#endif
     connect(ui.comboinputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshInputs(QString)));
     connect(ui.comboOutputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshOutputs(QString)));
+    connect(ui.btnConfigInput, &QToolButton::clicked, this, &MidiSetup::configureInput);
+    connect(ui.btnConfigOutput, &QToolButton::clicked, this, &MidiSetup::configureOutput);
     ui.chkAdvanced->setChecked(m_advanced);
     ui.chkEnableThru->setChecked(m_thru);
 }
@@ -224,7 +226,7 @@ void MidiSetup::accept()
     m_thru = ui.chkEnableThru->isChecked();
     if (m_midiOut != 0) {
         conn = ui.comboOutput->currentText();
-        if (conn != m_midiOut->currentConnection()) {
+        if (conn != m_midiOut->currentConnection() || m_settingsChanged) {
             m_midiOut->close();
             if (!conn.isEmpty()) {
                 m_midiOut->initialize(&settings);
@@ -234,7 +236,7 @@ void MidiSetup::accept()
     }
     if (m_midiIn != 0) {
         conn = ui.comboInput->currentText();
-        if (conn != m_midiIn->currentConnection()) {
+        if (conn != m_midiIn->currentConnection() || m_settingsChanged) {
             m_midiIn->close();
             if (!conn.isEmpty()) {
                 m_midiIn->initialize(&settings);
@@ -244,6 +246,7 @@ void MidiSetup::accept()
         m_midiIn->enableMIDIThru(ui.chkEnableThru->isChecked());
         m_midiIn->setMIDIThruDevice(m_midiOut);
     }
+    m_settingsChanged = false;
     QDialog::accept();
 }
 
@@ -262,7 +265,8 @@ void MidiSetup::refresh()
 
 void MidiSetup::refreshInputs(QString id)
 {
-    qDebug() << Q_FUNC_INFO << id;
+    //qDebug() << Q_FUNC_INFO << id;
+    ui.btnConfigInput->setEnabled(id == "Network");
     if (m_midiIn != 0 && m_midiIn->backendName() != id) {
         m_midiIn->close();
         int idx = ui.comboinputBackends->findText(id, Qt::MatchStartsWith);
@@ -281,7 +285,8 @@ void MidiSetup::refreshInputs(QString id)
 
 void MidiSetup::refreshOutputs(QString id)
 {
-    qDebug() << Q_FUNC_INFO << id;
+    //qDebug() << Q_FUNC_INFO << id;
+    ui.btnConfigOutput->setEnabled(id == "Network" || id == "FluidSynth");
     if (m_midiOut != 0 && m_midiOut->backendName() != id) {
         m_midiOut->close();
         int idx = ui.comboOutputBackends->findText(id, Qt::MatchStartsWith);
@@ -294,6 +299,27 @@ void MidiSetup::refreshOutputs(QString id)
     if (m_midiOut != 0) {
         ui.comboOutput->addItems(m_midiOut->connections(m_advanced));
         ui.comboOutput->setCurrentText(m_midiOut->currentConnection());
+    }
+}
+
+void MidiSetup::configureInput()
+{
+    QString driver = ui.comboinputBackends->currentText();
+    if (driver == "Network") {
+        NetworkSettingsDialog dlg(this);
+        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
+    }
+}
+
+void MidiSetup::configureOutput()
+{
+    QString driver = ui.comboOutputBackends->currentText();
+    if (driver == "Network") {
+        NetworkSettingsDialog dlg(this);
+        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
+    } else if (driver == "FluidSynth") {
+        FluidSettingsDialog dlg(this);
+        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
     }
 }
 

@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2013, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2014, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     For this file, the following copyright notice is also applicable:
     Copyright (C) 2005-2013, rncbc aka Rui Nuno Capela. All rights reserved.
