@@ -79,7 +79,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; y otros.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Este programa es software libre: usted puede redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública General GNU publicada por la Fundación para el Software Libre, ya sea la versión 3     de la Licencia, o (a su elección) cualquier versión posterior.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Este programa se distribuye con la esperanza de que sea útil, pero SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. Consulte los detalles de la Licencia Pública General GNU para obtener una información más detallada. Debería haber recibido una copia de la Licencia Pública General GNU junto a este programa.    En caso contrario, consulte &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -465,67 +471,67 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="31"/>
         <source>FluidSynth Driver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones del controlador de FluidSynth</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="65"/>
         <source>Sample Rate:</source>
-        <translation type="unfinished"></translation>
+        <translation>Frecuencia de muestreo:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="75"/>
         <source>Period Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño del periodo:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="88"/>
         <source># of Periods:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de periodos:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="101"/>
         <source>Audio Driver:</source>
-        <translation type="unfinished"></translation>
+        <translation>Controlador de audio:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="108"/>
         <source>Polyphony:</source>
-        <translation type="unfinished"></translation>
+        <translation>Polifonía:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="121"/>
         <source>Sound Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>SoundFont:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="131"/>
         <source>Gain:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ganancia:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="144"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="151"/>
         <source>Chorus</source>
-        <translation type="unfinished"></translation>
+        <translation>Coral</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="158"/>
         <source>Reverb</source>
-        <translation type="unfinished"></translation>
+        <translation>Reverberación</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.cpp" line="191"/>
         <source>Select SoundFont</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar SoundFont</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.cpp" line="191"/>
         <source>SoundFont Files (*.sf2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos SoundFont (*.sf2)</translation>
     </message>
 </context>
 <context>
@@ -1285,7 +1291,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="139"/>
         <source>MIDI OUT Driver</source>
-        <translation type="unfinished"></translation>
+        <translation>Controlador MIDI OUT</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="172"/>
@@ -1305,23 +1311,23 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="50"/>
         <source>Enable MIDI Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar entrada MIDI</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="60"/>
         <source>MIDI Omni Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo MIDI Omni</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="67"/>
         <source>MIDI IN Driver</source>
-        <translation type="unfinished"></translation>
+        <translation>Controlador MIDI IN</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="87"/>
         <location filename="../src/midisetup.ui" line="159"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="129"/>
@@ -1331,7 +1337,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="201"/>
         <source>Show Advanced Connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar conexiones avanzadas</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="122"/>
@@ -1353,22 +1359,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/networksettingsdialog.ui" line="31"/>
         <source>Network Driver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones del controlador de red</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.ui" line="37"/>
         <source>Network Interface:</source>
-        <translation type="unfinished"></translation>
+        <translation>Interfaz de red:</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.ui" line="50"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección:</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.cpp" line="97"/>
         <source>Any</source>
-        <translation type="unfinished"></translation>
+        <translation>Cualquiera</translation>
     </message>
 </context>
 <context>
@@ -1382,7 +1388,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="592"/>
         <source>C♯</source>
-        <translation type="unfinished">Do♯</translation>
+        <translation>Do♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="593"/>
@@ -1393,7 +1399,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="594"/>
         <source>D♯</source>
-        <translation type="unfinished">Re♯</translation>
+        <translation>Re♯</translation>
     </message>
     <message>
         <source>C#</source>
@@ -1450,7 +1456,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="597"/>
         <source>F♯</source>
-        <translation type="unfinished">Fa♯</translation>
+        <translation>Fa♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="598"/>
@@ -1461,7 +1467,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="599"/>
         <source>G♯</source>
-        <translation type="unfinished">Sol♯</translation>
+        <translation>Sol♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="600"/>
@@ -1472,7 +1478,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="601"/>
         <source>A♯</source>
-        <translation type="unfinished">La♯</translation>
+        <translation>La♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="602"/>
@@ -1483,27 +1489,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="604"/>
         <source>D♭</source>
-        <translation type="unfinished">Re♭</translation>
+        <translation>Re♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="606"/>
         <source>E♭</source>
-        <translation type="unfinished">Mi♭</translation>
+        <translation>Mi♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="609"/>
         <source>G♭</source>
-        <translation type="unfinished">Sol♭</translation>
+        <translation>Sol♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="611"/>
         <source>A♭</source>
-        <translation type="unfinished">La♭</translation>
+        <translation>La♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="613"/>
         <source>B♭</source>
-        <translation type="unfinished">Si♭</translation>
+        <translation>Si♭</translation>
     </message>
 </context>
 <context>
@@ -1610,7 +1616,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="105"/>
         <source>Colors...</source>
-        <translation type="unfinished"></translation>
+        <translation>Colores...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="134"/>
@@ -1640,12 +1646,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="47"/>
         <source>Number of keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de teclas</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="70"/>
         <source>Starting Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Tecla inicial</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="372"/>
@@ -2050,12 +2056,12 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2086"/>
         <source>Galician</source>
-        <translation type="unfinished"></translation>
+        <translation>gallego</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2089"/>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>serbio</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2098"/>
@@ -2574,12 +2580,12 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="603"/>
         <source>Alt++</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt++</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="614"/>
         <source>Alt+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+-</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="685"/>
@@ -2644,17 +2650,17 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="760"/>
         <source>Window frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Marco de la ventana</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="763"/>
         <source>Show or hide window decorations</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar u ocultar las decoraciones de la ventana</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="769"/>
         <source>Alt+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+F</translation>
     </message>
     <message>
         <source>Channel Up</source>
