@@ -35,36 +35,25 @@ dbus {
     DBUS_ADAPTORS += src/net.sourceforge.vmpk.xml
 }
 
-# QT += network
-# DEFINES += NETWORK_MIDI
 DEFINES += VERSION=$$VERSION
 
 CONFIG += link_pkgconfig
 PKGCONFIG += drumstick-rt
 
 win32 {
-    #DEFINES += __WINDOWS_MM__
-    #LIBS += -lwinmm
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }
 
 linux* {
     QT += x11extras
-    #DEFINES += __LINUX_ALSASEQ__
-    #DEFINES += AVOID_TIMESTAMPING
     CONFIG += link_pkgconfig
-    PKGCONFIG += xcb # alsa
+    PKGCONFIG += xcb
     LIBS += -lpthread
-    # jack_midi {
-    #    PKGCONFIG += jack
-    #    DEFINES += __LINUX_JACK__
-    # }
 }
 
 macx {
     ICON = data/vmpk.icns
-    # DEFINES += __MACOSX_CORE__
     BUNDLE_RES.files = data/help.html \
         data/help_de.html \
         data/help_es.html \
@@ -96,23 +85,14 @@ macx {
         vmpk_ru.qm \
         vmpk_sr.qm \
         vmpk_sv.qm
+        #vmpk_tr.qm \
         #vmpk_zh_CN.qm
     BUNDLE_RES.path = Contents/Resources
     QMAKE_BUNDLE_DATA += BUNDLE_RES
-    LIBS += \ #-framework CoreMidi \
-        #-framework CoreAudio \
-        -framework CoreFoundation \
+    LIBS += -framework CoreFoundation \
         -framework Cocoa
 }
 
-#irix* {
-#    CONFIG += x11
-#    DEFINES += __IRIX_MD__
-#    LIBS += -laudio \
-#        -lpthread
-#}
-
-#debug:DEFINES += __RTMIDI_DEBUG__
 INCLUDEPATH += src
 
 FORMS += src/about.ui \
@@ -133,7 +113,6 @@ HEADERS += src/about.h \
     src/instrument.h \
     src/keyboardmap.h \
     src/keylabel.h \
-#    src/knob.h \
     src/mididefs.h \
     src/midisetup.h \
     src/pianodefs.h \
@@ -145,11 +124,6 @@ HEADERS += src/about.h \
     src/nativefilter.h \
     src/riff.h \
     src/riffimportdlg.h \
- #   src/events.h \
- #   src/netsettings.h \
- #   src/RtError.h \
- #   src/RtMidi.h \
- #   src/udpmidi.h \
     src/vpiano.h \
     src/maceventhelper.h \
     src/networksettingsdialog.h \
@@ -162,7 +136,6 @@ SOURCES += src/about.cpp \
     src/instrument.cpp \
     src/keyboardmap.cpp \
     src/keylabel.cpp \
-#    src/knob.cpp \
     src/main.cpp \
     src/midisetup.cpp \
     src/pianokeybd.cpp \
@@ -172,8 +145,6 @@ SOURCES += src/about.cpp \
     src/preferences.cpp \
     src/riff.cpp \
     src/riffimportdlg.cpp \
-#    src/RtMidi.cpp \
-#    src/udpmidi.cpp \
     src/vpiano.cpp \
     src/networksettingsdialog.cpp \
     src/fluidsettingsdialog.cpp
@@ -193,7 +164,8 @@ macx {
 
 RESOURCES += data/vmpk.qrc
 
-TRANSLATIONS +=  translations/vmpk_cs.ts \
+TRANSLATIONS +=  \
+    translations/vmpk_cs.ts \
     translations/vmpk_de.ts \
     translations/vmpk_es.ts \
     translations/vmpk_fr.ts \
@@ -202,6 +174,7 @@ TRANSLATIONS +=  translations/vmpk_cs.ts \
     translations/vmpk_ru.ts \
     translations/vmpk_sr.ts \
     translations/vmpk_sv.ts
+    #translations/vmpk_tr.ts \
     #translations/vmpk_zh_CN.ts
 
 include(updateqm.pri)

@@ -17,18 +17,10 @@ cmake_minimum_required(VERSION 2.8.11)
 project(VMPK)
 
 set(DBUS_INIT OFF)
-#set(ALSA_INIT OFF)
-#set(JACK_INIT OFF)
 set(CORE_INIT OFF)
-#set(IRIX_INIT OFF)
 set(WIN_INIT OFF)
-#set(NET_INIT ON)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(DBUS_INIT ON)
-#    set(ALSA_INIT ON)
-#    set(JACK_INIT ON)
-#elseif(${CMAKE_SYSTEM_NAME} MATCHES "Irix")
-#    set(IRIX_INIT ON)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(CORE_INIT ON)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
@@ -36,12 +28,6 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 endif()
 
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
-#option(ENABLE_ALSA "Enable ALSA Sequencer driver" ${ALSA_INIT})
-#option(ENABLE_JACK "Enable Jack MIDI driver" ${JACK_INIT})
-#option(ENABLE_CORE "Enable Mac OSX CoreMIDI driver" ${CORE_INIT})
-#option(ENABLE_IRIX "Enable SGI Irix MD driver" ${IRIX_INIT})
-#option(ENABLE_WIN "Enable Windows MM driver" ${WIN_INIT})
-#option(ENABLE_NET "Enable UDP Network driver" ${NET_INIT})
 
 # Show full commands and messages.
 # set(CMAKE_VERBOSE_MAKEFILE ON CACHE BOOL)
@@ -49,14 +35,7 @@ option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 # If relative paths break the link scripts, set it OFF
 # set(CMAKE_USE_RELATIVE_PATHS OFF)
 
-# Assorted settings
-set(CMAKE_COLOR_MAKEFILE ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-#set(CMAKE_VERBOSE_MAKEFILE ON)
-#set(CMAKE_SKIP_RULE_DEPENDENCY FALSE)
-#set(CMAKE_CXX_FLAGS_DEBUG "-g -DQT_DEBUG -DDEBUG -D__RTMIDI_DEBUG__")
-#set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DQT_NO_DEBUG -DNDEBUG")
-
 add_definitions(-DRAWKBD_SUPPORT -DPALETTE_SUPPORT)
 
 # Additional CMake modules for 3rd party library checks reside here
@@ -74,14 +53,6 @@ message (STATUS "VMPK ${VERSION}
     install prefix: ${CMAKE_INSTALL_PREFIX}
      D-Bus support: ${ENABLE_DBUS}")
 
-#    RtMIDI drivers
-#              ALSA: ${ENABLE_ALSA}
-#              JACK: ${ENABLE_JACK}
-#              Irix: ${ENABLE_IRIX}
-#          CoreMIDI: ${ENABLE_CORE}
-#           Windows: ${ENABLE_WIN}
-#           UDP Net: ${ENABLE_NET}")
-
 # User options
 message (STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
 
@@ -89,37 +60,13 @@ message (STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Xml REQUIRED)
 find_package(Qt5Svg REQUIRED)
+find_package(Qt5Network REQUIRED)
 find_package(Qt5LinguistTools REQUIRED)
 
 if (${ENABLE_DBUS})
     find_package(Qt5DBus REQUIRED)
     add_definitions(-DENABLE_DBUS)
 endif ()
-
-#if (${ENABLE_NET})
-#    find_package(Qt5Network REQUIRED)
-#    add_definitions(-DNETWORK_MIDI)
-#endif()
-
-#include_directories(
-#    ${Qt5Widgets_INCLUDE_DIRS}
-#    ${Qt5Xml_INCLUDE_DIRS}
-#    ${Qt5Svg_INCLUDE_DIRS}
-#    ${Qt5DBus_INCLUDE_DIRS}
-#    ${Qt5Network_INCLUDE_DIRS}
-#)
-
-#link_libraries(
-#    ${Qt5Widgets_LIBRARIES}
-#    ${Qt5Xml_LIBRARIES}
-#    ${Qt5Svg_LIBRARIES}
-#    ${Qt5DBus_LIBRARIES}
-#    ${Qt5Network_LIBRARIES}
-#)
-
-#add_definitions(
-#    ${Qt5Widgets_DEFINITIONS}
-#)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
@@ -132,9 +79,6 @@ endif()
 
 if (UNIX AND NOT APPLE)
     find_package(Qt5X11Extras REQUIRED)
-    #include_directories(${Qt5X11Extras_INCLUDE_DIRS})
-    #link_libraries(${Qt5X11Extras_LIBRARIES})
-
 # Check for libxcb
     pkg_check_modules(XCB REQUIRED xcb)
     if(XCB_FOUND)
@@ -146,61 +90,13 @@ if (UNIX AND NOT APPLE)
     endif()
 endif()
 
-#if (${ENABLE_JACK})
-#    # Check Jack
-#    set(HAVE_JACK FALSE)
-#    pkg_check_modules(JACK REQUIRED jack)
-#    if(JACK_FOUND)
-#        set(HAVE_JACK TRUE)
-#        add_definitions(-DHAVE_JACK)
-#        set(JACK_LIBS ${JACK_LIBRARIES})
-#        list(APPEND JACK_LIB_DIR ${JACK_LIBRARY_DIRS} ${JACK_LIBDIR})
-#        list(APPEND JACK_INC_DIR ${JACK_INCLUDE_DIRS} ${JACK_INCLUDEDIR})
-#        link_directories(${JACK_LIB_DIR})
-#        include_directories(${JACK_INC_DIR})
-#        add_definitions(-D__LINUX_JACK__)
-#        link_libraries(${JACK_LIBS})
-#    else()
-#        message(FATAL_ERROR "Please install Jack development libs and headers.")
-#    endif()
-#endif ()
-
-#if (${ENABLE_ALSA})
-#    find_package(Threads REQUIRED)
-#    # Check ALSA 1.0
-#    set(HAVE_ALSA FALSE)
-#    pkg_check_modules(ALSA REQUIRED alsa>=1.0)
-#    if(ALSA_FOUND)
-#        set(HAVE_ALSA TRUE)
-#        add_definitions(-DHAVE_ALSA)
-#        set(ALSA_LIBS ${ALSA_LIBRARIES})
-#        list(APPEND ALSA_LIB_DIR ${ALSA_LIBRARY_DIRS} ${ALSA_LIBDIR})
-#        list(APPEND ALSA_INC_DIR ${ALSA_INCLUDE_DIRS} ${ALSA_INCLUDEDIR})
-#        link_directories(${ALSA_LIB_DIR})
-#        include_directories(${ALSA_INC_DIR})
-#        add_definitions(-D__LINUX_ALSASEQ__)
-#        add_definitions(-DAVOID_TIMESTAMPING)
-#        link_libraries(${ALSA_LIBS} ${CMAKE_THREAD_LIBS_INIT})
-#    else()
-#        message(FATAL_ERROR "Please install ALSA development libs and headers.")
-#    endif()
-#endif()
 
 if (${ENABLE_CORE})
-#    add_definitions(-D__MACOSX_CORE__)
-#    link_libraries("-framework CoreMidi -framework CoreAudio -framework CoreFoundation -framework Cocoa")
     link_libraries("-framework CoreFoundation -framework Cocoa")
 endif ()
 
-#if (${ENABLE_IRIX})
-#    find_package(Threads REQUIRED)
-#    add_definitions(-D__IRIX_MD__)
-#    link_libraries(audio ${CMAKE_THREAD_LIBS_INIT})
-#endif ()
-
 if (${ENABLE_WIN})
     find_package(WINDRES REQUIRED)
-#    add_definitions(-D__WINDOWS_MM__)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
     link_libraries(winmm)
 endif ()

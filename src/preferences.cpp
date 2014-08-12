@@ -27,17 +27,10 @@
 #include <QColorDialog>
 #include <QDebug>
 
-//#ifdef NETWORK_MIDI
-//#include <QNetworkInterface>
-//#endif
-
 Preferences::Preferences(QWidget *parent)
     : QDialog(parent),
     m_numKeys(DEFAULTNUMBEROFKEYS),
     m_drumsChannel(MIDIGMDRUMSCHANNEL),
-    //m_networkPort(NETWORKPORTNUMBER),
-    //m_grabKb(false),
-    //m_styledKnobs(true),
     m_alwaysOnTop(false),
     m_rawKeyboard(false),
     m_velocityColor(true),
@@ -61,25 +54,6 @@ Preferences::Preferences(QWidget *parent)
     QPushButton *btnDefaults = ui.buttonBox->button(QDialogButtonBox::RestoreDefaults);
     connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
     ui.cboStartingKey->clear();
-//    ui.cboMIDIDriver->clear();
-//#if defined(__LINUX_ALSASEQ__)
-//    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEALSA);
-//#endif
-//#if defined(__LINUX_JACK__)
-//    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEJACK);
-//#endif
-//#if defined(__MACOSX_CORE__)
-//    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEMACOSX);
-//#endif
-//#if defined(__IRIX_MD__)
-//    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEIRIX);
-//#endif
-//#if defined(__WINDOWS_MM__)
-//    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMEWINMM);
-//#endif
-//#if defined(NETWORK_MIDI)
-//    ui.cboMIDIDriver->addItem(QSTR_DRIVERNAMENET);
-//#endif
 
 #if !defined(RAWKBD_SUPPORT)
     ui.chkRawKeyboard->setVisible(false);
@@ -87,21 +61,6 @@ Preferences::Preferences(QWidget *parent)
     ui.txtFileRawKmap->setVisible(false);
     ui.btnRawKmap->setVisible(false);
 #endif
-//#if !defined(NETWORK_MIDI)
-//    ui.lblNetworkPort->setVisible(false);
-//    ui.txtNetworkPort->setVisible(false);
-//    ui.lblNetworkIface->setVisible(false);
-//    ui.cboNetworkIface->setVisible(false);
-//#else
-//    ui.cboNetworkIface->clear();
-//    ui.cboNetworkIface->addItem(QString());
-//    foreach ( const QNetworkInterface& iface,
-//              QNetworkInterface::allInterfaces()) {
-//        if (iface.flags().testFlag(QNetworkInterface::CanMulticast) &&
-//            !iface.flags().testFlag(QNetworkInterface::IsLoopBack))
-//            ui.cboNetworkIface->addItem(iface.humanReadableName(), iface.name());
-//    }
-//#endif
 #if defined(SMALL_SCREEN)
     ui.chkRawKeyboard->setVisible(false);
     ui.lblRawKmap->setVisible(false);
@@ -125,8 +84,6 @@ void Preferences::showEvent ( QShowEvent *event )
     if (event->type() == QEvent::Show) {
         ui.spinNumKeys->setValue( m_numKeys );
         ui.cboDrumsChannel->setCurrentIndex(m_drumsChannel+1);
-        //ui.chkGrabKb->setChecked( m_grabKb );
-        //ui.chkStyledKnobs->setChecked( m_styledKnobs );
         ui.chkAlwaysOnTop->setChecked( m_alwaysOnTop );
         ui.chkRawKeyboard->setChecked( m_rawKeyboard );
         ui.chkVelocityColor->setChecked( m_velocityColor );
@@ -134,7 +91,6 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkEnableKeyboard->setChecked( m_enableKeyboard );
         ui.chkEnableMouse->setChecked( m_enableMouse );
         ui.chkEnableTouch->setChecked( m_enableTouch );
-        //ui.txtNetworkPort->setText( QString::number( m_networkPort ));
         ui.cboColorPolicy->setCurrentIndex( m_colorDialog->currentPalette()->paletteId() );
         ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData(m_startingKey));
     }
@@ -143,8 +99,6 @@ void Preferences::showEvent ( QShowEvent *event )
 void Preferences::apply()
 {
     m_numKeys = ui.spinNumKeys->value();
-    //m_grabKb = ui.chkGrabKb->isChecked();
-    //m_styledKnobs = ui.chkStyledKnobs->isChecked();
     m_alwaysOnTop = ui.chkAlwaysOnTop->isChecked();
     m_rawKeyboard = ui.chkRawKeyboard->isChecked();
     m_velocityColor = ui.chkVelocityColor->isChecked();
@@ -162,7 +116,6 @@ void Preferences::apply()
          ui.txtFileInstrument->text() == QSTR_DEFAULT )
         m_insFileName = QSTR_DEFAULT;
     m_drumsChannel = ui.cboDrumsChannel->currentIndex() - 1;
-    //m_networkPort = ui.txtNetworkPort->text().toInt();
     m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
     m_startingKey = ui.cboStartingKey->itemData(ui.cboStartingKey->currentIndex()).toInt();
 }
@@ -255,28 +208,6 @@ QString Preferences::getInstrumentName()
     return ui.cboInstrument->currentText();
 }
 
-/*
-void Preferences::setNetworkIfaceName(const QString iface)
-{
-    int index = ui.cboNetworkIface->findText( iface );
-    ui.cboNetworkIface->setCurrentIndex( index );
-}
-
-QString Preferences::getNetworkInterfaceName()
-{
-    return ui.cboNetworkIface->currentText();
-}
-
-#ifdef NETWORK_MIDI
-QNetworkInterface Preferences::getNetworkInterface()
-{
-    int idx = ui.cboNetworkIface->currentIndex();
-    QString iname = ui.cboNetworkIface->itemData(idx).toString();
-    return QNetworkInterface::interfaceFromName(iname);
-}
-#endif
-*/
-
 void Preferences::slotOpenKeymapFile()
 {
     QString fileName = QFileDialog::getOpenFileName(0,
@@ -326,9 +257,7 @@ void Preferences::setKeyMapFileName( const QString fileName )
 void Preferences::restoreDefaults()
 {
     ui.chkAlwaysOnTop->setChecked(false);
-    //ui.chkGrabKb->setChecked(false);
     ui.chkRawKeyboard->setChecked(false);
-    //ui.chkStyledKnobs->setChecked(true);
     ui.spinNumKeys->setValue(DEFAULTNUMBEROFKEYS);
     ui.txtFileKmap->setText(QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);
@@ -339,7 +268,6 @@ void Preferences::restoreDefaults()
     ui.chkEnableTouch->setChecked(true);
     setInstrumentsFileName(VPiano::dataDirectory() + QSTR_DEFAULTINS);
     ui.cboInstrument->setCurrentIndex(0);
-    //ui.txtNetworkPort->setText(QString::number(NETWORKPORTNUMBER));
     ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
     ui.cboStartingKey->setCurrentIndex(DEFAULTSTARTINGKEY);
 }
@@ -357,24 +285,6 @@ void Preferences::retranslateUi()
         ui.cboColorPolicy->addItems(m_colorDialog->availablePaletteNames());
     }
 }
-
-/*
-void Preferences::setDriver(QString value)
-{
-    int index = ui.cboMIDIDriver->findText(value);
-    if (index < 0)
-        index = ui.cboMIDIDriver->findText(QSTR_DRIVERDEFAULT);
-    ui.cboMIDIDriver->setCurrentIndex(index);
-}
-
-QString Preferences::getDriver()
-{
-    QString driver = ui.cboMIDIDriver->currentText();
-    if (driver.isEmpty())
-        driver = QSTR_DRIVERDEFAULT;
-    return driver;
-}
-*/
 
 void Preferences::setColorPolicyDialog(ColorDialog *value)
 {

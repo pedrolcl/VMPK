@@ -42,18 +42,6 @@ public:
     void clearCombos();
     void retranslateUi();
 
-//    void addInputPortName(const QString& name, int index);
-//    void addOutputPortName(const QString& output, int index);
-//    void setCurrentInput(int index);
-//    void setCurrentOutput(int index);
-//    int  selectedInput();
-//    int  selectedOutput();
-
-//    void setCurrentInputName(const QString name);
-//    void setCurrentOutputName(const QString name);
-//    QString selectedInputName() const;
-//    QString selectedOutputName() const;
-
     void setInput(MIDIInput *in) { m_midiIn = in; }
     void setOutput(MIDIOutput *out) { m_midiOut = out; }
     void setInputs(QList<MIDIInput *> ins);
@@ -82,9 +70,6 @@ private:
     Ui::MidiSetupClass ui;
     MIDIInput* m_midiIn;
     MIDIOutput* m_midiOut;
-    //QHash<QString, MIDIInput*> m_inputs;
-    //QHash<QString, MIDIOutput*> m_outputs;
-
 };
 
 #endif /* MIDISETUP_H */

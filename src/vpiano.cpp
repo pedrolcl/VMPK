@@ -19,16 +19,12 @@
 #include "vpiano.h"
 #include "instrument.h"
 #include "mididefs.h"
-//#include "knob.h"
-//#include "classicstyle.h"
-//#include "RtMidi.h"
 #include "constants.h"
 #include "riffimportdlg.h"
 #include "extracontrols.h"
 #include "about.h"
 #include "preferences.h"
 #include "midisetup.h"
-//#include "events.h"
 #include "colordialog.h"
 
 #if !defined(SMALL_SCREEN)
@@ -40,11 +36,6 @@
 #include "vmpk_adaptor.h"
 #include <QtDBus/QDBusConnection>
 #endif
-
-//#if defined(NETWORK_MIDI)
-//#include "netsettings.h"
-//#include "udpmidi.h"
-//#endif
 
 #include <QDesktopServices>
 #include <QInputDialog>
@@ -81,8 +72,6 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_midiout(0),
     m_midiin(0),
     m_backendManager(0),
-//    m_currentOut(-1),
-//    m_currentIn(-1),
     m_inputActive(false),
     m_midiThru(false),
     m_midiOmni(false),
@@ -169,25 +158,6 @@ VPiano::~VPiano()
     delete m_filter;
 #endif
     delete m_backendManager;
-
-    //qDebug() << Q_FUNC_INFO;
-    /*try {
-        if (m_midiout != 0) {
-            m_midiout->closePort();
-            delete m_midiout;
-        }
-        if (m_midiin != 0) {
-            if (m_inputActive) {
-                m_midiin->cancelCallback();
-                m_inputActive = false;
-            }
-            if (m_currentIn > -1)
-                m_midiin->closePort();
-            delete m_midiin;
-        }
-    } catch (RtError& err) {
-        qWarning() << "XXX" << QString::fromStdString(err.getMessage());
-    }*/
 }
 
 void VPiano::initialization()
@@ -207,129 +177,6 @@ void VPiano::initialization()
         activateWindow();
     }
 }
-
-/*void midiCallback( double deltatime,
-                   std::vector< unsigned char > *message,
-                   void *userData )
-{
-    QEvent* ev = 0;
-    VPiano* instance = static_cast<VPiano*>(userData);
-    instance->midiThru(message);
-    unsigned char channel = message->at(0) & MASK_CHANNEL;
-    unsigned char status = message->at(0) & MASK_STATUS;
-    bool messageAccepted = (instance->baseChannel() == channel) ||
-                           (instance->omniMode() &&
-                             (status == STATUS_NOTEON || status == STATUS_NOTEOFF));
-    if (messageAccepted) {
-        switch( status ) {
-        case STATUS_NOTEOFF:
-        case STATUS_NOTEON: {
-                unsigned char midi_note = message->at(1);
-                unsigned char vel = message->at(2);
-                if ((status == STATUS_NOTEOFF) || (vel == 0))
-                    ev = new NoteOffEvent(channel, midi_note, vel);
-                else
-                    ev = new NoteOnEvent(channel, midi_note, vel);
-            }
-            break;
-        case STATUS_POLYAFT: {
-                unsigned char note = message->at(1);
-                unsigned char value = message->at(2);
-                ev = new PolyKeyPressEvent(note, value);
-            }
-            break;
-        case STATUS_CTLCHG: {
-                unsigned char ctl = message->at(1);
-                unsigned char val = message->at(2);
-                ev = new ControlChangeEvent(ctl, val);
-            }
-            break;
-        case STATUS_PROGRAM: {
-                unsigned char value = message->at(1);
-                ev = new ProgramChangeEvent(value);
-            }
-            break;
-        case STATUS_CHANAFT: {
-                unsigned char value = message->at(1);
-                ev = new ChannelKeyPressEvent(value);
-            }
-            break;
-        case STATUS_BENDER: {
-                int value = (message->at(1) + 0x80 * message->at(2)) - BENDER_MID;
-                ev = new PitchWheelEvent(value);
-            }
-            break;
-        }
-    }
-    if (ev != 0)
-        QApplication::postEvent(instance, ev);
-}*/
-
-/*RtMidiOut *
-VPiano::MIDIOutDriverFactory(const QString driverName, const QString clientName)
-{
-    RtMidiOut *driver = 0;
-#if defined(__LINUX_ALSASEQ__)
-    if (driverName == QSTR_DRIVERNAMEALSA)
-        driver = new RtMidiOutAlsa(clientName.toStdString());
-#endif
-#if defined(__LINUX_JACK__)
-    if (driverName == QSTR_DRIVERNAMEJACK)
-        driver = new RtMidiOutJack(clientName.toStdString());
-#endif
-#if defined(__IRIX_MD__)
-    if (driverName == QSTR_DRIVERNAMEIRIX)
-        driver = new RtMidiOutIrix(clientName.toStdString());
-#endif
-#if defined(__MACOSX_CORE__)
-    if (driverName == QSTR_DRIVERNAMEMACOSX)
-        driver = new RtMidiOutCoreMidi(clientName.toStdString());
-#endif
-#if defined(__WINDOWS_MM__)
-    if (driverName == QSTR_DRIVERNAMEWINMM)
-        driver = new RtMidiOutWinMM(clientName.toStdString());
-#endif
-#if defined(NETWORK_MIDI)
-    if (driverName == QSTR_DRIVERNAMENET)
-        driver = new NetMidiOut(clientName.toStdString());
-#endif
-    if (driver == 0 && driverName != QSTR_DRIVERDEFAULT)
-        driver = MIDIOutDriverFactory(QSTR_DRIVERDEFAULT, clientName);
-    return driver;
-}
-
-RtMidiIn *
-VPiano::MIDIInDriverFactory(const QString driverName, const QString clientName)
-{
-    RtMidiIn *driver = 0;
-#if defined(__LINUX_ALSASEQ__)
-    if (driverName == QSTR_DRIVERNAMEALSA)
-        driver = new RtMidiInAlsa(clientName.toStdString());
-#endif
-#if defined(__LINUX_JACK__)
-    if (driverName == QSTR_DRIVERNAMEJACK)
-        driver = new RtMidiInJack(clientName.toStdString());
-#endif
-#if defined(__IRIX_MD__)
-    if (driverName == QSTR_DRIVERNAMEIRIX)
-        driver = new RtMidiInIrix(clientName.toStdString());
-#endif
-#if defined(__MACOSX_CORE__)
-    if (driverName == QSTR_DRIVERNAMEMACOSX)
-        driver = new RtMidiInCoreMidi(clientName.toStdString());
-#endif
-#if defined(__WINDOWS_MM__)
-    if (driverName == QSTR_DRIVERNAMEWINMM)
-        driver = new RtMidiInWinMM(clientName.toStdString());
-#endif
-#if defined(NETWORK_MIDI)
-    if (driverName == QSTR_DRIVERNAMENET)
-        driver = new NetMidiIn(clientName.toStdString());
-#endif
-    if (driver == 0 && driverName != QSTR_DRIVERDEFAULT)
-        driver = MIDIInDriverFactory(QSTR_DRIVERDEFAULT, clientName);
-    return driver;
-}*/
 
 bool VPiano::initMidi()
 {
@@ -379,84 +226,11 @@ bool VPiano::initMidi()
         dlgMidiSetup()->inputNotAvailable();
     }
 
-    /*try {
-        m_midiDriver = dlgPreferences()->getDriver();
-        m_midiout = MIDIOutDriverFactory(m_midiDriver, QSTR_VMPKOUTPUT);
-        m_midiin = MIDIInDriverFactory(m_midiDriver, QSTR_VMPKINPUT);
-        if (m_midiDriver != QSTR_DRIVERNAMEALSA && m_midiDriver != QSTR_DRIVERNAMEMACOSX && m_midiDriver != QSTR_DRIVERNAMEJACK)
-        {
-            int nOutPorts = m_midiout->getPortCount();
-            if (nOutPorts == 0) {
-                delete m_midiout;
-                m_midiout = 0;
-                QMessageBox::critical( this, tr("Error"),
-                    tr("No MIDI output ports available. Aborting") );
-                return false;
-            }
-            int nInPorts = m_midiin->getPortCount();
-            if (nInPorts == 0) {
-                delete m_midiin;
-                m_midiin = 0;
-            }
-        }
-        if (m_midiDriver == QSTR_DRIVERNAMEALSA || m_midiDriver == QSTR_DRIVERNAMEMACOSX || m_midiDriver == QSTR_DRIVERNAMEJACK)
-        {
-            if (m_midiout != 0)
-                m_midiout->openVirtualPort(QSTR_VMPKOUTPUT.toStdString());
-            if (m_midiin != 0)
-                m_midiin->openVirtualPort(QSTR_VMPKINPUT.toStdString());
-        }
-        else
-        {
-            m_midiout->openPort( m_currentOut = 0 );
-        }
-        if (m_midiin != 0) {
-            // ignore SYX, clock and active sense
-            m_midiin->ignoreTypes(true,true,true);
-            m_midiin->setCallback( &midiCallback, this );
-            m_inputActive = true;
-        }
-    } catch (RtError& err) {
-        QMessageBox::critical( this, tr("Error. Aborting"),
-                               QString::fromStdString(err.getMessage()));
-        return false;
-    }*/
     return (m_midiout != 0);
 }
 
-/*void VPiano::switchMIDIDriver()
-{
-    try {
-        if (m_midiout != 0) {
-            m_midiout->closePort();
-            delete m_midiout;
-            m_midiout = 0;
-        }
-        if (m_midiin != 0) {
-            if (m_inputActive) {
-                m_midiin->cancelCallback();
-                m_inputActive = false;
-            }
-            if (m_currentIn > -1) {
-                m_midiin->closePort();
-                delete m_midiin;
-                m_midiin = 0;
-            }
-        }
-    } catch (RtError& err) {
-        qWarning() << "XXX" << QString::fromStdString(err.getMessage());
-    }
-    if ((m_initialized = initMidi())) {
-        refreshConnections();
-        applyConnections();
-        enforceMIDIChannelState();
-    }
-}*/
-
 void VPiano::initToolBars()
 {
-    //m_dialStyle = new ClassicStyle();
-    //m_dialStyle->setParent(this);
     // Notes tool bar
     QWidget *w = ui.toolBarNotes->widgetForAction(ui.actionPanic);
     w->setMaximumWidth(120);
@@ -674,7 +448,6 @@ void VPiano::initExtraControllers()
         switch(type) {
         case 0:
             chkbox = new QCheckBox(this);
-            //chkbox->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
             chkbox->setStyleSheet(QSTR_CHKBOXSTYLE);
             chkbox->setProperty(MIDICTLONVALUE, maxValue);
             chkbox->setProperty(MIDICTLOFFVALUE, minValue);
@@ -685,13 +458,10 @@ void VPiano::initExtraControllers()
         case 1:
             knob = new QDial(this);
             knob->setFixedSize(32, 32);
-            //knob->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
             knob->setMinimum(minValue);
             knob->setMaximum(maxValue);
             knob->setValue(value);
             knob->setToolTip(QString::number(value));
-            //knob->setDefaultValue(defValue);
-            //knob->setDialMode(QDial::LinearMode);
             connect(knob, SIGNAL(sliderMoved(int)), SLOT(slotExtraController(int)));
             w = knob;
             break;
@@ -776,8 +546,6 @@ void VPiano::readSettings()
     int num_keys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
     QString insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
     QString insName = settings.value(QSTR_INSTRUMENTNAME).toString();
-    //bool grabKb = settings.value(QSTR_GRABKB, false).toBool();
-    //bool styledKnobs = settings.value(QSTR_STYLEDKNOBS, true).toBool();
     bool alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
     bool showNames = settings.value(QSTR_SHOWNOTENAMES, false).toBool();
     bool showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
@@ -788,28 +556,13 @@ void VPiano::readSettings()
     bool enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, true).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
     int startingKey = settings.value(QSTR_STARTINGKEY, DEFAULTSTARTINGKEY).toInt();
-    //m_midiDriver = settings.value(QSTR_MIDIDRIVER, QSTR_DRIVERDEFAULT).toString();
-//#if defined(NETWORK_MIDI)
-//    int udpPort = settings.value(QSTR_NETWORKPORT, NETWORKPORTNUMBER).toInt();
-//    NetworkSettings::instance().setPort(udpPort);
-//    QString iface = settings.value(QSTR_NETWORKIFACE).toString();
-//    NetworkSettings::instance().setIface(QNetworkInterface::interfaceFromName(iface));
-//#endif
     m_currentPalette = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
     bool colorScale = settings.value(QSTR_SHOWCOLORSCALE, false).toBool();
     settings.endGroup();
 
     dlgColorPolicy()->loadPalette(m_currentPalette);
-    //dlgPreferences()->setDriver(m_midiDriver);
-#if defined(NETWORK_MIDI)
-    dlgPreferences()->setNetworkPort(udpPort);
-    dlgPreferences()->setNetworkIfaceName(iface);
-#endif
     dlgPreferences()->setNumKeys(num_keys);
     dlgPreferences()->setDrumsChannel(drumsChannel);
-    //dlgPreferences()->setKeyPressedColor(keyColor);
-    //dlgPreferences()->setGrabKeyboard(grabKb);
-    //dlgPreferences()->setStyledWidgets(styledKnobs);
     dlgPreferences()->setAlwaysOnTop(alwaysOnTop);
     dlgPreferences()->setVelocityColor(velocityColor);
     dlgPreferences()->setEnforceChannelState(enforceChanState);
@@ -889,54 +642,6 @@ void VPiano::readSettings()
     }
 }
 
-/*void VPiano::readConnectionSettings()
-{
-//    const QString QSTR_CONNECTIONS("Connections");
-//    const QString QSTR_INENABLED("InEnabled");
-//    const QString QSTR_THRUENABLED("ThruEnabled");
-//    const QString QSTR_OMNIENABLED("OmniEnabled");
-//    const QString QSTR_ADVANCEDENABLED("AdvancedEnabled");
-//    const QString QSTR_INDRIVER("InputDriver");
-//    const QString QSTR_OUTDRIVER("OutputDriver");
-//    const QString QSTR_INPORT("InPort");
-//    const QString QSTR_OUTPORT("OutPort");
-
-
-    QSettings settings;
-    settings.beginGroup(QSTR_CONNECTIONS);
-    m_inputEnabled = settings.value(QSTR_INENABLED, true).toBool();
-    m_midiThru = settings.value(QSTR_THRUENABLED, false).toBool();
-    m_midiOmni = settings.value(QSTR_OMNIENABLED, false).toBool();
-    m_advanced = settings.value(QSTR_ADVANCEDENABLED, false).toBool();
-    m_lastInputBackend = settings.value(QSTR_INDRIVER).toString();
-    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER).toString();
-    m_lastInputConnection = settings.value(QSTR_INPORT).toString();
-    m_lastOutputConnection = settings.value(QSTR_OUTPORT).toString();
-    settings.endGroup();
-
-//    if (m_midiDriver != QSTR_DRIVERNAMENET) {
-//        in_port = settings.value(QSTR_INPORT).toString();
-//        out_port = settings.value(QSTR_OUTPORT).toString();
-//    }
-//    settings.endGroup();
-//    if ( m_midiDriver == QSTR_DRIVERNAMEALSA ||
-//         m_midiDriver == QSTR_DRIVERNAMEMACOSX ||
-//         m_midiDriver == QSTR_DRIVERNAMEJACK )
-//        inEnabled = true;
-
-//    if (m_midiin == 0) {
-//        dlgMidiSetup()->inputNotAvailable();
-//    } else {
-//        dlgMidiSetup()->setInputEnabled(inEnabled);
-//        dlgMidiSetup()->setThruEnabled(thruEnabled);
-//        dlgMidiSetup()->setOmniEnabled(omniEnabled);
-//        if (m_midiDriver != QSTR_DRIVERNAMENET)
-//            dlgMidiSetup()->setCurrentInputName(in_port);
-//    }
-//    if (m_midiDriver != QSTR_DRIVERNAMENET)
-//        dlgMidiSetup()->setCurrentOutputName(out_port);
-}*/
-
 void VPiano::readMidiControllerSettings()
 {
     QSettings settings;
@@ -987,8 +692,6 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_NUMKEYS, dlgPreferences()->getNumKeys());
     settings.setValue(QSTR_INSTRUMENTSDEFINITION, dlgPreferences()->getInstrumentsFileName());
     settings.setValue(QSTR_INSTRUMENTNAME, dlgPreferences()->getInstrumentName());
-    //settings.setValue(QSTR_GRABKB, dlgPreferences()->getGrabKeyboard());
-    //settings.setValue(QSTR_STYLEDKNOBS, dlgPreferences()->getStyledWidgets());
     settings.setValue(QSTR_ALWAYSONTOP, dlgPreferences()->getAlwaysOnTop());
     settings.setValue(QSTR_SHOWNOTENAMES, ui.actionNoteNames->isChecked());
     settings.setValue(QSTR_SHOWSTATUSBAR, ui.actionStatusBar->isChecked());
@@ -998,11 +701,6 @@ void VPiano::writeSettings()
     settings.setValue(QSTR_ENABLEKEYBOARDINPUT, dlgPreferences()->getEnabledKeyboard());
     settings.setValue(QSTR_ENABLEMOUSEINPUT, dlgPreferences()->getEnabledMouse());
     settings.setValue(QSTR_ENABLETOUCHINPUT, dlgPreferences()->getEnabledTouch());
-//    settings.setValue(QSTR_MIDIDRIVER, dlgPreferences()->getDriver());
-//#if defined(NETWORK_MIDI)
-//    settings.setValue(QSTR_NETWORKPORT, dlgPreferences()->getNetworkPort());
-//    settings.setValue(QSTR_NETWORKIFACE, dlgPreferences()->getNetworkInterfaceName());
-//#endif
     settings.setValue(QSTR_STARTINGKEY, dlgPreferences()->getStartingKey());
     settings.setValue(QSTR_CURRENTPALETTE, m_currentPalette);
     settings.setValue(QSTR_SHOWCOLORSCALE, ui.actionColorScale->isChecked());
@@ -1116,22 +814,6 @@ QColor VPiano::getColorFromPolicy(const int chan, const int note, const int vel)
     return QColor();
 }
 
-/*QColor VPiano::getColorFromPolicy(NoteOnEvent *ev)
-{
-    PianoPalette *palette = dlgColorPolicy()->currentPalette();
-    switch (palette->paletteId()) {
-    case PAL_SINGLE:
-        return palette->getColor(0);
-    case PAL_DOUBLE:
-        return palette->getColor(ev->getType());
-    case PAL_CHANNELS:
-        return palette->getColor(ev->getChannel());
-    case PAL_SCALE:
-        return palette->getColor(ev->getDegree());
-    }
-    return QColor();
-}*/
-
 void VPiano::slotNoteOn(const int chan, const int note, const int vel)
 {
     if (m_baseChannel == chan || m_midiOmni) {
@@ -1221,82 +903,6 @@ void VPiano::slotPitchBend(const int chan, const int value)
     }
 }
 
-/*void VPiano::customEvent ( QEvent *event )
-{
-    //qDebug() << "customEvent:" << event->type();
-    if ( event->type() == NoteOnEventType ) {
-        NoteOnEvent *ev = static_cast<NoteOnEvent*>(event);
-        int n = ev->getNote();
-        QColor c = getColorFromPolicy(ev);
-        int v = (dlgPreferences()->getVelocityColor() ? ev->getValue() : MIDIVELOCITY );
-        currentPianoScene()->showNoteOn(n, c, v);
-#ifdef ENABLE_DBUS
-        emit event_noteon(n);
-#endif
-    }
-    else if ( event->type() == NoteOffEventType ) {
-        NoteOffEvent *ev = static_cast<NoteOffEvent*>(event);
-        int n = ev->getNote();
-        currentPianoScene()->showNoteOff(n);
-#ifdef ENABLE_DBUS
-        emit event_noteoff(n);
-#endif
-    }
-    else if ( event->type() == PolyKeyPressEventType ) {
-#ifdef ENABLE_DBUS
-        PolyKeyPressEvent *ev = static_cast<PolyKeyPressEvent*>(event);
-        int n = ev->getNote();
-        int v = ev->getValue();
-        emit event_polykeypress(n, v);
-#endif
-    }
-    else if ( event->type() ==  ControlChangeEventType ) {
-        ControlChangeEvent *ev = static_cast<ControlChangeEvent*>(event);
-        int ctl = ev->getController();
-        int val = ev->getValue();
-        switch (ctl) {
-        case CTL_ALL_SOUND_OFF:
-        case CTL_ALL_NOTES_OFF:
-            currentPianoScene()->allKeysOff();
-            break;
-        case CTL_RESET_ALL_CTL:
-            initializeAllControllers();
-            break;
-        default:
-            updateController(ctl, val);
-            updateExtraController(ctl, val);
-        }
-#ifdef ENABLE_DBUS
-        emit event_controlchange(ctl, val);
-#endif
-    }
-    else if ( event->type() ==  ProgramChangeEventType) {
-        ProgramChangeEvent *ev = static_cast<ProgramChangeEvent*>(event);
-        int val = ev->getValue();
-        updateProgramChange(val);
-#ifdef ENABLE_DBUS
-        emit event_programchange(val);
-#endif
-    }
-    else if ( event->type() ==  ChannelKeyPressEventType ) {
-#ifdef ENABLE_DBUS
-        ChannelKeyPressEvent *ev = static_cast<ChannelKeyPressEvent*>(event);
-        int val = ev->getValue();
-        emit event_chankeypress(val);
-#endif
-    }
-    else if ( event->type() ==  PitchWheelEventType ) {
-        PitchWheelEvent *ev = static_cast<PitchWheelEvent*>(event);
-        int val = ev->getValue();
-        m_bender->setValue(val);
-        m_bender->setToolTip(QString::number(val));
-#ifdef ENABLE_DBUS
-        emit event_pitchwheel(val);
-#endif
-    }
-    event->accept();
-}*/
-
 void VPiano::showEvent ( QShowEvent *event )
 {
     //qDebug() << "showEvent:" << event->type();
@@ -1318,38 +924,11 @@ void VPiano::hideEvent( QHideEvent *event )
     QMainWindow::hideEvent(event);
 }
 
-/*void VPiano::midiThru(std::vector<unsigned char> *message) const
-{
-    if (m_midiThru) {
-        try {
-            m_midiout->sendMessage( message );
-        } catch (RtError& err) {
-            qWarning() << QString::fromStdString(err.getMessage());
-        }
-    }
-}*/
-
-/*void VPiano::sendMessageWrapper(std::vector<unsigned char> *message) const
-{
-    try {
-        m_midiout->sendMessage( message );
-    } catch (RtError& err) {
-        ui.statusBar->showMessage(QString::fromStdString(err.getMessage()));
-    }
-}*/
 
 void VPiano::sendNoteOn(const int midiNote, const int vel)
 {
-    //std::vector<unsigned char> message;
     if ((midiNote & MASK_SAFETY) == midiNote) {
         m_midiout->sendNoteOn( m_baseChannel, midiNote, vel );
-        /*unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-        unsigned char vel = static_cast<unsigned char>(m_velocity);
-        //Note On: 0x90 + channel, note, vel
-        message.push_back(STATUS_NOTEON + (chan & MASK_CHANNEL));
-        message.push_back(midiNote & MASK_SAFETY);
-        message.push_back(vel & MASK_SAFETY);
-        sendMessageWrapper( &message );*/
     }
 }
 
@@ -1366,13 +945,6 @@ void VPiano::sendNoteOff(const int midiNote, const int vel)
     std::vector<unsigned char> message;
     if ((midiNote & MASK_SAFETY) == midiNote) {
         m_midiout->sendNoteOff( m_baseChannel, midiNote, vel );
-        /*unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-        //unsigned char vel = static_cast<unsigned char>(m_velocity);
-        // Note Off: 0x80 + channel, note, vel
-        message.push_back(STATUS_NOTEOFF + (chan & MASK_CHANNEL));
-        message.push_back(midiNote & MASK_SAFETY);
-        message.push_back(vel & MASK_SAFETY);
-        sendMessageWrapper( &message );*/
     }
 }
 
@@ -1387,15 +959,6 @@ void VPiano::noteOff(const int midiNote, const int vel)
 void VPiano::sendController(const int controller, const int value)
 {
     m_midiout->sendController( m_baseChannel, controller, value );
-    /*std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-    unsigned char ctl  = static_cast<unsigned char>(controller);
-    unsigned char val  = static_cast<unsigned char>(value);
-    // Controller: 0xB0 + channel, ctl, val
-    message.push_back(STATUS_CTLCHG + (chan & MASK_CHANNEL));
-    message.push_back(ctl & MASK_SAFETY);
-    message.push_back(val & MASK_SAFETY);
-    sendMessageWrapper( &message );*/
 }
 
 void VPiano::resetAllControllers()
@@ -1446,13 +1009,6 @@ void VPiano::allNotesOff()
 void VPiano::sendProgramChange(const int program)
 {
     m_midiout->sendProgram( m_baseChannel, program );
-    /*std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-    unsigned char pgm  = static_cast<unsigned char>(program);
-    // Program: 0xC0 + channel, pgm
-    message.push_back(STATUS_PROGRAM + (chan & MASK_CHANNEL));
-    message.push_back(pgm & MASK_SAFETY);
-    sendMessageWrapper( &message );*/
 }
 
 void VPiano::sendBankChange(const int bank)
@@ -1481,42 +1037,16 @@ void VPiano::sendBankChange(const int bank)
 void VPiano::sendPolyKeyPress(const int note, const int value)
 {
     m_midiout->sendKeyPressure( m_baseChannel, note, value );
-    /*std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-    unsigned char midi_note  = static_cast<unsigned char>(note);
-    unsigned char val  = static_cast<unsigned char>(value);
-    // Polyphonic After-touch: 0xA0 + channel, note, value
-    message.push_back(STATUS_POLYAFT + (chan & MASK_CHANNEL));
-    message.push_back(midi_note & MASK_SAFETY);
-    message.push_back(val & MASK_SAFETY);
-    sendMessageWrapper( &message );*/
 }
 
 void VPiano::sendChanKeyPress(const int value)
 {
     m_midiout->sendChannelPressure( m_baseChannel, value );
-    /*std::vector<unsigned char> message;
-    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-    unsigned char val  = static_cast<unsigned char>(value);
-    // Channel After-touch: 0xD0 + channel, value
-    message.push_back(STATUS_CHANAFT + (chan & MASK_CHANNEL));
-    message.push_back(val & MASK_SAFETY);
-    sendMessageWrapper( &message );*/
 }
 
 void VPiano::sendBender(const int value)
 {
     m_midiout->sendPitchBend( m_baseChannel, value );
-    /*std::vector<unsigned char> message;
-    int v = value + BENDER_MID; // v >= 0, v <= 16384
-    unsigned char chan = static_cast<unsigned char>(m_baseChannel);
-    unsigned char lsb  = static_cast<unsigned char>(CALC_LSB(v));
-    unsigned char msb  = static_cast<unsigned char>(CALC_MSB(v));
-    // Program: 0xE0 + channel, lsb, msb
-    message.push_back(STATUS_BENDER + (chan & MASK_CHANNEL));
-    message.push_back(lsb);
-    message.push_back(msb);
-    sendMessageWrapper( &message );*/
 }
 
 void VPiano::slotPanic()
@@ -1538,11 +1068,6 @@ void VPiano::slotResetBender()
 void VPiano::sendSysex(const QByteArray& data)
 {
     m_midiout->sendSysex( data );
-    /* std::vector<unsigned char> message;
-    foreach(const char byte, data) {
-        message.push_back(byte);
-    }
-    sendMessageWrapper( &message );*/
 }
 
 void VPiano::slotControlClicked(const bool boolValue)
@@ -1623,36 +1148,6 @@ void VPiano::slotAboutQt()
 void VPiano::refreshConnections()
 {
     dlgMidiSetup()->refresh();
-
-    /*int i = 0, nInPorts = 0, nOutPorts = 0;
-    try {
-        dlgMidiSetup()->clearCombos();
-        // inputs
-        if (m_midiin == 0) {
-            dlgMidiSetup()->inputNotAvailable();
-            dlgMidiSetup()->setInputEnabled(false);
-        } else {
-#if !defined(__LINUX_ALSASEQ__) && !defined(__MACOSX_CORE__)
-            dlgMidiSetup()->setInputEnabled(m_currentIn != -1);
-#endif
-            dlgMidiSetup()->addInputPortName(QString::null, -1);
-            nInPorts = m_midiin->getPortCount();
-            for ( i = 0; i < nInPorts; i++ ) {
-                QString name = QString::fromStdString(m_midiin->getPortName(i));
-                if (!name.startsWith(QSTR_VMPK))
-                    dlgMidiSetup()->addInputPortName(name, i);
-            }
-        }
-        // outputs
-        nOutPorts = m_midiout->getPortCount();
-        for ( i = 0; i < nOutPorts; i++ ) {
-            QString name = QString::fromStdString(m_midiout->getPortName(i));
-            if (!name.startsWith(QSTR_VMPK))
-                dlgMidiSetup()->addOutputPortName(name, i);
-        }
-    } catch (RtError& err) {
-        ui.statusBar->showMessage(QString::fromStdString(err.getMessage()));
-    }*/
 }
 
 void VPiano::slotConnections()
@@ -1662,6 +1157,12 @@ void VPiano::slotConnections()
     dlgMidiSetup()->setOutput(m_midiout);
     releaseKb();
     if (dlgMidiSetup()->exec() == QDialog::Accepted) {
+        if (m_midiin != 0) {
+            m_lastInputConnection = m_midiin->currentConnection();
+        }
+        if (m_midiout != 0) {
+            m_lastOutputConnection = m_midiout->currentConnection();
+        }
         applyConnections();
         enforceMIDIChannelState();
     }
@@ -1708,38 +1209,6 @@ void VPiano::applyConnections()
             m_midiin->enableMIDIThru(m_midiThru);
         }
     }
-
-    /*int i, nInPorts = 0, nOutPorts = 0;
-    try {
-        nOutPorts = m_midiout->getPortCount();
-        i = dlgMidiSetup()->selectedOutput();
-        if ((i >= 0) && (i < nOutPorts) && (i != m_currentOut)) {
-            m_midiout->closePort();
-            m_midiout->openPort(i);
-        }
-        m_currentOut = i;
-        if (m_midiin != 0) {
-            nInPorts = m_midiin->getPortCount();
-            i = dlgMidiSetup()->selectedInput();
-            if (m_inputActive && (i != m_currentIn)) {
-                m_midiin->cancelCallback();
-                m_inputActive = false;
-                if (m_currentIn > -1)
-                    m_midiin->closePort();
-            }
-            if ((i >= 0) && (i < nInPorts) && (i != m_currentIn) &&
-                dlgMidiSetup()->inputIsEnabled()) {
-                m_midiin->openPort(i);
-                m_midiin->setCallback( &midiCallback, this );
-                m_inputActive = true;
-            }
-            m_currentIn = i;
-            m_midiThru = dlgMidiSetup()->thruIsEnabled();
-            m_midiOmni = dlgMidiSetup()->omniIsEnabled();
-        }
-    } catch (RtError& err) {
-        ui.statusBar->showMessage(QString::fromStdString(err.getMessage()));
-    }*/
 }
 
 void VPiano::initControllers(int channel)
@@ -1806,12 +1275,6 @@ void VPiano::applyPreferences()
     ui.actionMouseInput->setChecked(enableMouse);
     ui.actionTouchScreenInput->setChecked(enableTouch);
 
-#if defined(NETWORK_MIDI)
-    int udpPort = dlgPreferences()->getNetworkPort();
-    NetworkSettings::instance().setPort(udpPort);
-    NetworkSettings::instance().setIface(dlgPreferences()->getNetworkInterface());
-#endif
-
     KeyboardMap* map = dlgPreferences()->getKeyboardMap();
     if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
         currentPianoScene()->setKeyboardMap(map);
@@ -1842,7 +1305,6 @@ void VPiano::applyPreferences()
     move(wpos);
 
     slotShowNoteNames();
-    //updateStyles();
     show();
 }
 
@@ -1900,23 +1362,9 @@ void VPiano::applyInitialSettings()
 
 void VPiano::slotPreferences()
 {
-#if defined(NETWORK_MIDI)
-    int old_udpPort = NetworkSettings::instance().port();
-    QString old_iface = NetworkSettings::instance().iface().name();
-#endif
-    //QString old_driver = dlgPreferences()->getDriver();
     releaseKb();
     if (dlgPreferences()->exec() == QDialog::Accepted) {
         applyPreferences();
-        /*if (old_driver != dlgPreferences()->getDriver()) {
-            switchMIDIDriver();
-        }*/
-//#if defined(NETWORK_MIDI)
-//        if (old_udpPort != NetworkSettings::instance().port() ||
-//            old_iface != NetworkSettings::instance().iface().name() ) {
-//            applyConnections();
-//        }
-//#endif
     }
     grabKb();
 }
@@ -2156,28 +1604,16 @@ void VPiano::slotComboControlCurrentIndexChanged(const int index)
 
 void VPiano::grabKb()
 {
-//#if !defined(SMALL_SCREEN)
-//    if (dlgPreferences()->getGrabKeyboard()) {
-//        ui.pianokeybd->grabKeyboard();
-//    }
-//    currentPianoScene()->setRawKeyboardMode(dlgPreferences()->getRawKeyboard());
 #if defined(RAWKBD_SUPPORT)
     m_filter->setRawKbdEnabled(dlgPreferences()->getRawKeyboard());
 #endif
-//#endif
 }
 
 void VPiano::releaseKb()
 {
-//#if !defined(SMALL_SCREEN)
-//    if (dlgPreferences()->getGrabKeyboard()) {
-//        ui.pianokeybd->releaseKeyboard();
-//    }
 #if defined(RAWKBD_SUPPORT)
     m_filter->setRawKbdEnabled(false);
 #endif
-//    currentPianoScene()->setRawKeyboardMode(false);
-//#endif
 }
 
 class HelpDialog : public QDialog
@@ -2228,18 +1664,6 @@ void VPiano::slotOpenWebSite()
     QUrl url(QSTR_VMPKURL);
     QDesktopServices::openUrl(url);
 }
-
-/*void VPiano::updateStyles()
-{
-//    QList<QDial *> allKnobs = findChildren<QDial *> ();
-//    foreach(QDial* knob, allKnobs) {
-//        knob->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
-//    }
-    QList<QCheckBox *> allChkbox = ui.toolBarExtra->findChildren<QCheckBox *> ();
-    foreach(QCheckBox* chkbox, allChkbox) {
-        //chkbox->setStyle(dlgPreferences()->getStyledWidgets() ? m_dialStyle : 0);
-    }
-}*/
 
 void VPiano::slotImportSF()
 {
@@ -2408,8 +1832,6 @@ void VPiano::connect_out(const QString &value)
 void VPiano::connect_thru(bool value)
 {
     if( m_midiin != 0 && m_midiout != 0) {
-        /*dlgMidiSetup()->setThruEnabled(value);
-        applyConnections();*/
         m_midiin->enableMIDIThru(value);
         m_midiin->setMIDIThruDevice(m_midiout);
     }
@@ -2418,36 +1840,26 @@ void VPiano::connect_thru(bool value)
 void VPiano::noteoff(int note)
 {
     sendNoteOff(note, 0);
-//    NoteOffEvent *ev = new NoteOffEvent(m_baseChannel, note, 0);
-//    QApplication::postEvent(this, ev);
 }
 
 void VPiano::noteon(int note)
 {
     sendNoteOn(note, m_velocity);
-//    NoteOnEvent *ev = new NoteOnEvent(m_baseChannel, note, m_velocity);
-//    QApplication::postEvent(this, ev);
 }
 
 void VPiano::polykeypress(int note, int value)
 {
     sendPolyKeyPress(note, value);
-//    PolyKeyPressEvent *ev = new PolyKeyPressEvent(note, value);
-//    QApplication::postEvent(this, ev);
 }
 
 void VPiano::controlchange(int control, int value)
 {
     sendController(control, value);
-//    ControlChangeEvent *ev = new ControlChangeEvent(control, value);
-//    QApplication::postEvent(this, ev);
 }
 
 void VPiano::programchange(int value)
 {
     sendProgramChange(value);
-//    ProgramChangeEvent *ev = new ProgramChangeEvent(value);
-//    QApplication::postEvent(this, ev);
 }
 
 void VPiano::programnamechange(const QString &value)
@@ -2462,15 +1874,11 @@ void VPiano::programnamechange(const QString &value)
 void VPiano::chankeypress(int value)
 {
     sendChanKeyPress(value);
-//    ChannelKeyPressEvent *ev = new ChannelKeyPressEvent(value);
-//    QApplication::postEvent(this, ev);
 }
 
 void VPiano::pitchwheel(int value)
 {
     sendBender(value);
-//    PitchWheelEvent *ev = new PitchWheelEvent(value);
-//    QApplication::postEvent(this, ev);
 }
 
 #endif /* ENABLE_DBUS */

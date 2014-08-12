@@ -1,5 +1,7 @@
 # unmaintained translations, not installed
-# vmpk_tr.ts
+#    vmpk_nl.ts
+#    vmpk_tr.ts
+#    vmpk_zh_CN.ts
 
 SET( TRANSLATIONS_FILES
      vmpk_cs.ts
@@ -7,11 +9,9 @@ SET( TRANSLATIONS_FILES
      vmpk_es.ts
      vmpk_fr.ts
      vmpk_gl.ts
-#    vmpk_nl.ts
      vmpk_ru.ts
      vmpk_sr.ts
      vmpk_sv.ts
-#    vmpk_zh_CN.ts
 )
 
 QT5_ADD_TRANSLATION(QM_FILES ${TRANSLATIONS_FILES})

@@ -96,30 +96,11 @@ const QString QSTR_ENABLEKEYBOARDINPUT("EnableKeyboardInput");
 const QString QSTR_ENABLEMOUSEINPUT("EnableMouseInput");
 const QString QSTR_ENABLETOUCHINPUT("EnableTouchInput");
 
-//const QString QSTR_MIDIDRIVER("MIDIDriver");
-//const QString QSTR_DRIVERNAMEALSA("ALSA Sequencer");
-//const QString QSTR_DRIVERNAMEJACK("Jack MIDI");
-//const QString QSTR_DRIVERNAMEMACOSX("Mac OSX CoreMIDI");
-//const QString QSTR_DRIVERNAMEIRIX("SGI Irix MD");
-//const QString QSTR_DRIVERNAMEWINMM("Windows MM");
-//const QString QSTR_DRIVERNAMENET("Network UDP (IpMIDI)");
 const QString QSTR_MULTICAST_ADDRESS("225.0.0.37");
 const QString QSTR_PALETTEPREFIX("Palette_");
 const QString QSTR_CURRENTPALETTE("CurrentPalette");
 const QString QSTR_SHOWCOLORSCALE("ShowColorScale");
 const QString QSTR_CHKBOXSTYLE("QCheckBox::indicator {width: 20px; height: 20px;} QCheckBox::indicator:checked {image: url(:/vpiano/led_green.svg);} QCheckBox::indicator:unchecked{image: url(:/vpiano/led_grey.svg);}");
-
-//#if defined(Q_OS_LINUX)
-//const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEALSA);
-//#elif defined(Q_OS_MAC)
-//const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEMACOSX);
-//#elif defined(Q_OS_IRIX)
-//const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEIRIX);
-//#elif defined(Q_OS_WIN)
-//const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMEWINMM);
-//#else
-//const QString QSTR_DRIVERDEFAULT(QSTR_DRIVERNAMENET);
-//#endif
 
 #if defined(SMALL_SCREEN)
 const QString QSTR_VMPKURL("http://vmpk.sourceforge.net/m/");

@@ -26,7 +26,10 @@ set(vmpk_forms_SRCS
     preferences.ui
     riffimportdlg.ui
     vpiano.ui
-    shortcutdialog.ui)
+    shortcutdialog.ui
+    fluidsettingsdialog.ui
+    networksettingsdialog.ui
+)
 
 QT5_WRAP_UI(vmpk_ui_SRCS ${vmpk_forms_SRCS})
 
@@ -71,16 +74,12 @@ set(vmpk_SRCS
     riffimportdlg.h
     shortcutdialog.cpp
     shortcutdialog.h
+    fluidsettingsdialog.cpp
+    fluidsettingsdialog.h
+    networksettingsdialog.cpp
+    networksettingsdialog.h
     vpiano.cpp
     vpiano.h )
-
-#    knob.cpp
-#    knob.h
-#    RtError.h
-#    RtMidi.cpp
-#    RtMidi.h
-#    udpmidi.h
-#    udpmidi.cpp
 
 QT5_ADD_RESOURCES(vmpk_SRCS ../data/vmpk.qrc)
 
@@ -97,6 +96,8 @@ set(vmpk_qtobject_SRCS
     riff.h
     riffimportdlg.h
     vpiano.h
+    fluidsettingsdialog.h
+    networksettingsdialog.h
     shortcutdialog.h)
 
 if(ENABLE_DBUS)
@@ -172,7 +173,17 @@ target_link_libraries(vmpk
     Qt5::Widgets
     Qt5::Xml
     Qt5::Svg
-    Qt5::DBus
-    Qt5::X11Extras
+    Qt5::Network
 )
 
+if(ENABLE_DBUS)
+    target_link_libraries(vmpk
+        Qt5::DBus
+    )
+endif()
+
+if(UNIX AND NOT APPLE)
+    target_link_libraries(vmpk
+        Qt5::X11Extras
+    )
+endif()

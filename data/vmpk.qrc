@@ -19,4 +19,8 @@
         <file>nl.png</file>
         <file>zh-cn.png</file>
     </qresource>
+    <qresource prefix="/social">
+        <file>sf_badge_64s.png</file>
+        <file>gplus-64.png</file>
+    </qresource>
 </RCC>

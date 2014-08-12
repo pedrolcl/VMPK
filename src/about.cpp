@@ -27,7 +27,9 @@ About::About(QWidget *parent)
 {
     ui.setupUi(this);
     retranslateUi();
-    connect(ui.btnAndroid, SIGNAL(clicked()), SLOT(openGooglePlay()));
+    connect(ui.btnAndroid, &QPushButton::clicked, this, &About::openGooglePlay);
+    connect(ui.btnGooglePlus, &QPushButton::clicked, this, &About::openGooglePlus);
+    connect(ui.btnSourceForge, &QPushButton::clicked, this, &About::openSourceForge);
 #if defined(SMALL_SCREEN)
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
@@ -63,5 +65,17 @@ void About::retranslateUi()
 void About::openGooglePlay()
 {
     QUrl url("http://play.google.com/store/apps/details?id=net.sourceforge.vmpk.free");
+    QDesktopServices::openUrl(url);
+}
+
+void About::openGooglePlus()
+{
+    QUrl url("http://plus.google.com/109346302876120611200");
+    QDesktopServices::openUrl(url);
+}
+
+void About::openSourceForge()
+{
+    QUrl url("http://sourceforge.net/projects/vmpk/");
     QDesktopServices::openUrl(url);
 }

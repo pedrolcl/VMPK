@@ -33,6 +33,8 @@ public:
 
 protected slots:
     void openGooglePlay();
+    void openGooglePlus();
+    void openSourceForge();
 
 private:
     Ui::AboutClass ui;
