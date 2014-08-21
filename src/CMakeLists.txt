@@ -163,10 +163,14 @@ if(APPLE)
     set_source_files_properties (${vmpk_RSC} PROPERTIES
                                  MACOSX_PACKAGE_LOCATION Resources)
     add_executable (vmpk MACOSX_BUNDLE
-					${vmpk_ui_SRCS}
-					${vmpk_moc_SRCS}
-					${vmpk_SRCS}
-					${vmpk_RSC})
+        ${vmpk_ui_SRCS}
+        ${vmpk_moc_SRCS}
+        ${vmpk_SRCS}
+        ${vmpk_RSC}
+    )
+    target_link_libraries(vmpk
+        "-framework Cocoa"
+    )
 endif()
 
 target_link_libraries(vmpk
@@ -174,7 +178,6 @@ target_link_libraries(vmpk
     Qt5::Xml
     Qt5::Svg
     Qt5::Network
-    "-framework Cocoa"
 )
 
 if(ENABLE_DBUS)
