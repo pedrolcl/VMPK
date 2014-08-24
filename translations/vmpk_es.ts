@@ -2054,142 +2054,142 @@ Do you want to apply the changes?</source>
         <translation type="vanished">Error. Abortar</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2086"/>
+        <location filename="../src/vpiano.cpp" line="2093"/>
         <source>Galician</source>
         <translation>gallego</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2089"/>
+        <location filename="../src/vpiano.cpp" line="2096"/>
         <source>Serbian</source>
         <translation>serbio</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2098"/>
+        <location filename="../src/vpiano.cpp" line="2105"/>
         <source>Chan:</source>
         <translation>Can:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2100"/>
+        <location filename="../src/vpiano.cpp" line="2107"/>
         <source>Channel:</source>
         <translation>Canal: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2105"/>
+        <location filename="../src/vpiano.cpp" line="2112"/>
         <source>Oct:</source>
         <translation>Oct:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2107"/>
+        <location filename="../src/vpiano.cpp" line="2114"/>
         <source>Base Octave:</source>
         <translation>Octava base: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2112"/>
+        <location filename="../src/vpiano.cpp" line="2119"/>
         <source>Trans:</source>
         <translation>Trans:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2114"/>
+        <location filename="../src/vpiano.cpp" line="2121"/>
         <source>Transpose:</source>
         <translation>Transposición: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2119"/>
+        <location filename="../src/vpiano.cpp" line="2126"/>
         <source>Vel:</source>
         <translation>Vel:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2121"/>
+        <location filename="../src/vpiano.cpp" line="2128"/>
         <source>Velocity:</source>
         <translation>Velocidad: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
+        <location filename="../src/vpiano.cpp" line="2133"/>
         <source>Control:</source>
         <translation>Control: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
+        <location filename="../src/vpiano.cpp" line="2135"/>
         <source>Value:</source>
         <translation>Valor: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2125"/>
+        <location filename="../src/vpiano.cpp" line="2132"/>
         <source>Bender:</source>
         <translation>Inflexión: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2124"/>
+        <location filename="../src/vpiano.cpp" line="2131"/>
         <source>Bank:</source>
         <translation>Banco: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2127"/>
+        <location filename="../src/vpiano.cpp" line="2134"/>
         <source>Program:</source>
         <translation>Programa: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1986"/>
+        <location filename="../src/vpiano.cpp" line="1993"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>El idioma de esta aplicación está a punto de cambiar a %1. ¿Deseas continuar?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2029"/>
+        <location filename="../src/vpiano.cpp" line="2036"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK está desarrollado y traducido gracias al trabajo voluntario de mucha gente de todo el mundo. Si quieres unirte al equipo o tienes cualquier pregunta, por favor visita los foros en &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2050"/>
+        <location filename="../src/vpiano.cpp" line="2057"/>
         <source>Translation Information</source>
         <translation>Información sobre traducción</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2090"/>
+        <location filename="../src/vpiano.cpp" line="2097"/>
         <source>Swedish</source>
         <translation>sueco</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2047"/>
+        <location filename="../src/vpiano.cpp" line="2054"/>
         <source>Translation</source>
         <translation>Traducción</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2048"/>
+        <location filename="../src/vpiano.cpp" line="2055"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Traductor: Pedro López-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2081"/>
+        <location filename="../src/vpiano.cpp" line="2088"/>
         <source>Czech</source>
         <translation>checo</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2082"/>
+        <location filename="../src/vpiano.cpp" line="2089"/>
         <source>German</source>
         <translation>alemán</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2083"/>
+        <location filename="../src/vpiano.cpp" line="2090"/>
         <source>English</source>
         <translation>inglés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2084"/>
+        <location filename="../src/vpiano.cpp" line="2091"/>
         <source>Spanish</source>
         <translation>español</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2085"/>
+        <location filename="../src/vpiano.cpp" line="2092"/>
         <source>French</source>
         <translation>francés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2087"/>
+        <location filename="../src/vpiano.cpp" line="2094"/>
         <source>Dutch</source>
         <translation>holandés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2088"/>
+        <location filename="../src/vpiano.cpp" line="2095"/>
         <source>Russian</source>
         <translation>ruso</translation>
     </message>
@@ -2198,12 +2198,12 @@ Do you want to apply the changes?</source>
         <translation type="obsolete">turco</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2091"/>
+        <location filename="../src/vpiano.cpp" line="2098"/>
         <source>Chinese</source>
         <translation>chino</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1985"/>
+        <location filename="../src/vpiano.cpp" line="1992"/>
         <source>Language Changed</source>
         <translation>Idioma modificado</translation>
     </message>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fr_FR">
+<TS version="2.1" language="fr_FR">
 <context>
     <name>About</name>
     <message>
@@ -55,7 +55,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1278,7 +1278,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Enable MIDI input</source>
-        <translation>Activer l&apos;entrée MIDI</translation>
+        <translation type="vanished">Activer l&apos;entrée MIDI</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="129"/>
@@ -1343,7 +1343,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>MIDI Omni mode</source>
-        <translation>Mode MIDI Omni</translation>
+        <translation type="vanished">Mode MIDI Omni</translation>
     </message>
 </context>
 <context>
@@ -1395,11 +1395,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>C#</source>
-        <translation>Do#</translation>
+        <translation type="vanished">Do#</translation>
     </message>
     <message>
         <source>D#</source>
-        <translation>Re#</translation>
+        <translation type="vanished">Re#</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="595"/>
@@ -1415,35 +1415,35 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>F#</source>
-        <translation>Fa#</translation>
+        <translation type="vanished">Fa#</translation>
     </message>
     <message>
         <source>G#</source>
-        <translation>Sol#</translation>
+        <translation type="vanished">Sol#</translation>
     </message>
     <message>
         <source>A#</source>
-        <translation>La#</translation>
+        <translation type="vanished">La#</translation>
     </message>
     <message>
         <source>Db</source>
-        <translation>Reb</translation>
+        <translation type="vanished">Reb</translation>
     </message>
     <message>
         <source>Eb</source>
-        <translation>Mib</translation>
+        <translation type="vanished">Mib</translation>
     </message>
     <message>
         <source>Gb</source>
-        <translation>Solb</translation>
+        <translation type="vanished">Solb</translation>
     </message>
     <message>
         <source>Ab</source>
-        <translation>Solb</translation>
+        <translation type="vanished">Solb</translation>
     </message>
     <message>
         <source>Bb</source>
-        <translation>Bb</translation>
+        <translation type="vanished">Bb</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="597"/>
@@ -1538,7 +1538,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Number of octaves</source>
-        <translation>Nombre d&apos;octaves</translation>
+        <translation type="vanished">Nombre d&apos;octaves</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="57"/>
@@ -1584,7 +1584,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>load...</source>
-        <translation>Ouvrir...</translation>
+        <translation type="vanished">Ouvrir...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="163"/>
@@ -1651,11 +1651,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation>Changer le style graphique des éléments de contrôle (boutons rotatifs et commutateurs), soit le style propre de VMPK ou le style prédéfini dans qtconfig.</translation>
+        <translation type="vanished">Changer le style graphique des éléments de contrôle (boutons rotatifs et commutateurs), soit le style propre de VMPK ou le style prédéfini dans qtconfig.</translation>
     </message>
     <message>
         <source>Styled Widgets</source>
-        <translation>Style propre pour les contrôles</translation>
+        <translation type="vanished">Style propre pour les contrôles</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="388"/>
@@ -1678,11 +1678,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Network Interface</source>
-        <translation>Interface réseau</translation>
+        <translation type="vanished">Interface réseau</translation>
     </message>
     <message>
         <source>MIDI Driver</source>
-        <translation>Pilote MIDI</translation>
+        <translation type="vanished">Pilote MIDI</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="220"/>
@@ -1696,7 +1696,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>colors...</source>
-        <translation>couleurs...</translation>
+        <translation type="vanished">couleurs...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="231"/>
@@ -1785,7 +1785,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Network Port</source>
-        <translation>Port Réseau</translation>
+        <translation type="vanished">Port Réseau</translation>
     </message>
     <message>
         <source>Change the knob buttons style, either using the custom look or revert to the style selected in qtconfig.</source>
@@ -1811,7 +1811,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1819,7 +1819,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Grab Computer Keyboard</source>
-        <translation>Capturer le clavier d&apos;ordinateur</translation>
+        <translation type="vanished">Capturer le clavier d&apos;ordinateur</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="398"/>
@@ -1982,149 +1982,149 @@ Voulez-vous appliquer ces modifications?</translation>
     </message>
     <message>
         <source>No MIDI output ports available. Aborting</source>
-        <translation>Aucun port de sortie MIDI disponible. Abandon</translation>
+        <translation type="vanished">Aucun port de sortie MIDI disponible. Abandon</translation>
     </message>
     <message>
         <source>Error. Aborting</source>
-        <translation>Erreur. Abandon</translation>
+        <translation type="vanished">Erreur. Abandon</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2086"/>
+        <location filename="../src/vpiano.cpp" line="2093"/>
         <source>Galician</source>
         <translation>Galicien</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2089"/>
+        <location filename="../src/vpiano.cpp" line="2096"/>
         <source>Serbian</source>
         <translation>Serbe</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2098"/>
+        <location filename="../src/vpiano.cpp" line="2105"/>
         <source>Chan:</source>
         <translation>Can:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2100"/>
+        <location filename="../src/vpiano.cpp" line="2107"/>
         <source>Channel:</source>
         <translation>Canal:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2105"/>
+        <location filename="../src/vpiano.cpp" line="2112"/>
         <source>Oct:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2107"/>
+        <location filename="../src/vpiano.cpp" line="2114"/>
         <source>Base Octave:</source>
         <translation>Octave de base:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2112"/>
+        <location filename="../src/vpiano.cpp" line="2119"/>
         <source>Trans:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2114"/>
+        <location filename="../src/vpiano.cpp" line="2121"/>
         <source>Transpose:</source>
         <translation>Transposer:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2119"/>
+        <location filename="../src/vpiano.cpp" line="2126"/>
         <source>Vel:</source>
         <translation>Vél:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2121"/>
+        <location filename="../src/vpiano.cpp" line="2128"/>
         <source>Velocity:</source>
         <translation>Vélocité:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
+        <location filename="../src/vpiano.cpp" line="2133"/>
         <source>Control:</source>
         <translation>Contrôle:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
+        <location filename="../src/vpiano.cpp" line="2135"/>
         <source>Value:</source>
         <translation>Valeur:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2125"/>
+        <location filename="../src/vpiano.cpp" line="2132"/>
         <source>Bender:</source>
         <translation>Pitchbend:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2124"/>
+        <location filename="../src/vpiano.cpp" line="2131"/>
         <source>Bank:</source>
         <translation>Banque:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2127"/>
+        <location filename="../src/vpiano.cpp" line="2134"/>
         <source>Program:</source>
         <translation>Programme:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1986"/>
+        <location filename="../src/vpiano.cpp" line="1993"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>La langue de cette application va changer à %1. Voulez-vous continuer?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2029"/>
+        <location filename="../src/vpiano.cpp" line="2036"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK est développé et traduit grâce au travail volontaire fourni par de nombreuses personnes du monde entier. Si vous souhaitez rejoindre l&apos;équipe ou si vous avez d&apos;autres questions, n&apos;hésitez pas à rejoindre les forums sur &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2050"/>
+        <location filename="../src/vpiano.cpp" line="2057"/>
         <source>Translation Information</source>
         <translation>Informations sur la traduction</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2090"/>
+        <location filename="../src/vpiano.cpp" line="2097"/>
         <source>Swedish</source>
         <translation>Suédois</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2047"/>
+        <location filename="../src/vpiano.cpp" line="2054"/>
         <source>Translation</source>
         <translation>Traduction</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2048"/>
+        <location filename="../src/vpiano.cpp" line="2055"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Traduit par Frank Kober (emuse@users.sourceforge.net)&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2081"/>
+        <location filename="../src/vpiano.cpp" line="2088"/>
         <source>Czech</source>
         <translation>Tchèque</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2082"/>
+        <location filename="../src/vpiano.cpp" line="2089"/>
         <source>German</source>
         <translation>Allemand</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2083"/>
+        <location filename="../src/vpiano.cpp" line="2090"/>
         <source>English</source>
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2084"/>
+        <location filename="../src/vpiano.cpp" line="2091"/>
         <source>Spanish</source>
         <translation>Espagnol</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2085"/>
+        <location filename="../src/vpiano.cpp" line="2092"/>
         <source>French</source>
         <translation>Français</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2087"/>
+        <location filename="../src/vpiano.cpp" line="2094"/>
         <source>Dutch</source>
         <translation>Hollandais</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2088"/>
+        <location filename="../src/vpiano.cpp" line="2095"/>
         <source>Russian</source>
         <translation>Russe</translation>
     </message>
@@ -2133,12 +2133,12 @@ Voulez-vous appliquer ces modifications?</translation>
         <translation type="obsolete">Turque</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2091"/>
+        <location filename="../src/vpiano.cpp" line="2098"/>
         <source>Chinese</source>
         <translation>Chinois</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1985"/>
+        <location filename="../src/vpiano.cpp" line="1992"/>
         <source>Language Changed</source>
         <translation>La langue a changé</translation>
     </message>
