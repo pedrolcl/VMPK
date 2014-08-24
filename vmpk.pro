@@ -165,17 +165,18 @@ macx {
 RESOURCES += data/vmpk.qrc
 
 TRANSLATIONS +=  \
+    translations/vmpk_en.ts \
     translations/vmpk_cs.ts \
     translations/vmpk_de.ts \
     translations/vmpk_es.ts \
     translations/vmpk_fr.ts \
     translations/vmpk_gl.ts \
-    #translations/vmpk_nl.ts \
+    translations/vmpk_nl.ts \
     translations/vmpk_ru.ts \
     translations/vmpk_sr.ts \
-    translations/vmpk_sv.ts
-    #translations/vmpk_tr.ts \
-    #translations/vmpk_zh_CN.ts
+    translations/vmpk_sv.ts \
+    translations/vmpk_tr.ts \
+    translations/vmpk_zh_CN.ts
 
 include(updateqm.pri)
 
