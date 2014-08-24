@@ -193,3 +193,10 @@ void FluidSettingsDialog::showFileDialog()
         ui->soundFont->setText(fileName);
     }
 }
+
+void FluidSettingsDialog::changeSoundFont(const QString& fileName)
+{
+    readSettings();
+    ui->soundFont->setText(fileName);
+    writeSettings();
+}

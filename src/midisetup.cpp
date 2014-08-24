@@ -250,3 +250,23 @@ bool MidiSetup::midiThru()
 {
     return ui.chkEnableThru->isChecked();
 }
+
+bool MidiSetup::changeSoundFont(const QString& fileName)
+{
+    QString driver = ui.comboOutputBackends->currentText();
+    if (driver == "FluidSynth") {
+        FluidSettingsDialog dlg(this);
+        dlg.changeSoundFont(fileName);
+        if (m_midiOut != 0) {
+            QSettings settings;
+            QString conn = ui.comboOutput->currentText();
+            if (!conn.isEmpty()) {
+                m_midiOut->close();
+                m_midiOut->initialize(&settings);
+                m_midiOut->open(conn);
+                return true;
+            }
+        }
+    }
+    return false;
+}

@@ -229,62 +229,62 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/colordialog.cpp" line="172"/>
         <source>C</source>
-        <translation>Do</translation>
+        <translation>do</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="173"/>
         <source>C#</source>
-        <translation>Do#</translation>
+        <translation>do#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="174"/>
         <source>D</source>
-        <translation>Re</translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="175"/>
         <source>D#</source>
-        <translation>Re#</translation>
+        <translation>re#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="176"/>
         <source>E</source>
-        <translation>Mi</translation>
+        <translation>mi</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="177"/>
         <source>F</source>
-        <translation>Fa</translation>
+        <translation>fa</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="178"/>
         <source>F#</source>
-        <translation>Fa#</translation>
+        <translation>fa#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="179"/>
         <source>G</source>
-        <translation>Sol</translation>
+        <translation>sol</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="180"/>
         <source>G#</source>
-        <translation>Sol#</translation>
+        <translation>sol#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="181"/>
         <source>A</source>
-        <translation>La</translation>
+        <translation>la</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="182"/>
         <source>A#</source>
-        <translation>La#</translation>
+        <translation>la#</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="183"/>
         <source>B</source>
-        <translation>Si</translation>
+        <translation>si</translation>
     </message>
     <message>
         <location filename="../src/colordialog.cpp" line="191"/>
@@ -1383,23 +1383,23 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/pianoscene.cpp" line="591"/>
         <location filename="../src/pianoscene.cpp" line="603"/>
         <source>C</source>
-        <translation>Do</translation>
+        <translation>do</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="592"/>
         <source>C♯</source>
-        <translation>Do♯</translation>
+        <translation>do♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="593"/>
         <location filename="../src/pianoscene.cpp" line="605"/>
         <source>D</source>
-        <translation>Re</translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="594"/>
         <source>D♯</source>
-        <translation>Re♯</translation>
+        <translation>re♯</translation>
     </message>
     <message>
         <source>C#</source>
@@ -1413,13 +1413,13 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/pianoscene.cpp" line="595"/>
         <location filename="../src/pianoscene.cpp" line="607"/>
         <source>E</source>
-        <translation>Mi</translation>
+        <translation>mi</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="596"/>
         <location filename="../src/pianoscene.cpp" line="608"/>
         <source>F</source>
-        <translation>Fa</translation>
+        <translation>fa</translation>
     </message>
     <message>
         <source>F#</source>
@@ -1456,60 +1456,60 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="597"/>
         <source>F♯</source>
-        <translation>Fa♯</translation>
+        <translation>fa♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="598"/>
         <location filename="../src/pianoscene.cpp" line="610"/>
         <source>G</source>
-        <translation>Sol</translation>
+        <translation>sol</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="599"/>
         <source>G♯</source>
-        <translation>Sol♯</translation>
+        <translation>sol♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="600"/>
         <location filename="../src/pianoscene.cpp" line="612"/>
         <source>A</source>
-        <translation>La</translation>
+        <translation>la</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="601"/>
         <source>A♯</source>
-        <translation>La♯</translation>
+        <translation>la♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="602"/>
         <location filename="../src/pianoscene.cpp" line="614"/>
         <source>B</source>
-        <translation>Si</translation>
+        <translation>si</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="604"/>
         <source>D♭</source>
-        <translation>Re♭</translation>
+        <translation>re♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="606"/>
         <source>E♭</source>
-        <translation>Mi♭</translation>
+        <translation>mi♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="609"/>
         <source>G♭</source>
-        <translation>Sol♭</translation>
+        <translation>sol♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="611"/>
         <source>A♭</source>
-        <translation>La♭</translation>
+        <translation>la♭</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="613"/>
         <source>B♭</source>
-        <translation>Si♭</translation>
+        <translation>si♭</translation>
     </message>
 </context>
 <context>

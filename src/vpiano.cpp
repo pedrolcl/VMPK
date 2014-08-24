@@ -1674,6 +1674,13 @@ void VPiano::slotImportSF()
         dlgPreferences()->setInstrumentsFileName(dlgRiffImport()->getOutput());
         dlgPreferences()->setInstrumentName(dlgRiffImport()->getName());
         applyPreferences();
+        if (m_midiout != 0) {
+            m_lastOutputConnection = m_midiout->currentConnection();
+            if (dlgMidiSetup()->changeSoundFont(dlgRiffImport()->getInput())) {
+                applyConnections();
+                enforceMIDIChannelState();
+            }
+        }
     }
     grabKb();
 }

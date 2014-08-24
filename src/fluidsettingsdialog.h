@@ -35,6 +35,7 @@ public:
     ~FluidSettingsDialog();
     void readSettings();
     void writeSettings();
+    void changeSoundFont(const QString& fileName);
 
 public slots:
     void accept();

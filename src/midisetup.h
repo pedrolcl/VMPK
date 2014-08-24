@@ -51,6 +51,7 @@ public:
     void setAdvanced(bool value);
     bool advanced();
     bool midiThru();
+    bool changeSoundFont(const QString& fileName);
 
 public slots:
     void clickedAdvanced(bool value);
