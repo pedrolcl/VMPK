@@ -123,12 +123,7 @@ if(WIN32)
     set (vmpk_RESOURCES)
     configure_file (vmpk.rc.in ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc 
                     IMMEDIATE @ONLY)
-    if (MINGW)
-        ADD_WINDRES_OBJS (vmpk_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc)
-    endif ()
-    if ( MSVC )
-        set (vmpk_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc)
-    endif ()
+	set (vmpk_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc)
     add_executable (vmpk WIN32
                     ${vmpk_ui_SRCS}
                     ${vmpk_moc_SRCS}
@@ -147,11 +142,7 @@ if(APPLE)
     set (MACOSX_BUNDLE_BUNDLE_NAME "vmpk" )
     set (vmpk_RSC ../data/vmpk.icns
              ../data/help.html
-             ../data/help_de.html
              ../data/help_es.html
-             ../data/help_nl.html
-             ../data/help_ru.html
-             ../data/help_tr.html
              ../data/txt2ins.awk
              ../data/gmgsxg.ins
              ../data/spanish.xml

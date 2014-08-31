@@ -13,7 +13,7 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.5.99 # will become 0.6 upon release
+VERSION = 0.6.0
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
 lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
@@ -41,13 +41,14 @@ CONFIG += link_pkgconfig
 PKGCONFIG += drumstick-rt
 
 win32 {
+    #INCLUDEPATH += C:\freesw\include
+    #LIBS += -LC:\freesw\lib -ldrumstick-rt
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }
 
 linux* {
     QT += x11extras
-    CONFIG += link_pkgconfig
     PKGCONFIG += xcb
     LIBS += -lpthread
 }

@@ -2,14 +2,17 @@ Name "Virtual MIDI Piano Keyboard"
 SetCompressor /SOLID lzma
 
 # Defines
-!define QTFILES "C:\Qt\4.8.4\mingw\bin"
-!define QTLANG "C:\Qt\4.8.4\mingw\translations"
-!define MINGWFILES "C:\QtSDK\mingw\bin"
+!define QTFILES "C:\Qt\5.3\mingw482_32\bin"
+!define QTLANG "C:\Qt\5.3\mingw482_32\translations"
+!define QTPLUGINS "C:\Qt\5.3\mingw482_32\plugins"
+!define MINGWFILES "C:\Qt\5.3\mingw482_32\bin"
+!define MOREFILES "C:\freesw\bin"
+!define DRUMSTICK "C:\freesw\lib\drumstick"
 !define VMPKSRC "C:\Users\pedro\Projects\vmpk-desktop"
-!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build-desktop-Release"
+!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build"
 
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.5.1
+!define VERSION 0.6.0
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -45,14 +48,16 @@ Var StartMenuGroup
 
 # Installer languages
 !insertmacro MUI_LANGUAGE "English"
-#!insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "Czech"
-#!insertmacro MUI_LANGUAGE "Dutch"
 !insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "Galician"
 !insertmacro MUI_LANGUAGE "German"
-!insertmacro MUI_LANGUAGE "Russian"
+!insertmacro MUI_LANGUAGE "Serbian"
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_LANGUAGE "Swedish"
+#!insertmacro MUI_LANGUAGE "Dutch"
+#!insertmacro MUI_LANGUAGE "Russian"
+#!insertmacro MUI_LANGUAGE "SimpChinese"
 
 # Installer attributes
 OutFile vmpk-${VERSION}-win32-setup.exe
@@ -60,20 +65,22 @@ InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.5.1.0
+VIProductVersion 0.6.0.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
 VIAddVersionKey FileVersion "${VERSION}"
 VIAddVersionKey FileDescription "Virtual MIDI Piano Keyboard"
-VIAddVersionKey LegalCopyright "Copyright (C) 2008-2013 Pedro Lopez-Cabanillas and others"
+VIAddVersionKey LegalCopyright "Copyright (C) 2008-2014 Pedro Lopez-Cabanillas and others"
 InstallDirRegKey HKLM "${REGKEY}" Path
 ShowUninstDetails show
-Icon src/vmpk.ico
+Icon src\vmpk.ico
 
 # Installer sections
 Section -Main SEC0000
+	CreateDirectory $INSTDIR\drumstick
+	CreateDirectory $INSTDIR\platforms
     SetOutPath $INSTDIR
     SetOverwrite on
     File ${VMPKSRC}\qt.conf
@@ -86,47 +93,53 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\pc102win.xml
     File ${VMPKSRC}\data\gmgsxg.ins
     File ${VMPKSRC}\data\help.html
-    File ${VMPKSRC}\data\help_de.html
     File ${VMPKSRC}\data\help_es.html
-    File ${VMPKSRC}\data\help_nl.html
-    File ${VMPKSRC}\data\help_ru.html
     File ${VMPKBLD}\translations\vmpk_cs.qm
     File ${VMPKBLD}\translations\vmpk_de.qm
     File ${VMPKBLD}\translations\vmpk_es.qm
     File ${VMPKBLD}\translations\vmpk_fr.qm
-#   File ${VMPKBLD}\translations\vmpk_nl.qm
-    File ${VMPKBLD}\translations\vmpk_ru.qm
+    File ${VMPKBLD}\translations\vmpk_gl.qm
+    File ${VMPKBLD}\translations\vmpk_sr.qm
     File ${VMPKBLD}\translations\vmpk_sv.qm
+#   File ${VMPKBLD}\translations\vmpk_nl.qm
+#   File ${VMPKBLD}\translations\vmpk_ru.qm
 #   File ${VMPKBLD}\translations\vmpk_zh_CN.qm
     File ${QTLANG}\qt_cs.qm
     File ${QTLANG}\qt_de.qm
     File ${QTLANG}\qt_es.qm
     File ${QTLANG}\qt_fr.qm
-    File ${QTLANG}\qt_ru.qm
+    File ${QTLANG}\qt_gl.qm
     File ${QTLANG}\qt_sv.qm
+#   File ${QTLANG}\qt_ru.qm
 #   File ${QTLANG}\qt_zh_CN.qm
 
-    # Installing library mingwm10.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\mingwm10.dll $INSTDIR\mingwm10.dll $INSTDIR
-
-    # Installing library libgcc_s_dw2-1.dll
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libstdc++-6.dll $INSTDIR\libstdc++-6.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libwinpthread-1.dll $INSTDIR\libwinpthread-1.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libgcc_s_dw2-1.dll $INSTDIR\libgcc_s_dw2-1.dll $INSTDIR
 
-    # Installing library QtCore4.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtCore4.dll $INSTDIR\QtCore4.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Core.dll $INSTDIR\Qt5Core.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Gui.dll $INSTDIR\Qt5Gui.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Xml.dll $INSTDIR\Qt5Xml.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Svg.dll $INSTDIR\Qt5Svg.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Network.dll $INSTDIR\Qt5Network.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Widgets.dll $INSTDIR\Qt5Widgets.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\icudt52.dll $INSTDIR\icudt52.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\icuin52.dll $INSTDIR\icuin52.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\icuuc52.dll $INSTDIR\icuuc52.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTPLUGINS}\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
+	
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\intl.dll $INSTDIR\intl.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libdrumstick-rt.dll $INSTDIR\libdrumstick-rt.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libfluidsynth.dll $INSTDIR\libfluidsynth.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libglib-2.0-0.dll $INSTDIR\libglib-2.0-0.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libgthread-2.0-0.dll $INSTDIR\libgthread-2.0-0.dll $INSTDIR
 
-    # Installing library QtGui4.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtGui4.dll $INSTDIR\QtGui4.dll $INSTDIR
-
-    # Installing library QtXml4.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtXml4.dll $INSTDIR\QtXml4.dll $INSTDIR
-
-    # Installing library QtSvg4.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtSvg4.dll $INSTDIR\QtSvg4.dll $INSTDIR
-
-    # Installing library QtNetwork4.dll
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\QtNetwork4.dll $INSTDIR\QtNetwork4.dll $INSTDIR
-
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-net-in.dll $INSTDIR\drumstick\libdrumstick-rt-net-in.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-net-out.dll $INSTDIR\drumstick\libdrumstick-rt-net-out.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-synth.dll $INSTDIR\drumstick\libdrumstick-rt-synth.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-win-in.dll $INSTDIR\drumstick\libdrumstick-rt-win-in.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-win-out.dll $INSTDIR\drumstick\libdrumstick-rt-win-out.dll $INSTDIR
+	
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
 
@@ -170,17 +183,15 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\qt_de.qm
     Delete /REBOOTOK $INSTDIR\qt_es.qm
     Delete /REBOOTOK $INSTDIR\qt_fr.qm
-    Delete /REBOOTOK $INSTDIR\qt_ru.qm
+    Delete /REBOOTOK $INSTDIR\qt_gl.qm
     Delete /REBOOTOK $INSTDIR\qt_sv.qm
-#   Delete /REBOOTOK $INSTDIR\qt_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\vmpk_cs.qm
     Delete /REBOOTOK $INSTDIR\vmpk_de.qm
     Delete /REBOOTOK $INSTDIR\vmpk_es.qm
     Delete /REBOOTOK $INSTDIR\vmpk_fr.qm
-#   Delete /REBOOTOK $INSTDIR\vmpk_nl.qm
-    Delete /REBOOTOK $INSTDIR\vmpk_ru.qm
+    Delete /REBOOTOK $INSTDIR\vmpk_gl.qm
+    Delete /REBOOTOK $INSTDIR\vmpk_sr.qm
     Delete /REBOOTOK $INSTDIR\vmpk_sv.qm
-#   Delete /REBOOTOK $INSTDIR\vmpk_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\vmpk.exe
     Delete /REBOOTOK $INSTDIR\spanish.xml
     Delete /REBOOTOK $INSTDIR\german.xml
@@ -190,32 +201,38 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\pc102win.xml
     Delete /REBOOTOK $INSTDIR\gmgsxg.ins
     Delete /REBOOTOK $INSTDIR\help.html
-    Delete /REBOOTOK $INSTDIR\help_de.html
     Delete /REBOOTOK $INSTDIR\help_es.html
-    Delete /REBOOTOK $INSTDIR\help_nl.html
-    Delete /REBOOTOK $INSTDIR\help_ru.html
 
-    # Uninstalling library $INSTDIR\mingwm10.dll
-    !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\mingwm10.dll
-
-    # Uninstalling library $INSTDIR\libgcc_s_dw2-1.dll
+    !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libstdc++-6.dll
+    !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libwinpthread-1.dll
     !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libgcc_s_dw2-1.dll
 
-    # Uninstalling library $INSTDIR\QtCore4.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtCore4.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Core.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Gui.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Xml.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Svg.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Network.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Widgets.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icudt52.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuin52.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuuc52.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
 
-    # Uninstalling library $INSTDIR\QtGui4.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtGui4.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libdrumstick-rt.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libfluidsynth.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libglib-2.0-0.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libgthread-2.0-0.dll
 
-    # Uninstalling library $INSTDIR\QtXml4.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtXml4.dll
-
-    # Uninstalling library $INSTDIR\QtSvg4.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtSvg4.dll
-
-    # Uninstalling library $INSTDIR\QtNetwork4.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\QtNetwork4.dll
-
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\libdrumstick-rt-net-in.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\libdrumstick-rt-net-out.dll 
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\libdrumstick-rt-synth.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\libdrumstick-rt-win-in.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\libdrumstick-rt-win-out.dll
+	
+	RMDir /REBOOTOK $INSTDIR\drumstick
+	RMDir /REBOOTOK $INSTDIR\platforms
+	
     DeleteRegValue HKLM "${REGKEY}\Components" Main
 SectionEnd
 

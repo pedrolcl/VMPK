@@ -13,18 +13,19 @@
 #
 # You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
+
 cmake_minimum_required(VERSION 2.8.11)
 project(VMPK)
 
 set(DBUS_INIT OFF)
-set(CORE_INIT OFF)
-set(WIN_INIT OFF)
+set(ENABLE_CORE OFF)
+set(ENABLE_WIN OFF)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(DBUS_INIT ON)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    set(CORE_INIT ON)
+    set(ENABLE_CORE ON)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    set(WIN_INIT ON)
+    set(ENABLE_WIN ON)
 endif()
 
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
@@ -41,11 +42,11 @@ add_definitions(-DRAWKBD_SUPPORT -DPALETTE_SUPPORT)
 # Additional CMake modules for 3rd party library checks reside here
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 
-# VMPK version string - 0.5.99 will become 0.6 upon release
+# VMPK version string
 set (VERSION_MAJOR "0")
-set (VERSION_MINOR "5")
-set (VERSION_PATCH "99")
-set (VERSION_SUFFIX "SVN")
+set (VERSION_MINOR "6")
+set (VERSION_PATCH "0")
+set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
 
@@ -90,13 +91,12 @@ if (UNIX AND NOT APPLE)
     endif()
 endif()
 
-
 if (${ENABLE_CORE})
     link_libraries("-framework CoreFoundation -framework Cocoa")
 endif ()
 
 if (${ENABLE_WIN})
-    find_package(WINDRES REQUIRED)
+    #find_package(WINDRES REQUIRED)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
     link_libraries(winmm)
 endif ()
@@ -136,7 +136,7 @@ set(vmpk_DATA_FILES
     data/help_es.html
 )
 
-#unmaintained and deprecated data files:
+#unmaintained or deprecated data files:
     #data/hm.html
     #data/hm_es.html
     #data/hm_ru.html
@@ -144,7 +144,6 @@ set(vmpk_DATA_FILES
     #data/help_fr.html
     #data/help_nl.html
     #data/help_ru.html
-
 
 if(UNIX)
     add_custom_target ( distclean
@@ -206,29 +205,20 @@ endif ()
 
 if(WIN32)
     include (InstallRequiredSystemLibraries)
-    set (QTLIBLIST QtCore QtGui QtXml QtSvg )
-    get_filename_component (QT_DLL_PATH_tmp ${QT_QMAKE_EXECUTABLE} PATH)
-    foreach (qtlib ${QTLIBLIST})
-        install (FILES ${QT_DLL_PATH_tmp}/${qtlib}4.dll
-                 DESTINATION .)
-    endforeach (qtlib)
-    if (MINGW)
-        install (FILES ${QT_DLL_PATH_tmp}/mingwm10.dll
-                       ${QT_DLL_PATH_tmp}/libgcc_s_dw2-1.dll
-                 DESTINATION .)
-    endif ()
+	install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} 
+			 DESTINATION .)
     install (FILES ${vmpk_DATA_FILES}
              DESTINATION .)
 endif()
 
-if(APPLE)
-    set (target "vmpk")
-    configure_file ("${CMAKE_SOURCE_DIR}/cmake_admin/CompleteBundle.cmake.in"
-      "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake" @ONLY IMMEDIATE)
-    configure_file ("${CMAKE_SOURCE_DIR}/cmake_admin/CreateBundle.sh.in"
-      "${CMAKE_CURRENT_BINARY_DIR}/build/CreateBundle.sh" @ONLY IMMEDIATE)
-    install (SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake")
-endif ()
+#if(APPLE)
+#    set (target "vmpk")
+#    configure_file ("${CMAKE_SOURCE_DIR}/cmake_admin/CompleteBundle.cmake.in"
+#      "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake" @ONLY IMMEDIATE)
+#    configure_file ("${CMAKE_SOURCE_DIR}/cmake_admin/CreateBundle.sh.in"
+#      "${CMAKE_CURRENT_BINARY_DIR}/build/CreateBundle.sh" @ONLY IMMEDIATE)
+#    install (SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake")
+#endif ()
 
 # CPack support
 include (InstallRequiredSystemLibraries)
