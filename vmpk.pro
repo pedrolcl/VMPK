@@ -55,11 +55,11 @@ linux* {
 macx {
     ICON = data/vmpk.icns
     BUNDLE_RES.files = data/help.html \
-        data/help_de.html \
+        #data/help_de.html \
         data/help_es.html \
-        data/help_fr.html \
-        data/help_nl.html \
-        data/help_ru.html \
+        #data/help_fr.html \
+        #data/help_nl.html \
+        #data/help_ru.html \
         data/gmgsxg.ins \
         data/spanish.xml \
         data/german.xml \
@@ -73,7 +73,8 @@ macx {
         $$[QT_INSTALL_TRANSLATIONS]/qt_es.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_fr.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_gl.qm \
-        $$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
+        #$$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
+        #$$[QT_INSTALL_TRANSLATIONS]/qt_sr.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
         #$$[QT_INSTALL_TRANSLATIONS]/qt_zh_CN.qm \
         vmpk_cs.qm \
@@ -82,7 +83,7 @@ macx {
         vmpk_fr.qm \
         vmpk_gl.qm \
         #vmpk_nl.qm \
-        vmpk_ru.qm \
+        #vmpk_ru.qm \
         vmpk_sr.qm \
         vmpk_sv.qm
         #vmpk_tr.qm \

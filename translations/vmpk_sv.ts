@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv_SE">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.1">
 <context>
     <name>About</name>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Kompileringsdatum: %2&lt;br/&gt;Kompileringstid: %3&lt;br/&gt;Kompilator: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
     <message>
         <location filename="../src/about.cpp" line="43"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -29,7 +21,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -38,11 +30,24 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../src/about.ui" line="127"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <location filename="../src/about.ui" line="147"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -53,79 +58,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Kopieringsrätt © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; och andra&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Detta program har öppen och fri källkod. Det kan återutges eller ändras i enlighet med GNU GPL (GNU:s General Public License), publicerad av Free Software Foundation, antingen enligt version 3 eller senare version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Detta program ges ut med förhoppningen att det ska vara användbart, dock UTAN GARANTIER, såsom FÖRSÄLJNINGSGARANTIER eller GARANTIER FÖR ÄNDAMÅLSENLIGHET. Ytterligare detaljer finns i GNU GPL som levereras med detta program. Om inte licensen  finns medskickad, se &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Kopieringsrätt © 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program har öppen och fri källkod. Det kan återutges eller ändras i enlighet med GNU GPL (GNU:s General Public License), publicerad av Free Software Foundation, antingen enligt version 3 eller senare version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program ges ut med förhoppningen att det ska vara användbart, dock UTAN GARANTIER, såsom FÖRSÄLJNINGSGARANTIER eller GARANTIER FÖR ÄNDAMÅLSENLIGHET. Ytterligare detaljer finns i GNU GPL som levereras med detta program. Om licensen inte finns medskickad, se &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Följande kopieringsrättsnotis är under alla omständigheter gällande:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program innehåller &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: in- och utmatningsklasser i C++ för realtids-MIDI&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2011, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Kopieringsrätt © 2008-2011, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program har öppen och fri källkod. Det kan återutges eller ändras i enlighet med GNU GPL (GNU:s General Public License), publicerad av Free Software Foundation, antingen enligt version 3 eller senare version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program ges ut med förhoppningen att det ska vara användbart, dock UTAN GARANTIER, såsom FÖRSÄLJNINGSGARANTIER eller GARANTIER FÖR ÄNDAMÅLSENLIGHET. Ytterligare detaljer finns i GNU GPL som levereras med detta program. Om inte licensen  finns medskickad, se &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Följande kopieringsrättsnotis är under alla omständigheter gällande:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program innehåller &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: in- och utmatningsklasser i C++ för realtids-MIDI&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2010, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Kopieringsrätt © 2008-2010, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program har öppen och fri källkod. Det kan återutges eller ändras i enlighet med GNU GPL (GNU:s General Public License), publicerad av Free Software Foundation, antingen enligt version 3 eller senare version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program ges ut med förhoppningen att det ska vara användbart, dock UTAN GARANTIER, såsom FÖRSÄLJNINGSGARANTIER eller GARANTIER FÖR ÄNDAMÅLSENLIGHET. Ytterligare detaljer finns i GNU GPL som levereras med detta program. Om inte licensen  finns medskickad, se &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Följande kopieringsrättsnotis är under alla omständigheter gällande:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program innehåller &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: in- och utmatningsklasser i C++ för realtids-MIDI&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/about.ui" line="127"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -334,21 +266,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DialogExtraControls</name>
     <message>
-        <location filename="../src/extracontrols.cpp" line="74"/>
-        <source>New Control</source>
-        <translation>Ny kontroll</translation>
-    </message>
-    <message>
-        <location filename="../src/extracontrols.cpp" line="239"/>
-        <source>System Exclusive File</source>
-        <translation>Systemexklusiv fil</translation>
-    </message>
-    <message>
-        <location filename="../src/extracontrols.cpp" line="239"/>
-        <source>System Exclusive (*.syx)</source>
-        <translation>Systemexklusiv (*.syx)</translation>
-    </message>
-    <message>
         <location filename="../src/extracontrols.ui" line="31"/>
         <source>Extra Controls Editor</source>
         <translation>Extra kontrolleditor</translation>
@@ -468,6 +385,21 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/extracontrols.ui" line="494"/>
         <source>...</source>
         <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="74"/>
+        <source>New Control</source>
+        <translation>Ny kontroll</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="239"/>
+        <source>System Exclusive File</source>
+        <translation>Systemexklusiv fil</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="239"/>
+        <source>System Exclusive (*.syx)</source>
+        <translation>Systemexklusiv (*.syx)</translation>
     </message>
 </context>
 <context>
@@ -1290,25 +1222,6 @@ p, li { white-space: pre-wrap; }
         <translation>Sätt en bock i denna ruta för att aktivera MIDI-inmatning i programmet. I Linux och Mac OS X är inmatningsporten alltid aktiverad och kan ej avaktiveras.</translation>
     </message>
     <message>
-        <source>Enable MIDI input</source>
-        <translation type="vanished">Aktivera MIDI-inmatning</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="129"/>
-        <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
-        <translation>Sätt en bock i denna ruta för att aktivera MIDI-genommatning: alla MIDI-signaler som tas emot kommer att kopieras till utmatningsporten.</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="132"/>
-        <source>Enable MIDI Thru on MIDI Output</source>
-        <translation>Aktivera MIDI-genommatning för MIDI-utmatningen.</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="100"/>
-        <source>Input MIDI Connection</source>
-        <translation>MIDI-inmatningsenhet</translation>
-    </message>
-    <message>
         <location filename="../src/midisetup.ui" line="50"/>
         <source>Enable MIDI Input</source>
         <translation>Aktivera MIDI-inmatning</translation>
@@ -1330,9 +1243,24 @@ p, li { white-space: pre-wrap; }
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../src/midisetup.ui" line="100"/>
+        <source>Input MIDI Connection</source>
+        <translation>MIDI-inmatningsenhet</translation>
+    </message>
+    <message>
         <location filename="../src/midisetup.ui" line="122"/>
         <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
         <translation>Använd denna kontroll för att ändra enhet för MIDI-inmatningsporten, om den är aktiverad.</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="129"/>
+        <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
+        <translation>Sätt en bock i denna ruta för att aktivera MIDI-genommatning: alla MIDI-signaler som tas emot kommer att kopieras till utmatningsporten.</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="132"/>
+        <source>Enable MIDI Thru on MIDI Output</source>
+        <translation>Aktivera MIDI-genommatning för MIDI-utmatningen.</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="139"/>
@@ -1353,10 +1281,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/midisetup.ui" line="201"/>
         <source>Show Advanced Connections</source>
         <translation>Visa avancerade kopplingar</translation>
-    </message>
-    <message>
-        <source>MIDI Omni mode</source>
-        <translation type="vanished">MIDI Omni-inställning</translation>
     </message>
 </context>
 <context>
@@ -1407,14 +1331,6 @@ p, li { white-space: pre-wrap; }
         <translation>Diss</translation>
     </message>
     <message>
-        <source>C#</source>
-        <translation type="vanished">Ciss</translation>
-    </message>
-    <message>
-        <source>D#</source>
-        <translation type="vanished">Diss</translation>
-    </message>
-    <message>
         <location filename="../src/pianoscene.cpp" line="595"/>
         <location filename="../src/pianoscene.cpp" line="607"/>
         <source>E</source>
@@ -1425,38 +1341,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/pianoscene.cpp" line="608"/>
         <source>F</source>
         <translation>F</translation>
-    </message>
-    <message>
-        <source>F#</source>
-        <translation type="vanished">Fiss</translation>
-    </message>
-    <message>
-        <source>G#</source>
-        <translation type="vanished">Giss</translation>
-    </message>
-    <message>
-        <source>A#</source>
-        <translation type="vanished">Aiss</translation>
-    </message>
-    <message>
-        <source>Db</source>
-        <translation type="vanished">Dess</translation>
-    </message>
-    <message>
-        <source>Eb</source>
-        <translation type="vanished">Ess</translation>
-    </message>
-    <message>
-        <source>Gb</source>
-        <translation type="vanished">Gess</translation>
-    </message>
-    <message>
-        <source>Ab</source>
-        <translation type="vanished">Ass</translation>
-    </message>
-    <message>
-        <source>Bb</source>
-        <translation type="vanished">B</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="597"/>
@@ -1550,8 +1434,9 @@ p, li { white-space: pre-wrap; }
         <translation>Inställningar</translation>
     </message>
     <message>
-        <source>Number of octaves</source>
-        <translation type="vanished">Antal oktaver</translation>
+        <location filename="../src/preferences.ui" line="47"/>
+        <source>Number of keys</source>
+        <translation>Antal tangenter</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="57"/>
@@ -1559,12 +1444,14 @@ p, li { white-space: pre-wrap; }
         <translation>Antalet oktaver, från 1 till 10. Varje oktav har tolv tangenter: 7 vita och 5 svarta. MIDI-standarden har 128 toner, men inte alla instrument kan spela allihop.</translation>
     </message>
     <message>
-        <source>Key pressed color</source>
-        <translation type="obsolete">Färg på nedtryckt tangent</translation>
+        <location filename="../src/preferences.ui" line="70"/>
+        <source>Starting Key</source>
+        <translation>Starttangent</translation>
     </message>
     <message>
-        <source>This box displays the highligh color and code used to paint the keys that are being activated.</source>
-        <translation type="obsolete">Denna ruta visar markeringsfärgen och koden som används när en tangent trycks ned.</translation>
+        <location filename="../src/preferences.ui" line="89"/>
+        <source>Note highlight color</source>
+        <translation>Tonmarkeringsfärg</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="102"/>
@@ -1572,8 +1459,9 @@ p, li { white-space: pre-wrap; }
         <translation>Klicka på denna knapp för att ändra markeringsfärg på nedtryckta tangenter.</translation>
     </message>
     <message>
-        <source>color...</source>
-        <translation type="obsolete">Färg ...</translation>
+        <location filename="../src/preferences.ui" line="105"/>
+        <source>Colors...</source>
+        <translation>Färger ...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="118"/>
@@ -1596,48 +1484,16 @@ p, li { white-space: pre-wrap; }
         <translation>Klicka på denna knapp för att ladda en instrumentdefinitionsfil.</translation>
     </message>
     <message>
-        <source>load...</source>
-        <translation type="vanished">Öppna ...</translation>
+        <location filename="../src/preferences.ui" line="150"/>
+        <location filename="../src/preferences.ui" line="193"/>
+        <location filename="../src/preferences.ui" line="213"/>
+        <source>Load...</source>
+        <translation>Öppna ...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="163"/>
         <source>Instrument</source>
         <translation>Instrument</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="327"/>
-        <source>MIDI channel state consistency</source>
-        <translation>MIDI-kanalstatus</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="427"/>
-        <source>Enable Touch Screen Input</source>
-        <translation>Aktivera pekskärmsinmatning</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="411"/>
-        <source>Enable Mouse Input</source>
-        <translation>Aktivera musinmatning</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="47"/>
-        <source>Number of keys</source>
-        <translation>Antal tangenter</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="70"/>
-        <source>Starting Key</source>
-        <translation>Starttangent</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="105"/>
-        <source>Colors...</source>
-        <translation>Färger ...</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="372"/>
-        <source>Enable Computer Keyboard Input</source>
-        <translation>Aktivera tangentbordsinmatning</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="173"/>
@@ -1650,65 +1506,14 @@ p, li { white-space: pre-wrap; }
         <translation>Tangentbindningar</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="150"/>
-        <location filename="../src/preferences.ui" line="193"/>
-        <location filename="../src/preferences.ui" line="213"/>
-        <source>Load...</source>
-        <translation>Öppna ...</translation>
-    </message>
-    <message>
         <location filename="../src/preferences.ui" line="200"/>
         <source>Raw Keyboard Map</source>
         <translation>Tangentbindningar (rådata)</translation>
     </message>
     <message>
-        <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation type="vanished">Ändra kontrollreglagens utseende genom att antingen använda anpassat utseende eller att återgå till utseendet sparat i qtconfig.</translation>
-    </message>
-    <message>
-        <source>Styled Widgets</source>
-        <translation type="vanished">Anpassade kontrollreglage</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="388"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna bockruta för att använda lågnivåtangentkommandon. Detta har flera fördelar.:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Det är då möjligt att använda &quot;döda tangenter&quot; såsom accenter och andra diakritiska tecken.&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tangentbindningar är oberoende av språk men inte av maskinvara eller operativsystem.&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Kortare processtid&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Network Interface</source>
-        <translation type="vanished">Nätverksgränssnitt</translation>
-    </message>
-    <message>
-        <source>MIDI Driver</source>
-        <translation type="vanished">MIDI-drivrutin</translation>
-    </message>
-    <message>
         <location filename="../src/preferences.ui" line="220"/>
         <source>Drums Channel</source>
         <translation>Trumsetskanal</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="89"/>
-        <source>Note highlight color</source>
-        <translation>Tonmarkeringsfärg</translation>
-    </message>
-    <message>
-        <source>colors...</source>
-        <translation type="vanished">färger ...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="231"/>
@@ -1723,89 +1528,82 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="241"/>
         <source>2</source>
-        <translation></translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="246"/>
         <source>3</source>
-        <translation></translation>
+        <translation>3</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="251"/>
         <source>4</source>
-        <translation></translation>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="256"/>
         <source>5</source>
-        <translation></translation>
+        <translation>5</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="261"/>
         <source>6</source>
-        <translation></translation>
+        <translation>6</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="266"/>
         <source>7</source>
-        <translation></translation>
+        <translation>7</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="271"/>
         <source>8</source>
-        <translation></translation>
+        <translation>8</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="276"/>
         <source>9</source>
-        <translation></translation>
+        <translation>9</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="281"/>
         <source>10</source>
-        <translation></translation>
+        <translation>10</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="286"/>
         <source>11</source>
-        <translation></translation>
+        <translation>11</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="291"/>
         <source>12</source>
-        <translation></translation>
+        <translation>12</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="296"/>
         <source>13</source>
-        <translation></translation>
+        <translation>13</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="301"/>
         <source>14</source>
-        <translation></translation>
+        <translation>14</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="306"/>
         <source>15</source>
-        <translation></translation>
+        <translation>15</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="327"/>
+        <source>MIDI channel state consistency</source>
+        <translation>MIDI-kanalstatus</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="340"/>
         <source>Translate MIDI velocity to key pressed color tint</source>
         <translation>Översätt MIDI-anslag till markeringsfärg för tangent</translation>
-    </message>
-    <message>
-        <source>Network Port</source>
-        <translation type="vanished">Nätverksport</translation>
-    </message>
-    <message>
-        <source>Change the knob buttons style, either using the custom look or revert to the style selected in qtconfig.</source>
-        <translation type="obsolete">Mit dieser Option kann man das Aussehen der Knöpfe verändern; entweder der eigene Stil oder das Standardaussehen.</translation>
-    </message>
-    <message>
-        <source>Styled Knobs</source>
-        <translation type="obsolete">Stylische Knöpfe</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="356"/>
@@ -1818,20 +1616,28 @@ p, li { white-space: pre-wrap; }
         <translation>Alltid ovanpå</translation>
     </message>
     <message>
+        <location filename="../src/preferences.ui" line="372"/>
+        <source>Enable Computer Keyboard Input</source>
+        <translation>Aktivera tangentbordsinmatning</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="388"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna bockruta för att gripa tag i tangentbordet, även när tangentbordskontrollen inte är i fokus.&lt;span style=&quot; font-weight:600;&quot;&gt;Anmärkning för Linux:&lt;/span&gt; Detta alternativ fungerar bra på standard-KDE-skrivbord, men inte med fönsterhanterare som Metacity och Compiz. Det är också känt att detta alternativ förstör rullgardinsmenyer i GTK-program.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Grab Computer Keyboard</source>
-        <translation type="vanished">Behåll tangentbord</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna bockruta för att använda lågnivåtangentkommandon. Detta har flera fördelar.:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Det är då möjligt att använda &quot;döda tangenter&quot; såsom accenter och andra diakritiska tecken.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tangentbindningar är oberoende av språk men inte av maskinvara eller operativsystem.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Kortare processtid&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="398"/>
@@ -1839,16 +1645,14 @@ p, li { white-space: pre-wrap; }
         <translation>Använd tangentrådata</translation>
     </message>
     <message>
-        <source>Grab keyboard</source>
-        <translation type="obsolete">Tastatur einfangen</translation>
+        <location filename="../src/preferences.ui" line="411"/>
+        <source>Enable Mouse Input</source>
+        <translation>Aktivera musinmatning</translation>
     </message>
     <message>
-        <source>Check this box to display the note names over the piano keys.</source>
-        <translation type="obsolete">Diese Option stellt die Notennamen auf den Tasten dar.</translation>
-    </message>
-    <message>
-        <source>Show Note Names</source>
-        <translation type="obsolete">Notennamen anzeigen</translation>
+        <location filename="../src/preferences.ui" line="427"/>
+        <source>Enable Touch Screen Input</source>
+        <translation>Aktivera pekskärmsinmatning</translation>
     </message>
 </context>
 <context>
@@ -1871,26 +1675,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>RiffImportDlg</name>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
-        <source>Input SoundFont</source>
-        <translation>Inmatningsfil (SoundFont)</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
-        <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
-        <translation>SoundFont-filer (*.sf2 *.sbk *.dls)</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
-        <source>Output</source>
-        <translation>Utmatning</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
-        <source>Instrument definitions (*.ins)</source>
-        <translation>Instrumentdefinitioner (*.ins)</translation>
-    </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
@@ -1947,6 +1731,26 @@ p, li { white-space: pre-wrap; }
         <source>Press this button to select a path and file name for the output file</source>
         <translation>Klicka på denna knapp för att välja sökväg och namn för utmatningsfilen</translation>
     </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <source>Input SoundFont</source>
+        <translation>Inmatningsfil (SoundFont)</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
+        <translation>SoundFont-filer (*.sf2 *.sbk *.dls)</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <source>Output</source>
+        <translation>Utmatning</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <source>Instrument definitions (*.ins)</source>
+        <translation>Instrumentdefinitioner (*.ins)</translation>
+    </message>
 </context>
 <context>
     <name>ShortcutDialog</name>
@@ -1988,222 +1792,6 @@ Vill du verkställa ändringarna?</translation>
 <context>
     <name>VPiano</name>
     <message>
-        <location filename="../src/vpiano.cpp" line="1659"/>
-        <source>Error</source>
-        <translation>Fel</translation>
-    </message>
-    <message>
-        <source>No MIDI output ports available. Aborting</source>
-        <translation type="vanished">Inga MIDI-utmatningsportar tillgängliga. Avbryter</translation>
-    </message>
-    <message>
-        <source>Error. Aborting</source>
-        <translation type="vanished">Fel: Avbryter</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2093"/>
-        <source>Galician</source>
-        <translation>Galiciska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2096"/>
-        <source>Serbian</source>
-        <translation>Serbiska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2105"/>
-        <source>Chan:</source>
-        <translation>Kanal:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2107"/>
-        <source>Channel:</source>
-        <translation>Kanal:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2112"/>
-        <source>Oct:</source>
-        <translation>Oktav:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2114"/>
-        <source>Base Octave:</source>
-        <translation>Oktav för Z-M:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2119"/>
-        <source>Trans:</source>
-        <translation>Transposition:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2121"/>
-        <source>Transpose:</source>
-        <translation>Transponera:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
-        <source>Vel:</source>
-        <translation>Hastighet:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
-        <source>Velocity:</source>
-        <translation>Anslag:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2133"/>
-        <source>Control:</source>
-        <translation>Kontroll:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2135"/>
-        <source>Value:</source>
-        <translation>Värde:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2132"/>
-        <source>Bender:</source>
-        <translation>Tonbändning:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2131"/>
-        <source>Bank:</source>
-        <translation>Bank:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2134"/>
-        <source>Program:</source>
-        <translation>Program:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1993"/>
-        <source>The language for this application is going to change to %1. Do you want to continue?</source>
-        <translation>Användargränssnittets språk kommer att ändras till %1. Vill du fortsätta?</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2036"/>
-        <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
-        <translation>VMPK utvecklas och översätts tack vare frivilliginsatser av många människor över hela världen. Om du vill ansluta till denna grupp eller har några frågor, var vänlig besök &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2057"/>
-        <source>Translation Information</source>
-        <translation>Om översättningarna</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2097"/>
-        <source>Swedish</source>
-        <translation>Svenska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2054"/>
-        <source>Translation</source>
-        <translation>Översättning</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2055"/>
-        <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;Översatt av Magnus Johansson (e.m.johansson@spray.se) &lt;/p&gt;%1</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2088"/>
-        <source>Czech</source>
-        <translation>Tjeckiska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2089"/>
-        <source>German</source>
-        <translation>Tyska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2090"/>
-        <source>English</source>
-        <translation>Engelska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2091"/>
-        <source>Spanish</source>
-        <translation>Spanska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2092"/>
-        <source>French</source>
-        <translation>Franska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2094"/>
-        <source>Dutch</source>
-        <translation>Holländska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2095"/>
-        <source>Russian</source>
-        <translation>Ryska</translation>
-    </message>
-    <message>
-        <source>Turkish</source>
-        <translation type="obsolete">Turkiska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2098"/>
-        <source>Chinese</source>
-        <translation>Kinesiska</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1992"/>
-        <source>Language Changed</source>
-        <translation>Språket är ändrat</translation>
-    </message>
-    <message>
-        <source> Channel: </source>
-        <translation type="obsolete"> Kanal: </translation>
-    </message>
-    <message>
-        <source> Base Octave: </source>
-        <translation type="obsolete"> Basisoktave: </translation>
-    </message>
-    <message>
-        <source> Transpose: </source>
-        <translation type="obsolete"> Transponieren: </translation>
-    </message>
-    <message>
-        <source> Velocity: </source>
-        <translation type="obsolete"> Geschwindigkeit: </translation>
-    </message>
-    <message>
-        <source> Control: </source>
-        <translation type="obsolete"> Kontrolle: </translation>
-    </message>
-    <message>
-        <source> Value: </source>
-        <translation type="obsolete"> Wert: </translation>
-    </message>
-    <message>
-        <source> Program: </source>
-        <translation type="obsolete"> Programm:</translation>
-    </message>
-    <message>
-        <source>Open keyboard map definition</source>
-        <translation type="obsolete">Öffne Tastaturbelegungsdatei</translation>
-    </message>
-    <message>
-        <source>Keyboard map (*.xml)</source>
-        <translation type="obsolete">Tastaturbelegungsdatei (*.xml)</translation>
-    </message>
-    <message>
-        <source>Save keyboard map definition</source>
-        <translation type="obsolete">Speichere Tastaturbelegung</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1659"/>
-        <source>No help file found</source>
-        <translation>Ingen hjälpfil funnen</translation>
-    </message>
-    <message>
-        <source>Virtual Piano Keyboard</source>
-        <translation type="obsolete">Virtuelle Piano-Tastatur</translation>
-    </message>
-    <message>
         <location filename="../src/vpiano.ui" line="67"/>
         <source>&amp;File</source>
         <translation>&amp;Ljudfil</translation>
@@ -2212,10 +1800,6 @@ Vill du verkställa ändringarna?</translation>
         <location filename="../src/vpiano.ui" line="75"/>
         <source>&amp;Edit</source>
         <translation>&amp;Bearbeta</translation>
-    </message>
-    <message>
-        <source>Keyboard map</source>
-        <translation type="obsolete">Tastaturbelegung</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="86"/>
@@ -2313,14 +1897,356 @@ Vill du verkställa ändringarna?</translation>
         <translation>MIDI-&amp;anslutningar</translation>
     </message>
     <message>
+        <location filename="../src/vpiano.ui" line="305"/>
+        <source>Edit the MIDI connections</source>
+        <translation>Ändra MIDI-anslutningar</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="310"/>
+        <source>&amp;About</source>
+        <translation>&amp;Om</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="313"/>
+        <source>Show the About box</source>
+        <translation>Visa Om-fönstret</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="318"/>
+        <source>About &amp;Qt</source>
+        <translation>Om &amp;Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="321"/>
+        <source>Show the Qt about box</source>
+        <translation>Visar information om QT</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="332"/>
+        <source>Show or hide the Notes toolbar</source>
+        <translation>Visa eller göm verktygslisten Toner</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="343"/>
+        <source>Show or hide the Controller toolbar</source>
+        <translation>Visa eller göm verktygslisten Kontroller</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="354"/>
+        <source>Show or hide the Pitch Bender toolbar</source>
+        <translation>Visa eller göm verktygslisten Tonbändning</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="365"/>
+        <source>Show or hide the Programs toolbar</source>
+        <translation>Visa eller göm verktygslisten Program</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="376"/>
+        <source>&amp;Status Bar</source>
+        <translation>&amp;Statuslist</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="379"/>
+        <source>Show or hide the Status Bar</source>
+        <translation>Visa eller göm statuslisten</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="384"/>
+        <source>Panic</source>
+        <translation>Panik</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="387"/>
+        <source>Stops all active notes</source>
+        <translation>Stoppa alla aktiva toner</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="395"/>
+        <source>Reset All</source>
+        <translation>Återställ alla</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="398"/>
+        <source>Resets all the controllers</source>
+        <translation>Återställ alla kontroller</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="403"/>
+        <source>Reset</source>
+        <translation>Återställ</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="406"/>
+        <source>Resets the Bender value</source>
+        <translation>Återställ tonbändvärdet</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="411"/>
+        <source>&amp;Keyboard Map</source>
+        <translation>&amp;Tangentbindningar</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="414"/>
+        <source>Edit the current keyboard layout</source>
+        <translation>Ändra nuvarande tangentbindningar</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="419"/>
+        <source>&amp;Contents</source>
+        <translation>&amp;Innehåll</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="422"/>
+        <source>Open the index of the help document</source>
+        <translation>Öppna innehållsförteckningen i hjälpdokumentet</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="430"/>
+        <source>VMPK &amp;Web site</source>
+        <translation>VMPK:s &amp;hemsida</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="433"/>
+        <source>Open the VMPK web site address using a web browser</source>
+        <translation>Öppna VMPK:s hemsida med hjälp av en brusare</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="438"/>
+        <source>&amp;Import SoundFont...</source>
+        <translation>&amp;Importera ljudbank ...</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="441"/>
+        <source>Import SoundFont</source>
+        <translation>Importera ljudbank</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="452"/>
+        <source>Show or hide the Extra Controls toolbar</source>
+        <translation>Visa eller göm verktygslisten Extrakontroller</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="457"/>
+        <location filename="../src/vpiano.ui" line="468"/>
+        <source>Edit</source>
+        <translation>Bearbeta</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="460"/>
+        <location filename="../src/vpiano.ui" line="485"/>
+        <source>Open the Extra Controls editor</source>
+        <translation>Öppna editorn Extrakontroller</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="471"/>
+        <source>Open the Banks/Programs editor</source>
+        <translation>Öppna editorn för ljudbank och ljudprogram</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="482"/>
+        <source>&amp;Extra Controllers</source>
+        <translation>&amp;Extrakontroller</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="493"/>
+        <source>N&amp;ote Names</source>
+        <translation>T&amp;onnamn</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="496"/>
+        <source>Show or hide the note names</source>
+        <translation>Visa eller göm tonnamn</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="501"/>
+        <source>&amp;Shortcuts</source>
+        <translation>&amp;Tangentkommandon</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="504"/>
+        <source>Open the Shortcuts editor</source>
+        <translation>Öppna editorn för tangentkommandon</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="509"/>
+        <source>Octave Up</source>
+        <translation>En oktav upp</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="512"/>
+        <source>Play one octave higher</source>
+        <translation>Spela en oktav högre</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="520"/>
+        <source>Octave Down</source>
+        <translation>En oktav ned</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="523"/>
+        <source>Play one octave lower</source>
+        <translation>Spela en oktav lägre</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="531"/>
+        <source>Transpose Up</source>
+        <translation>Transponera uppåt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="534"/>
+        <source>Transpose one semitone higher</source>
+        <translation>Transponera ett halvtonsteg uppåt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="542"/>
+        <source>Transpose Down</source>
+        <translation>Transponera nedåt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="545"/>
+        <source>Transpose one semitone lower</source>
+        <translation>Transponera ett halvtonsteg nedåt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="553"/>
+        <source>Next  Channel</source>
+        <translation>Nästa kanal</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="556"/>
+        <source>Play and listen next channel</source>
+        <translation>Spela och lyssna på nästa kanal</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="564"/>
+        <source>Previous Channel</source>
+        <translation>Föregående kanal</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="567"/>
+        <source>Play and listen previous channel</source>
+        <translation>Spela och lyssna på föregående kanal</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="575"/>
+        <source>Next Controller</source>
+        <translation>Nästa kontroll</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="578"/>
+        <source>Select the next controller</source>
+        <translation>Välj nästa kontroll</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="586"/>
+        <source>Previous Controller</source>
+        <translation>Föregående kontroll</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="589"/>
+        <source>Select the previous controller</source>
+        <translation>Välj föregående kontroll</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="597"/>
+        <source>Controller Up</source>
+        <translation>Kontroll upp</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="600"/>
+        <source>Increment the controller value</source>
+        <translation>Öka kontrollvärdet</translation>
+    </message>
+    <message>
         <location filename="../src/vpiano.ui" line="603"/>
         <source>Alt++</source>
         <translation>Alt++</translation>
     </message>
     <message>
+        <location filename="../src/vpiano.ui" line="608"/>
+        <source>Controller Down</source>
+        <translation>Kontroll ned</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="611"/>
+        <source>Decrement the controller value</source>
+        <translation>Minska kontrollvärdet</translation>
+    </message>
+    <message>
         <location filename="../src/vpiano.ui" line="614"/>
         <source>Alt+-</source>
         <translation>Alt+-</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="619"/>
+        <source>Next Bank</source>
+        <translation>Nästa ljudbank</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="622"/>
+        <source>Select the next instrument bank</source>
+        <translation>Välj nästa instrumentbank</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="630"/>
+        <source>Previous Bank</source>
+        <translation>Föregående ljudbank</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="633"/>
+        <source>Select the previous instrument bank</source>
+        <translation>Välj föregående instrumentbank</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="641"/>
+        <source>Next Program</source>
+        <translation>Nästa ljudprogram</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="644"/>
+        <source>Select the next instrument program</source>
+        <translation>Välj nästa instrumentprogram</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="652"/>
+        <source>Previous Program</source>
+        <translation>Föregående ljudprogram</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="655"/>
+        <source>Select the previous instrument program</source>
+        <translation>Välj föregående instrumentprogram</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="663"/>
+        <source>Velocity Up</source>
+        <translation>Anslag upp</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="666"/>
+        <source>Increment note velocity</source>
+        <translation>Öka anslag</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="674"/>
+        <source>Velocity Down</source>
+        <translation>Anslag ned</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="677"/>
+        <source>Decrement note velocity</source>
+        <translation>Minska anslagsstyrka</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="685"/>
+        <source>About &amp;Translation</source>
+        <translation>Om &amp;översättningen</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="688"/>
+        <source>Show information about the program language translation</source>
+        <translation>Visar information om översättningen av användargränssnittet</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="699"/>
@@ -2388,446 +2314,164 @@ Vill du verkställa ändringarna?</translation>
         <translation>Alt+F</translation>
     </message>
     <message>
-        <source>&amp;Connections</source>
-        <translation type="obsolete">MIDI-&amp;anslutningar</translation>
+        <location filename="../src/vpiano.cpp" line="1659"/>
+        <source>Error</source>
+        <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="305"/>
-        <source>Edit the MIDI connections</source>
-        <translation>Ändra MIDI-anslutningar</translation>
+        <location filename="../src/vpiano.cpp" line="1659"/>
+        <source>No help file found</source>
+        <translation>Ingen hjälpfil funnen</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="310"/>
-        <source>&amp;About</source>
-        <translation>&amp;Om</translation>
+        <location filename="../src/vpiano.cpp" line="1992"/>
+        <source>Language Changed</source>
+        <translation>Språket är ändrat</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="313"/>
-        <source>Show the About box</source>
-        <translation>Visa Om-fönstret</translation>
+        <location filename="../src/vpiano.cpp" line="1993"/>
+        <source>The language for this application is going to change to %1. Do you want to continue?</source>
+        <translation>Användargränssnittets språk kommer att ändras till %1. Vill du fortsätta?</translation>
     </message>
     <message>
-        <source>About Q&amp;t</source>
-        <translation type="obsolete">Über Q&amp;t</translation>
+        <location filename="../src/vpiano.cpp" line="2036"/>
+        <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
+        <translation>VMPK utvecklas och översätts tack vare frivilliginsatser av många människor över hela världen. Om du vill ansluta till denna grupp eller har några frågor, var vänlig besök &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="318"/>
-        <source>About &amp;Qt</source>
-        <translation>Om &amp;Qt</translation>
+        <location filename="../src/vpiano.cpp" line="2054"/>
+        <source>Translation</source>
+        <translation>Översättning</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="321"/>
-        <source>Show the Qt about box</source>
-        <translation>Visar information om QT</translation>
+        <location filename="../src/vpiano.cpp" line="2055"/>
+        <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
+        <translation>&lt;p&gt;Översatt av Magnus Johansson (e.m.johansson@spray.se) &lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="332"/>
-        <source>Show or hide the Notes toolbar</source>
-        <translation>Visa eller göm verktygslisten Toner</translation>
+        <location filename="../src/vpiano.cpp" line="2057"/>
+        <source>Translation Information</source>
+        <translation>Om översättningarna</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="343"/>
-        <source>Show or hide the Controller toolbar</source>
-        <translation>Visa eller göm verktygslisten Kontroller</translation>
+        <location filename="../src/vpiano.cpp" line="2088"/>
+        <source>Czech</source>
+        <translation>Tjeckiska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="354"/>
-        <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>Visa eller göm verktygslisten Tonbändning</translation>
+        <location filename="../src/vpiano.cpp" line="2089"/>
+        <source>German</source>
+        <translation>Tyska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="365"/>
-        <source>Show or hide the Programs toolbar</source>
-        <translation>Visa eller göm verktygslisten Program</translation>
+        <location filename="../src/vpiano.cpp" line="2090"/>
+        <source>English</source>
+        <translation>Engelska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="376"/>
-        <source>&amp;Status Bar</source>
-        <translation>&amp;Statuslist</translation>
+        <location filename="../src/vpiano.cpp" line="2091"/>
+        <source>Spanish</source>
+        <translation>Spanska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="379"/>
-        <source>Show or hide the Status Bar</source>
-        <translation>Visa eller göm statuslisten</translation>
+        <location filename="../src/vpiano.cpp" line="2092"/>
+        <source>French</source>
+        <translation>Franska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="384"/>
-        <source>Panic</source>
-        <translation>Panik</translation>
+        <location filename="../src/vpiano.cpp" line="2093"/>
+        <source>Galician</source>
+        <translation>Galiciska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="387"/>
-        <source>Stops all active notes</source>
-        <translation>Stoppa alla aktiva toner</translation>
+        <location filename="../src/vpiano.cpp" line="2094"/>
+        <source>Dutch</source>
+        <translation>Holländska</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="obsolete">Esc</translation>
+        <location filename="../src/vpiano.cpp" line="2095"/>
+        <source>Russian</source>
+        <translation>Ryska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="395"/>
-        <source>Reset All</source>
-        <translation>Återställ alla</translation>
+        <location filename="../src/vpiano.cpp" line="2096"/>
+        <source>Serbian</source>
+        <translation>Serbiska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="398"/>
-        <source>Resets all the controllers</source>
-        <translation>Återställ alla kontroller</translation>
+        <location filename="../src/vpiano.cpp" line="2097"/>
+        <source>Swedish</source>
+        <translation>Svenska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="403"/>
-        <source>Reset</source>
-        <translation>Återställ</translation>
+        <location filename="../src/vpiano.cpp" line="2098"/>
+        <source>Chinese</source>
+        <translation>Kinesiska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="406"/>
-        <source>Resets the Bender value</source>
-        <translation>Återställ tonbändvärdet</translation>
+        <location filename="../src/vpiano.cpp" line="2105"/>
+        <source>Chan:</source>
+        <translation>Kanal:</translation>
     </message>
     <message>
-        <source>F1</source>
-        <translation type="obsolete">F1</translation>
+        <location filename="../src/vpiano.cpp" line="2107"/>
+        <source>Channel:</source>
+        <translation>Kanal:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="441"/>
-        <source>Import SoundFont</source>
-        <translation>Importera ljudbank</translation>
+        <location filename="../src/vpiano.cpp" line="2112"/>
+        <source>Oct:</source>
+        <translation>Oktav:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="452"/>
-        <source>Show or hide the Extra Controls toolbar</source>
-        <translation>Visa eller göm verktygslisten Extrakontroller</translation>
+        <location filename="../src/vpiano.cpp" line="2114"/>
+        <source>Base Octave:</source>
+        <translation>Oktav för Z-M:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="457"/>
-        <location filename="../src/vpiano.ui" line="468"/>
-        <source>Edit</source>
-        <translation>Bearbeta</translation>
+        <location filename="../src/vpiano.cpp" line="2119"/>
+        <source>Trans:</source>
+        <translation>Transposition:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="460"/>
-        <location filename="../src/vpiano.ui" line="485"/>
-        <source>Open the Extra Controls editor</source>
-        <translation>Öppna editorn Extrakontroller</translation>
+        <location filename="../src/vpiano.cpp" line="2121"/>
+        <source>Transpose:</source>
+        <translation>Transponera:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="471"/>
-        <source>Open the Banks/Programs editor</source>
-        <translation>Öppna editorn för ljudbank och ljudprogram</translation>
+        <location filename="../src/vpiano.cpp" line="2126"/>
+        <source>Vel:</source>
+        <translation>Hastighet:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="482"/>
-        <source>&amp;Extra Controllers</source>
-        <translation>&amp;Extrakontroller</translation>
+        <location filename="../src/vpiano.cpp" line="2128"/>
+        <source>Velocity:</source>
+        <translation>Anslag:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="493"/>
-        <source>N&amp;ote Names</source>
-        <translation>T&amp;onnamn</translation>
+        <location filename="../src/vpiano.cpp" line="2131"/>
+        <source>Bank:</source>
+        <translation>Bank:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="496"/>
-        <source>Show or hide the note names</source>
-        <translation>Visa eller göm tonnamn</translation>
+        <location filename="../src/vpiano.cpp" line="2132"/>
+        <source>Bender:</source>
+        <translation>Tonbändning:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="501"/>
-        <source>&amp;Shortcuts</source>
-        <translation>&amp;Tangentkommandon</translation>
+        <location filename="../src/vpiano.cpp" line="2133"/>
+        <source>Control:</source>
+        <translation>Kontroll:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="504"/>
-        <source>Open the Shortcuts editor</source>
-        <translation>Öppna editorn för tangentkommandon</translation>
+        <location filename="../src/vpiano.cpp" line="2134"/>
+        <source>Program:</source>
+        <translation>Program:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="509"/>
-        <source>Octave Up</source>
-        <translation>En oktav upp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="512"/>
-        <source>Play one octave higher</source>
-        <translation>Spela en oktav högre</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="obsolete">Höger</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="520"/>
-        <source>Octave Down</source>
-        <translation>En oktav ned</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="523"/>
-        <source>Play one octave lower</source>
-        <translation>Spela en oktav lägre</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="obsolete">Vänster</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="531"/>
-        <source>Transpose Up</source>
-        <translation>Transponera uppåt</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="534"/>
-        <source>Transpose one semitone higher</source>
-        <translation>Transponera ett halvtonsteg uppåt</translation>
-    </message>
-    <message>
-        <source>Ctrl+Right</source>
-        <translation type="obsolete">Ctrl+Höger</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="542"/>
-        <source>Transpose Down</source>
-        <translation>Transponera nedåt</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="545"/>
-        <source>Transpose one semitone lower</source>
-        <translation>Transponera ett halvtonsteg nedåt</translation>
-    </message>
-    <message>
-        <source>Ctrl+Left</source>
-        <translation type="obsolete">Ctrl+Vänster</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="553"/>
-        <source>Next  Channel</source>
-        <translation>Nästa kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="556"/>
-        <source>Play and listen next channel</source>
-        <translation>Spela och lyssna på nästa kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="564"/>
-        <source>Previous Channel</source>
-        <translation>Föregående kanal</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="567"/>
-        <source>Play and listen previous channel</source>
-        <translation>Spela och lyssna på föregående kanal</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="obsolete">Hem</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="685"/>
-        <source>About &amp;Translation</source>
-        <translation>Om &amp;översättningen</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="688"/>
-        <source>Show information about the program language translation</source>
-        <translation>Visar information om översättningen av användargränssnittet</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="obsolete">Upp</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="obsolete">Ned</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="575"/>
-        <source>Next Controller</source>
-        <translation>Nästa kontroll</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="578"/>
-        <source>Select the next controller</source>
-        <translation>Välj nästa kontroll</translation>
-    </message>
-    <message>
-        <source>Ctrl++</source>
-        <translation type="obsolete">Ctrl++</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="586"/>
-        <source>Previous Controller</source>
-        <translation>Föregående kontroll</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="589"/>
-        <source>Select the previous controller</source>
-        <translation>Välj föregående kontroll</translation>
-    </message>
-    <message>
-        <source>Ctrl+-</source>
-        <translation type="obsolete">Ctrl+-</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="597"/>
-        <source>Controller Up</source>
-        <translation>Kontroll upp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="600"/>
-        <source>Increment the controller value</source>
-        <translation>Öka kontrollvärdet</translation>
-    </message>
-    <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="608"/>
-        <source>Controller Down</source>
-        <translation>Kontroll ned</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="611"/>
-        <source>Decrement the controller value</source>
-        <translation>Minska kontrollvärdet</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="619"/>
-        <source>Next Bank</source>
-        <translation>Nästa ljudbank</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="622"/>
-        <source>Select the next instrument bank</source>
-        <translation>Välj nästa instrumentbank</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="630"/>
-        <source>Previous Bank</source>
-        <translation>Föregående ljudbank</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="633"/>
-        <source>Select the previous instrument bank</source>
-        <translation>Välj föregående instrumentbank</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDn</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="641"/>
-        <source>Next Program</source>
-        <translation>Nästa ljudprogram</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="644"/>
-        <source>Select the next instrument program</source>
-        <translation>Välj nästa instrumentprogram</translation>
-    </message>
-    <message>
-        <source>PgUp</source>
-        <translation type="obsolete">PgUp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="652"/>
-        <source>Previous Program</source>
-        <translation>Föregående ljudprogram</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="655"/>
-        <source>Select the previous instrument program</source>
-        <translation>Välj föregående instrumentprogram</translation>
-    </message>
-    <message>
-        <source>PgDown</source>
-        <translation type="obsolete">PgDn</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="663"/>
-        <source>Velocity Up</source>
-        <translation>Anslag upp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="666"/>
-        <source>Increment note velocity</source>
-        <translation>Öka anslag</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="obsolete">Slut</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="674"/>
-        <source>Velocity Down</source>
-        <translation>Anslag ned</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="677"/>
-        <source>Decrement note velocity</source>
-        <translation>Minska anslagsstyrka</translation>
-    </message>
-    <message>
-        <source>Load...</source>
-        <translation type="obsolete">Laden...</translation>
-    </message>
-    <message>
-        <source>Load another keyboard layout</source>
-        <translation type="obsolete">Lade eine andere Tastaturbelegung</translation>
-    </message>
-    <message>
-        <source>Save...</source>
-        <translation type="obsolete">Speichern...</translation>
-    </message>
-    <message>
-        <source>Save the current keyboard layout</source>
-        <translation type="obsolete">Speichere die aktuelle Tastaturbelegung</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="411"/>
-        <source>&amp;Keyboard Map</source>
-        <translation>&amp;Tangentbindningar</translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="obsolete">Bearbeiten...</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="414"/>
-        <source>Edit the current keyboard layout</source>
-        <translation>Ändra nuvarande tangentbindningar</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="419"/>
-        <source>&amp;Contents</source>
-        <translation>&amp;Innehåll</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="422"/>
-        <source>Open the index of the help document</source>
-        <translation>Öppna innehållsförteckningen i hjälpdokumentet</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="430"/>
-        <source>VMPK &amp;Web site</source>
-        <translation>VMPK:s &amp;hemsida</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="433"/>
-        <source>Open the VMPK web site address using a web browser</source>
-        <translation>Öppna VMPK:s hemsida med hjälp av en brusare</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="438"/>
-        <source>&amp;Import SoundFont...</source>
-        <translation>&amp;Importera ljudbank ...</translation>
+        <location filename="../src/vpiano.cpp" line="2135"/>
+        <source>Value:</source>
+        <translation>Värde:</translation>
     </message>
 </context>
 </TS>

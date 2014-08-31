@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="cs_CZ">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
 <context>
     <name>About</name>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Datum sestavení: %2&lt;br/&gt;Čas sestavení: %3&lt;br/&gt;Překladač: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
     <message>
         <location filename="../src/about.cpp" line="43"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -29,7 +21,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -38,11 +30,24 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Zdánlivá klaviatura klavíru MIDI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../src/about.ui" line="127"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <location filename="../src/about.ui" line="147"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -53,99 +58,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Autorské právo © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je svobodným programem: můžete jej šířit a/nebo upravovat za podmínek GNU General Public License, jak jsou zveřejněny Free Software Foundation, buď ve verzi 3 povolení, nebo (podle své volby) v jakékoli pozdější verzi.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je šířen s nadějí, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY;  dokonce bez předpokládané záruky PRODEJNOSI nebo VHODNOSTI PRO ZVLÁŠTNÍ ÚČEL. Kvůli podrobnostem se podívejte na GNU General Public License. Měl byste kopii GNU General Public License obdržet společně s tímto programem. A pokud ne, podívejte se na &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Autorské právo © 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je svobodným programem: můžete jej šířit a/nebo upravovat za podmínek GNU General Public License, jak jsou zveřejněny Free Software Foundation, buď ve verzi 3 povolení, nebo (podle své volby) v jakékoli pozdější verzi.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je šířen s nadějí, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY;  dokonce bez předpokládané záruky PRODEJNOSI nebo VHODNOSTI PRO ZVLÁŠTNÍ ÚČEL. Kvůli podrobnostem se podívejte na GNU General Public License. Měl byste kopii GNU General Public License obdržet společně s tímto programem. A pokud ne, podívejte se na &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Následující poznámka k autorskému právu je rovněž platná:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program obsahuje &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ třídy&lt;br /&gt;Autorské právo © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2011, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Autorské právo © 2008-2011, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je svobodným programem: můžete jej šířit a/nebo upravovat za podmínek GNU General Public License, jak jsou zveřejněny Free Software Foundation, buď ve verzi 3 povolení, nebo (podle své volby) v jakékoli pozdější verzi.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je šířen s nadějí, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY;  dokonce bez předpokládané záruky PRODEJNOSI nebo VHODNOSTI PRO ZVLÁŠTNÍ ÚČEL. Kvůli podrobnostem se podívejte na GNU General Public License. Měl byste kopii GNU General Public License obdržet společně s tímto programem. A pokud ne, podívejte se na &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Následující poznámka k autorskému právu je rovněž platná:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program obsahuje &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ třídy&lt;br /&gt;Autorské právo © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2010, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Autorské právo © 2008-2010, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je svobodným programem: můžete jej šířit a/nebo upravovat za podmínek GNU General Public License, jak jsou zveřejněny Free Software Foundation, buď ve verzi 3 povolení, nebo (podle své volby) v jakékoli pozdější verzi.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je šířen s nadějí, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY;  dokonce bez předpokládané záruky PRODEJNOSI nebo VHODNOSTI PRO ZVLÁŠTNÍ ÚČEL. Kvůli podrobnostem se podívejte na GNU General Public License. Měl byste kopii GNU General Public License obdržet společně s tímto programem. A pokud ne, podívejte se na &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Následující poznámka k autorskému právu je rovněž platná:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program obsahuje &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ třídy&lt;br /&gt;Autorské právo © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2009, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The following copyright notice is also applicable:&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This program contains &lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2007 Gary P. Scavone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Autorské právo © 2008-2009, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tento program je svobodným software: můžete jej šířit a/nebo upravovat za podmínek uvedených v GNU General Public License, jak byly zveřejněny Free Software Foundation, buď ve verzi 3 licence, nebo (volitelně) v jakékoli pozdější verzi.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tento program je šířen v naději, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY; také bez předpokládané záruky PRODEJNOSTI nebo POUŽITELNOSTI PRO NĚJAKÝ URČITÝ ÚČEL: Více podrobností naleznete v GNU Library General Public License. Kopii GNU Library General Public License byste měl obdržet společně s tímto programem; a pokud ne, podívejte se na&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Následující poznámka k autorskému právu je také platná:&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tento program obsahuje &lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;: MIDI ve skutečném čase i/o C++ třídy&lt;br /&gt;Autorské právo © 2003-2007 Gary P. Scavone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/about.ui" line="127"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -354,21 +266,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DialogExtraControls</name>
     <message>
-        <location filename="../src/extracontrols.cpp" line="74"/>
-        <source>New Control</source>
-        <translation>Nový ovládací prvek</translation>
-    </message>
-    <message>
-        <location filename="../src/extracontrols.cpp" line="239"/>
-        <source>System Exclusive File</source>
-        <translation>Výhradní systémový soubor</translation>
-    </message>
-    <message>
-        <location filename="../src/extracontrols.cpp" line="239"/>
-        <source>System Exclusive (*.syx)</source>
-        <translation>Výhradní systémový (*.syx)</translation>
-    </message>
-    <message>
         <location filename="../src/extracontrols.ui" line="31"/>
         <source>Extra Controls Editor</source>
         <translation>Editor ovládacích prvků navíc</translation>
@@ -488,6 +385,21 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/extracontrols.ui" line="494"/>
         <source>...</source>
         <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="74"/>
+        <source>New Control</source>
+        <translation>Nový ovládací prvek</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="239"/>
+        <source>System Exclusive File</source>
+        <translation>Výhradní systémový soubor</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="239"/>
+        <source>System Exclusive (*.syx)</source>
+        <translation>Výhradní systémový (*.syx)</translation>
     </message>
 </context>
 <context>
@@ -789,482 +701,482 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="234"/>
         <source>32</source>
-        <translation></translation>
+        <translation>32</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="239"/>
         <source>33</source>
-        <translation></translation>
+        <translation>33</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="244"/>
         <source>34</source>
-        <translation></translation>
+        <translation>34</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="249"/>
         <source>35</source>
-        <translation></translation>
+        <translation>35</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="254"/>
         <source>36</source>
-        <translation></translation>
+        <translation>36</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="259"/>
         <source>37</source>
-        <translation></translation>
+        <translation>37</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="264"/>
         <source>38</source>
-        <translation></translation>
+        <translation>38</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="269"/>
         <source>39</source>
-        <translation></translation>
+        <translation>39</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="274"/>
         <source>40</source>
-        <translation></translation>
+        <translation>40</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="279"/>
         <source>41</source>
-        <translation></translation>
+        <translation>41</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="284"/>
         <source>42</source>
-        <translation></translation>
+        <translation>42</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="289"/>
         <source>43</source>
-        <translation></translation>
+        <translation>43</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="294"/>
         <source>44</source>
-        <translation></translation>
+        <translation>44</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="299"/>
         <source>45</source>
-        <translation></translation>
+        <translation>45</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="304"/>
         <source>46</source>
-        <translation></translation>
+        <translation>46</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="309"/>
         <source>47</source>
-        <translation></translation>
+        <translation>47</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="314"/>
         <source>48</source>
-        <translation></translation>
+        <translation>48</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="319"/>
         <source>49</source>
-        <translation></translation>
+        <translation>49</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="324"/>
         <source>50</source>
-        <translation></translation>
+        <translation>50</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="329"/>
         <source>51</source>
-        <translation></translation>
+        <translation>51</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="334"/>
         <source>52</source>
-        <translation></translation>
+        <translation>52</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="339"/>
         <source>53</source>
-        <translation></translation>
+        <translation>53</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="344"/>
         <source>54</source>
-        <translation></translation>
+        <translation>54</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="349"/>
         <source>55</source>
-        <translation></translation>
+        <translation>55</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="354"/>
         <source>56</source>
-        <translation></translation>
+        <translation>56</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="359"/>
         <source>57</source>
-        <translation></translation>
+        <translation>57</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="364"/>
         <source>58</source>
-        <translation></translation>
+        <translation>58</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="369"/>
         <source>59</source>
-        <translation></translation>
+        <translation>59</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="374"/>
         <source>60</source>
-        <translation></translation>
+        <translation>60</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="379"/>
         <source>61</source>
-        <translation></translation>
+        <translation>61</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="384"/>
         <source>62</source>
-        <translation></translation>
+        <translation>62</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="389"/>
         <source>63</source>
-        <translation></translation>
+        <translation>63</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="394"/>
         <source>64</source>
-        <translation></translation>
+        <translation>64</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="399"/>
         <source>65</source>
-        <translation></translation>
+        <translation>65</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="404"/>
         <source>66</source>
-        <translation></translation>
+        <translation>66</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="409"/>
         <source>67</source>
-        <translation></translation>
+        <translation>67</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="414"/>
         <source>68</source>
-        <translation></translation>
+        <translation>68</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="419"/>
         <source>69</source>
-        <translation></translation>
+        <translation>69</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="424"/>
         <source>70</source>
-        <translation></translation>
+        <translation>70</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="429"/>
         <source>71</source>
-        <translation></translation>
+        <translation>71</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="434"/>
         <source>72</source>
-        <translation></translation>
+        <translation>72</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="439"/>
         <source>73</source>
-        <translation></translation>
+        <translation>73</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="444"/>
         <source>74</source>
-        <translation></translation>
+        <translation>74</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="449"/>
         <source>75</source>
-        <translation></translation>
+        <translation>75</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="454"/>
         <source>76</source>
-        <translation></translation>
+        <translation>76</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="459"/>
         <source>77</source>
-        <translation></translation>
+        <translation>77</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="464"/>
         <source>78</source>
-        <translation></translation>
+        <translation>78</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="469"/>
         <source>79</source>
-        <translation></translation>
+        <translation>79</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="474"/>
         <source>80</source>
-        <translation></translation>
+        <translation>80</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="479"/>
         <source>81</source>
-        <translation></translation>
+        <translation>81</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="484"/>
         <source>82</source>
-        <translation></translation>
+        <translation>82</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="489"/>
         <source>83</source>
-        <translation></translation>
+        <translation>83</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="494"/>
         <source>84</source>
-        <translation></translation>
+        <translation>84</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="499"/>
         <source>85</source>
-        <translation></translation>
+        <translation>85</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="504"/>
         <source>86</source>
-        <translation></translation>
+        <translation>86</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="509"/>
         <source>87</source>
-        <translation></translation>
+        <translation>87</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="514"/>
         <source>88</source>
-        <translation></translation>
+        <translation>88</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="519"/>
         <source>89</source>
-        <translation></translation>
+        <translation>89</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="524"/>
         <source>90</source>
-        <translation></translation>
+        <translation>90</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="529"/>
         <source>91</source>
-        <translation></translation>
+        <translation>91</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="534"/>
         <source>92</source>
-        <translation></translation>
+        <translation>92</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="539"/>
         <source>93</source>
-        <translation></translation>
+        <translation>93</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="544"/>
         <source>94</source>
-        <translation></translation>
+        <translation>94</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="549"/>
         <source>95</source>
-        <translation></translation>
+        <translation>95</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="554"/>
         <source>96</source>
-        <translation></translation>
+        <translation>96</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="559"/>
         <source>97</source>
-        <translation></translation>
+        <translation>97</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="564"/>
         <source>98</source>
-        <translation></translation>
+        <translation>98</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="569"/>
         <source>99</source>
-        <translation></translation>
+        <translation>99</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="574"/>
         <source>100</source>
-        <translation></translation>
+        <translation>100</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="579"/>
         <source>101</source>
-        <translation></translation>
+        <translation>101</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="584"/>
         <source>102</source>
-        <translation></translation>
+        <translation>102</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="589"/>
         <source>103</source>
-        <translation></translation>
+        <translation>103</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="594"/>
         <source>104</source>
-        <translation></translation>
+        <translation>104</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="599"/>
         <source>105</source>
-        <translation></translation>
+        <translation>105</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="604"/>
         <source>106</source>
-        <translation></translation>
+        <translation>106</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="609"/>
         <source>107</source>
-        <translation></translation>
+        <translation>107</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="614"/>
         <source>108</source>
-        <translation></translation>
+        <translation>108</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="619"/>
         <source>109</source>
-        <translation></translation>
+        <translation>109</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="624"/>
         <source>110</source>
-        <translation></translation>
+        <translation>110</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="629"/>
         <source>111</source>
-        <translation></translation>
+        <translation>111</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="634"/>
         <source>112</source>
-        <translation></translation>
+        <translation>112</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="639"/>
         <source>113</source>
-        <translation></translation>
+        <translation>113</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="644"/>
         <source>114</source>
-        <translation></translation>
+        <translation>114</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="649"/>
         <source>115</source>
-        <translation></translation>
+        <translation>115</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="654"/>
         <source>116</source>
-        <translation></translation>
+        <translation>116</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="659"/>
         <source>117</source>
-        <translation></translation>
+        <translation>117</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="664"/>
         <source>118</source>
-        <translation></translation>
+        <translation>118</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="669"/>
         <source>119</source>
-        <translation></translation>
+        <translation>119</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="674"/>
         <source>120</source>
-        <translation></translation>
+        <translation>120</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="679"/>
         <source>121</source>
-        <translation></translation>
+        <translation>121</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="684"/>
         <source>122</source>
-        <translation></translation>
+        <translation>122</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="689"/>
         <source>123</source>
-        <translation></translation>
+        <translation>123</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="694"/>
         <source>124</source>
-        <translation></translation>
+        <translation>124</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="699"/>
         <source>125</source>
-        <translation></translation>
+        <translation>125</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="704"/>
         <source>126</source>
-        <translation></translation>
+        <translation>126</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="709"/>
         <source>127</source>
-        <translation></translation>
+        <translation>127</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="714"/>
@@ -1310,25 +1222,6 @@ p, li { white-space: pre-wrap; }
         <translation>Zaškrtněte toto políčko kvůli zapnutí vstupu MIDI pro program. V Linuxu a MacOS X je vstup vždy zapnut a nelze jej vypnout</translation>
     </message>
     <message>
-        <source>Enable MIDI input</source>
-        <translation type="vanished">Povolit vstup MIDI</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="129"/>
-        <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
-        <translation>Zaškrtněte toto políčko kvůli zapnutí funkce přepojení MIDI. Při zapnutí této volby bude kterákoli událost MIDI, příchozí signál přijatý ve vstupní přípojce, kopírována automaticky také do výstupní přípojky</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="132"/>
-        <source>Enable MIDI Thru on MIDI Output</source>
-        <translation>Povolit přepojení MIDI na výstup MIDI</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="100"/>
-        <source>Input MIDI Connection</source>
-        <translation>Spojení vstupu MIDI</translation>
-    </message>
-    <message>
         <location filename="../src/midisetup.ui" line="50"/>
         <source>Enable MIDI Input</source>
         <translation>Povolit vstup MIDI</translation>
@@ -1350,9 +1243,24 @@ p, li { white-space: pre-wrap; }
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../src/midisetup.ui" line="100"/>
+        <source>Input MIDI Connection</source>
+        <translation>Spojení vstupu MIDI</translation>
+    </message>
+    <message>
         <location filename="../src/midisetup.ui" line="122"/>
         <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
         <translation>Použijte tento ovládací prvek pro změnu současného uspořádání spojení vstupu MIDI, pokud je povoleno</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="129"/>
+        <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
+        <translation>Zaškrtněte toto políčko kvůli zapnutí funkce přepojení MIDI. Při zapnutí této volby bude kterákoli událost MIDI, příchozí signál přijatý ve vstupní přípojce, kopírována automaticky také do výstupní přípojky</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="132"/>
+        <source>Enable MIDI Thru on MIDI Output</source>
+        <translation>Povolit přepojení MIDI na výstup MIDI</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="139"/>
@@ -1373,10 +1281,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/midisetup.ui" line="201"/>
         <source>Show Advanced Connections</source>
         <translation>Ukázat pokročilá spojení</translation>
-    </message>
-    <message>
-        <source>MIDI Omni mode</source>
-        <translation type="vanished">Režim Omni MIDI</translation>
     </message>
 </context>
 <context>
@@ -1427,14 +1331,6 @@ p, li { white-space: pre-wrap; }
         <translation>D♯</translation>
     </message>
     <message>
-        <source>C#</source>
-        <translation type="vanished">Cis</translation>
-    </message>
-    <message>
-        <source>D#</source>
-        <translation type="vanished">Dis</translation>
-    </message>
-    <message>
         <location filename="../src/pianoscene.cpp" line="595"/>
         <location filename="../src/pianoscene.cpp" line="607"/>
         <source>E</source>
@@ -1445,38 +1341,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/pianoscene.cpp" line="608"/>
         <source>F</source>
         <translation>F</translation>
-    </message>
-    <message>
-        <source>F#</source>
-        <translation type="vanished">Fis</translation>
-    </message>
-    <message>
-        <source>G#</source>
-        <translation type="vanished">Gis</translation>
-    </message>
-    <message>
-        <source>A#</source>
-        <translation type="vanished">Ais</translation>
-    </message>
-    <message>
-        <source>Db</source>
-        <translation type="vanished">Des</translation>
-    </message>
-    <message>
-        <source>Eb</source>
-        <translation type="vanished">Es</translation>
-    </message>
-    <message>
-        <source>Gb</source>
-        <translation type="vanished">Ges</translation>
-    </message>
-    <message>
-        <source>Ab</source>
-        <translation type="vanished">As</translation>
-    </message>
-    <message>
-        <source>Bb</source>
-        <translation type="vanished">Hes</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="597"/>
@@ -1570,8 +1434,9 @@ p, li { white-space: pre-wrap; }
         <translation>Nastavení</translation>
     </message>
     <message>
-        <source>Number of octaves</source>
-        <translation type="vanished">Počet oktáv</translation>
+        <location filename="../src/preferences.ui" line="47"/>
+        <source>Number of keys</source>
+        <translation>Počet předznamenání</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="57"/>
@@ -1579,12 +1444,14 @@ p, li { white-space: pre-wrap; }
         <translation>Počet oktáv, od 1 do 10. Každá oktáva má 12 kláves: 7 bílých a 5 černých. MIDI standard má 128 not, ale všechny nástroje je dokáží přehrát všechny.</translation>
     </message>
     <message>
-        <source>Key pressed color</source>
-        <translation type="obsolete">Barva stisknuté klávesy</translation>
+        <location filename="../src/preferences.ui" line="70"/>
+        <source>Starting Key</source>
+        <translation>Počáteční předznamenání</translation>
     </message>
     <message>
-        <source>This box displays the highligh color and code used to paint the keys that are being activated.</source>
-        <translation type="obsolete">Toto políčko ukazuje zvýrazňovací barvu, která je použita pro nakreslení kláves, jež jsou uváděny v činnost, a její kód.</translation>
+        <location filename="../src/preferences.ui" line="89"/>
+        <source>Note highlight color</source>
+        <translation>Barva na zvýraznění noty</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="102"/>
@@ -1592,8 +1459,9 @@ p, li { white-space: pre-wrap; }
         <translation>Stiskněte toto tlačítko, abyste změnil zvýrazňovací barvu, která je použita pro nakreslení kláves, jež jsou uváděny v činnost.</translation>
     </message>
     <message>
-        <source>color...</source>
-        <translation type="obsolete">Barva...</translation>
+        <location filename="../src/preferences.ui" line="105"/>
+        <source>Colors...</source>
+        <translation>Barvy...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="118"/>
@@ -1616,48 +1484,16 @@ p, li { white-space: pre-wrap; }
         <translation>Stiskněte toto tlačítko, abyste nahrál soubor s vymezením nástroje z pevného disku.</translation>
     </message>
     <message>
-        <source>load...</source>
-        <translation type="vanished">Nahrát...</translation>
+        <location filename="../src/preferences.ui" line="150"/>
+        <location filename="../src/preferences.ui" line="193"/>
+        <location filename="../src/preferences.ui" line="213"/>
+        <source>Load...</source>
+        <translation>Nahrát...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="163"/>
         <source>Instrument</source>
         <translation>Nástroj</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="327"/>
-        <source>MIDI channel state consistency</source>
-        <translation>Konzistence stavu kanálu MIDI</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="427"/>
-        <source>Enable Touch Screen Input</source>
-        <translation>Povolit vstup přes dotykovou obrazovku</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="411"/>
-        <source>Enable Mouse Input</source>
-        <translation>Povolit vstup přes myš</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="47"/>
-        <source>Number of keys</source>
-        <translation>Počet předznamenání</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="70"/>
-        <source>Starting Key</source>
-        <translation>Počáteční předznamenání</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="105"/>
-        <source>Colors...</source>
-        <translation>Barvy...</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="372"/>
-        <source>Enable Computer Keyboard Input</source>
-        <translation>Povolit vstup přes klávesnici počítače</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="173"/>
@@ -1670,66 +1506,14 @@ p, li { white-space: pre-wrap; }
         <translation>Uspořádání klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="150"/>
-        <location filename="../src/preferences.ui" line="193"/>
-        <location filename="../src/preferences.ui" line="213"/>
-        <source>Load...</source>
-        <translation>Nahrát...</translation>
-    </message>
-    <message>
         <location filename="../src/preferences.ui" line="200"/>
         <source>Raw Keyboard Map</source>
-        <translatorcomment>There is no good/short way to translate this to german :-/</translatorcomment>
         <translation>Neupravené přiřazení kláves</translation>
-    </message>
-    <message>
-        <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation type="vanished">Změňte styl prvku (knoflíky, přepínače), buď pomocí uživatelsky stanoveného vzhledu, nebo vrácením se k stylu vybranému v qtconfig.</translation>
-    </message>
-    <message>
-        <source>Styled Widgets</source>
-        <translation type="vanished">Stylizované prvky</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="388"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Zaškrtněte toto políčko kvůli použití nízkoúrovňových událostí klávesnice počítače. Tento systém má několik výhod:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Je možné použít &quot;mrtvých kláves&quot; (značky akcentů, diakritika)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Vymezení přiřazení jsou nezávislá na jazyku (ale přesně stanovená u každého technického vybavení a operačního systému)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rychlejší zpracování&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Network Interface</source>
-        <translation type="vanished">Síťové rozhraní</translation>
-    </message>
-    <message>
-        <source>MIDI Driver</source>
-        <translation type="vanished">Ovladač MIDI</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="220"/>
         <source>Drums Channel</source>
         <translation>Kanál bicích</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="89"/>
-        <source>Note highlight color</source>
-        <translation>Barva na zvýraznění noty</translation>
-    </message>
-    <message>
-        <source>colors...</source>
-        <translation type="vanished">Barvy...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="231"/>
@@ -1812,21 +1596,14 @@ p, li { white-space: pre-wrap; }
         <translation>15</translation>
     </message>
     <message>
+        <location filename="../src/preferences.ui" line="327"/>
+        <source>MIDI channel state consistency</source>
+        <translation>Konzistence stavu kanálu MIDI</translation>
+    </message>
+    <message>
         <location filename="../src/preferences.ui" line="340"/>
         <source>Translate MIDI velocity to key pressed color tint</source>
         <translation>Přeložit rychlost MIDI na barevný odstín stisknuté klávesy</translation>
-    </message>
-    <message>
-        <source>Network Port</source>
-        <translation type="vanished">Síťová přípojka</translation>
-    </message>
-    <message>
-        <source>Change the knob buttons style, either using the custom look or revert to the style selected in qtconfig.</source>
-        <translation type="obsolete">Mit dieser Option kann man das Aussehen der Knöpfe verändern; entweder der eigene Stil oder das Standardaussehen.</translation>
-    </message>
-    <message>
-        <source>Styled Knobs</source>
-        <translation type="obsolete">Stylische Knöpfe</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="356"/>
@@ -1839,20 +1616,28 @@ p, li { white-space: pre-wrap; }
         <translation>Vždy nahoře</translation>
     </message>
     <message>
+        <location filename="../src/preferences.ui" line="372"/>
+        <source>Enable Computer Keyboard Input</source>
+        <translation>Povolit vstup přes klávesnici počítače</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="388"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Zaškrtněte toto políčko kvůli popadnutí klávesnice počítače, i když nemá ovládání klávesnice ohnisko. &lt;span style=&quot; font-weight:600;&quot;&gt;Poznámka pro linuxové uživatele:&lt;/span&gt; tato volba pracuje dobře s běžnými plochami KDE, ale selhává v okenních správcích, jakými jsou metacity a compiz. Je také dobře známou skutečností, že použití této volby porušuje rozbalovací nabídky GTK aplikací.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;Tato volba popadne klávesnici, takže každý stisk klávesy je bezprostředně poslán aplikaci. (V Linuxu pracuje pouze pod KDE)</translation>
-    </message>
-    <message>
-        <source>Grab Computer Keyboard</source>
-        <translation type="vanished">Popadnout klávesnici počítače</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Zaškrtněte toto políčko kvůli použití nízkoúrovňových událostí klávesnice počítače. Tento systém má několik výhod:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Je možné použít &quot;mrtvých kláves&quot; (značky akcentů, diakritika)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Vymezení přiřazení jsou nezávislá na jazyku (ale přesně stanovená u každého technického vybavení a operačního systému)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rychlejší zpracování&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="398"/>
@@ -1860,16 +1645,14 @@ p, li { white-space: pre-wrap; }
         <translation>Popadnout neupravenou klávesnici počítače</translation>
     </message>
     <message>
-        <source>Grab keyboard</source>
-        <translation type="obsolete">Tastatur einfangen</translation>
+        <location filename="../src/preferences.ui" line="411"/>
+        <source>Enable Mouse Input</source>
+        <translation>Povolit vstup přes myš</translation>
     </message>
     <message>
-        <source>Check this box to display the note names over the piano keys.</source>
-        <translation type="obsolete">Zaškrtněte toto políčko kvůli zobrazení názvů not nad klávesami klavíru.</translation>
-    </message>
-    <message>
-        <source>Show Note Names</source>
-        <translation type="obsolete">Ukázat názvy not</translation>
+        <location filename="../src/preferences.ui" line="427"/>
+        <source>Enable Touch Screen Input</source>
+        <translation>Povolit vstup přes dotykovou obrazovku</translation>
     </message>
 </context>
 <context>
@@ -1892,26 +1675,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>RiffImportDlg</name>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
-        <source>Input SoundFont</source>
-        <translation>Zvukové písmo pro vstup</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
-        <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
-        <translation>Zvuková písma (*.sf2 *.sbk *.dls)</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
-        <source>Output</source>
-        <translation>Výstup</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
-        <source>Instrument definitions (*.ins)</source>
-        <translation>Vymezení nástrojů (*.ins)</translation>
-    </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
@@ -1968,6 +1731,26 @@ p, li { white-space: pre-wrap; }
         <source>Press this button to select a path and file name for the output file</source>
         <translation>Stiskněte toto tlačítko, abyste vybral cestu a souborový název pro výstupní soubor</translation>
     </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <source>Input SoundFont</source>
+        <translation>Zvukové písmo pro vstup</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
+        <translation>Zvuková písma (*.sf2 *.sbk *.dls)</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <source>Output</source>
+        <translation>Výstup</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <source>Instrument definitions (*.ins)</source>
+        <translation>Vymezení nástrojů (*.ins)</translation>
+    </message>
 </context>
 <context>
     <name>ShortcutDialog</name>
@@ -2009,222 +1792,6 @@ Chcete použít tyto změny?</translation>
 <context>
     <name>VPiano</name>
     <message>
-        <location filename="../src/vpiano.cpp" line="1659"/>
-        <source>Error</source>
-        <translation>Chyba</translation>
-    </message>
-    <message>
-        <source>No MIDI output ports available. Aborting</source>
-        <translation type="vanished">Nejsou dostupné žádné výstupní přípojky MIDI. Ruší se</translation>
-    </message>
-    <message>
-        <source>Error. Aborting</source>
-        <translation type="vanished">Chyba. Ruší se</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2093"/>
-        <source>Galician</source>
-        <translation>Galicijština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2096"/>
-        <source>Serbian</source>
-        <translation>Srbština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2105"/>
-        <source>Chan:</source>
-        <translation>Kan:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2107"/>
-        <source>Channel:</source>
-        <translation>Kanál:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2112"/>
-        <source>Oct:</source>
-        <translation>Okt:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2114"/>
-        <source>Base Octave:</source>
-        <translation>Základní oktáva:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2119"/>
-        <source>Trans:</source>
-        <translation>Přev:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2121"/>
-        <source>Transpose:</source>
-        <translation>Převést:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
-        <source>Vel:</source>
-        <translation>Rych:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
-        <source>Velocity:</source>
-        <translation>Rychlost:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2133"/>
-        <source>Control:</source>
-        <translation>Ovládací prvek:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2135"/>
-        <source>Value:</source>
-        <translation>Hodnota:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2132"/>
-        <source>Bender:</source>
-        <translation>Měnič:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2131"/>
-        <source>Bank:</source>
-        <translation>Banka:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2134"/>
-        <source>Program:</source>
-        <translation>Program:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1993"/>
-        <source>The language for this application is going to change to %1. Do you want to continue?</source>
-        <translation>Jazyk pro tento program bude změněn na %1. Chcete pokračovat?</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2036"/>
-        <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;VMPK je vyvíjen a překládán díky dobrovolnické práci mnoha lidí z celého světa. Pokud se chcete připojit k družstvu, nebo máte nějaké otázky, navštivte, prosím, fórum na &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2057"/>
-        <source>Translation Information</source>
-        <translation>Informace o překladech</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2097"/>
-        <source>Swedish</source>
-        <translation>Švédština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2054"/>
-        <source>Translation</source>
-        <translation>Překlad</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2055"/>
-        <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;Překlad: Pavel Fric, fripohled.blogspot.com&lt;/p&gt;%1</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2088"/>
-        <source>Czech</source>
-        <translation>Čeština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2089"/>
-        <source>German</source>
-        <translation>Němčina</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2090"/>
-        <source>English</source>
-        <translation>Angličtina</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2091"/>
-        <source>Spanish</source>
-        <translation>Španělština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2092"/>
-        <source>French</source>
-        <translation>Francouzština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2094"/>
-        <source>Dutch</source>
-        <translation>Nizozemština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2095"/>
-        <source>Russian</source>
-        <translation>Ruština</translation>
-    </message>
-    <message>
-        <source>Turkish</source>
-        <translation type="obsolete">Turečtina</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2098"/>
-        <source>Chinese</source>
-        <translation>Čínština</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1992"/>
-        <source>Language Changed</source>
-        <translation>Jazyk byl změněn</translation>
-    </message>
-    <message>
-        <source> Channel: </source>
-        <translation type="obsolete"> Kanal: </translation>
-    </message>
-    <message>
-        <source> Base Octave: </source>
-        <translation type="obsolete"> Basisoktave: </translation>
-    </message>
-    <message>
-        <source> Transpose: </source>
-        <translation type="obsolete"> Transponieren: </translation>
-    </message>
-    <message>
-        <source> Velocity: </source>
-        <translation type="obsolete"> Geschwindigkeit: </translation>
-    </message>
-    <message>
-        <source> Control: </source>
-        <translation type="obsolete"> Kontrolle: </translation>
-    </message>
-    <message>
-        <source> Value: </source>
-        <translation type="obsolete"> Wert: </translation>
-    </message>
-    <message>
-        <source> Program: </source>
-        <translation type="obsolete"> Programm:</translation>
-    </message>
-    <message>
-        <source>Open keyboard map definition</source>
-        <translation type="obsolete">Öffne Tastaturbelegungsdatei</translation>
-    </message>
-    <message>
-        <source>Keyboard map (*.xml)</source>
-        <translation type="obsolete">Tastaturbelegungsdatei (*.xml)</translation>
-    </message>
-    <message>
-        <source>Save keyboard map definition</source>
-        <translation type="obsolete">Speichere Tastaturbelegung</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1659"/>
-        <source>No help file found</source>
-        <translation>Nepodařilo se najít žádný soubor s nápovědou</translation>
-    </message>
-    <message>
-        <source>Virtual Piano Keyboard</source>
-        <translation type="obsolete">Hrací deska klaviatury zdánlivého klavíru</translation>
-    </message>
-    <message>
         <location filename="../src/vpiano.ui" line="67"/>
         <source>&amp;File</source>
         <translation>&amp;Soubor</translation>
@@ -2233,10 +1800,6 @@ Chcete použít tyto změny?</translation>
         <location filename="../src/vpiano.ui" line="75"/>
         <source>&amp;Edit</source>
         <translation>&amp;Úpravy</translation>
-    </message>
-    <message>
-        <source>Keyboard map</source>
-        <translation type="obsolete">Tastaturbelegung</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="86"/>
@@ -2334,14 +1897,356 @@ Chcete použít tyto změny?</translation>
         <translation>&amp;Spojení MIDI</translation>
     </message>
     <message>
+        <location filename="../src/vpiano.ui" line="305"/>
+        <source>Edit the MIDI connections</source>
+        <translation>Upravit spojení MIDI</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="310"/>
+        <source>&amp;About</source>
+        <translation>&amp;O</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="313"/>
+        <source>Show the About box</source>
+        <translation>Ukázat informace o programu</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="318"/>
+        <source>About &amp;Qt</source>
+        <translation>O &amp;Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="321"/>
+        <source>Show the Qt about box</source>
+        <translation>Ukázat informace o Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="332"/>
+        <source>Show or hide the Notes toolbar</source>
+        <translation>Ukázat nebo skrýt nástrojový pruh s notami</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="343"/>
+        <source>Show or hide the Controller toolbar</source>
+        <translation>Ukázat nebo skrýt nástrojový pruh s ovládacími prvky</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="354"/>
+        <source>Show or hide the Pitch Bender toolbar</source>
+        <translation>Ukázat nebo skrýt nástrojový pruh s měničem výšky tónu</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="365"/>
+        <source>Show or hide the Programs toolbar</source>
+        <translation>Ukázat nebo skrýt nástrojový pruh programu</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="376"/>
+        <source>&amp;Status Bar</source>
+        <translation>&amp;Stavový řádek</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="379"/>
+        <source>Show or hide the Status Bar</source>
+        <translation>Ukázat nebo skrýt stavový pruh</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="384"/>
+        <source>Panic</source>
+        <translation>Nouzové zastavení</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="387"/>
+        <source>Stops all active notes</source>
+        <translation>Zastaví všechny noty, které jsou v činnosti</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="395"/>
+        <source>Reset All</source>
+        <translation>Nastavit znovu vše</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="398"/>
+        <source>Resets all the controllers</source>
+        <translation>Nastaví znovu všechny ovládací prvky</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="403"/>
+        <source>Reset</source>
+        <translation>Nastavit znovu</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="406"/>
+        <source>Resets the Bender value</source>
+        <translation>Nastaví znovu hodnotu měniče</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="411"/>
+        <source>&amp;Keyboard Map</source>
+        <translation>&amp;Uspořádání klávesnice</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="414"/>
+        <source>Edit the current keyboard layout</source>
+        <translation>Upravit nynější uspořádání klávesnice</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="419"/>
+        <source>&amp;Contents</source>
+        <translation>&amp;Obsah</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="422"/>
+        <source>Open the index of the help document</source>
+        <translation>Otevřít rejstřík dokumentu s nápovědou</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="430"/>
+        <source>VMPK &amp;Web site</source>
+        <translation>VMPK &amp;stránky na internetu</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="433"/>
+        <source>Open the VMPK web site address using a web browser</source>
+        <translation>Otevřít adresu internetových stránek VMPK v prohlížeči</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="438"/>
+        <source>&amp;Import SoundFont...</source>
+        <translation>&amp;Zavést zvukové písmo...</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="441"/>
+        <source>Import SoundFont</source>
+        <translation>Zavést zvukové písmo</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="452"/>
+        <source>Show or hide the Extra Controls toolbar</source>
+        <translation>Ukázat nebo skrýt nástrojový pruh s ovládacími prvky navíc</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="457"/>
+        <location filename="../src/vpiano.ui" line="468"/>
+        <source>Edit</source>
+        <translation>Upravit</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="460"/>
+        <location filename="../src/vpiano.ui" line="485"/>
+        <source>Open the Extra Controls editor</source>
+        <translation>Ukázat editor dalších ovládacích prvků</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="471"/>
+        <source>Open the Banks/Programs editor</source>
+        <translation>Ukázat editor bank/programů</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="482"/>
+        <source>&amp;Extra Controllers</source>
+        <translation>&amp;Další ovládací prvky</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="493"/>
+        <source>N&amp;ote Names</source>
+        <translation>Názvy n&amp;ot</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="496"/>
+        <source>Show or hide the note names</source>
+        <translation>Ukázat nebo skrýt názvy not</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="501"/>
+        <source>&amp;Shortcuts</source>
+        <translation>&amp;Zkratky</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="504"/>
+        <source>Open the Shortcuts editor</source>
+        <translation>Otevřít editor zkratek</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="509"/>
+        <source>Octave Up</source>
+        <translation>O oktávu nahoru</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="512"/>
+        <source>Play one octave higher</source>
+        <translation>Přehrát o jednu oktávu výše</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="520"/>
+        <source>Octave Down</source>
+        <translation>O oktávu dolů</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="523"/>
+        <source>Play one octave lower</source>
+        <translation>Přehrát o jednu oktávu níže</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="531"/>
+        <source>Transpose Up</source>
+        <translation>Převést nahoru</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="534"/>
+        <source>Transpose one semitone higher</source>
+        <translation>Převést o jeden půltón výše</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="542"/>
+        <source>Transpose Down</source>
+        <translation>Převést dolů</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="545"/>
+        <source>Transpose one semitone lower</source>
+        <translation>Převést o jeden půltón níže</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="553"/>
+        <source>Next  Channel</source>
+        <translation>Další kanál</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="556"/>
+        <source>Play and listen next channel</source>
+        <translation>Přehrát a poslouchat další kanál</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="564"/>
+        <source>Previous Channel</source>
+        <translation>Předchozí kanál</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="567"/>
+        <source>Play and listen previous channel</source>
+        <translation>Přehrát a poslouchat předchozí kanál</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="575"/>
+        <source>Next Controller</source>
+        <translation>Další ovládací prvek</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="578"/>
+        <source>Select the next controller</source>
+        <translation>Vybrat další ovládací prvek</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="586"/>
+        <source>Previous Controller</source>
+        <translation>Předchozí ovládací prvek</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="589"/>
+        <source>Select the previous controller</source>
+        <translation>Vybrat předchozí ovládací prvek</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="597"/>
+        <source>Controller Up</source>
+        <translation>Ovládací prvek nahoru</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="600"/>
+        <source>Increment the controller value</source>
+        <translation>Zvýšit hodnotu ovladače</translation>
+    </message>
+    <message>
         <location filename="../src/vpiano.ui" line="603"/>
         <source>Alt++</source>
         <translation>Alt++</translation>
     </message>
     <message>
+        <location filename="../src/vpiano.ui" line="608"/>
+        <source>Controller Down</source>
+        <translation>Ovládací prvek dolů</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="611"/>
+        <source>Decrement the controller value</source>
+        <translation>Snížit hodnotu ovladače</translation>
+    </message>
+    <message>
         <location filename="../src/vpiano.ui" line="614"/>
         <source>Alt+-</source>
         <translation>Alt+-</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="619"/>
+        <source>Next Bank</source>
+        <translation>Další banka</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="622"/>
+        <source>Select the next instrument bank</source>
+        <translation>Vybrat další nástrojovou banku</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="630"/>
+        <source>Previous Bank</source>
+        <translation>Předchozí banka</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="633"/>
+        <source>Select the previous instrument bank</source>
+        <translation>Vybrat předchozí nástrojovou banku</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="641"/>
+        <source>Next Program</source>
+        <translation>Další program</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="644"/>
+        <source>Select the next instrument program</source>
+        <translation>Vybrat další nástrojový program</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="652"/>
+        <source>Previous Program</source>
+        <translation>Předchozí program</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="655"/>
+        <source>Select the previous instrument program</source>
+        <translation>Vybrat předchozí nástrojový program</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="663"/>
+        <source>Velocity Up</source>
+        <translation>Rychlost nahoru</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="666"/>
+        <source>Increment note velocity</source>
+        <translation>Zvýšit rychlost noty</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="674"/>
+        <source>Velocity Down</source>
+        <translation>Rychlost dolů</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="677"/>
+        <source>Decrement note velocity</source>
+        <translation>Snížit rychlost noty</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="685"/>
+        <source>About &amp;Translation</source>
+        <translation>O &amp;překladu</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="688"/>
+        <source>Show information about the program language translation</source>
+        <translation>Ukázat informace o překladu jazyka programu</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="699"/>
@@ -2409,438 +2314,164 @@ Chcete použít tyto změny?</translation>
         <translation>Alt+F</translation>
     </message>
     <message>
-        <source>&amp;Connections</source>
-        <translation type="obsolete">&amp;Spojení</translation>
+        <location filename="../src/vpiano.cpp" line="1659"/>
+        <source>Error</source>
+        <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="305"/>
-        <source>Edit the MIDI connections</source>
-        <translation>Upravit spojení MIDI</translation>
+        <location filename="../src/vpiano.cpp" line="1659"/>
+        <source>No help file found</source>
+        <translation>Nepodařilo se najít žádný soubor s nápovědou</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="310"/>
-        <source>&amp;About</source>
-        <translation>&amp;O</translation>
+        <location filename="../src/vpiano.cpp" line="1992"/>
+        <source>Language Changed</source>
+        <translation>Jazyk byl změněn</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="313"/>
-        <source>Show the About box</source>
-        <translation>Ukázat informace o programu</translation>
+        <location filename="../src/vpiano.cpp" line="1993"/>
+        <source>The language for this application is going to change to %1. Do you want to continue?</source>
+        <translation>Jazyk pro tento program bude změněn na %1. Chcete pokračovat?</translation>
     </message>
     <message>
-        <source>About Q&amp;t</source>
-        <translation type="obsolete">O Q&amp;t</translation>
+        <location filename="../src/vpiano.cpp" line="2036"/>
+        <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;VMPK je vyvíjen a překládán díky dobrovolnické práci mnoha lidí z celého světa. Pokud se chcete připojit k družstvu, nebo máte nějaké otázky, navštivte, prosím, fórum na &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="318"/>
-        <source>About &amp;Qt</source>
-        <translation>O &amp;Qt</translation>
+        <location filename="../src/vpiano.cpp" line="2054"/>
+        <source>Translation</source>
+        <translation>Překlad</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="321"/>
-        <source>Show the Qt about box</source>
-        <translation>Ukázat informace o Qt</translation>
+        <location filename="../src/vpiano.cpp" line="2055"/>
+        <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
+        <translation>&lt;p&gt;Překlad: Pavel Fric, fripohled.blogspot.com&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="332"/>
-        <source>Show or hide the Notes toolbar</source>
-        <translation>Ukázat nebo skrýt nástrojový pruh s notami</translation>
+        <location filename="../src/vpiano.cpp" line="2057"/>
+        <source>Translation Information</source>
+        <translation>Informace o překladech</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="343"/>
-        <source>Show or hide the Controller toolbar</source>
-        <translation>Ukázat nebo skrýt nástrojový pruh s ovládacími prvky</translation>
+        <location filename="../src/vpiano.cpp" line="2088"/>
+        <source>Czech</source>
+        <translation>Čeština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="354"/>
-        <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>Ukázat nebo skrýt nástrojový pruh s měničem výšky tónu</translation>
+        <location filename="../src/vpiano.cpp" line="2089"/>
+        <source>German</source>
+        <translation>Němčina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="365"/>
-        <source>Show or hide the Programs toolbar</source>
-        <translation>Ukázat nebo skrýt nástrojový pruh programu</translation>
+        <location filename="../src/vpiano.cpp" line="2090"/>
+        <source>English</source>
+        <translation>Angličtina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="376"/>
-        <source>&amp;Status Bar</source>
-        <translation>&amp;Stavový řádek</translation>
+        <location filename="../src/vpiano.cpp" line="2091"/>
+        <source>Spanish</source>
+        <translation>Španělština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="379"/>
-        <source>Show or hide the Status Bar</source>
-        <translation>Ukázat nebo skrýt stavový pruh</translation>
+        <location filename="../src/vpiano.cpp" line="2092"/>
+        <source>French</source>
+        <translation>Francouzština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="384"/>
-        <source>Panic</source>
-        <translation>Nouzové zastavení</translation>
+        <location filename="../src/vpiano.cpp" line="2093"/>
+        <source>Galician</source>
+        <translation>Galicijština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="387"/>
-        <source>Stops all active notes</source>
-        <translation>Zastaví všechny noty, které jsou v činnosti</translation>
+        <location filename="../src/vpiano.cpp" line="2094"/>
+        <source>Dutch</source>
+        <translation>Nizozemština</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="obsolete">Esc</translation>
+        <location filename="../src/vpiano.cpp" line="2095"/>
+        <source>Russian</source>
+        <translation>Ruština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="395"/>
-        <source>Reset All</source>
-        <translation>Nastavit znovu vše</translation>
+        <location filename="../src/vpiano.cpp" line="2096"/>
+        <source>Serbian</source>
+        <translation>Srbština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="398"/>
-        <source>Resets all the controllers</source>
-        <translation>Nastaví znovu všechny ovládací prvky</translation>
+        <location filename="../src/vpiano.cpp" line="2097"/>
+        <source>Swedish</source>
+        <translation>Švédština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="403"/>
-        <source>Reset</source>
-        <translation>Nastavit znovu</translation>
+        <location filename="../src/vpiano.cpp" line="2098"/>
+        <source>Chinese</source>
+        <translation>Čínština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="406"/>
-        <source>Resets the Bender value</source>
-        <translation>Nastaví znovu hodnotu měniče</translation>
+        <location filename="../src/vpiano.cpp" line="2105"/>
+        <source>Chan:</source>
+        <translation>Kan:</translation>
     </message>
     <message>
-        <source>F1</source>
-        <translation type="obsolete">F1</translation>
+        <location filename="../src/vpiano.cpp" line="2107"/>
+        <source>Channel:</source>
+        <translation>Kanál:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="441"/>
-        <source>Import SoundFont</source>
-        <translation>Zavést zvukové písmo</translation>
+        <location filename="../src/vpiano.cpp" line="2112"/>
+        <source>Oct:</source>
+        <translation>Okt:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="452"/>
-        <source>Show or hide the Extra Controls toolbar</source>
-        <translation>Ukázat nebo skrýt nástrojový pruh s ovládacími prvky navíc</translation>
+        <location filename="../src/vpiano.cpp" line="2114"/>
+        <source>Base Octave:</source>
+        <translation>Základní oktáva:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="457"/>
-        <location filename="../src/vpiano.ui" line="468"/>
-        <source>Edit</source>
-        <translation>Upravit</translation>
+        <location filename="../src/vpiano.cpp" line="2119"/>
+        <source>Trans:</source>
+        <translation>Přev:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="460"/>
-        <location filename="../src/vpiano.ui" line="485"/>
-        <source>Open the Extra Controls editor</source>
-        <translation>Ukázat editor dalších ovládacích prvků</translation>
+        <location filename="../src/vpiano.cpp" line="2121"/>
+        <source>Transpose:</source>
+        <translation>Převést:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="471"/>
-        <source>Open the Banks/Programs editor</source>
-        <translation>Ukázat editor bank/programů</translation>
+        <location filename="../src/vpiano.cpp" line="2126"/>
+        <source>Vel:</source>
+        <translation>Rych:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="482"/>
-        <source>&amp;Extra Controllers</source>
-        <translation>&amp;Další ovládací prvky</translation>
+        <location filename="../src/vpiano.cpp" line="2128"/>
+        <source>Velocity:</source>
+        <translation>Rychlost:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="493"/>
-        <source>N&amp;ote Names</source>
-        <translation>Názvy n&amp;ot</translation>
+        <location filename="../src/vpiano.cpp" line="2131"/>
+        <source>Bank:</source>
+        <translation>Banka:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="496"/>
-        <source>Show or hide the note names</source>
-        <translation>Ukázat nebo skrýt názvy not</translation>
+        <location filename="../src/vpiano.cpp" line="2132"/>
+        <source>Bender:</source>
+        <translation>Měnič:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="501"/>
-        <source>&amp;Shortcuts</source>
-        <translation>&amp;Zkratky</translation>
+        <location filename="../src/vpiano.cpp" line="2133"/>
+        <source>Control:</source>
+        <translation>Ovládací prvek:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="504"/>
-        <source>Open the Shortcuts editor</source>
-        <translation>Otevřít editor zkratek</translation>
+        <location filename="../src/vpiano.cpp" line="2134"/>
+        <source>Program:</source>
+        <translation>Program:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="509"/>
-        <source>Octave Up</source>
-        <translation>O oktávu nahoru</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="512"/>
-        <source>Play one octave higher</source>
-        <translation>Přehrát o jednu oktávu výše</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="obsolete">Vpravo</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="520"/>
-        <source>Octave Down</source>
-        <translation>O oktávu dolů</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="523"/>
-        <source>Play one octave lower</source>
-        <translation>Přehrát o jednu oktávu níže</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="obsolete">Vlevo</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="531"/>
-        <source>Transpose Up</source>
-        <translation>Převést nahoru</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="534"/>
-        <source>Transpose one semitone higher</source>
-        <translation>Převést o jeden půltón výše</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="542"/>
-        <source>Transpose Down</source>
-        <translation>Převést dolů</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="545"/>
-        <source>Transpose one semitone lower</source>
-        <translation>Převést o jeden půltón níže</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="553"/>
-        <source>Next  Channel</source>
-        <translation>Další kanál</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="556"/>
-        <source>Play and listen next channel</source>
-        <translation>Přehrát a poslouchat další kanál</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="564"/>
-        <source>Previous Channel</source>
-        <translation>Předchozí kanál</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="567"/>
-        <source>Play and listen previous channel</source>
-        <translation>Přehrát a poslouchat předchozí kanál</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="obsolete">Home</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="685"/>
-        <source>About &amp;Translation</source>
-        <translation>O &amp;překladu</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="688"/>
-        <source>Show information about the program language translation</source>
-        <translation>Ukázat informace o překladu jazyka programu</translation>
-    </message>
-    <message>
-        <source>Up</source>
-        <translation type="obsolete">Nahoru</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="obsolete">Dolů</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="575"/>
-        <source>Next Controller</source>
-        <translation>Další ovládací prvek</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="578"/>
-        <source>Select the next controller</source>
-        <translation>Vybrat další ovládací prvek</translation>
-    </message>
-    <message>
-        <source>Ctrl++</source>
-        <translation type="obsolete">Ctrl++</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="586"/>
-        <source>Previous Controller</source>
-        <translation>Předchozí ovládací prvek</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="589"/>
-        <source>Select the previous controller</source>
-        <translation>Vybrat předchozí ovládací prvek</translation>
-    </message>
-    <message>
-        <source>Ctrl+-</source>
-        <translation type="obsolete">Ctrl+-</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="597"/>
-        <source>Controller Up</source>
-        <translation>Ovládací prvek nahoru</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="600"/>
-        <source>Increment the controller value</source>
-        <translation>Zvýšit hodnotu ovladače</translation>
-    </message>
-    <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="608"/>
-        <source>Controller Down</source>
-        <translation>Ovládací prvek dolů</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="611"/>
-        <source>Decrement the controller value</source>
-        <translation>Snížit hodnotu ovladače</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="619"/>
-        <source>Next Bank</source>
-        <translation>Další banka</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="622"/>
-        <source>Select the next instrument bank</source>
-        <translation>Vybrat další nástrojovou banku</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="630"/>
-        <source>Previous Bank</source>
-        <translation>Předchozí banka</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="633"/>
-        <source>Select the previous instrument bank</source>
-        <translation>Vybrat předchozí nástrojovou banku</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="641"/>
-        <source>Next Program</source>
-        <translation>Další program</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="644"/>
-        <source>Select the next instrument program</source>
-        <translation>Vybrat další nástrojový program</translation>
-    </message>
-    <message>
-        <source>PgUp</source>
-        <translation type="obsolete">PgUp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="652"/>
-        <source>Previous Program</source>
-        <translation>Předchozí program</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="655"/>
-        <source>Select the previous instrument program</source>
-        <translation>Vybrat předchozí nástrojový program</translation>
-    </message>
-    <message>
-        <source>PgDown</source>
-        <translation type="obsolete">PgDown</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="663"/>
-        <source>Velocity Up</source>
-        <translation>Rychlost nahoru</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="666"/>
-        <source>Increment note velocity</source>
-        <translation>Zvýšit rychlost noty</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="obsolete">End</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="674"/>
-        <source>Velocity Down</source>
-        <translation>Rychlost dolů</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="677"/>
-        <source>Decrement note velocity</source>
-        <translation>Snížit rychlost noty</translation>
-    </message>
-    <message>
-        <source>Load...</source>
-        <translation type="obsolete">Laden...</translation>
-    </message>
-    <message>
-        <source>Load another keyboard layout</source>
-        <translation type="obsolete">Lade eine andere Tastaturbelegung</translation>
-    </message>
-    <message>
-        <source>Save...</source>
-        <translation type="obsolete">Speichern...</translation>
-    </message>
-    <message>
-        <source>Save the current keyboard layout</source>
-        <translation type="obsolete">Speichere die aktuelle Tastaturbelegung</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="411"/>
-        <source>&amp;Keyboard Map</source>
-        <translation>&amp;Uspořádání klávesnice</translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="obsolete">Bearbeiten...</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="414"/>
-        <source>Edit the current keyboard layout</source>
-        <translation>Upravit nynější uspořádání klávesnice</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="419"/>
-        <source>&amp;Contents</source>
-        <translation>&amp;Obsah</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="422"/>
-        <source>Open the index of the help document</source>
-        <translation>Otevřít rejstřík dokumentu s nápovědou</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="430"/>
-        <source>VMPK &amp;Web site</source>
-        <translation>VMPK &amp;stránky na internetu</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="433"/>
-        <source>Open the VMPK web site address using a web browser</source>
-        <translation>Otevřít adresu internetových stránek VMPK v prohlížeči</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="438"/>
-        <source>&amp;Import SoundFont...</source>
-        <translation>&amp;Zavést zvukové písmo...</translation>
+        <location filename="../src/vpiano.cpp" line="2135"/>
+        <source>Value:</source>
+        <translation>Hodnota:</translation>
     </message>
 </context>
 </TS>

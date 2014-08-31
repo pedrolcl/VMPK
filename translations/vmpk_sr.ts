@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -23,7 +21,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -32,48 +30,34 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Патворена миди-клавијатура&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="147"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Нека су права задржана — 2008-2013, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Педро Лопез Кабанилас &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Овај програм је слободан софтвер; можете га прослеђивати и/или мењати под условима ГНУ Опште Јавне Лиценце верзије 3 или (по вашем избору) било које касније верзије, као што је објавила Задужбина Слободног Софтвера.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Овај програм се расподељује у нади да ће бити користан, али БЕЗ икакве ГАРАНЦИЈЕ, чак и без примењене гаранције комерцијалне погодности, задовољавању квалитета, или прилагођености одређеној намени. Погледајте ГНУ Општу Јавну Лиценцу за више детаља. Требало би да сте добили примерак ГНУ Опште Јавне Лиценце уз овај програм, а ако нисте, погледајте је на &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Надаље, следеће обавештење о ауторским правима се примењује:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Овај програм укључује и &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;РтМИДИ&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: рилтајм миди улазно/излазне класе&lt;br /&gt;Нека права су задржана — 2003-2010. Гери П. Скавон&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/about.ui" line="127"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/about.ui" line="147"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Нека су права задржана — 2008-2014, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Педро Лопез Кабанилас &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; и други&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Овај програм је слободан софтвер; можете га прослеђивати и/или мењати под условима ГНУ Опште Јавне Лиценце верзије 3 или (по вашем избору) било које касније верзије, као што је објавила Задужбина Слободног Софтвера.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Овај програм се расподељује у нади да ће бити користан, али БЕЗ икакве ГАРАНЦИЈЕ, чак и без примењене гаранције комерцијалне погодности, задовољавању квалитета, или прилагођености одређеној намени. Погледајте ГНУ Општу Јавну Лиценцу за више детаља. Требало би да сте добили примерак ГНУ Опште Јавне Лиценце уз овај програм, а ако нисте, погледајте је на &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -282,21 +266,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DialogExtraControls</name>
     <message>
-        <location filename="../src/extracontrols.cpp" line="74"/>
-        <source>New Control</source>
-        <translation>Нова контрола</translation>
-    </message>
-    <message>
-        <location filename="../src/extracontrols.cpp" line="239"/>
-        <source>System Exclusive File</source>
-        <translation>СисЕкс датотека</translation>
-    </message>
-    <message>
-        <location filename="../src/extracontrols.cpp" line="239"/>
-        <source>System Exclusive (*.syx)</source>
-        <translation>СисЕкс (*.syx)</translation>
-    </message>
-    <message>
         <location filename="../src/extracontrols.ui" line="31"/>
         <source>Extra Controls Editor</source>
         <translation>Уређивач посебних контрола</translation>
@@ -417,73 +386,88 @@ p, li { white-space: pre-wrap; }
         <source>...</source>
         <translation>...</translation>
     </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="74"/>
+        <source>New Control</source>
+        <translation>Нова контрола</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="239"/>
+        <source>System Exclusive File</source>
+        <translation>СисЕкс датотека</translation>
+    </message>
+    <message>
+        <location filename="../src/extracontrols.cpp" line="239"/>
+        <source>System Exclusive (*.syx)</source>
+        <translation>СисЕкс (*.syx)</translation>
+    </message>
 </context>
 <context>
     <name>FluidSettingsDialog</name>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="31"/>
         <source>FluidSynth Driver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Флуид-синт — поставке</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="65"/>
         <source>Sample Rate:</source>
-        <translation type="unfinished"></translation>
+        <translation>Учестаност узорковања:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="75"/>
         <source>Period Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина периода:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="88"/>
         <source># of Periods:</source>
-        <translation type="unfinished"></translation>
+        <translation># периода:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="101"/>
         <source>Audio Driver:</source>
-        <translation type="unfinished"></translation>
+        <translation>Зв. посредник:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="108"/>
         <source>Polyphony:</source>
-        <translation type="unfinished"></translation>
+        <translation>Полифонија:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="121"/>
         <source>Sound Font:</source>
-        <translation type="unfinished"></translation>
+        <translation>Зв. фонт:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="131"/>
         <source>Gain:</source>
-        <translation type="unfinished"></translation>
+        <translation>Јачина:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="144"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="151"/>
         <source>Chorus</source>
-        <translation type="unfinished"></translation>
+        <translation>Хорус</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="158"/>
         <source>Reverb</source>
-        <translation type="unfinished"></translation>
+        <translation>Јека</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.cpp" line="191"/>
         <source>Select SoundFont</source>
-        <translation type="unfinished"></translation>
+        <translation>Избор зв. фонта</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.cpp" line="191"/>
         <source>SoundFont Files (*.sf2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Датотеке зв. фонта (*.sf2)</translation>
     </message>
 </context>
 <context>
@@ -1238,8 +1222,35 @@ p, li { white-space: pre-wrap; }
         <translation>Ако је обележено ово поље, омогућава се миди-улаз за програм. Код линукс и мек ос-икс система ово је увек омогућено</translation>
     </message>
     <message>
-        <source>Enable MIDI input</source>
-        <translation type="vanished">Омогући миди-улаз</translation>
+        <location filename="../src/midisetup.ui" line="50"/>
+        <source>Enable MIDI Input</source>
+        <translation>Омогући МИДИ улаз</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="60"/>
+        <source>MIDI Omni Mode</source>
+        <translation>Миди-ОМНИ режим</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="67"/>
+        <source>MIDI IN Driver</source>
+        <translation>МИДИ-УЛ.посредник</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="87"/>
+        <location filename="../src/midisetup.ui" line="159"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="100"/>
+        <source>Input MIDI Connection</source>
+        <translation>Миди-улаз</translation>
+    </message>
+    <message>
+        <location filename="../src/midisetup.ui" line="122"/>
+        <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
+        <translation>Преко ове контроле мењате везу за миди-улаз, ако је омогућен</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="129"/>
@@ -1252,40 +1263,9 @@ p, li { white-space: pre-wrap; }
         <translation>Омогући миди-превоз на миди-излазу</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="100"/>
-        <source>Input MIDI Connection</source>
-        <translation>Миди-улаз</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="50"/>
-        <source>Enable MIDI Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="60"/>
-        <source>MIDI Omni Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="67"/>
-        <source>MIDI IN Driver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="87"/>
-        <location filename="../src/midisetup.ui" line="159"/>
-        <source>...</source>
-        <translation type="unfinished">...</translation>
-    </message>
-    <message>
-        <location filename="../src/midisetup.ui" line="122"/>
-        <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
-        <translation>Преко ове контроле мењате везу за миди-улаз, ако је омогућен</translation>
-    </message>
-    <message>
         <location filename="../src/midisetup.ui" line="139"/>
         <source>MIDI OUT Driver</source>
-        <translation type="unfinished"></translation>
+        <translation>МИДИ-ИЗЛ.посредник</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="172"/>
@@ -1300,11 +1280,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="201"/>
         <source>Show Advanced Connections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MIDI Omni mode</source>
-        <translation type="vanished">Миди-ОМНИ режим</translation>
+        <translation>Напредни приказ везивања</translation>
     </message>
 </context>
 <context>
@@ -1312,22 +1288,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/networksettingsdialog.ui" line="31"/>
         <source>Network Driver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Поставке мрежног посредника</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.ui" line="37"/>
         <source>Network Interface:</source>
-        <translation type="unfinished"></translation>
+        <translation>Мрежни интерфејс:</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.ui" line="50"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.cpp" line="97"/>
         <source>Any</source>
-        <translation type="unfinished"></translation>
+        <translation>Било који</translation>
     </message>
 </context>
 <context>
@@ -1341,7 +1317,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="592"/>
         <source>C♯</source>
-        <translation type="unfinished"></translation>
+        <translation>C♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="593"/>
@@ -1352,45 +1328,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="594"/>
         <source>D♯</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="597"/>
-        <source>F♯</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="604"/>
-        <source>D♭</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="606"/>
-        <source>E♭</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="609"/>
-        <source>G♭</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="611"/>
-        <source>A♭</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="613"/>
-        <source>B♭</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>C#</source>
-        <translation type="vanished">C#</translation>
-    </message>
-    <message>
-        <source>D#</source>
-        <translation type="vanished">D#</translation>
+        <translation>D♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="595"/>
@@ -1405,36 +1343,9 @@ p, li { white-space: pre-wrap; }
         <translation>F</translation>
     </message>
     <message>
-        <source>F#</source>
-        <translation type="vanished">F#</translation>
-    </message>
-    <message>
-        <source>G#</source>
-        <translation type="vanished">G#</translation>
-    </message>
-    <message>
-        <source>A#</source>
-        <translation type="vanished">A#</translation>
-    </message>
-    <message>
-        <source>Db</source>
-        <translation type="vanished">Db</translation>
-    </message>
-    <message>
-        <source>Eb</source>
-        <translation type="vanished">Eb</translation>
-    </message>
-    <message>
-        <source>Gb</source>
-        <translation type="vanished">Gb</translation>
-    </message>
-    <message>
-        <source>Ab</source>
-        <translation type="vanished">Ab</translation>
-    </message>
-    <message>
-        <source>Bb</source>
-        <translation type="vanished">Bb</translation>
+        <location filename="../src/pianoscene.cpp" line="597"/>
+        <source>F♯</source>
+        <translation>F♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="598"/>
@@ -1445,7 +1356,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="599"/>
         <source>G♯</source>
-        <translation type="unfinished"></translation>
+        <translation>G♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="600"/>
@@ -1456,12 +1367,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/pianoscene.cpp" line="601"/>
         <source>A♯</source>
-        <translation type="unfinished"></translation>
+        <translation>A♯</translation>
     </message>
     <message>
         <location filename="../src/pianoscene.cpp" line="602"/>
         <location filename="../src/pianoscene.cpp" line="614"/>
         <source>B</source>
+        <translation>B</translation>
+    </message>
+    <message>
+        <location filename="../src/pianoscene.cpp" line="604"/>
+        <source>D♭</source>
+        <translation>D♭</translation>
+    </message>
+    <message>
+        <location filename="../src/pianoscene.cpp" line="606"/>
+        <source>E♭</source>
+        <translation>E♭</translation>
+    </message>
+    <message>
+        <location filename="../src/pianoscene.cpp" line="609"/>
+        <source>G♭</source>
+        <translation>G♭</translation>
+    </message>
+    <message>
+        <location filename="../src/pianoscene.cpp" line="611"/>
+        <source>A♭</source>
+        <translation>A♭</translation>
+    </message>
+    <message>
+        <location filename="../src/pianoscene.cpp" line="613"/>
+        <source>B♭</source>
         <translation>B</translation>
     </message>
 </context>
@@ -1498,8 +1434,9 @@ p, li { white-space: pre-wrap; }
         <translation>Поставке</translation>
     </message>
     <message>
-        <source>Number of octaves</source>
-        <translation type="vanished">Број октава</translation>
+        <location filename="../src/preferences.ui" line="47"/>
+        <source>Number of keys</source>
+        <translation>Број дирки</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="57"/>
@@ -1509,7 +1446,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="70"/>
         <source>Starting Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Почетна дирка</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="89"/>
+        <source>Note highlight color</source>
+        <translation>Боја истицања ноте</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="102"/>
@@ -1519,7 +1461,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="105"/>
         <source>Colors...</source>
-        <translation type="unfinished"></translation>
+        <translation>Боје...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="118"/>
@@ -1542,55 +1484,16 @@ p, li { white-space: pre-wrap; }
         <translation>Притисните ово дугме да би сте учитали датотеку дефиниције инструмената са диска.</translation>
     </message>
     <message>
-        <source>load...</source>
-        <translation type="vanished">Учитај...</translation>
+        <location filename="../src/preferences.ui" line="150"/>
+        <location filename="../src/preferences.ui" line="193"/>
+        <location filename="../src/preferences.ui" line="213"/>
+        <source>Load...</source>
+        <translation>Учитај...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="163"/>
         <source>Instrument</source>
         <translation>Инструмент</translation>
-    </message>
-    <message>
-        <source>Network Port</source>
-        <translation type="vanished">Мрежни порт</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="340"/>
-        <source>Translate MIDI velocity to key pressed color tint</source>
-        <translation>Преведи миди-јачину у благо обојену притиснуту дирку</translation>
-    </message>
-    <message>
-        <source>Network Interface</source>
-        <translation type="vanished">Мрежни интерфејс</translation>
-    </message>
-    <message>
-        <source>MIDI Driver</source>
-        <translation type="vanished">Миди-посредник</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="327"/>
-        <source>MIDI channel state consistency</source>
-        <translation>Доследност стања миди-канала</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="427"/>
-        <source>Enable Touch Screen Input</source>
-        <translation>Омогући свирање преко осетљивог екрана (тач-скрин)</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="411"/>
-        <source>Enable Mouse Input</source>
-        <translation>Омогући свирање мишем</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="47"/>
-        <source>Number of keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="372"/>
-        <source>Enable Computer Keyboard Input</source>
-        <translation>Омогући свирање преко рачунарске тастатуре</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="173"/>
@@ -1603,59 +1506,14 @@ p, li { white-space: pre-wrap; }
         <translation>Мапа дирки</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="150"/>
-        <location filename="../src/preferences.ui" line="193"/>
-        <location filename="../src/preferences.ui" line="213"/>
-        <source>Load...</source>
-        <translation>Учитај...</translation>
-    </message>
-    <message>
         <location filename="../src/preferences.ui" line="200"/>
         <source>Raw Keyboard Map</source>
-        <translatorcomment>There is no good/short way to translate this to german :-/
-</translatorcomment>
         <translation>Изворна мапа тастатуре</translation>
-    </message>
-    <message>
-        <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation type="vanished">Промените изглед графичких контрола (дугмад, прекидачи), или помоћу прилагођеног изгледа, или враћањем изгледа постављеног програмом „qtconfig“.</translation>
-    </message>
-    <message>
-        <source>Styled Widgets</source>
-        <translation type="vanished">Дотеране графичке контроле</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="388"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Означите ово да бисте користили догађаје тастатуре ниског нивоа. Ово има доста предности:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Можете користити тзв. „дед киз“ (акценти, дијакритици)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Мапирање дефиниција је независно од језика (зависи једино од система који користите)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Бржа је обрада&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="220"/>
         <source>Drums Channel</source>
         <translation>Канал са бубњевима</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="89"/>
-        <source>Note highlight color</source>
-        <translation>Боја истицања ноте</translation>
-    </message>
-    <message>
-        <source>colors...</source>
-        <translation type="vanished">Боје...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="231"/>
@@ -1738,6 +1596,16 @@ p, li { white-space: pre-wrap; }
         <translation>15</translation>
     </message>
     <message>
+        <location filename="../src/preferences.ui" line="327"/>
+        <source>MIDI channel state consistency</source>
+        <translation>Доследност стања миди-канала</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="340"/>
+        <source>Translate MIDI velocity to key pressed color tint</source>
+        <translation>Преведи миди-јачину у благо обојену притиснуту дирку</translation>
+    </message>
+    <message>
         <location filename="../src/preferences.ui" line="356"/>
         <source>Check this box to keep the keyboard window always visible, on top of other windows.</source>
         <translation>Означите да би клавијатура била увек видљива, тј испред других прозора.</translation>
@@ -1748,25 +1616,43 @@ p, li { white-space: pre-wrap; }
         <translation>Увек на врху</translation>
     </message>
     <message>
+        <location filename="../src/preferences.ui" line="372"/>
+        <source>Enable Computer Keyboard Input</source>
+        <translation>Омогући свирање преко рачунарске тастатуре</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="388"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster processing&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ако је означено омогућава ‘хватање’ догађаја са рачунарске тастатуре и када она није у фокусу. &lt;span style=&quot; font-weight:600;&quot;&gt;За ГНУ/линукс кориснике:&lt;/span&gt; ово коректно ради у подразумеваном КДЕ окружењу,али не и са управницима прозора као што су Компиз и Метасити и са падајућим менијима у ГТК програмима.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Grab Computer Keyboard</source>
-        <translation type="vanished">Увек прихвати тастатуру</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Означите ово да бисте користили догађаје тастатуре ниског нивоа. Ово има доста предности:&lt;/p&gt;
+&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Можете користити тзв. „дед киз“ (акценти, дијакритици)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Мапирање дефиниција је независно од језика (зависи једино од система који користите)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Бржа је обрада&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="398"/>
         <source>Raw Computer Keyboard</source>
         <translation>Изворна рачунарска тастатура</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="411"/>
+        <source>Enable Mouse Input</source>
+        <translation>Омогући свирање мишем</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="427"/>
+        <source>Enable Touch Screen Input</source>
+        <translation>Омогући свирање преко осетљивог екрана (тач-скрин)</translation>
     </message>
 </context>
 <context>
@@ -1789,26 +1675,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>RiffImportDlg</name>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
-        <source>Input SoundFont</source>
-        <translation>Улазни звучни фонт</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
-        <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
-        <translation>Звучни фонт (*.sf2 *.sbk *.dls)</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
-        <source>Output</source>
-        <translation>Излаз</translation>
-    </message>
-    <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
-        <source>Instrument definitions (*.ins)</source>
-        <translation>Дефиниције инструмента (*.ins)</translation>
-    </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
@@ -1865,6 +1731,26 @@ p, li { white-space: pre-wrap; }
         <source>Press this button to select a path and file name for the output file</source>
         <translation>Притисните ово дугме за одабир имена и путање до излазне датотеке</translation>
     </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <source>Input SoundFont</source>
+        <translation>Улазни звучни фонт</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
+        <translation>Звучни фонт (*.sf2 *.sbk *.dls)</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <source>Output</source>
+        <translation>Излаз</translation>
+    </message>
+    <message>
+        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <source>Instrument definitions (*.ins)</source>
+        <translation>Дефиниције инструмента (*.ins)</translation>
+    </message>
 </context>
 <context>
     <name>ShortcutDialog</name>
@@ -1905,174 +1791,6 @@ Do you want to apply the changes?</source>
 </context>
 <context>
     <name>VPiano</name>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1659"/>
-        <source>Error</source>
-        <translation>Грешка</translation>
-    </message>
-    <message>
-        <source>No MIDI output ports available. Aborting</source>
-        <translation type="vanished">Недоступан је миди-излаз. Обустављање</translation>
-    </message>
-    <message>
-        <source>Error. Aborting</source>
-        <translation type="vanished">Грешка. Обустављање</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1992"/>
-        <source>Language Changed</source>
-        <translation>Језик је промењен</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1993"/>
-        <source>The language for this application is going to change to %1. Do you want to continue?</source>
-        <translation>Користићете %1 језик у програму. Желите ли да наставите?</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2036"/>
-        <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Патворена миди-клавијатура, или краће ПМК, (енг. „VMPK“) се развија и локализује захваљујући несебичном залагању људи широм света. Ако желите да нам се придружите или ако имате било каква питања за нас, посетите наш форум на &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;Сорсфорџ&lt;/a&gt;-серверима&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2054"/>
-        <source>Translation</source>
-        <translation>Локализација</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2055"/>
-        <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;Локализација на српски: Jay A. Fleming &amp;amp;lt;tito.nehru.naser@gmail.com&amp;amp;gt;&lt;/p&gt;%1</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2057"/>
-        <source>Translation Information</source>
-        <translation>Информације о локализацији</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2088"/>
-        <source>Czech</source>
-        <translation>Чешки</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2089"/>
-        <source>German</source>
-        <translation>Немачки</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2090"/>
-        <source>English</source>
-        <translation>Енглески</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2091"/>
-        <source>Spanish</source>
-        <translation>Шпански</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2092"/>
-        <source>French</source>
-        <translation>Француски</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2093"/>
-        <source>Galician</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2094"/>
-        <source>Dutch</source>
-        <translation>Холандски</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2095"/>
-        <source>Russian</source>
-        <translation>Руски</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2096"/>
-        <source>Serbian</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2097"/>
-        <source>Swedish</source>
-        <translation>Шведски</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2098"/>
-        <source>Chinese</source>
-        <translation>Кинески</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2105"/>
-        <source>Chan:</source>
-        <translation>Кан:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2107"/>
-        <source>Channel:</source>
-        <translation>Канал:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2112"/>
-        <source>Oct:</source>
-        <translation>Окт:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2114"/>
-        <source>Base Octave:</source>
-        <translation>Базна октава:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2119"/>
-        <source>Trans:</source>
-        <translation>Прет:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2121"/>
-        <source>Transpose:</source>
-        <translation>Претворба:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
-        <source>Vel:</source>
-        <translation>Јач:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
-        <source>Velocity:</source>
-        <translation>Јачина:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2133"/>
-        <source>Control:</source>
-        <translation>Контрола:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2135"/>
-        <source>Value:</source>
-        <translation>Вредност:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2132"/>
-        <source>Bender:</source>
-        <translation>Савијач:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2131"/>
-        <source>Bank:</source>
-        <translation>Банка:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2134"/>
-        <source>Program:</source>
-        <translation>Програм:</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="1659"/>
-        <source>No help file found</source>
-        <translation>Нисам нашао датотеку помоћи</translation>
-    </message>
     <message>
         <location filename="../src/vpiano.ui" line="67"/>
         <source>&amp;File</source>
@@ -2179,11 +1897,6 @@ Do you want to apply the changes?</source>
         <translation>Миди-&amp;везе</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="318"/>
-        <source>About &amp;Qt</source>
-        <translation>О &amp;КјуТ</translation>
-    </message>
-    <message>
         <location filename="../src/vpiano.ui" line="305"/>
         <source>Edit the MIDI connections</source>
         <translation>Уредите миди-везе</translation>
@@ -2197,6 +1910,11 @@ Do you want to apply the changes?</source>
         <location filename="../src/vpiano.ui" line="313"/>
         <source>Show the About box</source>
         <translation>Прикажи прозорче са информацијама о програму</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="318"/>
+        <source>About &amp;Qt</source>
+        <translation>О &amp;КјуТ</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="321"/>
@@ -2262,6 +1980,41 @@ Do you want to apply the changes?</source>
         <location filename="../src/vpiano.ui" line="406"/>
         <source>Resets the Bender value</source>
         <translation>Враћа све поставке савијача у подразумевано стање</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="411"/>
+        <source>&amp;Keyboard Map</source>
+        <translation>&amp;Мапа дирки</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="414"/>
+        <source>Edit the current keyboard layout</source>
+        <translation>Уредите текући распоред тастатуре</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="419"/>
+        <source>&amp;Contents</source>
+        <translation>&amp;Садржај</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="422"/>
+        <source>Open the index of the help document</source>
+        <translation>Отвори садржај датотеке помоћи</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="430"/>
+        <source>VMPK &amp;Web site</source>
+        <translation>Интер&amp;нет адреса програма</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="433"/>
+        <source>Open the VMPK web site address using a web browser</source>
+        <translation>Отвори интернет адресу програма у веб-прегледнику</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="438"/>
+        <source>&amp;Import SoundFont...</source>
+        <translation>Увез&amp;и звучни фонт...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="441"/>
@@ -2408,7 +2161,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="603"/>
         <source>Alt++</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt++</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="608"/>
@@ -2423,7 +2176,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="614"/>
         <source>Alt+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+-</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="619"/>
@@ -2548,52 +2301,177 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="760"/>
         <source>Window frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Оквир прозора</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="763"/>
         <source>Show or hide window decorations</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи/Сакриј оквир прозора</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="769"/>
         <source>Alt+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+F</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="411"/>
-        <source>&amp;Keyboard Map</source>
-        <translation>&amp;Мапа дирки</translation>
+        <location filename="../src/vpiano.cpp" line="1659"/>
+        <source>Error</source>
+        <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="414"/>
-        <source>Edit the current keyboard layout</source>
-        <translation>Уредите текући распоред тастатуре</translation>
+        <location filename="../src/vpiano.cpp" line="1659"/>
+        <source>No help file found</source>
+        <translation>Нисам нашао датотеку помоћи</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="419"/>
-        <source>&amp;Contents</source>
-        <translation>&amp;Садржај</translation>
+        <location filename="../src/vpiano.cpp" line="1992"/>
+        <source>Language Changed</source>
+        <translation>Језик је промењен</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="422"/>
-        <source>Open the index of the help document</source>
-        <translation>Отвори садржај датотеке помоћи</translation>
+        <location filename="../src/vpiano.cpp" line="1993"/>
+        <source>The language for this application is going to change to %1. Do you want to continue?</source>
+        <translation>Користићете %1 језик у програму. Желите ли да наставите?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="430"/>
-        <source>VMPK &amp;Web site</source>
-        <translation>Интер&amp;нет адреса програма</translation>
+        <location filename="../src/vpiano.cpp" line="2036"/>
+        <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Патворена миди-клавијатура, или краће ПМК, (енг. „VMPK“) се развија и локализује захваљујући несебичном залагању људи широм света. Ако желите да нам се придружите или ако имате било каква питања за нас, посетите наш форум на &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;Сорсфорџ&lt;/a&gt;-серверима&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="433"/>
-        <source>Open the VMPK web site address using a web browser</source>
-        <translation>Отвори интернет адресу програма у веб-прегледнику</translation>
+        <location filename="../src/vpiano.cpp" line="2054"/>
+        <source>Translation</source>
+        <translation>Локализација</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="438"/>
-        <source>&amp;Import SoundFont...</source>
-        <translation>Увез&amp;и звучни фонт...</translation>
+        <location filename="../src/vpiano.cpp" line="2055"/>
+        <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
+        <translation>&lt;p&gt;Локализација на српски: Jay A. Fleming &amp;amp;lt;tito.nehru.naser@gmail.com&amp;amp;gt;&lt;/p&gt;%1</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2057"/>
+        <source>Translation Information</source>
+        <translation>Информације о локализацији</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2088"/>
+        <source>Czech</source>
+        <translation>Чешки</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2089"/>
+        <source>German</source>
+        <translation>Немачки</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2090"/>
+        <source>English</source>
+        <translation>Енглески</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2091"/>
+        <source>Spanish</source>
+        <translation>Шпански</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2092"/>
+        <source>French</source>
+        <translation>Француски</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2093"/>
+        <source>Galician</source>
+        <translation>Галицијски</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2094"/>
+        <source>Dutch</source>
+        <translation>Холандски</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2095"/>
+        <source>Russian</source>
+        <translation>Руски</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2096"/>
+        <source>Serbian</source>
+        <translation>Српски</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2097"/>
+        <source>Swedish</source>
+        <translation>Шведски</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2098"/>
+        <source>Chinese</source>
+        <translation>Кинески</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2105"/>
+        <source>Chan:</source>
+        <translation>Кан:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2107"/>
+        <source>Channel:</source>
+        <translation>Канал:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2112"/>
+        <source>Oct:</source>
+        <translation>Окт:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2114"/>
+        <source>Base Octave:</source>
+        <translation>Базна октава:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2119"/>
+        <source>Trans:</source>
+        <translation>Прет:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2121"/>
+        <source>Transpose:</source>
+        <translation>Претворба:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2126"/>
+        <source>Vel:</source>
+        <translation>Јач:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2128"/>
+        <source>Velocity:</source>
+        <translation>Јачина:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2131"/>
+        <source>Bank:</source>
+        <translation>Банка:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2132"/>
+        <source>Bender:</source>
+        <translation>Савијач:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2133"/>
+        <source>Control:</source>
+        <translation>Контрола:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2134"/>
+        <source>Program:</source>
+        <translation>Програм:</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2135"/>
+        <source>Value:</source>
+        <translation>Вредност:</translation>
     </message>
 </context>
 </TS>

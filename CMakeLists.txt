@@ -132,16 +132,19 @@ set(vmpk_DATA_FILES
     data/pc102mac.xml
     data/pc102win.xml
     data/txt2ins.awk
-    data/hm.html
-    data/hm_es.html
-    data/hm_ru.html
     data/help.html
-    data/help_de.html
     data/help_es.html
-    data/help_fr.html
-    data/help_nl.html
-    data/help_ru.html
 )
+
+#unmaintained and deprecated data files:
+    #data/hm.html
+    #data/hm_es.html
+    #data/hm_ru.html
+    #data/help_de.html
+    #data/help_fr.html
+    #data/help_nl.html
+    #data/help_ru.html
+
 
 if(UNIX)
     add_custom_target ( distclean
