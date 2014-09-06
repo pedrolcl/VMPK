@@ -73,7 +73,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_midiin(0),
     m_backendManager(0),
     m_inputActive(false),
-    m_midiThru(false),
+    m_midiThru(true),
     m_midiOmni(false),
     m_initialized(false),
     m_dlgAbout(0),
@@ -529,13 +529,13 @@ void VPiano::readSettings()
 
     settings.beginGroup(QSTR_CONNECTIONS);
     m_inputEnabled = settings.value(QSTR_INENABLED, true).toBool();
-    m_midiThru = settings.value(QSTR_THRUENABLED, false).toBool();
+    m_midiThru = settings.value(QSTR_THRUENABLED, true).toBool();
     m_midiOmni = settings.value(QSTR_OMNIENABLED, false).toBool();
     m_advanced = settings.value(QSTR_ADVANCEDENABLED, false).toBool();
-    m_lastInputBackend = settings.value(QSTR_INDRIVER).toString();
-    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER).toString();
-    m_lastInputConnection = settings.value(QSTR_INPORT).toString();
-    m_lastOutputConnection = settings.value(QSTR_OUTPORT).toString();
+    m_lastInputBackend = settings.value(QSTR_INDRIVER, "Network").toString();
+    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER, "FluidSynth").toString();
+    m_lastInputConnection = settings.value(QSTR_INPORT, "21928").toString();
+    m_lastOutputConnection = settings.value(QSTR_OUTPORT, "FluidSynth").toString();
     settings.endGroup();
 
     settings.beginGroup(QSTR_PREFERENCES);

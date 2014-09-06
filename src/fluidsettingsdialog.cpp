@@ -187,7 +187,12 @@ void FluidSettingsDialog::restoreDefaults()
 
 void FluidSettingsDialog::showFileDialog()
 {
-    QDir dir(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QSTR_DATADIR, QStandardPaths::LocateDirectory));
+    QDir dir;
+#if defined(Q_OS_OSX)
+    dir = QDir(QCoreApplication::applicationDirPath() + QLatin1Literal("/../Resources"));
+#else
+    dir = QDir(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QSTR_DATADIR, QStandardPaths::LocateDirectory));
+#endif
     QString fileName = QFileDialog::getOpenFileName(this, tr("Select SoundFont"), dir.absolutePath(), tr("SoundFont Files (*.sf2)"));
     if (!fileName.isEmpty()) {
         ui->soundFont->setText(fileName);
