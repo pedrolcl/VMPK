@@ -166,7 +166,6 @@ endif()
 
 target_link_libraries(vmpk
     Qt5::Widgets
-    Qt5::Xml
     Qt5::Svg
     Qt5::Network
 )

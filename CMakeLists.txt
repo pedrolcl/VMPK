@@ -59,7 +59,6 @@ message (STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
 
 # Check for Qt
 find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Xml REQUIRED)
 find_package(Qt5Svg REQUIRED)
 find_package(Qt5Network REQUIRED)
 find_package(Qt5LinguistTools REQUIRED)

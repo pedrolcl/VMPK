@@ -1,32 +1,19 @@
-Name "Virtual MIDI Piano Keyboard"
+﻿Name "Virtual MIDI Piano Keyboard"
 SetCompressor /SOLID lzma
+# Request application privileges for Windows Vista
+RequestExecutionLevel admin
 
 # Defines
-!define QTFILES "C:\Qt\5.3\mingw482_32\bin"
-!define QTLANG "C:\Qt\5.3\mingw482_32\translations"
-!define QTPLUGINS "C:\Qt\5.3\mingw482_32\plugins"
-!define MINGWFILES "C:\Qt\5.3\mingw482_32\bin"
-!define MOREFILES "C:\freesw\bin"
-!define DRUMSTICK "C:\freesw\lib\drumstick"
-!define VMPKSRC "C:\Users\pedro\Projects\vmpk-desktop"
-!define VMPKBLD "C:\Users\pedro\Projects\vmpk-build"
+!define QTFILES    "C:\freesw\qt-5.3.1-x86-mingw482r4-dw2-compact"
+!define BINFILES   "C:\freesw\bin"
+!define DRUMSTICK  "C:\freesw\lib\drumstick"
+!define VMPKSRC    "C:\Users\pedro\Projects\vmpk-desktop"
+!define VMPKBLD    "C:\Users\pedro\Projects\vmpk-build"
 
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.6.0
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
-
-# MUI defines
-!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
-!define MUI_FINISHPAGE_NOAUTOCLOSE
-!define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
-!define MUI_STARTMENUPAGE_NODISABLE
-!define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
-!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER vmpk
-!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNFINISHPAGE_NOAUTOCLOSE
-!define MUI_WELCOMEPAGE_TITLE_3LINES
 
 # Included files
 !include Sections.nsh
@@ -36,15 +23,37 @@ SetCompressor /SOLID lzma
 # Variables
 Var StartMenuGroup
 
+# MUI defines
+!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
+!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
+!define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
+!define MUI_STARTMENUPAGE_NODISABLE
+!define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
+!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER vmpk
+
 # Installer pages
+!define MUI_WELCOMEPAGE_TITLE_3LINES
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE gpl.rtf
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuGroup
 !insertmacro MUI_PAGE_INSTFILES
+!define MUI_FINISHPAGE_TITLE_3LINES
+!define MUI_FINISHPAGE_NOAUTOCLOSE
+!define MUI_FINISHPAGE_RUN $INSTDIR\vmpk.exe
+!define MUI_FINISHPAGE_LINK $(FinishLinkText) 
+!define MUI_FINISHPAGE_LINK_LOCATION "http://play.google.com/store/apps/details?id=net.sourceforge.vmpk.free"
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW CustomFinishShow
 !insertmacro MUI_PAGE_FINISH
+
+!define MUI_UNFINISHPAGE_NOAUTOCLOSE
+!define MUI_WELCOMEPAGE_TITLE_3LINES
+!define MUI_FINISHPAGE_TITLE_3LINES
+!insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
+!insertmacro MUI_UNPAGE_FINISH
 
 # Installer languages
 !insertmacro MUI_LANGUAGE "English"
@@ -58,6 +67,16 @@ Var StartMenuGroup
 #!insertmacro MUI_LANGUAGE "Dutch"
 #!insertmacro MUI_LANGUAGE "Russian"
 #!insertmacro MUI_LANGUAGE "SimpChinese"
+
+;Language strings
+LangString FinishLinkText ${LANG_ENGLISH} "Android Application on Google Play"
+LangString FinishLinkText ${LANG_CZECH} "Aplikace pro Android ve službě Google Play"
+LangString FinishLinkText ${LANG_FRENCH} "Application Android sur Google Play"
+LangString FinishLinkText ${LANG_GALICIAN} "Aplicación para Android en Google Play"
+LangString FinishLinkText ${LANG_GERMAN} "Applikation für Android auf Google Play"
+LangString FinishLinkText ${LANG_SERBIAN} "Андроид апликација на Гоогле Плаи"
+LangString FinishLinkText ${LANG_SPANISH} "Aplicación para Android en Google Play"
+LangString FinishLinkText ${LANG_SWEDISH} "Applikationer på Google Play"
 
 # Installer attributes
 OutFile vmpk-${VERSION}-win32-setup.exe
@@ -81,6 +100,7 @@ Icon src\vmpk.ico
 Section -Main SEC0000
 	CreateDirectory $INSTDIR\drumstick
 	CreateDirectory $INSTDIR\platforms
+	CreateDirectory $APPDATA\SoundFonts
     SetOutPath $INSTDIR
     SetOverwrite on
     File ${VMPKSRC}\qt.conf
@@ -104,35 +124,34 @@ Section -Main SEC0000
 #   File ${VMPKBLD}\translations\vmpk_nl.qm
 #   File ${VMPKBLD}\translations\vmpk_ru.qm
 #   File ${VMPKBLD}\translations\vmpk_zh_CN.qm
-    File ${QTLANG}\qt_cs.qm
-    File ${QTLANG}\qt_de.qm
-    File ${QTLANG}\qt_es.qm
-    File ${QTLANG}\qt_fr.qm
-    File ${QTLANG}\qt_gl.qm
-    File ${QTLANG}\qt_sv.qm
-#   File ${QTLANG}\qt_ru.qm
-#   File ${QTLANG}\qt_zh_CN.qm
-
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libstdc++-6.dll $INSTDIR\libstdc++-6.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libwinpthread-1.dll $INSTDIR\libwinpthread-1.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MINGWFILES}\libgcc_s_dw2-1.dll $INSTDIR\libgcc_s_dw2-1.dll $INSTDIR
-
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Core.dll $INSTDIR\Qt5Core.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Gui.dll $INSTDIR\Qt5Gui.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Xml.dll $INSTDIR\Qt5Xml.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Svg.dll $INSTDIR\Qt5Svg.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Network.dll $INSTDIR\Qt5Network.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Widgets.dll $INSTDIR\Qt5Widgets.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\icudt52.dll $INSTDIR\icudt52.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\icuin52.dll $INSTDIR\icuin52.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\icuuc52.dll $INSTDIR\icuuc52.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTPLUGINS}\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
+    File ${QTFILES}\translations\qt_cs.qm
+    File ${QTFILES}\translations\qt_de.qm
+    File ${QTFILES}\translations\qt_es.qm
+    File ${QTFILES}\translations\qt_fr.qm
+    File ${QTFILES}\translations\qt_gl.qm
+    File ${QTFILES}\translations\qt_sv.qm
+#   File ${QTFILES}\translations\qt_ru.qm
+#   File ${QTFILES}\translations\qt_zh_CN.qm
+	File "/oname=$APPDATA\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2" "C:\ProgramData\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2"
 	
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\intl.dll $INSTDIR\intl.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libdrumstick-rt.dll $INSTDIR\libdrumstick-rt.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libfluidsynth.dll $INSTDIR\libfluidsynth.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libglib-2.0-0.dll $INSTDIR\libglib-2.0-0.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${MOREFILES}\libgthread-2.0-0.dll $INSTDIR\libgthread-2.0-0.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\libstdc++-6.dll $INSTDIR\libstdc++-6.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\libwinpthread-1.dll $INSTDIR\libwinpthread-1.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\libgcc_s_dw2-1.dll $INSTDIR\libgcc_s_dw2-1.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\Qt5Core.dll $INSTDIR\Qt5Core.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\Qt5Gui.dll $INSTDIR\Qt5Gui.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\Qt5Svg.dll $INSTDIR\Qt5Svg.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\Qt5Network.dll $INSTDIR\Qt5Network.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\Qt5Widgets.dll $INSTDIR\Qt5Widgets.dll $INSTDIR
+	; !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\icudt52.dll $INSTDIR\icudt52.dll $INSTDIR
+	; !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\icuin52.dll $INSTDIR\icuin52.dll $INSTDIR
+	; !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\icuuc52.dll $INSTDIR\icuuc52.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\plugins\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
+	
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\intl.dll $INSTDIR\intl.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\libdrumstick-rt.dll $INSTDIR\libdrumstick-rt.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\libfluidsynth.dll $INSTDIR\libfluidsynth.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\libglib-2.0-0.dll $INSTDIR\libglib-2.0-0.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\libgthread-2.0-0.dll $INSTDIR\libgthread-2.0-0.dll $INSTDIR
 
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-net-in.dll $INSTDIR\drumstick\libdrumstick-rt-net-in.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\libdrumstick-rt-net-out.dll $INSTDIR\drumstick\libdrumstick-rt-net-out.dll $INSTDIR
@@ -147,12 +166,14 @@ Section -post SEC0001
     WriteRegStr HKLM "${REGKEY}" Path $INSTDIR
     SetOutPath $INSTDIR
     WriteUninstaller $INSTDIR\uninstall.exe
+	
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     SetOutPath $SMPROGRAMS\$StartMenuGroup
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall VMPK.lnk" $INSTDIR\uninstall.exe
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\VMPK.lnk" $INSTDIR\vmpk.exe
     !insertmacro MUI_STARTMENU_WRITE_END
+	
     WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
     WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" Publisher "${COMPANY}"
@@ -161,6 +182,15 @@ Section -post SEC0001
     WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
+	
+	WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\Connections" InputDriver "Network"
+	WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\Connections" OutputDriver "FluidSynth"
+	WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\Connections" InPort "21928"
+	WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\Connections" OutPort "FluidSynth"
+	WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\Connections" InEnabled "true"
+	WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\Connections" ThruEnabled "true"
+    WriteRegStr HKCU "Software\vmpk.sourceforge.net\VMPK-$(^Name)\FluidSynth" InstrumentsDefinition "$APPDATA\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2"
+	
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -202,20 +232,20 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\gmgsxg.ins
     Delete /REBOOTOK $INSTDIR\help.html
     Delete /REBOOTOK $INSTDIR\help_es.html
-
+	Delete /REBOOTOK "$APPDATA\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2"
+	
     !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libstdc++-6.dll
     !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libwinpthread-1.dll
     !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libgcc_s_dw2-1.dll
 
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Core.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Gui.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Xml.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Svg.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Network.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Widgets.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icudt52.dll 
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuin52.dll 
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuuc52.dll 
+	; !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icudt52.dll 
+	; !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuin52.dll 
+	; !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuuc52.dll 
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
 
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl.dll 
@@ -232,6 +262,7 @@ Section /o -un.Main UNSEC0000
 	
 	RMDir /REBOOTOK $INSTDIR\drumstick
 	RMDir /REBOOTOK $INSTDIR\platforms
+	RMDir /REBOOTOK $APPDATA\SoundFonts
 	
     DeleteRegValue HKLM "${REGKEY}\Components" Main
 SectionEnd
@@ -245,8 +276,8 @@ Section -un.post UNSEC0001
     DeleteRegValue HKLM "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKLM "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKLM "${REGKEY}"
-    RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
-    RmDir /REBOOTOK $INSTDIR
+    RMDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
+    RMDir /REBOOTOK $INSTDIR
 SectionEnd
 
 #Installer Functions
@@ -260,4 +291,47 @@ Function un.onInit
     ReadRegStr $INSTDIR HKLM "${REGKEY}" Path
     !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
     !insertmacro SELECT_UNSECTION Main ${UNSEC0000}
+FunctionEnd
+
+Function OpenLink
+	ExecShell open "http://play.google.com/store/apps/details?id=net.sourceforge.vmpk.free"
+FunctionEnd
+
+Var hCtl_Finish_Bitmap1
+Var hCtl_Finish_Bitmap1_hImage
+
+Function CustomFinishShow
+  ${NSD_CreateBitmap} 120u 133u 115u 37u ""
+  Pop $hCtl_Finish_Bitmap1
+  ${NSD_OnClick} $hCtl_Finish_Bitmap1 OpenLink
+  ${Switch} $LANGUAGE
+  ${Case} ${LANG_ENGLISH}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\en_app.bmp"
+  ${Break}
+  ${Case} ${LANG_CZECH}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\cs_app.bmp"
+  ${Break}
+  ${Case} ${LANG_FRENCH}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\fr_app.bmp"
+  ${Break}
+  ${Case} ${LANG_GALICIAN}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\es_app.bmp"
+  ${Break}
+  ${Case} ${LANG_GERMAN}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\de_app.bmp"
+  ${Break}
+  ${Case} ${LANG_SERBIAN}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\sr_app.bmp"
+  ${Break}
+  ${Case} ${LANG_SPANISH}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\es_app.bmp"
+  ${Break}
+  ${Case} ${LANG_SWEDISH}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\sv_app.bmp"
+  ${Break}
+  ${Default}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\en_app.bmp"
+  ${Break}
+  ${EndSwitch}
+  ${NSD_SetImage} $hCtl_Finish_Bitmap1 "$PLUGINSDIR\banner.bmp" $hCtl_Finish_Bitmap1_hImage
 FunctionEnd

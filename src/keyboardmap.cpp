@@ -29,9 +29,9 @@ void KeyboardMap::loadFromXMLFile(const QString fileName)
 {
     QFile f(fileName);
     if (f.open(QFile::ReadOnly | QFile::Text)) {
+        m_fileName = fileName;
         initializeFromXML(&f);
         f.close();
-        m_fileName = fileName;
         qDebug() << "Loaded Map: " << fileName;
     }
     if (f.error() != QFile::NoError) {
@@ -94,7 +94,7 @@ void KeyboardMap::initializeFromXML(QIODevice *dev)
         }
     }
     if (reader.hasError()) {
-        reportError(QString(), tr("Error reading XML"), reader.errorString() );
+        reportError(m_fileName, tr("Error reading XML"), reader.errorString() );
     }
 }
 
