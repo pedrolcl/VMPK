@@ -36,8 +36,14 @@ dbus {
 
 DEFINES += VERSION=$$VERSION
 
-CONFIG += link_pkgconfig
-PKGCONFIG += drumstick-rt
+macx {
+    INCLUDEPATH += /Library/Frameworks/drumstick-rt.framework/Headers
+    QMAKE_LFLAGS += -F/Library/Frameworks
+    LIBS += -framework drumstick-rt
+} else {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += drumstick-rt
+}
 
 win32 {
     #INCLUDEPATH += C:\freesw\include
