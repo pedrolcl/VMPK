@@ -1,3 +1,15 @@
+2014-09-07
+    * release 0.6.0
+
+2014-08-31
+    * translations updated from transifex.com
+
+2014-08-10
+    * settings dialogs for network & fluidsynth drivers
+
+2014-08-07
+    * migration to drumstick-rt
+
 2014-06-15
     * Removed styles for rotary knobs
     * Removed option to grab keyboard
