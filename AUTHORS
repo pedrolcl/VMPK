@@ -40,20 +40,19 @@ Translators:
 
     Nicolas Froment - French translation
         data/help_fr.html
-
+        
+    Miguel Bouzada - Galician translation
+        translations/vmpk_gl.ts
+        
+    Jay Alexander Fleming - Serbian translation
+        translations/vmpk_sr.ts
+        
 Other copyright owners:
-
-    Gary P. Scavone     RtMIDI classes
-        src/RtError.h
-        src/RtMidi.h
-        src/RtMidi.cpp
 
     Rui Nuno Capela     Instrument definition data classes, Knob widget, 
                         Shortcuts Editor Dialog
         src/instrument.h
         src/instrument.cpp
-        src/knob.h
-        src/knob.cpp
         src/shortcutdialog.h
         src/shortcutdialog.ui
         src/shortcutdialog.cpp
