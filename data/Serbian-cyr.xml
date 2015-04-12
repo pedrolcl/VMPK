@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardmap>
+<keyboardmap version="1.0">
+    <mapping key="Ж" note="12"/>
+    <mapping key="С" note="13"/>
+    <mapping key="Џ" note="14"/>
+    <mapping key="Д" note="15"/>
+    <mapping key="Ц" note="16"/>
+    <mapping key="В" note="17"/>
+    <mapping key="Г" note="18"/>
+    <mapping key="Б" note="19"/>
+    <mapping key="Х" note="20"/>
+    <mapping key="Н" note="21"/>
+    <mapping key="Ј" note="22"/>
+    <mapping key="М" note="23"/>
+    <mapping key="Љ" note="24"/>
+    <mapping key="2" note="25"/>
+    <mapping key="Њ" note="26"/>
+    <mapping key="3" note="27"/>
+    <mapping key="Е" note="28"/>
+    <mapping key="Р" note="29"/>
+    <mapping key="5" note="30"/>
+    <mapping key="Т" note="31"/>
+    <mapping key="6" note="32"/>
+    <mapping key="З" note="33"/>
+    <mapping key="7" note="34"/>
+    <mapping key="У" note="35"/>
+    <mapping key="И" note="36"/>
+    <mapping key="9" note="37"/>
+    <mapping key="О" note="38"/>
+    <mapping key="0" note="39"/>
+    <mapping key="П" note="40"/>
+</keyboardmap>
