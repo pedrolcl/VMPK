@@ -97,11 +97,15 @@ void KMapDialog::slotOpen()
 
 void KMapDialog::slotSave()
 {
-    QString fileName = QFileDialog::getSaveFileName(this,
-                                tr("Save keyboard map definition"),
-                                VPiano::dataDirectory(),
-                                tr("Keyboard map (*.xml)"));
-    if (!fileName.isEmpty()) {
+    QFileDialog dlg(this);
+    dlg.setNameFilter(tr("Keyboard map (*.xml)"));
+    dlg.setDirectory(VPiano::dataDirectory());
+    dlg.setWindowTitle(tr("Save keyboard map definition"));
+    dlg.setDefaultSuffix("xml");
+    dlg.setFileMode(QFileDialog::AnyFile);
+    dlg.setAcceptMode(QFileDialog::AcceptSave);
+    if (dlg.exec() == QDialog::Accepted) {
+        QString fileName = dlg.selectedFiles().first();
         updateMap();
         m_map.saveToXMLFile(fileName);
     }

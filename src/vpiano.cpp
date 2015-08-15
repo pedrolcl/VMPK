@@ -817,12 +817,16 @@ QColor VPiano::getColorFromPolicy(const int chan, const int note, const int vel)
 void VPiano::slotNoteOn(const int chan, const int note, const int vel)
 {
     if (m_baseChannel == chan || m_midiOmni) {
-        QColor c = getColorFromPolicy(chan, note, vel);
-        int v = (dlgPreferences()->getVelocityColor() ? vel : MIDIVELOCITY );
-        currentPianoScene()->showNoteOn(note, c, v);
+        if (vel == 0) {
+            slotNoteOff(chan, note, vel);
+        } else {
+            QColor c = getColorFromPolicy(chan, note, vel);
+            int v = (dlgPreferences()->getVelocityColor() ? vel : MIDIVELOCITY );
+            currentPianoScene()->showNoteOn(note, c, v);
 #ifdef ENABLE_DBUS
-        emit event_noteon(note);
+            emit event_noteon(note);
 #endif
+        }
     }
 }
 

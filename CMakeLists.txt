@@ -45,7 +45,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 # VMPK version string
 set (VERSION_MAJOR "0")
 set (VERSION_MINOR "6")
-set (VERSION_PATCH "0")
+set (VERSION_PATCH "1")
 set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
@@ -148,7 +148,7 @@ if(UNIX)
     add_custom_target ( distclean
         COMMAND rm -rf build/*
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-    add_dependencies (distclean clean)
+#   add_dependencies (distclean clean)
 
     add_custom_target (tarball
         COMMAND mkdir -p vmpk-${VERSION}/translations/
