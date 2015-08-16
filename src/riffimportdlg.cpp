@@ -55,10 +55,18 @@ void RiffImportDlg::openInput()
 
 void RiffImportDlg::openOutput()
 {
-    QString fileName = QFileDialog::getSaveFileName(this,
-        tr("Output"), m_output, tr("Instrument definitions (*.ins)"));
-    if (!fileName.isEmpty())
+    QFileDialog dlg(this);
+    dlg.setNameFilter(tr("Instrument definitions (*.ins)"));
+    dlg.setWindowTitle(tr("Output"));
+    dlg.setDefaultSuffix("ins");
+    dlg.setDirectory(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+    dlg.selectFile(m_output);
+    dlg.setFileMode(QFileDialog::AnyFile);
+    dlg.setAcceptMode(QFileDialog::AcceptSave);
+    if (dlg.exec() == QFileDialog::Accepted) {
+        QString fileName = dlg.selectedFiles().first();
         setOutput(fileName);
+    }
 }
 
 void RiffImportDlg::setInput(QString fileName)
@@ -66,12 +74,7 @@ void RiffImportDlg::setInput(QString fileName)
     QFileInfo f(fileName);
     if (f.exists()) {
         ui->m_input->setText(m_input = fileName);
-#if QT_VERSION < 0x040400
-        QDir dir = QDir::home();
-#else
         QDir dir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-        //QDir dir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
-#endif
         QString fullFilespec = dir.absoluteFilePath(f.baseName() + ".ins");
         setOutput(fullFilespec);
     }

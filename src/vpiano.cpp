@@ -39,7 +39,7 @@
 
 #include <QDesktopServices>
 #include <QInputDialog>
-#include <QFileDialog>
+#include <QDir>
 #include <QMessageBox>
 #include <QApplication>
 #include <QCloseEvent>

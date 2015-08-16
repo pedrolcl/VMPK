@@ -121,18 +121,21 @@ add_custom_target( uninstall
     "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
 set(vmpk_DATA_FILES
-    data/azerty.xml
-    data/vkeybd-default.xml
-    data/it-qwerty.xml
-    data/german.xml
     data/gmgsxg.ins
-    data/spanish.xml
-    data/pc102x11.xml
-    data/pc102mac.xml
-    data/pc102win.xml
-    data/txt2ins.awk
     data/help.html
     data/help_es.html
+    data/help_sr.html
+    data/azerty.xml
+    data/german.xml
+    data/it-qwerty.xml
+    data/pc102mac.xml
+    data/pc102win.xml
+    data/pc102x11.xml
+    data/Serbian-cyr.xml
+    data/Serbian-lat.xml
+    data/spanish.xml
+    data/vkeybd-default.xml
+    data/txt2ins.awk
 )
 
 #unmaintained or deprecated data files:
