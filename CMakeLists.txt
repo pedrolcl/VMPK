@@ -124,6 +124,7 @@ set(vmpk_DATA_FILES
     data/gmgsxg.ins
     data/help.html
     data/help_es.html
+    data/help_ru.html
     data/help_sr.html
     data/azerty.xml
     data/german.xml

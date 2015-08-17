@@ -61,11 +61,9 @@ linux* {
 macx {
     ICON = data/vmpk.icns
     BUNDLE_RES.files = data/help.html \
-        #data/help_de.html \
         data/help_es.html \
-        #data/help_fr.html \
-        #data/help_nl.html \
-        #data/help_ru.html \
+        data/help_sr.html \
+        data/help_ru.html \
         data/gmgsxg.ins \
         data/spanish.xml \
         data/german.xml \
@@ -73,6 +71,10 @@ macx {
         data/it-qwerty.xml \
         data/vkeybd-default.xml \
         data/pc102mac.xml \
+        data/pc102win.xml \
+        data/pc102x11.xml \
+        data/Serbian-cyr.xml \
+        data/Serbian-lat.xml \
         #qt.conf \
         $$[QT_INSTALL_TRANSLATIONS]/qt_cs.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_de.qm \
@@ -82,18 +84,14 @@ macx {
         #$$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
         #$$[QT_INSTALL_TRANSLATIONS]/qt_sr.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
-        #$$[QT_INSTALL_TRANSLATIONS]/qt_zh_CN.qm \
         vmpk_cs.qm \
         vmpk_de.qm \
         vmpk_es.qm \
         vmpk_fr.qm \
         vmpk_gl.qm \
-        #vmpk_nl.qm \
-        #vmpk_ru.qm \
+        vmpk_ru.qm \
         vmpk_sr.qm \
         vmpk_sv.qm
-        #vmpk_tr.qm \
-        #vmpk_zh_CN.qm
     BUNDLE_RES.path = Contents/Resources
     QMAKE_BUNDLE_DATA += BUNDLE_RES
     LIBS += -framework CoreFoundation \
