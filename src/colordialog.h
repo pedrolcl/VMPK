@@ -56,6 +56,10 @@ private:
     void resetPaletteDouble(PianoPalette *palette);
     void resetPaletteChannels(PianoPalette *palette);
     void resetPaletteScale(PianoPalette *palette);
+    void retranslatePaletteSingle(PianoPalette *palette);
+    void retranslatePaletteDouble(PianoPalette *palette);
+    void retranslatePaletteChannels(PianoPalette *palette);
+    void retranslatePaletteScale(PianoPalette *palette);
     void refreshPalette();
 
     Ui::ColorDialog *m_ui;

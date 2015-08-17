@@ -2184,11 +2184,19 @@ void VPiano::slotTouchScreenInput(bool value)
     currentPianoScene()->setTouchEnabled(value);
 }
 
+void VPiano::applyColorPolicy()
+{
+    PianoPalette* editedPalette = dlgColorPolicy()->currentPalette();
+    m_currentPalette = editedPalette->paletteId();
+    currentPianoScene()->setPianoPalette(editedPalette);
+    currentPianoScene()->setColorScalePalette(dlgColorPolicy()->getPalette(PAL_SCALE));
+    editedPalette->saveColors();
+}
+
 void VPiano::slotColorPolicy()
 {
     if (dlgColorPolicy()->exec() == QDialog::Accepted) {
-        m_currentPalette = dlgColorPolicy()->currentPalette()->paletteId();
-        currentPianoScene()->setPianoPalette(dlgColorPolicy()->currentPalette());
+        applyColorPolicy();
     }
 }
 

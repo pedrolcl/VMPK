@@ -184,24 +184,79 @@ void ColorDialog::resetPaletteScale(PianoPalette *palette)
 }
 
 void
+ColorDialog::retranslatePaletteSingle(PianoPalette *palette)
+{
+    palette->setColorName(0, QString());
+}
+
+void
+ColorDialog::retranslatePaletteDouble(PianoPalette *palette)
+{
+    palette->setColorName(0, trUtf8("N"));
+    palette->setColorName(1, trUtf8("#"));
+}
+
+void
+ColorDialog::retranslatePaletteChannels(PianoPalette *palette)
+{
+    palette->setColorName(0, trUtf8("1"));
+    palette->setColorName(1, trUtf8("2"));
+    palette->setColorName(2, trUtf8("3"));
+    palette->setColorName(3, trUtf8("4"));
+    palette->setColorName(4, trUtf8("5"));
+    palette->setColorName(5, trUtf8("6"));
+    palette->setColorName(6, trUtf8("7"));
+    palette->setColorName(7, trUtf8("8"));
+    palette->setColorName(8, trUtf8("9"));
+    palette->setColorName(9, trUtf8("10"));
+    palette->setColorName(10, trUtf8("11"));
+    palette->setColorName(11, trUtf8("12"));
+    palette->setColorName(12, trUtf8("13"));
+    palette->setColorName(13, trUtf8("14"));
+    palette->setColorName(14, trUtf8("15"));
+    palette->setColorName(15, trUtf8("16"));
+}
+
+void
+ColorDialog::retranslatePaletteScale(PianoPalette *palette)
+{
+    palette->setColorName(0, trUtf8("C"));
+    palette->setColorName(1, trUtf8("C#"));
+    palette->setColorName(2, trUtf8("D"));
+    palette->setColorName(3, trUtf8("D#"));
+    palette->setColorName(4, trUtf8("E"));
+    palette->setColorName(5, trUtf8("F"));
+    palette->setColorName(6, trUtf8("F#"));
+    palette->setColorName(7, trUtf8("G"));
+    palette->setColorName(8, trUtf8("G#"));
+    palette->setColorName(9, trUtf8("A"));
+    palette->setColorName(10, trUtf8("A#"));
+    palette->setColorName(11, trUtf8("B"));
+}
+
+void
 ColorDialog::initializePaletteStrings()
 {
     PianoPalette *palette;
     palette = m_paletteList[PAL_SINGLE];
     palette->setPaletteName(trUtf8("Single color"));
     palette->setPaletteText(trUtf8("A single color to highlight all note events"));
+    retranslatePaletteSingle(palette);
 
     palette = m_paletteList[PAL_DOUBLE];
     palette->setPaletteName(trUtf8("Two colors"));
     palette->setPaletteText(trUtf8("One color to highlight natural notes and a different one for accidentals"));
+    retranslatePaletteDouble(palette);
 
     palette = m_paletteList[PAL_CHANNELS];
     palette->setPaletteName(trUtf8("MIDI Channels"));
     palette->setPaletteText(trUtf8("A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection"));
+    retranslatePaletteChannels(palette);
 
     palette = m_paletteList[PAL_SCALE];
     palette->setPaletteName(trUtf8("Chromatic scale"));
     palette->setPaletteText(trUtf8("One color for each note in the chromatic scale"));
+    retranslatePaletteScale(palette);
 }
 
 void

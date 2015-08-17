@@ -143,6 +143,7 @@ void Preferences::slotSelectColor()
         m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
         if(m_colorDialog->exec() == QDialog::Accepted) {
             ui.cboColorPolicy->setCurrentIndex(m_colorDialog->currentPalette()->paletteId());
+            m_colorDialog->saveCurrentPalette();
         }
     }
 }

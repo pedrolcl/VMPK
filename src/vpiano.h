@@ -174,6 +174,7 @@ private:
     void applyPreferences();
     void applyConnections();
     void applyInitialSettings();
+    void applyColorPolicy();
     void populateControllers();
     void populateInstruments();
     void populatePrograms(int bank = -1);
@@ -202,6 +203,7 @@ private:
     void releaseKb();
     void updateNoteNames(bool drums);
     void setWidgetTip(QWidget* w, int val);
+
     QByteArray readSysexDataFile(const QString& fileName);
     void createLanguageMenu();
     QString configuredLanguage();
