@@ -4,14 +4,14 @@ SetCompressor /SOLID lzma
 RequestExecutionLevel admin
 
 # Defines
-!define QTFILES    "C:\freesw\qt-5.3.1-x86-mingw482r4-dw2-compact"
+!define QTFILES    "C:\Qt\Qt5.5.0\5.5\mingw492_32"
 !define BINFILES   "C:\freesw\bin"
 !define DRUMSTICK  "C:\freesw\lib\drumstick"
 !define VMPKSRC    "C:\Users\pedro\Projects\vmpk-desktop"
-!define VMPKBLD    "C:\Users\pedro\Projects\vmpk-build"
+!define VMPKBLD    "C:\Users\pedro\Projects\vmpk-build-release"
 
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.6.0
+!define VERSION 0.6.1
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -61,11 +61,11 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "Galician"
 !insertmacro MUI_LANGUAGE "German"
+!insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Serbian"
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_LANGUAGE "Swedish"
 #!insertmacro MUI_LANGUAGE "Dutch"
-#!insertmacro MUI_LANGUAGE "Russian"
 #!insertmacro MUI_LANGUAGE "SimpChinese"
 
 ;Language strings
@@ -74,6 +74,7 @@ LangString FinishLinkText ${LANG_CZECH} "Aplikace pro Android ve službě Google
 LangString FinishLinkText ${LANG_FRENCH} "Application Android sur Google Play"
 LangString FinishLinkText ${LANG_GALICIAN} "Aplicación para Android en Google Play"
 LangString FinishLinkText ${LANG_GERMAN} "Applikation für Android auf Google Play"
+LangString FinishLinkText ${LANG_RUSSIAN} "Приложения для Android на Google Play"
 LangString FinishLinkText ${LANG_SERBIAN} "Андроид апликација на Гоогле Плаи"
 LangString FinishLinkText ${LANG_SPANISH} "Aplicación para Android en Google Play"
 LangString FinishLinkText ${LANG_SWEDISH} "Applikationer på Google Play"
@@ -84,7 +85,7 @@ InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.6.0.0
+VIProductVersion 0.6.1.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -100,6 +101,7 @@ Icon src\vmpk.ico
 Section -Main SEC0000
 	CreateDirectory $INSTDIR\drumstick
 	CreateDirectory $INSTDIR\platforms
+	CreateDirectory $INSTDIR\iconengines
 	CreateDirectory $APPDATA\SoundFonts
     SetOutPath $INSTDIR
     SetOverwrite on
@@ -111,18 +113,22 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\it-qwerty.xml
     File ${VMPKSRC}\data\vkeybd-default.xml
     File ${VMPKSRC}\data\pc102win.xml
+    File ${VMPKSRC}\data\Serbian-lat.xml
+    File ${VMPKSRC}\data\Serbian-cyr.xml
     File ${VMPKSRC}\data\gmgsxg.ins
     File ${VMPKSRC}\data\help.html
     File ${VMPKSRC}\data\help_es.html
+    File ${VMPKSRC}\data\help_sr.html
+    File ${VMPKSRC}\data\help_ru.html
     File ${VMPKBLD}\translations\vmpk_cs.qm
     File ${VMPKBLD}\translations\vmpk_de.qm
     File ${VMPKBLD}\translations\vmpk_es.qm
     File ${VMPKBLD}\translations\vmpk_fr.qm
     File ${VMPKBLD}\translations\vmpk_gl.qm
+    File ${VMPKBLD}\translations\vmpk_ru.qm
     File ${VMPKBLD}\translations\vmpk_sr.qm
     File ${VMPKBLD}\translations\vmpk_sv.qm
 #   File ${VMPKBLD}\translations\vmpk_nl.qm
-#   File ${VMPKBLD}\translations\vmpk_ru.qm
 #   File ${VMPKBLD}\translations\vmpk_zh_CN.qm
     File ${QTFILES}\translations\qt_cs.qm
     File ${QTFILES}\translations\qt_de.qm
@@ -130,7 +136,22 @@ Section -Main SEC0000
     File ${QTFILES}\translations\qt_fr.qm
     File ${QTFILES}\translations\qt_gl.qm
     File ${QTFILES}\translations\qt_sv.qm
-#   File ${QTFILES}\translations\qt_ru.qm
+    File ${QTFILES}\translations\qt_ru.qm
+	File ${QTFILES}\translations\qtbase_cs.qm
+	File ${QTFILES}\translations\qtscript_cs.qm
+	File ${QTFILES}\translations\qtquick1_cs.qm
+	File ${QTFILES}\translations\qtmultimedia_cs.qm
+	File ${QTFILES}\translations\qtxmlpatterns_cs.qm
+	File ${QTFILES}\translations\qtbase_de.qm
+	File ${QTFILES}\translations\qtscript_de.qm
+	File ${QTFILES}\translations\qtquick1_de.qm
+	File ${QTFILES}\translations\qtmultimedia_de.qm
+	File ${QTFILES}\translations\qtxmlpatterns_de.qm
+	File ${QTFILES}\translations\qtbase_ru.qm
+	File ${QTFILES}\translations\qtscript_ru.qm
+	File ${QTFILES}\translations\qtquick1_ru.qm
+	File ${QTFILES}\translations\qtmultimedia_ru.qm
+	File ${QTFILES}\translations\qtxmlpatterns_ru.qm
 #   File ${QTFILES}\translations\qt_zh_CN.qm
 	File "/oname=$APPDATA\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2" "C:\ProgramData\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2"
 	
@@ -146,6 +167,7 @@ Section -Main SEC0000
 	; !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\icuin52.dll $INSTDIR\icuin52.dll $INSTDIR
 	; !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bin\icuuc52.dll $INSTDIR\icuuc52.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\plugins\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\plugins\iconengines\qsvgicon.dll $INSTDIR\iconengines\qsvgicon.dll $INSTDIR
 	
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\intl.dll $INSTDIR\intl.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${BINFILES}\libdrumstick-rt.dll $INSTDIR\libdrumstick-rt.dll $INSTDIR
@@ -214,14 +236,31 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\qt_es.qm
     Delete /REBOOTOK $INSTDIR\qt_fr.qm
     Delete /REBOOTOK $INSTDIR\qt_gl.qm
+    Delete /REBOOTOK $INSTDIR\qt_ru.qm
     Delete /REBOOTOK $INSTDIR\qt_sv.qm
     Delete /REBOOTOK $INSTDIR\vmpk_cs.qm
     Delete /REBOOTOK $INSTDIR\vmpk_de.qm
     Delete /REBOOTOK $INSTDIR\vmpk_es.qm
     Delete /REBOOTOK $INSTDIR\vmpk_fr.qm
     Delete /REBOOTOK $INSTDIR\vmpk_gl.qm
+    Delete /REBOOTOK $INSTDIR\vmpk_ru.qm
     Delete /REBOOTOK $INSTDIR\vmpk_sr.qm
     Delete /REBOOTOK $INSTDIR\vmpk_sv.qm
+	Delete /REBOOTOK $INSTDIR\qtbase_cs.qm
+	Delete /REBOOTOK $INSTDIR\qtscript_cs.qm
+	Delete /REBOOTOK $INSTDIR\qtquick1_cs.qm
+	Delete /REBOOTOK $INSTDIR\qtmultimedia_cs.qm
+	Delete /REBOOTOK $INSTDIR\qtxmlpatterns_cs.qm
+	Delete /REBOOTOK $INSTDIR\qtbase_de.qm
+	Delete /REBOOTOK $INSTDIR\qtscript_de.qm
+	Delete /REBOOTOK $INSTDIR\qtquick1_de.qm
+	Delete /REBOOTOK $INSTDIR\qtmultimedia_de.qm
+	Delete /REBOOTOK $INSTDIR\qtxmlpatterns_de.qm
+	Delete /REBOOTOK $INSTDIR\qtbase_ru.qm
+	Delete /REBOOTOK $INSTDIR\qtscript_ru.qm
+	Delete /REBOOTOK $INSTDIR\qtquick1_ru.qm
+	Delete /REBOOTOK $INSTDIR\qtmultimedia_ru.qm
+	Delete /REBOOTOK $INSTDIR\qtxmlpatterns_ru.qm
     Delete /REBOOTOK $INSTDIR\vmpk.exe
     Delete /REBOOTOK $INSTDIR\spanish.xml
     Delete /REBOOTOK $INSTDIR\german.xml
@@ -229,9 +268,13 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\it-qwerty.xml
     Delete /REBOOTOK $INSTDIR\vkeybd-default.xml
     Delete /REBOOTOK $INSTDIR\pc102win.xml
+    Delete /REBOOTOK $INSTDIR\Serbian-lat.xml
+    Delete /REBOOTOK $INSTDIR\Serbian-cyr.xml
     Delete /REBOOTOK $INSTDIR\gmgsxg.ins
     Delete /REBOOTOK $INSTDIR\help.html
     Delete /REBOOTOK $INSTDIR\help_es.html
+    Delete /REBOOTOK $INSTDIR\help_ru.html
+    Delete /REBOOTOK $INSTDIR\help_sr.html
 	Delete /REBOOTOK "$APPDATA\SoundFonts\GeneralUser GS FluidSynth v1.44.sf2"
 	
     !insertmacro UnInstallLib DLL SHARED REBOOT_PROTECTED $INSTDIR\libstdc++-6.dll
@@ -247,6 +290,7 @@ Section /o -un.Main UNSEC0000
 	; !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuin52.dll 
 	; !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\icuuc52.dll 
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconengines\qsvgicon.dll
 
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl.dll 
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libdrumstick-rt.dll 
@@ -262,6 +306,7 @@ Section /o -un.Main UNSEC0000
 	
 	RMDir /REBOOTOK $INSTDIR\drumstick
 	RMDir /REBOOTOK $INSTDIR\platforms
+	RMDir /REBOOTOK $INSTDIR\iconengines
 	RMDir /REBOOTOK $APPDATA\SoundFonts
 	
     DeleteRegValue HKLM "${REGKEY}\Components" Main
@@ -301,7 +346,7 @@ Var hCtl_Finish_Bitmap1
 Var hCtl_Finish_Bitmap1_hImage
 
 Function CustomFinishShow
-  ${NSD_CreateBitmap} 120u 133u 115u 37u ""
+  ${NSD_CreateBitmap} 120u 130u 90u 30u ""
   Pop $hCtl_Finish_Bitmap1
   ${NSD_OnClick} $hCtl_Finish_Bitmap1 OpenLink
   ${Switch} $LANGUAGE
@@ -319,6 +364,9 @@ Function CustomFinishShow
   ${Break}
   ${Case} ${LANG_GERMAN}
   File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\de_app.bmp"
+  ${Break}
+  ${Case} ${LANG_RUSSIAN}
+  File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\ru_app.bmp"
   ${Break}
   ${Case} ${LANG_SERBIAN}
   File "/oname=$PLUGINSDIR\banner.bmp" "${VMPKSRC}\data\sr_app.bmp"
