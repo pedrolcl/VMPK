@@ -37,8 +37,8 @@ dbus {
 DEFINES += VERSION=$$VERSION
 
 macx {
-    INCLUDEPATH += /Library/Frameworks/drumstick-rt.framework/Headers
-    QMAKE_LFLAGS += -F/Library/Frameworks
+    INCLUDEPATH += /Users/pedro/Library/Frameworks/drumstick-rt.framework/Headers
+    QMAKE_LFLAGS += -F/Users/pedro/Library/Frameworks
     LIBS += -framework drumstick-rt
 } else {
     CONFIG += link_pkgconfig
@@ -81,7 +81,7 @@ macx {
         $$[QT_INSTALL_TRANSLATIONS]/qt_es.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_fr.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_gl.qm \
-        #$$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
+        $$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
         #$$[QT_INSTALL_TRANSLATIONS]/qt_sr.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
         vmpk_cs.qm \
