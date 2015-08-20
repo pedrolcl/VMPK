@@ -1,3 +1,21 @@
+2015-08-20
+    * release 0.6.1
+
+2015-08-17
+    * Color palette management fixes for translation and edition
+    * Translations updated, re-added Russian translation and resources
+
+2015-08-16
+    * Fix for save ins file dialog, like ticket #27
+    * Install new Serbian translated files
+
+2015-08-15
+    * Fixes for tickets: #27, save keyboard maps with default xml extension
+    * and #29, interpret input midi event noteon with velocity=0 like a noteoff
+
+2015-04-12
+    *  Serbian localization of VMPK (desktop version) by Jay Alexander Fleming
+
 2014-09-07
     * release 0.6.0
 
