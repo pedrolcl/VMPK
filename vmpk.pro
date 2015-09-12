@@ -37,6 +37,7 @@ dbus {
 DEFINES += VERSION=$$VERSION
 
 macx {
+    QMAKE_TARGET_BUNDLE_PREFIX = net.sourceforge
     INCLUDEPATH += /Users/pedro/Library/Frameworks/drumstick-rt.framework/Headers
     QMAKE_LFLAGS += -F/Users/pedro/Library/Frameworks
     LIBS += -framework drumstick-rt
