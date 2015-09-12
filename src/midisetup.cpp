@@ -50,8 +50,9 @@ void MidiSetup::toggledInput(bool state)
 void MidiSetup::inputNotAvailable()
 {
     setInputEnabled(false);
-    ui.chkEnableInput->setEnabled(false);
-    ui.chkEnableThru->setEnabled(false);
+    setThruEnabled(false);
+    //ui.chkEnableInput->setEnabled(false);
+    //ui.chkEnableThru->setEnabled(false);
     ui.comboinputBackends->setCurrentIndex(-1);
     ui.comboInput->setCurrentIndex(-1);
 }

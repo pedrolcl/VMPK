@@ -216,10 +216,10 @@ bool VPiano::initMidi()
     dlgMidiSetup()->setOmniEnabled(m_midiOmni);
     dlgMidiSetup()->setAdvanced(m_advanced);
 
+    dlgMidiSetup()->setInputs(inputs);
     dlgMidiSetup()->setOutputs(outputs);
     dlgMidiSetup()->setOutput(m_midiout);
     if (m_inputEnabled && m_midiin != 0) {
-        dlgMidiSetup()->setInputs(inputs);
         dlgMidiSetup()->setInput(m_midiin);
         m_inputActive = true;
     } else {
@@ -707,10 +707,14 @@ void VPiano::writeSettings()
     settings.endGroup();
 
     settings.beginGroup(QSTR_CONNECTIONS);
-    settings.setValue(QSTR_INDRIVER, m_midiin->backendName());
-    settings.setValue(QSTR_OUTDRIVER, m_midiout->backendName());
-    settings.setValue(QSTR_INPORT, m_midiin->currentConnection());
-    settings.setValue(QSTR_OUTPORT, m_midiout->currentConnection());
+    if (m_midiin != 0) {
+        settings.setValue(QSTR_INDRIVER, m_midiin->backendName());
+        settings.setValue(QSTR_INPORT, m_midiin->currentConnection());
+    }
+    if (m_midiout != 0) {
+        settings.setValue(QSTR_OUTDRIVER, m_midiout->backendName());
+        settings.setValue(QSTR_OUTPORT, m_midiout->currentConnection());
+    }
     settings.setValue(QSTR_INENABLED, m_inputEnabled);
     settings.setValue(QSTR_THRUENABLED, m_midiThru);
     settings.setValue(QSTR_OMNIENABLED, m_midiOmni);
