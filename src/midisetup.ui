@@ -24,7 +24,7 @@
     <x>0</x>
     <y>0</y>
     <width>420</width>
-    <height>256</height>
+    <height>265</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -252,54 +252,6 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>141</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkEnableInput</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>comboInput</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>71</x>
-     <y>18</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>323</x>
-     <y>90</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkEnableInput</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>chkEnableThru</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>212</x>
-     <y>17</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>193</x>
-     <y>44</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkEnableInput</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>chkOmni</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>259</x>
-     <y>19</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>99</x>
-     <y>76</y>
     </hint>
    </hints>
   </connection>

@@ -40,7 +40,14 @@ MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
 
 void MidiSetup::toggledInput(bool state)
 {
-    if (!state) {
+    ui.chkOmni->setEnabled(state);
+    ui.chkEnableThru->setEnabled(state);
+    ui.comboinputBackends->setEnabled(state);
+    ui.comboInput->setEnabled(state);
+    if (state) {
+        refresh();
+    } else {
+        ui.chkOmni->setChecked(false);
         ui.chkEnableThru->setChecked(false);
         ui.comboinputBackends->setCurrentIndex(-1);
         ui.comboInput->setCurrentIndex(-1);

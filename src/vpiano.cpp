@@ -219,11 +219,13 @@ bool VPiano::initMidi()
     dlgMidiSetup()->setInputs(inputs);
     dlgMidiSetup()->setOutputs(outputs);
     dlgMidiSetup()->setOutput(m_midiout);
-    if (m_inputEnabled && m_midiin != 0) {
+    if (m_midiin != 0) {
         dlgMidiSetup()->setInput(m_midiin);
-        m_inputActive = true;
+        dlgMidiSetup()->toggledInput(m_inputEnabled);
+        m_inputActive = m_inputEnabled;
     } else {
         dlgMidiSetup()->inputNotAvailable();
+        m_inputActive = false;
     }
 
     return (m_midiout != 0);
