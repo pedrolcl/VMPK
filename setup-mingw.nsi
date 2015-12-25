@@ -11,7 +11,7 @@ RequestExecutionLevel admin
 !define VMPKBLD    "C:\Users\pedro\Projects\vmpk-build-release"
 
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.6.1
+!define VERSION 0.6.2
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -85,7 +85,7 @@ InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.6.1.0
+VIProductVersion 0.6.2.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
