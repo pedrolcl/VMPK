@@ -1,7 +1,7 @@
 <project>
     <shortName>vmpk</shortName>
     <fullName>Virtual MIDI Piano Keyboard (VMPK)</fullName>
-    <version>0.6.1</version>
+    <version>0.6.2</version>
     <readmeFile>/home/pedro/Projects/vmpk-desktop/desktop/README</readmeFile>
     <licenseFile>/home/pedro/Projects/vmpk-desktop/desktop/COPYING</licenseFile>
     <logoImage>/home/pedro/Projects/vmpk-desktop/desktop/data/vmpk_64x64.png</logoImage>
@@ -19,7 +19,7 @@
                     <comment>Virtual MIDI Piano Keyboard</comment>
                     <exec>${installdir}/bin/vmpk</exec>
                     <icon>${installdir}/share/icons/hicolor/48x48/apps/vmpk.png</icon>
-                    <name>VMPK 0.6.1</name>
+                    <name>VMPK 0.6.2</name>
                     <path>${installdir}</path>
                     <platforms>all</platforms>
                     <runAsAdmin>0</runAsAdmin>
@@ -60,10 +60,10 @@
                     <platforms>linux</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/bin/vmpk</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/bin/vmpk</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/bin/qt.conf</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/bin/qt.conf</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -74,10 +74,10 @@
                     <platforms>linux-x64</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/bin/qt.conf</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/bin/qt.conf</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/bin/vmpk</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/bin/vmpk</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -88,112 +88,112 @@
                     <platforms>linux</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libdrumstick-alsa.so.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libdrumstick-alsa.so.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libdrumstick-alsa.so.1.0.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libdrumstick-alsa.so.1.0.2</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libdrumstick-rt.so.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libdrumstick-rt.so.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libdrumstick-rt.so.1.0.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libdrumstick-rt.so.1.0.2</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libfluidsynth.so.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libfluidsynth.so.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libfluidsynth.so.1.5.2</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libfluidsynth.so.1.5.2</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libicudata.so.54</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libicudata.so.54</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libicudata.so.54.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libicudata.so.54.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libicui18n.so.54</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libicui18n.so.54</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libicui18n.so.54.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libicui18n.so.54.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libicuuc.so.54</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libicuuc.so.54</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libicuuc.so.54.1</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libicuuc.so.54.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Core.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Core.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Core.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Core.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Core.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Core.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5DBus.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5DBus.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5DBus.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5DBus.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5DBus.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5DBus.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Gui.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Gui.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Gui.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Gui.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Gui.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Gui.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Network.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Network.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Network.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Network.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Network.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Network.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Svg.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Svg.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Svg.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Svg.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Svg.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Svg.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Widgets.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Widgets.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Widgets.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Widgets.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5Widgets.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5Widgets.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5X11Extras.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5X11Extras.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5X11Extras.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5X11Extras.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5X11Extras.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5X11Extras.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5XcbQpa.so.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5XcbQpa.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5XcbQpa.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5XcbQpa.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/libQt5XcbQpa.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/libQt5XcbQpa.so.5.5.0</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -204,112 +204,112 @@
                     <platforms>linux-x64</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libdrumstick-alsa.so.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libdrumstick-alsa.so.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libdrumstick-alsa.so.1.0.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libdrumstick-alsa.so.1.0.2</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libdrumstick-rt.so.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libdrumstick-rt.so.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libdrumstick-rt.so.1.0.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libdrumstick-rt.so.1.0.2</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libfluidsynth.so.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libfluidsynth.so.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libfluidsynth.so.1.5.2</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libfluidsynth.so.1.5.2</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libicudata.so.54</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libicudata.so.54</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libicudata.so.54.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libicudata.so.54.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libicui18n.so.54</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libicui18n.so.54</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libicui18n.so.54.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libicui18n.so.54.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libicuuc.so.54</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libicuuc.so.54</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libicuuc.so.54.1</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libicuuc.so.54.1</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Core.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Core.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Core.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Core.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Core.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Core.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5DBus.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5DBus.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5DBus.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5DBus.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5DBus.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5DBus.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Gui.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Gui.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Gui.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Gui.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Gui.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Gui.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Network.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Network.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Network.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Network.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Network.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Network.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Svg.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Svg.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Svg.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Svg.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Svg.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Svg.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Widgets.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Widgets.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Widgets.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Widgets.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5Widgets.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5Widgets.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5X11Extras.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5X11Extras.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5X11Extras.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5X11Extras.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5X11Extras.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5X11Extras.so.5.5.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5XcbQpa.so.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5XcbQpa.so.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5XcbQpa.so.5.5</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5XcbQpa.so.5.5</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/libQt5XcbQpa.so.5.5.0</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/libQt5XcbQpa.so.5.5.0</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -321,7 +321,7 @@
                     <distributionFileList>
                         <distributionDirectory>
                             <allowWildcards>1</allowWildcards>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/share/vmpk</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/share/vmpk</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -333,7 +333,7 @@
                     <distributionFileList>
                         <distributionDirectory>
                             <allowWildcards>1</allowWildcards>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/share/icons</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/share/icons</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -345,7 +345,7 @@
                     <distributionFileList>
                         <distributionDirectory>
                             <allowWildcards>1</allowWildcards>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/share/soundfonts</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/share/soundfonts</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -357,7 +357,7 @@
                     <distributionFileList>
                         <distributionDirectory>
                             <allowWildcards>1</allowWildcards>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/plugins</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/plugins</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -369,7 +369,7 @@
                     <distributionFileList>
                         <distributionDirectory>
                             <allowWildcards>1</allowWildcards>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/plugins</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/plugins</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -380,25 +380,25 @@
                     <platforms>linux</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-alsa-in.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-alsa-in.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-alsa-out.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-alsa-out.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-net-in.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-net-in.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-net-out.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-net-out.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-oss-in.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-oss-in.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-oss-out.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-oss-out.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall32/vmpk-0.6.1/lib/drumstick/libdrumstick-rt-synth.so</origin>
+                            <origin>/home/pedro/TestInstall32/vmpk-0.6.2/lib/drumstick/libdrumstick-rt-synth.so</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -409,27 +409,71 @@
                     <platforms>linux-x64</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-alsa-in.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-alsa-in.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-alsa-out.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-alsa-out.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-net-in.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-net-in.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-net-out.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-net-out.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-oss-in.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-oss-in.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-oss-out.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-oss-out.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>/home/pedro/TestInstall64/vmpk-0.6.1/lib64/drumstick/libdrumstick-rt-synth.so</origin>
+                            <origin>/home/pedro/TestInstall64/vmpk-0.6.2/lib64/drumstick/libdrumstick-rt-synth.so</origin>
                         </distributionFile>
                     </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Local applications</description>
+                    <destination>${user_home_directory}/.local/share/applications</destination>
+                    <name>LocalApps</name>
+                    <platforms>linux</platforms>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>Virtual MIDI Piano Keyboard</comment>
+                            <exec>${installdir}/bin/vmpk</exec>
+                            <icon>${installdir}/share/icons/hicolor/48x48/apps/vmpk.png</icon>
+                            <name>VMPK 0.6.2</name>
+                            <path>${installdir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec></windowsExec>
+                            <windowsExecArgs></windowsExecArgs>
+                            <windowsIcon></windowsIcon>
+                            <windowsPath></windowsPath>
+                        </shortcut>
+                    </shortcutList>
+                </folder>
+                <folder>
+                    <description>Local applications</description>
+                    <destination>${user_home_directory}/.local/share/applications</destination>
+                    <name>LocalApps64</name>
+                    <platforms>linux-x64</platforms>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>Virtual MIDI Piano Keyboard</comment>
+                            <exec>${installdir}/bin/vmpk</exec>
+                            <icon>${installdir}/share/icons/hicolor/48x48/apps/vmpk.png</icon>
+                            <name>VMPK 0.6.2</name>
+                            <path>${installdir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec></windowsExec>
+                            <windowsExecArgs></windowsExecArgs>
+                            <windowsIcon></windowsIcon>
+                            <windowsPath></windowsPath>
+                        </shortcut>
+                    </shortcutList>
                 </folder>
             </folderList>
             <startMenuShortcutList>
