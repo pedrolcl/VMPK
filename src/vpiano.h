@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2015, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2016, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -285,6 +285,10 @@ private:
     QString m_lastOutputBackend;
     QString m_lastInputConnection;
     QString m_lastOutputConnection;
+    QString m_defaultInputBackend;
+    QString m_defaultOutputBackend;
+    QString m_defaultInputConnection;
+    QString m_defaultOutputConnection;
     bool m_advanced;
     bool m_inputEnabled;
 };

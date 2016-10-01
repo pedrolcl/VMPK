@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2015, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2016, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -180,15 +180,31 @@ void VPiano::initialization()
 
 bool VPiano::initMidi()
 {
+//#if defined(Q_OS_LINUX)
+//    QString nativeBackend("ALSA");
+//#elif defined(Q_OS_OSX)
+//    QString nativeBackend("CoreMIDI");
+//#elif defined(Q_OS_WIN)
+//    QString nativeBackend("Windows MM");
+//#else
+//    QString nativeBackend("Network");
+//#endif
+    m_defaultInputBackend = QLatin1Literal("Network");
+    m_defaultInputConnection = QLatin1Literal("21928");
 #if defined(Q_OS_LINUX)
-    QString nativeBackend("ALSA");
+    m_defaultOutputBackend = QLatin1Literal("SonivoxEAS");
+    m_defaultOutputConnection = QLatin1Literal("SonivoxEAS");
 #elif defined(Q_OS_OSX)
-    QString nativeBackend("CoreMIDI");
+    m_defaultOutputBackend = QLatin1Literal("DLS Synth");
+    m_defaultOutputConnection = QLatin1Literal("DLS Synth");
 #elif defined(Q_OS_WIN)
-    QString nativeBackend("Windows MM");
+    m_defaultOutputBackend = QLatin1Literal("Windows MM");
+    m_defaultOutputConnection = QLatin1Literal("Microsoft GS Wavetable Synth");
 #else
-    QString nativeBackend("Network");
+    m_defaultOutputBackend = m_defaultInputBackend;
+    m_defaultOutputConnection = m_defaultInputConnection;
 #endif
+
     QSettings settings;
     settings.beginGroup(QSTR_DRUMSTICKRT_GROUP);
     settings.setValue(QSTR_DRUMSTICKRT_PUBLICNAMEIN, QSTR_VMPKINPUT);
@@ -203,12 +219,12 @@ bool VPiano::initMidi()
 
     findInput(m_lastInputBackend, inputs);
     if (m_midiin == 0) {
-        findInput(nativeBackend, inputs);
+        findInput(m_defaultInputBackend, inputs);
     }
 
     findOutput(m_lastOutputBackend, outputs);
     if (m_midiout == 0) {
-        findOutput(nativeBackend, outputs);
+        findOutput(m_defaultOutputBackend, outputs);
     }
 
     dlgMidiSetup()->setInputEnabled(m_inputEnabled);
@@ -534,10 +550,10 @@ void VPiano::readSettings()
     m_midiThru = settings.value(QSTR_THRUENABLED, true).toBool();
     m_midiOmni = settings.value(QSTR_OMNIENABLED, false).toBool();
     m_advanced = settings.value(QSTR_ADVANCEDENABLED, false).toBool();
-    m_lastInputBackend = settings.value(QSTR_INDRIVER, "Network").toString();
-    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER, "FluidSynth").toString();
-    m_lastInputConnection = settings.value(QSTR_INPORT, "21928").toString();
-    m_lastOutputConnection = settings.value(QSTR_OUTPORT, "FluidSynth").toString();
+    m_lastInputBackend = settings.value(QSTR_INDRIVER, m_defaultInputBackend).toString();
+    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER, m_defaultOutputBackend).toString();
+    m_lastInputConnection = settings.value(QSTR_INPORT, m_defaultInputConnection).toString();
+    m_lastOutputConnection = settings.value(QSTR_OUTPORT, m_defaultOutputConnection).toString();
     settings.endGroup();
 
     settings.beginGroup(QSTR_PREFERENCES);

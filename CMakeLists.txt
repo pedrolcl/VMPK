@@ -1,5 +1,5 @@
 # Virtual MIDI Piano Keyboard
-# Copyright (C) 2008-2015 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
+# Copyright (C) 2008-2016 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -42,10 +42,21 @@ add_definitions(-DRAWKBD_SUPPORT -DPALETTE_SUPPORT)
 # Additional CMake modules for 3rd party library checks reside here
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+if(COMPILER_SUPPORTS_CXX11)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    if(APPLE)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    endif()
+else()
+    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+endif()
+
 # VMPK version string
 set (VERSION_MAJOR "0")
 set (VERSION_MINOR "6")
-set (VERSION_PATCH "2")
+set (VERSION_PATCH "99")
 set (VERSION_SUFFIX "")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
@@ -100,7 +111,7 @@ if (${ENABLE_WIN})
     link_libraries(winmm)
 endif ()
 
-pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt)
+pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt>=1.1.0)
 if(DRUMSTICKRT_FOUND)
     link_directories(${DRUMSTICKRT_LIBDIR})
     include_directories(${DRUMSTICKRT_INCLUDEDIR})

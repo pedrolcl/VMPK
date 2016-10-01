@@ -1,5 +1,5 @@
 # Virtual MIDI Piano Keyboard
-# Copyright (C) 2008-2015 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
+# Copyright (C) 2008-2016 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,6 +29,8 @@ set(vmpk_forms_SRCS
     shortcutdialog.ui
     fluidsettingsdialog.ui
     networksettingsdialog.ui
+    macsynthsettingsdialog.ui
+    sonivoxsettingsdialog.ui
 )
 
 QT5_WRAP_UI(vmpk_ui_SRCS ${vmpk_forms_SRCS})
@@ -78,6 +80,10 @@ set(vmpk_SRCS
     fluidsettingsdialog.h
     networksettingsdialog.cpp
     networksettingsdialog.h
+    macsynthsettingsdialog.cpp
+    macsynthsettingsdialog.h
+    sonivoxsettingsdialog.cpp
+    sonivoxsettingsdialog.h
     vpiano.cpp
     vpiano.h )
 
@@ -98,6 +104,8 @@ set(vmpk_qtobject_SRCS
     vpiano.h
     fluidsettingsdialog.h
     networksettingsdialog.h
+    macsynthsettingsdialog.h
+    sonivoxsettingsdialog.h
     shortcutdialog.h)
 
 if(ENABLE_DBUS)

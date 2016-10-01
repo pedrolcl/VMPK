@@ -4,7 +4,7 @@
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 3 of the License, or
+    the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
@@ -13,26 +13,27 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License along
-    with this program; If not, see <http://www.gnu.org/licenses/>.
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef NETWORKSETTINGSDIALOG_H
-#define NETWORKSETTINGSDIALOG_H
+#ifndef SonivoxSettingsDialog_H
+#define SonivoxSettingsDialog_H
 
 #include <QDialog>
 #include <QShowEvent>
 
 namespace Ui {
-    class NetworkSettingsDialog;
+    class SonivoxSettingsDialog;
 }
 
-class NetworkSettingsDialog : public QDialog
+class SonivoxSettingsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit NetworkSettingsDialog(QWidget *parent = 0);
-    ~NetworkSettingsDialog();
+    explicit SonivoxSettingsDialog(QWidget *parent = 0);
+    ~SonivoxSettingsDialog();
     void readSettings();
     void writeSettings();
 
@@ -42,7 +43,7 @@ public slots:
     void restoreDefaults();
 
 private:
-    Ui::NetworkSettingsDialog *ui;
+    Ui::SonivoxSettingsDialog *ui;
 };
 
-#endif // NETWORKSETTINGSDIALOG_H
+#endif // SonivoxSettingsDialog_H

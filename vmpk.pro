@@ -1,5 +1,5 @@
 # Virtual MIDI Piano Keyboard
-# Copyright (C) 2008-2015 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
+# Copyright (C) 2008-2016 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
@@ -13,7 +13,7 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.6.2
+VERSION = 0.6.99
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
 lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
@@ -109,7 +109,9 @@ FORMS += src/about.ui \
     src/riffimportdlg.ui \
     src/vpiano.ui \
     src/networksettingsdialog.ui \
-    src/fluidsettingsdialog.ui
+    src/fluidsettingsdialog.ui \
+    src/macsynthsettingsdialog.ui \
+    src/sonivoxsettingsdialog.ui
 
 HEADERS += src/about.h \
     src/colordialog.h \
@@ -133,7 +135,9 @@ HEADERS += src/about.h \
     src/vpiano.h \
     src/maceventhelper.h \
     src/networksettingsdialog.h \
-    src/fluidsettingsdialog.h
+    src/fluidsettingsdialog.h \
+    src/macsynthsettingsdialog.h \
+    src/sonivoxsettingsdialog.h
 
 SOURCES += src/about.cpp \
     src/colordialog.cpp \
@@ -153,7 +157,9 @@ SOURCES += src/about.cpp \
     src/riffimportdlg.cpp \
     src/vpiano.cpp \
     src/networksettingsdialog.cpp \
-    src/fluidsettingsdialog.cpp
+    src/fluidsettingsdialog.cpp \
+    src/macsynthsettingsdialog.cpp \
+    src/sonivoxsettingsdialog.cpp
 
 FORMS += src/kmapdialog.ui \
     src/shortcutdialog.ui

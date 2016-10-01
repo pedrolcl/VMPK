@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2015, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2016, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,10 +15,13 @@
     You should have received a copy of the GNU General Public License along
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
+
 #include <QDebug>
 #include "midisetup.h"
 #include "fluidsettingsdialog.h"
 #include "networksettingsdialog.h"
+#include "macsynthsettingsdialog.h"
+#include "sonivoxsettingsdialog.h"
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_advanced(false),
@@ -109,8 +112,6 @@ void MidiSetup::setInputs(QList<MIDIInput *> ins)
         ui.comboinputBackends->addItem(i->backendName(), qVariantFromValue((void *) i));
     }
     connect(ui.comboinputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshInputs(QString)));
-
-
 }
 
 void MidiSetup::setOutputs(QList<MIDIOutput *> outs)
@@ -190,7 +191,7 @@ void MidiSetup::refreshInputs(QString id)
 void MidiSetup::refreshOutputs(QString id)
 {
     //qDebug() << Q_FUNC_INFO << id;
-    ui.btnConfigOutput->setEnabled(id == "Network" || id == "FluidSynth");
+    ui.btnConfigOutput->setEnabled(id == "Network" || id == "FluidSynth" || id == "SonivoxEAS" || id == "DLS Synth");
     if (m_midiOut != 0 && m_midiOut->backendName() != id) {
         m_midiOut->close();
         int idx = ui.comboOutputBackends->findText(id, Qt::MatchStartsWith);
@@ -223,6 +224,12 @@ void MidiSetup::configureOutput()
         m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
     } else if (driver == "FluidSynth") {
         FluidSettingsDialog dlg(this);
+        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
+    } else if (driver == "DLS Synth") {
+        MacSynthSettingsDialog dlg(this);
+        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
+    } else if (driver == "SonivoxEAS") {
+        SonivoxSettingsDialog dlg(this);
         m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
     }
 }
@@ -258,9 +265,14 @@ bool MidiSetup::midiThru()
 bool MidiSetup::changeSoundFont(const QString& fileName)
 {
     QString driver = ui.comboOutputBackends->currentText();
-    if (driver == "FluidSynth") {
-        FluidSettingsDialog dlg(this);
-        dlg.changeSoundFont(fileName);
+    if (driver == "FluidSynth" || driver == "DLS Synth") {
+        if (driver == "FluidSynth") {
+            FluidSettingsDialog dlg(this);
+            dlg.changeSoundFont(fileName);
+        } else if (driver == "DLS Synth") {
+            MacSynthSettingsDialog dlg(this);
+            dlg.changeSoundFont(fileName);
+        }
         if (m_midiOut != 0) {
             QSettings settings;
             QString conn = ui.comboOutput->currentText();
