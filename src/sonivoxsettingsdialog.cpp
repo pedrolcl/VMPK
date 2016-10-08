@@ -36,18 +36,18 @@ SonivoxSettingsDialog::SonivoxSettingsDialog(QWidget *parent) :
     ui(new Ui::SonivoxSettingsDialog)
 {
     ui->setupUi(this);
-    ui->combo_Reverb->addItem(QStringLiteral("Large Hall"), 0);
-    ui->combo_Reverb->addItem(QStringLiteral("Hall"), 1);
-    ui->combo_Reverb->addItem(QStringLiteral("Chamber"), 2);
-    ui->combo_Reverb->addItem(QStringLiteral("Room"), 3);
-    ui->combo_Reverb->addItem(QStringLiteral("None"), -1);
+    ui->combo_Reverb->addItem(tr("Large Hall"), 0);
+    ui->combo_Reverb->addItem(tr("Hall"), 1);
+    ui->combo_Reverb->addItem(tr("Chamber"), 2);
+    ui->combo_Reverb->addItem(tr("Room"), 3);
+    ui->combo_Reverb->addItem(tr("None"), -1);
     ui->combo_Reverb->setCurrentIndex(4);
 
-    ui->combo_Chorus->addItem(QStringLiteral("Preset 1"), 0);
-    ui->combo_Chorus->addItem(QStringLiteral("Preset 2"), 1);
-    ui->combo_Chorus->addItem(QStringLiteral("Preset 3"), 2);
-    ui->combo_Chorus->addItem(QStringLiteral("Preset 4"), 3);
-    ui->combo_Chorus->addItem(QStringLiteral("None"), -1);
+    ui->combo_Chorus->addItem(tr("Preset 1"), 0);
+    ui->combo_Chorus->addItem(tr("Preset 2"), 1);
+    ui->combo_Chorus->addItem(tr("Preset 3"), 2);
+    ui->combo_Chorus->addItem(tr("Preset 4"), 3);
+    ui->combo_Chorus->addItem(tr("None"), -1);
     ui->combo_Chorus->setCurrentIndex(4);
     connect(ui->buttonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::pressed,
             this, &SonivoxSettingsDialog::restoreDefaults);
