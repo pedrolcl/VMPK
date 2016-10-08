@@ -21,6 +21,9 @@
 #include <QNetworkInterface>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QDir>
+#include <QStandardPaths>
+#include <QFileDialog>
 #include "macsynthsettingsdialog.h"
 #include "ui_macsynthsettingsdialog.h"
 
@@ -31,6 +34,7 @@ MacSynthSettingsDialog::MacSynthSettingsDialog(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->buttonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::pressed,
             this, &MacSynthSettingsDialog::restoreDefaults);
+    connect(ui->btn_soundfont, &QToolButton::pressed, this, &MacSynthSettingsDialog::showFileDialog);
 }
 
 MacSynthSettingsDialog::~MacSynthSettingsDialog()
@@ -55,9 +59,9 @@ void MacSynthSettingsDialog::readSettings()
 
     QSettings settings;
     settings.beginGroup("DLS Synth");
-    bool reverb = settings.value("reverb", false).toBool();
-    bool def = settings.value("defaultdls", true).toBool();
-    QString soundfont = settings.value("soundfont").toString();
+    bool reverb = settings.value("reverb_dls", false).toBool();
+    bool def = settings.value("default_dls", true).toBool();
+    QString soundfont = settings.value("soundfont_dls").toString();
     settings.endGroup();
 
     ui->reverb_dls->setChecked(reverb);
@@ -74,9 +78,9 @@ void MacSynthSettingsDialog::writeSettings()
     bool def = ui->default_dls->isChecked();
 
     settings.beginGroup("DLS Synth");
-    settings.setValue("soundfont", soundfont);
-    settings.setValue("reverb", reverb);
-    settings.setValue("defaultdls", def);
+    settings.setValue("soundfont_dls", soundfont);
+    settings.setValue("reverb_dls", reverb);
+    settings.setValue("default_dls", def);
     settings.endGroup();
     settings.sync();
 }
@@ -93,4 +97,13 @@ void MacSynthSettingsDialog::changeSoundFont(const QString& fileName)
     readSettings();
     ui->soundfont_dls->setText(fileName);
     writeSettings();
+}
+
+void MacSynthSettingsDialog::showFileDialog()
+{
+    QDir dir = (QDir::homePath() + "/Library/Audio/Sounds/Banks/");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Select SoundFont"), dir.absolutePath(), tr("SoundFont Files (*.sf2 *.dls)"));
+    if (!fileName.isEmpty()) {
+        ui->soundfont_dls->setText(fileName);
+    }
 }
