@@ -30,6 +30,15 @@ const QListWidgetItem::ItemType extraControlType = QListWidgetItem::ItemType(QLi
 
 class ExtraControl : public QListWidgetItem {
 public:
+    enum ControlType {
+        SwitchControl = 0,
+        KnobControl = 1,
+        SpinBoxControl = 2,
+        SliderControl = 3,
+        ButtonCtlControl = 4,
+        ButtonSyxControl = 5
+    };
+
     ExtraControl( QListWidget *parent = 0, int type = extraControlType ):
             QListWidgetItem( parent, type ),
             m_type(0), m_minValue(0), m_maxValue(127), m_defValue(0), m_size(100) {}
@@ -44,6 +53,7 @@ public:
     void setOffValue(int v) { m_minValue = v; }
     void setOnDefault(bool b) { m_defValue = int(b); }
     void setFileName(QString s) { m_fileName = s; }
+    void setShortcut(QString k) { m_keySequence = k; }
     int getControl() { return m_control; }
     int getType() { return m_type; }
     int getMinimum() { return m_minValue; }
@@ -54,6 +64,7 @@ public:
     int getOffValue() { return m_minValue; }
     bool getOnDefault() { return bool(m_defValue); }
     QString getFileName() { return m_fileName; }
+    QString getShortcut() { return m_keySequence; }
 
     QString toString();
     void initFromString(const QString s);
@@ -66,7 +77,8 @@ public:
                               int& maxValue,
                               int& defValue,
                               int& size,
-                              QString& fileName);
+                              QString& fileName,
+                              QString& shortcutKey);
 
 private:
     int m_control;
@@ -76,6 +88,7 @@ private:
     int m_defValue;
     int m_size;
     QString m_fileName;
+    QString m_keySequence;
 };
 
 class DialogExtraControls : public QDialog {
@@ -103,6 +116,7 @@ public slots:
     void defaultChanged(int defvalue);
     void defOnChanged(bool defOn);
     void sizeChanged(int size);
+    void shortcutChanged(QString keySequence);
     void openFile();
 
 protected:

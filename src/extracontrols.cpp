@@ -17,7 +17,6 @@
 */
 
 #include "extracontrols.h"
-//#include "qticonloader.h"
 #include "ui_extracontrols.h"
 #include <QFileDialog>
 #include <QPushButton>
@@ -29,8 +28,6 @@ DialogExtraControls::DialogExtraControls(QWidget *parent) :
     m_ui->setupUi(this);
     m_ui->btnUp->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_ArrowUp)));
     m_ui->btnDown->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_ArrowDown)));
-//    m_ui->btnAdd->setIcon(QtIconLoader::icon("list-add", QIcon(":/vpiano/list-add.svg")));
-//    m_ui->btnRemove->setIcon(QtIconLoader::icon("list-remove", QIcon(":/vpiano/list-remove.svg")));
     m_ui->btnAdd->setIcon(QIcon::fromTheme("list-add", QIcon(":/vpiano/list-add.svg")));
     m_ui->btnRemove->setIcon(QIcon::fromTheme("list-remove", QIcon(":/vpiano/list-remove.svg")));
     connect( m_ui->btnAdd, SIGNAL(clicked()), SLOT(addControl()) );
@@ -57,6 +54,9 @@ DialogExtraControls::DialogExtraControls(QWidget *parent) :
     connect( m_ui->spinValueOn, SIGNAL(valueChanged(int)), SLOT(maximumChanged(int)) );
     connect( m_ui->spinSliderSize, SIGNAL(valueChanged(int)), SLOT(sizeChanged(int)) );
     connect( m_ui->spinValue, SIGNAL(valueChanged(int)), SLOT(minimumChanged(int)) );
+    connect( m_ui->keySeqBtnCtl, SIGNAL(valueChanged(QString)), SLOT(shortcutChanged(QString)) );
+    connect( m_ui->keySeqBtnSyx, SIGNAL(valueChanged(QString)), SLOT(shortcutChanged(QString)) );
+    connect( m_ui->keySeqSwitch, SIGNAL(valueChanged(QString)), SLOT(shortcutChanged(QString)) );
     connect( m_ui->btnFileSyx, SIGNAL(clicked()), SLOT(openFile()) );
 #if defined(SMALL_SCREEN)
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
@@ -130,6 +130,9 @@ void DialogExtraControls::itemSelected( QListWidgetItem *current, QListWidgetIte
         m_ui->spinSliderSize->setValue(e->getSize());
         m_ui->spinValue->setValue(e->getMinimum());
         m_ui->edtFileSyx->setText(e->getFileName());
+        m_ui->keySeqBtnCtl->setText(e->getShortcut());
+        m_ui->keySeqSwitch->setText(e->getShortcut());
+        m_ui->keySeqBtnSyx->setText(e->getShortcut());
     }
 }
 
@@ -150,7 +153,7 @@ void DialogExtraControls::typeChanged(int type)
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
     if (e != NULL)  {
         e->setType(type);
-        if (type == 5) {
+        if (type == ExtraControl::ControlType::ButtonSyxControl) {
             e->setControl(255);
             m_ui->spinController->setEnabled(false);
         } else
@@ -198,6 +201,12 @@ void DialogExtraControls::sizeChanged(int size)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
     if (e != NULL) e->setSize(size);
+}
+
+void DialogExtraControls::shortcutChanged(QString keySequence)
+{
+    ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
+    if (e != NULL) e->setShortcut(keySequence);
 }
 
 void DialogExtraControls::setControls(const QStringList& ctls)
@@ -258,10 +267,14 @@ QString ExtraControl::toString()
     lst << QString::number(m_minValue);
     lst << QString::number(m_maxValue);
     lst << QString::number(m_defValue);
-    if (m_type == 3)
+    if (m_type == ControlType::SliderControl)
         lst << QString::number(m_size);
-    if (m_type == 5)
+    if (m_type == ControlType::ButtonSyxControl)
         lst << m_fileName;
+    if (m_type == ControlType::SwitchControl ||
+        m_type == ControlType::ButtonCtlControl ||
+        m_type == ControlType::ButtonSyxControl)
+        lst << m_keySequence;
     return lst.join(",");
 }
 
@@ -281,7 +294,8 @@ void ExtraControl::decodeString( const QString s,
                           int& maxValue,
                           int& defValue,
                           int& size,
-                          QString& fileName)
+                          QString& fileName,
+                          QString& shortcutKey)
 {
     QStringList lst = s.split(",");
     if (!lst.isEmpty())
@@ -296,10 +310,14 @@ void ExtraControl::decodeString( const QString s,
         maxValue = ExtraControl::mbrFromString(lst.takeFirst(), 127);
     if (!lst.isEmpty())
         defValue = ExtraControl::mbrFromString(lst.takeFirst(), 0);
-    if (!lst.isEmpty() && type == 3)
+    if (!lst.isEmpty() && type == ControlType::SliderControl)
         size = ExtraControl::mbrFromString(lst.takeFirst(), 100);
-    if (!lst.isEmpty() && type == 5)
+    if (!lst.isEmpty() && type == ControlType::ButtonSyxControl)
         fileName = lst.takeFirst();
+    if (!lst.isEmpty() && (type == ControlType::SwitchControl ||
+                           type == ControlType::ButtonCtlControl ||
+                           type == ControlType::ButtonSyxControl))
+        shortcutKey = lst.takeFirst();
 }
 
 void ExtraControl::initFromString(const QString s)
@@ -307,6 +325,6 @@ void ExtraControl::initFromString(const QString s)
     QString lbl;
     ExtraControl::decodeString( s, lbl, m_control, m_type,
                                 m_minValue, m_maxValue, m_defValue,
-                                m_size, m_fileName );
+                                m_size, m_fileName, m_keySequence );
     setText(lbl);
 }

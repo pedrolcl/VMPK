@@ -59,6 +59,7 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QMapIterator>
+#include <QShortcut>
 #include <QDebug>
 
 #include <drumstick/backendmanager.h>
@@ -456,24 +457,29 @@ void VPiano::initExtraControllers()
         int value = 0;
         int size = 100;
         QString fileName;
+        QString keySequence;
         ExtraControl::decodeString( s, lbl, control, type,
                                     minValue, maxValue, defValue,
-                                    size, fileName );
+                                    size, fileName, keySequence );
         if (m_ctlState[m_baseChannel].contains(control))
             value = m_ctlState[m_baseChannel][control];
         else
             value = defValue;
         switch(type) {
-        case 0:
+        case ExtraControl::ControlType::SwitchControl:
             chkbox = new QCheckBox(this);
             chkbox->setStyleSheet(QSTR_CHKBOXSTYLE);
             chkbox->setProperty(MIDICTLONVALUE, maxValue);
             chkbox->setProperty(MIDICTLOFFVALUE, minValue);
             chkbox->setChecked(bool(value));
             connect(chkbox, SIGNAL(clicked(bool)), SLOT(slotControlClicked(bool)));
+            if (!keySequence.isEmpty()) {
+                QShortcut *s = new QShortcut(QKeySequence(keySequence), chkbox, SLOT(click()));
+                s->setAutoRepeat(false);
+            }
             w = chkbox;
             break;
-        case 1:
+        case ExtraControl::ControlType::KnobControl:
             knob = new QDial(this);
             knob->setFixedSize(32, 32);
             knob->setMinimum(minValue);
@@ -483,7 +489,7 @@ void VPiano::initExtraControllers()
             connect(knob, SIGNAL(sliderMoved(int)), SLOT(slotExtraController(int)));
             w = knob;
             break;
-        case 2:
+        case ExtraControl::ControlType::SpinBoxControl:
             spin = new QSpinBox(this);
             spin->setMinimum(minValue);
             spin->setMaximum(maxValue);
@@ -491,7 +497,7 @@ void VPiano::initExtraControllers()
             connect(spin, SIGNAL(valueChanged(int)), SLOT(slotExtraController(int)));
             w = spin;
             break;
-        case 3:
+        case ExtraControl::ControlType::SliderControl:
             slider = new QSlider(this);
             slider->setOrientation(Qt::Horizontal);
             slider->setFixedWidth(size);
@@ -502,21 +508,29 @@ void VPiano::initExtraControllers()
             connect(slider, SIGNAL(sliderMoved(int)), SLOT(slotExtraController(int)));
             w = slider;
             break;
-        case 4:
+        case ExtraControl::ControlType::ButtonCtlControl:
             button = new QToolButton(this);
             button->setText(lbl);
             button->setProperty(MIDICTLONVALUE, maxValue);
             button->setProperty(MIDICTLOFFVALUE, minValue);
             connect(button, SIGNAL(clicked(bool)), SLOT(slotControlClicked(bool)));
+            if (!keySequence.isEmpty()) {
+                QShortcut *s = new QShortcut(QKeySequence(keySequence), button, SLOT(animateClick()));
+                s->setAutoRepeat(false);
+            }
             w = button;
             break;
-        case 5:
+        case ExtraControl::ControlType::ButtonSyxControl:
             control = 255;
             button = new QToolButton(this);
             button->setText(lbl);
             button->setProperty(SYSEXFILENAME, fileName);
             button->setProperty(SYSEXFILEDATA, readSysexDataFile(fileName));
             connect(button, SIGNAL(clicked(bool)), SLOT(slotControlClicked(bool)));
+            if (!keySequence.isEmpty()) {
+                QShortcut *s = new QShortcut(QKeySequence(keySequence), button, SLOT(animateClick()));
+                s->setAutoRepeat(false);
+            }
             w = button;
             break;
         default:
@@ -749,6 +763,7 @@ void VPiano::writeSettings()
 
         QString group = QSTR_CONTROLLERS + QString::number(chan);
         settings.beginGroup(group);
+        settings.remove("");
         QMap<int,int>::const_iterator it, end;
         it = m_ctlState[chan].constBegin();
         end = m_ctlState[chan].constEnd();
@@ -765,6 +780,7 @@ void VPiano::writeSettings()
     }
 
     settings.beginGroup(QSTR_EXTRACONTROLLERS);
+    settings.remove("");
     int i = 0;
     foreach(const QString& ctl, m_extraControls)  {
         QString key = QString("%1").arg(i++, 2, 10, QChar('0'));
@@ -773,6 +789,7 @@ void VPiano::writeSettings()
     settings.endGroup();
 
     settings.beginGroup(QSTR_SHORTCUTS);
+    settings.remove("");
     QList<QAction *> actions = findChildren<QAction *> ();
     foreach(QAction *pAction, actions)
     {

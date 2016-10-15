@@ -55,8 +55,8 @@ public:
 		{ return m_sDefaultText; }
 
 signals:
-
 	void editingFinished();
+    void valueChanged(QString text);
 
 protected slots:
 

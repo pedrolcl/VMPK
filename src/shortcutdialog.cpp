@@ -149,6 +149,7 @@ void ShortcutTableItemEditor::clear (void)
 void ShortcutTableItemEditor::finish (void)
 {
 	emit editingFinished();
+    emit valueChanged(m_pLineEdit->text());
 }
 
 
