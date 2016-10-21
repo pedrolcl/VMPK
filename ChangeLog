@@ -1,3 +1,9 @@
+2016-10-20
+    * Add Generic Name & Keywords entry to desktop file. Patch by Ross Gammon
+
+2016-10-15
+    * RFE #50: Assigning a keyboard shortcut to the button extra controls
+
 2016-10-01
     * settings for the new backends: Mac DLS Synth and Sonivox EAS
     * required: drumstick-1.1
