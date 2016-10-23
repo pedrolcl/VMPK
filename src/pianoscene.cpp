@@ -264,7 +264,7 @@ PianoKey* PianoScene::getKeyForPos( const QPointF& p ) const
 
 void PianoScene::mouseMoveEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 {
-    if (m_mouseEnabled) {
+    if (m_mouseEnabled && mouseEvent->source() == Qt::MouseEventNotSynthesized) {
         if (m_mousePressed) {
             PianoKey* key = getKeyForPos(mouseEvent->scenePos());
             PianoKey* lastkey = getKeyForPos(mouseEvent->lastScenePos());
@@ -282,7 +282,7 @@ void PianoScene::mouseMoveEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 
 void PianoScene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 {
-    if (m_mouseEnabled) {
+    if (m_mouseEnabled && mouseEvent->source() == Qt::MouseEventNotSynthesized) {
         PianoKey* key = getKeyForPos(mouseEvent->scenePos());
         if (key != NULL && !key->isPressed()) {
             keyOn(key);
@@ -295,7 +295,7 @@ void PianoScene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 
 void PianoScene::mouseReleaseEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 {
-    if (m_mouseEnabled) {
+    if (m_mouseEnabled && mouseEvent->source() == Qt::MouseEventNotSynthesized) {
         m_mousePressed = false;
         PianoKey* key = getKeyForPos(mouseEvent->scenePos());
         if (key != NULL && key->isPressed()) {

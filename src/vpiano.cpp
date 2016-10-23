@@ -570,6 +570,14 @@ void VPiano::readSettings()
     m_lastOutputConnection = settings.value(QSTR_OUTPORT, m_defaultOutputConnection).toString();
     settings.endGroup();
 
+    bool mouseInputEnabledbyDefault = true;
+    for(const QTouchDevice *dev : QTouchDevice::devices()) {
+        if (dev->type() == QTouchDevice::TouchScreen) {
+            mouseInputEnabledbyDefault = false;
+            break;
+        }
+    }
+
     settings.beginGroup(QSTR_PREFERENCES);
     m_baseChannel = settings.value(QSTR_CHANNEL, 0).toInt();
     m_velocity = settings.value(QSTR_VELOCITY, MIDIVELOCITY).toInt();
@@ -584,7 +592,7 @@ void VPiano::readSettings()
     bool velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
     bool enforceChanState = settings.value(QSTR_ENFORCECHANSTATE, false).toBool();
     bool enableKeyboard = settings.value(QSTR_ENABLEKEYBOARDINPUT, true).toBool();
-    bool enableMouse = settings.value(QSTR_ENABLEMOUSEINPUT, true).toBool();
+    bool enableMouse = settings.value(QSTR_ENABLEMOUSEINPUT, mouseInputEnabledbyDefault).toBool();
     bool enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, true).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
     int startingKey = settings.value(QSTR_STARTINGKEY, DEFAULTSTARTINGKEY).toInt();
