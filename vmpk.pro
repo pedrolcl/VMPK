@@ -38,17 +38,17 @@ DEFINES += VERSION=$$VERSION
 
 macx {
     QMAKE_TARGET_BUNDLE_PREFIX = net.sourceforge
-    INCLUDEPATH += /Users/pedro/Library/Frameworks/drumstick-rt.framework/Headers
-    QMAKE_LFLAGS += -F/Users/pedro/Library/Frameworks
+    INCLUDEPATH += $$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
+    QMAKE_LFLAGS += -F$$(HOME)/Library/Frameworks
     LIBS += -framework drumstick-rt
-} else {
-    CONFIG += link_pkgconfig
-    PKGCONFIG += drumstick-rt
+#} else {
+#    CONFIG += link_pkgconfig
+#    PKGCONFIG += drumstick-rt
 }
 
 win32 {
-    #INCLUDEPATH += C:\freesw\include
-    #LIBS += -LC:\freesw\lib -ldrumstick-rt
+    INCLUDEPATH += $$(DRUMSTICKINCLUDES)
+    LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }

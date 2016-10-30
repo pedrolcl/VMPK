@@ -1436,6 +1436,8 @@ QString VPiano::localeDirectory()
 {
 #if defined(Q_OS_LINUX)
     return VPiano::dataDirectory() + "locale/";
+#elif defined(Q_OS_WIN)
+    return VPiano::dataDirectory() + "translations/";
 #else
     return VPiano::dataDirectory();
 #endif
