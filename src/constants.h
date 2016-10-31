@@ -30,10 +30,12 @@ const QString PGM_VERSION(STRINGIFY(VERSION));
 
 const QString BLD_DATE(__DATE__);
 const QString BLD_TIME(__TIME__);
-#if defined(Q_CC_GNU) || defined(Q_CC_GCCE)
-const QString CMP_VERSION(__VERSION__);
+#if defined(Q_CC_CLANG)
+const QString CMP_VERSION("CLANG/LLVM " + __VERSION__);
+#elif defined(Q_CC_GNU) || defined(Q_CC_GCCE)
+const QString CMP_VERSION("GNU C++ " + __VERSION__);
 #elif defined(Q_CC_MSVC)
-const QString CMP_VERSION(QString::number(_MSC_VER/100.0,'g',2));
+const QString CMP_VERSION("MSVC " + QString::number(_MSC_VER/100.0f,'f',2));
 #else
 const QString CMP_VERSION(QString());
 #endif
