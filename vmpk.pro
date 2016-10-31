@@ -41,9 +41,11 @@ macx {
     INCLUDEPATH += $$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
     QMAKE_LFLAGS += -F$$(HOME)/Library/Frameworks
     LIBS += -framework drumstick-rt
-#} else {
-#    CONFIG += link_pkgconfig
-#    PKGCONFIG += drumstick-rt
+}
+
+linux* {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += drumstick-rt
 }
 
 win32 {
