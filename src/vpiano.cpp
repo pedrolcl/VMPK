@@ -1225,9 +1225,11 @@ void VPiano::applyConnections()
     QSettings settings;
 
     if (m_midiin != 0) {
+        m_midiin->close();
         m_midiin->disconnect();
     }
     if (m_midiout != 0) {
+        m_midiout->close();
         m_midiout->disconnect();
     }
 
