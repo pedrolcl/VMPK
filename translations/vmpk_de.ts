@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de_DE">
+<TS version="2.0" language="de_DE">
 <context>
     <name>About</name>
     <message>
@@ -36,14 +36,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2016, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2015, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Dieses Programm ist Opensource Software: es kann weitergegeben und/oder geändert werden unter den Bedingungen der GNU Allgemeinen Öffentlichen Lizenz (GPL), publiziert durch die Free Software Foundation, entweder Version 3 der Lizenz, oder (wahlweise) unter jeder darauf folgenden Version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Dieses Programm wird veröffentlicht in der Hoffnung, daß es nützlich ist, jedoch OHNE JEDE GEWÄHRLEISTUNG. Es besteht auch KEINE implizite Gewähr auf MARKTVERTRÄGLICHKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK. Weitere Details finden Sie in der GNU Öffentlichen Lizenz (GPL), von der Sie eine Kopie mit diesem Programm erhalten haben. Sollte dies nicht der Fall sein, können Sie sie finden bei &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {9p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {10p?} {2008-2016,?} {0057a?} {000000;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {10p?} {3 ?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {10p?} {10p?} {0057a?} {10p?}</translation>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Dieses Programm wird veröffentlicht in der Hoffnung, daß es nützlich ist, jedoch OHNE JEDE GEWÄHRLEISTUNG. Es besteht auch KEINE implizite Gewähr auf MARKTVERTRÄGLICHKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK. Weitere Details finden Sie in der GNU Öffentlichen Lizenz (GPL), von der Sie eine Kopie mit diesem Programm erhalten haben. Sollte dies nicht der Fall sein, können Sie sie finden bei &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -53,7 +52,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2015, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -72,7 +71,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2010 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -467,7 +466,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/extracontrols.ui" line="486"/>
         <location filename="../src/extracontrols.ui" line="521"/>
         <source>Key:</source>
-        <translation type="unfinished"></translation>
+        <translation>Taste:</translation>
     </message>
     <message>
         <location filename="../src/extracontrols.ui" line="271"/>
@@ -1323,32 +1322,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="34"/>
         <source>SoundFont:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="60"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="80"/>
         <source>Use Internal Reverb</source>
-        <translation type="unfinished"></translation>
+        <translation>Internen Hall verwenden</translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="87"/>
         <source>Default Apple DLS Sound Set</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard Apple DLS Sound Set</translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.cpp" line="105"/>
         <source>Select SoundFont</source>
-        <translation type="unfinished">SoundFont Auswählen</translation>
+        <translation>SoundFont Auswählen</translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.cpp" line="105"/>
         <source>SoundFont Files (*.sf2 *.dls)</source>
-        <translation type="unfinished"></translation>
+        <translation>SoundFont-Dateien (*.sf2 *.dls)</translation>
     </message>
 </context>
 <context>
@@ -1365,7 +1364,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Enable MIDI input</source>
-        <translation type="vanished">MIDI-Eingang aktivieren</translation>
+        <translation>MIDI-Eingang aktivieren</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="129"/>
@@ -1430,7 +1429,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>MIDI Omni mode</source>
-        <translation type="vanished">MIDI Omni-Modus</translation>
+        <translation>MIDI Omni-Modus</translation>
     </message>
 </context>
 <context>
@@ -1585,7 +1584,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Number of octaves</source>
-        <translation type="vanished">Anzahl der Oktaven</translation>
+        <translation>Anzahl der Oktaven</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="57"/>
@@ -1631,7 +1630,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>load...</source>
-        <translation type="vanished">Öffnen...</translation>
+        <translation>Öffnen...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="163"/>
@@ -1698,11 +1697,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation type="vanished">Den Stil der Drehregler und Schalter ändern, entweder den eigenen oder den in qtconfig bestimmten Stil verwenden.</translation>
+        <translation>Den Stil der Drehregler und Schalter ändern, entweder den eigenen oder den in qtconfig bestimmten Stil verwenden.</translation>
     </message>
     <message>
         <source>Styled Widgets</source>
-        <translation type="vanished">Eigener Bedienelemente-Stil</translation>
+        <translation>Eigener Bedienelemente-Stil</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="388"/>
@@ -1725,11 +1724,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Network Interface</source>
-        <translation type="vanished">Netzwerk-Schnittstelle</translation>
+        <translation>Netzwerk-Schnittstelle</translation>
     </message>
     <message>
         <source>MIDI Driver</source>
-        <translation type="vanished">MIDI-Treiber</translation>
+        <translation>MIDI-Treiber</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="220"/>
@@ -1743,7 +1742,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>colors...</source>
-        <translation type="vanished">Farben...</translation>
+        <translation>Farben...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="231"/>
@@ -1832,7 +1831,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Network Port</source>
-        <translation type="vanished">Netzwerk Port</translation>
+        <translation>Netzwerk Port</translation>
     </message>
     <message>
         <source>Change the knob buttons style, either using the custom look or revert to the style selected in qtconfig.</source>
@@ -1858,11 +1857,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">Diese Option fängt die Tastatur ein, sodaß jeder Tastendruck unmittelbar an die Anwendung gesendet wird. (Unter Linux funktioniert dies nur unter KDE)</translation>
+        <translation>Diese Option fängt die Tastatur ein, sodaß jeder Tastendruck unmittelbar an die Anwendung gesendet wird. (Unter Linux funktioniert dies nur unter KDE)</translation>
     </message>
     <message>
         <source>Grab Computer Keyboard</source>
-        <translation type="vanished">Computertastatur behalten</translation>
+        <translation>Computertastatur behalten</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="398"/>
@@ -2021,73 +2020,73 @@ Wollen Sie die Änderungen anwenden?</translation>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="31"/>
         <source>Sonivox EAS Synth</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="43"/>
         <source>Chorus</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="73"/>
         <source>Reverb</source>
-        <translation type="unfinished"></translation>
+        <translation>Hall</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="91"/>
         <source>Buffer Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Puffer-Dauer:</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="101"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="39"/>
         <source>Large Hall</source>
-        <translation type="unfinished"></translation>
+        <translation>Große Halle</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="40"/>
         <source>Hall</source>
-        <translation type="unfinished"></translation>
+        <translation>Halle</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="41"/>
         <source>Chamber</source>
-        <translation type="unfinished"></translation>
+        <translation>Raum</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="42"/>
         <source>Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Zimmer</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="43"/>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="50"/>
         <source>None</source>
-        <translation type="unfinished">Kein Kanal</translation>
+        <translation>Aus</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="46"/>
         <source>Preset 1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="47"/>
         <source>Preset 2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="48"/>
         <source>Preset 3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="49"/>
         <source>Preset 4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2099,11 +2098,11 @@ Wollen Sie die Änderungen anwenden?</translation>
     </message>
     <message>
         <source>No MIDI output ports available. Aborting</source>
-        <translation type="vanished">Keine MIDI-Ausgänge verfügbar. Breche ab</translation>
+        <translation>Keine MIDI-Ausgänge verfügbar. Breche ab</translation>
     </message>
     <message>
         <source>Error. Aborting</source>
-        <translation type="vanished">Fehler. Breche ab</translation>
+        <translation>Fehler. Breche ab</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2148"/>
