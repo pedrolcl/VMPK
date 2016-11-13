@@ -16,6 +16,7 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QSettings>
 #include <QDebug>
 #include "midisetup.h"
 #include "fluidsettingsdialog.h"
@@ -148,7 +149,7 @@ void MidiSetup::accept()
                 m_midiIn->open(conn);
             }
         }
-        m_midiIn->enableMIDIThru(ui.chkEnableThru->isChecked());
+        m_midiIn->enableMIDIThru(m_thru);
         m_midiIn->setMIDIThruDevice(m_midiOut);
     }
     m_settingsChanged = false;

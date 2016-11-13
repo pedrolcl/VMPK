@@ -181,15 +181,6 @@ void VPiano::initialization()
 
 bool VPiano::initMidi()
 {
-//#if defined(Q_OS_LINUX)
-//    QString nativeBackend("ALSA");
-//#elif defined(Q_OS_OSX)
-//    QString nativeBackend("CoreMIDI");
-//#elif defined(Q_OS_WIN)
-//    QString nativeBackend("Windows MM");
-//#else
-//    QString nativeBackend("Network");
-//#endif
     m_defaultInputBackend = QLatin1Literal("Network");
     m_defaultInputConnection = QLatin1Literal("21928");
 #if defined(Q_OS_LINUX)
@@ -240,9 +231,22 @@ bool VPiano::initMidi()
         dlgMidiSetup()->setInput(m_midiin);
         dlgMidiSetup()->toggledInput(m_inputEnabled);
         m_inputActive = m_inputEnabled;
+        if (!m_lastInputConnection.isEmpty()) {
+            m_midiin->initialize(&settings);
+            m_midiin->open(m_lastInputConnection);
+        }
     } else {
         dlgMidiSetup()->inputNotAvailable();
         m_inputActive = false;
+    }
+
+    if (m_midiout != 0 && !m_lastOutputConnection.isEmpty()) {
+        m_midiout->initialize(&settings);
+        m_midiout->open(m_lastOutputConnection);
+        if (!m_lastInputConnection.isEmpty()) {
+            m_midiin->setMIDIThruDevice(m_midiout);
+            m_midiin->enableMIDIThru(m_midiThru);
+        }
     }
 
     return (m_midiout != 0);
@@ -1225,12 +1229,7 @@ void VPiano::applyConnections()
     QSettings settings;
 
     if (m_midiin != 0) {
-        m_midiin->close();
         m_midiin->disconnect();
-    }
-    if (m_midiout != 0) {
-        //m_midiout->close();
-        m_midiout->disconnect();
     }
 
     m_inputEnabled = dlgMidiSetup()->inputIsEnabled();
@@ -1248,19 +1247,6 @@ void VPiano::applyConnections()
         connect(m_midiin, SIGNAL(midiController(int,int,int)), SLOT(slotController(int,int,int)));
         connect(m_midiin, SIGNAL(midiProgram(int,int)), SLOT(slotProgram(int,int)));
         connect(m_midiin, SIGNAL(midiPitchBend(int,int)), SLOT(slotPitchBend(int,int)));
-        if (!m_lastInputConnection.isEmpty()) {
-            m_midiin->initialize(&settings);
-            m_midiin->open(m_lastInputConnection);
-        }
-    }
-
-    if (m_midiout != 0 && !m_lastOutputConnection.isEmpty()) {
-        m_midiout->initialize(&settings);
-        m_midiout->open(m_lastOutputConnection);
-        if (!m_lastInputConnection.isEmpty()) {
-            m_midiin->setMIDIThruDevice(m_midiout);
-            m_midiin->enableMIDIThru(m_midiThru);
-        }
     }
 }
 
