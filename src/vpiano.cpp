@@ -163,6 +163,22 @@ VPiano::~VPiano()
 
 void VPiano::initialization()
 {
+    m_defaultInputBackend = QLatin1Literal("Network");
+    m_defaultInputConnection = QLatin1Literal("21928");
+#if defined(Q_OS_LINUX)
+    m_defaultOutputBackend = QLatin1Literal("SonivoxEAS");
+    m_defaultOutputConnection = QLatin1Literal("SonivoxEAS");
+#elif defined(Q_OS_OSX)
+    m_defaultOutputBackend = QLatin1Literal("DLS Synth");
+    m_defaultOutputConnection = QLatin1Literal("DLS Synth");
+#elif defined(Q_OS_WIN)
+    m_defaultOutputBackend = QLatin1Literal("Windows MM");
+    m_defaultOutputConnection = QLatin1Literal("Microsoft GS Wavetable Synth");
+#else
+    m_defaultOutputBackend = m_defaultInputBackend;
+    m_defaultOutputConnection = m_defaultInputConnection;
+#endif
+
     readSettings();
     if ((m_initialized = initMidi())) {
         refreshConnections();
@@ -181,22 +197,6 @@ void VPiano::initialization()
 
 bool VPiano::initMidi()
 {
-    m_defaultInputBackend = QLatin1Literal("Network");
-    m_defaultInputConnection = QLatin1Literal("21928");
-#if defined(Q_OS_LINUX)
-    m_defaultOutputBackend = QLatin1Literal("SonivoxEAS");
-    m_defaultOutputConnection = QLatin1Literal("SonivoxEAS");
-#elif defined(Q_OS_OSX)
-    m_defaultOutputBackend = QLatin1Literal("DLS Synth");
-    m_defaultOutputConnection = QLatin1Literal("DLS Synth");
-#elif defined(Q_OS_WIN)
-    m_defaultOutputBackend = QLatin1Literal("Windows MM");
-    m_defaultOutputConnection = QLatin1Literal("Microsoft GS Wavetable Synth");
-#else
-    m_defaultOutputBackend = m_defaultInputBackend;
-    m_defaultOutputConnection = m_defaultInputConnection;
-#endif
-
     QSettings settings;
     settings.beginGroup(QSTR_DRUMSTICKRT_GROUP);
     settings.setValue(QSTR_DRUMSTICKRT_PUBLICNAMEIN, QSTR_VMPKINPUT);
