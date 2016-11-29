@@ -58,8 +58,6 @@ public:
     bool isInitialized() const { return m_initialized; }
     void retranslateUi();
     QMenu *createPopupMenu ();
-    void findInput(QString name, QList<drumstick::rt::MIDIInput*> &inputs);
-    void findOutput(QString name, QList<drumstick::rt::MIDIOutput*> &outputs);
 
     // PianoHandler methods
     void noteOn(const int midiNote, const int vel);

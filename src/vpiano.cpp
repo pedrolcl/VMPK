@@ -206,17 +206,15 @@ bool VPiano::initMidi()
 
     m_backendManager = new BackendManager();
     m_backendManager->refresh(&settings);
-    QList<MIDIInput*> inputs = m_backendManager->availableInputs();
-    QList<MIDIOutput*> outputs = m_backendManager->availableOutputs();
 
-    findInput(m_lastInputBackend, inputs);
+    m_midiin = m_backendManager->inputBackendByName(m_lastInputBackend);
     if (m_midiin == 0) {
-        findInput(m_defaultInputBackend, inputs);
+        m_midiin = m_backendManager->inputBackendByName(m_defaultInputBackend);
     }
 
-    findOutput(m_lastOutputBackend, outputs);
+    m_midiout = m_backendManager->outputBackendByName(m_lastOutputBackend);
     if (m_midiout == 0) {
-        findOutput(m_defaultOutputBackend, outputs);
+        m_midiout = m_backendManager->outputBackendByName(m_defaultOutputBackend);
     }
 
     dlgMidiSetup()->setInputEnabled(m_inputEnabled);
@@ -224,8 +222,8 @@ bool VPiano::initMidi()
     dlgMidiSetup()->setOmniEnabled(m_midiOmni);
     dlgMidiSetup()->setAdvanced(m_advanced);
 
-    dlgMidiSetup()->setInputs(inputs);
-    dlgMidiSetup()->setOutputs(outputs);
+    dlgMidiSetup()->setInputs(m_backendManager->availableInputs());
+    dlgMidiSetup()->setOutputs(m_backendManager->availableOutputs());
     dlgMidiSetup()->setOutput(m_midiout);
     if (m_midiin != 0) {
         dlgMidiSetup()->setInput(m_midiin);
@@ -2245,26 +2243,6 @@ void VPiano::slotColorScale(bool value)
 PianoScene *VPiano::currentPianoScene()
 {
     return ui.pianokeybd->getPianoScene();
-}
-
-void VPiano::findInput(QString name, QList<MIDIInput*> &inputs)
-{
-    foreach(MIDIInput* input, inputs) {
-        if (m_midiin == 0 && (input->backendName() == name))  {
-            m_midiin = input;
-            break;
-        }
-    }
-}
-
-void VPiano::findOutput(QString name, QList<MIDIOutput*> &outputs)
-{
-    foreach(MIDIOutput* output, outputs) {
-        if (m_midiout == 0 && (output->backendName() == name))  {
-            m_midiout = output;
-            break;
-        }
-    }
 }
 
 void VPiano::toggleWindowFrame(const bool state)
