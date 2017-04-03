@@ -17,6 +17,8 @@
 */
 
 #include <QApplication>
+#include <QSplashScreen>
+#include <QThread>
 #include "constants.h"
 #include "vpiano.h"
 
@@ -29,6 +31,11 @@ int main(int argc, char *argv[])
 #if defined(Q_OS_LINUX)
     a.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
 #endif //Q_OS_LINUX
+    QPixmap px(":/vpiano/vmpk_splash.png");
+    QSplashScreen s(px);
+    s.show();
+    a.processEvents();
+    QThread::sleep(2);
     VPiano w;
     if (w.isInitialized()) {
 #if defined(SMALL_SCREEN)
@@ -36,6 +43,7 @@ int main(int argc, char *argv[])
 #else
         w.show();
 #endif
+        s.finish(&w);
         return a.exec();
     }
     return EXIT_FAILURE;

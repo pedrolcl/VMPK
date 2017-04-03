@@ -7,6 +7,7 @@
         <file>list-add.svg</file>
         <file>led_green.svg</file>
         <file>led_grey.svg</file>
+        <file>vmpk_splash.png</file>
     </qresource>
     <qresource prefix="/android">
         <file>en.png</file>
