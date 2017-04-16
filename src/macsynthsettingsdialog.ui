@@ -101,6 +101,8 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>soundfont_dls</tabstop>
+  <tabstop>btn_soundfont</tabstop>
   <tabstop>default_dls</tabstop>
   <tabstop>reverb_dls</tabstop>
  </tabstops>

@@ -24,7 +24,7 @@
     <x>0</x>
     <y>0</y>
     <width>316</width>
-    <height>312</height>
+    <height>318</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -164,6 +164,18 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>audioDriver</tabstop>
+  <tabstop>periodSize</tabstop>
+  <tabstop>periods</tabstop>
+  <tabstop>sampleRate</tabstop>
+  <tabstop>chorus</tabstop>
+  <tabstop>reverb</tabstop>
+  <tabstop>gain</tabstop>
+  <tabstop>polyphony</tabstop>
+  <tabstop>soundFont</tabstop>
+  <tabstop>btnFile</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

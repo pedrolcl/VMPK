@@ -141,6 +141,13 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>spnTime</tabstop>
+  <tabstop>dial_Reverb</tabstop>
+  <tabstop>dial_Chorus</tabstop>
+  <tabstop>combo_Reverb</tabstop>
+  <tabstop>combo_Chorus</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
