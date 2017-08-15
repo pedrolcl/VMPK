@@ -19,6 +19,7 @@
 #include <QApplication>
 #include <QSplashScreen>
 #include <QThread>
+#include <QTimer>
 #include "constants.h"
 #include "vpiano.h"
 
@@ -33,9 +34,12 @@ int main(int argc, char *argv[])
 #endif //Q_OS_LINUX
     QPixmap px(":/vpiano/vmpk_splash.png");
     QSplashScreen s(px);
+    QFont sf("Arial", 24, QFont::ExtraBold);
+    s.setFont(sf);
     s.show();
+    s.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
+    QTimer::singleShot(2500, &s, SLOT(close()));
     a.processEvents();
-    QThread::sleep(2);
     VPiano w;
     if (w.isInitialized()) {
 #if defined(SMALL_SCREEN)
@@ -43,7 +47,6 @@ int main(int argc, char *argv[])
 #else
         w.show();
 #endif
-        s.finish(&w);
         return a.exec();
     }
     return EXIT_FAILURE;
