@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 #endif //Q_OS_LINUX
     QPixmap px(":/vpiano/vmpk_splash.png");
     QSplashScreen s(px);
-    QFont sf("Arial", 24, QFont::ExtraBold);
+    QFont sf("Arial", 20, QFont::ExtraBold);
     s.setFont(sf);
     s.show();
     s.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
