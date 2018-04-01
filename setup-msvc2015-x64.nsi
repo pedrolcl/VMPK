@@ -11,7 +11,7 @@ RequestExecutionLevel admin
 !define VMPKSRC "..\vmpk-desktop"
 !define VMPKBLD "..\vmpk-0.7.0-win-x64"
 !define DRUMSTICK  "..\vmpk-0.7.0-win-x64"
-
+!define PROGNAME "vmpk"
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.7.0
 !define COMPANY VMPK
@@ -66,7 +66,7 @@ Var StartMenuGroup
 
 # Installer attributes
 OutFile vmpk-${VERSION}-win-x64-setup.exe
-InstallDir $PROGRAMFILES\vmpk
+#InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
@@ -280,6 +280,12 @@ SectionEnd
 #Installer Functions
 Function .onInit
     !insertmacro MUI_LANGDLL_DISPLAY
+	${If} ${RunningX64}
+		StrCpy $INSTDIR "$PROGRAMFILES64\${PROGNAME}"
+	${Else}
+		MessageBox MB_OK|MB_ICONSTOP "Sorry, this setup package is for 64 bit systems only."
+		Quit
+	${EndIf}	
 FunctionEnd
 
 # Uninstaller functions
