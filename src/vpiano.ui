@@ -59,7 +59,7 @@
      <x>0</x>
      <y>0</y>
      <width>567</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -288,6 +288,9 @@
    <property name="statusTip">
     <string>Exit the program</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
+   </property>
   </action>
   <action name="actionPreferences">
    <property name="text">
@@ -295,6 +298,9 @@
    </property>
    <property name="statusTip">
     <string>Edit the program settings</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
    </property>
   </action>
   <action name="actionConnections">
@@ -304,6 +310,9 @@
    <property name="statusTip">
     <string>Edit the MIDI connections</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionAbout">
    <property name="text">
@@ -312,6 +321,9 @@
    <property name="statusTip">
     <string>Show the About box</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
+   </property>
   </action>
   <action name="actionAboutQt">
    <property name="text">
@@ -319,6 +331,9 @@
    </property>
    <property name="statusTip">
     <string>Show the Qt about box</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutQtRole</enum>
    </property>
   </action>
   <action name="actionNotes">
@@ -331,6 +346,9 @@
    <property name="statusTip">
     <string>Show or hide the Notes toolbar</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionControllers">
    <property name="checkable">
@@ -341,6 +359,9 @@
    </property>
    <property name="statusTip">
     <string>Show or hide the Controller toolbar</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionBender">
@@ -353,6 +374,9 @@
    <property name="statusTip">
     <string>Show or hide the Pitch Bender toolbar</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionPrograms">
    <property name="checkable">
@@ -363,6 +387,9 @@
    </property>
    <property name="statusTip">
     <string>Show or hide the Programs toolbar</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionStatusBar">
@@ -378,6 +405,9 @@
    <property name="statusTip">
     <string>Show or hide the Status Bar</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionPanic">
    <property name="text">
@@ -389,6 +419,9 @@
    <property name="shortcut">
     <string notr="true">Esc</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionResetAll">
    <property name="text">
@@ -396,6 +429,9 @@
    </property>
    <property name="statusTip">
     <string>Resets all the controllers</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionReset">
@@ -405,6 +441,9 @@
    <property name="statusTip">
     <string>Resets the Bender value</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionEditKM">
    <property name="text">
@@ -412,6 +451,9 @@
    </property>
    <property name="statusTip">
     <string>Edit the current keyboard layout</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionContents">
@@ -424,6 +466,9 @@
    <property name="shortcut">
     <string notr="true">F1</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionWebSite">
    <property name="text">
@@ -432,6 +477,9 @@
    <property name="statusTip">
     <string>Open the VMPK web site address using a web browser</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionImportSoundFont">
    <property name="text">
@@ -439,6 +487,9 @@
    </property>
    <property name="statusTip">
     <string>Import SoundFont</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionExtraControls">
@@ -451,6 +502,9 @@
    <property name="statusTip">
     <string>Show or hide the Extra Controls toolbar</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionEditExtra">
    <property name="text">
@@ -458,6 +512,9 @@
    </property>
    <property name="statusTip">
     <string>Open the Extra Controls editor</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionEditPrograms">
@@ -473,6 +530,9 @@
    <property name="visible">
     <bool>false</bool>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
    <property name="iconVisibleInMenu">
     <bool>false</bool>
    </property>
@@ -483,6 +543,9 @@
    </property>
    <property name="statusTip">
     <string>Open the Extra Controls editor</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionNoteNames">
@@ -495,6 +558,9 @@
    <property name="statusTip">
     <string>Show or hide the note names</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionShortcuts">
    <property name="text">
@@ -502,6 +568,9 @@
    </property>
    <property name="statusTip">
     <string>Open the Shortcuts editor</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionOctaveUp">
@@ -514,6 +583,9 @@
    <property name="shortcut">
     <string notr="true">Right</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionOctaveDown">
    <property name="text">
@@ -524,6 +596,9 @@
    </property>
    <property name="shortcut">
     <string notr="true">Left</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionTransposeUp">
@@ -536,6 +611,9 @@
    <property name="shortcut">
     <string notr="true">Ctrl+Right</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionTransposeDown">
    <property name="text">
@@ -546,6 +624,9 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Left</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionChannelUp">
@@ -558,6 +639,9 @@
    <property name="shortcut">
     <string notr="true">Up</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionChannelDown">
    <property name="text">
@@ -568,6 +652,9 @@
    </property>
    <property name="shortcut">
     <string notr="true">Down</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionNextController">
@@ -580,6 +667,9 @@
    <property name="shortcut">
     <string notr="true">Ctrl++</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionPreviousController">
    <property name="text">
@@ -590,6 +680,9 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+-</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionControllerUp">
@@ -602,6 +695,9 @@
    <property name="shortcut">
     <string>Alt++</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionControllerDown">
    <property name="text">
@@ -612,6 +708,9 @@
    </property>
    <property name="shortcut">
     <string>Alt+-</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionNextBank">
@@ -624,6 +723,9 @@
    <property name="shortcut">
     <string notr="true">Ctrl+PgUp</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionPreviousBank">
    <property name="text">
@@ -634,6 +736,9 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+PgDown</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionNextProgram">
@@ -646,6 +751,9 @@
    <property name="shortcut">
     <string notr="true">PgUp</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionPreviousProgram">
    <property name="text">
@@ -656,6 +764,9 @@
    </property>
    <property name="shortcut">
     <string notr="true">PgDown</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionVelocityUp">
@@ -668,6 +779,9 @@
    <property name="shortcut">
     <string notr="true">End</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionVelocityDown">
    <property name="text">
@@ -679,6 +793,9 @@
    <property name="shortcut">
     <string notr="true">Home</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionAboutTranslation">
    <property name="text">
@@ -686,6 +803,9 @@
    </property>
    <property name="statusTip">
     <string>Show information about the program language translation</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionKeyboardInput">
@@ -701,6 +821,9 @@
    <property name="statusTip">
     <string>Enable computer keyboard triggered note input</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionMouseInput">
    <property name="checkable">
@@ -714,6 +837,9 @@
    </property>
    <property name="statusTip">
     <string>Enable mouse triggered note input</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionTouchScreenInput">
@@ -729,6 +855,9 @@
    <property name="statusTip">
     <string>Enable screen touch triggered note input</string>
    </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
   </action>
   <action name="actionColorPalette">
    <property name="text">
@@ -736,6 +865,9 @@
    </property>
    <property name="statusTip">
     <string>Open the color palette editor</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionColorScale">
@@ -747,6 +879,9 @@
    </property>
    <property name="statusTip">
     <string>Show or hide the colorized keys</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionWindowFrame">
@@ -767,6 +902,9 @@
    </property>
    <property name="shortcut">
     <string>Alt+F</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
  </widget>
