@@ -13,7 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.7.0
+VERSION = 0.7.1
+VER_MAJ = 0
+VER_MIN = 7
+VER_PAT = 1
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
 lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
@@ -37,9 +40,8 @@ dbus {
 DEFINES += VERSION=$$VERSION
 
 macx {
-    QMAKE_TARGET_BUNDLE_PREFIX = net.sourceforge
     INCLUDEPATH += $$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
-    QMAKE_LFLAGS += -F$$(HOME)/Library/Frameworks
+    LIBS += -F$$(HOME)/Library/Frameworks
     LIBS += -framework drumstick-rt
 }
 
@@ -97,6 +99,9 @@ macx {
         vmpk_sv.qm
     BUNDLE_RES.path = Contents/Resources
     QMAKE_BUNDLE_DATA += BUNDLE_RES
+    QMAKE_TARGET_BUNDLE_PREFIX = net.sourceforge
+    QMAKE_BUNDLE = vmpk
+    QMAKE_INFO_PLIST = data/Info.plist.app
     LIBS += -framework CoreFoundation \
         -framework Cocoa
 }
@@ -174,6 +179,8 @@ SOURCES += src/kmapdialog.cpp \
 macx {
     OBJECTIVE_SOURCES += \
         src/maceventhelper.mm
+    OTHER_FILES += \
+        data/Info.plist.app
 }
 
 RESOURCES += data/vmpk.qrc
@@ -193,5 +200,3 @@ TRANSLATIONS +=  \
     translations/vmpk_zh_CN.ts
 
 include(updateqm.pri)
-
-OTHER_FILES +=

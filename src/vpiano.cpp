@@ -1238,13 +1238,13 @@ void VPiano::applyConnections()
     m_midiout = dlgMidiSetup()->getOutput();
 
     if (m_midiin != 0) {
-        connect(m_midiin, SIGNAL(midiNoteOn(int,int,int)), SLOT(slotNoteOn(int,int,int)));
-        connect(m_midiin, SIGNAL(midiNoteOff(int,int,int)), SLOT(slotNoteOff(int,int,int)));
-        connect(m_midiin, SIGNAL(midiKeyPressure(int,int,int)), SLOT(slotKeyPressure(int,int,int)));
-        connect(m_midiin, SIGNAL(midiChannelPressure(int,int)), SLOT(slotChannelPressure(int,int)));
-        connect(m_midiin, SIGNAL(midiController(int,int,int)), SLOT(slotController(int,int,int)));
-        connect(m_midiin, SIGNAL(midiProgram(int,int)), SLOT(slotProgram(int,int)));
-        connect(m_midiin, SIGNAL(midiPitchBend(int,int)), SLOT(slotPitchBend(int,int)));
+        connect(m_midiin, SIGNAL(midiNoteOn(int,int,int)), SLOT(slotNoteOn(int,int,int)), Qt::QueuedConnection);
+        connect(m_midiin, SIGNAL(midiNoteOff(int,int,int)), SLOT(slotNoteOff(int,int,int)), Qt::QueuedConnection);
+        connect(m_midiin, SIGNAL(midiKeyPressure(int,int,int)), SLOT(slotKeyPressure(int,int,int)), Qt::QueuedConnection);
+        connect(m_midiin, SIGNAL(midiChannelPressure(int,int)), SLOT(slotChannelPressure(int,int)), Qt::QueuedConnection);
+        connect(m_midiin, SIGNAL(midiController(int,int,int)), SLOT(slotController(int,int,int)), Qt::QueuedConnection);
+        connect(m_midiin, SIGNAL(midiProgram(int,int)), SLOT(slotProgram(int,int)), Qt::QueuedConnection);
+        connect(m_midiin, SIGNAL(midiPitchBend(int,int)), SLOT(slotPitchBend(int,int)), Qt::QueuedConnection);
     }
 }
 
