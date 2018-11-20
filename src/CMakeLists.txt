@@ -143,11 +143,14 @@ endif()
 
 if(APPLE)
     set(vmpk_SRCS ${vmpk_SRCS} maceventhelper.mm)
-    set (MACOSX_BUNDLE_INFO_STRING "Virtual MIDI Piano Keyboard" )
+    #set (MACOSX_BUNDLE_INFO_STRING "Virtual MIDI Piano Keyboard" )
     set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION} )
+    set (MACOSX_BUNDLE_LONG_VERSION_STRING ${VERSION})
+    set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
     set (MACOSX_BUNDLE_ICON_FILE "vmpk.icns" )
     set (MACOSX_BUNDLE_GUI_IDENTIFIER "net.sourceforge" )
     set (MACOSX_BUNDLE_BUNDLE_NAME "vmpk" )
+    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2018 Pedro López-Cabanillas and others")
     set (vmpk_RSC ../data/vmpk.icns
              ../data/help.html
              ../data/help_es.html
@@ -167,6 +170,8 @@ if(APPLE)
         ${vmpk_SRCS}
         ${vmpk_RSC}
     )
+    set_target_properties(vmpk PROPERTIES
+        MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/data/Info.plist.in)
     target_link_libraries(vmpk
         "-framework Cocoa"
     )
