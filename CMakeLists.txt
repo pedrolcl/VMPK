@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.0)
 project(VMPK)
 
 set(DBUS_INIT OFF)
@@ -92,7 +92,6 @@ endif()
 
 if (UNIX AND NOT APPLE)
     find_package(Qt5X11Extras REQUIRED)
-# Check for libxcb
     pkg_check_modules(XCB REQUIRED xcb)
     if(XCB_FOUND)
         include_directories(${XCB_INCLUDE_DIRS})
@@ -123,7 +122,7 @@ if(APPLE)
         link_libraries(${DRUMSTICKRT})
     endif()
 else()
-    pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt>=1.2.0)
+    pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt>=1.1.0)
     if(DRUMSTICKRT_FOUND)
         link_directories(${DRUMSTICKRT_LIBDIR})
         include_directories(${DRUMSTICKRT_INCLUDEDIR})
