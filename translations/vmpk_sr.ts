@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -23,7 +21,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -36,7 +34,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -49,17 +47,11 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2018, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Нека су права задржана — 2008-2015, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Педро Лопез Кабанилас &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; и други&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Овај програм је слободан софтвер; можете га прослеђивати и/или мењати под условима ГНУ Опште Јавне Лиценце верзије 3 или (по вашем избору) било које касније верзије, као што је објавила Задужбина Слободног Софтвера.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Овај програм се расподељује у нади да ће бити користан, али БЕЗ икакве ГАРАНЦИЈЕ, чак и без примењене гаранције комерцијалне погодности, задовољавању квалитета, или прилагођености одређеној намени. Погледајте ГНУ Општу Јавну Лиценцу за више детаља. Требало би да сте добили примерак ГНУ Опште Јавне Лиценце уз овај програм, а ако нисте, погледајте је на &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {9p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {10p?} {2008-2016,?} {0057a?} {000000;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {10p?} {3 ?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {10p?} {10p?} {0057a?} {10p?}</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -382,7 +374,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/extracontrols.ui" line="486"/>
         <location filename="../src/extracontrols.ui" line="521"/>
         <source>Key:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/extracontrols.ui" line="271"/>
@@ -476,7 +468,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="121"/>
         <source>Sound Font:</source>
-        <translation>Зв. фонт:</translation>
+        <translation>Звукотека:</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.ui" line="131"/>
@@ -501,12 +493,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/fluidsettingsdialog.cpp" line="196"/>
         <source>Select SoundFont</source>
-        <translation>Избор зв. фонта</translation>
+        <translation>Избор звукотеке</translation>
     </message>
     <message>
         <location filename="../src/fluidsettingsdialog.cpp" line="196"/>
         <source>SoundFont Files (*.sf2)</source>
-        <translation>Датотеке зв. фонта (*.sf2)</translation>
+        <translation>Звукотеке (*.sf2)</translation>
     </message>
 </context>
 <context>
@@ -1253,32 +1245,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="34"/>
         <source>SoundFont:</source>
-        <translation type="unfinished"></translation>
+        <translation>Звукотека:</translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="60"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="80"/>
         <source>Use Internal Reverb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.ui" line="87"/>
         <source>Default Apple DLS Sound Set</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.cpp" line="104"/>
         <source>Select SoundFont</source>
-        <translation type="unfinished">Избор зв. фонта</translation>
+        <translation>Избор звукотеке</translation>
     </message>
     <message>
         <location filename="../src/macsynthsettingsdialog.cpp" line="104"/>
         <source>SoundFont Files (*.sf2 *.dls)</source>
-        <translation type="unfinished"></translation>
+        <translation>Звукотеке (*.sf2 *.dls)</translation>
     </message>
 </context>
 <context>
@@ -1322,12 +1314,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="122"/>
         <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
-        <translation>Преко ове контроле мењате везу за миди-улаз, ако је омогућен</translation>
+        <translation>Преко ове контроле мењате везу за улазног миди-прикључка, ако је омогућен</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="129"/>
         <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
-        <translation>Ако је обележено, покреће се миди-превоз (MIDI Thru), тј. било који миди-догађај примљен на улазу биће умножен на излаз у неизмењеном облику</translation>
+        <translation>Ако је обележено, покреће се миди-превоз (MIDI Thru), тј. било који миди-догађај примљен на улазном прикључку биће умножен на излазни прикључак у неизмењеном облику</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="132"/>
@@ -1347,7 +1339,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="194"/>
         <source>Use this control to change the connection for the MIDI output port</source>
-        <translation>Преко ове контроле мењате везу за миди-излаз</translation>
+        <translation>Преко ове контроле мењате везу за излазни миди-прикључак</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="201"/>
@@ -1365,7 +1357,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/networksettingsdialog.ui" line="37"/>
         <source>Network Interface:</source>
-        <translation>Мрежни интерфејс:</translation>
+        <translation>Мрежни прикључак:</translation>
     </message>
     <message>
         <location filename="../src/networksettingsdialog.ui" line="50"/>
@@ -1565,7 +1557,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="163"/>
         <source>Instrument</source>
-        <translation>Инструмент</translation>
+        <translation>Инструменат</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="173"/>
@@ -1697,7 +1689,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
 &lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
@@ -1750,7 +1742,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
-        <translation>Увези инструменте из звучног фонта</translation>
+        <translation>Увези инструменте из звукотеке</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="50"/>
@@ -1760,12 +1752,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/riffimportdlg.ui" line="63"/>
         <source>This text box displays the path and name of the selected SoundFont to be  imported</source>
-        <translation>Овде су приказани име и путања до одабраног звучног фонта који је увежен</translation>
+        <translation>Овде су приказани назив и путања до одабране звукотеке за увожење</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="85"/>
         <source>Press this button to select a SoundFont file to be imported</source>
-        <translation>Притисните ово дугме за одабир звучног фонта који желите да увезете</translation>
+        <translation>Притисните ово дугме за одабир звукотеке коју желите да увезете</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="88"/>
@@ -1806,12 +1798,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/riffimportdlg.cpp" line="49"/>
         <source>Input SoundFont</source>
-        <translation>Улазни звучни фонт</translation>
+        <translation>Улазна звукотека</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.cpp" line="49"/>
         <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
-        <translation>Звучни фонт (*.sf2 *.sbk *.dls)</translation>
+        <translation>Звукотеке (*.sf2 *.sbk *.dls)</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.cpp" line="60"/>
@@ -1866,73 +1858,73 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="31"/>
         <source>Sonivox EAS Synth</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="43"/>
         <source>Chorus</source>
-        <translation type="unfinished">Хорус</translation>
+        <translation>Хорус</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="73"/>
         <source>Reverb</source>
-        <translation type="unfinished">Јека</translation>
+        <translation>Јека</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="91"/>
         <source>Buffer Time:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.ui" line="101"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation>мс</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="38"/>
         <source>Large Hall</source>
-        <translation type="unfinished"></translation>
+        <translation>Велика дворана</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="39"/>
         <source>Hall</source>
-        <translation type="unfinished"></translation>
+        <translation>Дворана</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="40"/>
         <source>Chamber</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="41"/>
         <source>Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Соба</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="42"/>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="49"/>
         <source>None</source>
-        <translation type="unfinished">Ништа</translation>
+        <translation>Ништа</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="45"/>
         <source>Preset 1</source>
-        <translation type="unfinished"></translation>
+        <translation>1. поставка</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="46"/>
         <source>Preset 2</source>
-        <translation type="unfinished"></translation>
+        <translation>2. поставка</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="47"/>
         <source>Preset 3</source>
-        <translation type="unfinished"></translation>
+        <translation>3. поставка</translation>
     </message>
     <message>
         <location filename="../src/sonivoxsettingsdialog.cpp" line="48"/>
         <source>Preset 4</source>
-        <translation type="unfinished"></translation>
+        <translation>4. поставка</translation>
     </message>
 </context>
 <context>
@@ -2160,12 +2152,12 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="486"/>
         <source>&amp;Import SoundFont...</source>
-        <translation>Увез&amp;и звучни фонт...</translation>
+        <translation>Увез&amp;и звукотеку...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="489"/>
         <source>Import SoundFont</source>
-        <translation>Увоз звучног фонта</translation>
+        <translation>Увоз звукотеке</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="503"/>
@@ -2237,7 +2229,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="606"/>
         <source>Transpose Up</source>
-        <translation>Повиси</translation>
+        <translation>Транспонуј — Повиси</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="609"/>
@@ -2247,7 +2239,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="620"/>
         <source>Transpose Down</source>
-        <translation>Снизи</translation>
+        <translation>Транспонуј — Снизи</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="623"/>
@@ -2497,7 +2489,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2096"/>
         <source>Translation Information</source>
-        <translation>Информације о локализацији</translation>
+        <translation>Подаци о локализацији</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2127"/>
@@ -2582,7 +2574,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2160"/>
         <source>Transpose:</source>
-        <translation>Претворба:</translation>
+        <translation>Транспонуј:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2165"/>
