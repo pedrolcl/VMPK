@@ -6,14 +6,14 @@ Unicode true
 RequestExecutionLevel admin
 
 # Defines
-!define QTFILES "..\vmpk-0.7.0-win-x64"
-!define QTLANG  "C:\Qt\5.9.4\msvc2015_64"
+!define QTFILES "..\vmpk-0.7.1-win-x86"
+!define QTLANG  "C:\Qt\5.11.2\msvc2017"
 !define VMPKSRC "..\vmpk-desktop"
-!define VMPKBLD "..\vmpk-0.7.0-win-x64"
-!define DRUMSTICK  "..\vmpk-0.7.0-win-x64"
+!define VMPKBLD "..\vmpk-0.7.1-win-x86"
+!define DRUMSTICK  "..\vmpk-0.7.1-win-x86"
 !define PROGNAME "vmpk"
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.7.0
+!define VERSION 0.7.1
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -65,12 +65,12 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE "Swedish"
 
 # Installer attributes
-OutFile vmpk-${VERSION}-win-x64-setup.exe
+OutFile vmpk-${VERSION}-win-x86-setup.exe
 #InstallDir $PROGRAMFILES\vmpk
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.7.0.0
+VIProductVersion 0.7.1.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -110,7 +110,7 @@ Section -Main SEC0000
     File ${QTLANG}\translations\qt_sv.qm
 
     SetOutPath $INSTDIR
-	File ${VMPKBLD}\vcredist_x64.exe
+	File ${VMPKBLD}\vcredist_x86.exe
 	File ${VMPKBLD}\vmpk.exe
     File ${VMPKSRC}\data\spanish.xml
     File ${VMPKSRC}\data\german.xml
@@ -175,10 +175,10 @@ Section -post SEC0001
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
 	;VS2015 Runtime
-	ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" "Installed"
+	ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x86" "Installed"
 	StrCmp $1 1 installed
 	;not installed, so run the installer
-	ExecWait '"$INSTDIR\vcredist_x64.exe" /install /quiet /norestart'
+	ExecWait '"$INSTDIR\vcredist_x86.exe" /install /quiet /norestart'
 installed:	
 SectionEnd
 
@@ -215,7 +215,7 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\translations\vmpk_sr.qm
 
     Delete /REBOOTOK $INSTDIR\vmpk.exe
-	Delete /REBOOTOK $INSTDIR\vcredist_x64.exe
+	Delete /REBOOTOK $INSTDIR\vcredist_x86.exe
     Delete /REBOOTOK $INSTDIR\spanish.xml
     Delete /REBOOTOK $INSTDIR\german.xml
     Delete /REBOOTOK $INSTDIR\azerty.xml
@@ -257,8 +257,8 @@ Section /o -un.Main UNSEC0000
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-out.dll
 	RMDir /REBOOTOK $INSTDIR\translations
 	RMDir /REBOOTOK $INSTDIR\platforms
-	RMDir /REBOOTOK $INSTDIR\iconengines
 	RMDir /REBOOTOK $INSTDIR\imageformats
+	RMDir /REBOOTOK $INSTDIR\iconengines
 	RMDir /REBOOTOK $INSTDIR\drumstick
 	RMDir /REBOOTOK $INSTDIR\bearer
     DeleteRegValue HKLM "${REGKEY}\Components" Main
@@ -281,10 +281,9 @@ SectionEnd
 Function .onInit
     !insertmacro MUI_LANGDLL_DISPLAY
 	${If} ${RunningX64}
-		StrCpy $INSTDIR "$PROGRAMFILES64\${PROGNAME}"
+		StrCpy $INSTDIR "$PROGRAMFILES32\${PROGNAME}"
 	${Else}
-		MessageBox MB_OK|MB_ICONSTOP "Sorry, this setup package is for 64 bit systems only."
-		Quit
+		StrCpy $INSTDIR "$PROGRAMFILES\${PROGNAME}"
 	${EndIf}	
 FunctionEnd
 
