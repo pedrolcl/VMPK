@@ -69,6 +69,10 @@ ColorDialog::onAnyColorWidgetClicked(int i)
             wdg->setFillColor(color);
             currentPalette()->setColor(i, color);
         }
+        else
+        {
+            qWarning() << Q_FUNC_INFO << "invalid color:" << color;
+        }
     }
 }
 

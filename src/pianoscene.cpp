@@ -112,8 +112,8 @@ QSize PianoScene::sizeHint() const
 
 void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )
 {
-    if (m_velocityTint && vel >= 0 && color.isValid() ) {
-        QBrush hilightBrush(color.lighter(200 - vel));
+    if (color.isValid()) {
+        QBrush hilightBrush((m_velocityTint && vel >= 0) ? color.lighter(200 - vel) : color);
         key->setPressedBrush(hilightBrush);
     }
     key->setPressed(true);
@@ -122,8 +122,8 @@ void PianoScene::showKeyOn( PianoKey* key, QColor color, int vel )
 void PianoScene::showKeyOn( PianoKey* key, int vel )
 {
     if (vel >= 0) {
-        if (m_velocityTint && m_keyPressedColor.isValid()) {
-            QBrush hilightBrush(m_keyPressedColor.lighter(200 - vel));
+        if (m_keyPressedColor.isValid()) {
+            QBrush hilightBrush((m_velocityTint && vel >= 0) ? m_keyPressedColor.lighter(200 - vel) : m_keyPressedColor);
             key->setPressedBrush(hilightBrush);
         } else {
             setColorFromPolicy(key, vel);
@@ -202,8 +202,8 @@ void PianoScene::setColorFromPolicy(PianoKey* key, int vel)
 #else
     c = QApplication::palette().highlight().color();
 #endif
-    if (m_velocityTint && c.isValid()) {
-        QBrush h(c.lighter(200 - vel));
+    if (c.isValid()) {
+        QBrush h((m_velocityTint && vel >= 0) ? c.lighter(200 - vel) : c);
         key->setPressedBrush(h);
     }
 }
