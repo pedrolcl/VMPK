@@ -7,7 +7,7 @@ RequestExecutionLevel admin
 
 # Defines
 !define QTFILES "..\vmpk-0.7.1-win-x86"
-!define QTLANG  "C:\Qt\5.11.2\msvc2017"
+!define QTLANG  "C:\Qt\5.9.7\msvc2017"
 !define VMPKSRC "..\vmpk-desktop"
 !define VMPKBLD "..\vmpk-0.7.1-win-x86"
 !define DRUMSTICK  "..\vmpk-0.7.1-win-x86"
