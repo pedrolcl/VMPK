@@ -13,10 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.7.1
+VERSION = 0.7.2
 VER_MAJ = 0
 VER_MIN = 7
-VER_PAT = 1
+VER_PAT = 2
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
 lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
@@ -40,8 +40,8 @@ dbus {
 DEFINES += VERSION=$$VERSION
 
 macx {
-    INCLUDEPATH += $$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
-    LIBS += -F$$(HOME)/Library/Frameworks
+    INCLUDEPATH += $$(DRUMSTICKINCLUDES) #$$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
+    LIBS += -F$$(DRUMSTICKLIBS) #$$(HOME)/Library/Frameworks
     LIBS += -framework drumstick-rt
 }
 

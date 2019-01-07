@@ -56,8 +56,8 @@ endif()
 # VMPK version string
 set (VERSION_MAJOR "0")
 set (VERSION_MINOR "7")
-set (VERSION_PATCH "1")
-set (VERSION_SUFFIX "")
+set (VERSION_PATCH "2")
+set (VERSION_SUFFIX "svn")
 set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
 add_definitions (-DVERSION=${VERSION})
 
