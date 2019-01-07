@@ -40,6 +40,7 @@ public slots:
     void accept();
     void showEvent(QShowEvent *event);
     void restoreDefaults();
+    void ipv6Toggled(bool checked);
 
 private:
     Ui::NetworkSettingsDialog *ui;

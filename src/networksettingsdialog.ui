@@ -23,14 +23,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>136</height>
+    <width>319</width>
+    <height>186</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Network Driver Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QCheckBox" name="checkIPv6">
+     <property name="text">
+      <string>Use IPv6</string>
+     </property>
+    </widget>
+   </item>
    <item>
     <widget class="QLabel" name="lblInterface">
      <property name="text">

@@ -46,8 +46,10 @@ macx {
 }
 
 linux* {
-    CONFIG += link_pkgconfig
-    PKGCONFIG += drumstick-rt
+#   CONFIG += link_pkgconfig
+#   PKGCONFIG += drumstick-rt
+    INCLUDEPATH += $$(DRUMSTICKINCLUDES)
+    LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt
 }
 
 win32 {
@@ -59,6 +61,7 @@ win32 {
 
 linux* {
     QT += x11extras
+    CONFIG += link_pkgconfig
     PKGCONFIG += xcb
     LIBS += -lpthread
 }
