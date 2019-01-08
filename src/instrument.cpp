@@ -35,46 +35,46 @@
 // Retrieve patch/program list for given bank address.
 const InstrumentData& Instrument::patch ( int iBank ) const
 {
-	if (m_pData->patches.contains(iBank))
-		return m_pData->patches[iBank];
+    if (m_pData->patches.contains(iBank))
+        return m_pData->patches[iBank];
 
-	return m_pData->patches[-1];
+    return m_pData->patches[-1];
 }
 
 
 // Retrieve key/notes list for given (bank, prog) pair.
 const InstrumentData& Instrument::notes ( int iBank, int iProg ) const
 {
-	if (m_pData->keys.contains(iBank)) {
-		if (m_pData->keys[iBank].contains(iProg)) {
-			return m_pData->keys[iBank][iProg];
-		} else {
-			return m_pData->keys[iBank][-1];
-		}
-	}
-	else if (iBank >= 0)
-		return notes(-1, iProg);
+    if (m_pData->keys.contains(iBank)) {
+        if (m_pData->keys[iBank].contains(iProg)) {
+            return m_pData->keys[iBank][iProg];
+        } else {
+            return m_pData->keys[iBank][-1];
+        }
+    }
+    else if (iBank >= 0)
+        return notes(-1, iProg);
 
-	return m_pData->keys[-1][-1];
+    return m_pData->keys[-1][-1];
 }
 
 
 // Check if given (bank, prog) pair is a drum patch.
 bool Instrument::isDrum ( int iBank, int iProg ) const
 {
-	if (m_pData->drums.contains(iBank)) {
-		if (m_pData->drums[iBank].contains(iProg)) {
-			return (bool) m_pData->drums[iBank][iProg];
-		} else {
-			return (bool) m_pData->drums[iBank][-1];
-		}
-	}
-	else if (iBank >= 0)
-		return isDrum(-1, iProg);
+    if (m_pData->drums.contains(iBank)) {
+        if (m_pData->drums[iBank].contains(iProg)) {
+            return (bool) m_pData->drums[iBank][iProg];
+        } else {
+            return (bool) m_pData->drums[iBank][-1];
+        }
+    }
+    else if (iBank >= 0)
+        return isDrum(-1, iProg);
 
-	return false;
+    return false;
 
-	return isDrum(-1, iProg);
+    return isDrum(-1, iProg);
 }
 
 
@@ -85,285 +85,285 @@ bool Instrument::isDrum ( int iBank, int iProg ) const
 // Clear all contents.
 void InstrumentList::clearAll (void)
 {
-	clear();
+    clear();
 
-	m_patches.clear();
-	m_notes.clear();
-	m_controllers.clear();
-	m_rpns.clear();
-	m_nrpns.clear();
+    m_patches.clear();
+    m_notes.clear();
+    m_controllers.clear();
+    m_rpns.clear();
+    m_nrpns.clear();
 
-	m_files.clear();
+    m_files.clear();
 }
 
 
 // Special list merge method.
 void InstrumentList::merge ( const InstrumentList& instruments )
 {
-	// Maybe its better not merging to itself.
-	if (this == &instruments)
-		return;
+    // Maybe its better not merging to itself.
+    if (this == &instruments)
+        return;
 
-	// Names data lists merge...
-	mergeDataList(m_patches, instruments.patches());
-	mergeDataList(m_notes, instruments.notes());
-	mergeDataList(m_controllers, instruments.controllers());
-	mergeDataList(m_rpns, instruments.rpns());
-	mergeDataList(m_nrpns, instruments.nrpns());
+    // Names data lists merge...
+    mergeDataList(m_patches, instruments.patches());
+    mergeDataList(m_notes, instruments.notes());
+    mergeDataList(m_controllers, instruments.controllers());
+    mergeDataList(m_rpns, instruments.rpns());
+    mergeDataList(m_nrpns, instruments.nrpns());
 
-	// Instrument merge...
-	InstrumentList::ConstIterator it;
-	for (it = instruments.begin(); it != instruments.end(); ++it) {
-		Instrument& instr = (*this)[it.key()];
-		instr = it.value();
-	}
+    // Instrument merge...
+    InstrumentList::ConstIterator it;
+    for (it = instruments.begin(); it != instruments.end(); ++it) {
+        Instrument& instr = (*this)[it.key()];
+        instr = it.value();
+    }
 }
 
 
 // Special instrument data list merge method.
 void InstrumentList::mergeDataList (
-	InstrumentDataList& dst, const InstrumentDataList& src )
+        InstrumentDataList& dst, const InstrumentDataList& src )
 {
-	InstrumentDataList::ConstIterator it;
-	for (it = src.begin(); it != src.end(); ++it)
-		dst[it.key()] = it.value();
+    InstrumentDataList::ConstIterator it;
+    for (it = src.begin(); it != src.end(); ++it)
+        dst[it.key()] = it.value();
 }
 
 
 // The official loaded file list.
 const QStringList& InstrumentList::files (void) const
 {
-	return m_files;
+    return m_files;
 }
 
 
 // File load method.
 bool InstrumentList::load ( const QString& sFilename )
 {
-	// Open and read from real file.
-	QFile file(sFilename);
-	if (!file.open(QIODevice::ReadOnly))
-		return false;
+    // Open and read from real file.
+    QFile file(sFilename);
+    if (!file.open(QIODevice::ReadOnly))
+        return false;
 
-	enum FileSection {
-		None         = 0,
-		PatchNames   = 1,
-		NoteNames    = 2,
-		ControlNames = 3,
-		RpnNames     = 4,
-		NrpnNames    = 5,
-		InstrDefs    = 6
-	} sect = None;
+    enum FileSection {
+        None         = 0,
+        PatchNames   = 1,
+        NoteNames    = 2,
+        ControlNames = 3,
+        RpnNames     = 4,
+        NrpnNames    = 5,
+        InstrDefs    = 6
+    } sect = None;
 
-	Instrument     *pInstrument = NULL;
-	InstrumentData *pData = NULL;
+    Instrument     *pInstrument = NULL;
+    InstrumentData *pData = NULL;
 
-	QRegExp rxTitle   ("^\\[([^\\]]+)\\]$");
-	QRegExp rxData    ("^([0-9]+)=(.*)$");
-	QRegExp rxBasedOn ("^BasedOn=(.+)$");
-	QRegExp rxBankSel ("^BankSelMethod=(0|1|2|3)$");
-	QRegExp rxUseNotes("^UsesNotesAsControllers=(0|1)$");
-	QRegExp rxControl ("^Control=(.+)$");
-	QRegExp rxRpn     ("^RPN=(.+)$");
-	QRegExp rxNrpn    ("^NRPN=(.+)$");
-	QRegExp rxPatch   ("^Patch\\[([0-9]+|\\*)\\]=(.+)$");
-	QRegExp rxKey     ("^Key\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(.+)$");
-	QRegExp rxDrum    ("^Drum\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(0|1)$");
+    QRegExp rxTitle   ("^\\[([^\\]]+)\\]$");
+    QRegExp rxData    ("^([0-9]+)=(.*)$");
+    QRegExp rxBasedOn ("^BasedOn=(.+)$");
+    QRegExp rxBankSel ("^BankSelMethod=(0|1|2|3)$");
+    QRegExp rxUseNotes("^UsesNotesAsControllers=(0|1)$");
+    QRegExp rxControl ("^Control=(.+)$");
+    QRegExp rxRpn     ("^RPN=(.+)$");
+    QRegExp rxNrpn    ("^NRPN=(.+)$");
+    QRegExp rxPatch   ("^Patch\\[([0-9]+|\\*)\\]=(.+)$");
+    QRegExp rxKey     ("^Key\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(.+)$");
+    QRegExp rxDrum    ("^Drum\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(0|1)$");
 
-	const QString s0_127    = "0..127";
-	const QString s1_128    = "1..128";
-	const QString s0_16383  = "0..16383";
-	const QString sAsterisk = "*";
+    const QString s0_127    = "0..127";
+    const QString s1_128    = "1..128";
+    const QString s0_16383  = "0..16383";
+    const QString sAsterisk = "*";
 
-	// Read the file.
-	unsigned int iLine = 0;
-	QTextStream ts(&file);
+    // Read the file.
+    unsigned int iLine = 0;
+    QTextStream ts(&file);
 
-	while (!ts.atEnd()) {
+    while (!ts.atEnd()) {
 
-		// Read the line.
-		iLine++;
-		QString sLine = ts.readLine().simplified();
-		// If not empty, nor a comment, call the server...
-		if (sLine.isEmpty() || sLine[0] == ';')
-			continue;
+        // Read the line.
+        iLine++;
+        QString sLine = ts.readLine().simplified();
+        // If not empty, nor a comment, call the server...
+        if (sLine.isEmpty() || sLine[0] == ';')
+            continue;
 
-		// Check for section intro line...
-		if (sLine[0] == '.') {
-			if (sLine == ".Patch Names") {
-				sect = PatchNames;
-			//	m_patches.clear();
-				m_patches[s0_127].setName(s0_127);
-				m_patches[s1_128].setName(s1_128);
-			}
-			else if (sLine == ".Note Names") {
-				sect = NoteNames;
-			//	m_notes.clear();
-				m_notes[s0_127].setName(s0_127);
-			}
-			else if (sLine == ".Controller Names") {
-				sect = ControlNames;
-			//	m_controllers.clear();
-				m_controllers[s0_127].setName(s0_127);
-			}
-			else if (sLine == ".RPN Names") {
-				sect = RpnNames;
-			//	m_rpns.clear();
-				m_rpns[s0_16383].setName(s0_16383);
-			}
-			else if (sLine == ".NRPN Names") {
-				sect = NrpnNames;
-			//	m_nrpns.clear();
-				m_nrpns[s0_16383].setName(s0_16383);
-			}
-			else if (sLine == ".Instrument Definitions") {
-				sect = InstrDefs;
-			//  clear();
-			}
-			else {
-				// Unknown section found...
-				qWarning("%s(%d): %s: Unknown section.",
-					sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-			}
-			// Go on...
-			continue;
-		}
+        // Check for section intro line...
+        if (sLine[0] == '.') {
+            if (sLine == ".Patch Names") {
+                sect = PatchNames;
+                //	m_patches.clear();
+                m_patches[s0_127].setName(s0_127);
+                m_patches[s1_128].setName(s1_128);
+            }
+            else if (sLine == ".Note Names") {
+                sect = NoteNames;
+                //	m_notes.clear();
+                m_notes[s0_127].setName(s0_127);
+            }
+            else if (sLine == ".Controller Names") {
+                sect = ControlNames;
+                //	m_controllers.clear();
+                m_controllers[s0_127].setName(s0_127);
+            }
+            else if (sLine == ".RPN Names") {
+                sect = RpnNames;
+                //	m_rpns.clear();
+                m_rpns[s0_16383].setName(s0_16383);
+            }
+            else if (sLine == ".NRPN Names") {
+                sect = NrpnNames;
+                //	m_nrpns.clear();
+                m_nrpns[s0_16383].setName(s0_16383);
+            }
+            else if (sLine == ".Instrument Definitions") {
+                sect = InstrDefs;
+                //  clear();
+            }
+            else {
+                // Unknown section found...
+                qWarning("%s(%d): %s: Unknown section.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            // Go on...
+            continue;
+        }
 
-		// Now it depends on the section...
-		switch (sect) {
-			case PatchNames: {
-				if (rxTitle.exactMatch(sLine)) {
-					// New patch name...
-					const QString& sTitle = rxTitle.cap(1);
-					pData = &(m_patches[sTitle]);
-					pData->setName(sTitle);
-				} else if (rxBasedOn.exactMatch(sLine)) {
-					pData->setBasedOn(rxBasedOn.cap(1));
-				} else if (rxData.exactMatch(sLine)) {
-					(*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
-				} else {
-					qWarning("%s(%d): %s: Unknown .Patch Names entry.",
-						sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-				}
-				break;
-			}
-			case NoteNames: {
-				if (rxTitle.exactMatch(sLine)) {
-					// New note name...
-					const QString& sTitle = rxTitle.cap(1);
-					pData = &(m_notes[sTitle]);
-					pData->setName(sTitle);
-				} else if (rxBasedOn.exactMatch(sLine)) {
-					pData->setBasedOn(rxBasedOn.cap(1));
-				} else if (rxData.exactMatch(sLine)) {
-					(*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
-				} else {
-					qWarning("%s(%d): %s: Unknown .Note Names entry.",
-						sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-				}
-				break;
-			}
-			case ControlNames: {
-				if (rxTitle.exactMatch(sLine)) {
-					// New controller name...
-					const QString& sTitle = rxTitle.cap(1);
-					pData = &(m_controllers[sTitle]);
-					pData->setName(sTitle);
-				} else if (rxBasedOn.exactMatch(sLine)) {
-					pData->setBasedOn(rxBasedOn.cap(1));
-				} else if (rxData.exactMatch(sLine)) {
-					(*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
-				} else {
-					qWarning("%s(%d): %s: Unknown .Controller Names entry.",
-						sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-				}
-				break;
-			}
-			case RpnNames: {
-				if (rxTitle.exactMatch(sLine)) {
-					// New RPN name...
-					const QString& sTitle = rxTitle.cap(1);
-					pData = &(m_rpns[sTitle]);
-					pData->setName(sTitle);
-				} else if (rxBasedOn.exactMatch(sLine)) {
-					pData->setBasedOn(rxBasedOn.cap(1));
-				} else if (rxData.exactMatch(sLine)) {
-					(*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
-				} else {
-					qWarning("%s(%d): %s: Unknown .RPN Names entry.",
-						sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-				}
-				break;
-			}
-			case NrpnNames: {
-				if (rxTitle.exactMatch(sLine)) {
-					// New NRPN name...
-					const QString& sTitle = rxTitle.cap(1);
-					pData = &(m_nrpns[sTitle]);
-					pData->setName(sTitle);
-				} else if (rxBasedOn.exactMatch(sLine)) {
-					pData->setBasedOn(rxBasedOn.cap(1));
-				} else if (rxData.exactMatch(sLine)) {
-					(*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
-				} else {
-					qWarning("%s(%d): %s: Unknown .NRPN Names entry.",
-						sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-				}
-				break;
-			}
-			case InstrDefs: {
-				if (rxTitle.exactMatch(sLine)) {
-					// New instrument definition...
-					const QString& sTitle = rxTitle.cap(1);
-					pInstrument = &((*this)[sTitle]);
-					pInstrument->setInstrumentName(sTitle);
-				} else if (rxBankSel.exactMatch(sLine)) {
-					pInstrument->setBankSelMethod(
-						rxBankSel.cap(1).toInt());
-				} else if (rxUseNotes.exactMatch(sLine)) {
-					pInstrument->setUsesNotesAsControllers(
-						(bool) rxBankSel.cap(1).toInt());
-				} else if (rxPatch.exactMatch(sLine)) {
-					int iBank = (rxPatch.cap(1) == sAsterisk
-						? -1 : rxPatch.cap(1).toInt());
-					pInstrument->setPatch(iBank, m_patches[rxPatch.cap(2)]);
-				} else if (rxControl.exactMatch(sLine)) {
-					pInstrument->setControl(m_controllers[rxControl.cap(1)]);
-				} else if (rxRpn.exactMatch(sLine)) {
-					pInstrument->setRpn(m_rpns[rxRpn.cap(1)]);
-				} else if (rxNrpn.exactMatch(sLine)) {
-					pInstrument->setNrpn(m_nrpns[rxNrpn.cap(1)]);
-				} else if (rxKey.exactMatch(sLine)) {
-					int iBank = (rxKey.cap(1) == sAsterisk
-						? -1 : rxKey.cap(1).toInt());
-					int iProg = (rxKey.cap(2) == sAsterisk
-						? -1 : rxKey.cap(2).toInt());
-					pInstrument->setNotes(iBank, iProg,	m_notes[rxKey.cap(3)]);
-				} else if (rxDrum.exactMatch(sLine)) {
-					int iBank = (rxDrum.cap(1) == sAsterisk
-						? -1 : rxDrum.cap(1).toInt());
-					int iProg = (rxDrum.cap(2) == sAsterisk
-						? -1 : rxKey.cap(2).toInt());
-					pInstrument->setDrum(iBank, iProg,
-						(bool) rxDrum.cap(3).toInt());
-				} else {
-					qWarning("%s(%d): %s: Unknown .Instrument Definitions entry.",
-						sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
-				}
-				break;
-			}
-			default:
-				break;
-		}
-	}
+        // Now it depends on the section...
+        switch (sect) {
+        case PatchNames: {
+            if (rxTitle.exactMatch(sLine)) {
+                // New patch name...
+                const QString& sTitle = rxTitle.cap(1);
+                pData = &(m_patches[sTitle]);
+                pData->setName(sTitle);
+            } else if (rxBasedOn.exactMatch(sLine)) {
+                pData->setBasedOn(rxBasedOn.cap(1));
+            } else if (rxData.exactMatch(sLine)) {
+                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+            } else {
+                qWarning("%s(%d): %s: Unknown .Patch Names entry.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            break;
+        }
+        case NoteNames: {
+            if (rxTitle.exactMatch(sLine)) {
+                // New note name...
+                const QString& sTitle = rxTitle.cap(1);
+                pData = &(m_notes[sTitle]);
+                pData->setName(sTitle);
+            } else if (rxBasedOn.exactMatch(sLine)) {
+                pData->setBasedOn(rxBasedOn.cap(1));
+            } else if (rxData.exactMatch(sLine)) {
+                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+            } else {
+                qWarning("%s(%d): %s: Unknown .Note Names entry.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            break;
+        }
+        case ControlNames: {
+            if (rxTitle.exactMatch(sLine)) {
+                // New controller name...
+                const QString& sTitle = rxTitle.cap(1);
+                pData = &(m_controllers[sTitle]);
+                pData->setName(sTitle);
+            } else if (rxBasedOn.exactMatch(sLine)) {
+                pData->setBasedOn(rxBasedOn.cap(1));
+            } else if (rxData.exactMatch(sLine)) {
+                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+            } else {
+                qWarning("%s(%d): %s: Unknown .Controller Names entry.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            break;
+        }
+        case RpnNames: {
+            if (rxTitle.exactMatch(sLine)) {
+                // New RPN name...
+                const QString& sTitle = rxTitle.cap(1);
+                pData = &(m_rpns[sTitle]);
+                pData->setName(sTitle);
+            } else if (rxBasedOn.exactMatch(sLine)) {
+                pData->setBasedOn(rxBasedOn.cap(1));
+            } else if (rxData.exactMatch(sLine)) {
+                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+            } else {
+                qWarning("%s(%d): %s: Unknown .RPN Names entry.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            break;
+        }
+        case NrpnNames: {
+            if (rxTitle.exactMatch(sLine)) {
+                // New NRPN name...
+                const QString& sTitle = rxTitle.cap(1);
+                pData = &(m_nrpns[sTitle]);
+                pData->setName(sTitle);
+            } else if (rxBasedOn.exactMatch(sLine)) {
+                pData->setBasedOn(rxBasedOn.cap(1));
+            } else if (rxData.exactMatch(sLine)) {
+                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+            } else {
+                qWarning("%s(%d): %s: Unknown .NRPN Names entry.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            break;
+        }
+        case InstrDefs: {
+            if (rxTitle.exactMatch(sLine)) {
+                // New instrument definition...
+                const QString& sTitle = rxTitle.cap(1);
+                pInstrument = &((*this)[sTitle]);
+                pInstrument->setInstrumentName(sTitle);
+            } else if (rxBankSel.exactMatch(sLine)) {
+                pInstrument->setBankSelMethod(
+                            rxBankSel.cap(1).toInt());
+            } else if (rxUseNotes.exactMatch(sLine)) {
+                pInstrument->setUsesNotesAsControllers(
+                            (bool) rxBankSel.cap(1).toInt());
+            } else if (rxPatch.exactMatch(sLine)) {
+                int iBank = (rxPatch.cap(1) == sAsterisk
+                             ? -1 : rxPatch.cap(1).toInt());
+                pInstrument->setPatch(iBank, m_patches[rxPatch.cap(2)]);
+            } else if (rxControl.exactMatch(sLine)) {
+                pInstrument->setControl(m_controllers[rxControl.cap(1)]);
+            } else if (rxRpn.exactMatch(sLine)) {
+                pInstrument->setRpn(m_rpns[rxRpn.cap(1)]);
+            } else if (rxNrpn.exactMatch(sLine)) {
+                pInstrument->setNrpn(m_nrpns[rxNrpn.cap(1)]);
+            } else if (rxKey.exactMatch(sLine)) {
+                int iBank = (rxKey.cap(1) == sAsterisk
+                             ? -1 : rxKey.cap(1).toInt());
+                int iProg = (rxKey.cap(2) == sAsterisk
+                             ? -1 : rxKey.cap(2).toInt());
+                pInstrument->setNotes(iBank, iProg,	m_notes[rxKey.cap(3)]);
+            } else if (rxDrum.exactMatch(sLine)) {
+                int iBank = (rxDrum.cap(1) == sAsterisk
+                             ? -1 : rxDrum.cap(1).toInt());
+                int iProg = (rxDrum.cap(2) == sAsterisk
+                             ? -1 : rxKey.cap(2).toInt());
+                pInstrument->setDrum(iBank, iProg,
+                                     (bool) rxDrum.cap(3).toInt());
+            } else {
+                qWarning("%s(%d): %s: Unknown .Instrument Definitions entry.",
+                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+            }
+            break;
+        }
+        default:
+            break;
+        }
+    }
 
-	// Ok. We've read it all.
-	file.close();
+    // Ok. We've read it all.
+    file.close();
 
-	// We're in business...
-	appendFile(sFilename);
+    // We're in business...
+    appendFile(sFilename);
 
-	return true;
+    return true;
 }
 
 
@@ -375,16 +375,16 @@ bool InstrumentList::save ( const QString& sFilename )
     if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
         return false;
 
-	// A visula separator line.
-	const QString sepl = "; -----------------------------"
-		"------------------------------------------------";
+    // A visula separator line.
+    const QString sepl = "; -----------------------------"
+                         "------------------------------------------------";
 
     // Write the file.
     QTextStream ts(&file);
 
     ts << sepl << endl;
-	ts << "; " << QObject::tr("Cakewalk Instrument Definition File") << endl;
-/*
+    ts << "; " << QObject::tr("Cakewalk Instrument Definition File") << endl;
+    /*
     ts << ";"  << endl;
     ts << "; " << _TITLE " - " << QObject::tr(_SUBTITLE) << endl;
     ts << "; " << QObject::tr("Version")
@@ -400,117 +400,117 @@ bool InstrumentList::save ( const QString& sFilename )
        << " "  << QTime::currentTime().toString("hh:mm:ss") << endl;
     ts << ";"  << endl;
 
-	// - Patch Names...
+    // - Patch Names...
     ts << sepl << endl << endl;
-	ts << ".Patch Names" << endl;
-	saveDataList(ts, m_patches);
+    ts << ".Patch Names" << endl;
+    saveDataList(ts, m_patches);
 
-	// - Note Names...
+    // - Note Names...
     ts << sepl << endl << endl;
-	ts << ".Note Names" << endl;
-	saveDataList(ts, m_notes);
+    ts << ".Note Names" << endl;
+    saveDataList(ts, m_notes);
 
-	// - Controller Names...
+    // - Controller Names...
     ts << sepl << endl << endl;
-	ts << ".Controller Names" << endl;
-	saveDataList(ts, m_controllers);
+    ts << ".Controller Names" << endl;
+    saveDataList(ts, m_controllers);
 
-	// - RPN Names...
+    // - RPN Names...
     ts << sepl << endl << endl;
-	ts << ".RPN Names" << endl;
-	saveDataList(ts, m_rpns);
+    ts << ".RPN Names" << endl;
+    saveDataList(ts, m_rpns);
 
-	// - NRPN Names...
+    // - NRPN Names...
     ts << sepl << endl << endl;
-	ts << ".NRPN Names" << endl;
-	saveDataList(ts, m_nrpns);
+    ts << ".NRPN Names" << endl;
+    saveDataList(ts, m_nrpns);
 
-	// - Instrument Definitions...
+    // - Instrument Definitions...
     ts << sepl << endl << endl;
-	ts << ".Instrument Definitions" << endl;
+    ts << ".Instrument Definitions" << endl;
     ts << endl;
-	InstrumentList::Iterator iter;
-	for (iter = begin(); iter != end(); ++iter) {
-		Instrument& instr = *iter;
-		ts << "[" << instr.instrumentName() << "]" << endl;
-		if (instr.bankSelMethod() > 0)
-		    ts << "BankSelMethod=" << instr.bankSelMethod() << endl;
-		if (!instr.control().name().isEmpty())
-		    ts << "Control=" << instr.control().name() << endl;
-		if (!instr.rpn().name().isEmpty())
-		    ts << "RPN=" << instr.rpn().name() << endl;
-		if (!instr.nrpn().name().isEmpty())
-		    ts << "NRPN=" << instr.nrpn().name() << endl;
-		// - Patches...
-		InstrumentPatches::ConstIterator pit;
-		for (pit = instr.patches().begin();
-				pit != instr.patches().end(); ++pit) {
-			int iBank = pit.key();
-			const QString sBank = (iBank < 0
-				? QString("*") : QString::number(iBank));
-			ts << "Patch[" << sBank << "]=" << pit.value().name() << endl;
-		}
-		// - Keys...
-		InstrumentKeys::ConstIterator kit;
-		for (kit = instr.keys().begin(); kit != instr.keys().end(); ++kit) {
-			int iBank = kit.key();
-			const QString sBank = (iBank < 0
-				? QString("*") : QString::number(iBank));
-			const InstrumentNotes& notes = kit.value();
-			InstrumentNotes::ConstIterator nit;
-			for (nit = notes.begin(); nit != notes.end(); ++nit) {
-				int iProg = nit.key();
-				const QString sProg = (iProg < 0
-					? QString("*") : QString::number(iProg));
-				ts << "Key[" << sBank << "," << sProg << "]="
-				   << nit.value().name() << endl;
-			}
-		}
-		// - Drums...
-		InstrumentDrums::ConstIterator dit;
-		for (dit = instr.drums().begin(); dit != instr.drums().end(); ++dit) {
-			int iBank = dit.key();
-			const QString sBank = (iBank < 0
-				? QString("*") : QString::number(iBank));
-			const InstrumentDrumFlags& flags = dit.value();
-			InstrumentDrumFlags::ConstIterator fit;
-			for (fit = flags.begin(); fit != flags.end(); ++fit) {
-				int iProg = fit.key();
-				const QString sProg = (iProg < 0
-					? QString("*") : QString::number(iProg));
-				ts << "Drum[" << sBank << "," << sProg << "]="
-				   << fit.value() << endl;
-			}
-		}
-		ts << endl;
-	}
+    InstrumentList::Iterator iter;
+    for (iter = begin(); iter != end(); ++iter) {
+        Instrument& instr = *iter;
+        ts << "[" << instr.instrumentName() << "]" << endl;
+        if (instr.bankSelMethod() > 0)
+            ts << "BankSelMethod=" << instr.bankSelMethod() << endl;
+        if (!instr.control().name().isEmpty())
+            ts << "Control=" << instr.control().name() << endl;
+        if (!instr.rpn().name().isEmpty())
+            ts << "RPN=" << instr.rpn().name() << endl;
+        if (!instr.nrpn().name().isEmpty())
+            ts << "NRPN=" << instr.nrpn().name() << endl;
+        // - Patches...
+        InstrumentPatches::ConstIterator pit;
+        for (pit = instr.patches().begin();
+             pit != instr.patches().end(); ++pit) {
+            int iBank = pit.key();
+            const QString sBank = (iBank < 0
+                                   ? QString("*") : QString::number(iBank));
+            ts << "Patch[" << sBank << "]=" << pit.value().name() << endl;
+        }
+        // - Keys...
+        InstrumentKeys::ConstIterator kit;
+        for (kit = instr.keys().begin(); kit != instr.keys().end(); ++kit) {
+            int iBank = kit.key();
+            const QString sBank = (iBank < 0
+                                   ? QString("*") : QString::number(iBank));
+            const InstrumentNotes& notes = kit.value();
+            InstrumentNotes::ConstIterator nit;
+            for (nit = notes.begin(); nit != notes.end(); ++nit) {
+                int iProg = nit.key();
+                const QString sProg = (iProg < 0
+                                       ? QString("*") : QString::number(iProg));
+                ts << "Key[" << sBank << "," << sProg << "]="
+                   << nit.value().name() << endl;
+            }
+        }
+        // - Drums...
+        InstrumentDrums::ConstIterator dit;
+        for (dit = instr.drums().begin(); dit != instr.drums().end(); ++dit) {
+            int iBank = dit.key();
+            const QString sBank = (iBank < 0
+                                   ? QString("*") : QString::number(iBank));
+            const InstrumentDrumFlags& flags = dit.value();
+            InstrumentDrumFlags::ConstIterator fit;
+            for (fit = flags.begin(); fit != flags.end(); ++fit) {
+                int iProg = fit.key();
+                const QString sProg = (iProg < 0
+                                       ? QString("*") : QString::number(iProg));
+                ts << "Drum[" << sBank << "," << sProg << "]="
+                   << fit.value() << endl;
+            }
+        }
+        ts << endl;
+    }
 
-	// Done.
+    // Done.
     file.close();
 
-	return true;
+    return true;
 }
 
 
 void InstrumentList::saveDataList ( QTextStream& ts,
-	const InstrumentDataList& list )
+                                    const InstrumentDataList& list )
 {
     ts << endl;
-	InstrumentDataList::ConstIterator it;
-	for (it = list.begin(); it != list.end(); ++it) {
-		ts << "[" << it.value().name() << "]" << endl;
-		saveData(ts, it.value());
-	}
+    InstrumentDataList::ConstIterator it;
+    for (it = list.begin(); it != list.end(); ++it) {
+        ts << "[" << it.value().name() << "]" << endl;
+        saveData(ts, it.value());
+    }
 }
 
 
 void InstrumentList::saveData ( QTextStream& ts,
-	const InstrumentData& data )
+                                const InstrumentData& data )
 {
-	if (!data.basedOn().isEmpty())
-	    ts << "BasedOn=" << data.basedOn() << endl;
-	InstrumentData::ConstIterator it;
-	for (it = data.constBegin(); it != data.constEnd(); ++it)
-		ts << it.key() << "=" << it.value() << endl;
-	ts << endl;
+    if (!data.basedOn().isEmpty())
+        ts << "BasedOn=" << data.basedOn() << endl;
+    InstrumentData::ConstIterator it;
+    for (it = data.constBegin(); it != data.constEnd(); ++it)
+        ts << it.key() << "=" << it.value() << endl;
+    ts << endl;
 }
