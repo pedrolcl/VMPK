@@ -40,21 +40,24 @@ dbus {
 DEFINES += VERSION=$$VERSION
 
 macx {
-    INCLUDEPATH += $$(DRUMSTICKINCLUDES) #$$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
-    LIBS += -F$$(DRUMSTICKLIBS) #$$(HOME)/Library/Frameworks
+    INCLUDEPATH += $$(DRUMSTICKINCLUDES)  #$$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
+    LIBS += -F$$(DRUMSTICKLIBS)           #$$(HOME)/Library/Frameworks
     LIBS += -framework drumstick-rt
 }
 
 linux* {
-#   CONFIG += link_pkgconfig
-#   PKGCONFIG += drumstick-rt
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)
     LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt
 }
 
 win32 {
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)
-    LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt
+    LIBS += -L$$(DRUMSTICKLIBS)
+    CONFIG(debug, debug|release) {
+        LIBS += -ldrumstick-rtd
+    } else {
+        LIBS += -ldrumstick-rt
+    }
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }
