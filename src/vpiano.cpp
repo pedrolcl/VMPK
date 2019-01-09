@@ -32,7 +32,7 @@
 #include "shortcutdialog.h"
 #endif
 
-#if ENABLE_DBUS
+#if defined(ENABLE_DBUS)
 #include "vmpk_adaptor.h"
 #include <QtDBus/QDBusConnection>
 #endif
@@ -70,23 +70,23 @@ using namespace drumstick::rt;
 
 VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     : QMainWindow(parent, flags),
-    m_midiout(0),
-    m_midiin(0),
-    m_backendManager(0),
+    m_midiout(nullptr),
+    m_midiin(nullptr),
+    m_backendManager(nullptr),
     m_inputActive(false),
     m_midiThru(true),
     m_midiOmni(false),
     m_initialized(false),
-    m_dlgAbout(0),
-    m_dlgPreferences(0),
-    m_dlgMidiSetup(0),
-    m_dlgKeyMap(0),
-    m_dlgExtra(0),
-    m_dlgRiffImport(0),
-    m_dlgColorPolicy(0),
-    m_filter(0)
+    m_dlgAbout(nullptr),
+    m_dlgPreferences(nullptr),
+    m_dlgMidiSetup(nullptr),
+    m_dlgKeyMap(nullptr),
+    m_dlgExtra(nullptr),
+    m_dlgRiffImport(nullptr),
+    m_dlgColorPolicy(nullptr),
+    m_filter(nullptr)
 {
-#if ENABLE_DBUS
+#if defined(ENABLE_DBUS)
     new VmpkAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject("/", this);
@@ -192,6 +192,8 @@ void VPiano::initialization()
         initExtraControllers();
         enforceMIDIChannelState();
         activateWindow();
+    } else {
+        qWarning() << "Unable to initialize all MIDI drivers. Terminating.";
     }
 }
 
@@ -208,13 +210,25 @@ bool VPiano::initMidi()
     m_backendManager->refresh(&settings);
 
     m_midiin = m_backendManager->inputBackendByName(m_lastInputBackend);
-    if (m_midiin == 0) {
+    if (m_midiin == nullptr) {
+        if (m_lastInputBackend != m_defaultInputBackend) {
+            qWarning() << "Last MIDI IN driver" << m_lastInputBackend << "not found";
+        }
         m_midiin = m_backendManager->inputBackendByName(m_defaultInputBackend);
+        if (m_midiin == nullptr) {
+            qWarning() << "Default MIDI IN driver" << m_defaultInputBackend << "not found";
+        }
     }
 
     m_midiout = m_backendManager->outputBackendByName(m_lastOutputBackend);
-    if (m_midiout == 0) {
+    if (m_midiout == nullptr) {
+        if (m_lastOutputBackend != m_defaultOutputBackend) {
+            qWarning() << "Last MIDI OUT driver" << m_lastOutputBackend << "not found";
+        }
         m_midiout = m_backendManager->outputBackendByName(m_defaultOutputBackend);
+        if (m_midiout == nullptr) {
+            qWarning() << "Default MIDI OUT driver" << m_defaultOutputBackend << "not found";
+        }
     }
 
     dlgMidiSetup()->setInputEnabled(m_inputEnabled);
@@ -225,7 +239,7 @@ bool VPiano::initMidi()
     dlgMidiSetup()->setInputs(m_backendManager->availableInputs());
     dlgMidiSetup()->setOutputs(m_backendManager->availableOutputs());
     dlgMidiSetup()->setOutput(m_midiout);
-    if (m_midiin != 0) {
+    if (m_midiin != nullptr) {
         dlgMidiSetup()->setInput(m_midiin);
         dlgMidiSetup()->toggledInput(m_inputEnabled);
         m_inputActive = m_inputEnabled;
@@ -238,7 +252,7 @@ bool VPiano::initMidi()
         m_inputActive = false;
     }
 
-    if (m_midiout != 0 && !m_lastOutputConnection.isEmpty()) {
+    if (m_midiout != nullptr && !m_lastOutputConnection.isEmpty()) {
         m_midiout->initialize(&settings);
         m_midiout->open(m_lastOutputConnection);
         if (!m_lastInputConnection.isEmpty()) {
@@ -247,7 +261,7 @@ bool VPiano::initMidi()
         }
     }
 
-    return (m_midiout != 0);
+    return (m_midiout != nullptr);
 }
 
 void VPiano::initToolBars()
@@ -443,12 +457,12 @@ QByteArray VPiano::readSysexDataFile(const QString& fileName)
 
 void VPiano::initExtraControllers()
 {
-    QWidget *w = 0;
-    QCheckBox *chkbox = 0;
-    QDial *knob = 0;
-    QSpinBox *spin = 0;
-    QSlider *slider = 0;
-    QToolButton *button = 0;
+    QWidget *w = nullptr;
+    QCheckBox *chkbox = nullptr;
+    QDial *knob = nullptr;
+    QSpinBox *spin = nullptr;
+    QSlider *slider = nullptr;
+    QToolButton *button = nullptr;
     foreach(const QString& s, m_extraControls) {
         QString lbl;
         int control = 0;
@@ -536,9 +550,9 @@ void VPiano::initExtraControllers()
             w = button;
             break;
         default:
-            w = 0;
+            w = nullptr;
         }
-        if (w != 0) {
+        if (w != nullptr) {
             if (!lbl.isEmpty() && type < 4) {
                 QLabel *qlbl = new QLabel(lbl, this);
                 qlbl->setMargin(TOOLBARLABELMARGIN);
@@ -749,11 +763,11 @@ void VPiano::writeSettings()
     settings.endGroup();
 
     settings.beginGroup(QSTR_CONNECTIONS);
-    if (m_midiin != 0) {
+    if (m_midiin != nullptr) {
         settings.setValue(QSTR_INDRIVER, m_midiin->backendName());
         settings.setValue(QSTR_INPORT, m_midiin->currentConnection());
     }
-    if (m_midiout != 0) {
+    if (m_midiout != nullptr) {
         settings.setValue(QSTR_OUTDRIVER, m_midiout->backendName());
         settings.setValue(QSTR_OUTPORT, m_midiout->currentConnection());
     }
@@ -1066,7 +1080,7 @@ void VPiano::sendProgramChange(const int program)
 
 void VPiano::sendBankChange(const int bank)
 {
-    int method = (m_ins != 0) ? m_ins->bankSelMethod() : 0;
+    int method = (m_ins != nullptr) ? m_ins->bankSelMethod() : 0;
     int lsb, msb;
     switch (method) {
     case 0:
@@ -1210,10 +1224,10 @@ void VPiano::slotConnections()
     dlgMidiSetup()->setOutput(m_midiout);
     releaseKb();
     if (dlgMidiSetup()->exec() == QDialog::Accepted) {
-        if (m_midiin != 0) {
+        if (m_midiin != nullptr) {
             m_lastInputConnection = m_midiin->currentConnection();
         }
-        if (m_midiout != 0) {
+        if (m_midiout != nullptr) {
             m_lastOutputConnection = m_midiout->currentConnection();
         }
         applyConnections();
@@ -1226,7 +1240,7 @@ void VPiano::applyConnections()
 {
     QSettings settings;
 
-    if (m_midiin != 0) {
+    if (m_midiin != nullptr) {
         m_midiin->disconnect();
     }
 
@@ -1237,7 +1251,7 @@ void VPiano::applyConnections()
     m_midiin = dlgMidiSetup()->getInput();
     m_midiout = dlgMidiSetup()->getOutput();
 
-    if (m_midiin != 0) {
+    if (m_midiin != nullptr) {
         connect(m_midiin, SIGNAL(midiNoteOn(int,int,int)), SLOT(slotNoteOn(int,int,int)), Qt::QueuedConnection);
         connect(m_midiin, SIGNAL(midiNoteOff(int,int,int)), SLOT(slotNoteOff(int,int,int)), Qt::QueuedConnection);
         connect(m_midiin, SIGNAL(midiKeyPressure(int,int,int)), SLOT(slotKeyPressure(int,int,int)), Qt::QueuedConnection);
@@ -1250,7 +1264,7 @@ void VPiano::applyConnections()
 
 void VPiano::initControllers(int channel)
 {
-    if (m_ins != 0) {
+    if (m_ins != nullptr) {
         InstrumentData controls = m_ins->control();
         InstrumentData::ConstIterator it, end;
         it = controls.constBegin();
@@ -1278,7 +1292,7 @@ void VPiano::populateControllers()
 {
     m_comboControl->blockSignals(true);
     m_comboControl->clear();
-    if (m_ins != 0) {
+    if (m_ins != nullptr) {
         InstrumentData controls = m_ins->control();
         InstrumentData::ConstIterator it, end = controls.constEnd();
         for( it = controls.constBegin(); it != end; ++it )
@@ -1347,7 +1361,7 @@ void VPiano::applyPreferences()
 
 void VPiano::populateInstruments()
 {
-    m_ins = 0;
+    m_ins = nullptr;
     m_comboBank->clear();
     m_comboProg->clear();
     if (!dlgPreferences()->getInstrumentsFileName().isEmpty() &&
@@ -1356,7 +1370,7 @@ void VPiano::populateInstruments()
             m_ins = dlgPreferences()->getDrumsInstrument();
         else
             m_ins = dlgPreferences()->getInstrument();
-        if (m_ins != 0) {
+        if (m_ins != nullptr) {
             //qDebug() << "Instrument Name:" << m_ins->instrumentName();
             //qDebug() << "Bank Selection method: " << m_ins->bankSelMethod();
             InstrumentPatches patches = m_ins->patches();
@@ -1414,8 +1428,9 @@ QString VPiano::dataDirectory()
     return QApplication::applicationDirPath() + "/../Resources/";
 #elif defined(Q_OS_UNIX)
     return QApplication::applicationDirPath() + "/../share/vmpk/";
-#endif
+#else
     return QString();
+#endif
 }
 
 QString VPiano::localeDirectory()
@@ -1455,7 +1470,7 @@ void VPiano::populatePrograms(int bank)
     if (bank < 0)
         return;
     m_comboProg->clear();
-    if (m_ins != 0) {
+    if (m_ins != nullptr) {
         InstrumentData patch = m_ins->patch(bank);
         InstrumentData::ConstIterator k;
         for( k = patch.constBegin(); k != patch.constEnd(); ++k )
@@ -1512,7 +1527,7 @@ void VPiano::slotTransposeValueChanged(const int transpose)
 
 void VPiano::updateNoteNames(bool drums)
 {
-    if (drums && (m_ins != 0)) {
+    if (drums && (m_ins != nullptr)) {
         int b = m_lastBank[m_baseChannel];
         int p = m_lastProg[m_baseChannel];
         const InstrumentData& notes = m_ins->notes(b, p);
@@ -1564,7 +1579,7 @@ void VPiano::updateController(int ctl, int val)
         m_Control->setToolTip(QString::number(val));
     }
     m_ctlState[m_baseChannel][ctl] = val;
-    if ((ctl == CTL_MSB || ctl == CTL_LSB ) && m_ins != 0) {
+    if ((ctl == CTL_MSB || ctl == CTL_LSB ) && m_ins != nullptr) {
         if (m_ins->bankSelMethod() == 0)
             m_lastBank[m_baseChannel] = m_ctlState[m_baseChannel][CTL_MSB] << 7 |
                                     m_ctlState[m_baseChannel][CTL_LSB];
@@ -1655,10 +1670,11 @@ void VPiano::releaseKb()
 #endif
 }
 
+#if defined(SMALL_SCREEN)
 class HelpDialog : public QDialog
 {
 public:
-    HelpDialog(const QUrl &document, QWidget *parent = 0) : QDialog(parent)
+    HelpDialog(const QUrl &document, QWidget *parent = nullptr) : QDialog(parent)
     {
         setWindowState(Qt::WindowMaximized | Qt::WindowActive);
         QVBoxLayout *layout = new QVBoxLayout(this);
@@ -1672,6 +1688,7 @@ public:
         connect(buttonBox, SIGNAL(accepted()), SLOT(close()));
     }
 };
+#endif
 
 void VPiano::slotHelpContents()
 {
@@ -1713,7 +1730,7 @@ void VPiano::slotImportSF()
         dlgPreferences()->setInstrumentsFileName(dlgRiffImport()->getOutput());
         dlgPreferences()->setInstrumentName(dlgRiffImport()->getName());
         applyPreferences();
-        if (m_midiout != 0) {
+        if (m_midiout != nullptr) {
             m_lastOutputConnection = m_midiout->currentConnection();
             if (dlgMidiSetup()->changeSoundFont(dlgRiffImport()->getInput())) {
                 applyConnections();
@@ -1738,7 +1755,7 @@ void VPiano::slotEditExtraControls()
 
 About* VPiano::dlgAbout()
 {
-    if (m_dlgAbout == 0) {
+    if (m_dlgAbout == nullptr) {
         m_dlgAbout = new About(this);
         m_dlgAbout->setLanguage(configuredLanguage());
     }
@@ -1747,7 +1764,7 @@ About* VPiano::dlgAbout()
 
 Preferences* VPiano::dlgPreferences()
 {
-    if (m_dlgPreferences == 0) {
+    if (m_dlgPreferences == nullptr) {
         m_dlgPreferences = new Preferences(this);
         m_dlgPreferences->setColorPolicyDialog(dlgColorPolicy());
         m_dlgPreferences->setNoteNames(currentPianoScene()->noteNames());
@@ -1757,7 +1774,7 @@ Preferences* VPiano::dlgPreferences()
 
 MidiSetup* VPiano::dlgMidiSetup()
 {
-    if (m_dlgMidiSetup == 0) {
+    if (m_dlgMidiSetup == nullptr) {
         m_dlgMidiSetup = new MidiSetup(this);
     }
     return m_dlgMidiSetup;
@@ -1766,7 +1783,7 @@ MidiSetup* VPiano::dlgMidiSetup()
 KMapDialog* VPiano::dlgKeyMap()
 {
 #if !defined(SMALL_SCREEN)
-    if (m_dlgKeyMap == 0) {
+    if (m_dlgKeyMap == nullptr) {
         m_dlgKeyMap = new KMapDialog(this);
     }
 #endif
@@ -1775,7 +1792,7 @@ KMapDialog* VPiano::dlgKeyMap()
 
 DialogExtraControls* VPiano::dlgExtra()
 {
-    if (m_dlgExtra == 0) {
+    if (m_dlgExtra == nullptr) {
         m_dlgExtra = new DialogExtraControls(this);
     }
     return m_dlgExtra;
@@ -1783,7 +1800,7 @@ DialogExtraControls* VPiano::dlgExtra()
 
 RiffImportDlg* VPiano::dlgRiffImport()
 {
-    if (m_dlgRiffImport == 0) {
+    if (m_dlgRiffImport == nullptr) {
         m_dlgRiffImport = new RiffImportDlg(this);
     }
     return m_dlgRiffImport;
@@ -1791,7 +1808,7 @@ RiffImportDlg* VPiano::dlgRiffImport()
 
 ColorDialog* VPiano::dlgColorPolicy()
 {
-    if (m_dlgColorPolicy == 0) {
+    if (m_dlgColorPolicy == nullptr) {
         m_dlgColorPolicy = new ColorDialog(this);
     }
     return m_dlgColorPolicy;
@@ -1812,7 +1829,7 @@ void VPiano::slotShowNoteNames()
 //void VPiano::slotEditPrograms()
 //{ }
 
-#if ENABLE_DBUS
+#if defined(ENABLE_DBUS)
 
 void VPiano::quit()
 {
