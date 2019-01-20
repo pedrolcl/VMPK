@@ -53,11 +53,7 @@ linux* {
 win32 {
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)
     LIBS += -L$$(DRUMSTICKLIBS)
-    CONFIG(debug, debug|release) {
-        LIBS += -ldrumstick-rtd
-    } else {
-        LIBS += -ldrumstick-rt
-    }
+    LIBS += -ldrumstick-rt1
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }
