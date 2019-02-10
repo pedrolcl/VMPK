@@ -28,6 +28,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(QSTR_DOMAIN);
     QCoreApplication::setOrganizationDomain(QSTR_DOMAIN);
     QCoreApplication::setApplicationName(QSTR_APPNAME);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
     QApplication a(argc, argv);
 #if defined(Q_OS_LINUX)
     a.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
