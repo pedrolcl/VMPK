@@ -9,19 +9,7 @@
         <file>led_grey.svg</file>
         <file>vmpk_splash.png</file>
     </qresource>
-    <qresource prefix="/android">
-        <file>en.png</file>
-        <file>de.png</file>
-        <file>es.png</file>
-        <file>fr.png</file>
-        <file>ru.png</file>
-        <file>sr.png</file>
-        <file>sv.png</file>
-        <file>nl.png</file>
-        <file>zh-cn.png</file>
-    </qresource>
     <qresource prefix="/social">
-        <file>sf_badge_64s.png</file>
-        <file>gplus-64.png</file>
+        <file>sourceforge.net.png</file>
     </qresource>
 </RCC>

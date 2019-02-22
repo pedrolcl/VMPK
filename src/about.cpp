@@ -27,9 +27,7 @@ About::About(QWidget *parent)
 {
     ui.setupUi(this);
     retranslateUi();
-    connect(ui.btnAndroid, &QPushButton::clicked, this, &About::openGooglePlay);
-    connect(ui.btnGooglePlus, &QPushButton::clicked, this, &About::openGooglePlus);
-    connect(ui.btnSourceForge, &QPushButton::clicked, this, &About::openSourceForge);
+    connect(ui.btnSourceForge, &QPushButton::pressed, this, &About::openSourceForge);
 #if defined(SMALL_SCREEN)
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
@@ -54,24 +52,6 @@ void About::retranslateUi()
               "</p>"
             "</body>"
             "</html>").arg(PGM_VERSION, BLD_DATE, BLD_TIME, CMP_VERSION));
-
-    QPixmap andpix(":/android/" + m_lang + ".png");
-    if (andpix.isNull()) {
-        andpix = QPixmap(":/android/en.png");
-    }
-    ui.btnAndroid->setIcon(andpix);
-}
-
-void About::openGooglePlay()
-{
-    QUrl url("http://play.google.com/store/apps/details?id=net.sourceforge.vmpk.free");
-    QDesktopServices::openUrl(url);
-}
-
-void About::openGooglePlus()
-{
-    QUrl url("http://plus.google.com/109346302876120611200");
-    QDesktopServices::openUrl(url);
 }
 
 void About::openSourceForge()

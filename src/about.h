@@ -32,8 +32,8 @@ public:
     void setLanguage(const QString lang) { m_lang = lang; }
 
 protected slots:
-    void openGooglePlay();
-    void openGooglePlus();
+//    void openGooglePlay();
+//    void openGooglePlus();
     void openSourceForge();
 
 private:
