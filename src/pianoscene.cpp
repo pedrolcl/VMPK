@@ -361,8 +361,8 @@ bool PianoScene::event(QEvent *event)
     case QEvent::TouchEnd:
     case QEvent::TouchUpdate:
     {
-        if (m_touchEnabled) {
-            QTouchEvent *touchEvent = static_cast<QTouchEvent*>(event);
+        QTouchEvent *touchEvent = static_cast<QTouchEvent*>(event);
+        if (m_touchEnabled && touchEvent->device()->type() == QTouchDevice::DeviceType::TouchScreen) {
             QList<QTouchEvent::TouchPoint> touchPoints = touchEvent->touchPoints();
             foreach(const QTouchEvent::TouchPoint& touchPoint, touchPoints) {
                 switch (touchPoint.state()) {

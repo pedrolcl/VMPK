@@ -31,6 +31,8 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
+    QCoreApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
+    QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
     QApplication a(argc, argv);
 #if defined(Q_OS_LINUX)
     a.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
