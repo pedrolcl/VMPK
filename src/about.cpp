@@ -27,7 +27,6 @@ About::About(QWidget *parent)
 {
     ui.setupUi(this);
     retranslateUi();
-    connect(ui.btnSourceForge, &QPushButton::pressed, this, &About::openSourceForge);
 #if defined(SMALL_SCREEN)
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
@@ -52,10 +51,4 @@ void About::retranslateUi()
               "</p>"
             "</body>"
             "</html>").arg(PGM_VERSION, BLD_DATE, BLD_TIME, CMP_VERSION));
-}
-
-void About::openSourceForge()
-{
-    QUrl url("http://sourceforge.net/projects/vmpk/");
-    QDesktopServices::openUrl(url);
 }

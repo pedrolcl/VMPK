@@ -9,7 +9,4 @@
         <file>led_grey.svg</file>
         <file>vmpk_splash.png</file>
     </qresource>
-    <qresource prefix="/social">
-        <file>sourceforge.net.png</file>
-    </qresource>
 </RCC>

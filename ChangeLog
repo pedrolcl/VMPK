@@ -1,5 +1,28 @@
+2019-08-29
+    * Release preparations
+
+2019-03-22
+    * Fix for ticket #55: Problems with the trackpad on macs
+
+2019-02-22
+    * Removed social networks and store links
+
+2019-02-10
+    * Patch: HiDPI support by Hubert Figuiere
+
+2019-01-20
+    * Fix for qmake buildsystem
+
+2019-01-09
+    * Fix for ticket  #53: complain about a failure to initialize MIDI
+
+2019-01-08
+    * fixed indentation
+    * Fixed windows builds
+
 2019-01-07
-    * Support for IPv6 network backend (drumstick > 1.1.2)
+    * Same qmake builds for all operating systems, v0.7.2svn
+    * Support for IPv6 network backend (drumstick >= 1.1.3)
 
 2018-12-03
     * Release 0.7.1

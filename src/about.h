@@ -31,11 +31,6 @@ public:
     void retranslateUi();
     void setLanguage(const QString lang) { m_lang = lang; }
 
-protected slots:
-//    void openGooglePlay();
-//    void openGooglePlus();
-    void openSourceForge();
-
 private:
     Ui::AboutClass ui;
     QString m_lang;
