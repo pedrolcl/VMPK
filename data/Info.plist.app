@@ -25,9 +25,9 @@
         <key>CFBundleShortVersionString</key>
         <string>@FULL_VERSION@</string>
         <key>NSHumanReadableCopyright</key>
-        <string>© 2008-2018, Pedro López-Cabanillas and others</string>
+        <string>© 2008-2019, Pedro López-Cabanillas and others</string>
         <key>NSHighResolutionCapable</key><true/>
         <key>NSSupportsAutomaticGraphicsSwitching</key><true/>
-        <key>NOTE</key>
-        <string>VMPK is free software, released under the GPLv3 license.</string></dict>
+        <key>NOTE</key><string>VMPK is free software, released under the GPLv3 license.</string>
+</dict>
 </plist>
