@@ -44,37 +44,37 @@ MacEventHelper::setNativeEvent(void *p)
 void
 MacEventHelper::clearNativeEvent()
 {
-    d->m_event = 0;
+    d->m_event = nullptr;
 }
 
 bool
 MacEventHelper::isKeyPress()
 {
-    return (d->m_event != 0) && ([d->m_event type] == NSKeyDown);
+    return (d->m_event != nullptr) && ([d->m_event type] == NSEventType::NSEventTypeKeyDown);
 }
 
 bool
 MacEventHelper::isKeyRelease()
 {
-    return (d->m_event != 0) && ([d->m_event type] == NSKeyUp);
+    return (d->m_event != nullptr) && ([d->m_event type] == NSEventType::NSEventTypeKeyUp);
 }
 
 bool
 MacEventHelper::isKeyEvent()
 {
-    return (d->m_event != 0) && (([d->m_event type] == NSKeyDown) || ([d->m_event type] == NSKeyUp));
+    return (d->m_event != nullptr) && (([d->m_event type] == NSEventType::NSEventTypeKeyDown) || ([d->m_event type] == NSEventType::NSEventTypeKeyUp));
 }
 
 bool
 MacEventHelper::isNotRepeated()
 {
-    return (d->m_event != 0) && ([d->m_event isARepeat] == NO);
+    return (d->m_event != nullptr) && ([d->m_event isARepeat] == NO);
 }
 
 int
 MacEventHelper::rawKeyCode()
 {
-    if (d->m_event != 0)
+    if (d->m_event != nullptr)
        return [d->m_event keyCode];
     return -1;
 }

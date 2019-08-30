@@ -86,7 +86,7 @@ void MacSynthSettingsDialog::writeSettings()
 
 void MacSynthSettingsDialog::restoreDefaults()
 {
-    ui->reverb_dls->setChecked(false);
+    ui->reverb_dls->setChecked(true);
     ui->default_dls->setChecked(true);
     ui->soundfont_dls->clear();
 }
