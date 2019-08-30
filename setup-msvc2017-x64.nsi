@@ -6,14 +6,14 @@ Unicode true
 RequestExecutionLevel admin
 
 # Defines
-!define QTFILES "..\vmpk-0.7.1-win-x64"
-!define QTLANG  "C:\Qt\5.9.7\msvc2017_64"
-!define VMPKSRC "..\vmpk-desktop"
-!define VMPKBLD "..\vmpk-0.7.1-win-x64"
-!define DRUMSTICK  "..\vmpk-0.7.1-win-x64"
+!define QTFILES "..\vmpk-0.7.2-win-x64"
+!define QTLANG  "..\vmpk-0.7.2-win-x64"
+!define VMPKSRC "."
+!define VMPKBLD "..\vmpk-0.7.2-win-x64"
+!define DRUMSTICK  "..\vmpk-0.7.2-win-x64"
 !define PROGNAME "vmpk"
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.7.1
+!define VERSION 0.7.2
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -70,7 +70,7 @@ OutFile vmpk-${VERSION}-win-x64-setup.exe
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.7.1.0
+VIProductVersion 0.7.2.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -80,7 +80,8 @@ VIAddVersionKey FileDescription "Virtual MIDI Piano Keyboard"
 VIAddVersionKey LegalCopyright "Copyright (C) 2008-2019 Pedro Lopez-Cabanillas and others"
 InstallDirRegKey HKLM "${REGKEY}" Path
 ShowUninstDetails show
-Icon src\vmpk.ico
+Icon ${VMPKSRC}\src\vmpk.ico
+UninstallIcon ${VMPKSRC}\src\vmpk.ico
 
 # Installer sections
 Section -Main SEC0000
@@ -89,6 +90,7 @@ Section -Main SEC0000
 	CreateDirectory $INSTDIR\iconengines
 	CreateDirectory $INSTDIR\imageformats
 	CreateDirectory $INSTDIR\platforms
+	CreateDirectory $INSTDIR\styles
 	CreateDirectory $INSTDIR\translations
     SetOverwrite on
 	SetOutPath $INSTDIR\translations	
@@ -146,12 +148,12 @@ Section -Main SEC0000
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qico.dll $INSTDIR\imageformats\qico.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qjpeg.dll $INSTDIR\imageformats\qjpeg.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qsvg.dll $INSTDIR\imageformats\qsvg.dll $INSTDIR
-
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-rt.dll $INSTDIR\drumstick-rt.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-net-in.dll $INSTDIR\drumstick\drumstick-rt-net-in.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-net-out.dll $INSTDIR\drumstick\drumstick-rt-net-out.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-win-in.dll $INSTDIR\drumstick\drumstick-rt-win-in.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-win-out.dll $INSTDIR\drumstick\drumstick-rt-win-out.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\styles\qwindowsvistastyle.dll $INSTDIR\styles\qwindowsvistastyle.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-rt1.dll $INSTDIR\drumstick-rt1.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-net-in1.dll $INSTDIR\drumstick\drumstick-rt-net-in1.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-net-out1.dll $INSTDIR\drumstick\drumstick-rt-net-out1.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-win-in1.dll $INSTDIR\drumstick\drumstick-rt-win-in1.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-win-out1.dll $INSTDIR\drumstick\drumstick-rt-win-out1.dll $INSTDIR
 	
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
@@ -250,12 +252,14 @@ Section /o -un.Main UNSEC0000
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qico.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qjpeg.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qsvg.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-rt.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-net-in.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-net-out.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-in.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-out.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\styles\qwindowsvistastyle.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-rt1.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-net-in1.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-net-out1.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-in1.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-out1.dll
 	RMDir /REBOOTOK $INSTDIR\translations
+	RMDir /REBOOTOK $INSTDIR\styles
 	RMDir /REBOOTOK $INSTDIR\platforms
 	RMDir /REBOOTOK $INSTDIR\iconengines
 	RMDir /REBOOTOK $INSTDIR\imageformats
