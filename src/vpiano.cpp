@@ -94,10 +94,18 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
 #endif
     m_trq = new QTranslator(this);
     m_trp = new QTranslator(this);
-    m_trq->load( QSTR_QTPX + configuredLanguage(),
-                 QLibraryInfo::location(QLibraryInfo::TranslationsPath) );
-    m_trp->load( QSTR_VMPKPX + configuredLanguage(),
-                 VPiano::localeDirectory() );
+    //qDebug() << QSTR_QTPX + configuredLanguage() << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+    //qDebug() << QSTR_VMPKPX + configuredLanguage() << VPiano::localeDirectory();
+    if (!m_trq->load( QSTR_QTPX + configuredLanguage(),
+                      QLibraryInfo::location(QLibraryInfo::TranslationsPath) )) {
+        qWarning() << "Failure loading Qt5 translations for" << configuredLanguage()
+                   << "from" << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+    }
+    if (!m_trp->load( QSTR_VMPKPX + configuredLanguage(),
+                      VPiano::localeDirectory() )) {
+        qWarning() << "Failure loading VMPK translations for" << configuredLanguage()
+                   << "from" << VPiano::localeDirectory();
+    }
     QCoreApplication::installTranslator(m_trq);
     QCoreApplication::installTranslator(m_trp);
     ui.setupUi(this);
@@ -587,9 +595,11 @@ void VPiano::readSettings()
     settings.endGroup();
 
     bool mouseInputEnabledbyDefault = true;
+    bool touchInputEnabledbyDefault = false;
     for(const QTouchDevice *dev : QTouchDevice::devices()) {
         if (dev->type() == QTouchDevice::TouchScreen) {
             mouseInputEnabledbyDefault = false;
+            touchInputEnabledbyDefault = true;
             break;
         }
     }
@@ -609,7 +619,7 @@ void VPiano::readSettings()
     bool enforceChanState = settings.value(QSTR_ENFORCECHANSTATE, false).toBool();
     bool enableKeyboard = settings.value(QSTR_ENABLEKEYBOARDINPUT, true).toBool();
     bool enableMouse = settings.value(QSTR_ENABLEMOUSEINPUT, mouseInputEnabledbyDefault).toBool();
-    bool enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, true).toBool();
+    bool enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, touchInputEnabledbyDefault).toBool();
     int drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
     int startingKey = settings.value(QSTR_STARTINGKEY, DEFAULTSTARTINGKEY).toInt();
     m_currentPalette = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
