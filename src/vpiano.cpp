@@ -1289,7 +1289,10 @@ void VPiano::initControllers(int channel)
                 m_ctlState[channel][CTL_PAN] = MIDIPAN;
                 break;
             case CTL_EXPRESSION:
-                m_ctlState[channel][CTL_EXPRESSION] = MIDIEXPRESSION;
+                m_ctlState[channel][CTL_EXPRESSION] = MIDIMAXVALUE;
+                break;
+            case CTL_REVERB_SEND:
+                m_ctlState[channel][CTL_REVERB_SEND] = MIDIMAXVALUE;
                 break;
             default:
                 m_ctlState[channel][ctl] = 0;

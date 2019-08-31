@@ -47,5 +47,6 @@
 #define CTL_VOLUME           7
 #define CTL_PAN             10
 #define CTL_EXPRESSION      11
+#define CTL_REVERB_SEND     91
 
 #endif /* MIDIDEFS_H */

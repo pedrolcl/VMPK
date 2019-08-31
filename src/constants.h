@@ -125,7 +125,7 @@ const int MIDICHANNELS = 16;
 const int MIDIVELOCITY = 100;
 const int MIDIPAN = 64;
 const int MIDIVOLUME = 100;
-const int MIDIEXPRESSION = 127;
+const int MIDIMAXVALUE = 127;
 const int DEFAULTSTARTINGKEY = 0;
 const int DEFAULTBASEOCTAVE = 3;
 
