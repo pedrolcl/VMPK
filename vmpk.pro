@@ -13,10 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.7.2
+VERSION = 0.7.3
 VER_MAJ = 0
 VER_MIN = 7
-VER_PAT = 2
+VER_PAT = 3
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
 lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
@@ -201,4 +201,5 @@ TRANSLATIONS +=  \
     translations/vmpk_tr.ts \
     translations/vmpk_zh_CN.ts
 
+### CONFIG += lrelease
 include(updateqm.pri)
