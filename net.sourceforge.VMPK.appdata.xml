@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2019 VMPK Developers -->
+<component type="desktop">
+ <id>net.sourceforge.VMPK</id>
+ <metadata_license>CC0</metadata_license>
+ <project_license>GPL-3.0+</project_license>
+ <name>VMPK</name>
+ <summary>Virtual MIDI Piano Keyboard: a MIDI events generator and receiver</summary>
+ <description>
+   <p>
+     Virtual MIDI Piano Keyboard is a MIDI events generator and
+     receiver. It doesn't produce any sound by itself, but can be used
+     to drive a MIDI synthesizer (either hardware or software,
+     internal or external). You can use the computer's keyboard to
+     play MIDI notes, and also the mouse. You can use the Virtual MIDI
+     Piano Keyboard to display the played MIDI notes from another
+     instrument or MIDI file player.
+   </p>
+ </description>
+ <screenshots>
+  <screenshot type="default">
+   <image>http://vmpk.sourceforge.net/images/vmpk_605x334.png</image>
+   <caption>The VMPK window</caption>
+  </screenshot>
+ </screenshots>
+ <translation type="qt">vmpk</translation>
+ <content_rating type="oars-1.1" />
+ ​<launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
+ <url type="homepage">http://vmpk.sourceforge.net/</url>
+ <releases>
+   <release type="stable" version="0.7.2" date="2019-09-01">
+     <url>https://sourceforge.net/p/vmpk/news/2019/09/virtual-midi-piano-keyboard-072-released-/</url>
+     <description>
+       <p>This release fixes the following tickets</p>
+       <ul>
+         <li>Fixed ticket #53: complain at startup if a default drumstick-rt backend is missing</li>
+         <li>Fixed ticket #56: properly scale on HiDPI screens</li>
+         <li>Fixed ticket #57: removed all Google+ links</li>
+         <li>Fixed ticket #58: broken link to the instruments definition files</li>
+       </ul>
+     </description>
+   </release>
+   <release type="stable" version="0.7.1" date="2018-12-03">
+     <url>https://sourceforge.net/p/vmpk/news/2018/12/virtual-midi-piano-keyboard-071-released-/</url>
+     <description>
+       <p>Fixes</p>
+       <ul>
+         <li>Fixed ticket #51: ignored note highlight color</li>
+         <li>Updated translatioons from Transifex</li>
+       </ul>
+     </description>
+   </release>
+   <release type="stable" version="0.7.0" date="2018-04-02">
+     <url>https://sourceforge.net/p/vmpk/news/2018/04/virtual-midi-piano-keyboard-070-released/</url>
+     <description>
+       <p>Fixes</p>
+       <ul>
+         <li>Splash screen</li>
+         <li>fix for ticket #37 Duplicate midi events on touch screen</li>
+         <li>Add Generic Name &amp; Keywords entry to desktop file. Patch by Ross Gammon</li>
+         <li>RFE #50: Assigning a keyboard shortcut to the button extra controls</li>
+         <li>settings for the new backends: Mac DLS Synth and Sonivox EAS</li>
+         <li>required: drumstick-1.1</li>
+       </ul>
+     </description>
+   </release>
+ </releases>
+</component>

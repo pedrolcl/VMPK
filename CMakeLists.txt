@@ -186,7 +186,7 @@ if(UNIX)
         COMMAND cp -r dbus vmpk-${VERSION}
         COMMAND cp translations/vmpk_{cs,de,es,fr,gl,ru,sr,sv}.ts vmpk-${VERSION}/translations/
         COMMAND cp translations/CMakeLists.txt vmpk-${VERSION}/translations/
-        COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README *.nsi TODO vmpk.desktop vmpk.pro updateqm.pri vmpk.spec.in qt.conf vmpk-${VERSION}
+        COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README *.nsi TODO net.sourceforge.VMPK.desktop net.sourceforge.VMPK.appdata.xml vmpk.pro updateqm.pri vmpk.spec.in qt.conf vmpk-${VERSION}
         COMMAND tar -cj --exclude=.* -f vmpk-${VERSION}.tar.bz2 vmpk-${VERSION}
         COMMAND tar -cz --exclude=.* -f vmpk-${VERSION}.tar.gz vmpk-${VERSION}
         COMMAND rm -rf vmpk-${VERSION}
@@ -224,9 +224,11 @@ if(UNIX AND NOT APPLE)
     install (FILES data/vmpk.svgz
              DESTINATION share/icons/hicolor/scalable/apps )
 
-    install (FILES vmpk.desktop
+    install (FILES net.sourceforge.VMPK.desktop
              DESTINATION share/applications )
 
+    install (FILES net.sourceforge.VMPK.appdata.xml
+             DESTINATION share/metainfo )
 endif ()
 
 if(WIN32)
