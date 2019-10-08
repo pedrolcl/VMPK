@@ -1,8 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="gl">
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/about.cpp" line="43"/>
+        <location filename="../src/about.cpp" line="40"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -17,11 +19,11 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="116"/>
+        <location filename="../src/about.ui" line="41"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -30,11 +32,11 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="127"/>
+        <location filename="../src/about.ui" line="155"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -43,11 +45,11 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="147"/>
+        <location filename="../src/about.ui" line="58"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2019, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -73,222 +75,222 @@ p, li { white-space: pre-wrap; }
         <translation>Cores</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="131"/>
-        <location filename="../src/colordialog.cpp" line="195"/>
+        <location filename="../src/colordialog.cpp" line="135"/>
+        <location filename="../src/colordialog.cpp" line="199"/>
         <source>N</source>
         <translation>N</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="132"/>
-        <location filename="../src/colordialog.cpp" line="196"/>
+        <location filename="../src/colordialog.cpp" line="136"/>
+        <location filename="../src/colordialog.cpp" line="200"/>
         <source>#</source>
         <translation>#</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="137"/>
-        <location filename="../src/colordialog.cpp" line="202"/>
+        <location filename="../src/colordialog.cpp" line="141"/>
+        <location filename="../src/colordialog.cpp" line="206"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="138"/>
-        <location filename="../src/colordialog.cpp" line="203"/>
+        <location filename="../src/colordialog.cpp" line="142"/>
+        <location filename="../src/colordialog.cpp" line="207"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="139"/>
-        <location filename="../src/colordialog.cpp" line="204"/>
+        <location filename="../src/colordialog.cpp" line="143"/>
+        <location filename="../src/colordialog.cpp" line="208"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="140"/>
-        <location filename="../src/colordialog.cpp" line="205"/>
+        <location filename="../src/colordialog.cpp" line="144"/>
+        <location filename="../src/colordialog.cpp" line="209"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="141"/>
-        <location filename="../src/colordialog.cpp" line="206"/>
+        <location filename="../src/colordialog.cpp" line="145"/>
+        <location filename="../src/colordialog.cpp" line="210"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="142"/>
-        <location filename="../src/colordialog.cpp" line="207"/>
+        <location filename="../src/colordialog.cpp" line="146"/>
+        <location filename="../src/colordialog.cpp" line="211"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="143"/>
-        <location filename="../src/colordialog.cpp" line="208"/>
+        <location filename="../src/colordialog.cpp" line="147"/>
+        <location filename="../src/colordialog.cpp" line="212"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="144"/>
-        <location filename="../src/colordialog.cpp" line="209"/>
+        <location filename="../src/colordialog.cpp" line="148"/>
+        <location filename="../src/colordialog.cpp" line="213"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="145"/>
-        <location filename="../src/colordialog.cpp" line="210"/>
+        <location filename="../src/colordialog.cpp" line="149"/>
+        <location filename="../src/colordialog.cpp" line="214"/>
         <source>9</source>
         <translation>9</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="146"/>
-        <location filename="../src/colordialog.cpp" line="211"/>
+        <location filename="../src/colordialog.cpp" line="150"/>
+        <location filename="../src/colordialog.cpp" line="215"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="147"/>
-        <location filename="../src/colordialog.cpp" line="212"/>
+        <location filename="../src/colordialog.cpp" line="151"/>
+        <location filename="../src/colordialog.cpp" line="216"/>
         <source>11</source>
         <translation>11</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="148"/>
-        <location filename="../src/colordialog.cpp" line="213"/>
+        <location filename="../src/colordialog.cpp" line="152"/>
+        <location filename="../src/colordialog.cpp" line="217"/>
         <source>12</source>
         <translation>12</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="149"/>
-        <location filename="../src/colordialog.cpp" line="214"/>
+        <location filename="../src/colordialog.cpp" line="153"/>
+        <location filename="../src/colordialog.cpp" line="218"/>
         <source>13</source>
         <translation>13</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="150"/>
-        <location filename="../src/colordialog.cpp" line="215"/>
+        <location filename="../src/colordialog.cpp" line="154"/>
+        <location filename="../src/colordialog.cpp" line="219"/>
         <source>14</source>
         <translation>14</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="151"/>
-        <location filename="../src/colordialog.cpp" line="216"/>
+        <location filename="../src/colordialog.cpp" line="155"/>
+        <location filename="../src/colordialog.cpp" line="220"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="152"/>
-        <location filename="../src/colordialog.cpp" line="217"/>
+        <location filename="../src/colordialog.cpp" line="156"/>
+        <location filename="../src/colordialog.cpp" line="221"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="172"/>
-        <location filename="../src/colordialog.cpp" line="223"/>
+        <location filename="../src/colordialog.cpp" line="176"/>
+        <location filename="../src/colordialog.cpp" line="227"/>
         <source>C</source>
         <translation>Do</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="173"/>
-        <location filename="../src/colordialog.cpp" line="224"/>
+        <location filename="../src/colordialog.cpp" line="177"/>
+        <location filename="../src/colordialog.cpp" line="228"/>
         <source>C#</source>
         <translation>Do#</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="174"/>
-        <location filename="../src/colordialog.cpp" line="225"/>
+        <location filename="../src/colordialog.cpp" line="178"/>
+        <location filename="../src/colordialog.cpp" line="229"/>
         <source>D</source>
         <translation>Re</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="175"/>
-        <location filename="../src/colordialog.cpp" line="226"/>
+        <location filename="../src/colordialog.cpp" line="179"/>
+        <location filename="../src/colordialog.cpp" line="230"/>
         <source>D#</source>
         <translation>Re#</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="176"/>
-        <location filename="../src/colordialog.cpp" line="227"/>
+        <location filename="../src/colordialog.cpp" line="180"/>
+        <location filename="../src/colordialog.cpp" line="231"/>
         <source>E</source>
         <translation>Mi</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="177"/>
-        <location filename="../src/colordialog.cpp" line="228"/>
+        <location filename="../src/colordialog.cpp" line="181"/>
+        <location filename="../src/colordialog.cpp" line="232"/>
         <source>F</source>
         <translation>Fa</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="178"/>
-        <location filename="../src/colordialog.cpp" line="229"/>
+        <location filename="../src/colordialog.cpp" line="182"/>
+        <location filename="../src/colordialog.cpp" line="233"/>
         <source>F#</source>
         <translation>Fa#</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="179"/>
-        <location filename="../src/colordialog.cpp" line="230"/>
+        <location filename="../src/colordialog.cpp" line="183"/>
+        <location filename="../src/colordialog.cpp" line="234"/>
         <source>G</source>
         <translation>Sol</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="180"/>
-        <location filename="../src/colordialog.cpp" line="231"/>
+        <location filename="../src/colordialog.cpp" line="184"/>
+        <location filename="../src/colordialog.cpp" line="235"/>
         <source>G#</source>
         <translation>Sol#</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="181"/>
-        <location filename="../src/colordialog.cpp" line="232"/>
+        <location filename="../src/colordialog.cpp" line="185"/>
+        <location filename="../src/colordialog.cpp" line="236"/>
         <source>A</source>
         <translation>La</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="182"/>
-        <location filename="../src/colordialog.cpp" line="233"/>
+        <location filename="../src/colordialog.cpp" line="186"/>
+        <location filename="../src/colordialog.cpp" line="237"/>
         <source>A#</source>
         <translation>La#</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="183"/>
-        <location filename="../src/colordialog.cpp" line="234"/>
+        <location filename="../src/colordialog.cpp" line="187"/>
+        <location filename="../src/colordialog.cpp" line="238"/>
         <source>B</source>
         <translation>Si</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="242"/>
+        <location filename="../src/colordialog.cpp" line="246"/>
         <source>Single color</source>
         <translation>Unha soa cor</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="243"/>
+        <location filename="../src/colordialog.cpp" line="247"/>
         <source>A single color to highlight all note events</source>
         <translation>Unha única cor para resaltar todas as accións das notas</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="247"/>
+        <location filename="../src/colordialog.cpp" line="251"/>
         <source>Two colors</source>
         <translation>Dúas cores</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="248"/>
+        <location filename="../src/colordialog.cpp" line="252"/>
         <source>One color to highlight natural notes and a different one for accidentals</source>
         <translation>Unha cor para resaltar as notas naturais e outro diferente para as alteracións</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="252"/>
+        <location filename="../src/colordialog.cpp" line="256"/>
         <source>MIDI Channels</source>
         <translation>Canles MIDI</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="253"/>
+        <location filename="../src/colordialog.cpp" line="257"/>
         <source>A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection</source>
         <translation>Unha cor diferente para cada canle MIDI. Active o modo Omni na conexión da entrada MIDI</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="257"/>
+        <location filename="../src/colordialog.cpp" line="261"/>
         <source>Chromatic scale</source>
         <translation>Escala cromática</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.cpp" line="258"/>
+        <location filename="../src/colordialog.cpp" line="262"/>
         <source>One color for each note in the chromatic scale</source>
         <translation>Unha cor para cada nota da escala cromática</translation>
     </message>
@@ -1362,16 +1364,21 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/networksettingsdialog.ui" line="37"/>
+        <source>Use IPv6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/networksettingsdialog.ui" line="44"/>
         <source>Network Interface:</source>
         <translation>Interface de rede:</translation>
     </message>
     <message>
-        <location filename="../src/networksettingsdialog.ui" line="50"/>
+        <location filename="../src/networksettingsdialog.ui" line="57"/>
         <source>Address</source>
         <translation>Enderezo</translation>
     </message>
     <message>
-        <location filename="../src/networksettingsdialog.cpp" line="97"/>
+        <location filename="../src/networksettingsdialog.cpp" line="107"/>
         <source>Any</source>
         <translation>Calquera</translation>
     </message>
@@ -1695,7 +1702,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
 &lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
@@ -2458,162 +2465,162 @@ Quere aplicar os cambios?</translation>
         <translation>Alt+F</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1698"/>
+        <location filename="../src/vpiano.cpp" line="1728"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1698"/>
+        <location filename="../src/vpiano.cpp" line="1728"/>
         <source>No help file found</source>
         <translation>Non se atopou o ficheiro de axuda</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2031"/>
+        <location filename="../src/vpiano.cpp" line="2061"/>
         <source>Language Changed</source>
         <translation>Cambiado o idioma</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2032"/>
+        <location filename="../src/vpiano.cpp" line="2062"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>O idioma deste aplicativo vai ser cambiado a %1. Quere continuar?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2075"/>
+        <location filename="../src/vpiano.cpp" line="2105"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK desenvolvese e tradúcese grazas ao traballo de moitas persoas voluntarias de todo o mundo. Se quere formar parte do equipo ou se ten algunha pregunta, visite os foros en &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2093"/>
+        <location filename="../src/vpiano.cpp" line="2123"/>
         <source>Translation</source>
         <translation>Tradución</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2094"/>
+        <location filename="../src/vpiano.cpp" line="2124"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Traductor: Miguel Anxo Bouzada &lt;mbouzada@gmail.com&gt;&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2096"/>
+        <location filename="../src/vpiano.cpp" line="2126"/>
         <source>Translation Information</source>
         <translation>Información sobre a tradución</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2127"/>
+        <location filename="../src/vpiano.cpp" line="2157"/>
         <source>Czech</source>
         <translation>Checo</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2128"/>
+        <location filename="../src/vpiano.cpp" line="2158"/>
         <source>German</source>
         <translation>Alemán</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2129"/>
+        <location filename="../src/vpiano.cpp" line="2159"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2130"/>
+        <location filename="../src/vpiano.cpp" line="2160"/>
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2131"/>
+        <location filename="../src/vpiano.cpp" line="2161"/>
         <source>French</source>
         <translation>Francés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2132"/>
+        <location filename="../src/vpiano.cpp" line="2162"/>
         <source>Galician</source>
         <translation>Galego</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2133"/>
+        <location filename="../src/vpiano.cpp" line="2163"/>
         <source>Dutch</source>
         <translation>Holandés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2134"/>
+        <location filename="../src/vpiano.cpp" line="2164"/>
         <source>Russian</source>
         <translation>Ruso</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2135"/>
+        <location filename="../src/vpiano.cpp" line="2165"/>
         <source>Serbian</source>
         <translation>Serbio</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2136"/>
+        <location filename="../src/vpiano.cpp" line="2166"/>
         <source>Swedish</source>
         <translation>Sueco</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2137"/>
+        <location filename="../src/vpiano.cpp" line="2167"/>
         <source>Chinese</source>
         <translation>Chinés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2144"/>
+        <location filename="../src/vpiano.cpp" line="2174"/>
         <source>Chan:</source>
         <translation>Can:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2146"/>
+        <location filename="../src/vpiano.cpp" line="2176"/>
         <source>Channel:</source>
         <translation>Canle:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2151"/>
+        <location filename="../src/vpiano.cpp" line="2181"/>
         <source>Oct:</source>
         <translation>Oit:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2153"/>
+        <location filename="../src/vpiano.cpp" line="2183"/>
         <source>Base Octave:</source>
         <translation>Oitava base: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2158"/>
+        <location filename="../src/vpiano.cpp" line="2188"/>
         <source>Trans:</source>
         <translation>Trans:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2160"/>
+        <location filename="../src/vpiano.cpp" line="2190"/>
         <source>Transpose:</source>
         <translation>Transposición: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2165"/>
+        <location filename="../src/vpiano.cpp" line="2195"/>
         <source>Vel:</source>
         <translation>Vel:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2167"/>
+        <location filename="../src/vpiano.cpp" line="2197"/>
         <source>Velocity:</source>
         <translation>Velocidade: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2170"/>
+        <location filename="../src/vpiano.cpp" line="2200"/>
         <source>Bank:</source>
         <translation>Banco: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2171"/>
+        <location filename="../src/vpiano.cpp" line="2201"/>
         <source>Bender:</source>
         <translation>Inflexión: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2172"/>
+        <location filename="../src/vpiano.cpp" line="2202"/>
         <source>Control:</source>
         <translation>Control: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2173"/>
+        <location filename="../src/vpiano.cpp" line="2203"/>
         <source>Program:</source>
         <translation>Programa: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2174"/>
+        <location filename="../src/vpiano.cpp" line="2204"/>
         <source>Value:</source>
         <translation>Valor: </translation>
     </message>
