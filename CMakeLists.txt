@@ -14,8 +14,12 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 3.1)
-project(VMPK)
+cmake_minimum_required(VERSION 3.9)
+project(VMPK
+        VERSION 0.7.3.99
+        DESCRIPTION "Virtual MIDI Piano Keyboard"
+        LANGUAGES CXX
+)
 
 set(DBUS_INIT OFF)
 set(ENABLE_CORE OFF)
@@ -30,61 +34,38 @@ endif()
 
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 
-# Show full commands and messages.
-# set(CMAKE_VERBOSE_MAKEFILE ON CACHE BOOL)
-
-# If relative paths break the link scripts, set it OFF
-# set(CMAKE_USE_RELATIVE_PATHS OFF)
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-add_definitions(-DRAWKBD_SUPPORT -DPALETTE_SUPPORT)
 
-# Additional CMake modules for 3rd party library checks reside here
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-if(COMPILER_SUPPORTS_CXX11)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-    if(APPLE)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    endif()
-else()
-    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# cmake bug https://gitlab.kitware.com/cmake/cmake/issues/18396 closed in cmake 3.14
+if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
-# VMPK version string
-set (VERSION_MAJOR "0")
-set (VERSION_MINOR "7")
-set (VERSION_PATCH "3")
-set (VERSION_SUFFIX "svn")
-set (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
-add_definitions (-DVERSION=${VERSION})
+find_package(Qt5 COMPONENTS Widgets Svg Network LinguistTools REQUIRED)
+find_package(Drumstick COMPONENTS RT REQUIRED)
 
-message (STATUS "VMPK ${VERSION}
-    install prefix: ${CMAKE_INSTALL_PREFIX}
-     D-Bus support: ${ENABLE_DBUS}")
+message (STATUS "VMPK v${PROJECT_VERSION}
+     install prefix: ${CMAKE_INSTALL_PREFIX}
+     Build configuration: ${CMAKE_BUILD_TYPE}
+     Processor: ${CMAKE_SYSTEM_PROCESSOR}
+     Qt5: ${Qt5_VERSION}
+     D-Bus support: ${ENABLE_DBUS}
+     Drumstick: ${Drumstick_VERSION}"
+)
 
-# User options
-message (STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
-
-# Check for Qt
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Svg REQUIRED)
-find_package(Qt5Network REQUIRED)
-find_package(Qt5LinguistTools REQUIRED)
-
-if (${ENABLE_DBUS})
+if (ENABLE_DBUS)
     find_package(Qt5DBus REQUIRED)
-    add_definitions(-DENABLE_DBUS)
 endif ()
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
 if (NOT APPLE)
     find_package(PkgConfig REQUIRED)
     if(PKG_CONFIG_FOUND)
-        message(STATUS "Program pkg-config found (${PKG_CONFIG_EXECUTABLE})")
+        message(STATUS "Program pkg-config v${PKG_CONFIG_VERSION_STRING} found (${PKG_CONFIG_EXECUTABLE})")
     else()
         message(FATAL_ERROR "Program pkg-config not found")
     endif()
@@ -94,11 +75,7 @@ if (UNIX AND NOT APPLE)
     find_package(Qt5X11Extras REQUIRED)
     pkg_check_modules(XCB REQUIRED xcb)
     if(XCB_FOUND)
-        include_directories(${XCB_INCLUDE_DIRS})
-        link_libraries(${XCB_LIBRARIES})
-        link_directories(${XCB_LIB_DIR})
-    else()
-        message(FATAL_ERROR "Please install XCB development libs and headers.")
+        message(STATUS "Found XCB development libs v${XCB_VERSION}")
     endif()
 endif()
 
@@ -107,28 +84,27 @@ if (${ENABLE_CORE})
 endif ()
 
 if (${ENABLE_WIN})
-    #find_package(WINDRES REQUIRED)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
     link_libraries(winmm)
 endif ()
 
-if(APPLE)
-    find_library(DRUMSTICKRT
-        NAMES drumstick-rt
-        HINTS $ENV{DRUMSTICK_FRAMEWORKS}
-        REQUIRED)
-    if(DRUMSTICKRT)
-        include_directories(${DRUMSTICKRT}/Headers)
-        link_libraries(${DRUMSTICKRT})
-    endif()
-else()
-    pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt>=1.1.3)
-    if(DRUMSTICKRT_FOUND)
-        link_directories(${DRUMSTICKRT_LIBDIR})
-        include_directories(${DRUMSTICKRT_INCLUDEDIR})
-        link_libraries(${DRUMSTICKRT_LIBRARIES})
-    endif()
-endif()
+#if(APPLE)
+#    find_library(DRUMSTICKRT
+#        NAMES drumstick-rt
+#        HINTS $ENV{DRUMSTICK_FRAMEWORKS}
+#        REQUIRED)
+#    if(DRUMSTICKRT)
+#        include_directories(${DRUMSTICKRT}/Headers)
+#        link_libraries(${DRUMSTICKRT})
+#    endif()
+#else()
+#    pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt>=1.1.3)
+#    if(DRUMSTICKRT_FOUND)
+#        link_directories(${DRUMSTICKRT_LIBDIR})
+#        include_directories(${DRUMSTICKRT_INCLUDEDIR})
+#        link_libraries(${DRUMSTICKRT_LIBRARIES})
+#    endif()
+#endif()
 
 add_subdirectory(src)
 add_subdirectory(translations)
@@ -175,21 +151,20 @@ if(UNIX)
     add_custom_target ( distclean
         COMMAND rm -rf build/*
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-#   add_dependencies (distclean clean)
 
     add_custom_target (tarball
-        COMMAND mkdir -p vmpk-${VERSION}/translations/
-        COMMAND cp -r cmake_admin vmpk-${VERSION}
-        COMMAND cp -r data vmpk-${VERSION}
-        COMMAND cp -r src vmpk-${VERSION}
-        COMMAND cp -r man vmpk-${VERSION}
-        COMMAND cp -r dbus vmpk-${VERSION}
-        COMMAND cp translations/vmpk_{cs,de,es,fr,gl,ru,sr,sv}.ts vmpk-${VERSION}/translations/
-        COMMAND cp translations/CMakeLists.txt vmpk-${VERSION}/translations/
-        COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README *.nsi TODO net.sourceforge.VMPK.desktop net.sourceforge.VMPK.appdata.xml vmpk.pro updateqm.pri vmpk.spec.in qt.conf vmpk-${VERSION}
-        COMMAND tar -cj --exclude=.* -f vmpk-${VERSION}.tar.bz2 vmpk-${VERSION}
-        COMMAND tar -cz --exclude=.* -f vmpk-${VERSION}.tar.gz vmpk-${VERSION}
-        COMMAND rm -rf vmpk-${VERSION}
+        COMMAND mkdir -p vmpk-${PROJECT_VERSION}/translations/
+        COMMAND cp -r cmake_admin vmpk-${PROJECT_VERSION}
+        COMMAND cp -r data vmpk-${PROJECT_VERSION}
+        COMMAND cp -r src vmpk-${PROJECT_VERSION}
+        COMMAND cp -r man vmpk-${PROJECT_VERSION}
+        COMMAND cp -r dbus vmpk-${PROJECT_VERSION}
+        COMMAND cp translations/vmpk_{cs,de,es,fr,gl,ru,sr,sv}.ts vmpk-${PROJECT_VERSION}/translations/
+        COMMAND cp translations/CMakeLists.txt vmpk-${PROJECT_VERSION}/translations/
+        COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README *.nsi TODO net.sourceforge.VMPK.desktop net.sourceforge.VMPK.appdata.xml vmpk.pro updateqm.pri vmpk.spec.in qt.conf vmpk-${PROJECT_VERSION}
+        COMMAND tar -cj --exclude=.* -f vmpk-${PROJECT_VERSION}.tar.bz2 vmpk-${PROJECT_VERSION}
+        COMMAND tar -cz --exclude=.* -f vmpk-${PROJECT_VERSION}.tar.gz vmpk-${PROJECT_VERSION}
+        COMMAND rm -rf vmpk-${PROJECT_VERSION}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     )
 endif ()
@@ -239,39 +214,29 @@ if(WIN32)
              DESTINATION .)
 endif()
 
-#if(APPLE)
-#    set (target "vmpk")
-#    configure_file ("${CMAKE_SOURCE_DIR}/cmake_admin/CompleteBundle.cmake.in"
-#      "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake" @ONLY IMMEDIATE)
-#    configure_file ("${CMAKE_SOURCE_DIR}/cmake_admin/CreateBundle.sh.in"
-#      "${CMAKE_CURRENT_BINARY_DIR}/build/CreateBundle.sh" @ONLY IMMEDIATE)
-#    install (SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/build/CompleteBundle.cmake")
-#endif ()
-
 # CPack support
 include (InstallRequiredSystemLibraries)
 set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "Virtual MIDI Piano Keyboard")
 set (CPACK_PACKAGE_VENDOR "vmpk.sourceforge.net")
 set (CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/README")
 set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/gpl.rtf")
-set (CPACK_PACKAGE_VERSION_MAJOR ${VERSION_MAJOR})
-set (CPACK_PACKAGE_VERSION_MINOR ${VERSION_MINOR})
-set (CPACK_PACKAGE_VERSION_PATCH ${VERSION_PATCH})
+set (CPACK_PACKAGE_VERSION_MAJOR ${CMAKE_PROJECT_VERSION_MAJOR})
+set (CPACK_PACKAGE_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
+set (CPACK_PACKAGE_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 set (CPACK_PACKAGE_INSTALL_DIRECTORY "vmpk")
 set (CPACK_PACKAGE_EXECUTABLES "vmpk" "Virtual MIDI Piano Keyboard")
 
 # source packages
 set (CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
 set (CPACK_SOURCE_IGNORE_FILES "/.svn/;/build/;/share/;~$;.cproject;.project;.user;${CPACK_SOURCE_IGNORE_FILES}")
-set (CPACK_SOURCE_PACKAGE_FILE_NAME "vmpk-${VERSION}")
+set (CPACK_SOURCE_PACKAGE_FILE_NAME "vmpk-${PROJECT_VERSION}")
 set (CPACK_SOURCE_STRIP_FILES OFF)
 
 # linux binary packages
 if (${CMAKE_SYSTEM} MATCHES "Linux")
     set (CPACK_GENERATOR TGZ;TBZ2)
     set (CPACK_PACKAGE_NAME "vmpk")
-    math (EXPR PWORD_SIZE "${CMAKE_SIZEOF_VOID_P}*8")
-    set (CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}-x86_${PWORD_SIZE})
+    set (CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
 #   set (CPACK_INCLUDE_TOPLEVEL_DIRECTORY 0)
 #   set (CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
     set (CPACK_STRIP_FILES ON)

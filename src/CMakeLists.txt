@@ -14,8 +14,7 @@
 # You should have received a copy of the GNU General Public License along 
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-link_directories(${CMAKE_CURRENT_BINARY_DIR})
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(vmpk_forms_SRCS
     about.ui
@@ -33,7 +32,7 @@ set(vmpk_forms_SRCS
     sonivoxsettingsdialog.ui
 )
 
-QT5_WRAP_UI(vmpk_ui_SRCS ${vmpk_forms_SRCS})
+qt5_wrap_ui(vmpk_ui_SRCS ${vmpk_forms_SRCS})
 
 set(vmpk_SRCS
     about.cpp
@@ -87,7 +86,7 @@ set(vmpk_SRCS
     vpiano.cpp
     vpiano.h )
 
-QT5_ADD_RESOURCES(vmpk_SRCS ../data/vmpk.qrc)
+qt5_add_resources(vmpk_SRCS ../data/vmpk.qrc)
 
 set(vmpk_qtobject_SRCS
     about.h
@@ -109,14 +108,15 @@ set(vmpk_qtobject_SRCS
     shortcutdialog.h)
 
 if(ENABLE_DBUS)
-    QT5_ADD_DBUS_ADAPTOR (vmpk_SRCS
+    add_definitions(-DENABLE_DBUS)
+    qt5_add_dbus_adaptor( vmpk_SRCS
                           net.sourceforge.vmpk.xml 
                           vpiano.h 
                           VPiano
-                          vmpk_adaptor)
+                          vmpk_adaptor )
 endif()
 
-QT5_WRAP_CPP(vmpk_moc_SRCS ${vmpk_qtobject_SRCS})
+qt5_wrap_cpp(vmpk_moc_SRCS ${vmpk_qtobject_SRCS})
 
 if(UNIX AND NOT APPLE)
     add_executable (vmpk
@@ -172,25 +172,29 @@ if(APPLE)
     )
     set_target_properties(vmpk PROPERTIES
         MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/data/Info.plist.in)
-    target_link_libraries(vmpk
-        "-framework Cocoa"
-    )
+#    target_link_libraries(vmpk
+#        "-framework Cocoa"
+#    )
 endif()
 
 target_link_libraries(vmpk
+    Drumstick::RT
     Qt5::Widgets
     Qt5::Svg
     Qt5::Network
+    $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
+    $<$<AND:$<BOOL:${UNIX}>,$<NOT:$<BOOL:${APPLE}>>>:Qt5::X11Extras>
+    $<$<BOOL:${APPLE}>:"-framework Cocoa">
+    $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
 )
 
-if(ENABLE_DBUS)
-    target_link_libraries(vmpk
-        Qt5::DBus
-    )
-endif()
+target_include_directories(vmpk PUBLIC
+    $<$<BOOL:${XCB_FOUND}>:${XCB_INCLUDE_DIRS}>
+)
 
-if(UNIX AND NOT APPLE)
-    target_link_libraries(vmpk
-        Qt5::X11Extras
-    )
-endif()
+target_compile_definitions(vmpk PUBLIC
+    VERSION=${PROJECT_VERSION}
+    RAWKBD_SUPPORT
+    PALETTE_SUPPORT
+    $<$<BOOL:${ENABLE_DBUS}>:ENABLE_DBUS>
+)
