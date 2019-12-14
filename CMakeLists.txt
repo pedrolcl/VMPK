@@ -15,6 +15,7 @@
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
 cmake_minimum_required(VERSION 3.9)
+
 project(VMPK
         VERSION 0.7.3.99
         DESCRIPTION "Virtual MIDI Piano Keyboard"
@@ -22,19 +23,17 @@ project(VMPK
 )
 
 set(DBUS_INIT OFF)
-set(ENABLE_CORE OFF)
-set(ENABLE_WIN OFF)
+#set(ENABLE_CORE OFF)
+#set(ENABLE_WIN OFF)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(DBUS_INIT ON)
-elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    set(ENABLE_CORE ON)
-elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    set(ENABLE_WIN ON)
+#elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#    set(ENABLE_CORE ON)
+#elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+#    set(ENABLE_WIN ON)
 endif()
 
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 
@@ -46,8 +45,8 @@ if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
-find_package(Qt5 COMPONENTS Widgets Svg Network LinguistTools REQUIRED)
-find_package(Drumstick COMPONENTS RT REQUIRED)
+find_package(Qt5 5.12 COMPONENTS Widgets Svg Network LinguistTools REQUIRED)
+find_package(Drumstick 1.1.3 COMPONENTS RT REQUIRED)
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
@@ -79,14 +78,10 @@ if (UNIX AND NOT APPLE)
     endif()
 endif()
 
-if (${ENABLE_CORE})
-    link_libraries("-framework CoreFoundation -framework Cocoa")
-endif ()
-
-if (${ENABLE_WIN})
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
-    link_libraries(winmm)
-endif ()
+#if (${ENABLE_WIN})
+#    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
+#    link_libraries(winmm)
+#endif ()
 
 #if(APPLE)
 #    find_library(DRUMSTICKRT
@@ -106,8 +101,11 @@ endif ()
 #    endif()
 #endif()
 
+include(GNUInstallDirs)
+
 add_subdirectory(src)
 add_subdirectory(translations)
+
 configure_file(vmpk.spec.in vmpk.spec IMMEDIATE @ONLY)
 
 # uninstall custom target
