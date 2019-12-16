@@ -23,16 +23,9 @@ project(VMPK
 )
 
 set(DBUS_INIT OFF)
-#set(ENABLE_CORE OFF)
-#set(ENABLE_WIN OFF)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(DBUS_INIT ON)
-#elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-#    set(ENABLE_CORE ON)
-#elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-#    set(ENABLE_WIN ON)
 endif()
-
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
@@ -61,59 +54,30 @@ if (ENABLE_DBUS)
     find_package(Qt5DBus REQUIRED)
 endif ()
 
-if (NOT APPLE)
+if (UNIX AND NOT APPLE)
+    find_package(Qt5X11Extras REQUIRED)
     find_package(PkgConfig REQUIRED)
     if(PKG_CONFIG_FOUND)
         message(STATUS "Program pkg-config v${PKG_CONFIG_VERSION_STRING} found (${PKG_CONFIG_EXECUTABLE})")
     else()
         message(FATAL_ERROR "Program pkg-config not found")
     endif()
-endif()
-
-if (UNIX AND NOT APPLE)
-    find_package(Qt5X11Extras REQUIRED)
     pkg_check_modules(XCB REQUIRED xcb)
     if(XCB_FOUND)
         message(STATUS "Found XCB development libs v${XCB_VERSION}")
     endif()
 endif()
 
-#if (${ENABLE_WIN})
-#    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
-#    link_libraries(winmm)
-#endif ()
-
-#if(APPLE)
-#    find_library(DRUMSTICKRT
-#        NAMES drumstick-rt
-#        HINTS $ENV{DRUMSTICK_FRAMEWORKS}
-#        REQUIRED)
-#    if(DRUMSTICKRT)
-#        include_directories(${DRUMSTICKRT}/Headers)
-#        link_libraries(${DRUMSTICKRT})
-#    endif()
-#else()
-#    pkg_check_modules(DRUMSTICKRT REQUIRED drumstick-rt>=1.1.3)
-#    if(DRUMSTICKRT_FOUND)
-#        link_directories(${DRUMSTICKRT_LIBDIR})
-#        include_directories(${DRUMSTICKRT_INCLUDEDIR})
-#        link_libraries(${DRUMSTICKRT_LIBRARIES})
-#    endif()
-#endif()
-
 include(GNUInstallDirs)
 
 add_subdirectory(src)
 add_subdirectory(translations)
-
-configure_file(vmpk.spec.in vmpk.spec IMMEDIATE @ONLY)
 
 # uninstall custom target
 configure_file(
     "${CMAKE_SOURCE_DIR}/cmake_admin/cmake_uninstall.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
     IMMEDIATE @ONLY)
-
 add_custom_target( uninstall
     "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
@@ -146,10 +110,6 @@ set(vmpk_DATA_FILES
     #data/help_ru.html
 
 if(UNIX)
-    add_custom_target ( distclean
-        COMMAND rm -rf build/*
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-
     add_custom_target (tarball
         COMMAND mkdir -p vmpk-${PROJECT_VERSION}/translations/
         COMMAND cp -r cmake_admin vmpk-${PROJECT_VERSION}
@@ -168,6 +128,7 @@ if(UNIX)
 endif ()
 
 if(UNIX AND NOT APPLE)
+    configure_file(vmpk.spec.in vmpk.spec IMMEDIATE @ONLY)
 
     add_subdirectory (man)
 
@@ -249,10 +210,6 @@ endif ()
 #    set (CPACK_NSIS_URL_INFO_ABOUT "http://vmpk.sourceforge.net")
 #    set (CPACK_NSIS_CONTACT "plcl@users.sourceforge.net")
 #    set (CPACK_NSIS_MODIFY_PATH OFF)
-#endif ()
-
-# Mac OSX bundle
-#if (APPLE)
 #endif ()
 
 include (CPack)

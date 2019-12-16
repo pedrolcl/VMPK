@@ -3,7 +3,7 @@
 #    vmpk_tr.ts
 #    vmpk_zh_CN.ts
 
-SET( TRANSLATIONS_FILES
+set( TRANSLATIONS_FILES
      vmpk_cs.ts
      vmpk_de.ts
      vmpk_es.ts
@@ -14,13 +14,15 @@ SET( TRANSLATIONS_FILES
      vmpk_sv.ts
 )
 
-QT5_ADD_TRANSLATION(QM_FILES ${TRANSLATIONS_FILES})
-ADD_CUSTOM_TARGET(translations ALL DEPENDS ${QM_FILES})
+qt5_add_translation(QM_FILES ${TRANSLATIONS_FILES})
+add_custom_target(translations ALL DEPENDS ${QM_FILES})
 
-IF (UNIX AND NOT APPLE)
-    INSTALL( FILES ${QM_FILES}
-             DESTINATION share/vmpk/locale )
-ELSE (UNIX AND NOT APPLE)
-    INSTALL( FILES ${QM_FILES}
+if (UNIX AND NOT APPLE)
+    install( FILES ${QM_FILES}
+             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/vmpk/locale )
+endif ()
+
+if (WIN32)
+    install( FILES ${QM_FILES}
              DESTINATION . )
-ENDIF (UNIX AND NOT APPLE)
+endif ()

@@ -19,24 +19,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-#set(vmpk_forms_SRCS
-#    about.ui
-#    colordialog.ui
-#    extracontrols.ui
-#    kmapdialog.ui
-#    midisetup.ui
-#    preferences.ui
-#    riffimportdlg.ui
-#    vpiano.ui
-#    shortcutdialog.ui
-#    fluidsettingsdialog.ui
-#    networksettingsdialog.ui
-#    macsynthsettingsdialog.ui
-#    sonivoxsettingsdialog.ui
-#)
-
-#qt5_wrap_ui(vmpk_ui_SRCS ${vmpk_forms_SRCS})
-
 set(vmpk_SRCS
     about.ui
     colordialog.ui
@@ -101,29 +83,9 @@ set(vmpk_SRCS
     sonivoxsettingsdialog.h
     vpiano.cpp
     vpiano.h
+    maceventhelper.h
     ../data/vmpk.qrc
 )
-
-#qt5_add_resources(vmpk_SRCS ../data/vmpk.qrc)
-
-#set(vmpk_qtobject_SRCS
-#    about.h
-#    colordialog.h
-#    colorwidget.h
-#    extracontrols.h
-#    kmapdialog.h
-#    midisetup.h
-#    pianokeybd.h
-#    pianoscene.h
-#    preferences.h
-#    riff.h
-#    riffimportdlg.h
-#    vpiano.h
-#    fluidsettingsdialog.h
-#    networksettingsdialog.h
-#    macsynthsettingsdialog.h
-#    sonivoxsettingsdialog.h
-#    shortcutdialog.h)
 
 if(ENABLE_DBUS)
     add_definitions(-DENABLE_DBUS)
@@ -138,25 +100,20 @@ if(ENABLE_DBUS)
         PROPERTY SKIP_AUTOGEN ON)
 endif()
 
-#qt5_wrap_cpp(vmpk_moc_SRCS ${vmpk_qtobject_SRCS})
-
 if(WIN32)
-    set (vmpk_RESOURCES)
     configure_file (vmpk.rc.in ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc 
                     IMMEDIATE @ONLY)
-    #set (vmpk_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc)
 endif()
 
 if(APPLE)
-    #set(vmpk_SRCS ${vmpk_SRCS} maceventhelper.mm)
-    #set (MACOSX_BUNDLE_INFO_STRING "Virtual MIDI Piano Keyboard" )
+    set (MACOSX_BUNDLE_INFO_STRING "Virtual MIDI Piano Keyboard" )
     set (MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION} )
     set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_VERSION} )
     set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION} )
     set (MACOSX_BUNDLE_ICON_FILE "vmpk.icns" )
-    set (MACOSX_BUNDLE_GUI_IDENTIFIER "net.sourceforge" )
+    set (MACOSX_BUNDLE_GUI_IDENTIFIER "net.sourceforge.vmpk" )
     set (MACOSX_BUNDLE_BUNDLE_NAME "vmpk" )
-    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2018 Pedro López-Cabanillas and others")
+    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2019 Pedro López-Cabanillas and others")
     set (vmpk_RSC
         ../data/vmpk.icns
         ../data/help.html
@@ -173,22 +130,17 @@ if(APPLE)
     set_source_files_properties (${vmpk_RSC} PROPERTIES
         MACOSX_PACKAGE_LOCATION Resources
     )
-#    target_link_libraries(vmpk
-#        "-framework Cocoa"
-#    )
 endif()
 
-add_executable (vmpk
-    $<$<PLATFORM_ID:Darwin>:MACOSX_BUNDLE>
-    $<$<PLATFORM_ID:Windows>:WIN32>
+add_executable (vmpk MACOSX_BUNDLE WIN32
     $<$<PLATFORM_ID:Darwin>:maceventhelper.mm>
     $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc>
     ${vmpk_SRCS}
 )
 
-set_target_properties(vmpk PROPERTIES
-    MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/data/Info.plist.in
-)
+#set_target_properties(vmpk PROPERTIES
+#    MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/data/Info.plist.in
+#)
 
 target_link_libraries(vmpk
     Drumstick::RT
@@ -198,7 +150,6 @@ target_link_libraries(vmpk
     $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
-    #$<$<BOOL:${APPLE}>:"-framework CoreFoundation -framework Cocoa">
     $<$<PLATFORM_ID:Darwin>:"-framework CoreFoundation -framework Cocoa">
     $<$<PLATFORM_ID:Windows>:winmm>
 )
