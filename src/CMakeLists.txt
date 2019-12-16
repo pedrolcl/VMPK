@@ -136,11 +136,8 @@ add_executable (vmpk MACOSX_BUNDLE WIN32
     $<$<PLATFORM_ID:Darwin>:maceventhelper.mm>
     $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc>
     ${vmpk_SRCS}
+    ${vmpk_RSC}
 )
-
-#set_target_properties(vmpk PROPERTIES
-#    MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/data/Info.plist.in
-#)
 
 target_link_libraries(vmpk
     Drumstick::RT
@@ -150,9 +147,12 @@ target_link_libraries(vmpk
     $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
-    $<$<PLATFORM_ID:Darwin>:"-framework CoreFoundation -framework Cocoa">
     $<$<PLATFORM_ID:Windows>:winmm>
 )
+
+if (APPLE)
+    target_link_libraries(vmpk "-framework CoreFoundation -framework Cocoa")
+endif()
 
 target_include_directories(vmpk PUBLIC
     $<$<BOOL:${XCB_FOUND}>:${XCB_INCLUDE_DIRS}>
@@ -167,4 +167,5 @@ target_compile_definitions(vmpk PUBLIC
 
 install (TARGETS vmpk
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
