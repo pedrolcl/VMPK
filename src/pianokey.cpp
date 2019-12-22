@@ -20,7 +20,7 @@
 #include <QApplication>
 #include <QPainter>
 #include <QPalette>
-#include <QtSvg/QSvgRenderer>
+#include <QPixmap>
 
 static const QBrush blackBrush = QBrush(Qt::black);
 static const QBrush whiteBrush = QBrush(Qt::white);
@@ -47,9 +47,10 @@ PianoKey::PianoKey(const QRectF &rect, const bool black, const int note)
 
 void PianoKey::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    static QSvgRenderer keyRenderer(QString(":/vpiano/blkey.svg"));
+    static QPixmap pixmap(QLatin1String(":/vpiano/blkey.png"));
     static const QPen blackPen(Qt::black, 1);
     static const QPen grayPen(QBrush(Qt::gray), 1, Qt::SolidLine,  Qt::RoundCap, Qt::RoundJoin);
+    painter->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
     if (m_pressed) {
         if (m_selectedBrush.style() != Qt::NoBrush) {
             painter->setBrush(m_selectedBrush);
@@ -60,9 +61,9 @@ void PianoKey::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidge
         painter->setBrush(m_brush);
     }
     painter->setPen(blackPen);
-    painter->drawRoundRect(rect(), 15, 15);
+    painter->drawRoundedRect(rect(), 15, 15, Qt::RelativeSize);
     if (m_black)
-        keyRenderer.render(painter, rect());
+        painter->drawPixmap(rect(), pixmap, pixmap.rect());
     else {
         QPointF points[3] = {
              QPointF(rect().left()+1.5, rect().bottom()-1),

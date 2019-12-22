@@ -102,7 +102,7 @@ const QString QSTR_MULTICAST_ADDRESS("225.0.0.37");
 const QString QSTR_PALETTEPREFIX("Palette_");
 const QString QSTR_CURRENTPALETTE("CurrentPalette");
 const QString QSTR_SHOWCOLORSCALE("ShowColorScale");
-const QString QSTR_CHKBOXSTYLE("QCheckBox::indicator {width: 20px; height: 20px;} QCheckBox::indicator:checked {image: url(:/vpiano/led_green.svg);} QCheckBox::indicator:unchecked{image: url(:/vpiano/led_grey.svg);}");
+const QString QSTR_CHKBOXSTYLE("QCheckBox::indicator {width: 20px; height: 20px;} QCheckBox::indicator:checked {image: url(:/vpiano/led_green.png);} QCheckBox::indicator:unchecked{image: url(:/vpiano/led_grey.png);}");
 
 #if defined(SMALL_SCREEN)
 const QString QSTR_VMPKURL("http://vmpk.sourceforge.net/m/");

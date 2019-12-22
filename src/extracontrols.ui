@@ -103,7 +103,7 @@
         </property>
         <property name="icon">
          <iconset resource="../data/vmpk.qrc">
-          <normaloff>:/vpiano/list-add.svg</normaloff>:/vpiano/list-add.svg</iconset>
+          <normaloff>:/vpiano/list-add.png</normaloff>:/vpiano/list-add.png</iconset>
         </property>
        </widget>
       </item>
@@ -117,7 +117,7 @@
         </property>
         <property name="icon">
          <iconset resource="../data/vmpk.qrc">
-          <normaloff>:/vpiano/list-remove.svg</normaloff>:/vpiano/list-remove.svg</iconset>
+          <normaloff>:/vpiano/list-remove.png</normaloff>:/vpiano/list-remove.png</iconset>
         </property>
        </widget>
       </item>

@@ -142,7 +142,6 @@ add_executable (vmpk MACOSX_BUNDLE WIN32
 target_link_libraries(vmpk
     Drumstick::RT
     Qt5::Widgets
-    Qt5::Svg
     Qt5::Network
     $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>

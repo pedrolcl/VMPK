@@ -59,7 +59,7 @@ void PianoKeybd::initialize()
     setOptimizationFlag(DontClipPainter, true);
     setOptimizationFlag(DontSavePainterState, true);
     setOptimizationFlag(DontAdjustForAntialiasing, true);
-    setBackgroundBrush(QApplication::palette().background());
+    setBackgroundBrush(QApplication::palette().window());
     initDefaultMap();
 }
 

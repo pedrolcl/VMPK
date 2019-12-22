@@ -110,7 +110,7 @@ void MidiSetup::setInputs(QList<MIDIInput *> ins)
     ui.comboinputBackends->disconnect();
     ui.comboinputBackends->clear();
     foreach(MIDIInput *i, ins) {
-        ui.comboinputBackends->addItem(i->backendName(), qVariantFromValue((void *) i));
+        ui.comboinputBackends->addItem(i->backendName(), QVariant::fromValue(i));
     }
     connect(ui.comboinputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshInputs(QString)));
 }
@@ -119,7 +119,7 @@ void MidiSetup::setOutputs(QList<MIDIOutput *> outs)
 {
     ui.comboOutputBackends->disconnect();
     foreach(MIDIOutput *o, outs) {
-        ui.comboOutputBackends->addItem(o->backendName(), qVariantFromValue((void *) o));
+        ui.comboOutputBackends->addItem(o->backendName(), QVariant::fromValue(o));
     }
     connect(ui.comboOutputBackends, SIGNAL(currentIndexChanged(QString)), SLOT(refreshOutputs(QString)));
 }
@@ -177,7 +177,7 @@ void MidiSetup::refreshInputs(QString id)
         m_midiIn->close();
         int idx = ui.comboinputBackends->findText(id, Qt::MatchStartsWith);
         if (idx > -1)
-            m_midiIn = (MIDIInput *) ui.comboinputBackends->itemData(idx).value<void *>();
+            m_midiIn = ui.comboinputBackends->itemData(idx).value<MIDIInput*>();
         else
             m_midiIn = 0;
     }
@@ -197,7 +197,7 @@ void MidiSetup::refreshOutputs(QString id)
         m_midiOut->close();
         int idx = ui.comboOutputBackends->findText(id, Qt::MatchStartsWith);
         if (idx > -1)
-            m_midiOut = (MIDIOutput *) ui.comboOutputBackends->itemData(idx).value<void *>();
+            m_midiOut = ui.comboOutputBackends->itemData(idx).value<MIDIOutput*>();
         else
             m_midiOut = 0;
     }

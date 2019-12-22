@@ -28,8 +28,8 @@ DialogExtraControls::DialogExtraControls(QWidget *parent) :
     m_ui->setupUi(this);
     m_ui->btnUp->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_ArrowUp)));
     m_ui->btnDown->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_ArrowDown)));
-    m_ui->btnAdd->setIcon(QIcon::fromTheme("list-add", QIcon(":/vpiano/list-add.svg")));
-    m_ui->btnRemove->setIcon(QIcon::fromTheme("list-remove", QIcon(":/vpiano/list-remove.svg")));
+    m_ui->btnAdd->setIcon(QIcon::fromTheme("list-add", QIcon(":/vpiano/list-add.png")));
+    m_ui->btnRemove->setIcon(QIcon::fromTheme("list-remove", QIcon(":/vpiano/list-remove.png")));
     connect( m_ui->btnAdd, SIGNAL(clicked()), SLOT(addControl()) );
     connect( m_ui->btnRemove, SIGNAL(clicked()), SLOT(removeControl()) );
     connect( m_ui->btnUp, SIGNAL(clicked()), SLOT(controlUp()) );
@@ -245,7 +245,7 @@ void DialogExtraControls::openFile()
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
     if (e != NULL) {
         QString fileName = QFileDialog::getOpenFileName(this,
-            tr("System Exclusive File"), QString::null, tr("System Exclusive (*.syx)"));
+            tr("System Exclusive File"), QString(), tr("System Exclusive (*.syx)"));
         if (!fileName.isEmpty()) {
             m_ui->edtFileSyx->setText(fileName);
             e->setFileName(fileName);

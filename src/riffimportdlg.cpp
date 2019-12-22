@@ -46,7 +46,7 @@ RiffImportDlg::~RiffImportDlg()
 void RiffImportDlg::openInput()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
-        tr("Input SoundFont"), QString::null, tr("SoundFonts (*.sf2 *.sbk *.dls)"));
+        tr("Input SoundFont"), QString(), tr("SoundFonts (*.sf2 *.sbk *.dls)"));
     if (!fileName.isEmpty()) {
         setInput(fileName);
         m_riff->readFromFile(m_input);
