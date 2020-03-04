@@ -52,8 +52,8 @@ public:
     Instrument* getDrumsInstrument();
     void setRawKeyMapFileName( const QString fileName );
     void setKeyMapFileName( const QString fileName );
-    KeyboardMap* getKeyboardMap() { return &m_keymap; }
-    KeyboardMap* getRawKeyboardMap() { return &m_rawmap; }
+    VMPKKeyboardMap* getKeyboardMap() { return &m_keymap; }
+    VMPKKeyboardMap* getRawKeyboardMap() { return &m_rawmap; }
     void retranslateUi();
     void setColorPolicyDialog(ColorDialog *value);
     void setNoteNames(const QStringList& noteNames);
@@ -94,8 +94,8 @@ private:
     bool m_enableKeyboard;
     bool m_enableMouse;
     bool m_enableTouch;
-    KeyboardMap m_keymap;
-    KeyboardMap m_rawmap;
+    VMPKKeyboardMap m_keymap;
+    VMPKKeyboardMap m_rawmap;
     ColorDialog* m_colorDialog;
 };
 

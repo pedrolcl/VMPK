@@ -39,7 +39,7 @@ if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
 endif()
 
 find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
-find_package(Drumstick 1.1.3 COMPONENTS RT REQUIRED)
+find_package(Drumstick 2.0 COMPONENTS RT Widgets REQUIRED)
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}

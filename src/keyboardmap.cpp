@@ -16,16 +16,15 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "keyboardmap.h"
-
 #include <QDebug>
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QKeySequence>
 #include <QMessageBox>
+#include "keyboardmap.h"
 
-void KeyboardMap::loadFromXMLFile(const QString fileName)
+void VMPKKeyboardMap::loadFromXMLFile(const QString fileName)
 {
     QFile f(fileName);
     if (f.open(QFile::ReadOnly | QFile::Text)) {
@@ -39,7 +38,7 @@ void KeyboardMap::loadFromXMLFile(const QString fileName)
     }
 }
 
-void KeyboardMap::saveToXMLFile(const QString fileName)
+void VMPKKeyboardMap::saveToXMLFile(const QString fileName)
 {
     QFile f(fileName);
     if (f.open(QFile::WriteOnly | QFile::Text)) {
@@ -53,7 +52,7 @@ void KeyboardMap::saveToXMLFile(const QString fileName)
     }
 }
 
-void KeyboardMap::initializeFromXML(QIODevice *dev)
+void VMPKKeyboardMap::initializeFromXML(QIODevice *dev)
 {
     QXmlStreamReader reader(dev);
     clear();
@@ -98,7 +97,7 @@ void KeyboardMap::initializeFromXML(QIODevice *dev)
     }
 }
 
-void KeyboardMap::serializeToXML(QIODevice *dev)
+void VMPKKeyboardMap::serializeToXML(QIODevice *dev)
 {
     QXmlStreamWriter writer(dev);
     writer.setAutoFormatting(true);
@@ -121,17 +120,17 @@ void KeyboardMap::serializeToXML(QIODevice *dev)
     writer.writeEndDocument();
 }
 
-void KeyboardMap::copyFrom(const KeyboardMap* other)
+void VMPKKeyboardMap::copyFrom(const VMPKKeyboardMap* other)
 {
     m_fileName = other->getFileName();
     m_rawMode = other->getRawMode();
     clear();
-    KeyboardMap::ConstIterator it;
+    VMPKKeyboardMap::ConstIterator it;
     for(it = other->begin(); it != other->end(); ++it)
         insert(it.key(), it.value());
 }
 
-void KeyboardMap::reportError( const QString filename,
+void VMPKKeyboardMap::reportError( const QString filename,
                                const QString title,
                                const QString err )
 {

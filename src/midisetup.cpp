@@ -18,11 +18,8 @@
 
 #include <QSettings>
 #include <QDebug>
+#include <drumstick/configurationdialogs.h>
 #include "midisetup.h"
-#include "fluidsettingsdialog.h"
-#include "networksettingsdialog.h"
-#include "macsynthsettingsdialog.h"
-#include "sonivoxsettingsdialog.h"
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_advanced(false),
@@ -212,26 +209,18 @@ void MidiSetup::configureInput()
 {
     QString driver = ui.comboinputBackends->currentText();
     if (driver == "Network") {
-        NetworkSettingsDialog dlg(this);
-        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
+        m_settingsChanged = drumstick::widgets::configureInputDriver(driver, this);
     }
 }
 
 void MidiSetup::configureOutput()
 {
     QString driver = ui.comboOutputBackends->currentText();
-    if (driver == "Network") {
-        NetworkSettingsDialog dlg(this);
-        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
-    } else if (driver == "FluidSynth") {
-        FluidSettingsDialog dlg(this);
-        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
-    } else if (driver == "DLS Synth") {
-        MacSynthSettingsDialog dlg(this);
-        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
-    } else if (driver == "SonivoxEAS") {
-        SonivoxSettingsDialog dlg(this);
-        m_settingsChanged = ( dlg.exec() == QDialog::Accepted );
+    if (driver == "Network" ||
+        driver == "FluidSynth" ||
+        driver == "DLS Synth" ||
+        driver == "SonivoxEAS") {
+        m_settingsChanged = drumstick::widgets::configureOutputDriver(driver, this);
     }
 }
 
@@ -267,13 +256,7 @@ bool MidiSetup::changeSoundFont(const QString& fileName)
 {
     QString driver = ui.comboOutputBackends->currentText();
     if (driver == "FluidSynth" || driver == "DLS Synth") {
-        if (driver == "FluidSynth") {
-            FluidSettingsDialog dlg(this);
-            dlg.changeSoundFont(fileName);
-        } else if (driver == "DLS Synth") {
-            MacSynthSettingsDialog dlg(this);
-            dlg.changeSoundFont(fileName);
-        }
+        drumstick::widgets::changeSoundFont(driver, fileName, this);
         if (m_midiOut != 0) {
             QSettings settings;
             QString conn = ui.comboOutput->currentText();

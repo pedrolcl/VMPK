@@ -20,16 +20,11 @@
 #define NATIVEFILTER_H
 
 #include <QAbstractNativeEventFilter>
-#include "pianodefs.h"
+#include <drumstick/pianokeybd.h>
 
-class RawKbdHandler {
-public:
-    virtual ~RawKbdHandler() {}
-    virtual bool handleKeyPressed(int keycode) = 0;
-    virtual bool handleKeyReleased(int keycode) = 0;
-};
+using namespace drumstick::widgets;
 
-class VPIANO_EXPORT NativeFilter : public QAbstractNativeEventFilter
+class NativeFilter : public QAbstractNativeEventFilter
 {
 public:
     NativeFilter(): m_enabled(false), m_handler(0) {}

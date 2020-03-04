@@ -21,18 +21,18 @@
 
 #include <QDialog>
 #include <QAbstractButton>
-#include "pianopalette.h"
+#include <drumstick/pianopalette.h>
 
 namespace Ui {
     class ColorDialog;
 }
 
+using namespace drumstick::widgets;
+
 class ColorDialog : public QDialog
 {
     Q_OBJECT
-    
 public:
-
     explicit ColorDialog(QWidget *parent = 0);
     ~ColorDialog();
     PianoPalette *currentPalette();

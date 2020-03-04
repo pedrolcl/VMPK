@@ -126,7 +126,7 @@ const int MIDIVELOCITY = 100;
 const int MIDIPAN = 64;
 const int MIDIVOLUME = 100;
 const int MIDIMAXVALUE = 127;
-const int DEFAULTSTARTINGKEY = 0;
+//const int DEFAULTSTARTINGKEY = 0;
 const int DEFAULTBASEOCTAVE = 3;
 
 #if defined(SMALL_SCREEN)
@@ -134,16 +134,16 @@ const int DEFAULTNUMBEROFKEYS = 25;
 const int TOOLBARLABELMARGIN = 2;
 const int KEYLABELFONTSIZE = 3;
 #else
-const int DEFAULTNUMBEROFKEYS = 61;
+//const int DEFAULTNUMBEROFKEYS = 61;
 const int TOOLBARLABELMARGIN = 5;
-const int KEYLABELFONTSIZE = 7;
+//const int KEYLABELFONTSIZE = 7;
 #endif
 const int NETWORKPORTNUMBER = 21928;
 
-const int PAL_SINGLE = 0;
-const int PAL_DOUBLE = 1;
-const int PAL_CHANNELS = 2;
-const int PAL_SCALE = 3;
+//const int PAL_SINGLE = 0;
+//const int PAL_DOUBLE = 1;
+//const int PAL_CHANNELS = 2;
+//const int PAL_SCALE = 3;
 
 #if defined(Q_WS_MAC) && defined(QT_MAC_USE_COCOA)
 #error "This program requires Qt built with the Carbon framework. Sorry."

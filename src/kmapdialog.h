@@ -19,9 +19,9 @@
 #ifndef KMAPDIALOG_H
 #define KMAPDIALOG_H
 
+#include <QDialog>
 #include "ui_kmapdialog.h"
 #include "keyboardmap.h"
-#include <QDialog>
 
 class KMapDialog : public QDialog
 {
@@ -31,8 +31,8 @@ public:
     KMapDialog(QWidget *parent = 0);
     void load(const QString fileName);
     void save(const QString fileName);
-    void displayMap(const KeyboardMap* map);
-    void getMap(KeyboardMap* map);
+    void displayMap(const VMPKKeyboardMap* map);
+    void getMap(VMPKKeyboardMap* map);
     void retranslateUi();
 
 public slots:
@@ -44,7 +44,7 @@ private:
 
     QPushButton* m_btnOpen;
     QPushButton* m_btnSave;
-    KeyboardMap m_map;
+    VMPKKeyboardMap m_map;
     Ui::KMapDialogClass ui;
 };
 

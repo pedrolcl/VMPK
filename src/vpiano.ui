@@ -49,7 +49,7 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <widget class="PianoKeybd" name="pianokeybd"/>
+     <widget class="drumstick::widgets::PianoKeybd" name="pianokeybd"/>
     </item>
    </layout>
   </widget>
@@ -910,9 +910,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PianoKeybd</class>
+   <class>drumstick::widgets::PianoKeybd</class>
    <extends>QGraphicsView</extends>
-   <header>pianokeybd.h</header>
+   <header>drumstick/pianokeybd.h</header>
   </customwidget>
  </customwidgets>
  <resources>

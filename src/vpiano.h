@@ -19,12 +19,10 @@
 #ifndef VPIANO_H
 #define VPIANO_H
 
-#include "ui_vpiano.h"
-#include "pianoscene.h"
-#if defined(RAWKBD_SUPPORT)
-#include "nativefilter.h"
-#endif
 #include <QMainWindow>
+#include <drumstick/pianokeybd.h>
+#include "nativefilter.h"
+#include "ui_vpiano.h"
 
 class QTranslator;
 class QLabel;
@@ -46,9 +44,12 @@ namespace rt {
     class MIDIInput;
     class MIDIOutput;
     class BackendManager;
+}
+namespace widgets {
+    class PianoHandler;
 }}
 
-class VPiano : public QMainWindow, public PianoHandler
+class VPiano : public QMainWindow, public drumstick::widgets::PianoHandler
 {
     Q_OBJECT
 
@@ -209,7 +210,6 @@ private:
     QColor getColorFromPolicy(const int chan, const int note, const int vel);
     int getType(const int note) const;
     int getDegree(const int note) const;
-    PianoScene *currentPianoScene();
 
     About *dlgAbout();
     Preferences *dlgPreferences();
@@ -238,9 +238,7 @@ private:
     DialogExtraControls *m_dlgExtra;
     RiffImportDlg *m_dlgRiffImport;
     ColorDialog *m_dlgColorPolicy;
-#if defined(RAWKBD_SUPPORT)
     NativeFilter *m_filter;
-#endif
 
     Ui::VPiano ui;
 

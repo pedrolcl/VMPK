@@ -19,20 +19,21 @@
 #ifndef KEYBOARDMAP_H
 #define KEYBOARDMAP_H
 
-#include "constants.h"
 #include <QHash>
 #include <QIODevice>
+#include <drumstick/pianokeybd.h>
+#include "constants.h"
 
-class KeyboardMap : public QHash<int, int>
+class VMPKKeyboardMap : public drumstick::widgets::KeyboardMap
 {
     Q_DECLARE_TR_FUNCTIONS(KeyboardMap)
 public:
-    KeyboardMap() : QHash<int, int>(), m_fileName(QSTR_DEFAULT), m_rawMode(false) {}
+    VMPKKeyboardMap() : QHash<int, int>(), m_fileName(QSTR_DEFAULT), m_rawMode(false) {}
     void loadFromXMLFile(const QString fileName);
     void saveToXMLFile(const QString fileName);
     void initializeFromXML(QIODevice *dev);
 	void serializeToXML(QIODevice *dev);
-	void copyFrom(const KeyboardMap* other);
+    void copyFrom(const VMPKKeyboardMap* other);
 
 	void setFileName(const QString fileName) { m_fileName = fileName; }
 	const QString& getFileName() const { return m_fileName; }

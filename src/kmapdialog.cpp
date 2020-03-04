@@ -16,13 +16,14 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kmapdialog.h"
-#include "vpiano.h"
 #include <QFileInfo>
 #include <QHeaderView>
 #include <QPushButton>
 #include <QKeySequence>
 #include <QFileDialog>
+#include <drumstick/pianokeybd.h>
+#include "kmapdialog.h"
+#include "vpiano.h"
 
 KMapDialog::KMapDialog(QWidget *parent)
     : QDialog(parent)
@@ -36,7 +37,7 @@ KMapDialog::KMapDialog(QWidget *parent)
     connect(m_btnSave, SIGNAL(clicked()), SLOT(slotSave()));
 }
 
-void KMapDialog::displayMap(const KeyboardMap* map)
+void KMapDialog::displayMap(const VMPKKeyboardMap* map)
 {
     int row;
     if (map != NULL) m_map.copyFrom(map);
@@ -76,7 +77,7 @@ void KMapDialog::updateMap()
     }
 }
 
-void KMapDialog::getMap(KeyboardMap* map)
+void KMapDialog::getMap(VMPKKeyboardMap* map)
 {
     updateMap();
     map->copyFrom(&m_map);

@@ -29,10 +29,6 @@ set(vmpk_SRCS
     riffimportdlg.ui
     vpiano.ui
     shortcutdialog.ui
-    fluidsettingsdialog.ui
-    networksettingsdialog.ui
-    macsynthsettingsdialog.ui
-    sonivoxsettingsdialog.ui
     about.cpp
     about.h
     colordialog.cpp
@@ -46,23 +42,13 @@ set(vmpk_SRCS
     instrument.h
     keyboardmap.cpp
     keyboardmap.h
-    keylabel.cpp
-    keylabel.h
     kmapdialog.cpp
     kmapdialog.h
+    maceventhelper.h
     main.cpp
     mididefs.h
     midisetup.cpp
     midisetup.h
-    pianodefs.h
-    pianokeybd.cpp
-    pianokeybd.h
-    pianokey.cpp
-    pianokey.h
-    pianopalette.cpp
-    pianopalette.h
-    pianoscene.cpp
-    pianoscene.h
     preferences.cpp
     preferences.h
     nativefilter.cpp
@@ -73,17 +59,8 @@ set(vmpk_SRCS
     riffimportdlg.h
     shortcutdialog.cpp
     shortcutdialog.h
-    fluidsettingsdialog.cpp
-    fluidsettingsdialog.h
-    networksettingsdialog.cpp
-    networksettingsdialog.h
-    macsynthsettingsdialog.cpp
-    macsynthsettingsdialog.h
-    sonivoxsettingsdialog.cpp
-    sonivoxsettingsdialog.h
     vpiano.cpp
     vpiano.h
-    maceventhelper.h
     ../data/vmpk.qrc
 )
 
@@ -141,8 +118,8 @@ add_executable (vmpk MACOSX_BUNDLE WIN32
 
 target_link_libraries(vmpk
     Drumstick::RT
+    Drumstick::Widgets
     Qt5::Widgets
-    Qt5::Network
     $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
