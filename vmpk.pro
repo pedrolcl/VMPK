@@ -13,10 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.7.3
+VERSION = 0.7.99
 VER_MAJ = 0
 VER_MIN = 7
-VER_PAT = 3
+VER_PAT = 99
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
 lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
@@ -41,18 +41,18 @@ DEFINES += VERSION=$$VERSION
 macx {
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)  #$$(HOME)/Library/Frameworks/drumstick-rt.framework/Headers
     LIBS += -F$$(DRUMSTICKLIBS)           #$$(HOME)/Library/Frameworks
-    LIBS += -framework drumstick-rt
+    LIBS += -framework drumstick-rt -framework drumstick-widgets
 }
 
 linux* {
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)
-    LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt
+    LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt -ldrumstick-widgets
 }
 
 win32 {
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)
     LIBS += -L$$(DRUMSTICKLIBS)
-    LIBS += -ldrumstick-rt1
+    LIBS += -ldrumstick-rt2 -ldrumstick-widgets2
     LIBS += -lws2_32
     RC_FILE = src/vpianoico.rc
 }
@@ -112,14 +112,12 @@ INCLUDEPATH += src
 FORMS += src/about.ui \
     src/colordialog.ui \
     src/extracontrols.ui \
+    src/kmapdialog.ui \
     src/midisetup.ui \
     src/preferences.ui \
     src/riffimportdlg.ui \
-    src/vpiano.ui \
-    src/networksettingsdialog.ui \
-    src/fluidsettingsdialog.ui \
-    src/macsynthsettingsdialog.ui \
-    src/sonivoxsettingsdialog.ui
+    src/shortcutdialog.ui \
+    src/vpiano.ui
 
 HEADERS += src/about.h \
     src/colordialog.h \
@@ -128,24 +126,16 @@ HEADERS += src/about.h \
     src/extracontrols.h \
     src/instrument.h \
     src/keyboardmap.h \
-    src/keylabel.h \
+    src/kmapdialog.h \
+    src/maceventhelper.h \
     src/mididefs.h \
     src/midisetup.h \
-    src/pianodefs.h \
-    src/pianokeybd.h \
-    src/pianokey.h \
-    src/pianopalette.h \
-    src/pianoscene.h \
     src/preferences.h \
     src/nativefilter.h \
     src/riff.h \
     src/riffimportdlg.h \
-    src/vpiano.h \
-    src/maceventhelper.h \
-    src/networksettingsdialog.h \
-    src/fluidsettingsdialog.h \
-    src/macsynthsettingsdialog.h \
-    src/sonivoxsettingsdialog.h
+    src/shortcutdialog.h \
+    src/vpiano.h
 
 SOURCES += src/about.cpp \
     src/colordialog.cpp \
@@ -153,29 +143,15 @@ SOURCES += src/about.cpp \
     src/extracontrols.cpp \
     src/instrument.cpp \
     src/keyboardmap.cpp \
-    src/keylabel.cpp \
+    src/kmapdialog.cpp \
+    src/shortcutdialog.cpp \
     src/main.cpp \
     src/midisetup.cpp \
-    src/pianokeybd.cpp \
-    src/pianokey.cpp \
-    src/pianopalette.cpp \
-    src/pianoscene.cpp \
+    src/nativefilter.cpp \
     src/preferences.cpp \
     src/riff.cpp \
     src/riffimportdlg.cpp \
-    src/vpiano.cpp \
-    src/networksettingsdialog.cpp \
-    src/fluidsettingsdialog.cpp \
-    src/macsynthsettingsdialog.cpp \
-    src/sonivoxsettingsdialog.cpp
-
-FORMS += src/kmapdialog.ui \
-    src/shortcutdialog.ui
-HEADERS += src/kmapdialog.h \
-    src/shortcutdialog.h
-SOURCES += src/kmapdialog.cpp \
-    src/shortcutdialog.cpp \
-    src/nativefilter.cpp
+    src/vpiano.cpp
 
 macx {
     OBJECTIVE_SOURCES += \
