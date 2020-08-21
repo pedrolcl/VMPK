@@ -20,6 +20,7 @@
 #include "constants.h"
 #include "vpiano.h"
 #include "colordialog.h"
+#include "vpianosettings.h"
 
 #include <QPushButton>
 #include <QShowEvent>
@@ -28,24 +29,12 @@
 #include <QDebug>
 
 Preferences::Preferences(QWidget *parent)
-    : QDialog(parent),
-    m_numKeys(DEFAULTNUMBEROFKEYS),
-    m_drumsChannel(MIDIGMDRUMSCHANNEL),
-    m_alwaysOnTop(false),
-    m_rawKeyboard(false),
-    m_velocityColor(true),
-    m_enforceChannelState(false),
-    m_enableKeyboard(true),
-    m_enableMouse(true),
-    m_enableTouch(true),
-    m_colorDialog(0)
+    : QDialog(parent)
 {
     ui.setupUi( this );
-    ui.txtFileInstrument->setText(QSTR_DEFAULT);
+    ui.txtFileInstrument->setText(QSTR_DEFAULTINS);
     ui.txtFileKmap->setText(QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);
-    m_keymap.setRawMode(false);
-    m_rawmap.setRawMode(true);
     restoreDefaults();
     connect(ui.btnInstrument, SIGNAL(clicked()), SLOT(slotOpenInstrumentFile()));
     connect(ui.btnColor, SIGNAL(clicked()), SLOT(slotSelectColor()));
@@ -54,6 +43,9 @@ Preferences::Preferences(QWidget *parent)
     QPushButton *btnDefaults = ui.buttonBox->button(QDialogButtonBox::RestoreDefaults);
     connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
     ui.cboStartingKey->clear();
+    ui.cboColorPolicy->clear();
+    VPianoSettings::instance()->initializePaletteStrings();
+    ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames());
 
 #if !defined(RAWKBD_SUPPORT)
     ui.chkRawKeyboard->setVisible(false);
@@ -82,42 +74,42 @@ Preferences::Preferences(QWidget *parent)
 void Preferences::showEvent ( QShowEvent *event )
 {
     if (event->type() == QEvent::Show) {
-        ui.spinNumKeys->setValue( m_numKeys );
-        ui.cboDrumsChannel->setCurrentIndex(m_drumsChannel+1);
-        ui.chkAlwaysOnTop->setChecked( m_alwaysOnTop );
-        ui.chkRawKeyboard->setChecked( m_rawKeyboard );
-        ui.chkVelocityColor->setChecked( m_velocityColor );
-        ui.chkEnforceChannelState->setChecked( m_enforceChannelState );
-        ui.chkEnableKeyboard->setChecked( m_enableKeyboard );
-        ui.chkEnableMouse->setChecked( m_enableMouse );
-        ui.chkEnableTouch->setChecked( m_enableTouch );
-        ui.cboColorPolicy->setCurrentIndex( m_colorDialog->currentPalette()->paletteId() );
-        ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData(m_startingKey));
+        ui.spinNumKeys->setValue( /*m_numKeys*/ VPianoSettings::instance()->numKeys() );
+        ui.cboDrumsChannel->setCurrentIndex(/*m_drumsChannel*/ VPianoSettings::instance()->drumsChannel() +1);
+        ui.chkAlwaysOnTop->setChecked( /*m_alwaysOnTop*/ VPianoSettings::instance()->alwaysOnTop() );
+        ui.chkRawKeyboard->setChecked( /*m_rawKeyboard*/ VPianoSettings::instance()->rawKeyboard() );
+        ui.chkVelocityColor->setChecked( /*m_velocityColor*/ VPianoSettings::instance()->velocityColor() );
+        ui.chkEnforceChannelState->setChecked( /*m_enforceChannelState*/ VPianoSettings::instance()->enforceChannelState() );
+        ui.chkEnableKeyboard->setChecked( /*m_enableKeyboard*/ VPianoSettings::instance()->enableKeyboard() );
+        ui.chkEnableMouse->setChecked( /*m_enableMouse*/ VPianoSettings::instance()->enableMouse() );
+        ui.chkEnableTouch->setChecked( /*m_enableTouch*/ VPianoSettings::instance()->enableTouch() );
+        ui.cboColorPolicy->setCurrentIndex( /*m_colorDialog->currentPalette()->paletteId()*/ VPianoSettings::instance()->paletteId() );
+        ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData(/*m_startingKey*/ VPianoSettings::instance()->startingKey()) );
     }
 }
 
 void Preferences::apply()
 {
-    m_numKeys = ui.spinNumKeys->value();
-    m_alwaysOnTop = ui.chkAlwaysOnTop->isChecked();
-    m_rawKeyboard = ui.chkRawKeyboard->isChecked();
-    m_velocityColor = ui.chkVelocityColor->isChecked();
-    m_enforceChannelState = ui.chkEnforceChannelState->isChecked();
-    m_enableKeyboard = ui.chkEnableKeyboard->isChecked();
-    m_enableMouse = ui.chkEnableMouse->isChecked();
-    m_enableTouch = ui.chkEnableTouch->isChecked();
+    VPianoSettings::instance()->setNumKeys( ui.spinNumKeys->value());
+    VPianoSettings::instance()->setAlwaysOnTop( ui.chkAlwaysOnTop->isChecked() );
+    VPianoSettings::instance()->setRawKeyboard( ui.chkRawKeyboard->isChecked() );
+    VPianoSettings::instance()->setVelocityColor( ui.chkVelocityColor->isChecked() );
+    VPianoSettings::instance()->setEnforceChannelState( ui.chkEnforceChannelState->isChecked() );
+    VPianoSettings::instance()->setEnableKeyboard( ui.chkEnableKeyboard->isChecked() );
+    VPianoSettings::instance()->setEnableMouse( ui.chkEnableMouse->isChecked() );
+    VPianoSettings::instance()->setEnableTouch( ui.chkEnableTouch->isChecked() );
     if ( ui.txtFileRawKmap->text().isEmpty() ||
          ui.txtFileRawKmap->text() == QSTR_DEFAULT)
-        m_rawmap.setFileName(QSTR_DEFAULT);
+        VPianoSettings::instance()->setRawMapFile(QSTR_DEFAULT);
     if ( ui.txtFileKmap->text().isEmpty() ||
          ui.txtFileKmap->text() == QSTR_DEFAULT)
-        m_keymap.setFileName(QSTR_DEFAULT);
+        VPianoSettings::instance()->setMapFile(QSTR_DEFAULT);
     if ( ui.txtFileInstrument->text().isEmpty() ||
-         ui.txtFileInstrument->text() == QSTR_DEFAULT )
-        m_insFileName = QSTR_DEFAULT;
-    m_drumsChannel = ui.cboDrumsChannel->currentIndex() - 1;
-    m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
-    m_startingKey = ui.cboStartingKey->itemData(ui.cboStartingKey->currentIndex()).toInt();
+         ui.txtFileInstrument->text() == QSTR_DEFAULTINS )
+        VPianoSettings::instance()->setInsFileName( VPiano::dataDirectory() + QSTR_DEFAULTINS );
+    VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
+    VPianoSettings::instance()->setPaletteId( ui.cboColorPolicy->currentIndex() );
+    VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData(ui.cboStartingKey->currentIndex()).toInt() );
 }
 
 void Preferences::accept()
@@ -139,74 +131,39 @@ void Preferences::slotOpenInstrumentFile()
 
 void Preferences::slotSelectColor()
 {
-    if (m_colorDialog != 0) {
-        m_colorDialog->loadPalette(ui.cboColorPolicy->currentIndex());
-        if(m_colorDialog->exec() == QDialog::Accepted) {
-            ui.cboColorPolicy->setCurrentIndex(m_colorDialog->currentPalette()->paletteId());
-            m_colorDialog->saveCurrentPalette();
+    QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(this);
+    if (dlgColorPolicy != 0) {
+        dlgColorPolicy->loadPalette(ui.cboColorPolicy->currentIndex());
+        if(dlgColorPolicy->exec() == QDialog::Accepted) {
+            ui.cboColorPolicy->setCurrentIndex(VPianoSettings::instance()->currentPalette()->paletteId());
+            VPianoSettings::instance()->saveCurrentPalette();
         }
     }
-}
-
-Instrument* Preferences::getInstrument()
-{
-    QString key = ui.cboInstrument->currentText();
-    if (key.isEmpty())
-        return NULL;
-    if (!m_ins.contains(key))
-        return NULL;
-    return &m_ins[key];
-}
-
-Instrument* Preferences::getDrumsInstrument()
-{
-    QString key = ui.cboInstrument->currentText();
-    if (key.isEmpty())
-        return NULL;
-    key.append(" Drums");
-    if (!m_ins.contains(key))
-        return NULL;
-    return &m_ins[key];
+    delete dlgColorPolicy;
 }
 
 void Preferences::setInstrumentsFileName( const QString fileName )
 {
     QFileInfo f(fileName);
     if (f.isReadable()) {
-        m_ins.clear();
+        VPianoSettings::instance()->setInstrumentsFileName( fileName );
+        QStringList names = VPianoSettings::instance()->getInsNames();
+        ui.txtFileInstrument->setText(f.fileName());
         ui.cboInstrument->clear();
-        if (m_ins.load(fileName)) {
-            ui.txtFileInstrument->setText(f.fileName());
-            InstrumentList::ConstIterator it;
-            for(it = m_ins.constBegin(); it != m_ins.constEnd(); ++it) {
-                if(!it.key().endsWith(QLatin1String("Drums"), Qt::CaseInsensitive))
-                    ui.cboInstrument->addItem(it.key());
-            }
+        if (!names.isEmpty()) {
+            ui.cboInstrument->addItems(names);
             ui.cboInstrument->setCurrentIndex(-1);
-            m_insFileName = fileName;
-        } else {
-            m_insFileName.clear();
-            ui.txtFileInstrument->setText(m_insFileName);
         }
     } else {
-        qDebug() << "file" << fileName << "not readable.";
+        VPianoSettings::instance()->setInsFileName(QString());
+        ui.txtFileInstrument->setText(QString());
     }
-}
-
-QString Preferences::getInstrumentsFileName()
-{
-    return m_insFileName;
 }
 
 void Preferences::setInstrumentName( const QString name )
 {
     int index = ui.cboInstrument->findText( name );
     ui.cboInstrument->setCurrentIndex( index );
-}
-
-QString Preferences::getInstrumentName()
-{
-    return ui.cboInstrument->currentText();
 }
 
 void Preferences::slotOpenKeymapFile()
@@ -233,26 +190,14 @@ void Preferences::slotOpenRawKeymapFile()
 
 void Preferences::setRawKeyMapFileName( const QString fileName )
 {
-    QFileInfo f(fileName);
-    if (f.isReadable()) {
-        m_rawmap.loadFromXMLFile(fileName);
-        ui.txtFileRawKmap->setText(f.fileName());
-    } else {
-        m_rawmap.clear();
-        m_rawmap.setFileName(QSTR_DEFAULT);
-    }
+    VPianoSettings::instance()->setRawMapFile(fileName);
+    ui.txtFileRawKmap->setText(VPianoSettings::instance()->getRawMapFile());
 }
 
 void Preferences::setKeyMapFileName( const QString fileName )
 {
-    QFileInfo f(fileName);
-    if (f.isReadable()) {
-        m_keymap.loadFromXMLFile(fileName);
-        ui.txtFileKmap->setText(f.fileName());
-    } else {
-        m_keymap.clear();
-        m_keymap.setFileName(QSTR_DEFAULT);
-    }
+    VPianoSettings::instance()->setMapFile(fileName);
+    ui.txtFileRawKmap->setText(VPianoSettings::instance()->getMapFile());
 }
 
 void Preferences::restoreDefaults()
@@ -281,18 +226,7 @@ void Preferences::slotRestoreDefaults()
 void Preferences::retranslateUi()
 {
     ui.retranslateUi(this);
-    if (m_colorDialog != 0) {
-        ui.cboColorPolicy->clear();
-        ui.cboColorPolicy->addItems(m_colorDialog->availablePaletteNames());
-    }
-}
-
-void Preferences::setColorPolicyDialog(ColorDialog *value)
-{
-    if (value != 0) {
-        m_colorDialog = value;
-        ui.cboColorPolicy->addItems(m_colorDialog->availablePaletteNames());
-    }
+    VPianoSettings::instance()->initializePaletteStrings();
 }
 
 void Preferences::setNoteNames(const QStringList& noteNames)

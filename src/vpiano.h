@@ -22,6 +22,7 @@
 #include <QMainWindow>
 #include <drumstick/pianokeybd.h>
 #include "nativefilter.h"
+#include "instrument.h"
 #include "ui_vpiano.h"
 
 class QTranslator;
@@ -59,6 +60,7 @@ public:
     bool isInitialized() const { return m_initialized; }
     void retranslateUi();
     QMenu *createPopupMenu ();
+    void setPortableConfig(const QString fileName = QString());
 
     // PianoHandler methods
     void noteOn(const int midiNote, const int vel);
@@ -171,13 +173,10 @@ private:
     void readMidiControllerSettings();
     void writeSettings();
     void applyPreferences();
-    void applyConnections();
     void applyInitialSettings();
-    void applyColorPolicy();
     void populateControllers();
     void populateInstruments();
     void populatePrograms(int bank = -1);
-    void refreshConnections();
     void initToolBars();
     void clearExtraControllers();
     void initExtraControllers();
@@ -211,14 +210,6 @@ private:
     int getType(const int note) const;
     int getDegree(const int note) const;
 
-    About *dlgAbout();
-    Preferences *dlgPreferences();
-    MidiSetup *dlgMidiSetup();
-    KMapDialog *dlgKeyMap();
-    DialogExtraControls *dlgExtra();
-    RiffImportDlg *dlgRiffImport();
-    ColorDialog *dlgColorPolicy();
-
     void initLanguages();
     void retranslateToolbars();
 
@@ -226,18 +217,8 @@ private:
     drumstick::rt::MIDIInput* m_midiin;
     drumstick::rt::BackendManager* m_backendManager;
 
-    bool m_inputActive;
-    bool m_midiThru;
-    bool m_midiOmni;
     bool m_initialized;
 
-    About *m_dlgAbout;
-    Preferences *m_dlgPreferences;
-    MidiSetup *m_dlgMidiSetup;
-    KMapDialog *m_dlgKeyMap;
-    DialogExtraControls *m_dlgExtra;
-    RiffImportDlg *m_dlgRiffImport;
-    ColorDialog *m_dlgColorPolicy;
     NativeFilter *m_filter;
 
     Ui::VPiano ui;
@@ -266,27 +247,10 @@ private:
     QMap<int,int> m_lastBank;
     QMap<int,int> m_lastProg;
     QMap<int,int> m_lastCtl;
-    int m_baseChannel;
-    int m_velocity;
-    int m_baseOctave;
-    int m_transpose;
-    QString m_language;
     QMap<QString, QString> m_supportedLangs;
     QTranslator *m_trq, *m_trp;
     QAction *m_currentLang;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
-    int m_currentPalette;
-
-    QString m_lastInputBackend;
-    QString m_lastOutputBackend;
-    QString m_lastInputConnection;
-    QString m_lastOutputConnection;
-    QString m_defaultInputBackend;
-    QString m_defaultOutputBackend;
-    QString m_defaultInputConnection;
-    QString m_defaultOutputConnection;
-    bool m_advanced;
-    bool m_inputEnabled;
 };
 
 #endif // VPIANO_H

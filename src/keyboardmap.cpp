@@ -16,13 +16,32 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QDebug>
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QKeySequence>
 #include <QMessageBox>
 #include "keyboardmap.h"
+
+void VMPKKeyboardMap::setFileName(const QString fileName)
+{
+    m_fileName = fileName;
+}
+
+const QString& VMPKKeyboardMap::getFileName() const
+{
+    return m_fileName;
+}
+
+void VMPKKeyboardMap::setRawMode(bool b)
+{
+    m_rawMode = b;
+}
+
+bool VMPKKeyboardMap::getRawMode() const
+{
+    return m_rawMode;
+}
 
 void VMPKKeyboardMap::loadFromXMLFile(const QString fileName)
 {
@@ -31,7 +50,7 @@ void VMPKKeyboardMap::loadFromXMLFile(const QString fileName)
         m_fileName = fileName;
         initializeFromXML(&f);
         f.close();
-        qDebug() << "Loaded Map: " << fileName;
+        //qDebug() << "Loaded Map: " << fileName;
     }
     if (f.error() != QFile::NoError) {
         reportError(fileName, tr("Error loading a file"), f.errorString());
@@ -45,7 +64,7 @@ void VMPKKeyboardMap::saveToXMLFile(const QString fileName)
         serializeToXML(&f);
         f.close();
         m_fileName = fileName;
-        qDebug() << "Saved Map: " << fileName;
+        //qDebug() << "Saved Map: " << fileName;
     }
     if (f.error() != QFile::NoError) {
         reportError(fileName, tr("Error saving a file"), f.errorString());
@@ -101,7 +120,6 @@ void VMPKKeyboardMap::serializeToXML(QIODevice *dev)
 {
     QXmlStreamWriter writer(dev);
     writer.setAutoFormatting(true);
-    //writer.setCodec("UTF-8");
     writer.writeStartDocument();
     writer.writeDTD(m_rawMode?"<!DOCTYPE rawkeyboardmap>":"<!DOCTYPE keyboardmap>");
     writer.writeStartElement(m_rawMode ? "rawkeymap" : "keyboardmap");
@@ -122,12 +140,26 @@ void VMPKKeyboardMap::serializeToXML(QIODevice *dev)
 
 void VMPKKeyboardMap::copyFrom(const VMPKKeyboardMap* other)
 {
-    m_fileName = other->getFileName();
-    m_rawMode = other->getRawMode();
-    clear();
-    VMPKKeyboardMap::ConstIterator it;
-    for(it = other->begin(); it != other->end(); ++it)
-        insert(it.key(), it.value());
+    if (other != this) {
+        m_fileName = other->getFileName();
+        m_rawMode = other->getRawMode();
+        clear();
+        VMPKKeyboardMap::ConstIterator it;
+        for(it = other->begin(); it != other->end(); ++it)
+            insert(it.key(), it.value());
+    }
+}
+
+void VMPKKeyboardMap::copyFrom(const drumstick::widgets::KeyboardMap* other, bool rawMode)
+{
+    if (other != this) {
+        m_fileName = QSTR_DEFAULT;
+        m_rawMode = rawMode;
+        clear();
+        drumstick::widgets::KeyboardMap::ConstIterator it;
+        for(it = other->begin(); it != other->end(); ++it)
+            insert(it.key(), it.value());
+    }
 }
 
 void VMPKKeyboardMap::reportError( const QString filename,

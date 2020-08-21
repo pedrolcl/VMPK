@@ -135,7 +135,8 @@ HEADERS += src/about.h \
     src/riff.h \
     src/riffimportdlg.h \
     src/shortcutdialog.h \
-    src/vpiano.h
+    src/vpiano.h \
+    src/vpianosettings.h
 
 SOURCES += src/about.cpp \
     src/colordialog.cpp \
@@ -151,7 +152,8 @@ SOURCES += src/about.cpp \
     src/preferences.cpp \
     src/riff.cpp \
     src/riffimportdlg.cpp \
-    src/vpiano.cpp
+    src/vpiano.cpp \
+    src/vpianosettings.cpp
 
 macx {
     OBJECTIVE_SOURCES += \

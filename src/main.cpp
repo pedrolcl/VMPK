@@ -20,14 +20,23 @@
 #include <QSplashScreen>
 #include <QThread>
 #include <QTimer>
+#include <QCommandLineParser>
+#include <QSettings>
 #include "constants.h"
 #include "vpiano.h"
+
+const QString PGM_DESCRIPTION("Virtual MIDI Piano Keyboard\n"
+     "Copyright (C) 2006-2020 Pedro Lopez-Cabanillas\n"
+     "This program comes with ABSOLUTELY NO WARRANTY;\n"
+     "This is free software, and you are welcome to redistribute it\n"
+     "under certain conditions; see the LICENSE for details.");
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setOrganizationName(QSTR_DOMAIN);
     QCoreApplication::setOrganizationDomain(QSTR_DOMAIN);
     QCoreApplication::setApplicationName(QSTR_APPNAME);
+    QCoreApplication::setApplicationVersion(PGM_VERSION);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
@@ -37,6 +46,23 @@ int main(int argc, char *argv[])
 #if defined(Q_OS_LINUX)
     a.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
 #endif //Q_OS_LINUX
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(
+        QString("%1 v.%2\n\n%3")
+        .arg(QCoreApplication::applicationName())
+        .arg(QCoreApplication::applicationVersion())
+        .arg(PGM_DESCRIPTION)
+    );
+    auto helpOption = parser.addHelpOption();
+    auto versionOption = parser.addVersionOption();
+    QCommandLineOption portableOption({"p", "portable"}, "Portable settings format file (.ini)");
+    parser.addOption(portableOption);
+    parser.process(a);
+    if (parser.isSet(versionOption) || parser.isSet(helpOption)) {
+        return 0;
+    }
+
     QPixmap px(":/vpiano/vmpk_splash.png");
     QSplashScreen s(px);
     QFont sf("Arial", 20, QFont::ExtraBold);
@@ -46,12 +72,13 @@ int main(int argc, char *argv[])
     QTimer::singleShot(2500, &s, SLOT(close()));
     a.processEvents();
     VPiano w;
+    if (parser.isSet(portableOption)) {
+        w.setPortableConfig();
+    } else {
+        QSettings::setDefaultFormat(QSettings::NativeFormat);
+    }
     if (w.isInitialized()) {
-#if defined(SMALL_SCREEN)
-        w.showMaximized();
-#else
         w.show();
-#endif
         return a.exec();
     }
     return EXIT_FAILURE;

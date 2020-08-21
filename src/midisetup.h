@@ -33,12 +33,6 @@ class MidiSetup : public QDialog
 public:
     MidiSetup(QWidget *parent = 0);
     void inputNotAvailable();
-    bool inputIsEnabled() const;
-    bool thruIsEnabled() const;
-    bool omniIsEnabled() const;
-    void setInputEnabled(const bool state);
-    void setThruEnabled(const bool state);
-    void setOmniEnabled(const bool state);
     void clearCombos();
     void retranslateUi();
 
@@ -48,25 +42,23 @@ public:
     void setOutputs(QList<MIDIOutput *> outs);
     MIDIInput *getInput() { return m_midiIn; }
     MIDIOutput *getOutput() { return m_midiOut; }
-    void setAdvanced(bool value);
-    bool advanced();
-    bool midiThru();
-    bool changeSoundFont(const QString& fileName);
+    void showEvent(QShowEvent *) override;
 
 public slots:
     void clickedAdvanced(bool value);
     void setMidiThru(bool value);
     void toggledInput(bool state);
-    void refreshInputs(QString id);
-    void refreshOutputs(QString id);
+    void refreshInputs(int idx);
+    void refreshOutputs(int idx);
     void configureInput();
     void configureOutput();
     void refresh();
-    void accept();
+    void accept() override;
 
 private:
-    bool m_advanced;
-    bool m_thru;
+    void refreshInputDrivers(QString id, bool advanced);
+    void refreshOutputDrivers(QString id, bool advanced);
+
     bool m_settingsChanged;
     Ui::MidiSetupClass ui;
     MIDIInput* m_midiIn;
