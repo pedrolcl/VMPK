@@ -1707,7 +1707,7 @@ void VPiano::noteoff(int note)
 
 void VPiano::noteon(int note)
 {
-    sendNoteOn(note, m_velocity);
+    sendNoteOn(note, VPianoSettings::instance()->velocity());
 }
 
 void VPiano::polykeypress(int note, int value)

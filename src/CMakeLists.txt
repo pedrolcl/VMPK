@@ -61,6 +61,8 @@ set(vmpk_SRCS
     shortcutdialog.h
     vpiano.cpp
     vpiano.h
+    vpianosettings.cpp
+    vpianosettings.h
     ../data/vmpk.qrc
 )
 
