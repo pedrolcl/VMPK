@@ -68,6 +68,10 @@
 #include <QtDBus/QDBusConnection>
 #endif
 
+#if defined(Q_OS_MACOS)
+#include <CoreFoundation/CoreFoundation.h>
+#endif
+
 using namespace drumstick::rt;
 
 VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
@@ -141,6 +145,10 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     ui.actionShortcuts->setVisible(false);
     ui.actionStatusBar->setVisible(false);
     setWindowTitle("VMPK " + PGM_VERSION);
+#endif
+#if defined (Q_OS_MACX)
+    //ui.actionEnterFullScreen->setShortcut(QKeySequence::FullScreen);
+    //ui.actionExitFullScreen->setShortcut(QKeySequence::FullScreen);
 #endif
     ui.pianokeybd->setPianoHandler(this);
 #if defined(RAWKBD_SUPPORT)
