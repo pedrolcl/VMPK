@@ -73,6 +73,7 @@
 #endif
 
 using namespace drumstick::rt;
+using namespace drumstick::widgets;
 
 VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     : QMainWindow(parent, flags),
@@ -1158,7 +1159,7 @@ void VPiano::populateControllers()
 void VPiano::applyPreferences()
 {
     ui.pianokeybd->allKeysOff();
-
+    ui.pianokeybd->setFont(QFont("Helvetica", 50));
     if ( ui.pianokeybd->numKeys() != VPianoSettings::instance()->numKeys() ||
          ui.pianokeybd->startKey() != VPianoSettings::instance()->startingKey() )
     {
@@ -1631,7 +1632,10 @@ void VPiano::setWidgetTip(QWidget* w, int val)
 
 void VPiano::slotShowNoteNames()
 {
-    ui.pianokeybd->setShowLabels(ui.actionNoteNames->isChecked());
+    ui.pianokeybd->setShowLabels(
+        ui.actionNoteNames->isChecked() ? PianoKeybd::ShowAlways : PianoKeybd::ShowNever
+    );
+    VPianoSettings::instance()->setShowNames(ui.actionNoteNames->isChecked());
 }
 
 //void VPiano::slotEditPrograms()
