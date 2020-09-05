@@ -45,6 +45,7 @@ public slots:
     void slotSelectColor();
     void slotOpenKeymapFile();
     void slotOpenRawKeymapFile();
+    void slotSelectFont();
     void slotRestoreDefaults();
     void accept();
 

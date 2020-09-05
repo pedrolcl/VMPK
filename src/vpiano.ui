@@ -108,7 +108,34 @@
     <addaction name="actionPrograms"/>
     <addaction name="actionExtraControls"/>
     <addaction name="separator"/>
-    <addaction name="actionNoteNames"/>
+    <widget class="QMenu" name="menuNames">
+     <property name="title">
+      <string>Show Note Names</string>
+     </property>
+     <addaction name="actionNever"/>
+     <addaction name="actionMinimal"/>
+     <addaction name="actionWhen_Activated"/>
+     <addaction name="actionAlways"/>
+    </widget>
+    <widget class="QMenu" name="menuBlack_Keys_Names">
+     <property name="title">
+      <string>Black Keys Names</string>
+     </property>
+     <addaction name="actionSharps"/>
+     <addaction name="actionFlats"/>
+     <addaction name="actionNothing"/>
+    </widget>
+    <widget class="QMenu" name="menuNames_Orientation">
+     <property name="title">
+      <string>Names Orientation</string>
+     </property>
+     <addaction name="actionHorizontal"/>
+     <addaction name="actionVertical"/>
+     <addaction name="actionAutomatic"/>
+    </widget>
+    <addaction name="menuNames"/>
+    <addaction name="menuBlack_Keys_Names"/>
+    <addaction name="menuNames_Orientation"/>
     <addaction name="actionColorScale"/>
     <addaction name="actionStatusBar"/>
     <addaction name="actionWindowFrame"/>
@@ -907,7 +934,99 @@
     <enum>QAction::NoRole</enum>
    </property>
   </action>
- </widget>
+  <action name="actionNever">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Never</string>
+   </property>
+  </action>
+  <action name="actionWhen_Activated">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>When Activated</string>
+   </property>
+  </action>
+  <action name="actionAlways">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Always</string>
+   </property>
+  </action>
+  <action name="actionSharps">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Sharps</string>
+   </property>
+  </action>
+  <action name="actionFlats">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Flats</string>
+   </property>
+  </action>
+  <action name="actionNothing">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Nothing</string>
+   </property>
+  </action>
+  <action name="actionHorizontal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Horizontal</string>
+   </property>
+  </action>
+  <action name="actionVertical">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Vertical</string>
+   </property>
+  </action>
+  <action name="actionAutomatic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Automatic</string>
+   </property>
+  </action>
+  <action name="actionMinimal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Minimal</string>
+   </property>
+  </action>
+</widget>
  <customwidgets>
   <customwidget>
    <class>drumstick::widgets::PianoKeybd</class>

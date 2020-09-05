@@ -107,6 +107,29 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     QCoreApplication::installTranslator(m_trp);
     ui.setupUi(this);
     initLanguages();
+
+    QActionGroup* nameVisibilityGroup = new QActionGroup(this);
+    nameVisibilityGroup->setExclusive(true);
+    nameVisibilityGroup->addAction(ui.actionNever);
+    nameVisibilityGroup->addAction(ui.actionMinimal);
+    nameVisibilityGroup->addAction(ui.actionWhen_Activated);
+    nameVisibilityGroup->addAction(ui.actionAlways);
+    connect(nameVisibilityGroup, &QActionGroup::triggered, this, &VPiano::slotNameVisibility);
+
+    QActionGroup* blackKeysGroup = new QActionGroup(this);
+    blackKeysGroup->setExclusive(true);
+    blackKeysGroup->addAction(ui.actionFlats);
+    blackKeysGroup->addAction(ui.actionSharps);
+    blackKeysGroup->addAction(ui.actionNothing);
+    connect(blackKeysGroup, &QActionGroup::triggered, this, &VPiano::slotNameVariant);
+
+    QActionGroup* orientationGroup = new QActionGroup(this);
+    orientationGroup->setExclusive(true);
+    orientationGroup->addAction(ui.actionHorizontal);
+    orientationGroup->addAction(ui.actionVertical);
+    orientationGroup->addAction(ui.actionAutomatic);
+    connect(orientationGroup, &QActionGroup::triggered, this, &VPiano::slotNameOrientation);
+
     connect(ui.actionAbout, SIGNAL(triggered()), SLOT(slotAbout()));
     connect(ui.actionAboutQt, SIGNAL(triggered()), SLOT(slotAboutQt()));
     connect(ui.actionAboutTranslation, SIGNAL(triggered()), SLOT(slotAboutTranslation()));
@@ -117,7 +140,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionWebSite, SIGNAL(triggered()), SLOT(slotOpenWebSite()));
     connect(ui.actionImportSoundFont, SIGNAL(triggered()), SLOT(slotImportSF()));
     connect(ui.actionEditExtraControls, SIGNAL(triggered()), SLOT(slotEditExtraControls()));
-    connect(ui.actionNoteNames, SIGNAL(triggered()), SLOT(slotShowNoteNames()));
+    //connect(ui.actionNoteNames, SIGNAL(triggered()), SLOT(slotShowNoteNames()));
     connect(ui.actionShortcuts, SIGNAL(triggered()), SLOT(slotShortcuts()));
     connect(ui.actionKeyboardInput, SIGNAL(toggled(bool)), SLOT(slotKeyboardInput(bool)));
     connect(ui.actionMouseInput, SIGNAL(toggled(bool)), SLOT(slotMouseInput(bool)));
@@ -539,7 +562,7 @@ void VPiano::readSettings()
     restoreGeometry(VPianoSettings::instance()->geometry());
     restoreState(VPianoSettings::instance()->state());
 
-    ui.actionNoteNames->setChecked(VPianoSettings::instance()->showNames());
+    //ui.actionNoteNames->setChecked(VPianoSettings::instance()->namesVisibility() == PianoKeybd::ShowAlways );
     ui.actionStatusBar->setChecked(VPianoSettings::instance()->showStatusBar());
     ui.pianokeybd->setNumKeys(VPianoSettings::instance()->numKeys(), VPianoSettings::instance()->startingKey());
     ui.pianokeybd->setVelocityTint(VPianoSettings::instance()->velocityColor());
@@ -551,7 +574,9 @@ void VPiano::readSettings()
     ui.pianokeybd->setTouchEnabled(VPianoSettings::instance()->enableTouch());
     ui.pianokeybd->setChannel(VPianoSettings::instance()->channel());
     ui.actionColorScale->setChecked(VPianoSettings::instance()->colorScale());
-    slotShowNoteNames();
+    ui.pianokeybd->setFont(VPianoSettings::instance()->namesFont());
+    ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
+    //slotShowNoteNames();
 
     QString insFileName = VPianoSettings::instance()->insFileName();
     if (!insFileName.isEmpty()) {
@@ -1159,7 +1184,8 @@ void VPiano::populateControllers()
 void VPiano::applyPreferences()
 {
     ui.pianokeybd->allKeysOff();
-    ui.pianokeybd->setFont(QFont("Helvetica", 50));
+    ui.pianokeybd->setFont(VPianoSettings::instance()->namesFont());
+    ui.pianokeybd->setLabelOctave(VPianoSettings::instance()->namesOctave());
     if ( ui.pianokeybd->numKeys() != VPianoSettings::instance()->numKeys() ||
          ui.pianokeybd->startKey() != VPianoSettings::instance()->startingKey() )
     {
@@ -1209,7 +1235,8 @@ void VPiano::applyPreferences()
     setWindowFlags( flags );
     move(wpos);
 
-    slotShowNoteNames();
+    //slotShowNoteNames();
+    ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
 }
 
 void VPiano::populateInstruments()
@@ -1630,13 +1657,12 @@ void VPiano::setWidgetTip(QWidget* w, int val)
     QToolTip::showText(w->parentWidget()->mapToGlobal(w->pos()), tip);
 }
 
-void VPiano::slotShowNoteNames()
+/*void VPiano::slotShowNoteNames()
 {
-    ui.pianokeybd->setShowLabels(
-        ui.actionNoteNames->isChecked() ? PianoKeybd::ShowAlways : PianoKeybd::ShowNever
-    );
-    VPianoSettings::instance()->setShowNames(ui.actionNoteNames->isChecked());
-}
+    PianoKeybd::LabelVisibility v = ui.actionNoteNames->isChecked() ? PianoKeybd::ShowAlways : PianoKeybd::ShowNever;
+    ui.pianokeybd->setShowLabels ( v );
+    VPianoSettings::instance()->setNamesVisibility( v );
+}*/
 
 //void VPiano::slotEditPrograms()
 //{ }
@@ -2089,3 +2115,40 @@ void VPiano::setPortableConfig(const QString fileName)
     }
 }
 
+void VPiano::slotNameOrientation(QAction* action)
+{
+    if(action == ui.actionHorizontal) {
+        VPianoSettings::instance()->setNamesOrientation(PianoKeybd::HorizontalOrientation);
+    } else if(action == ui.actionVertical) {
+        VPianoSettings::instance()->setNamesOrientation(PianoKeybd::VerticalOrientation);
+    } else if(action == ui.actionAutomatic) {
+        VPianoSettings::instance()->setNamesOrientation(PianoKeybd::AutomaticOrientation);
+    }
+    ui.pianokeybd->setLabelOrientation(VPianoSettings::instance()->namesOrientation());
+}
+
+void VPiano::slotNameVisibility(QAction* action)
+{
+    if(action == ui.actionNever) {
+        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowNever);
+    } else if(action == ui.actionMinimal) {
+        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowMinimum);
+    } else if(action == ui.actionWhen_Activated) {
+        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowActivated);
+    } else if(action == ui.actionAlways) {
+        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowAlways);
+    }
+    ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
+}
+
+void VPiano::slotNameVariant(QAction* action)
+{
+    if(action == ui.actionSharps) {
+        VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowSharps);
+    } else if(action == ui.actionFlats) {
+        VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowFlats);
+    } else if(action == ui.actionNothing) {
+        VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowNothing);
+    }
+    ui.pianokeybd->setLabelAlterations(VPianoSettings::instance()->alterations());
+}

@@ -26,6 +26,7 @@
 #include <QShowEvent>
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QFontDialog>
 #include <QDebug>
 
 Preferences::Preferences(QWidget *parent)
@@ -36,14 +37,16 @@ Preferences::Preferences(QWidget *parent)
     ui.txtFileKmap->setText(QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(QSTR_DEFAULT);
     restoreDefaults();
-    connect(ui.btnInstrument, SIGNAL(clicked()), SLOT(slotOpenInstrumentFile()));
-    connect(ui.btnColor, SIGNAL(clicked()), SLOT(slotSelectColor()));
-    connect(ui.btnKmap, SIGNAL(clicked()), SLOT(slotOpenKeymapFile()));
-    connect(ui.btnRawKmap, SIGNAL(clicked()), SLOT(slotOpenRawKeymapFile()));
+    connect(ui.btnInstrument, &QPushButton::clicked, this, &Preferences::slotOpenInstrumentFile);
+    connect(ui.btnColor, &QPushButton::clicked, this, &Preferences::slotSelectColor);
+    connect(ui.btnKmap, &QPushButton::clicked, this, &Preferences::slotOpenKeymapFile);
+    connect(ui.btnRawKmap, &QPushButton::clicked, this, &Preferences::slotOpenRawKeymapFile);
+    connect(ui.btnFont, &QPushButton::clicked, this, &Preferences::slotSelectFont);
     QPushButton *btnDefaults = ui.buttonBox->button(QDialogButtonBox::RestoreDefaults);
-    connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
+    connect(btnDefaults, &QPushButton::clicked, this, &Preferences::slotRestoreDefaults);
     ui.cboStartingKey->clear();
     ui.cboColorPolicy->clear();
+    ui.cboOctaveName->clear();
     VPianoSettings::instance()->initializePaletteStrings();
     ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames());
 
@@ -74,17 +77,19 @@ Preferences::Preferences(QWidget *parent)
 void Preferences::showEvent ( QShowEvent *event )
 {
     if (event->type() == QEvent::Show) {
-        ui.spinNumKeys->setValue( /*m_numKeys*/ VPianoSettings::instance()->numKeys() );
-        ui.cboDrumsChannel->setCurrentIndex(/*m_drumsChannel*/ VPianoSettings::instance()->drumsChannel() +1);
-        ui.chkAlwaysOnTop->setChecked( /*m_alwaysOnTop*/ VPianoSettings::instance()->alwaysOnTop() );
-        ui.chkRawKeyboard->setChecked( /*m_rawKeyboard*/ VPianoSettings::instance()->rawKeyboard() );
-        ui.chkVelocityColor->setChecked( /*m_velocityColor*/ VPianoSettings::instance()->velocityColor() );
-        ui.chkEnforceChannelState->setChecked( /*m_enforceChannelState*/ VPianoSettings::instance()->enforceChannelState() );
-        ui.chkEnableKeyboard->setChecked( /*m_enableKeyboard*/ VPianoSettings::instance()->enableKeyboard() );
-        ui.chkEnableMouse->setChecked( /*m_enableMouse*/ VPianoSettings::instance()->enableMouse() );
-        ui.chkEnableTouch->setChecked( /*m_enableTouch*/ VPianoSettings::instance()->enableTouch() );
-        ui.cboColorPolicy->setCurrentIndex( /*m_colorDialog->currentPalette()->paletteId()*/ VPianoSettings::instance()->paletteId() );
-        ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData(/*m_startingKey*/ VPianoSettings::instance()->startingKey()) );
+        ui.spinNumKeys->setValue( VPianoSettings::instance()->numKeys() );
+        ui.cboDrumsChannel->setCurrentIndex( VPianoSettings::instance()->drumsChannel() +1);
+        ui.chkAlwaysOnTop->setChecked( VPianoSettings::instance()->alwaysOnTop() );
+        ui.chkRawKeyboard->setChecked( VPianoSettings::instance()->rawKeyboard() );
+        ui.chkVelocityColor->setChecked( VPianoSettings::instance()->velocityColor() );
+        ui.chkEnforceChannelState->setChecked( VPianoSettings::instance()->enforceChannelState() );
+        ui.chkEnableKeyboard->setChecked( VPianoSettings::instance()->enableKeyboard() );
+        ui.chkEnableMouse->setChecked( VPianoSettings::instance()->enableMouse() );
+        ui.chkEnableTouch->setChecked( VPianoSettings::instance()->enableTouch() );
+        ui.cboColorPolicy->setCurrentIndex( VPianoSettings::instance()->paletteId() );
+        ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData( VPianoSettings::instance()->startingKey() ) );
+        ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
+        ui.txtFont->setText( VPianoSettings::instance()->namesFont().toString() );
     }
 }
 
@@ -109,7 +114,16 @@ void Preferences::apply()
         VPianoSettings::instance()->setInsFileName( VPiano::dataDirectory() + QSTR_DEFAULTINS );
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
     VPianoSettings::instance()->setPaletteId( ui.cboColorPolicy->currentIndex() );
-    VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData(ui.cboStartingKey->currentIndex()).toInt() );
+    VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData( ui.cboStartingKey->currentIndex()).toInt() );
+    VPianoSettings::instance()->setNamesOctave(static_cast<PianoKeybd::LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
+    QFont f;
+    QString fstr = ui.txtFont->text();
+    if (fstr.isEmpty()) {
+        fstr = QSTR_DEFAULTFONT;
+    }
+    if ( f.fromString(fstr) ) {
+        VPianoSettings::instance()->setNamesFont( f );
+    }
 }
 
 void Preferences::accept()
@@ -188,6 +202,19 @@ void Preferences::slotOpenRawKeymapFile()
     }
 }
 
+void Preferences::slotSelectFont()
+{
+    bool ok;
+    QFont font = QFontDialog::getFont(&ok,
+                    VPianoSettings::instance()->namesFont(),
+                    this, tr("Font to display note names"),
+                    QFontDialog::DontUseNativeDialog | QFontDialog::ScalableFonts);
+    if (ok) {
+        VPianoSettings::instance()->setNamesFont(font);
+        ui.txtFont->setText(font.toString());
+    }
+}
+
 void Preferences::setRawKeyMapFileName( const QString fileName )
 {
     VPianoSettings::instance()->setRawMapFile(fileName);
@@ -216,6 +243,7 @@ void Preferences::restoreDefaults()
     ui.cboInstrument->setCurrentIndex(0);
     ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
     ui.cboStartingKey->setCurrentIndex(DEFAULTSTARTINGKEY);
+    ui.txtFont->setText(QSTR_DEFAULTFONT);
 }
 
 void Preferences::slotRestoreDefaults()
@@ -238,5 +266,9 @@ void Preferences::setNoteNames(const QStringList& noteNames)
         if (j % 2 == 0) {
             ui.cboStartingKey->addItem(noteNames[i], i);
         }
+    }
+    ui.cboOctaveName->clear();
+    for(int i=3; i<6; ++i) {
+        ui.cboOctaveName->addItem(QString("%1%2").arg(noteNames[0]).arg(i));
     }
 }

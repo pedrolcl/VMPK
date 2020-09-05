@@ -118,7 +118,10 @@ protected Q_SLOTS:
     void slotOpenWebSite();
     void slotImportSF();
     void slotEditExtraControls();
-    void slotShowNoteNames();
+    //void slotShowNoteNames();
+    void slotNameOrientation(QAction* action);
+    void slotNameVisibility(QAction* action);
+    void slotNameVariant(QAction* action);
     void slotControlSliderMoved(const int value);
     void slotExtraController(const int value);
     void slotControlClicked(const bool value);

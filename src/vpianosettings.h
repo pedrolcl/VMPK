@@ -132,9 +132,6 @@ public:
     QString defaultInputConnection() const;
     QString defaultOutputConnection() const;
 
-    bool showNames() const;
-    void setShowNames(bool showNames);
-
     bool showStatusBar() const;
     void setShowStatusBar(bool showStatusBar);
 
@@ -164,6 +161,21 @@ public:
 
     void initializePalettes();
     void initializePaletteStrings();
+
+    drumstick::widgets::PianoKeybd::LabelOrientation namesOrientation() const;
+    void setNamesOrientation(drumstick::widgets::PianoKeybd::LabelOrientation namesOrientation);
+
+    drumstick::widgets::PianoKeybd::LabelVisibility namesVisibility() const;
+    void setNamesVisibility(drumstick::widgets::PianoKeybd::LabelVisibility namesVisibility);
+
+    drumstick::widgets::PianoKeybd::LabelAlteration alterations() const;
+    void setNamesAlterations(drumstick::widgets::PianoKeybd::LabelAlteration alterations);
+
+    drumstick::widgets::PianoKeybd::LabelCentralOctave namesOctave() const;
+    void setNamesOctave(drumstick::widgets::PianoKeybd::LabelCentralOctave namesOctave);
+
+    QFont namesFont() const;
+    void setNamesFont(const QFont &namesFont);
 
 signals:
     void ValuesChanged();
@@ -214,11 +226,15 @@ private:
     bool m_enableKeyboard;
     bool m_enableMouse;
     bool m_enableTouch;
-    bool m_showNames;
     bool m_showStatusBar;
     bool m_colorScale;
     QString m_insFileName;
     QString m_insName;
+    drumstick::widgets::PianoKeybd::LabelVisibility m_namesVisibility;
+    drumstick::widgets::PianoKeybd::LabelAlteration m_namesAlteration;
+    drumstick::widgets::PianoKeybd::LabelCentralOctave m_namesOctave;
+    drumstick::widgets::PianoKeybd::LabelOrientation m_namesOrientation;
+    QFont m_namesFont;
 
     QString m_defaultInputBackend;
     QString m_defaultOutputBackend;

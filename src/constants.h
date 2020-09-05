@@ -78,7 +78,6 @@ const QString QSTR_CONTROLLER("Controller");
 const QString QSTR_GRABKB("GrabKeyboard");
 const QString QSTR_STYLEDKNOBS("StyledKnobs");
 const QString QSTR_ALWAYSONTOP("AlwaysOnTop");
-const QString QSTR_SHOWNOTENAMES("ShowNoteNames");
 const QString QSTR_SHOWSTATUSBAR("ShowStatusBar");
 const QString QSTR_RAWKEYBOARDMODE("RawKeyboardMode");
 const QString QSTR_EXTRACONTROLLERS("ExtraControllers");
@@ -103,6 +102,7 @@ const QString QSTR_PALETTEPREFIX("Palette_");
 const QString QSTR_CURRENTPALETTE("CurrentPalette");
 const QString QSTR_SHOWCOLORSCALE("ShowColorScale");
 const QString QSTR_CHKBOXSTYLE("QCheckBox::indicator {width: 20px; height: 20px;} QCheckBox::indicator:checked {image: url(:/vpiano/led_green.png);} QCheckBox::indicator:unchecked{image: url(:/vpiano/led_grey.png);}");
+const QString QSTR_DEFAULTFONT("Sans Serif, 50");
 
 #if defined(SMALL_SCREEN)
 const QString QSTR_VMPKURL("http://vmpk.sourceforge.net/m/");
@@ -137,9 +137,5 @@ const int KEYLABELFONTSIZE = 3;
 const int TOOLBARLABELMARGIN = 5;
 #endif
 const int NETWORKPORTNUMBER = 21928;
-
-#if defined(Q_WS_MAC) && defined(QT_MAC_USE_COCOA)
-#error "This program requires Qt built with the Carbon framework. Sorry."
-#endif
 
 #endif /*CONSTANTS_H_*/
