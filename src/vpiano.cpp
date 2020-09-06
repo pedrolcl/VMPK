@@ -130,6 +130,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     orientationGroup->addAction(ui.actionAutomatic);
     connect(orientationGroup, &QActionGroup::triggered, this, &VPiano::slotNameOrientation);
 
+    connect(ui.pianokeybd, &PianoKeybd::signalName, this, &VPiano::slotNoteName);
     connect(ui.actionAbout, SIGNAL(triggered()), SLOT(slotAbout()));
     connect(ui.actionAboutQt, SIGNAL(triggered()), SLOT(slotAboutQt()));
     connect(ui.actionAboutTranslation, SIGNAL(triggered()), SLOT(slotAboutTranslation()));
@@ -2151,4 +2152,13 @@ void VPiano::slotNameVariant(QAction* action)
         VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowNothing);
     }
     ui.pianokeybd->setLabelAlterations(VPianoSettings::instance()->alterations());
+}
+
+void VPiano::slotNoteName(const QString& name)
+{
+    if (name.isEmpty()) {
+        ui.statusBar->clearMessage();
+    } else {
+        ui.statusBar->showMessage(name);
+    }
 }

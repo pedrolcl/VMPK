@@ -151,6 +151,7 @@ protected Q_SLOTS:
     void slotTouchScreenInput(bool value);
     void slotColorPolicy();
     void slotColorScale(bool value);
+    void slotNoteName(const QString& text);
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 

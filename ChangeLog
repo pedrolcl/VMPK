@@ -1,3 +1,15 @@
+2020-09-06
+    * features implemented integrating drumstick ticket 22:
+    *   ticket #43: show note names on note on
+    *   ticket #55: flats not sharps
+    *   ticket #60: show midi note number on Status Bar
+    * and also:
+    *   show note names always/never/minimal
+    *   show note names orientation: horizontal/vertical/automatic
+    * new preferences:
+    *   font and size
+    *   octave naming - central C can be named C3/C4/C5
+
 2019-09-01
     * Release 0.7.2
 
