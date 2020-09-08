@@ -243,16 +243,26 @@ bool VPiano::initMidi()
     if (m_midiin != nullptr) {
         if (!VPianoSettings::instance()->lastInputConnection().isEmpty()) {
             m_midiin->initialize(settings.getQSettings());
-            m_midiin->open(VPianoSettings::instance()->lastInputConnection());
+            for(const MIDIConnection& conn : m_midiin->connections()) {
+                if (conn.first == VPianoSettings::instance()->lastInputConnection()) {
+                    m_midiin->open(conn);
+                    break;
+                }
+            }
         }
     }
 
     if (m_midiout != nullptr && !VPianoSettings::instance()->lastOutputConnection().isEmpty()) {
         m_midiout->initialize(settings.getQSettings());
-        m_midiout->open(VPianoSettings::instance()->lastOutputConnection());
-        if (!VPianoSettings::instance()->lastInputConnection().isEmpty()) {
-            m_midiin->setMIDIThruDevice(m_midiout);
-            m_midiin->enableMIDIThru(VPianoSettings::instance()->midiThru());
+        for(const MIDIConnection& conn : m_midiout->connections()) {
+            if (conn.first == VPianoSettings::instance()->lastOutputConnection()) {
+                m_midiout->open(conn);
+                if (!VPianoSettings::instance()->lastInputConnection().isEmpty()) {
+                    m_midiin->setMIDIThruDevice(m_midiout);
+                    m_midiin->enableMIDIThru(VPianoSettings::instance()->midiThru());
+                }
+                break;
+            }
         }
     }
 
@@ -1114,11 +1124,11 @@ void VPiano::slotConnections()
     releaseKb();
     if (dlgMidiSetup->exec() == QDialog::Accepted) {
         if (m_midiin != nullptr) {
-            VPianoSettings::instance()->setLastInputConnection(m_midiin->currentConnection());
+            VPianoSettings::instance()->setLastInputConnection(m_midiin->currentConnection().first);
             m_midiin->disconnect();
         }
         if (m_midiout != nullptr) {
-            VPianoSettings::instance()->setLastOutputConnection(m_midiout->currentConnection());
+            VPianoSettings::instance()->setLastOutputConnection(m_midiout->currentConnection().first);
             m_midiout->disconnect();
         }
 

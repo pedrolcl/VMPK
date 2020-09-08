@@ -97,27 +97,27 @@ void MidiSetup::showEvent(QShowEvent *)
 
 void MidiSetup::accept()
 {
-    QString conn;
+    MIDIConnection conn;
     drumstick::widgets::SettingsFactory settings;
     VPianoSettings::instance()->setAdvanced(ui.chkAdvanced->isChecked());
     VPianoSettings::instance()->setMidiThru(ui.chkEnableThru->isChecked());
     VPianoSettings::instance()->setOmniMode(ui.chkOmni->isChecked());
     VPianoSettings::instance()->setInputEnabled(ui.chkEnableInput->isChecked());
     if (m_midiOut != 0) {
-        conn = ui.comboOutput->currentText();
+        conn = ui.comboOutput->currentData().value<MIDIConnection>();
         if (conn != m_midiOut->currentConnection() || m_settingsChanged) {
             m_midiOut->close();
-            if (!conn.isEmpty()) {
+            if (!conn.first.isEmpty()) {
                 m_midiOut->initialize(settings.getQSettings());
                 m_midiOut->open(conn);
             }
         }
     }
     if (m_midiIn != 0) {
-        conn = ui.comboInput->currentText();
+        conn = ui.comboInput->currentData().value<MIDIConnection>();
         if (conn != m_midiIn->currentConnection() || m_settingsChanged) {
             m_midiIn->close();
-            if (!conn.isEmpty()) {
+            if (!conn.first.isEmpty()) {
                 m_midiIn->initialize(settings.getQSettings());
                 m_midiIn->open(conn);
             }
@@ -164,8 +164,10 @@ void MidiSetup::refreshInputDrivers(QString id, bool advanced)
     ui.comboInput->clear();
     if (m_midiIn != 0) {
         ui.comboInput->addItem(QString());
-        ui.comboInput->addItems(m_midiIn->connections(advanced));
-        ui.comboInput->setCurrentText(m_midiIn->currentConnection());
+        for (const MIDIConnection& conn : m_midiIn->connections(advanced)) {
+            ui.comboInput->addItem(conn.first, QVariant::fromValue(conn));
+        }
+        ui.comboInput->setCurrentText(m_midiIn->currentConnection().first);
     }
 }
 
@@ -190,8 +192,10 @@ void MidiSetup::refreshOutputDrivers(QString id, bool advanced)
     }
     ui.comboOutput->clear();
     if (m_midiOut != 0) {
-        ui.comboOutput->addItems(m_midiOut->connections(advanced));
-        ui.comboOutput->setCurrentText(m_midiOut->currentConnection());
+        for (const MIDIConnection& conn : m_midiOut->connections(advanced)) {
+            ui.comboOutput->addItem(conn.first, QVariant::fromValue(conn));
+        }
+        ui.comboOutput->setCurrentText(m_midiOut->currentConnection().first);
     }
 }
 

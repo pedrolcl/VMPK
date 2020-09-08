@@ -19,7 +19,10 @@ VER_MIN = 7
 VER_PAT = 99
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
 
-lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
+requires(equals(QT_MAJOR_VERSION, 5))
+
+#lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
+equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 1) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
     error("Use Qt 5.1 or newer")
 }
@@ -59,6 +62,7 @@ win32 {
 
 linux* {
     QT += x11extras
+    #QT += gui-private
     CONFIG += link_pkgconfig
     PKGCONFIG += xcb
     LIBS += -lpthread
