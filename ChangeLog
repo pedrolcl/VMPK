@@ -1,3 +1,10 @@
+2020-09-10
+    * start of ticket #46: edited scale palette was not saved and applied correctly
+
+2020-09-09
+    * changes after drumstick ticket #20, (API changed):
+    *   Same names for ALSA Sequencer clients of two hw USB controllers
+
 2020-09-06
     * features implemented integrating drumstick ticket 22:
     *   ticket #43: show note names on note on

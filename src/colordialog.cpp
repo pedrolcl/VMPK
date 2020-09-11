@@ -29,12 +29,11 @@
 
 ColorDialog::ColorDialog(QWidget *parent) :
     QDialog(parent),
-    m_ui(new Ui::ColorDialog)
+    m_ui(new Ui::ColorDialog),
+    m_workingPalette(PianoPalette(1, PAL_SINGLE))
 {
     m_ui->setupUi(this);
-    VPianoSettings::instance()->initializePalettes();
-    VPianoSettings::instance()->initializePaletteStrings();
-    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames());
+    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(false));
     QSignalMapper *signalMapper = new QSignalMapper(this);
     for(int i = 0; i < 16; ++i)
     {
@@ -56,16 +55,22 @@ ColorDialog::~ColorDialog()
     delete m_ui;
 }
 
+void ColorDialog::accept()
+{
+    VPianoSettings::instance()->updatePalette(m_workingPalette);
+    QDialog::accept();
+}
+
 void
 ColorDialog::onAnyColorWidgetClicked(int i)
 {
     ColorWidget *wdg = findChild<ColorWidget*>(QString("widget_%1").arg(i));
     if (wdg != 0)
     {
-        QColor color = QColorDialog::getColor(VPianoSettings::instance()->currentPalette()->getColor(i), this);
+        QColor color = QColorDialog::getColor(m_workingPalette.getColor(i), this);
         if (color.isValid()) {
             wdg->setFillColor(color);
-            VPianoSettings::instance()->currentPalette()->setColor(i, color);
+            m_workingPalette.setColor(i, color);
         }
         else
         {
@@ -77,16 +82,16 @@ ColorDialog::onAnyColorWidgetClicked(int i)
 void
 ColorDialog::refreshPalette()
 {
-    m_ui->paletteNames->setEditText(VPianoSettings::instance()->currentPalette()->paletteName());
-    m_ui->paletteText->setText(VPianoSettings::instance()->currentPalette()->paletteText());
-    for(int i = 0; i < 16; ++i)
+    m_ui->paletteNames->setEditText(m_workingPalette.paletteName());
+    m_ui->paletteText->setText(m_workingPalette.paletteText());
+    for (int i = 0; i < 16; ++i)
     {
         ColorWidget *wdg = findChild<ColorWidget*>(QString("widget_%1").arg(i));
         if (wdg != 0)
         {
-            if (i < VPianoSettings::instance()->currentPalette()->getNumColors()) {
-                QColor color = VPianoSettings::instance()->currentPalette()->getColor(i);
-                QString name = VPianoSettings::instance()->currentPalette()->getColorName(i);
+            if (i < m_workingPalette.getNumColors()) {
+                QColor color = m_workingPalette.getColor(i);
+                QString name = m_workingPalette.getColorName(i);
                 wdg->setColorName(name);
                 if (!color.isValid()) {
                     color = qApp->palette().window().color();
@@ -103,8 +108,7 @@ void
 ColorDialog::loadPalette(int i)
 {
     if (i > -1 && i <  VPianoSettings::instance()->availablePalettes()) {
-        VPianoSettings::instance()->setCurrentPalette(i);
-        VPianoSettings::instance()->currentPalette()->loadColors();
+        m_workingPalette = VPianoSettings::instance()->getPalette(i);
         m_ui->paletteNames->setCurrentIndex(i);
         refreshPalette();
     }
@@ -113,7 +117,7 @@ ColorDialog::loadPalette(int i)
 void
 ColorDialog::resetCurrentPalette()
 {
-    VPianoSettings::instance()->resetCurrentPalette();
+    m_workingPalette.resetColors();
     refreshPalette();
 }
 
@@ -121,8 +125,14 @@ void
 ColorDialog::retranslateUi()
 {
     m_ui->retranslateUi(this);
-    VPianoSettings::instance()->initializePaletteStrings();
     m_ui->paletteNames->clear();
-    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames());
-    loadPalette(VPianoSettings::instance()->currentPalette()->paletteId());
+    VPianoSettings::instance()->initializePaletteStrings();
+    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(false));
+    m_workingPalette.retranslateStrings();
+    loadPalette(m_workingPalette.paletteId());
+}
+
+int ColorDialog::selectedPalette() const
+{
+    return m_workingPalette.paletteId();
 }

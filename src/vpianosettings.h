@@ -148,19 +148,17 @@ public:
     QString getShortcut(const QString& sKey) const;
 
     int availablePalettes() const;
-    PianoPalette *currentPalette();
-    PianoPalette *getPalette(int pal);
-    QList<QString> availablePaletteNames();
+    PianoPalette& currentPalette();
+    PianoPalette& getPalette(int pal);
+    QList<QString> availablePaletteNames(bool forHighlight);
     QColor getColor(int i);
-    void saveCurrentPalette();
     void setCurrentPalette(int i);
-    void resetCurrentPalette();
+    void resetPalette(int pal);
+    void initializePaletteStrings();
+    void updatePalette(const PianoPalette &p);
 
     VMPKKeyboardMap* getKeyboardMap();
     VMPKKeyboardMap* getRawKeyboardMap();
-
-    void initializePalettes();
-    void initializePaletteStrings();
 
     drumstick::widgets::PianoKeybd::LabelOrientation namesOrientation() const;
     void setNamesOrientation(drumstick::widgets::PianoKeybd::LabelOrientation namesOrientation);
@@ -192,14 +190,9 @@ private:
 
     void internalRead(QSettings &settings);
     void internalSave(QSettings &settings);
-    void retranslatePaletteSingle(PianoPalette *palette);
-    void retranslatePaletteDouble(PianoPalette *palette);
-    void retranslatePaletteChannels(PianoPalette *palette);
-    void retranslatePaletteScale(PianoPalette *palette);
-    void resetPaletteSingle(PianoPalette *palette);
-    void resetPaletteDouble(PianoPalette *palette);
-    void resetPaletteChannels(PianoPalette *palette);
-    void resetPaletteScale(PianoPalette *palette);
+    void initializePalettes();
+    void loadPalettes();
+    void savePalettes();
 
     QByteArray m_geometry;
     QByteArray m_state;
@@ -255,7 +248,7 @@ private:
         PianoPalette(16, PAL_CHANNELS),
         PianoPalette(12, PAL_SCALE),
     };
-    PianoPalette *m_currentPalette;
+    PianoPalette m_currentPalette;
 
     VMPKKeyboardMap m_keymap;
     VMPKKeyboardMap m_rawmap;

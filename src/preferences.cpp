@@ -48,7 +48,7 @@ Preferences::Preferences(QWidget *parent)
     ui.cboColorPolicy->clear();
     ui.cboOctaveName->clear();
     VPianoSettings::instance()->initializePaletteStrings();
-    ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames());
+    ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames(true));
 
 #if !defined(RAWKBD_SUPPORT)
     ui.chkRawKeyboard->setVisible(false);
@@ -113,7 +113,7 @@ void Preferences::apply()
          ui.txtFileInstrument->text() == QSTR_DEFAULTINS )
         VPianoSettings::instance()->setInsFileName( VPiano::dataDirectory() + QSTR_DEFAULTINS );
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
-    VPianoSettings::instance()->setPaletteId( ui.cboColorPolicy->currentIndex() );
+    VPianoSettings::instance()->setCurrentPalette(ui.cboColorPolicy->currentIndex());
     VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData( ui.cboStartingKey->currentIndex()).toInt() );
     VPianoSettings::instance()->setNamesOctave(static_cast<PianoKeybd::LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
     QFont f;
@@ -146,11 +146,14 @@ void Preferences::slotOpenInstrumentFile()
 void Preferences::slotSelectColor()
 {
     QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(this);
-    if (dlgColorPolicy != 0) {
+    if (dlgColorPolicy != nullptr) {
         dlgColorPolicy->loadPalette(ui.cboColorPolicy->currentIndex());
         if(dlgColorPolicy->exec() == QDialog::Accepted) {
-            ui.cboColorPolicy->setCurrentIndex(VPianoSettings::instance()->currentPalette()->paletteId());
-            VPianoSettings::instance()->saveCurrentPalette();
+            int pal = dlgColorPolicy->selectedPalette();
+            if (pal >= PAL_SINGLE && pal < PAL_SCALE) {
+                ui.cboColorPolicy->setCurrentIndex(pal);
+                VPianoSettings::instance()->setCurrentPalette(pal);
+            }
         }
     }
     delete dlgColorPolicy;

@@ -141,7 +141,6 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionWebSite, SIGNAL(triggered()), SLOT(slotOpenWebSite()));
     connect(ui.actionImportSoundFont, SIGNAL(triggered()), SLOT(slotImportSF()));
     connect(ui.actionEditExtraControls, SIGNAL(triggered()), SLOT(slotEditExtraControls()));
-    //connect(ui.actionNoteNames, SIGNAL(triggered()), SLOT(slotShowNoteNames()));
     connect(ui.actionShortcuts, SIGNAL(triggered()), SLOT(slotShortcuts()));
     connect(ui.actionKeyboardInput, SIGNAL(toggled(bool)), SLOT(slotKeyboardInput(bool)));
     connect(ui.actionMouseInput, SIGNAL(toggled(bool)), SLOT(slotMouseInput(bool)));
@@ -573,7 +572,6 @@ void VPiano::readSettings()
     restoreGeometry(VPianoSettings::instance()->geometry());
     restoreState(VPianoSettings::instance()->state());
 
-    //ui.actionNoteNames->setChecked(VPianoSettings::instance()->namesVisibility() == PianoKeybd::ShowAlways );
     ui.actionStatusBar->setChecked(VPianoSettings::instance()->showStatusBar());
     ui.pianokeybd->setNumKeys(VPianoSettings::instance()->numKeys(), VPianoSettings::instance()->startingKey());
     ui.pianokeybd->setVelocityTint(VPianoSettings::instance()->velocityColor());
@@ -587,7 +585,6 @@ void VPiano::readSettings()
     ui.actionColorScale->setChecked(VPianoSettings::instance()->colorScale());
     ui.pianokeybd->setFont(VPianoSettings::instance()->namesFont());
     ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
-    //slotShowNoteNames();
 
     QString insFileName = VPianoSettings::instance()->insFileName();
     if (!insFileName.isEmpty()) {
@@ -749,16 +746,16 @@ int VPiano::getType(const int note) const
 QColor VPiano::getColorFromPolicy(const int chan, const int note, const int vel)
 {
     Q_UNUSED(vel)
-    PianoPalette *palette = VPianoSettings::instance()->currentPalette();
-    switch (palette->paletteId()) {
+    PianoPalette palette = VPianoSettings::instance()->currentPalette();
+    switch (palette.paletteId()) {
     case PAL_SINGLE:
-        return palette->getColor(0);
+        return palette.getColor(0);
     case PAL_DOUBLE:
-        return palette->getColor(getType(note));
+        return palette.getColor(getType(note));
     case PAL_CHANNELS:
-        return palette->getColor(chan);
+        return palette.getColor(chan);
     case PAL_SCALE:
-        return palette->getColor(getDegree(note));
+        return palette.getColor(getDegree(note));
     }
     return QColor();
 }
@@ -1246,7 +1243,6 @@ void VPiano::applyPreferences()
     setWindowFlags( flags );
     move(wpos);
 
-    //slotShowNoteNames();
     ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
 }
 
@@ -1260,9 +1256,9 @@ void VPiano::populateInstruments()
     if (!VPianoSettings::instance()->insFileName().isEmpty() &&
          VPianoSettings::instance()->insFileName() != QSTR_DEFAULT) {
         if (channel == VPianoSettings::instance()->drumsChannel())
-            m_ins = VPianoSettings::instance()->getDrumsInstrument();  //dlgPreferences()->getDrumsInstrument();
+            m_ins = VPianoSettings::instance()->getDrumsInstrument();
         else
-            m_ins = VPianoSettings::instance()->getInstrument(); // dlgPreferences()->getInstrument();
+            m_ins = VPianoSettings::instance()->getInstrument();
         if (m_ins != nullptr) {
             //qDebug() << "Instrument Name:" << m_ins->instrumentName();
             //qDebug() << "Bank Selection method: " << m_ins->bankSelMethod();
@@ -1298,11 +1294,9 @@ void VPiano::applyInitialSettings()
     idx = m_comboControl->findData(ctl);
     if (idx != -1)
         m_comboControl->setCurrentIndex(idx);
-    //slotControlSliderMoved(m_ctlState[m_channel][ctl]);
     updateBankChange(m_lastBank[channel]);
     idx = m_comboProg->findData(m_lastProg[channel]);
     m_comboProg->setCurrentIndex(idx);
-    //slotComboProgActivated(idx);
 }
 
 void VPiano::slotPreferences()
@@ -1668,18 +1662,10 @@ void VPiano::setWidgetTip(QWidget* w, int val)
     QToolTip::showText(w->parentWidget()->mapToGlobal(w->pos()), tip);
 }
 
-/*void VPiano::slotShowNoteNames()
-{
-    PianoKeybd::LabelVisibility v = ui.actionNoteNames->isChecked() ? PianoKeybd::ShowAlways : PianoKeybd::ShowNever;
-    ui.pianokeybd->setShowLabels ( v );
-    VPianoSettings::instance()->setNamesVisibility( v );
-}*/
-
 //void VPiano::slotEditPrograms()
 //{ }
 
 #if defined(ENABLE_DBUS)
-
 void VPiano::quit()
 {
     close();
@@ -2080,19 +2066,23 @@ void VPiano::slotTouchScreenInput(bool value)
 void VPiano::slotColorPolicy()
 {
     QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(this);
-    dlgColorPolicy->loadPalette(VPianoSettings::instance()->currentPalette()->paletteId());
+    dlgColorPolicy->loadPalette(VPianoSettings::instance()->currentPalette().paletteId());
     if (dlgColorPolicy->exec() == QDialog::Accepted) {
-        PianoPalette* editedPalette = VPianoSettings::instance()->currentPalette();
-        VPianoSettings::instance()->setPaletteId(editedPalette->paletteId());
-        ui.pianokeybd->setPianoPalette(editedPalette);
-        ui.pianokeybd->setColorScalePalette(VPianoSettings::instance()->getPalette(PAL_SCALE));
-        editedPalette->saveColors();
+        int pal = dlgColorPolicy->selectedPalette();
+        PianoPalette editedPalette = VPianoSettings::instance()->getPalette(pal);
+        if (pal >= PAL_SINGLE && pal < PAL_SCALE) {
+            VPianoSettings::instance()->setCurrentPalette(pal);
+            ui.pianokeybd->setPianoPalette(editedPalette);
+        } else if (pal == PAL_SCALE) {
+            ui.pianokeybd->setColorScalePalette(editedPalette);
+        }
     }
     delete dlgColorPolicy;
 }
 
 void VPiano::slotColorScale(bool value)
 {
+    VPianoSettings::instance()->setColorScale(value);
     ui.pianokeybd->setShowColorScale(value);
 }
 

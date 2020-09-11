@@ -36,9 +36,11 @@ public:
     explicit ColorDialog(QWidget *parent = 0);
     ~ColorDialog();
     void retranslateUi();
+    int selectedPalette() const;
 
 public slots:
     void loadPalette(int i);
+    void accept();
 
 private slots:
     void onAnyColorWidgetClicked(int i);
@@ -46,7 +48,9 @@ private slots:
 
 private:
     void refreshPalette();
-    Ui::ColorDialog *m_ui;
+
+    Ui::ColorDialog* m_ui;
+    PianoPalette m_workingPalette;
 };
 
 #endif // COLORDIALOG_H

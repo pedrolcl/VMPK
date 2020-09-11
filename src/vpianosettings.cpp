@@ -29,7 +29,8 @@
 using namespace drumstick::rt;
 using namespace drumstick::widgets;
 
-VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent)
+VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent),
+    m_currentPalette(PianoPalette(1, PAL_SINGLE))
 {
     m_defaultInputBackend = QLatin1String("Network");
     m_defaultInputConnection = QLatin1String("21928");
@@ -48,6 +49,7 @@ VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent)
 #endif
     ResetDefaults();
     initializePalettes();
+    initializePaletteStrings();
 }
 
 VPianoSettings* VPianoSettings::instance()
@@ -65,7 +67,7 @@ void VPianoSettings::ResetDefaults()
     m_baseChannel = 0;
     m_velocity = 100;
     m_baseOctave = 1;
-    //m_numKeys = 88;
+    m_numKeys = DEFAULTNUMBEROFKEYS;
     m_startingKey = 9;
     m_defaultsMap = QVariantMap{
         { drumstick::rt::QSTR_DRUMSTICKRT_PUBLICNAMEIN, QSTR_VMPKINPUT},
@@ -73,7 +75,6 @@ void VPianoSettings::ResetDefaults()
     };
 
     m_paletteId = drumstick::widgets::PAL_SINGLE;
-    m_numKeys = DEFAULTNUMBEROFKEYS;
     m_drumsChannel = MIDIGMDRUMSCHANNEL;
     m_alwaysOnTop = false;
     m_rawKeyboard = false;
@@ -173,8 +174,8 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_language = settings.value(QSTR_LANGUAGE, QLocale::system().name()).toString();
     settings.endGroup();
 
+    loadPalettes();
     setCurrentPalette(m_paletteId);
-    currentPalette()->loadColors();
 
     settings.beginGroup(QSTR_KEYBOARD);
     m_rawKeyboard = settings.value(QSTR_RAWKEYBOARDMODE, false).toBool();
@@ -265,9 +266,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.setValue("namesOctave", m_namesOctave);
     settings.endGroup();
 
-    settings.sync();
-
-    saveCurrentPalette();
+    savePalettes();
 }
 
 QString VPianoSettings::getRawMapFile() const
@@ -694,34 +693,29 @@ QString VPianoSettings::getShortcut(const QString& sKey) const
 
 QColor VPianoSettings::getColor(int i)
 {
-    return currentPalette()->getColor(i);
+    return currentPalette().getColor(i);
 }
 
-void VPianoSettings::saveCurrentPalette()
+PianoPalette& VPianoSettings::currentPalette()
 {
-    currentPalette()->saveColors();
-}
-
-PianoPalette* VPianoSettings::currentPalette()
-{
-    if (m_currentPalette == 0) {
-        m_currentPalette = &m_paletteList[PAL_SINGLE];
-    }
     return m_currentPalette;
 }
 
-PianoPalette* VPianoSettings::getPalette(int pal)
+PianoPalette& VPianoSettings::getPalette(int pal)
 {
     if (pal >= 0 && pal < m_paletteList.count()) {
-        return &m_paletteList[pal];
+        return m_paletteList[pal];
     }
-    return 0;
+    return m_paletteList[0];
 }
 
-QList<QString> VPianoSettings::availablePaletteNames()
+QList<QString> VPianoSettings::availablePaletteNames(bool forHighlight)
 {
     QList<QString> tmp;
-    foreach(const PianoPalette& p, m_paletteList) {
+    for (PianoPalette& p : m_paletteList) {
+        if (forHighlight && p.paletteId() >= PAL_SCALE) {
+            continue;
+        }
         tmp << p.paletteName();
     }
     return tmp;
@@ -729,72 +723,9 @@ QList<QString> VPianoSettings::availablePaletteNames()
 
 void VPianoSettings::initializePalettes()
 {
-    resetPaletteSingle(&m_paletteList[PAL_SINGLE]);
-    resetPaletteDouble(&m_paletteList[PAL_DOUBLE]);
-    resetPaletteChannels(&m_paletteList[PAL_CHANNELS]);
-    resetPaletteScale(&m_paletteList[PAL_SCALE]);
-}
-
-void VPianoSettings::resetPaletteSingle(PianoPalette *palette)
-{
-    palette->setColor(0, QString(), qApp->palette().highlight().color());
-}
-
-void VPianoSettings::resetPaletteDouble(PianoPalette *palette)
-{
-    palette->setColor(0, tr("N"), qApp->palette().highlight().color());
-    palette->setColor(1, tr("#"), QColor("lawngreen"));
-}
-
-void VPianoSettings::resetPaletteChannels(PianoPalette *palette)
-{
-    palette->setColor(0, tr("1"), QColor("red"));
-    palette->setColor(1, tr("2"), QColor("lime"));
-    palette->setColor(2, tr("3"), QColor("blue"));
-    palette->setColor(3, tr("4"), QColor("gold"));
-    palette->setColor(4, tr("5"), QColor("maroon"));
-    palette->setColor(5, tr("6"), QColor("green"));
-    palette->setColor(6, tr("7"), QColor("navy"));
-    palette->setColor(7, tr("8"), QColor("darkorange"));
-    palette->setColor(8, tr("9"), QColor("purple"));
-    palette->setColor(9, tr("10"), QColor());
-    palette->setColor(10, tr("11"), QColor("teal"));
-    palette->setColor(11, tr("12"), QColor("chocolate"));
-    palette->setColor(12, tr("13"), QColor("fuchsia"));
-    palette->setColor(13, tr("14"), QColor("olivedrab"));
-    palette->setColor(14, tr("15"), QColor("aqua"));
-    palette->setColor(15, tr("16"), QColor("greenyellow"));
-}
-
-void VPianoSettings::resetPaletteScale(PianoPalette *palette)
-{
-    /*
-                    R       G       B
-            C       -       -       100%    0
-            C#      50%     -       100%    1
-            D       100%    -       100%    2
-            D#      100%    -       50%     3
-            E       100%    -       -       4
-            F       100%    50%     -       5
-            F#      100%    100%    -       6
-            G       50%     100%    -       7
-            G#      -       100%    -       8
-            A       -       100%    50%     9
-            A#      -       100%    100%    10
-            B       -       50%     100%    11
-    */
-    palette->setColor(0, tr("C"), QColor::fromRgb(0,0,255));
-    palette->setColor(1, tr("C#"), QColor::fromRgb(127,0,255));
-    palette->setColor(2, tr("D"), QColor::fromRgb(255,0,255));
-    palette->setColor(3, tr("D#"), QColor::fromRgb(255,0,127));
-    palette->setColor(4, tr("E"), QColor::fromRgb(255,0,0));
-    palette->setColor(5, tr("F"), QColor::fromRgb(255,127,0));
-    palette->setColor(6, tr("F#"), QColor::fromRgb(255,255,0));
-    palette->setColor(7, tr("G"), QColor::fromRgb(127,255,0));
-    palette->setColor(8, tr("G#"), QColor::fromRgb(0,255,0));
-    palette->setColor(9, tr("A"), QColor::fromRgb(0,255,127));
-    palette->setColor(10, tr("A#"), QColor::fromRgb(0,255,255));
-    palette->setColor(11, tr("B"), QColor::fromRgb(0,127,255));
+    for (PianoPalette& pal : m_paletteList) {
+        pal.resetColors();
+    }
 }
 
 int VPianoSettings::availablePalettes() const
@@ -804,107 +735,43 @@ int VPianoSettings::availablePalettes() const
 
 void VPianoSettings::setCurrentPalette(int i)
 {
-    if (i >= PAL_SINGLE && i < m_paletteList.length()) {
+    if (i >= PAL_SINGLE && i < PAL_SCALE) {
         m_currentPalette = getPalette(i);
         m_paletteId = i;
     }
 }
 
-void VPianoSettings::resetCurrentPalette()
+void VPianoSettings::updatePalette(const PianoPalette& p)
 {
-    PianoPalette *palette = currentPalette();
-    switch(palette->paletteId()) {
-    case PAL_SINGLE:
-        resetPaletteSingle(palette);
-        break;
-    case PAL_DOUBLE:
-        resetPaletteDouble(palette);
-        break;
-    case PAL_CHANNELS:
-        resetPaletteChannels(palette);
-        break;
-    case PAL_SCALE:
-        resetPaletteScale(palette);
-        break;
-    default:
-        return;
-    }
+    int id = p.paletteId();
+    m_paletteList[id] = p;
 }
 
-void
-VPianoSettings::retranslatePaletteSingle(PianoPalette *palette)
+void VPianoSettings::resetPalette(int pal)
 {
-    palette->setColorName(0, QString());
-}
-
-void
-VPianoSettings::retranslatePaletteDouble(PianoPalette *palette)
-{
-    palette->setColorName(0, tr("N"));
-    palette->setColorName(1, tr("#"));
-}
-
-void
-VPianoSettings::retranslatePaletteChannels(PianoPalette *palette)
-{
-    palette->setColorName(0, tr("1"));
-    palette->setColorName(1, tr("2"));
-    palette->setColorName(2, tr("3"));
-    palette->setColorName(3, tr("4"));
-    palette->setColorName(4, tr("5"));
-    palette->setColorName(5, tr("6"));
-    palette->setColorName(6, tr("7"));
-    palette->setColorName(7, tr("8"));
-    palette->setColorName(8, tr("9"));
-    palette->setColorName(9, tr("10"));
-    palette->setColorName(10, tr("11"));
-    palette->setColorName(11, tr("12"));
-    palette->setColorName(12, tr("13"));
-    palette->setColorName(13, tr("14"));
-    palette->setColorName(14, tr("15"));
-    palette->setColorName(15, tr("16"));
-}
-
-void
-VPianoSettings::retranslatePaletteScale(PianoPalette *palette)
-{
-    palette->setColorName(0, tr("C"));
-    palette->setColorName(1, tr("C#"));
-    palette->setColorName(2, tr("D"));
-    palette->setColorName(3, tr("D#"));
-    palette->setColorName(4, tr("E"));
-    palette->setColorName(5, tr("F"));
-    palette->setColorName(6, tr("F#"));
-    palette->setColorName(7, tr("G"));
-    palette->setColorName(8, tr("G#"));
-    palette->setColorName(9, tr("A"));
-    palette->setColorName(10, tr("A#"));
-    palette->setColorName(11, tr("B"));
+    getPalette(pal).resetColors();
 }
 
 void
 VPianoSettings::initializePaletteStrings()
 {
-    PianoPalette *palette;
-    palette = &m_paletteList[PAL_SINGLE];
-    palette->setPaletteName(tr("Single color"));
-    palette->setPaletteText(tr("A single color to highlight all note events"));
-    retranslatePaletteSingle(palette);
+    for (PianoPalette& pal : m_paletteList) {
+        pal.retranslateStrings();
+    }
+}
 
-    palette = &m_paletteList[PAL_DOUBLE];
-    palette->setPaletteName(tr("Two colors"));
-    palette->setPaletteText(tr("One color to highlight natural notes and a different one for accidentals"));
-    retranslatePaletteDouble(palette);
+void VPianoSettings::loadPalettes()
+{
+    for (PianoPalette& pal : m_paletteList) {
+        pal.loadColors();
+    }
+}
 
-    palette = &m_paletteList[PAL_CHANNELS];
-    palette->setPaletteName(tr("MIDI Channels"));
-    palette->setPaletteText(tr("A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection"));
-    retranslatePaletteChannels(palette);
-
-    palette = &m_paletteList[PAL_SCALE];
-    palette->setPaletteName(tr("Chromatic scale"));
-    palette->setPaletteText(tr("One color for each note in the chromatic scale"));
-    retranslatePaletteScale(palette);
+void VPianoSettings::savePalettes()
+{
+    for (PianoPalette& pal : m_paletteList) {
+        pal.saveColors();
+    }
 }
 
 VMPKKeyboardMap *VPianoSettings::getKeyboardMap()
