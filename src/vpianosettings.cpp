@@ -30,7 +30,7 @@ using namespace drumstick::rt;
 using namespace drumstick::widgets;
 
 VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent),
-    m_currentPalette(PianoPalette(1, PAL_SINGLE))
+    m_currentPalette(PianoPalette(PAL_SINGLE))
 {
     m_defaultInputBackend = QLatin1String("Network");
     m_defaultInputConnection = QLatin1String("21928");

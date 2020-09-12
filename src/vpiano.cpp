@@ -1227,8 +1227,8 @@ void VPiano::applyPreferences()
     else
         ui.pianokeybd->resetRawKeyboardMap();
 
-    ui.pianokeybd->setPianoPalette(VPianoSettings::instance()->currentPalette());
-    ui.pianokeybd->setColorScalePalette(VPianoSettings::instance()->getPalette(PAL_SCALE));
+    ui.pianokeybd->setHighlightPalette(VPianoSettings::instance()->currentPalette());
+    ui.pianokeybd->setBackgroundPalette(VPianoSettings::instance()->getPalette(PAL_SCALE));
     ui.pianokeybd->setShowColorScale(ui.actionColorScale->isChecked());
 
     populateInstruments();
@@ -1704,25 +1704,34 @@ void VPiano::velocity(int value)
 
 void VPiano::connect_in(const QString &value)
 {
-    if( m_midiin != 0) {
-        /*dlgMidiSetup()->setInputEnabled(true);
-        dlgMidiSetup()->setCurrentInput(value);
-        applyConnections();*/
+    if( m_midiin != nullptr) {
         m_midiin->close();
         if (!value.isEmpty()) {
-            m_midiin->open(value);
+            for(const MIDIConnection& conn : m_midiin->connections()) {
+                if (conn.first == value) {
+                    m_midiin->open(conn);
+                    break;
+                }
+            }
         }
     }
 }
 
 void VPiano::connect_out(const QString &value)
 {
-    if( m_midiout != 0) {
-        /*dlgMidiSetup()->setCurrentOutput(value);
-        applyConnections();*/
+    if( m_midiout != nullptr) {
         m_midiout->close();
         if (!value.isEmpty()) {
-            m_midiout->open(value);
+            for(const MIDIConnection& conn : m_midiout->connections()) {
+                if (conn.first == value) {
+                    m_midiout->open(conn);
+                    if (m_midiin != nullptr) {
+                        m_midiin->setMIDIThruDevice(m_midiout);
+                        m_midiin->enableMIDIThru(VPianoSettings::instance()->midiThru());
+                    }
+                    break;
+                }
+            }
         }
     }
 }
@@ -2072,9 +2081,9 @@ void VPiano::slotColorPolicy()
         PianoPalette editedPalette = VPianoSettings::instance()->getPalette(pal);
         if (pal >= PAL_SINGLE && pal < PAL_SCALE) {
             VPianoSettings::instance()->setCurrentPalette(pal);
-            ui.pianokeybd->setPianoPalette(editedPalette);
+            ui.pianokeybd->setHighlightPalette(editedPalette);
         } else if (pal == PAL_SCALE) {
-            ui.pianokeybd->setColorScalePalette(editedPalette);
+            ui.pianokeybd->setBackgroundPalette(editedPalette);
         }
     }
     delete dlgColorPolicy;

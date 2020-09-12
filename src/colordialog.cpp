@@ -30,7 +30,7 @@
 ColorDialog::ColorDialog(QWidget *parent) :
     QDialog(parent),
     m_ui(new Ui::ColorDialog),
-    m_workingPalette(PianoPalette(1, PAL_SINGLE))
+    m_workingPalette(PianoPalette(PAL_SINGLE))
 {
     m_ui->setupUi(this);
     m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(false));

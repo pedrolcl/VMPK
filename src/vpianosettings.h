@@ -243,10 +243,12 @@ private:
     QMap<QString, QString> m_shortcuts;
 
     QList<PianoPalette> m_paletteList {
-        PianoPalette(1, PAL_SINGLE),
-        PianoPalette(2, PAL_DOUBLE),
-        PianoPalette(16, PAL_CHANNELS),
-        PianoPalette(12, PAL_SCALE),
+        PianoPalette(PAL_SINGLE),
+        PianoPalette(PAL_DOUBLE),
+        PianoPalette(PAL_CHANNELS),
+        PianoPalette(PAL_SCALE),
+        PianoPalette(PAL_KEYS),
+        PianoPalette(PAL_FONT)
     };
     PianoPalette m_currentPalette;
 
