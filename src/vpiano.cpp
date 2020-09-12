@@ -743,10 +743,10 @@ int VPiano::getType(const int note) const
     return 0;
 }
 
-QColor VPiano::getColorFromPolicy(const int chan, const int note, const int vel)
+QColor VPiano::getHighlightColorFromPolicy(const int chan, const int note, const int vel)
 {
     Q_UNUSED(vel)
-    PianoPalette palette = VPianoSettings::instance()->currentPalette();
+    PianoPalette palette = VPianoSettings::instance()->getPalette(VPianoSettings::instance()->highlightPaletteId());
     switch (palette.paletteId()) {
     case PAL_SINGLE:
         return palette.getColor(0);
@@ -754,8 +754,8 @@ QColor VPiano::getColorFromPolicy(const int chan, const int note, const int vel)
         return palette.getColor(getType(note));
     case PAL_CHANNELS:
         return palette.getColor(chan);
-    case PAL_SCALE:
-        return palette.getColor(getDegree(note));
+    default:
+        break;
     }
     return QColor();
 }
@@ -766,7 +766,7 @@ void VPiano::slotNoteOn(const int chan, const int note, const int vel)
         if (vel == 0) {
             slotNoteOff(chan, note, vel);
         } else {
-            QColor c = getColorFromPolicy(chan, note, vel);
+            QColor c = getHighlightColorFromPolicy(chan, note, vel);
             int v = (VPianoSettings::instance()->velocityColor() ? vel : MIDIVELOCITY );
             ui.pianokeybd->showNoteOn(note, c, v);
 #ifdef ENABLE_DBUS
@@ -1227,9 +1227,11 @@ void VPiano::applyPreferences()
     else
         ui.pianokeybd->resetRawKeyboardMap();
 
-    ui.pianokeybd->setHighlightPalette(VPianoSettings::instance()->currentPalette());
-    ui.pianokeybd->setBackgroundPalette(VPianoSettings::instance()->getPalette(PAL_SCALE));
-    ui.pianokeybd->setShowColorScale(ui.actionColorScale->isChecked());
+    PianoPalette highlight = VPianoSettings::instance()->getPalette(VPianoSettings::instance()->highlightPaletteId());
+    ui.pianokeybd->setHighlightPalette(highlight);
+    PianoPalette background = VPianoSettings::instance()->getPalette(VPianoSettings::instance()->colorScale() ? PAL_SCALE : PAL_KEYS);
+    ui.pianokeybd->setBackgroundPalette(background);
+    ui.pianokeybd->setShowColorScale(VPianoSettings::instance()->colorScale());
 
     populateInstruments();
     populateControllers();
@@ -2075,15 +2077,17 @@ void VPiano::slotTouchScreenInput(bool value)
 void VPiano::slotColorPolicy()
 {
     QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(this);
-    dlgColorPolicy->loadPalette(VPianoSettings::instance()->currentPalette().paletteId());
+    dlgColorPolicy->loadPalette(VPianoSettings::instance()->highlightPaletteId());
     if (dlgColorPolicy->exec() == QDialog::Accepted) {
         int pal = dlgColorPolicy->selectedPalette();
         PianoPalette editedPalette = VPianoSettings::instance()->getPalette(pal);
-        if (pal >= PAL_SINGLE && pal < PAL_SCALE) {
-            VPianoSettings::instance()->setCurrentPalette(pal);
+        if (editedPalette.isHighLight()) {
+            VPianoSettings::instance()->setHighlightPaletteId(pal);
             ui.pianokeybd->setHighlightPalette(editedPalette);
-        } else if (pal == PAL_SCALE) {
+        } else if (editedPalette.isBackground()) {
             ui.pianokeybd->setBackgroundPalette(editedPalette);
+        } else if (editedPalette.isForeground()) {
+            ui.pianokeybd->setFontPalette(editedPalette);
         }
     }
     delete dlgColorPolicy;
@@ -2091,8 +2095,11 @@ void VPiano::slotColorPolicy()
 
 void VPiano::slotColorScale(bool value)
 {
-    VPianoSettings::instance()->setColorScale(value);
-    ui.pianokeybd->setShowColorScale(value);
+    if (value != VPianoSettings::instance()->colorScale()) {
+        VPianoSettings::instance()->setColorScale(value);
+        ui.pianokeybd->setBackgroundPalette(VPianoSettings::instance()->getPalette(value ? PAL_SCALE : PAL_KEYS));
+        ui.pianokeybd->setShowColorScale(value);
+    }
 }
 
 void VPiano::toggleWindowFrame(const bool state)

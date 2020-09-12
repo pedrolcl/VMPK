@@ -29,8 +29,8 @@
 using namespace drumstick::rt;
 using namespace drumstick::widgets;
 
-VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent),
-    m_currentPalette(PianoPalette(PAL_SINGLE))
+VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent)
+    //m_currentPalette(PianoPalette(PAL_SINGLE))
 {
     m_defaultInputBackend = QLatin1String("Network");
     m_defaultInputConnection = QLatin1String("21928");
@@ -74,7 +74,7 @@ void VPianoSettings::ResetDefaults()
         { drumstick::rt::QSTR_DRUMSTICKRT_PUBLICNAMEOUT, QSTR_VMPKOUTPUT}
     };
 
-    m_paletteId = drumstick::widgets::PAL_SINGLE;
+    m_highlightPaletteId = drumstick::widgets::PAL_SINGLE;
     m_drumsChannel = MIDIGMDRUMSCHANNEL;
     m_alwaysOnTop = false;
     m_rawKeyboard = false;
@@ -169,13 +169,12 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_enableTouch = settings.value(QSTR_ENABLETOUCHINPUT, touchInputEnabledbyDefault).toBool();
     m_drumsChannel = settings.value(QSTR_DRUMSCHANNEL, MIDIGMDRUMSCHANNEL).toInt();
     m_startingKey = settings.value(QSTR_STARTINGKEY, DEFAULTSTARTINGKEY).toInt();
-    m_paletteId = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
+    m_highlightPaletteId = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
     m_colorScale = settings.value(QSTR_SHOWCOLORSCALE, false).toBool();
     m_language = settings.value(QSTR_LANGUAGE, QLocale::system().name()).toString();
     settings.endGroup();
 
     loadPalettes();
-    setCurrentPalette(m_paletteId);
 
     settings.beginGroup(QSTR_KEYBOARD);
     m_rawKeyboard = settings.value(QSTR_RAWKEYBOARDMODE, false).toBool();
@@ -248,7 +247,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.setValue(QSTR_ENABLETOUCHINPUT, m_enableTouch);
     settings.setValue(QSTR_DRUMSCHANNEL, m_drumsChannel);
     settings.setValue(QSTR_STARTINGKEY, m_startingKey);
-    settings.setValue(QSTR_CURRENTPALETTE, m_paletteId);
+    settings.setValue(QSTR_CURRENTPALETTE, m_highlightPaletteId);
     settings.setValue(QSTR_SHOWCOLORSCALE, m_colorScale);
     settings.endGroup();
 
@@ -355,14 +354,14 @@ void VPianoSettings::setTranspose(int transpose)
     m_transpose = transpose;
 }
 
-int VPianoSettings::paletteId() const
+int VPianoSettings::highlightPaletteId() const
 {
-    return m_paletteId;
+    return m_highlightPaletteId;
 }
 
-void VPianoSettings::setPaletteId(int paletteId)
+void VPianoSettings::setHighlightPaletteId(int paletteId)
 {
-    m_paletteId = paletteId;
+    m_highlightPaletteId = paletteId;
 }
 
 QString VPianoSettings::insFileName() const
@@ -691,16 +690,6 @@ QString VPianoSettings::getShortcut(const QString& sKey) const
     return m_shortcuts.value(sKey);
 }
 
-QColor VPianoSettings::getColor(int i)
-{
-    return currentPalette().getColor(i);
-}
-
-PianoPalette& VPianoSettings::currentPalette()
-{
-    return m_currentPalette;
-}
-
 PianoPalette& VPianoSettings::getPalette(int pal)
 {
     if (pal >= 0 && pal < m_paletteList.count()) {
@@ -713,7 +702,7 @@ QList<QString> VPianoSettings::availablePaletteNames(bool forHighlight)
 {
     QList<QString> tmp;
     for (PianoPalette& p : m_paletteList) {
-        if (forHighlight && p.paletteId() >= PAL_SCALE) {
+        if (forHighlight && !p.isHighLight()) {
             continue;
         }
         tmp << p.paletteName();
@@ -733,27 +722,13 @@ int VPianoSettings::availablePalettes() const
     return m_paletteList.length();
 }
 
-void VPianoSettings::setCurrentPalette(int i)
-{
-    if (i >= PAL_SINGLE && i < PAL_SCALE) {
-        m_currentPalette = getPalette(i);
-        m_paletteId = i;
-    }
-}
-
 void VPianoSettings::updatePalette(const PianoPalette& p)
 {
     int id = p.paletteId();
     m_paletteList[id] = p;
 }
 
-void VPianoSettings::resetPalette(int pal)
-{
-    getPalette(pal).resetColors();
-}
-
-void
-VPianoSettings::initializePaletteStrings()
+void VPianoSettings::initializePaletteStrings()
 {
     for (PianoPalette& pal : m_paletteList) {
         pal.retranslateStrings();

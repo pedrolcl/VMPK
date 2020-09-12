@@ -86,7 +86,7 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkEnableKeyboard->setChecked( VPianoSettings::instance()->enableKeyboard() );
         ui.chkEnableMouse->setChecked( VPianoSettings::instance()->enableMouse() );
         ui.chkEnableTouch->setChecked( VPianoSettings::instance()->enableTouch() );
-        ui.cboColorPolicy->setCurrentIndex( VPianoSettings::instance()->paletteId() );
+        ui.cboColorPolicy->setCurrentIndex( VPianoSettings::instance()->highlightPaletteId() );
         ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData( VPianoSettings::instance()->startingKey() ) );
         ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
         ui.txtFont->setText( VPianoSettings::instance()->namesFont().toString() );
@@ -113,7 +113,7 @@ void Preferences::apply()
          ui.txtFileInstrument->text() == QSTR_DEFAULTINS )
         VPianoSettings::instance()->setInsFileName( VPiano::dataDirectory() + QSTR_DEFAULTINS );
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
-    VPianoSettings::instance()->setCurrentPalette(ui.cboColorPolicy->currentIndex());
+    VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentIndex());
     VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData( ui.cboStartingKey->currentIndex()).toInt() );
     VPianoSettings::instance()->setNamesOctave(static_cast<PianoKeybd::LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
     QFont f;
@@ -150,9 +150,10 @@ void Preferences::slotSelectColor()
         dlgColorPolicy->loadPalette(ui.cboColorPolicy->currentIndex());
         if(dlgColorPolicy->exec() == QDialog::Accepted) {
             int pal = dlgColorPolicy->selectedPalette();
-            if (pal >= PAL_SINGLE && pal < PAL_SCALE) {
+            PianoPalette palette = VPianoSettings::instance()->getPalette(pal);
+            if (palette.isHighLight()) {
+                VPianoSettings::instance()->setHighlightPaletteId(pal);
                 ui.cboColorPolicy->setCurrentIndex(pal);
-                VPianoSettings::instance()->setCurrentPalette(pal);
             }
         }
     }

@@ -120,8 +120,8 @@ public:
     Instrument* getDrumsInstrument();
     QStringList getInsNames();
 
-    int paletteId() const;
-    void setPaletteId(int paletteId);
+    int highlightPaletteId() const;
+    void setHighlightPaletteId(int paletteId);
 
     int transpose() const;
     void setTranspose(int transpose);
@@ -148,12 +148,8 @@ public:
     QString getShortcut(const QString& sKey) const;
 
     int availablePalettes() const;
-    PianoPalette& currentPalette();
     PianoPalette& getPalette(int pal);
     QList<QString> availablePaletteNames(bool forHighlight);
-    QColor getColor(int i);
-    void setCurrentPalette(int i);
-    void resetPalette(int pal);
     void initializePaletteStrings();
     void updatePalette(const PianoPalette &p);
 
@@ -210,7 +206,7 @@ private:
     int m_transpose;
     int m_numKeys;
     int m_startingKey;
-    int m_paletteId;
+    int m_highlightPaletteId;
     int m_drumsChannel;
     bool m_alwaysOnTop;
     bool m_rawKeyboard;
@@ -250,7 +246,6 @@ private:
         PianoPalette(PAL_KEYS),
         PianoPalette(PAL_FONT)
     };
-    PianoPalette m_currentPalette;
 
     VMPKKeyboardMap m_keymap;
     VMPKKeyboardMap m_rawmap;

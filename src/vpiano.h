@@ -118,7 +118,6 @@ protected Q_SLOTS:
     void slotOpenWebSite();
     void slotImportSF();
     void slotEditExtraControls();
-    //void slotShowNoteNames();
     void slotNameOrientation(QAction* action);
     void slotNameVisibility(QAction* action);
     void slotNameVariant(QAction* action);
@@ -210,7 +209,7 @@ private:
     void createLanguageMenu();
     QString configuredLanguage();
     void enforceMIDIChannelState();
-    QColor getColorFromPolicy(const int chan, const int note, const int vel);
+    QColor getHighlightColorFromPolicy(const int chan, const int note, const int vel);
     int getType(const int note) const;
     int getDegree(const int note) const;
 
