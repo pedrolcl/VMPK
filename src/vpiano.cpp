@@ -573,6 +573,7 @@ void VPiano::readSettings()
     restoreState(VPianoSettings::instance()->state());
 
     ui.actionStatusBar->setChecked(VPianoSettings::instance()->showStatusBar());
+    ui.statusBar->setVisible(VPianoSettings::instance()->showStatusBar());
     ui.pianokeybd->setNumKeys(VPianoSettings::instance()->numKeys(), VPianoSettings::instance()->startingKey());
     ui.pianokeybd->setVelocityTint(VPianoSettings::instance()->velocityColor());
     ui.pianokeybd->setVelocity(VPianoSettings::instance()->velocity());
@@ -584,7 +585,49 @@ void VPiano::readSettings()
     ui.pianokeybd->setChannel(VPianoSettings::instance()->channel());
     ui.actionColorScale->setChecked(VPianoSettings::instance()->colorScale());
     ui.pianokeybd->setFont(VPianoSettings::instance()->namesFont());
+
+    switch(VPianoSettings::instance()->namesVisibility()) {
+    case ShowNever:
+        ui.actionNever->setChecked(true);
+        break;
+    case ShowMinimum:
+        ui.actionMinimal->setChecked(true);
+        break;
+    case ShowActivated:
+        ui.actionWhen_Activated->setChecked(true);
+        break;
+    case ShowAlways:
+        ui.actionAlways->setChecked(true);
+        break;
+    }
     ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
+
+    switch(VPianoSettings::instance()->alterations()) {
+    case ShowSharps:
+        ui.actionSharps->setChecked(true);
+        break;
+    case ShowFlats:
+        ui.actionFlats->setChecked(true);
+        break;
+    case ShowNothing:
+        ui.actionNothing->setChecked(true);
+        break;
+    }
+    ui.pianokeybd->setLabelAlterations(VPianoSettings::instance()->alterations());
+
+    switch(VPianoSettings::instance()->namesOrientation()) {
+    case HorizontalOrientation:
+        ui.actionHorizontal->setChecked(true);
+        break;
+    case VerticalOrientation:
+        ui.actionVertical->setChecked(true);
+        break;
+    case AutomaticOrientation:
+        ui.actionAutomatic->setChecked(true);
+        break;
+    }
+    ui.pianokeybd->setLabelOrientation(VPianoSettings::instance()->namesOrientation());
+    ui.pianokeybd->setLabelOctave(VPianoSettings::instance()->namesOctave());
 
     QString insFileName = VPianoSettings::instance()->insFileName();
     if (!insFileName.isEmpty()) {
@@ -664,6 +707,7 @@ void VPiano::readMidiControllerSettings()
 
 void VPiano::writeSettings()
 {
+    VPianoSettings::instance()->setShowStatusBar(ui.actionStatusBar->isChecked());
     VPianoSettings::instance()->setGeometry(saveGeometry());
     VPianoSettings::instance()->setState(saveState());
     VPianoSettings::instance()->SaveSettings();
@@ -725,8 +769,9 @@ void VPiano::writeSettings()
 void VPiano::closeEvent( QCloseEvent *event )
 {
     //qDebug() << "closeEvent:" << event->type();
-    if (m_initialized)
+    if (m_initialized) {
         writeSettings();
+    }
     event->accept();
 }
 
@@ -1231,6 +1276,7 @@ void VPiano::applyPreferences()
     ui.pianokeybd->setHighlightPalette(highlight);
     PianoPalette background = VPianoSettings::instance()->getPalette(VPianoSettings::instance()->colorScale() ? PAL_SCALE : PAL_KEYS);
     ui.pianokeybd->setBackgroundPalette(background);
+    ui.pianokeybd->setForegroundPalette(VPianoSettings::instance()->getPalette(PAL_FONT));
     ui.pianokeybd->setShowColorScale(VPianoSettings::instance()->colorScale());
 
     populateInstruments();
@@ -1304,7 +1350,7 @@ void VPiano::applyInitialSettings()
 void VPiano::slotPreferences()
 {
     QPointer<Preferences> dlgPreferences = new Preferences(this);
-    dlgPreferences->setNoteNames(ui.pianokeybd->noteNames());
+    dlgPreferences->setNoteNames(ui.pianokeybd->standardNoteNames());
     releaseKb();
     if (dlgPreferences->exec() == QDialog::Accepted) {
         applyPreferences();
@@ -1458,6 +1504,7 @@ void VPiano::slotChannelValueChanged(const int channel)
         if (updDrums) {
             populateInstruments();
             populateControllers();
+            updateNoteNames(c == drms);
         }
         idx = m_comboControl->findData(m_lastCtl[baseChannel]);
         if (idx != -1) {
@@ -1469,7 +1516,6 @@ void VPiano::slotChannelValueChanged(const int channel)
         updateBankChange(m_lastBank[baseChannel]);
         updateProgramChange(m_lastProg[baseChannel]);
         enforceMIDIChannelState();
-        ui.pianokeybd->resetKeyPressedColor();
     }
 }
 
@@ -2085,9 +2131,12 @@ void VPiano::slotColorPolicy()
             VPianoSettings::instance()->setHighlightPaletteId(pal);
             ui.pianokeybd->setHighlightPalette(editedPalette);
         } else if (editedPalette.isBackground()) {
-            ui.pianokeybd->setBackgroundPalette(editedPalette);
+            if ((VPianoSettings::instance()->colorScale() && (editedPalette.paletteId() == PAL_SCALE)) ||
+                (!VPianoSettings::instance()->colorScale() && (editedPalette.paletteId() == PAL_KEYS))) {
+                ui.pianokeybd->setBackgroundPalette(editedPalette);
+            }
         } else if (editedPalette.isForeground()) {
-            ui.pianokeybd->setFontPalette(editedPalette);
+            ui.pianokeybd->setForegroundPalette(editedPalette);
         }
     }
     delete dlgColorPolicy;
@@ -2135,11 +2184,11 @@ void VPiano::setPortableConfig(const QString fileName)
 void VPiano::slotNameOrientation(QAction* action)
 {
     if(action == ui.actionHorizontal) {
-        VPianoSettings::instance()->setNamesOrientation(PianoKeybd::HorizontalOrientation);
+        VPianoSettings::instance()->setNamesOrientation(HorizontalOrientation);
     } else if(action == ui.actionVertical) {
-        VPianoSettings::instance()->setNamesOrientation(PianoKeybd::VerticalOrientation);
+        VPianoSettings::instance()->setNamesOrientation(VerticalOrientation);
     } else if(action == ui.actionAutomatic) {
-        VPianoSettings::instance()->setNamesOrientation(PianoKeybd::AutomaticOrientation);
+        VPianoSettings::instance()->setNamesOrientation(AutomaticOrientation);
     }
     ui.pianokeybd->setLabelOrientation(VPianoSettings::instance()->namesOrientation());
 }
@@ -2147,13 +2196,13 @@ void VPiano::slotNameOrientation(QAction* action)
 void VPiano::slotNameVisibility(QAction* action)
 {
     if(action == ui.actionNever) {
-        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowNever);
+        VPianoSettings::instance()->setNamesVisibility(ShowNever);
     } else if(action == ui.actionMinimal) {
-        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowMinimum);
+        VPianoSettings::instance()->setNamesVisibility(ShowMinimum);
     } else if(action == ui.actionWhen_Activated) {
-        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowActivated);
+        VPianoSettings::instance()->setNamesVisibility(ShowActivated);
     } else if(action == ui.actionAlways) {
-        VPianoSettings::instance()->setNamesVisibility(PianoKeybd::ShowAlways);
+        VPianoSettings::instance()->setNamesVisibility(ShowAlways);
     }
     ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
 }
@@ -2161,11 +2210,11 @@ void VPiano::slotNameVisibility(QAction* action)
 void VPiano::slotNameVariant(QAction* action)
 {
     if(action == ui.actionSharps) {
-        VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowSharps);
+        VPianoSettings::instance()->setNamesAlterations(ShowSharps);
     } else if(action == ui.actionFlats) {
-        VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowFlats);
+        VPianoSettings::instance()->setNamesAlterations(ShowFlats);
     } else if(action == ui.actionNothing) {
-        VPianoSettings::instance()->setNamesAlterations(PianoKeybd::ShowNothing);
+        VPianoSettings::instance()->setNamesAlterations(ShowNothing);
     }
     ui.pianokeybd->setLabelAlterations(VPianoSettings::instance()->alterations());
 }

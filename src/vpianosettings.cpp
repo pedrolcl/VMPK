@@ -194,10 +194,10 @@ void VPianoSettings::internalRead(QSettings &settings)
     if (f.fromString(settings.value("namesFont", "Helvetica, 50").toString())) {
         setNamesFont(f);
     }
-    setNamesOrientation(static_cast<PianoKeybd::LabelOrientation>(settings.value("namesOrientation", PianoKeybd::HorizontalOrientation).toInt()));
-    setNamesVisibility(static_cast<PianoKeybd::LabelVisibility>(settings.value("namesVisibility", PianoKeybd::ShowNever).toInt()));
-    setNamesAlterations(static_cast<PianoKeybd::LabelAlteration>(settings.value("namesAlteration", PianoKeybd::ShowSharps).toInt()));
-    setNamesOctave(static_cast<PianoKeybd::LabelCentralOctave>(settings.value("namesOctave", PianoKeybd::OctaveC4).toInt()));
+    setNamesOrientation(static_cast<LabelOrientation>(settings.value("namesOrientation", HorizontalOrientation).toInt()));
+    setNamesVisibility(static_cast<LabelVisibility>(settings.value("namesVisibility", ShowNever).toInt()));
+    setNamesAlterations(static_cast<LabelAlteration>(settings.value("namesAlteration", ShowSharps).toInt()));
+    setNamesOctave(static_cast<LabelCentralOctave>(settings.value("namesOctave", OctaveC4).toInt()));
     settings.endGroup();
 
     m_keymap.copyFrom(&g_DefaultKeyMap, false);
@@ -769,42 +769,42 @@ void VPianoSettings::setNamesFont(const QFont &namesFont)
     m_namesFont = namesFont;
 }
 
-drumstick::widgets::PianoKeybd::LabelAlteration VPianoSettings::alterations() const
+LabelAlteration VPianoSettings::alterations() const
 {
     return m_namesAlteration;
 }
 
-void VPianoSettings::setNamesAlterations(drumstick::widgets::PianoKeybd::LabelAlteration alterations)
+void VPianoSettings::setNamesAlterations(const LabelAlteration alterations)
 {
     m_namesAlteration = alterations;
 }
 
-PianoKeybd::LabelVisibility VPianoSettings::namesVisibility() const
+LabelVisibility VPianoSettings::namesVisibility() const
 {
     return m_namesVisibility;
 }
 
-void VPianoSettings::setNamesVisibility(PianoKeybd::LabelVisibility namesVisibility)
+void VPianoSettings::setNamesVisibility(const LabelVisibility namesVisibility)
 {
     m_namesVisibility = namesVisibility;
 }
 
-PianoKeybd::LabelOrientation VPianoSettings::namesOrientation() const
+LabelOrientation VPianoSettings::namesOrientation() const
 {
     return m_namesOrientation;
 }
 
-void VPianoSettings::setNamesOrientation(PianoKeybd::LabelOrientation namesOrientation)
+void VPianoSettings::setNamesOrientation(const LabelOrientation namesOrientation)
 {
     m_namesOrientation = namesOrientation;
 }
 
-PianoKeybd::LabelCentralOctave VPianoSettings::namesOctave() const
+LabelCentralOctave VPianoSettings::namesOctave() const
 {
     return m_namesOctave;
 }
 
-void VPianoSettings::setNamesOctave(PianoKeybd::LabelCentralOctave namesOctave)
+void VPianoSettings::setNamesOctave(const LabelCentralOctave namesOctave)
 {
     m_namesOctave = namesOctave;
 }

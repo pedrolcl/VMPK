@@ -156,17 +156,17 @@ public:
     VMPKKeyboardMap* getKeyboardMap();
     VMPKKeyboardMap* getRawKeyboardMap();
 
-    drumstick::widgets::PianoKeybd::LabelOrientation namesOrientation() const;
-    void setNamesOrientation(drumstick::widgets::PianoKeybd::LabelOrientation namesOrientation);
+    LabelOrientation namesOrientation() const;
+    void setNamesOrientation(const LabelOrientation namesOrientation);
 
-    drumstick::widgets::PianoKeybd::LabelVisibility namesVisibility() const;
-    void setNamesVisibility(drumstick::widgets::PianoKeybd::LabelVisibility namesVisibility);
+    LabelVisibility namesVisibility() const;
+    void setNamesVisibility(const LabelVisibility namesVisibility);
 
-    drumstick::widgets::PianoKeybd::LabelAlteration alterations() const;
-    void setNamesAlterations(drumstick::widgets::PianoKeybd::LabelAlteration alterations);
+    LabelAlteration alterations() const;
+    void setNamesAlterations(const LabelAlteration alterations);
 
-    drumstick::widgets::PianoKeybd::LabelCentralOctave namesOctave() const;
-    void setNamesOctave(drumstick::widgets::PianoKeybd::LabelCentralOctave namesOctave);
+    LabelCentralOctave namesOctave() const;
+    void setNamesOctave(const LabelCentralOctave namesOctave);
 
     QFont namesFont() const;
     void setNamesFont(const QFont &namesFont);
@@ -219,10 +219,10 @@ private:
     bool m_colorScale;
     QString m_insFileName;
     QString m_insName;
-    drumstick::widgets::PianoKeybd::LabelVisibility m_namesVisibility;
-    drumstick::widgets::PianoKeybd::LabelAlteration m_namesAlteration;
-    drumstick::widgets::PianoKeybd::LabelCentralOctave m_namesOctave;
-    drumstick::widgets::PianoKeybd::LabelOrientation m_namesOrientation;
+    LabelVisibility m_namesVisibility;
+    LabelAlteration m_namesAlteration;
+    LabelCentralOctave m_namesOctave;
+    LabelOrientation m_namesOrientation;
     QFont m_namesFont;
 
     QString m_defaultInputBackend;

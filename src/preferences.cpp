@@ -29,6 +29,8 @@
 #include <QFontDialog>
 #include <QDebug>
 
+using namespace drumstick::widgets;
+
 Preferences::Preferences(QWidget *parent)
     : QDialog(parent)
 {
@@ -115,7 +117,7 @@ void Preferences::apply()
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
     VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentIndex());
     VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData( ui.cboStartingKey->currentIndex()).toInt() );
-    VPianoSettings::instance()->setNamesOctave(static_cast<PianoKeybd::LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
+    VPianoSettings::instance()->setNamesOctave(static_cast<LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
     QFont f;
     QString fstr = ui.txtFont->text();
     if (fstr.isEmpty()) {
