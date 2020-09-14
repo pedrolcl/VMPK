@@ -16,18 +16,17 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "preferences.h"
-#include "constants.h"
-#include "vpiano.h"
-#include "colordialog.h"
-#include "vpianosettings.h"
-
 #include <QPushButton>
 #include <QShowEvent>
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QFontDialog>
 #include <QDebug>
+
+#include "preferences.h"
+#include "constants.h"
+#include "colordialog.h"
+#include "vpianosettings.h"
 
 using namespace drumstick::widgets;
 
@@ -49,9 +48,10 @@ Preferences::Preferences(QWidget *parent)
     ui.cboStartingKey->clear();
     ui.cboColorPolicy->clear();
     ui.cboOctaveName->clear();
+    for (QComboBox* combo : findChildren<QComboBox*>()) {
+        combo->setStyleSheet("combobox-popup: 0;");
+    }
     VPianoSettings::instance()->initializePaletteStrings();
-    ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames(true));
-
 #if !defined(RAWKBD_SUPPORT)
     ui.chkRawKeyboard->setVisible(false);
     ui.lblRawKmap->setVisible(false);
@@ -79,6 +79,7 @@ Preferences::Preferences(QWidget *parent)
 void Preferences::showEvent ( QShowEvent *event )
 {
     if (event->type() == QEvent::Show) {
+        ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames(true));
         ui.spinNumKeys->setValue( VPianoSettings::instance()->numKeys() );
         ui.cboDrumsChannel->setCurrentIndex( VPianoSettings::instance()->drumsChannel() +1);
         ui.chkAlwaysOnTop->setChecked( VPianoSettings::instance()->alwaysOnTop() );
@@ -91,7 +92,15 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.cboColorPolicy->setCurrentIndex( VPianoSettings::instance()->highlightPaletteId() );
         ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData( VPianoSettings::instance()->startingKey() ) );
         ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
-        ui.txtFont->setText( VPianoSettings::instance()->namesFont().toString() );
+        m_font = VPianoSettings::instance()->namesFont();
+        ui.txtFont->setText( m_font.toString() );
+        m_insFile = VPianoSettings::instance()->insFileName();
+        setInstrumentsFileName( m_insFile );
+        ui.cboInstrument->setCurrentText( VPianoSettings::instance()->insName());
+        m_mapFile = VPianoSettings::instance()->getMapFile();
+        ui.txtFileKmap->setText( m_mapFile );
+        m_rawMapFile = VPianoSettings::instance()->getRawMapFile();
+        ui.txtFileRawKmap->setText( m_rawMapFile );
     }
 }
 
@@ -105,27 +114,15 @@ void Preferences::apply()
     VPianoSettings::instance()->setEnableKeyboard( ui.chkEnableKeyboard->isChecked() );
     VPianoSettings::instance()->setEnableMouse( ui.chkEnableMouse->isChecked() );
     VPianoSettings::instance()->setEnableTouch( ui.chkEnableTouch->isChecked() );
-    if ( ui.txtFileRawKmap->text().isEmpty() ||
-         ui.txtFileRawKmap->text() == QSTR_DEFAULT)
-        VPianoSettings::instance()->setRawMapFile(QSTR_DEFAULT);
-    if ( ui.txtFileKmap->text().isEmpty() ||
-         ui.txtFileKmap->text() == QSTR_DEFAULT)
-        VPianoSettings::instance()->setMapFile(QSTR_DEFAULT);
-    if ( ui.txtFileInstrument->text().isEmpty() ||
-         ui.txtFileInstrument->text() == QSTR_DEFAULTINS )
-        VPianoSettings::instance()->setInsFileName( VPiano::dataDirectory() + QSTR_DEFAULTINS );
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
     VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentIndex());
     VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData( ui.cboStartingKey->currentIndex()).toInt() );
     VPianoSettings::instance()->setNamesOctave(static_cast<LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
-    QFont f;
-    QString fstr = ui.txtFont->text();
-    if (fstr.isEmpty()) {
-        fstr = QSTR_DEFAULTFONT;
-    }
-    if ( f.fromString(fstr) ) {
-        VPianoSettings::instance()->setNamesFont( f );
-    }
+    VPianoSettings::instance()->setInstrumentsFileName( m_insFile );
+    VPianoSettings::instance()->setInsName( ui.cboInstrument->currentText() );
+    VPianoSettings::instance()->setMapFile( m_mapFile);
+    VPianoSettings::instance()->setRawMapFile( m_rawMapFile );
+    VPianoSettings::instance()->setNamesFont( m_font );
 }
 
 void Preferences::accept()
@@ -138,7 +135,7 @@ void Preferences::slotOpenInstrumentFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
                                 tr("Open instruments definition"),
-                                VPiano::dataDirectory(),
+                                VPianoSettings::dataDirectory(),
                                 tr("Instrument definitions (*.ins)"));
     if (!fileName.isEmpty()) {
         setInstrumentsFileName(fileName);
@@ -154,7 +151,6 @@ void Preferences::slotSelectColor()
             int pal = dlgColorPolicy->selectedPalette();
             PianoPalette palette = VPianoSettings::instance()->getPalette(pal);
             if (palette.isHighLight()) {
-                VPianoSettings::instance()->setHighlightPaletteId(pal);
                 ui.cboColorPolicy->setCurrentIndex(pal);
             }
         }
@@ -166,8 +162,16 @@ void Preferences::setInstrumentsFileName( const QString fileName )
 {
     QFileInfo f(fileName);
     if (f.isReadable()) {
-        VPianoSettings::instance()->setInstrumentsFileName( fileName );
-        QStringList names = VPianoSettings::instance()->getInsNames();
+        m_insFile = f.absoluteFilePath();
+        InstrumentList instruments;
+        instruments.load(m_insFile);
+        QStringList names;
+        for(const Instrument& i : instruments.values()) {
+            auto s = i.instrumentName();
+             if (!s.endsWith(QLatin1String("Drums"), Qt::CaseInsensitive)) {
+                names << s;
+             }
+        }
         ui.txtFileInstrument->setText(f.fileName());
         ui.cboInstrument->clear();
         if (!names.isEmpty()) {
@@ -175,8 +179,7 @@ void Preferences::setInstrumentsFileName( const QString fileName )
             ui.cboInstrument->setCurrentIndex(-1);
         }
     } else {
-        VPianoSettings::instance()->setInsFileName(QString());
-        ui.txtFileInstrument->setText(QString());
+        ui.txtFileInstrument->setText(QSTR_DEFAULT);
     }
 }
 
@@ -190,7 +193,7 @@ void Preferences::slotOpenKeymapFile()
 {
     QString fileName = QFileDialog::getOpenFileName(0,
                                 tr("Open keyboard map definition"),
-                                VPiano::dataDirectory(),
+                                VPianoSettings::dataDirectory(),
                                 tr("Keyboard map (*.xml)"));
     if (!fileName.isEmpty()) {
         setKeyMapFileName(fileName);
@@ -201,7 +204,7 @@ void Preferences::slotOpenRawKeymapFile()
 {
     QString fileName = QFileDialog::getOpenFileName(0,
                                 tr("Open keyboard map definition"),
-                                VPiano::dataDirectory(),
+                                VPianoSettings::dataDirectory(),
                                 tr("Keyboard map (*.xml)"));
     if (!fileName.isEmpty()) {
         setRawKeyMapFileName(fileName);
@@ -216,21 +219,29 @@ void Preferences::slotSelectFont()
                     this, tr("Font to display note names"),
                     QFontDialog::DontUseNativeDialog | QFontDialog::ScalableFonts);
     if (ok) {
-        VPianoSettings::instance()->setNamesFont(font);
+        //VPianoSettings::instance()->setNamesFont(font);
         ui.txtFont->setText(font.toString());
     }
 }
 
 void Preferences::setRawKeyMapFileName( const QString fileName )
 {
-    VPianoSettings::instance()->setRawMapFile(fileName);
-    ui.txtFileRawKmap->setText(VPianoSettings::instance()->getRawMapFile());
+    //VPianoSettings::instance()->setRawMapFile(fileName);
+    QFileInfo f(fileName);
+    if (f.isReadable()) {
+        m_rawMapFile = f.absoluteFilePath();
+        ui.txtFileRawKmap->setText(f.fileName());
+    }
 }
 
 void Preferences::setKeyMapFileName( const QString fileName )
 {
-    VPianoSettings::instance()->setMapFile(fileName);
-    ui.txtFileRawKmap->setText(VPianoSettings::instance()->getMapFile());
+    //VPianoSettings::instance()->setMapFile(fileName);
+    QFileInfo f(fileName);
+    if (f.isReadable()) {
+        m_mapFile = f.absoluteFilePath();
+        ui.txtFileRawKmap->setText(f.fileName());
+    }
 }
 
 void Preferences::restoreDefaults()
@@ -245,7 +256,7 @@ void Preferences::restoreDefaults()
     ui.chkEnableKeyboard->setChecked(true);
     ui.chkEnableMouse->setChecked(true);
     ui.chkEnableTouch->setChecked(true);
-    setInstrumentsFileName(VPiano::dataDirectory() + QSTR_DEFAULTINS);
+    setInstrumentsFileName(VPianoSettings::dataDirectory() + QSTR_DEFAULTINS);
     ui.cboInstrument->setCurrentIndex(0);
     ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
     ui.cboStartingKey->setCurrentIndex(DEFAULTSTARTINGKEY);
@@ -266,7 +277,7 @@ void Preferences::retranslateUi()
 void Preferences::setNoteNames(const QStringList& noteNames)
 {
     ui.cboStartingKey->clear();
-    for(int i=0; i<noteNames.length(); ++i) {
+    for (int i=0; i<noteNames.length(); ++i) {
         int j = i;
         if (j >= 5) j++;
         if (j % 2 == 0) {
@@ -274,7 +285,7 @@ void Preferences::setNoteNames(const QStringList& noteNames)
         }
     }
     ui.cboOctaveName->clear();
-    for(int i=3; i<6; ++i) {
+    for (int i=3; i<6; ++i) {
         ui.cboOctaveName->addItem(QString("%1%2").arg(noteNames[0]).arg(i));
     }
 }

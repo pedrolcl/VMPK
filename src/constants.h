@@ -24,9 +24,7 @@
 
 /* Don't translate any string defined in this header */
 
-#define LITERAL(s) #s
-#define STRINGIFY(s) LITERAL(s)
-const QString PGM_VERSION(STRINGIFY(VERSION));
+const QString PGM_VERSION(QT_STRINGIFY(VERSION));
 
 const QString BLD_DATE(__DATE__);
 const QString BLD_TIME(__TIME__);
@@ -40,7 +38,7 @@ const QString CMP_VERSION("MSVC " + QString::number(_MSC_VER/100.0f,'f',2));
 const QString CMP_VERSION(QString());
 #endif
 
-const QString QSTR_APPNAME("VMPK-Virtual MIDI Piano Keyboard");
+const QString QSTR_APPNAME("VMPK");
 const QString QSTR_DOMAIN("vmpk.sourceforge.net");
 const QString QSTR_VMPKPX("vmpk_");
 const QString QSTR_QTPX("qt_");

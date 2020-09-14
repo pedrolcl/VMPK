@@ -54,6 +54,10 @@ protected:
     void restoreDefaults();
 
 private:
+    QString m_mapFile;
+    QString m_rawMapFile;
+    QString m_insFile;
+    QFont   m_font;
     Ui::PreferencesClass ui;
 };
 

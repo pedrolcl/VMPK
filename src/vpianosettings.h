@@ -114,7 +114,6 @@ public:
     void setEnableTouch(bool enableTouch);
 
     QString insFileName() const;
-    void setInsFileName(const QString &insFileName);
     void setInstrumentsFileName( const QString fileName );
     Instrument* getInstrument();
     Instrument* getDrumsInstrument();
@@ -170,6 +169,10 @@ public:
 
     QFont namesFont() const;
     void setNamesFont(const QFont &namesFont);
+
+    // static methods
+    static QString dataDirectory();
+    static QString localeDirectory();
 
 signals:
     void ValuesChanged();

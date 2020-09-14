@@ -23,7 +23,7 @@
 #include <QFileDialog>
 #include <drumstick/pianokeybd.h>
 #include "kmapdialog.h"
-#include "vpiano.h"
+#include "vpianosettings.h"
 
 KMapDialog::KMapDialog(QWidget *parent)
     : QDialog(parent)
@@ -87,7 +87,7 @@ void KMapDialog::slotOpen()
 {
     QString fileName = QFileDialog::getOpenFileName(0,
                                 tr("Open keyboard map definition"),
-                                VPiano::dataDirectory(),
+                                VPianoSettings::dataDirectory(),
                                 tr("Keyboard map (*.xml)"));
     if (!fileName.isEmpty()) {
         m_map.clear();
@@ -100,7 +100,7 @@ void KMapDialog::slotSave()
 {
     QFileDialog dlg(this);
     dlg.setNameFilter(tr("Keyboard map (*.xml)"));
-    dlg.setDirectory(VPiano::dataDirectory());
+    dlg.setDirectory(VPianoSettings::dataDirectory());
     dlg.setWindowTitle(tr("Save keyboard map definition"));
     dlg.setDefaultSuffix("xml");
     dlg.setFileMode(QFileDialog::AnyFile);

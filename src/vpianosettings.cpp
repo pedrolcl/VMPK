@@ -58,6 +58,30 @@ VPianoSettings* VPianoSettings::instance()
     return &inst;
 }
 
+QString VPianoSettings::dataDirectory()
+{
+#if defined(Q_OS_WIN32)
+    return QApplication::applicationDirPath() + "/";
+#elif defined(Q_OS_MAC)
+    return QApplication::applicationDirPath() + "/../Resources/";
+#elif defined(Q_OS_UNIX)
+    return QApplication::applicationDirPath() + "/../share/vmpk/";
+#else
+    return QString();
+#endif
+}
+
+QString VPianoSettings::localeDirectory()
+{
+#if defined(Q_OS_LINUX)
+    return VPianoSettings::dataDirectory() + "locale/";
+#elif defined(Q_OS_WIN)
+    return VPianoSettings::dataDirectory() + "translations/";
+#else
+    return VPianoSettings::dataDirectory();
+#endif
+}
+
 void VPianoSettings::ResetDefaults()
 {
     m_midiThru = false;
@@ -158,7 +182,7 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_baseOctave = settings.value(QSTR_BASEOCTAVE, 3).toInt();
     m_transpose = settings.value(QSTR_TRANSPOSE, 0).toInt();
     m_numKeys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
-    m_insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
+    m_insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION, VPianoSettings::dataDirectory() + QSTR_DEFAULTINS).toString();
     m_insName = settings.value(QSTR_INSTRUMENTNAME).toString();
     m_alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
     m_showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
@@ -367,11 +391,6 @@ void VPianoSettings::setHighlightPaletteId(int paletteId)
 QString VPianoSettings::insFileName() const
 {
     return m_insFileName;
-}
-
-void VPianoSettings::setInsFileName(const QString &insFileName)
-{
-    m_insFileName = insFileName;
 }
 
 bool VPianoSettings::enableTouch() const
@@ -653,14 +672,17 @@ Instrument* VPianoSettings::getDrumsInstrument()
 void VPianoSettings::setInstrumentsFileName( const QString fileName )
 {
     QFileInfo f(fileName);
+    if (f.path() == ".") {
+        f.setFile(VPianoSettings::dataDirectory(), fileName);
+    }
     if (f.isReadable()) {
         m_insList.clear();
-        if (m_insList.load(fileName)) {
-            setInsFileName( fileName );
-            setInsName(m_insList.first().instrumentName());
+        if (m_insList.load( f.absoluteFilePath() )) {
+            m_insFileName = f.absoluteFilePath();
+            m_insName = m_insList.first().instrumentName();
         } else {
-            setInsFileName( QString() );
-            setInsName( QString() );
+            m_insFileName = QString();
+            m_insName = QString();
         }
     } else {
         qDebug() << "file" << fileName << "not readable.";

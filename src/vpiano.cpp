@@ -99,9 +99,9 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
                    << "from" << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
     }
     if (!m_trp->load( QSTR_VMPKPX + configuredLanguage(),
-                      VPiano::localeDirectory() )) {
+                      VPianoSettings::localeDirectory() )) {
         qWarning() << "Failure loading VMPK translations for" << configuredLanguage()
-                   << "from" << VPiano::localeDirectory();
+                   << "from" << VPianoSettings::localeDirectory();
     }
     QCoreApplication::installTranslator(m_trq);
     QCoreApplication::installTranslator(m_trp);
@@ -340,6 +340,7 @@ void VPiano::initToolBars()
     ui.toolBarControllers->addWidget(m_lblControl);
     m_lblControl ->setMargin(TOOLBARLABELMARGIN);
     m_comboControl = new QComboBox(this);
+    m_comboControl->setStyleSheet("combobox-popup: 0;");
     m_comboControl->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboControl->setFocusPolicy(Qt::NoFocus);
     ui.toolBarControllers->addWidget(m_comboControl);
@@ -381,12 +382,14 @@ void VPiano::initToolBars()
     m_lblBank->setMargin(TOOLBARLABELMARGIN);
     m_comboBank = new QComboBox(this);
     m_comboBank->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+    m_comboBank->setStyleSheet("combobox-popup: 0;");
     m_comboBank->setFocusPolicy(Qt::NoFocus);
     ui.toolBarPrograms->addWidget(m_comboBank);
     m_lblProgram = new QLabel(this);
     ui.toolBarPrograms->addWidget(m_lblProgram);
     m_lblProgram->setMargin(TOOLBARLABELMARGIN);
     m_comboProg = new QComboBox(this);
+    m_comboProg->setStyleSheet("combobox-popup: 0;");
     m_comboProg->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboProg->setFocusPolicy(Qt::NoFocus);
     ui.toolBarPrograms->addWidget(m_comboProg);
@@ -1291,7 +1294,7 @@ void VPiano::applyPreferences()
     setWindowFlags( flags );
     move(wpos);
 
-    ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
+    //ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
 }
 
 void VPiano::populateInstruments()
@@ -1359,29 +1362,6 @@ void VPiano::slotPreferences()
     grabKb();
 }
 
-QString VPiano::dataDirectory()
-{
-#if defined(Q_OS_WIN32)
-    return QApplication::applicationDirPath() + "/";
-#elif defined(Q_OS_MAC)
-    return QApplication::applicationDirPath() + "/../Resources/";
-#elif defined(Q_OS_UNIX)
-    return QApplication::applicationDirPath() + "/../share/vmpk/";
-#else
-    return QString();
-#endif
-}
-
-QString VPiano::localeDirectory()
-{
-#if defined(Q_OS_LINUX)
-    return VPiano::dataDirectory() + "locale/";
-#elif defined(Q_OS_WIN)
-    return VPiano::dataDirectory() + "translations/";
-#else
-    return VPiano::dataDirectory();
-#endif
-}
 
 void VPiano::slotEditKeyboardMap()
 {
@@ -1652,7 +1632,7 @@ void VPiano::slotHelpContents()
     if (lc.count() > 1)
         hlps += QSTR_HELPL.arg(lc[0]);
     hlps += QSTR_HELP;
-    QDir hlpDir(VPiano::dataDirectory());
+    QDir hlpDir(VPianoSettings::dataDirectory());
     foreach(const QString& hlp_name, hlps) {
         if (hlpDir.exists(hlp_name)) {
             QUrl url = QUrl::fromLocalFile(hlpDir.absoluteFilePath(hlp_name));
@@ -1681,7 +1661,7 @@ void VPiano::slotImportSF()
     if ((dlgRiffImport->exec() == QDialog::Accepted) &&
         !dlgRiffImport->getOutput().isEmpty()) {
         dlgRiffImport->save();
-        VPianoSettings::instance()->setInsFileName(dlgRiffImport->getOutput());
+        VPianoSettings::instance()->setInstrumentsFileName(dlgRiffImport->getOutput());
         VPianoSettings::instance()->setInsName(dlgRiffImport->getName());
         applyPreferences();
     }
@@ -1957,7 +1937,7 @@ void VPiano::createLanguageMenu()
     QActionGroup *languageGroup = new QActionGroup(this);
     connect(languageGroup, SIGNAL(triggered(QAction *)),
             SLOT(slotSwitchLanguage(QAction *)));
-    QDir dir(VPiano::localeDirectory());
+    QDir dir(VPianoSettings::localeDirectory());
     QStringList fileNames = dir.entryList(QStringList(QSTR_VMPKPX + "*.qm"));
     QStringList locales;
     locales << "en";
@@ -2012,7 +1992,7 @@ void VPiano::retranslateUi()
     m_trq->load( QSTR_QTPX + configuredLanguage(),
                  QLibraryInfo::location(QLibraryInfo::TranslationsPath) );
     m_trp->load( QSTR_VMPKPX + configuredLanguage(),
-                 VPiano::localeDirectory() );
+                 VPianoSettings::localeDirectory() );
     ui.retranslateUi(this);
     ui.pianokeybd->retranslate();
     initLanguages();

@@ -66,10 +66,6 @@ public:
     void noteOn(const int midiNote, const int vel);
     void noteOff(const int midiNote, const int vel);
 
-    // static methods
-    static QString dataDirectory();
-    static QString localeDirectory();
-
 #if ENABLE_DBUS
 
 public Q_SLOTS:
