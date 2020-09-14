@@ -34,8 +34,6 @@ class VPianoSettings : public QObject
     Q_OBJECT
 
 public:
-    static VPianoSettings* instance();
-
     QByteArray geometry() const;
     void setGeometry(const QByteArray &geometry);
 
@@ -147,7 +145,7 @@ public:
     QString getShortcut(const QString& sKey) const;
 
     int availablePalettes() const;
-    PianoPalette& getPalette(int pal);
+    PianoPalette getPalette(int pal);
     QList<QString> availablePaletteNames(bool forHighlight);
     void initializePaletteStrings();
     void updatePalette(const PianoPalette &p);
@@ -171,6 +169,8 @@ public:
     void setNamesFont(const QFont &namesFont);
 
     // static methods
+    static VPianoSettings* instance();
+    static void setPortableConfig(const QString fileName = QString());
     static QString dataDirectory();
     static QString localeDirectory();
 

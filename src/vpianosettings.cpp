@@ -16,6 +16,10 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#if defined(Q_OS_MACOS)
+#include <CoreFoundation/CoreFoundation.h>
+#endif
+
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
@@ -56,6 +60,27 @@ VPianoSettings* VPianoSettings::instance()
 {
     static VPianoSettings inst;
     return &inst;
+}
+
+void VPianoSettings::setPortableConfig(const QString fileName)
+{
+    QFileInfo appInfo(QCoreApplication::applicationFilePath());
+    if (fileName.isEmpty()) {
+#if defined(Q_OS_MACOS)
+        CFURLRef url = static_cast<CFURLRef>(CFAutorelease(static_cast<CFURLRef>(CFBundleCopyBundleURL(CFBundleGetMainBundle()))));
+        QString path = QUrl::fromCFURL(url).path() + "../";
+        QFileInfo cfgInfo(path, appInfo.baseName() + ".conf");
+#else
+        QFileInfo cfgInfo(appInfo.absoluteDir(), appInfo.baseName() + ".conf");
+#endif
+        SettingsFactory::setFileName(cfgInfo.absoluteFilePath());
+    } else {
+        QFileInfo cfgInfo(fileName);
+        if (cfgInfo.path() == ".") {
+            cfgInfo.setFile(appInfo.absoluteDir(), fileName);
+        }
+        SettingsFactory::setFileName(cfgInfo.absoluteFilePath());
+    }
 }
 
 QString VPianoSettings::dataDirectory()
@@ -712,7 +737,7 @@ QString VPianoSettings::getShortcut(const QString& sKey) const
     return m_shortcuts.value(sKey);
 }
 
-PianoPalette& VPianoSettings::getPalette(int pal)
+PianoPalette VPianoSettings::getPalette(int pal)
 {
     if (pal >= 0 && pal < m_paletteList.count()) {
         return m_paletteList[pal];

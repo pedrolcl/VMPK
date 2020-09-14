@@ -94,13 +94,10 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
         m_font = VPianoSettings::instance()->namesFont();
         ui.txtFont->setText( m_font.toString() );
-        m_insFile = VPianoSettings::instance()->insFileName();
-        setInstrumentsFileName( m_insFile );
+        setInstrumentsFileName(VPianoSettings::instance()->insFileName());
         ui.cboInstrument->setCurrentText( VPianoSettings::instance()->insName());
-        m_mapFile = VPianoSettings::instance()->getMapFile();
-        ui.txtFileKmap->setText( m_mapFile );
-        m_rawMapFile = VPianoSettings::instance()->getRawMapFile();
-        ui.txtFileRawKmap->setText( m_rawMapFile );
+        setKeyMapFileName(VPianoSettings::instance()->getMapFile());
+        setRawKeyMapFileName(VPianoSettings::instance()->getRawMapFile());
     }
 }
 
@@ -219,14 +216,13 @@ void Preferences::slotSelectFont()
                     this, tr("Font to display note names"),
                     QFontDialog::DontUseNativeDialog | QFontDialog::ScalableFonts);
     if (ok) {
-        //VPianoSettings::instance()->setNamesFont(font);
+        m_font = font;
         ui.txtFont->setText(font.toString());
     }
 }
 
 void Preferences::setRawKeyMapFileName( const QString fileName )
 {
-    //VPianoSettings::instance()->setRawMapFile(fileName);
     QFileInfo f(fileName);
     if (f.isReadable()) {
         m_rawMapFile = f.absoluteFilePath();
@@ -236,11 +232,10 @@ void Preferences::setRawKeyMapFileName( const QString fileName )
 
 void Preferences::setKeyMapFileName( const QString fileName )
 {
-    //VPianoSettings::instance()->setMapFile(fileName);
     QFileInfo f(fileName);
     if (f.isReadable()) {
         m_mapFile = f.absoluteFilePath();
-        ui.txtFileRawKmap->setText(f.fileName());
+        ui.txtFileKmap->setText(f.fileName());
     }
 }
 

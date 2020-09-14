@@ -508,6 +508,9 @@ p, li { white-space: pre-wrap; }
   <tabstop>txtFileRawKmap</tabstop>
   <tabstop>btnRawKmap</tabstop>
   <tabstop>cboDrumsChannel</tabstop>
+  <tabstop>cboOctaveName</tabstop>
+  <tabstop>txtFont</tabstop>
+  <tabstop>btnFont</tabstop>
   <tabstop>chkEnforceChannelState</tabstop>
   <tabstop>chkVelocityColor</tabstop>
   <tabstop>chkAlwaysOnTop</tabstop>

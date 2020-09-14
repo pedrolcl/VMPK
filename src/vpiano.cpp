@@ -68,10 +68,6 @@
 #include <QtDBus/QDBusConnection>
 #endif
 
-#if defined(Q_OS_MACOS)
-#include <CoreFoundation/CoreFoundation.h>
-#endif
-
 using namespace drumstick::rt;
 using namespace drumstick::widgets;
 
@@ -2144,22 +2140,6 @@ void VPiano::toggleWindowFrame(const bool state)
     show();
 }
 
-void VPiano::setPortableConfig(const QString fileName)
-{
-    if (fileName.isEmpty()) {
-        QFileInfo appInfo(QCoreApplication::applicationFilePath());
-#if defined(Q_OS_MACOS)
-        CFURLRef url = static_cast<CFURLRef>(CFAutorelease(static_cast<CFURLRef>(CFBundleCopyBundleURL(CFBundleGetMainBundle()))));
-        QString path = QUrl::fromCFURL(url).path() + "../";
-        QFileInfo cfgInfo(path, appInfo.baseName() + ".conf");
-#else
-        QFileInfo cfgInfo(appInfo.absoluteDir(), appInfo.baseName() + ".conf");
-#endif
-        drumstick::widgets::SettingsFactory::setFileName(cfgInfo.absoluteFilePath());
-    } else {
-        drumstick::widgets::SettingsFactory::setFileName(fileName);
-    }
-}
 
 void VPiano::slotNameOrientation(QAction* action)
 {

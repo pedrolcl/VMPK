@@ -24,6 +24,7 @@
 #include <QSettings>
 #include "constants.h"
 #include "vpiano.h"
+#include "vpianosettings.h"
 
 const QString PGM_DESCRIPTION("Virtual MIDI Piano Keyboard\n"
      "Copyright (C) 2006-2020 Pedro Lopez-Cabanillas\n"
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
     );
     auto helpOption = parser.addHelpOption();
     auto versionOption = parser.addVersionOption();
-    QCommandLineOption portableOption({"p", "portable"}, "Portable settings format file (.ini)");
+    QCommandLineOption portableOption({"p", "portable"}, "Portable settings format file (.ini)", "configFile");
     parser.addOption(portableOption);
     parser.process(a);
     if (parser.isSet(versionOption) || parser.isSet(helpOption)) {
@@ -71,12 +72,12 @@ int main(int argc, char *argv[])
     s.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
     QTimer::singleShot(2500, &s, SLOT(close()));
     a.processEvents();
-    VPiano w;
     if (parser.isSet(portableOption)) {
-        w.setPortableConfig();
+        VPianoSettings::setPortableConfig(parser.value(portableOption));
     } else {
         QSettings::setDefaultFormat(QSettings::NativeFormat);
     }
+    VPiano w;
     if (w.isInitialized()) {
         w.show();
         return a.exec();

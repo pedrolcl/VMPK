@@ -60,7 +60,6 @@ public:
     bool isInitialized() const { return m_initialized; }
     void retranslateUi();
     QMenu *createPopupMenu ();
-    void setPortableConfig(const QString fileName = QString());
 
     // PianoHandler methods
     void noteOn(const int midiNote, const int vel);
