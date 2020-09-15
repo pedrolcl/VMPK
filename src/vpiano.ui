@@ -23,8 +23,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>567</width>
-    <height>274</height>
+    <width>980</width>
+    <height>196</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,8 +58,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>567</width>
-     <height>22</height>
+     <width>980</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -102,12 +102,6 @@
     <property name="title">
      <string>&amp;View</string>
     </property>
-    <addaction name="actionNotes"/>
-    <addaction name="actionControllers"/>
-    <addaction name="actionBender"/>
-    <addaction name="actionPrograms"/>
-    <addaction name="actionExtraControls"/>
-    <addaction name="separator"/>
     <widget class="QMenu" name="menuNames">
      <property name="title">
       <string>Show Note Names</string>
@@ -133,6 +127,12 @@
      <addaction name="actionVertical"/>
      <addaction name="actionAutomatic"/>
     </widget>
+    <addaction name="actionNotes"/>
+    <addaction name="actionControllers"/>
+    <addaction name="actionBender"/>
+    <addaction name="actionPrograms"/>
+    <addaction name="actionExtraControls"/>
+    <addaction name="separator"/>
     <addaction name="menuNames"/>
     <addaction name="menuBlack_Keys_Names"/>
     <addaction name="menuNames_Orientation"/>
@@ -221,6 +221,27 @@
    <addaction name="actionPanic"/>
    <addaction name="separator"/>
   </widget>
+  <widget class="QToolBar" name="toolBarPrograms">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>&amp;Programs</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionEditPrograms"/>
+  </widget>
   <widget class="QToolBar" name="toolBarControllers">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -243,49 +264,6 @@
    <addaction name="actionResetAll"/>
    <addaction name="separator"/>
   </widget>
-  <widget class="QToolBar" name="toolBarBender">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="windowTitle">
-    <string>Pitch &amp;Bender</string>
-   </property>
-   <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonTextOnly</enum>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>true</bool>
-   </attribute>
-   <addaction name="actionReset"/>
-   <addaction name="separator"/>
-  </widget>
-  <widget class="QToolBar" name="toolBarPrograms">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="windowTitle">
-    <string>&amp;Programs</string>
-   </property>
-   <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonTextOnly</enum>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>true</bool>
-   </attribute>
-   <addaction name="actionEditPrograms"/>
-  </widget>
   <widget class="QToolBar" name="toolBarExtra">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -303,9 +281,31 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <addaction name="actionEditExtra"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarBender">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>Pitch &amp;Bender</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionReset"/>
    <addaction name="separator"/>
   </widget>
   <action name="actionExit">
@@ -570,20 +570,6 @@
    </property>
    <property name="statusTip">
     <string>Open the Extra Controls editor</string>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::NoRole</enum>
-   </property>
-  </action>
-  <action name="actionNoteNames">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>N&amp;ote Names</string>
-   </property>
-   <property name="statusTip">
-    <string>Show or hide the note names</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
@@ -1026,7 +1012,7 @@
     <string>Minimal</string>
    </property>
   </action>
-</widget>
+ </widget>
  <customwidgets>
   <customwidget>
    <class>drumstick::widgets::PianoKeybd</class>

@@ -1,3 +1,8 @@
+2020-09-15
+    * Implementation of RFE #52 Adding Panic signal when change Base Octave (and MIDI channel as well)
+    * Initialization of extra controls toolbar with piano pedals (sustain, sostenuto, and soft) when empty
+    * Reorganization of toolbars
+
 2020-09-10
     * start of ticket #46: edited scale palette was not saved and applied correctly
 

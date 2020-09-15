@@ -203,7 +203,7 @@ void VPianoSettings::internalRead(QSettings &settings)
     settings.beginGroup(QSTR_PREFERENCES);
     m_baseChannel = settings.value(QSTR_CHANNEL, 0).toInt();
     m_velocity = settings.value(QSTR_VELOCITY, MIDIVELOCITY).toInt();
-    m_baseOctave = settings.value(QSTR_BASEOCTAVE, 3).toInt();
+    m_baseOctave = settings.value(QSTR_BASEOCTAVE, 1).toInt();
     m_transpose = settings.value(QSTR_TRANSPOSE, 0).toInt();
     m_numKeys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
     m_insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION, VPianoSettings::dataDirectory() + QSTR_DEFAULTINS).toString();

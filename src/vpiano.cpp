@@ -702,6 +702,9 @@ void VPiano::readMidiControllerSettings()
         m_extraControls << settings->value(key, QString()).toString();
     }
     settings->endGroup();
+    if (m_extraControls.isEmpty()) {
+        m_extraControls = QStringList{"Sustain,64,0,0,64,0,", "Sostenuto,66,0,0,64,0,", "Soft,67,0,0,64,0,"};
+    }
 }
 
 void VPiano::writeSettings()
@@ -1433,7 +1436,7 @@ void VPiano::slotComboProgActivated(const int index)
 void VPiano::slotBaseOctaveValueChanged(const int octave)
 {
     if (octave != VPianoSettings::instance()->baseOctave()) {
-        ui.pianokeybd->allKeysOff();
+        allNotesOff();
         ui.pianokeybd->setBaseOctave(octave);
         VPianoSettings::instance()->setBaseOctave(octave);
     }
@@ -1475,6 +1478,7 @@ void VPiano::slotChannelValueChanged(const int channel)
         int drms = VPianoSettings::instance()->drumsChannel();
         bool updDrums = ((c == drms) || (baseChannel == drms));
         baseChannel = c;
+        allNotesOff();
         VPianoSettings::instance()->setChannel(c);
         ui.pianokeybd->setChannel(c);
         if (updDrums) {
