@@ -2098,7 +2098,7 @@ void VPiano::slotTouchScreenInput(bool value)
 
 void VPiano::slotColorPolicy()
 {
-    QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(this);
+    QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(false, this);
     dlgColorPolicy->loadPalette(VPianoSettings::instance()->highlightPaletteId());
     if (dlgColorPolicy->exec() == QDialog::Accepted) {
         int pal = dlgColorPolicy->selectedPalette();

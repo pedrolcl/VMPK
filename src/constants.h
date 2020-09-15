@@ -124,7 +124,6 @@ const int MIDIVELOCITY = 100;
 const int MIDIPAN = 64;
 const int MIDIVOLUME = 100;
 const int MIDIMAXVALUE = 127;
-//const int DEFAULTSTARTINGKEY = 0;
 const int DEFAULTBASEOCTAVE = 3;
 
 #if defined(SMALL_SCREEN)

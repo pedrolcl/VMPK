@@ -34,10 +34,10 @@ Preferences::Preferences(QWidget *parent)
     : QDialog(parent)
 {
     ui.setupUi( this );
-    ui.txtFileInstrument->setText(QSTR_DEFAULTINS);
-    ui.txtFileKmap->setText(QSTR_DEFAULT);
-    ui.txtFileRawKmap->setText(QSTR_DEFAULT);
-    restoreDefaults();
+    ui.cboStartingKey->clear();
+    ui.cboColorPolicy->clear();
+    ui.cboOctaveName->clear();
+    slotRestoreDefaults();
     connect(ui.btnInstrument, &QPushButton::clicked, this, &Preferences::slotOpenInstrumentFile);
     connect(ui.btnColor, &QPushButton::clicked, this, &Preferences::slotSelectColor);
     connect(ui.btnKmap, &QPushButton::clicked, this, &Preferences::slotOpenKeymapFile);
@@ -45,13 +45,6 @@ Preferences::Preferences(QWidget *parent)
     connect(ui.btnFont, &QPushButton::clicked, this, &Preferences::slotSelectFont);
     QPushButton *btnDefaults = ui.buttonBox->button(QDialogButtonBox::RestoreDefaults);
     connect(btnDefaults, &QPushButton::clicked, this, &Preferences::slotRestoreDefaults);
-    ui.cboStartingKey->clear();
-    ui.cboColorPolicy->clear();
-    ui.cboOctaveName->clear();
-    for (QComboBox* combo : findChildren<QComboBox*>()) {
-        combo->setStyleSheet("combobox-popup: 0;");
-    }
-    VPianoSettings::instance()->initializePaletteStrings();
 #if !defined(RAWKBD_SUPPORT)
     ui.chkRawKeyboard->setVisible(false);
     ui.lblRawKmap->setVisible(false);
@@ -76,50 +69,72 @@ Preferences::Preferences(QWidget *parent)
 #endif
 }
 
+void Preferences::slotRestoreDefaults()
+{
+    ui.spinNumKeys->setValue(DEFAULTNUMBEROFKEYS);
+    ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData( DEFAULTSTARTINGKEY ) );
+    ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
+    setInstrumentsFileName(VPianoSettings::dataDirectory() + QSTR_DEFAULTINS);
+    ui.cboInstrument->setCurrentIndex(0);
+    ui.txtFileKmap->setText(m_mapFile = QSTR_DEFAULT);
+    ui.txtFileRawKmap->setText(m_rawMapFile = QSTR_DEFAULT);
+    ui.cboDrumsChannel->setCurrentIndex(MIDIGMDRUMSCHANNEL + 1);
+    ui.cboOctaveName->setCurrentIndex(OctaveC4);
+    m_font = QFont(QSTR_DEFAULTFONT);
+    ui.txtFont->setText(QSTR_DEFAULTFONT);
+    ui.chkEnforceChannelState->setChecked(false);
+    ui.chkVelocityColor->setChecked(true);
+    ui.chkAlwaysOnTop->setChecked(false);
+    ui.chkEnableKeyboard->setChecked(true);
+    ui.chkRawKeyboard->setChecked(false);
+    ui.chkEnableMouse->setChecked(true);
+    ui.chkEnableTouch->setChecked(true);
+}
+
 void Preferences::showEvent ( QShowEvent *event )
 {
     if (event->type() == QEvent::Show) {
+        ui.spinNumKeys->setValue(VPianoSettings::instance()->numKeys());
+        ui.cboStartingKey->setCurrentIndex(ui.cboStartingKey->findData(VPianoSettings::instance()->startingKey()));
         ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames(true));
-        ui.spinNumKeys->setValue( VPianoSettings::instance()->numKeys() );
-        ui.cboDrumsChannel->setCurrentIndex( VPianoSettings::instance()->drumsChannel() +1);
-        ui.chkAlwaysOnTop->setChecked( VPianoSettings::instance()->alwaysOnTop() );
-        ui.chkRawKeyboard->setChecked( VPianoSettings::instance()->rawKeyboard() );
-        ui.chkVelocityColor->setChecked( VPianoSettings::instance()->velocityColor() );
-        ui.chkEnforceChannelState->setChecked( VPianoSettings::instance()->enforceChannelState() );
-        ui.chkEnableKeyboard->setChecked( VPianoSettings::instance()->enableKeyboard() );
-        ui.chkEnableMouse->setChecked( VPianoSettings::instance()->enableMouse() );
-        ui.chkEnableTouch->setChecked( VPianoSettings::instance()->enableTouch() );
-        ui.cboColorPolicy->setCurrentIndex( VPianoSettings::instance()->highlightPaletteId() );
-        ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData( VPianoSettings::instance()->startingKey() ) );
-        ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
-        m_font = VPianoSettings::instance()->namesFont();
-        ui.txtFont->setText( m_font.toString() );
+        ui.cboColorPolicy->setCurrentIndex(VPianoSettings::instance()->highlightPaletteId());
         setInstrumentsFileName(VPianoSettings::instance()->insFileName());
         ui.cboInstrument->setCurrentText( VPianoSettings::instance()->insName());
         setKeyMapFileName(VPianoSettings::instance()->getMapFile());
         setRawKeyMapFileName(VPianoSettings::instance()->getRawMapFile());
+        ui.cboDrumsChannel->setCurrentIndex(VPianoSettings::instance()->drumsChannel()+1);
+        ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
+        m_font = VPianoSettings::instance()->namesFont();
+        ui.txtFont->setText( m_font.toString() );
+        ui.chkEnforceChannelState->setChecked( VPianoSettings::instance()->enforceChannelState() );
+        ui.chkVelocityColor->setChecked( VPianoSettings::instance()->velocityColor() );
+        ui.chkAlwaysOnTop->setChecked( VPianoSettings::instance()->alwaysOnTop() );
+        ui.chkEnableKeyboard->setChecked( VPianoSettings::instance()->enableKeyboard() );
+        ui.chkRawKeyboard->setChecked( VPianoSettings::instance()->rawKeyboard() );
+        ui.chkEnableMouse->setChecked( VPianoSettings::instance()->enableMouse() );
+        ui.chkEnableTouch->setChecked( VPianoSettings::instance()->enableTouch() );
     }
 }
 
 void Preferences::apply()
 {
-    VPianoSettings::instance()->setNumKeys( ui.spinNumKeys->value());
-    VPianoSettings::instance()->setAlwaysOnTop( ui.chkAlwaysOnTop->isChecked() );
-    VPianoSettings::instance()->setRawKeyboard( ui.chkRawKeyboard->isChecked() );
-    VPianoSettings::instance()->setVelocityColor( ui.chkVelocityColor->isChecked() );
-    VPianoSettings::instance()->setEnforceChannelState( ui.chkEnforceChannelState->isChecked() );
-    VPianoSettings::instance()->setEnableKeyboard( ui.chkEnableKeyboard->isChecked() );
-    VPianoSettings::instance()->setEnableMouse( ui.chkEnableMouse->isChecked() );
-    VPianoSettings::instance()->setEnableTouch( ui.chkEnableTouch->isChecked() );
-    VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
+    VPianoSettings::instance()->setNumKeys(ui.spinNumKeys->value());
+    VPianoSettings::instance()->setStartingKey(ui.cboStartingKey->currentData().toInt());
     VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentIndex());
-    VPianoSettings::instance()->setStartingKey( ui.cboStartingKey->itemData( ui.cboStartingKey->currentIndex()).toInt() );
-    VPianoSettings::instance()->setNamesOctave(static_cast<LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
-    VPianoSettings::instance()->setInstrumentsFileName( m_insFile );
-    VPianoSettings::instance()->setInsName( ui.cboInstrument->currentText() );
+    VPianoSettings::instance()->setInstrumentsFileName(m_insFile);
+    VPianoSettings::instance()->setInsName(ui.cboInstrument->currentText());
     VPianoSettings::instance()->setMapFile( m_mapFile);
     VPianoSettings::instance()->setRawMapFile( m_rawMapFile );
+    VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
+    VPianoSettings::instance()->setNamesOctave(static_cast<LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
     VPianoSettings::instance()->setNamesFont( m_font );
+    VPianoSettings::instance()->setEnforceChannelState( ui.chkEnforceChannelState->isChecked() );
+    VPianoSettings::instance()->setVelocityColor( ui.chkVelocityColor->isChecked() );
+    VPianoSettings::instance()->setAlwaysOnTop( ui.chkAlwaysOnTop->isChecked() );
+    VPianoSettings::instance()->setEnableKeyboard( ui.chkEnableKeyboard->isChecked() );
+    VPianoSettings::instance()->setRawKeyboard( ui.chkRawKeyboard->isChecked() );
+    VPianoSettings::instance()->setEnableMouse( ui.chkEnableMouse->isChecked() );
+    VPianoSettings::instance()->setEnableTouch( ui.chkEnableTouch->isChecked() );
 }
 
 void Preferences::accept()
@@ -141,7 +156,7 @@ void Preferences::slotOpenInstrumentFile()
 
 void Preferences::slotSelectColor()
 {
-    QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(this);
+    QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(true, this);
     if (dlgColorPolicy != nullptr) {
         dlgColorPolicy->loadPalette(ui.cboColorPolicy->currentIndex());
         if(dlgColorPolicy->exec() == QDialog::Accepted) {
@@ -237,30 +252,6 @@ void Preferences::setKeyMapFileName( const QString fileName )
         m_mapFile = f.absoluteFilePath();
         ui.txtFileKmap->setText(f.fileName());
     }
-}
-
-void Preferences::restoreDefaults()
-{
-    ui.chkAlwaysOnTop->setChecked(false);
-    ui.chkRawKeyboard->setChecked(false);
-    ui.spinNumKeys->setValue(DEFAULTNUMBEROFKEYS);
-    ui.txtFileKmap->setText(QSTR_DEFAULT);
-    ui.txtFileRawKmap->setText(QSTR_DEFAULT);
-    ui.chkVelocityColor->setChecked(true);
-    ui.chkEnforceChannelState->setChecked(false);
-    ui.chkEnableKeyboard->setChecked(true);
-    ui.chkEnableMouse->setChecked(true);
-    ui.chkEnableTouch->setChecked(true);
-    setInstrumentsFileName(VPianoSettings::dataDirectory() + QSTR_DEFAULTINS);
-    ui.cboInstrument->setCurrentIndex(0);
-    ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
-    ui.cboStartingKey->setCurrentIndex(DEFAULTSTARTINGKEY);
-    ui.txtFont->setText(QSTR_DEFAULTFONT);
-}
-
-void Preferences::slotRestoreDefaults()
-{
-    restoreDefaults();
 }
 
 void Preferences::retranslateUi()

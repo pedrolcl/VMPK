@@ -27,13 +27,14 @@
 #include "vpianosettings.h"
 #include "ui_colordialog.h"
 
-ColorDialog::ColorDialog(QWidget *parent) :
+ColorDialog::ColorDialog(bool hiliteOnly, QWidget *parent) :
     QDialog(parent),
     m_ui(new Ui::ColorDialog),
+    m_hilite(hiliteOnly),
     m_workingPalette(PianoPalette(PAL_SINGLE))
 {
     m_ui->setupUi(this);
-    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(false));
+    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(m_hilite));
     QSignalMapper *signalMapper = new QSignalMapper(this);
     for(int i = 0; i < 16; ++i)
     {
@@ -127,7 +128,7 @@ ColorDialog::retranslateUi()
     m_ui->retranslateUi(this);
     m_ui->paletteNames->clear();
     VPianoSettings::instance()->initializePaletteStrings();
-    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(false));
+    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(m_hilite));
     m_workingPalette.retranslateStrings();
     loadPalette(m_workingPalette.paletteId());
 }

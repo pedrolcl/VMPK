@@ -33,7 +33,7 @@ class ColorDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ColorDialog(QWidget *parent = 0);
+    explicit ColorDialog(bool hiliteOnly, QWidget *parent = 0);
     ~ColorDialog();
     void retranslateUi();
     int selectedPalette() const;
@@ -50,6 +50,7 @@ private:
     void refreshPalette();
 
     Ui::ColorDialog* m_ui;
+    bool m_hilite;
     PianoPalette m_workingPalette;
 };
 
