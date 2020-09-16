@@ -57,8 +57,10 @@ int main(int argc, char *argv[])
     );
     auto helpOption = parser.addHelpOption();
     auto versionOption = parser.addVersionOption();
-    QCommandLineOption portableOption({"p", "portable"}, "Portable settings format file (.ini)", "configFile");
+    QCommandLineOption portableOption({"p", "portable"}, QApplication::tr("Portable settings mode."));
+    QCommandLineOption portableFileName("f", "fileName", QApplication::tr("Portable settings file name (*.ini)."), "fileName");
     parser.addOption(portableOption);
+    parser.addOption(portableFileName);
     parser.process(a);
     if (parser.isSet(versionOption) || parser.isSet(helpOption)) {
         return 0;
@@ -73,7 +75,11 @@ int main(int argc, char *argv[])
     QTimer::singleShot(2500, &s, SLOT(close()));
     a.processEvents();
     if (parser.isSet(portableOption)) {
-        VPianoSettings::setPortableConfig(parser.value(portableOption));
+        QString portableFile;
+        if (parser.isSet(portableFileName)) {
+            portableFile = parser.value(portableFileName);
+        }
+        VPianoSettings::setPortableConfig(portableFile);
     } else {
         QSettings::setDefaultFormat(QSettings::NativeFormat);
     }

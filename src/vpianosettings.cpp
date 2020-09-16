@@ -16,14 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#if defined(Q_OS_MACOS)
-#include <CoreFoundation/CoreFoundation.h>
-#endif
-
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
 #include <QTouchDevice>
+
+#if defined(Q_OS_MACOS)
+#include <CoreFoundation/CoreFoundation.h>
+#endif
+
 #include <drumstick/settingsfactory.h>
 #include <drumstick/backendmanager.h>
 #include <drumstick/pianokeybd.h>
@@ -64,21 +65,21 @@ VPianoSettings* VPianoSettings::instance()
 void VPianoSettings::setPortableConfig(const QString fileName)
 {
     QFileInfo appInfo(QCoreApplication::applicationFilePath());
-    if (fileName.isEmpty()) {
 #if defined(Q_OS_MACOS)
-        CFURLRef url = static_cast<CFURLRef>(CFAutorelease(static_cast<CFURLRef>(CFBundleCopyBundleURL(CFBundleGetMainBundle()))));
-        QString path = QUrl::fromCFURL(url).path() + "../";
-        QFileInfo cfgInfo(path, appInfo.baseName() + ".conf");
+    CFURLRef url = static_cast<CFURLRef>(CFAutorelease(static_cast<CFURLRef>(CFBundleCopyBundleURL(CFBundleGetMainBundle()))));
+    QString path = QUrl::fromCFURL(url).path() + "../";
+    QFileInfo cfgInfo(path, appInfo.baseName() + ".conf");
 #else
-        QFileInfo cfgInfo(appInfo.absoluteDir(), appInfo.baseName() + ".conf");
+    QFileInfo cfgInfo(appInfo.absoluteDir(), appInfo.baseName() + ".conf");
 #endif
+    if (fileName.isEmpty()) {
         SettingsFactory::setFileName(cfgInfo.absoluteFilePath());
     } else {
-        QFileInfo cfgInfo(fileName);
-        if (cfgInfo.path() == ".") {
-            cfgInfo.setFile(appInfo.absoluteDir(), fileName);
+        QFileInfo cfgInfo2(fileName);
+        if (cfgInfo2.path() == ".") {
+            cfgInfo2.setFile(cfgInfo.absoluteDir(), fileName);
         }
-        SettingsFactory::setFileName(cfgInfo.absoluteFilePath());
+        SettingsFactory::setFileName(cfgInfo2.absoluteFilePath());
     }
 }
 
