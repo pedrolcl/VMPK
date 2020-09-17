@@ -51,7 +51,6 @@ public slots:
 
 protected:
     void showEvent ( QShowEvent *event );
-    //void restoreDefaults();
 
 private:
     QString m_mapFile;

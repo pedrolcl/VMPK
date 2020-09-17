@@ -79,7 +79,7 @@ void Preferences::slotRestoreDefaults()
     ui.txtFileKmap->setText(m_mapFile = QSTR_DEFAULT);
     ui.txtFileRawKmap->setText(m_rawMapFile = QSTR_DEFAULT);
     ui.cboDrumsChannel->setCurrentIndex(MIDIGMDRUMSCHANNEL + 1);
-    ui.cboOctaveName->setCurrentIndex(OctaveC4);
+    ui.cboOctaveName->setCurrentIndex(ui.cboOctaveName->findData(OctaveC4));
     m_font = QFont(QSTR_DEFAULTFONT);
     ui.txtFont->setText(QSTR_DEFAULTFONT);
     ui.chkEnforceChannelState->setChecked(false);
@@ -103,7 +103,7 @@ void Preferences::showEvent ( QShowEvent *event )
         setKeyMapFileName(VPianoSettings::instance()->getMapFile());
         setRawKeyMapFileName(VPianoSettings::instance()->getRawMapFile());
         ui.cboDrumsChannel->setCurrentIndex(VPianoSettings::instance()->drumsChannel()+1);
-        ui.cboOctaveName->setCurrentIndex( VPianoSettings::instance()->namesOctave() );
+        ui.cboOctaveName->setCurrentIndex(ui.cboOctaveName->findData(VPianoSettings::instance()->namesOctave()));
         m_font = VPianoSettings::instance()->namesFont();
         ui.txtFont->setText( m_font.toString() );
         ui.chkEnforceChannelState->setChecked( VPianoSettings::instance()->enforceChannelState() );
@@ -125,7 +125,7 @@ void Preferences::apply()
     VPianoSettings::instance()->setMapFile( m_mapFile);
     VPianoSettings::instance()->setRawMapFile( m_rawMapFile );
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
-    VPianoSettings::instance()->setNamesOctave(static_cast<LabelCentralOctave>(ui.cboOctaveName->currentIndex()));
+    VPianoSettings::instance()->setNamesOctave(static_cast<LabelCentralOctave>(ui.cboOctaveName->currentData().toInt()));
     VPianoSettings::instance()->setNamesFont( m_font );
     VPianoSettings::instance()->setEnforceChannelState( ui.chkEnforceChannelState->isChecked() );
     VPianoSettings::instance()->setVelocityColor( ui.chkVelocityColor->isChecked() );
@@ -268,8 +268,10 @@ void Preferences::setNoteNames(const QStringList& noteNames)
             ui.cboStartingKey->addItem(noteNames[i], i);
         }
     }
+
     ui.cboOctaveName->clear();
-    for (int i=3; i<6; ++i) {
-        ui.cboOctaveName->addItem(QString("%1%2").arg(noteNames[0]).arg(i));
-    }
+    ui.cboOctaveName->addItem(tr("Nothing"), OctaveNothing);
+    ui.cboOctaveName->addItem(noteNames[0]+"3", OctaveC3);
+    ui.cboOctaveName->addItem(noteNames[0]+"4", OctaveC4);
+    ui.cboOctaveName->addItem(noteNames[0]+"5", OctaveC5);
 }

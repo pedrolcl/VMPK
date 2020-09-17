@@ -87,6 +87,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
 #endif
     m_trq = new QTranslator(this);
     m_trp = new QTranslator(this);
+    m_trl = new QTranslator(this);
     //qDebug() << QSTR_QTPX + configuredLanguage() << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
     //qDebug() << QSTR_VMPKPX + configuredLanguage() << VPiano::localeDirectory();
     if (!m_trq->load( QSTR_QTPX + configuredLanguage(),
@@ -99,8 +100,14 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
         qWarning() << "Failure loading VMPK translations for" << configuredLanguage()
                    << "from" << VPianoSettings::localeDirectory();
     }
+    if (!m_trl->load( "drumstick-widgets_" + configuredLanguage(),
+                      VPianoSettings::localeDirectory() )) {
+        qWarning() << "Failure loading widgets translations for" << configuredLanguage()
+                   << "from" << VPianoSettings::localeDirectory();
+    }
     QCoreApplication::installTranslator(m_trq);
     QCoreApplication::installTranslator(m_trp);
+    QCoreApplication::installTranslator(m_trl);
     ui.setupUi(this);
     initLanguages();
 
@@ -1984,6 +1991,8 @@ void VPiano::retranslateUi()
     m_trq->load( QSTR_QTPX + configuredLanguage(),
                  QLibraryInfo::location(QLibraryInfo::TranslationsPath) );
     m_trp->load( QSTR_VMPKPX + configuredLanguage(),
+                 VPianoSettings::localeDirectory() );
+    m_trl->load( "drumstick-widgets_" + configuredLanguage(),
                  VPianoSettings::localeDirectory() );
     ui.retranslateUi(this);
     ui.pianokeybd->retranslate();

@@ -246,7 +246,7 @@ private:
     QMap<int,int> m_lastProg;
     QMap<int,int> m_lastCtl;
     QMap<QString, QString> m_supportedLangs;
-    QTranslator *m_trq, *m_trp;
+    QTranslator *m_trq, *m_trp, *m_trl;
     QAction *m_currentLang;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
 };
