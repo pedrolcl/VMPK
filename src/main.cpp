@@ -26,7 +26,8 @@
 #include "vpiano.h"
 #include "vpianosettings.h"
 
-const QString PGM_DESCRIPTION("Virtual MIDI Piano Keyboard\n"
+const QString PGM_DESCRIPTION = QCoreApplication::tr(
+     "Virtual MIDI Piano Keyboard\n"
      "Copyright (C) 2006-2020 Pedro Lopez-Cabanillas\n"
      "This program comes with ABSOLUTELY NO WARRANTY;\n"
      "This is free software, and you are welcome to redistribute it\n"
@@ -43,9 +44,9 @@ int main(int argc, char *argv[])
 #endif
     QCoreApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
     QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 #if defined(Q_OS_LINUX)
-    a.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
+    app.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
 #endif //Q_OS_LINUX
 
     QCommandLineParser parser;
@@ -57,11 +58,11 @@ int main(int argc, char *argv[])
     );
     auto helpOption = parser.addHelpOption();
     auto versionOption = parser.addVersionOption();
-    QCommandLineOption portableOption({"p", "portable"}, QApplication::tr("Portable settings mode."));
-    QCommandLineOption portableFileName("f", "fileName", QApplication::tr("Portable settings file name (*.ini)."), "fileName");
+    QCommandLineOption portableOption({"p", "portable"}, QCoreApplication::tr("Portable settings mode."));
+    QCommandLineOption portableFileName("f", "file", QCoreApplication::tr("Portable settings file name."), "portableFile");
     parser.addOption(portableOption);
     parser.addOption(portableFileName);
-    parser.process(a);
+    parser.process(app);
     if (parser.isSet(versionOption) || parser.isSet(helpOption)) {
         return 0;
     }
@@ -73,8 +74,8 @@ int main(int argc, char *argv[])
     s.show();
     s.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
     QTimer::singleShot(2500, &s, SLOT(close()));
-    a.processEvents();
-    if (parser.isSet(portableOption)) {
+    app.processEvents();
+    if (parser.isSet(portableOption) || parser.isSet(portableFileName)) {
         QString portableFile;
         if (parser.isSet(portableFileName)) {
             portableFile = parser.value(portableFileName);
@@ -86,7 +87,7 @@ int main(int argc, char *argv[])
     VPiano w;
     if (w.isInitialized()) {
         w.show();
-        return a.exec();
+        return app.exec();
     }
     return EXIT_FAILURE;
 }

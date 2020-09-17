@@ -207,8 +207,8 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_baseOctave = settings.value(QSTR_BASEOCTAVE, 1).toInt();
     m_transpose = settings.value(QSTR_TRANSPOSE, 0).toInt();
     m_numKeys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
-    m_insFileName = settings.value(QSTR_INSTRUMENTSDEFINITION, VPianoSettings::dataDirectory() + QSTR_DEFAULTINS).toString();
-    m_insName = settings.value(QSTR_INSTRUMENTNAME).toString();
+    setInstruments(settings.value(QSTR_INSTRUMENTSDEFINITION, QLatin1String(":/vpiano/") + QSTR_DEFAULTINS).toString(),
+        settings.value(QSTR_INSTRUMENTNAME).toString());
     m_alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
     m_showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
     m_velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
@@ -386,11 +386,6 @@ QString VPianoSettings::defaultInputConnection() const
 QString VPianoSettings::insName() const
 {
     return m_insName;
-}
-
-void VPianoSettings::setInsName(const QString &insName)
-{
-    m_insName = insName;
 }
 
 int VPianoSettings::transpose() const
@@ -694,7 +689,7 @@ Instrument* VPianoSettings::getDrumsInstrument()
     return &m_insList[key];
 }
 
-void VPianoSettings::setInstrumentsFileName( const QString fileName )
+void VPianoSettings::setInstruments( const QString fileName, const QString instrumentName )
 {
     QFileInfo f(fileName);
     if (f.path() == ".") {
@@ -704,7 +699,11 @@ void VPianoSettings::setInstrumentsFileName( const QString fileName )
         m_insList.clear();
         if (m_insList.load( f.absoluteFilePath() )) {
             m_insFileName = f.absoluteFilePath();
-            m_insName = m_insList.first().instrumentName();
+            if (m_insList.contains(instrumentName)) {
+                m_insName = instrumentName;
+            } else {
+                m_insName = m_insList.first().instrumentName();
+            }
         } else {
             m_insFileName = QString();
             m_insName = QString();

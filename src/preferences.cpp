@@ -121,8 +121,7 @@ void Preferences::apply()
     VPianoSettings::instance()->setNumKeys(ui.spinNumKeys->value());
     VPianoSettings::instance()->setStartingKey(ui.cboStartingKey->currentData().toInt());
     VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentIndex());
-    VPianoSettings::instance()->setInstrumentsFileName(m_insFile);
-    VPianoSettings::instance()->setInsName(ui.cboInstrument->currentText());
+    VPianoSettings::instance()->setInstruments(m_insFile, ui.cboInstrument->currentText());
     VPianoSettings::instance()->setMapFile( m_mapFile);
     VPianoSettings::instance()->setRawMapFile( m_rawMapFile );
     VPianoSettings::instance()->setDrumsChannel( ui.cboDrumsChannel->currentIndex() - 1 );
@@ -188,7 +187,6 @@ void Preferences::setInstrumentsFileName( const QString fileName )
         ui.cboInstrument->clear();
         if (!names.isEmpty()) {
             ui.cboInstrument->addItems(names);
-            ui.cboInstrument->setCurrentIndex(-1);
         }
     } else {
         ui.txtFileInstrument->setText(QSTR_DEFAULT);

@@ -3,10 +3,10 @@
         <file>vmpk_32x32.png</file>
         <file>vmpk_128x128.png</file>
         <file>vmpk_splash.png</file>
-        <file>blkey.png</file>
         <file>led_green.png</file>
         <file>led_grey.png</file>
         <file>list-add.png</file>
         <file>list-remove.png</file>
+        <file>gmgsxg.ins</file>
     </qresource>
 </RCC>

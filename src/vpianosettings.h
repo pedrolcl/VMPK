@@ -112,7 +112,8 @@ public:
     void setEnableTouch(bool enableTouch);
 
     QString insFileName() const;
-    void setInstrumentsFileName( const QString fileName );
+    QString insName() const;
+    void setInstruments( const QString fileName, const QString name );
     Instrument* getInstrument();
     Instrument* getDrumsInstrument();
     QStringList getInsNames();
@@ -122,9 +123,6 @@ public:
 
     int transpose() const;
     void setTranspose(int transpose);
-
-    QString insName() const;
-    void setInsName(const QString &insName);
 
     QString defaultInputConnection() const;
     QString defaultOutputConnection() const;

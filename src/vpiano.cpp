@@ -628,11 +628,6 @@ void VPiano::readSettings()
     ui.pianokeybd->setLabelOrientation(VPianoSettings::instance()->namesOrientation());
     ui.pianokeybd->setLabelOctave(VPianoSettings::instance()->namesOctave());
 
-    QString insFileName = VPianoSettings::instance()->insFileName();
-    if (!insFileName.isEmpty()) {
-        VPianoSettings::instance()->setInstrumentsFileName(insFileName);
-    }
-
     bool savedShortcuts = VPianoSettings::instance()->savedShortcuts();
     QList<QAction *> actions = findChildren<QAction *> ();
     foreach(QAction* pAction, actions)
@@ -1292,8 +1287,6 @@ void VPiano::applyPreferences()
         flags &= ~Qt::WindowStaysOnTopHint;
     setWindowFlags( flags );
     move(wpos);
-
-    //ui.pianokeybd->setShowLabels(VPianoSettings::instance()->namesVisibility());
 }
 
 void VPiano::populateInstruments()
@@ -1661,8 +1654,7 @@ void VPiano::slotImportSF()
     if ((dlgRiffImport->exec() == QDialog::Accepted) &&
         !dlgRiffImport->getOutput().isEmpty()) {
         dlgRiffImport->save();
-        VPianoSettings::instance()->setInstrumentsFileName(dlgRiffImport->getOutput());
-        VPianoSettings::instance()->setInsName(dlgRiffImport->getName());
+        VPianoSettings::instance()->setInstruments(dlgRiffImport->getOutput(), dlgRiffImport->getName());
         applyPreferences();
     }
     grabKb();
