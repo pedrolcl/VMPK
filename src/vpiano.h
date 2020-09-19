@@ -202,7 +202,6 @@ private:
 
     QByteArray readSysexDataFile(const QString& fileName);
     void createLanguageMenu();
-    QString configuredLanguage();
     void enforceMIDIChannelState();
     QColor getHighlightColorFromPolicy(const int chan, const int note, const int vel);
     int getType(const int note) const;

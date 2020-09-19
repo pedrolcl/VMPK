@@ -20,6 +20,7 @@
 #include <QDir>
 #include <QDebug>
 #include <QTouchDevice>
+#include <QLibraryInfo>
 
 #if defined(Q_OS_MACOS)
 #include <CoreFoundation/CoreFoundation.h>
@@ -53,7 +54,7 @@ VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent)
 #endif
     ResetDefaults();
     initializePalettes();
-    initializePaletteStrings();
+    ReadSettings();
 }
 
 VPianoSettings* VPianoSettings::instance()
@@ -98,12 +99,38 @@ QString VPianoSettings::dataDirectory()
 
 QString VPianoSettings::localeDirectory()
 {
-#if defined(Q_OS_LINUX)
+#if defined(TRANSLATIONS_EMBEDDED)
+    return QLatin1String(":/");
+#elif defined(Q_OS_LINUX)
     return VPianoSettings::dataDirectory() + "locale/";
 #elif defined(Q_OS_WIN)
     return VPianoSettings::dataDirectory() + "translations/";
 #else
     return VPianoSettings::dataDirectory();
+#endif
+}
+
+QString VPianoSettings::drumstickLocales()
+{
+#if defined(TRANSLATIONS_EMBEDDED)
+    return QLatin1String(":/");
+#elif defined(Q_OS_WIN32)
+    return QApplication::applicationDirPath() + "/";
+#elif defined(Q_OS_MAC)
+    return QApplication::applicationDirPath() + "/../Resources/";
+#elif defined(Q_OS_UNIX)
+    return QApplication::applicationDirPath() + "/../share/drumstick/";
+#else
+    return QString();
+#endif
+}
+
+QString VPianoSettings::systemLocales()
+{
+#if defined(TRANSLATIONS_EMBEDDED)
+    return QLatin1String(":/");
+#else
+    return QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 #endif
 }
 
@@ -298,6 +325,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.setValue(QSTR_STARTINGKEY, m_startingKey);
     settings.setValue(QSTR_CURRENTPALETTE, m_highlightPaletteId);
     settings.setValue(QSTR_SHOWCOLORSCALE, m_colorScale);
+    settings.setValue(QSTR_LANGUAGE, m_language);
     settings.endGroup();
 
     settings.beginGroup(QSTR_KEYBOARD);
@@ -774,7 +802,7 @@ void VPianoSettings::updatePalette(const PianoPalette& p)
     m_paletteList[id] = p;
 }
 
-void VPianoSettings::initializePaletteStrings()
+void VPianoSettings::retranslatePalettes()
 {
     for (PianoPalette& pal : m_paletteList) {
         pal.retranslateStrings();

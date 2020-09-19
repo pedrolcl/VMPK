@@ -127,7 +127,7 @@ ColorDialog::retranslateUi()
 {
     m_ui->retranslateUi(this);
     m_ui->paletteNames->clear();
-    VPianoSettings::instance()->initializePaletteStrings();
+    VPianoSettings::instance()->retranslatePalettes();
     m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(m_hilite));
     m_workingPalette.retranslateStrings();
     loadPalette(m_workingPalette.paletteId());

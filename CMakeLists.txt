@@ -27,6 +27,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(DBUS_INIT ON)
 endif()
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
+option(EMBED_TRANSLATIONS "Embed translations instead of installing" OFF)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 
@@ -71,7 +72,9 @@ endif()
 include(GNUInstallDirs)
 
 add_subdirectory(src)
-add_subdirectory(translations)
+if (NOT EMBED_TRABSLATIONS)
+    add_subdirectory(translations)
+endif()
 
 # uninstall custom target
 configure_file(

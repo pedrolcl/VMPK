@@ -35,7 +35,6 @@
 #include <QUrl>
 #include <QString>
 #include <QTranslator>
-#include <QLibraryInfo>
 #include <QMapIterator>
 #include <QShortcut>
 #include <QDebug>
@@ -88,22 +87,17 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_trq = new QTranslator(this);
     m_trp = new QTranslator(this);
     m_trl = new QTranslator(this);
-    //qDebug() << QSTR_QTPX + configuredLanguage() << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
-    //qDebug() << QSTR_VMPKPX + configuredLanguage() << VPiano::localeDirectory();
-    if (!m_trq->load( QSTR_QTPX + configuredLanguage(),
-                      QLibraryInfo::location(QLibraryInfo::TranslationsPath) )) {
-        qWarning() << "Failure loading Qt5 translations for" << configuredLanguage()
-                   << "from" << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+    if (!m_trq->load(QSTR_QTPX + VPianoSettings::instance()->language(), VPianoSettings::systemLocales())) {
+        qWarning() << "Failure loading Qt5 system translations for" << VPianoSettings::instance()->language()
+                   << "from" << VPianoSettings::systemLocales();
     }
-    if (!m_trp->load( QSTR_VMPKPX + configuredLanguage(),
-                      VPianoSettings::localeDirectory() )) {
-        qWarning() << "Failure loading VMPK translations for" << configuredLanguage()
+    if (!m_trp->load(QSTR_VMPKPX + VPianoSettings::instance()->language(), VPianoSettings::localeDirectory())) {
+        qWarning() << "Failure loading VMPK application translations for" << VPianoSettings::instance()->language()
                    << "from" << VPianoSettings::localeDirectory();
     }
-    if (!m_trl->load( "drumstick-widgets_" + configuredLanguage(),
-                      VPianoSettings::localeDirectory() )) {
-        qWarning() << "Failure loading widgets translations for" << configuredLanguage()
-                   << "from" << VPianoSettings::localeDirectory();
+    if (!m_trl->load(QSTR_DRUMSTICKPX + VPianoSettings::instance()->language(), VPianoSettings::drumstickLocales())) {
+        qWarning() << "Failure loading widgets library translations for" << VPianoSettings::instance()->language()
+                   << "from" << VPianoSettings::drumstickLocales();
     }
     QCoreApplication::installTranslator(m_trq);
     QCoreApplication::installTranslator(m_trp);
@@ -574,7 +568,7 @@ void VPiano::initExtraControllers()
 
 void VPiano::readSettings()
 {
-    VPianoSettings::instance()->ReadSettings();
+    VPianoSettings::instance()->retranslatePalettes();
     restoreGeometry(VPianoSettings::instance()->geometry());
     restoreState(VPianoSettings::instance()->state());
 
@@ -1626,7 +1620,7 @@ public:
 void VPiano::slotHelpContents()
 {
     QStringList hlps;
-    QLocale loc(configuredLanguage());
+    QLocale loc(VPianoSettings::instance()->language());
     QStringList lc = loc.name().split("_");
     hlps += QSTR_HELPL.arg(loc.name());
     if (lc.count() > 1)
@@ -1901,20 +1895,6 @@ void VPiano::slotControllerDown()
     slotControlSliderMoved(m_Control->value());
 }
 
-QString VPiano::configuredLanguage()
-{
-    QString language = VPianoSettings::instance()->language();
-    if (language.isEmpty()) {
-        SettingsFactory settings;
-        QString defLang = QLocale::system().name();
-        settings->beginGroup(QSTR_PREFERENCES);
-        language = settings->value(QSTR_LANGUAGE, defLang).toString();
-        settings->endGroup();
-    }
-    //qDebug() << Q_FUNC_INFO << language;
-    return language;
-}
-
 void VPiano::slotSwitchLanguage(QAction *action)
 {
     QString lang = action->data().toString();
@@ -1932,8 +1912,9 @@ void VPiano::slotSwitchLanguage(QAction *action)
 
 void VPiano::createLanguageMenu()
 {
-    QString currentLang = configuredLanguage();
+    QString currentLang = VPianoSettings::instance()->language();
     QActionGroup *languageGroup = new QActionGroup(this);
+    languageGroup->setExclusive(true);
     connect(languageGroup, SIGNAL(triggered(QAction *)),
             SLOT(slotSwitchLanguage(QAction *)));
     QDir dir(VPianoSettings::localeDirectory());
@@ -1967,7 +1948,7 @@ void VPiano::slotAboutTranslation()
         "join the team or have any question, please visit the forums at "
         "<a href='http://sourceforge.net/projects/vmpk/forums'>SourceForge</a>"
         "</p>");
-    QString currentLang = configuredLanguage();
+    QString currentLang = VPianoSettings::instance()->language();
     bool supported(false);
     if (!currentLang.startsWith("en")) {
         QMapIterator<QString,QString> it(m_supportedLangs);
@@ -1988,12 +1969,10 @@ void VPiano::slotAboutTranslation()
 
 void VPiano::retranslateUi()
 {
-    m_trq->load( QSTR_QTPX + configuredLanguage(),
-                 QLibraryInfo::location(QLibraryInfo::TranslationsPath) );
-    m_trp->load( QSTR_VMPKPX + configuredLanguage(),
-                 VPianoSettings::localeDirectory() );
-    m_trl->load( "drumstick-widgets_" + configuredLanguage(),
-                 VPianoSettings::localeDirectory() );
+    m_trq->load(QSTR_QTPX + VPianoSettings::instance()->language(), VPianoSettings::systemLocales());
+    m_trp->load(QSTR_VMPKPX + VPianoSettings::instance()->language(), VPianoSettings::localeDirectory());
+    m_trl->load(QSTR_DRUMSTICKPX + VPianoSettings::instance()->language(), VPianoSettings::drumstickLocales());
+    VPianoSettings::instance()->retranslatePalettes();
     ui.retranslateUi(this);
     ui.pianokeybd->retranslate();
     initLanguages();

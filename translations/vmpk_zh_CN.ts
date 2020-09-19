@@ -4,12 +4,6 @@
 <context>
     <name>About</name>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;版本: %1&lt;br/&gt;创建日期: %2&lt;br/&gt;创建时间: %3&lt;br/&gt;编译器: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/about.cpp" line="40"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Build date: %2&lt;br/&gt;Build time: %3&lt;br/&gt;Compiler: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -35,54 +29,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2020, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2020 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;版权所有 © 2008-2010, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;The following copyright notice is also applicable:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program contains &lt;/span&gt;&lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2020 Gary P. Scavone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {2008-2011,?} {9p?} {0057a?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {3 ?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0057a?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0057a?} {2003-2010 ?}</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008, Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;The following copyright notice is also applicable:&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This program contains RtMIDI: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2020 Gary P. Scavone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008, Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;The following copyright notice is also applicable:&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This program contains RtMIDI: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2020 Gary P. Scavone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/about.ui" line="41"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -100,18 +46,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2020, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The following copyright notice is also applicable:&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This program contains &lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;: realtime MIDI i/o C++ classes&lt;br /&gt;Copyright © 2003-2020 Gary P. Scavone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;版权所有 © 2008-2009, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;本软件是自由软件: 您可以自由的发布或依照自由软件基金会的GNU 通用公众许可协议（版本3或之后的版本）修改它。&lt;/p&gt;&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;希望本程序的发布对您有用，但作者对软件的使用不作任何保证, 也没有鉴于一个特殊的目的的可买卖性或适应性. 详见 GNU 通用软件许可 .您应该随本软件收到一份 GNU 通用软件许可, 如果没有, 见 &lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;下列的版权信息同样适用:&lt;/p&gt;&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;本程序包含 &lt;a href=&quot;http://www.music.mcgill.ca/~gary/rtmidi/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;RtMIDI&lt;/span&gt;&lt;/a&gt;: 实时 MIDI 输入/输出 C++ 类库&lt;br /&gt;版权所有 © 2003-2007 Gary P. Scavone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
 </context>
 <context>
     <name>ColorDialog</name>
@@ -123,226 +57,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/colordialog.ui" line="57"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="135"/>
-        <location filename="../src/colordialog.cpp" line="199"/>
-        <source>N</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="136"/>
-        <location filename="../src/colordialog.cpp" line="200"/>
-        <source>#</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="141"/>
-        <location filename="../src/colordialog.cpp" line="206"/>
-        <source>1</source>
-        <translation type="unfinished">1</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="142"/>
-        <location filename="../src/colordialog.cpp" line="207"/>
-        <source>2</source>
-        <translation type="unfinished">2</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="143"/>
-        <location filename="../src/colordialog.cpp" line="208"/>
-        <source>3</source>
-        <translation type="unfinished">3</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="144"/>
-        <location filename="../src/colordialog.cpp" line="209"/>
-        <source>4</source>
-        <translation type="unfinished">4</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="145"/>
-        <location filename="../src/colordialog.cpp" line="210"/>
-        <source>5</source>
-        <translation type="unfinished">5</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="146"/>
-        <location filename="../src/colordialog.cpp" line="211"/>
-        <source>6</source>
-        <translation type="unfinished">6</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="147"/>
-        <location filename="../src/colordialog.cpp" line="212"/>
-        <source>7</source>
-        <translation type="unfinished">7</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="148"/>
-        <location filename="../src/colordialog.cpp" line="213"/>
-        <source>8</source>
-        <translation type="unfinished">8</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="149"/>
-        <location filename="../src/colordialog.cpp" line="214"/>
-        <source>9</source>
-        <translation type="unfinished">9</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="150"/>
-        <location filename="../src/colordialog.cpp" line="215"/>
-        <source>10</source>
-        <translation type="unfinished">10</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="151"/>
-        <location filename="../src/colordialog.cpp" line="216"/>
-        <source>11</source>
-        <translation type="unfinished">11</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="152"/>
-        <location filename="../src/colordialog.cpp" line="217"/>
-        <source>12</source>
-        <translation type="unfinished">12</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="153"/>
-        <location filename="../src/colordialog.cpp" line="218"/>
-        <source>13</source>
-        <translation type="unfinished">13</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="154"/>
-        <location filename="../src/colordialog.cpp" line="219"/>
-        <source>14</source>
-        <translation type="unfinished">14</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="155"/>
-        <location filename="../src/colordialog.cpp" line="220"/>
-        <source>15</source>
-        <translation type="unfinished">15</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="156"/>
-        <location filename="../src/colordialog.cpp" line="221"/>
-        <source>16</source>
-        <translation type="unfinished">16</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="176"/>
-        <location filename="../src/colordialog.cpp" line="227"/>
-        <source>C</source>
-        <translation type="unfinished">C</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="177"/>
-        <location filename="../src/colordialog.cpp" line="228"/>
-        <source>C#</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="178"/>
-        <location filename="../src/colordialog.cpp" line="229"/>
-        <source>D</source>
-        <translation type="unfinished">D</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="179"/>
-        <location filename="../src/colordialog.cpp" line="230"/>
-        <source>D#</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="180"/>
-        <location filename="../src/colordialog.cpp" line="231"/>
-        <source>E</source>
-        <translation type="unfinished">E</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="181"/>
-        <location filename="../src/colordialog.cpp" line="232"/>
-        <source>F</source>
-        <translation type="unfinished">F</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="182"/>
-        <location filename="../src/colordialog.cpp" line="233"/>
-        <source>F#</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="183"/>
-        <location filename="../src/colordialog.cpp" line="234"/>
-        <source>G</source>
-        <translation type="unfinished">G</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="184"/>
-        <location filename="../src/colordialog.cpp" line="235"/>
-        <source>G#</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="185"/>
-        <location filename="../src/colordialog.cpp" line="236"/>
-        <source>A</source>
-        <translation type="unfinished">A</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="186"/>
-        <location filename="../src/colordialog.cpp" line="237"/>
-        <source>A#</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="187"/>
-        <location filename="../src/colordialog.cpp" line="238"/>
-        <source>B</source>
-        <translation type="unfinished">B</translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="246"/>
-        <source>Single color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="247"/>
-        <source>A single color to highlight all note events</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="251"/>
-        <source>Two colors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="252"/>
-        <source>One color to highlight natural notes and a different one for accidentals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="256"/>
-        <source>MIDI Channels</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="257"/>
-        <source>A different color for each MIDI channel. Enable Omni mode in the MIDI IN connection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="261"/>
-        <source>Chromatic scale</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/colordialog.cpp" line="262"/>
-        <source>One color for each note in the chromatic scale</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -493,120 +207,52 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>FluidSettingsDialog</name>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="31"/>
-        <source>FluidSynth Driver Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="65"/>
-        <source>Sample Rate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="75"/>
-        <source>Period Size:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="88"/>
-        <source># of Periods:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="101"/>
-        <source>Audio Driver:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="108"/>
-        <source>Polyphony:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="121"/>
-        <source>Sound Font:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="131"/>
-        <source>Gain:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="144"/>
-        <source>...</source>
-        <translation type="unfinished">...</translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="151"/>
-        <source>Chorus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.ui" line="158"/>
-        <source>Reverb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.cpp" line="196"/>
-        <source>Select SoundFont</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/fluidsettingsdialog.cpp" line="196"/>
-        <source>SoundFont Files (*.sf2)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>KMapDialog</name>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="31"/>
-        <location filename="../src/kmapdialog.cpp" line="117"/>
+        <location filename="../src/kmapdialog.cpp" line="32"/>
+        <location filename="../src/kmapdialog.cpp" line="118"/>
         <source>Open...</source>
         <translation>打开...</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="32"/>
-        <location filename="../src/kmapdialog.cpp" line="118"/>
+        <location filename="../src/kmapdialog.cpp" line="33"/>
+        <location filename="../src/kmapdialog.cpp" line="119"/>
         <source>Save As...</source>
         <translation>另存为...</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="43"/>
+        <location filename="../src/kmapdialog.cpp" line="44"/>
         <source>Raw Key Map Editor</source>
         <translation>原始键盘映射编辑器</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="43"/>
+        <location filename="../src/kmapdialog.cpp" line="44"/>
         <source>Key Map Editor</source>
         <translation>键盘映射编辑器</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="45"/>
+        <location filename="../src/kmapdialog.cpp" line="46"/>
         <source>Key Code</source>
         <translation>键码</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="45"/>
+        <location filename="../src/kmapdialog.cpp" line="46"/>
         <source>Key</source>
         <translation>键</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="88"/>
+        <location filename="../src/kmapdialog.cpp" line="89"/>
         <source>Open keyboard map definition</source>
         <translation>打开键盘映射文件</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="90"/>
-        <location filename="../src/kmapdialog.cpp" line="101"/>
+        <location filename="../src/kmapdialog.cpp" line="91"/>
+        <location filename="../src/kmapdialog.cpp" line="102"/>
         <source>Keyboard map (*.xml)</source>
         <translation>键盘映射文件 (*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="103"/>
+        <location filename="../src/kmapdialog.cpp" line="104"/>
         <source>Save keyboard map definition</source>
         <translation>保存键盘映射文件</translation>
     </message>
@@ -1277,58 +923,25 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>KeyboardMap</name>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="138"/>
+        <location filename="../src/keyboardmap.cpp" line="169"/>
         <source>File: %1
 %2</source>
         <translation>文件: %1\n%2</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="38"/>
+        <location filename="../src/keyboardmap.cpp" line="56"/>
         <source>Error loading a file</source>
         <translation>加载文件出错</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="52"/>
+        <location filename="../src/keyboardmap.cpp" line="70"/>
         <source>Error saving a file</source>
         <translation>保存文件出错</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="97"/>
+        <location filename="../src/keyboardmap.cpp" line="115"/>
         <source>Error reading XML</source>
         <translation>读取XML文本出错</translation>
-    </message>
-</context>
-<context>
-    <name>MacSynthSettingsDialog</name>
-    <message>
-        <location filename="../src/macsynthsettingsdialog.ui" line="34"/>
-        <source>SoundFont:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/macsynthsettingsdialog.ui" line="60"/>
-        <source>...</source>
-        <translation type="unfinished">...</translation>
-    </message>
-    <message>
-        <location filename="../src/macsynthsettingsdialog.ui" line="80"/>
-        <source>Use Internal Reverb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/macsynthsettingsdialog.ui" line="87"/>
-        <source>Default Apple DLS Sound Set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/macsynthsettingsdialog.cpp" line="104"/>
-        <source>Select SoundFont</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/macsynthsettingsdialog.cpp" line="104"/>
-        <source>SoundFont Files (*.sf2 *.dls)</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1337,10 +950,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/midisetup.ui" line="37"/>
         <source>MIDI Setup</source>
         <translation>MIDI 设置</translation>
-    </message>
-    <message>
-        <source>Enable MIDI input</source>
-        <translation type="obsolete">允许 MIDI 输入</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="100"/>
@@ -1410,151 +1019,38 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>NetworkSettingsDialog</name>
-    <message>
-        <location filename="../src/networksettingsdialog.ui" line="31"/>
-        <source>Network Driver Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/networksettingsdialog.ui" line="37"/>
-        <source>Use IPv6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/networksettingsdialog.ui" line="44"/>
-        <source>Network Interface:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/networksettingsdialog.ui" line="57"/>
-        <source>Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/networksettingsdialog.cpp" line="107"/>
-        <source>Any</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PianoScene</name>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="591"/>
-        <location filename="../src/pianoscene.cpp" line="603"/>
-        <source>C</source>
-        <translation>C</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="592"/>
-        <source>C♯</source>
-        <translation type="unfinished">C♯</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="593"/>
-        <location filename="../src/pianoscene.cpp" line="605"/>
-        <source>D</source>
-        <translation>D</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="594"/>
-        <source>D♯</source>
-        <translation type="unfinished">D♯</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="595"/>
-        <location filename="../src/pianoscene.cpp" line="607"/>
-        <source>E</source>
-        <translation>E</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="596"/>
-        <location filename="../src/pianoscene.cpp" line="608"/>
-        <source>F</source>
-        <translation>F</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="597"/>
-        <source>F♯</source>
-        <translation type="unfinished">F♯</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="598"/>
-        <location filename="../src/pianoscene.cpp" line="610"/>
-        <source>G</source>
-        <translation>G</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="599"/>
-        <source>G♯</source>
-        <translation type="unfinished">G♯</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="600"/>
-        <location filename="../src/pianoscene.cpp" line="612"/>
-        <source>A</source>
-        <translation>A</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="601"/>
-        <source>A♯</source>
-        <translation type="unfinished">A♯</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="602"/>
-        <location filename="../src/pianoscene.cpp" line="614"/>
-        <source>B</source>
-        <translation>B</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="604"/>
-        <source>D♭</source>
-        <translation type="unfinished">D♭</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="606"/>
-        <source>E♭</source>
-        <translation type="unfinished">E♭</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="609"/>
-        <source>G♭</source>
-        <translation type="unfinished">G♭</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="611"/>
-        <source>A♭</source>
-        <translation type="unfinished">A♭</translation>
-    </message>
-    <message>
-        <location filename="../src/pianoscene.cpp" line="613"/>
-        <source>B♭</source>
-        <translation type="unfinished">B♭</translation>
-    </message>
-</context>
-<context>
     <name>Preferences</name>
     <message>
-        <location filename="../src/preferences.cpp" line="132"/>
+        <location filename="../src/preferences.cpp" line="148"/>
         <source>Open instruments definition</source>
         <translation>打开乐器定义文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="134"/>
+        <location filename="../src/preferences.cpp" line="150"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>乐器定义文件 (*.ins)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="215"/>
-        <location filename="../src/preferences.cpp" line="226"/>
+        <location filename="../src/preferences.cpp" line="205"/>
+        <location filename="../src/preferences.cpp" line="216"/>
         <source>Open keyboard map definition</source>
         <translation>打开键盘映射文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="217"/>
-        <location filename="../src/preferences.cpp" line="228"/>
+        <location filename="../src/preferences.cpp" line="207"/>
+        <location filename="../src/preferences.cpp" line="218"/>
         <source>Keyboard map (*.xml)</source>
         <translation>键盘映射文件 (*.xml)</translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.cpp" line="229"/>
+        <source>Font to display note names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.cpp" line="273"/>
+        <source>Nothing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1565,151 +1061,109 @@ p, li { white-space: pre-wrap; }
         <translation>首选项</translation>
     </message>
     <message>
-        <source>Input Channel</source>
-        <translation type="obsolete">Canal de Entrada</translation>
-    </message>
-    <message>
-        <source>Output Channel</source>
-        <translation type="obsolete">Canal de Salida</translation>
-    </message>
-    <message>
-        <source>Velocity</source>
-        <translation type="obsolete">Velocidad</translation>
-    </message>
-    <message>
-        <source>Base octave</source>
-        <translation type="obsolete">Octava base</translation>
-    </message>
-    <message>
-        <source>Number of octaves</source>
-        <translation type="obsolete">八度个数</translation>
-    </message>
-    <message>
-        <source>Key pressed color</source>
-        <translation type="obsolete">键按下时的颜色</translation>
-    </message>
-    <message>
-        <source>color...</source>
-        <translation type="obsolete">颜色...</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="118"/>
+        <location filename="../src/preferences.ui" line="73"/>
         <source>Instruments file</source>
         <translation>乐器定义文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="137"/>
-        <source>default</source>
-        <translation>默认</translation>
-    </message>
-    <message>
-        <source>load...</source>
-        <translation type="obsolete">加载...</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="163"/>
+        <location filename="../src/preferences.ui" line="92"/>
         <source>Instrument</source>
         <translation>乐器</translation>
     </message>
     <message>
-        <source>Grab keyboard</source>
-        <translation type="obsolete">Capturar teclado</translation>
-    </message>
-    <message>
-        <source>Styled Knobs</source>
-        <translation type="obsolete">Aplicar estilos</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="57"/>
+        <location filename="../src/preferences.ui" line="392"/>
         <source>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</source>
         <translation>八度个数取值范围从 1 到 10. 每个八度包含 12 个键: 7 个白键和 5 个黑键. MIDI 标准包含 128 个音符, 但不是所有乐器都有128 个音.</translation>
     </message>
     <message>
-        <source>This box displays the highligh color and code used to paint the keys that are being activated.</source>
-        <translation type="obsolete">此方框显示用于绘制激活状态琴键的颜色和颜色代码.</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="102"/>
+        <location filename="../src/preferences.ui" line="57"/>
         <source>Press this button to change the highligh color used to paint the keys that are being activated.</source>
         <translation>按此按钮以改变用于绘制激活状态琴键的颜色.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="105"/>
+        <location filename="../src/preferences.ui" line="60"/>
         <source>Colors...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="134"/>
+        <location filename="../src/preferences.ui" line="47"/>
         <source>The instruments definition file currently loaded</source>
         <translation>当前加载的乐器定义文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="147"/>
+        <location filename="../src/preferences.ui" line="431"/>
         <source>Press this button to load an instruments definition file from disk.</source>
         <translation>按此按钮从磁盘中加载一个乐器定义文件.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="327"/>
+        <location filename="../src/preferences.ui" line="362"/>
         <source>MIDI channel state consistency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="427"/>
+        <location filename="../src/preferences.ui" line="339"/>
         <source>Enable Touch Screen Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="411"/>
+        <location filename="../src/preferences.ui" line="148"/>
         <source>Enable Mouse Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="47"/>
+        <location filename="../src/preferences.ui" line="291"/>
         <source>Number of keys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="70"/>
+        <location filename="../src/preferences.ui" line="315"/>
+        <source>C3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="320"/>
+        <source>C4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="325"/>
+        <source>C5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="457"/>
         <source>Starting Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="372"/>
+        <location filename="../src/preferences.ui" line="411"/>
         <source>Enable Computer Keyboard Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="173"/>
+        <location filename="../src/preferences.ui" line="467"/>
         <source>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</source>
         <translation>改变当前使用的乐器定义文件, 每个乐器定义文件内保存了一些乐器信息。</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="180"/>
+        <location filename="../src/preferences.ui" line="158"/>
         <source>Keyboard Map</source>
         <translation>键盘映射</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="150"/>
-        <location filename="../src/preferences.ui" line="193"/>
-        <location filename="../src/preferences.ui" line="213"/>
+        <location filename="../src/preferences.ui" line="112"/>
+        <location filename="../src/preferences.ui" line="349"/>
+        <location filename="../src/preferences.ui" line="434"/>
         <source>Load...</source>
         <translation>加载...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="200"/>
+        <location filename="../src/preferences.ui" line="301"/>
         <source>Raw Keyboard Map</source>
         <translation>原始键盘映射</translation>
     </message>
     <message>
-        <source>Change the widget (knobs, switches) style, either using the custom look or reverting to the style selected in qtconfig.</source>
-        <translation type="obsolete">改变小控件 (旋钮, 开关) 样式, 使用自定义的外观, 或恢复 Qt 库中设置的样式.</translation>
-    </message>
-    <message>
-        <source>Styled Widgets</source>
-        <translation type="obsolete">样式化界面控件</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="388"/>
+        <location filename="../src/preferences.ui" line="375"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1728,160 +1182,151 @@ p, li { white-space: pre-wrap; }
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;更快速的处理&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="220"/>
+        <location filename="../src/preferences.ui" line="259"/>
         <source>Drums Channel</source>
         <translation>鼓通道</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="89"/>
+        <location filename="../src/preferences.ui" line="447"/>
         <source>Note highlight color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="231"/>
+        <location filename="../src/preferences.ui" line="176"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="236"/>
+        <location filename="../src/preferences.ui" line="102"/>
+        <source>Central Octave Naming</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="181"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="241"/>
+        <location filename="../src/preferences.ui" line="186"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="246"/>
+        <location filename="../src/preferences.ui" line="191"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="251"/>
+        <location filename="../src/preferences.ui" line="196"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="256"/>
+        <location filename="../src/preferences.ui" line="201"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="261"/>
+        <location filename="../src/preferences.ui" line="206"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="266"/>
+        <location filename="../src/preferences.ui" line="211"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="271"/>
+        <location filename="../src/preferences.ui" line="216"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="276"/>
+        <location filename="../src/preferences.ui" line="221"/>
         <source>9</source>
         <translation>9</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="281"/>
+        <location filename="../src/preferences.ui" line="226"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="286"/>
+        <location filename="../src/preferences.ui" line="231"/>
         <source>11</source>
         <translation>11</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="291"/>
+        <location filename="../src/preferences.ui" line="236"/>
         <source>12</source>
         <translation>12</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="296"/>
+        <location filename="../src/preferences.ui" line="241"/>
         <source>13</source>
         <translation>13</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="301"/>
+        <location filename="../src/preferences.ui" line="246"/>
         <source>14</source>
         <translation>14</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="306"/>
+        <location filename="../src/preferences.ui" line="251"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="340"/>
+        <location filename="../src/preferences.ui" line="275"/>
         <source>Translate MIDI velocity to key pressed color tint</source>
         <translation>用颜色深浅表示Midi音符力度</translation>
     </message>
     <message>
-        <source>Change the knob buttons style, either using the custom look or revert to the style selected in qtconfig.</source>
-        <translation type="obsolete">Cambie el estilo de los controles, o bién usando el aspecto personalizado o volviendo al estilo seleccionado en qtconfig</translation>
+        <location filename="../src/preferences.ui" line="474"/>
+        <source>Text Font</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="356"/>
+        <location filename="../src/preferences.ui" line="491"/>
+        <source>Font...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="125"/>
         <source>Check this box to keep the keyboard window always visible, on top of other windows.</source>
         <translation>选中此框让键盘窗口总是可见, 并出现在其它窗口之上.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="359"/>
+        <location filename="../src/preferences.ui" line="128"/>
         <source>Always On Top</source>
         <translation>总在最前面</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to grab the PC keyboard, even when the keyboard control has not the focus. &lt;span style=&quot; font-weight:600;&quot;&gt;Note for Linux users:&lt;/span&gt; this option works well in standard KDE desktops, but fails in window managers like metacity and compiz. It is also known that using this option breaks drop down menus on GTK applications.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;选中此框以抓取 PC 键盘消息, 即使键盘控件失去焦点.&lt;span style=&quot; font-weight:600;&quot;&gt;Linux 用户注意:&lt;/span&gt; 此选项在标准 KDE 桌面环境下工作正常, 但在窗口管理器 metacity 和 compiz 不能工作. 使用此选项也会切断 GTK 程序的下拉菜单.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Grab Computer Keyboard</source>
-        <translation type="obsolete">抓取计算机键盘</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check this box to use low level PC keyboard events. This system has several advantages:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It is possible to use &quot;dead keys&quot; (accent marks, diacritics)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mapping definitions are independent of the language (but hardware and OS specific)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Faster process&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Marque esta casilla para selección el teclado de bajo nivel. Esto tiene varias ventajas:&lt;/p&gt;
-&lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Es posible usar &quot;teclas muertas&quot; (acentos, diacríticos)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Las definiciones de mapas son independientes del lenguage (pero dependientes del hardware/sistema operativo)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Proceso más rápido&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/preferences.ui" line="398"/>
+        <location filename="../src/preferences.ui" line="385"/>
         <source>Raw Computer Keyboard</source>
         <translation>原始计算机键盘</translation>
     </message>
+</context>
+<context>
+    <name>QCoreApplication</name>
     <message>
-        <source>Check this box to display the note names over the piano keys.</source>
-        <translation type="obsolete">Marque esta casilla para mostrar los nombres de las notas sobre las teclas del piano</translation>
+        <location filename="../src/main.cpp" line="29"/>
+        <source>Virtual MIDI Piano Keyboard
+Copyright (C) 2006-2020 Pedro Lopez-Cabanillas
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions; see the LICENSE for details.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show Note Names</source>
-        <translation type="obsolete">Mostrar nombres de notas</translation>
+        <location filename="../src/main.cpp" line="61"/>
+        <source>Portable settings mode.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="62"/>
+        <source>Portable settings file name.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1920,25 +1365,9 @@ p, li { white-space: pre-wrap; }
         <translation>输出</translation>
     </message>
     <message>
-        <source>Instrument File (*.ins)</source>
-        <translation type="obsolete">Definición de instrumentos (*.ins)</translation>
-    </message>
-    <message>
-        <source>Import Sound Font instruments</source>
-        <translation type="obsolete">Importar instrumentos de SoundFonts</translation>
-    </message>
-    <message>
         <location filename="../src/riffimportdlg.ui" line="50"/>
         <source>Input File</source>
         <translation>输入文件</translation>
-    </message>
-    <message>
-        <source>This text box displays the path and name of the selected Sound Font to be  imported</source>
-        <translation type="obsolete">Esta cada muestra la ruta y el nombre del archivo SoundFont seleccionado que va a ser importado</translation>
-    </message>
-    <message>
-        <source>Press this button to select a Sound Font file to be imported</source>
-        <translation type="obsolete">Pulse este botón para seleccionar un archivo SoundFont para ser importado</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="88"/>
@@ -2035,299 +1464,161 @@ Do you want to apply the changes?</source>
     </message>
 </context>
 <context>
-    <name>SonivoxSettingsDialog</name>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.ui" line="31"/>
-        <source>Sonivox EAS Synth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.ui" line="43"/>
-        <source>Chorus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.ui" line="73"/>
-        <source>Reverb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.ui" line="91"/>
-        <source>Buffer Time:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.ui" line="101"/>
-        <source> ms</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="38"/>
-        <source>Large Hall</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="39"/>
-        <source>Hall</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="40"/>
-        <source>Chamber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="41"/>
-        <source>Room</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="42"/>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="49"/>
-        <source>None</source>
-        <translation type="unfinished">无</translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="45"/>
-        <source>Preset 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="46"/>
-        <source>Preset 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="47"/>
-        <source>Preset 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/sonivoxsettingsdialog.cpp" line="48"/>
-        <source>Preset 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>VPiano</name>
     <message>
-        <location filename="../src/vpiano.cpp" line="1728"/>
+        <location filename="../src/vpiano.cpp" line="1648"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <source>No MIDI output ports available. Aborting</source>
-        <translation type="obsolete">没有可用的 MIDI 输出端口. 终止</translation>
-    </message>
-    <message>
-        <source>Error. Aborting</source>
-        <translation type="obsolete">错误. 终止</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2174"/>
+        <location filename="../src/vpiano.cpp" line="2025"/>
         <source>Chan:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2176"/>
+        <location filename="../src/vpiano.cpp" line="2027"/>
         <source>Channel:</source>
         <translation>通道: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2181"/>
+        <location filename="../src/vpiano.cpp" line="2032"/>
         <source>Oct:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2183"/>
+        <location filename="../src/vpiano.cpp" line="2034"/>
         <source>Base Octave:</source>
         <translation>基准八度: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2188"/>
+        <location filename="../src/vpiano.cpp" line="2039"/>
         <source>Trans:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2190"/>
+        <location filename="../src/vpiano.cpp" line="2041"/>
         <source>Transpose:</source>
         <translation>移调: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2195"/>
+        <location filename="../src/vpiano.cpp" line="2046"/>
         <source>Vel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2197"/>
+        <location filename="../src/vpiano.cpp" line="2048"/>
         <source>Velocity:</source>
         <translation>力度: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2202"/>
+        <location filename="../src/vpiano.cpp" line="2053"/>
         <source>Control:</source>
         <translation>控制器: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2204"/>
+        <location filename="../src/vpiano.cpp" line="2055"/>
         <source>Value:</source>
         <translation>值: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2201"/>
+        <location filename="../src/vpiano.cpp" line="2052"/>
         <source>Bender:</source>
         <translation>弯音控制器: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2200"/>
+        <location filename="../src/vpiano.cpp" line="2051"/>
         <source>Bank:</source>
         <translation>音色库号: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2203"/>
+        <location filename="../src/vpiano.cpp" line="2054"/>
         <source>Program:</source>
         <translation>音色: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2062"/>
+        <location filename="../src/vpiano.cpp" line="1922"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>应用程序的界面语言将要改变为 %1. 继续吗?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2105"/>
+        <location filename="../src/vpiano.cpp" line="1965"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK 由来自全球的志愿者开发并翻译. 如果您想加入我们或有任何疑问, 请访问 &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;的论坛&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2126"/>
+        <location filename="../src/vpiano.cpp" line="1986"/>
         <source>Translation Information</source>
         <translation>翻译信息</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2165"/>
+        <location filename="../src/vpiano.cpp" line="2016"/>
         <source>Serbian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2166"/>
+        <location filename="../src/vpiano.cpp" line="2017"/>
         <source>Swedish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2123"/>
+        <location filename="../src/vpiano.cpp" line="1983"/>
         <source>Translation</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2124"/>
+        <location filename="../src/vpiano.cpp" line="1984"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;译者 Rui Fan (&lt;a href=&apos;mailto:vanferry@gmail.com&apos;&gt;vanferry@gmail.com&lt;/a&gt;)&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2157"/>
+        <location filename="../src/vpiano.cpp" line="2008"/>
         <source>Czech</source>
         <translation>Czech</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2158"/>
+        <location filename="../src/vpiano.cpp" line="2009"/>
         <source>German</source>
         <translation>German</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2159"/>
+        <location filename="../src/vpiano.cpp" line="2010"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2160"/>
+        <location filename="../src/vpiano.cpp" line="2011"/>
         <source>Spanish</source>
         <translation>Spanish</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2161"/>
+        <location filename="../src/vpiano.cpp" line="2012"/>
         <source>French</source>
         <translation>French</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2162"/>
+        <location filename="../src/vpiano.cpp" line="2013"/>
         <source>Galician</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2163"/>
+        <location filename="../src/vpiano.cpp" line="2014"/>
         <source>Dutch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2164"/>
+        <location filename="../src/vpiano.cpp" line="2015"/>
         <source>Russian</source>
         <translation>Russian</translation>
     </message>
     <message>
-        <source>Turkish</source>
-        <translation type="obsolete">Turkish</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.cpp" line="2167"/>
+        <location filename="../src/vpiano.cpp" line="2018"/>
         <source>Chinese</source>
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2061"/>
+        <location filename="../src/vpiano.cpp" line="1921"/>
         <source>Language Changed</source>
         <translation>语言已变更</translation>
-    </message>
-    <message>
-        <source> Channel: </source>
-        <translation type="obsolete"> Canal: </translation>
-    </message>
-    <message>
-        <source> Base Octave: </source>
-        <translation type="obsolete"> Octava base: </translation>
-    </message>
-    <message>
-        <source> Transpose: </source>
-        <translation type="obsolete"> Transposición: </translation>
-    </message>
-    <message>
-        <source> Velocity: </source>
-        <translation type="obsolete"> Velocidad: </translation>
-    </message>
-    <message>
-        <source> Control: </source>
-        <translation type="obsolete"> Control: </translation>
-    </message>
-    <message>
-        <source> Value: </source>
-        <translation type="obsolete"> Valor: </translation>
-    </message>
-    <message>
-        <source> Bender: </source>
-        <translation type="obsolete"> Inflexión: </translation>
-    </message>
-    <message>
-        <source> Bank: </source>
-        <translation type="obsolete"> Banco: </translation>
-    </message>
-    <message>
-        <source> Program: </source>
-        <translation type="obsolete"> Programa: </translation>
-    </message>
-    <message>
-        <source>Open keyboard map definition</source>
-        <translation type="obsolete">Abrir definición de mapa de teclado</translation>
-    </message>
-    <message>
-        <source>Keyboard map (*.xml)</source>
-        <translation type="obsolete">Mapa de teclado (*.xml)</translation>
-    </message>
-    <message>
-        <source>Save keyboard map definition</source>
-        <translation type="obsolete">Guardar definición de mapa de teclado</translation>
-    </message>
-    <message>
-        <source>Virtual Piano Keyboard</source>
-        <translation type="obsolete">Teclado de Piano Virtual</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="67"/>
@@ -2338,10 +1629,6 @@ Do you want to apply the changes?</source>
         <location filename="../src/vpiano.ui" line="75"/>
         <source>&amp;Edit</source>
         <translation>(&amp;E)编辑</translation>
-    </message>
-    <message>
-        <source>Keyboard map</source>
-        <translation type="obsolete">Mapa de teclado</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="86"/>
@@ -2359,604 +1646,559 @@ Do you want to apply the changes?</source>
         <translation>(&amp;V)查看</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="118"/>
+        <location filename="../src/vpiano.ui" line="145"/>
         <source>&amp;Tools</source>
         <translation>(&amp;T)工具</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="122"/>
+        <location filename="../src/vpiano.ui" line="149"/>
         <source>Notes</source>
         <translation>音符</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="133"/>
+        <location filename="../src/vpiano.ui" line="160"/>
         <source>Controllers</source>
         <translation>控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="142"/>
+        <location filename="../src/vpiano.ui" line="169"/>
         <source>Programs</source>
         <translation>音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="151"/>
+        <location filename="../src/vpiano.ui" line="178"/>
         <source>Note Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="183"/>
-        <location filename="../src/vpiano.ui" line="344"/>
+        <location filename="../src/vpiano.ui" line="210"/>
+        <location filename="../src/vpiano.ui" line="371"/>
         <source>&amp;Notes</source>
         <translation>(&amp;N)音符</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="205"/>
-        <location filename="../src/vpiano.ui" line="358"/>
+        <location filename="../src/vpiano.ui" line="253"/>
+        <location filename="../src/vpiano.ui" line="385"/>
         <source>&amp;Controllers</source>
         <translation>(&amp;C)控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="227"/>
-        <location filename="../src/vpiano.ui" line="372"/>
+        <location filename="../src/vpiano.ui" line="297"/>
+        <location filename="../src/vpiano.ui" line="399"/>
         <source>Pitch &amp;Bender</source>
         <translation>弯音控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="249"/>
-        <location filename="../src/vpiano.ui" line="386"/>
+        <location filename="../src/vpiano.ui" line="232"/>
+        <location filename="../src/vpiano.ui" line="413"/>
         <source>&amp;Programs</source>
         <translation>(&amp;P)音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="270"/>
-        <location filename="../src/vpiano.ui" line="500"/>
+        <location filename="../src/vpiano.ui" line="107"/>
+        <source>Show Note Names</source>
+        <translation type="unfinished">Mostrar nombres de notas</translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="116"/>
+        <source>Black Keys Names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="124"/>
+        <source>Names Orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="275"/>
+        <location filename="../src/vpiano.ui" line="527"/>
         <source>&amp;Extra Controls</source>
         <translation>(&amp;E)附加控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="286"/>
+        <location filename="../src/vpiano.ui" line="313"/>
         <source>&amp;Quit</source>
         <translation>(&amp;Q)退出</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="289"/>
+        <location filename="../src/vpiano.ui" line="316"/>
         <source>Exit the program</source>
         <translation>退出程序</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="297"/>
+        <location filename="../src/vpiano.ui" line="324"/>
         <source>&amp;Preferences</source>
         <translation>(&amp;P)首选项</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="300"/>
+        <location filename="../src/vpiano.ui" line="327"/>
         <source>Edit the program settings</source>
         <translation>编辑程序选项</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="308"/>
+        <location filename="../src/vpiano.ui" line="335"/>
         <source>MIDI &amp;Connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="696"/>
+        <location filename="../src/vpiano.ui" line="709"/>
         <source>Alt++</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="710"/>
+        <location filename="../src/vpiano.ui" line="723"/>
         <source>Alt+-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="819"/>
+        <location filename="../src/vpiano.ui" line="832"/>
         <source>Computer Keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="822"/>
+        <location filename="../src/vpiano.ui" line="835"/>
         <source>Enable computer keyboard triggered note input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="836"/>
+        <location filename="../src/vpiano.ui" line="849"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="839"/>
+        <location filename="../src/vpiano.ui" line="852"/>
         <source>Enable mouse triggered note input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="853"/>
+        <location filename="../src/vpiano.ui" line="866"/>
         <source>Touch Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="856"/>
+        <location filename="../src/vpiano.ui" line="869"/>
         <source>Enable screen touch triggered note input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="864"/>
+        <location filename="../src/vpiano.ui" line="877"/>
         <source>Color Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="867"/>
+        <location filename="../src/vpiano.ui" line="880"/>
         <source>Open the color palette editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="878"/>
+        <location filename="../src/vpiano.ui" line="891"/>
         <source>Color Scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="881"/>
+        <location filename="../src/vpiano.ui" line="894"/>
         <source>Show or hide the colorized keys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="895"/>
+        <location filename="../src/vpiano.ui" line="908"/>
         <source>Window frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="898"/>
+        <location filename="../src/vpiano.ui" line="911"/>
         <source>Show or hide window decorations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="904"/>
+        <location filename="../src/vpiano.ui" line="917"/>
         <source>Alt+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Connections</source>
-        <translation type="obsolete">(&amp;C)连接</translation>
+        <location filename="../src/vpiano.ui" line="931"/>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="311"/>
+        <location filename="../src/vpiano.ui" line="939"/>
+        <source>When Activated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="947"/>
+        <source>Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="958"/>
+        <source>Sharps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="969"/>
+        <source>Flats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="977"/>
+        <source>Nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="988"/>
+        <source>Horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="996"/>
+        <source>Vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="1004"/>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="1012"/>
+        <source>Minimal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="338"/>
         <source>Edit the MIDI connections</source>
         <translation>编辑 MIDI 连接</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="319"/>
+        <location filename="../src/vpiano.ui" line="346"/>
         <source>&amp;About</source>
         <translation>(&amp;A)关于</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="322"/>
+        <location filename="../src/vpiano.ui" line="349"/>
         <source>Show the About box</source>
         <translation>显示关于对话框</translation>
     </message>
     <message>
-        <source>About Q&amp;t</source>
-        <translation type="obsolete">关于 Q&amp;t</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="330"/>
+        <location filename="../src/vpiano.ui" line="357"/>
         <source>About &amp;Qt</source>
         <translation>关于 Q&amp;t</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="333"/>
+        <location filename="../src/vpiano.ui" line="360"/>
         <source>Show the Qt about box</source>
         <translation>显示关于 Qt 对话框</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="347"/>
+        <location filename="../src/vpiano.ui" line="374"/>
         <source>Show or hide the Notes toolbar</source>
         <translation>显示或隐藏音符工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="361"/>
+        <location filename="../src/vpiano.ui" line="388"/>
         <source>Show or hide the Controller toolbar</source>
         <translation>显示或隐藏控制器工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="375"/>
+        <location filename="../src/vpiano.ui" line="402"/>
         <source>Show or hide the Pitch Bender toolbar</source>
         <translation>显示或隐藏弯音工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="389"/>
+        <location filename="../src/vpiano.ui" line="416"/>
         <source>Show or hide the Programs toolbar</source>
         <translation>显示或隐藏音符工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="403"/>
+        <location filename="../src/vpiano.ui" line="430"/>
         <source>&amp;Status Bar</source>
         <translation>(&amp;S)状态栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="406"/>
+        <location filename="../src/vpiano.ui" line="433"/>
         <source>Show or hide the Status Bar</source>
         <translation>显示或隐藏状态栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="414"/>
+        <location filename="../src/vpiano.ui" line="441"/>
         <source>Panic</source>
         <translation type="unfinished">Panic</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="417"/>
+        <location filename="../src/vpiano.ui" line="444"/>
         <source>Stops all active notes</source>
         <translation>停止所有发声音符</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="obsolete">Esc</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="428"/>
+        <location filename="../src/vpiano.ui" line="455"/>
         <source>Reset All</source>
         <translation>重置所有</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="431"/>
+        <location filename="../src/vpiano.ui" line="458"/>
         <source>Resets all the controllers</source>
         <translation>重置所有控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="439"/>
+        <location filename="../src/vpiano.ui" line="466"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="442"/>
+        <location filename="../src/vpiano.ui" line="469"/>
         <source>Resets the Bender value</source>
         <translation>重置弯音控制器</translation>
     </message>
     <message>
-        <source>F1</source>
-        <translation type="obsolete">F1</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="489"/>
+        <location filename="../src/vpiano.ui" line="516"/>
         <source>Import SoundFont</source>
         <translation>导入 SoundFont</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="503"/>
+        <location filename="../src/vpiano.ui" line="530"/>
         <source>Show or hide the Extra Controls toolbar</source>
         <translation>显示或隐藏特别控制器工具条</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="511"/>
-        <location filename="../src/vpiano.ui" line="525"/>
+        <location filename="../src/vpiano.ui" line="538"/>
+        <location filename="../src/vpiano.ui" line="552"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="514"/>
-        <location filename="../src/vpiano.ui" line="545"/>
+        <location filename="../src/vpiano.ui" line="541"/>
+        <location filename="../src/vpiano.ui" line="572"/>
         <source>Open the Extra Controls editor</source>
         <translation>打开附加控制器编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="528"/>
+        <location filename="../src/vpiano.ui" line="555"/>
         <source>Open the Banks/Programs editor</source>
         <translation>打开 音色库(Bank)/音色 编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="542"/>
+        <location filename="../src/vpiano.ui" line="569"/>
         <source>&amp;Extra Controllers</source>
         <translation>(&amp;E)附加控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="556"/>
-        <source>N&amp;ote Names</source>
-        <translation>(&amp;o)音符名称</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="559"/>
-        <source>Show or hide the note names</source>
-        <translation>显示或隐藏音符名称</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="567"/>
+        <location filename="../src/vpiano.ui" line="580"/>
         <source>&amp;Shortcuts</source>
         <translation>(&amp;S)快捷键</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="570"/>
+        <location filename="../src/vpiano.ui" line="583"/>
         <source>Open the Shortcuts editor</source>
         <translation>打开快捷键编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="578"/>
+        <location filename="../src/vpiano.ui" line="591"/>
         <source>Octave Up</source>
         <translation>八度 向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="581"/>
+        <location filename="../src/vpiano.ui" line="594"/>
         <source>Play one octave higher</source>
         <translation>高一个八度弹奏</translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation type="obsolete">Right</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="592"/>
+        <location filename="../src/vpiano.ui" line="605"/>
         <source>Octave Down</source>
         <translation>八度 向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="595"/>
+        <location filename="../src/vpiano.ui" line="608"/>
         <source>Play one octave lower</source>
         <translation>低一个八度弹奏</translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation type="obsolete">Left</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="606"/>
+        <location filename="../src/vpiano.ui" line="619"/>
         <source>Transpose Up</source>
         <translation>移调 向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="609"/>
+        <location filename="../src/vpiano.ui" line="622"/>
         <source>Transpose one semitone higher</source>
         <translation>向上移调一个半音</translation>
     </message>
     <message>
-        <source>Ctrl+Right</source>
-        <translation type="obsolete">Ctrl+Right</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="620"/>
+        <location filename="../src/vpiano.ui" line="633"/>
         <source>Transpose Down</source>
         <translation>移调 向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="623"/>
+        <location filename="../src/vpiano.ui" line="636"/>
         <source>Transpose one semitone lower</source>
         <translation>向下移调一个半音</translation>
     </message>
     <message>
-        <source>Ctrl+Left</source>
-        <translation type="obsolete">Ctrl+Left</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="634"/>
+        <location filename="../src/vpiano.ui" line="647"/>
         <source>Next  Channel</source>
         <translation>下一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="637"/>
+        <location filename="../src/vpiano.ui" line="650"/>
         <source>Play and listen next channel</source>
         <translation>播放并监听下一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="648"/>
+        <location filename="../src/vpiano.ui" line="661"/>
         <source>Previous Channel</source>
         <translation>前一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="651"/>
+        <location filename="../src/vpiano.ui" line="664"/>
         <source>Play and listen previous channel</source>
         <translation>播放并监听前一个通道</translation>
     </message>
     <message>
-        <source>Home</source>
-        <translation type="obsolete">Home</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="802"/>
+        <location filename="../src/vpiano.ui" line="815"/>
         <source>About &amp;Translation</source>
         <translation>关于翻译</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="805"/>
+        <location filename="../src/vpiano.ui" line="818"/>
         <source>Show information about the program language translation</source>
         <translation>显示软件的翻译信息</translation>
     </message>
     <message>
-        <source>Up</source>
-        <translation type="obsolete">向上</translation>
-    </message>
-    <message>
-        <source>Down</source>
-        <translation type="obsolete">向下</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="662"/>
+        <location filename="../src/vpiano.ui" line="675"/>
         <source>Next Controller</source>
         <translation>下一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="665"/>
+        <location filename="../src/vpiano.ui" line="678"/>
         <source>Select the next controller</source>
         <translation>选中下一个控制器</translation>
     </message>
     <message>
-        <source>Ctrl++</source>
-        <translation type="obsolete">Ctrl++</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="676"/>
+        <location filename="../src/vpiano.ui" line="689"/>
         <source>Previous Controller</source>
         <translation>前一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="679"/>
+        <location filename="../src/vpiano.ui" line="692"/>
         <source>Select the previous controller</source>
         <translation>选中前一个控制器</translation>
     </message>
     <message>
-        <source>Ctrl+-</source>
-        <translation type="obsolete">Ctrl+-</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="690"/>
+        <location filename="../src/vpiano.ui" line="703"/>
         <source>Controller Up</source>
         <translation>控制器向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="693"/>
+        <location filename="../src/vpiano.ui" line="706"/>
         <source>Increment the controller value</source>
         <translation>增加控制器的值</translation>
     </message>
     <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="704"/>
+        <location filename="../src/vpiano.ui" line="717"/>
         <source>Controller Down</source>
         <translation>控制器向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="707"/>
+        <location filename="../src/vpiano.ui" line="720"/>
         <source>Decrement the controller value</source>
         <translation>减少控制器的值</translation>
     </message>
     <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="718"/>
+        <location filename="../src/vpiano.ui" line="731"/>
         <source>Next Bank</source>
         <translation>下一个库号</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="721"/>
+        <location filename="../src/vpiano.ui" line="734"/>
         <source>Select the next instrument bank</source>
         <translation>选中下一个乐器库号(Bank)</translation>
     </message>
     <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="732"/>
+        <location filename="../src/vpiano.ui" line="745"/>
         <source>Previous Bank</source>
         <translation>前一个库号</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="735"/>
+        <location filename="../src/vpiano.ui" line="748"/>
         <source>Select the previous instrument bank</source>
         <translation>选中前一个乐器库号</translation>
     </message>
     <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="746"/>
+        <location filename="../src/vpiano.ui" line="759"/>
         <source>Next Program</source>
         <translation>下一个音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="749"/>
+        <location filename="../src/vpiano.ui" line="762"/>
         <source>Select the next instrument program</source>
         <translation>选中下一个乐器音色</translation>
     </message>
     <message>
-        <source>PgUp</source>
-        <translation type="obsolete">PgUp</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="760"/>
+        <location filename="../src/vpiano.ui" line="773"/>
         <source>Previous Program</source>
         <translation>前一个音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="763"/>
+        <location filename="../src/vpiano.ui" line="776"/>
         <source>Select the previous instrument program</source>
         <translation>选中前一个乐器音色</translation>
     </message>
     <message>
-        <source>PgDown</source>
-        <translation type="obsolete">PgDown</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="774"/>
+        <location filename="../src/vpiano.ui" line="787"/>
         <source>Velocity Up</source>
         <translation>力度向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="777"/>
+        <location filename="../src/vpiano.ui" line="790"/>
         <source>Increment note velocity</source>
         <translation>增加音符力度</translation>
     </message>
     <message>
-        <source>End</source>
-        <translation type="obsolete">End</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="788"/>
+        <location filename="../src/vpiano.ui" line="801"/>
         <source>Velocity Down</source>
         <translation>力度向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="791"/>
+        <location filename="../src/vpiano.ui" line="804"/>
         <source>Decrement note velocity</source>
         <translation>减少音符力度</translation>
     </message>
     <message>
-        <source>Load...</source>
-        <translation type="obsolete">Abrir...</translation>
-    </message>
-    <message>
-        <source>Load another keyboard layout</source>
-        <translation type="obsolete">Abrir otra disposición de teclado</translation>
-    </message>
-    <message>
-        <source>Save...</source>
-        <translation type="obsolete">Guardar...</translation>
-    </message>
-    <message>
-        <source>Save the current keyboard layout</source>
-        <translation type="obsolete">Guardar la disposición de teclado actual</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="450"/>
+        <location filename="../src/vpiano.ui" line="477"/>
         <source>&amp;Keyboard Map</source>
         <translation>(&amp;K)键盘映射</translation>
     </message>
     <message>
-        <source>Edit...</source>
-        <translation type="obsolete">Editar...</translation>
-    </message>
-    <message>
-        <location filename="../src/vpiano.ui" line="453"/>
+        <location filename="../src/vpiano.ui" line="480"/>
         <source>Edit the current keyboard layout</source>
         <translation>编辑当前键盘布局</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="461"/>
+        <location filename="../src/vpiano.ui" line="488"/>
         <source>&amp;Contents</source>
         <translation>(&amp;C)内容</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="464"/>
+        <location filename="../src/vpiano.ui" line="491"/>
         <source>Open the index of the help document</source>
         <translation>打开帮助文档的索引</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="475"/>
+        <location filename="../src/vpiano.ui" line="502"/>
         <source>VMPK &amp;Web site</source>
         <translation>(&amp;W)VMPK 网站</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="478"/>
+        <location filename="../src/vpiano.ui" line="505"/>
         <source>Open the VMPK web site address using a web browser</source>
         <translation>使用网络浏览器打开 VMPK 网站</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="486"/>
+        <location filename="../src/vpiano.ui" line="513"/>
         <source>&amp;Import SoundFont...</source>
         <translation>(&amp;I)导入音色库(SoundFont)...</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1728"/>
+        <location filename="../src/vpiano.cpp" line="1648"/>
         <source>No help file found</source>
         <translation>未找到帮助文档</translation>
     </message>

@@ -17,7 +17,10 @@ VERSION = 0.7.99
 VER_MAJ = 0
 VER_MIN = 7
 VER_PAT = 99
-DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT
+DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT TRANSLATIONS_EMBEDDED
+CONFIG += lrelease embed_translations
+LRELEASE_DIR='.'
+QM_FILES_RESOURCE_PREFIX='/'
 
 requires(equals(QT_MAJOR_VERSION, 5))
 
@@ -90,10 +93,10 @@ macx {
         $$[QT_INSTALL_TRANSLATIONS]/qt_de.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_es.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_fr.qm \
-        $$[QT_INSTALL_TRANSLATIONS]/qt_gl.qm \
+        #$$[QT_INSTALL_TRANSLATIONS]/qt_gl.qm \
         $$[QT_INSTALL_TRANSLATIONS]/qt_ru.qm \
         #$$[QT_INSTALL_TRANSLATIONS]/qt_sr.qm \
-        $$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
+        #$$[QT_INSTALL_TRANSLATIONS]/qt_sv.qm \
         vmpk_cs.qm \
         vmpk_de.qm \
         vmpk_es.qm \
@@ -169,18 +172,28 @@ macx {
 RESOURCES += data/vmpk.qrc
 
 TRANSLATIONS +=  \
-    translations/vmpk_en.ts \
+#    translations/vmpk_en.ts \
     translations/vmpk_cs.ts \
     translations/vmpk_de.ts \
     translations/vmpk_es.ts \
     translations/vmpk_fr.ts \
     translations/vmpk_gl.ts \
-    translations/vmpk_nl.ts \
+#    translations/vmpk_nl.ts \
     translations/vmpk_ru.ts \
     translations/vmpk_sr.ts \
-    translations/vmpk_sv.ts \
-    translations/vmpk_tr.ts \
-    translations/vmpk_zh_CN.ts
+    translations/vmpk_sv.ts
+#    translations/vmpk_tr.ts \
+#    translations/vmpk_zh_CN.ts
 
-### CONFIG += lrelease
-include(updateqm.pri)
+EXTRA_TRANSLATIONS +=  \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_cs.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_de.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_es.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_fr.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_gl.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_ru.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_sr.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_sv.ts
+
+LCONVERT_LANGS=cs de es fr ru
+include(lconvert.pri)

@@ -42,6 +42,7 @@ const QString QSTR_APPNAME("VMPK");
 const QString QSTR_DOMAIN("vmpk.sourceforge.net");
 const QString QSTR_VMPKPX("vmpk_");
 const QString QSTR_QTPX("qt_");
+const QString QSTR_DRUMSTICKPX("drumstick-widgets_");
 
 const QString QSTR_WINDOW("Window");
 const QString QSTR_GEOMETRY("Geometry");

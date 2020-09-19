@@ -19,6 +19,23 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+if (EMBED_TRANSLATIONS)
+    set( TRANSLATIONS
+         ../translations/vmpk_cs.ts
+         ../translations/vmpk_de.ts
+         ../translations/vmpk_es.ts
+         ../translations/vmpk_fr.ts
+         ../translations/vmpk_gl.ts
+         ../translations/vmpk_ru.ts
+         ../translations/vmpk_sr.ts
+         ../translations/vmpk_sv.ts
+    )
+    qt5_add_translation(QM_FILES ${TRANSLATIONS})
+    include(TranslationUtils)
+    add_app_translations_resource(APP_RES ${QM_FILES})
+    add_qt_translations_resource(QT_RES cs de es fr gl ru sr sv)
+endif()
+
 set(vmpk_SRCS
     about.ui
     colordialog.ui
@@ -64,6 +81,8 @@ set(vmpk_SRCS
     vpianosettings.cpp
     vpianosettings.h
     ../data/vmpk.qrc
+    ${APP_RES}
+    ${QT_RES}
 )
 
 if(ENABLE_DBUS)
@@ -141,6 +160,10 @@ target_compile_definitions(vmpk PUBLIC
     RAWKBD_SUPPORT
     PALETTE_SUPPORT
     $<$<BOOL:${ENABLE_DBUS}>:ENABLE_DBUS>
+)
+
+target_compile_definitions(vmpk PRIVATE
+    $<$<BOOL:${EMBED_TRANSLATIONS}>:TRANSLATIONS_EMBEDDED>
 )
 
 install (TARGETS vmpk

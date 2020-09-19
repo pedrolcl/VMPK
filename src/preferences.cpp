@@ -255,7 +255,7 @@ void Preferences::setKeyMapFileName( const QString fileName )
 void Preferences::retranslateUi()
 {
     ui.retranslateUi(this);
-    VPianoSettings::instance()->initializePaletteStrings();
+    VPianoSettings::instance()->retranslatePalettes();
 }
 
 void Preferences::setNoteNames(const QStringList& noteNames)

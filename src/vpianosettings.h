@@ -145,7 +145,7 @@ public:
     int availablePalettes() const;
     PianoPalette getPalette(int pal);
     QList<QString> availablePaletteNames(bool forHighlight);
-    void initializePaletteStrings();
+    void retranslatePalettes();
     void updatePalette(const PianoPalette &p);
 
     VMPKKeyboardMap* getKeyboardMap();
@@ -171,6 +171,8 @@ public:
     static void setPortableConfig(const QString fileName = QString());
     static QString dataDirectory();
     static QString localeDirectory();
+    static QString drumstickLocales();
+    static QString systemLocales();
 
 signals:
     void ValuesChanged();
