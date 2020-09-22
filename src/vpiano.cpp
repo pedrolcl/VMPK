@@ -1164,11 +1164,9 @@ void VPiano::slotConnections()
     releaseKb();
     if (dlgMidiSetup->exec() == QDialog::Accepted) {
         if (m_midiin != nullptr) {
-            VPianoSettings::instance()->setLastInputConnection(m_midiin->currentConnection().first);
             m_midiin->disconnect();
         }
         if (m_midiout != nullptr) {
-            VPianoSettings::instance()->setLastOutputConnection(m_midiout->currentConnection().first);
             m_midiout->disconnect();
         }
 

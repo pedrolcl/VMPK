@@ -97,34 +97,39 @@ void MidiSetup::showEvent(QShowEvent *)
 
 void MidiSetup::accept()
 {
-    MIDIConnection conn;
+    MIDIConnection connOut, connIn;
     drumstick::widgets::SettingsFactory settings;
     VPianoSettings::instance()->setAdvanced(ui.chkAdvanced->isChecked());
     VPianoSettings::instance()->setMidiThru(ui.chkEnableThru->isChecked());
     VPianoSettings::instance()->setOmniMode(ui.chkOmni->isChecked());
     VPianoSettings::instance()->setInputEnabled(ui.chkEnableInput->isChecked());
     if (m_midiOut != 0) {
-        conn = ui.comboOutput->currentData().value<MIDIConnection>();
-        if (conn != m_midiOut->currentConnection() || m_settingsChanged) {
+        connOut = ui.comboOutput->currentData().value<MIDIConnection>();
+        if (connOut != m_midiOut->currentConnection() || m_settingsChanged) {
             m_midiOut->close();
-            if (!conn.first.isEmpty()) {
+            if (!connOut.first.isEmpty()) {
                 m_midiOut->initialize(settings.getQSettings());
-                m_midiOut->open(conn);
+                m_midiOut->open(connOut);
             }
         }
     }
     if (m_midiIn != 0) {
-        conn = ui.comboInput->currentData().value<MIDIConnection>();
-        if (conn != m_midiIn->currentConnection() || m_settingsChanged) {
+        connIn = ui.comboInput->currentData().value<MIDIConnection>();
+        if (connIn != m_midiIn->currentConnection() || m_settingsChanged) {
             m_midiIn->close();
-            if (!conn.first.isEmpty()) {
+            if (!connIn.first.isEmpty()) {
                 m_midiIn->initialize(settings.getQSettings());
-                m_midiIn->open(conn);
+                m_midiIn->open(connIn);
             }
         }
         m_midiIn->enableMIDIThru(ui.chkEnableThru->isChecked());
         m_midiIn->setMIDIThruDevice(m_midiOut);
     }
+
+    VPianoSettings::instance()->setLastInputBackend(m_midiIn->backendName());
+    VPianoSettings::instance()->setLastOutputBackend(m_midiOut->backendName());
+    VPianoSettings::instance()->setLastInputConnection(connIn.first);
+    VPianoSettings::instance()->setLastOutputConnection(connOut.first);
     m_settingsChanged = false;
     QDialog::accept();
 }
