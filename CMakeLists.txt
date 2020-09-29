@@ -39,6 +39,10 @@ if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "AppleClang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wzero-as-null-pointer-constant -Wsuggest-override")
+endif()
+
 find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
 find_package(Drumstick 2.0 COMPONENTS RT Widgets REQUIRED)
 

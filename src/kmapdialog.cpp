@@ -40,7 +40,7 @@ KMapDialog::KMapDialog(QWidget *parent)
 void KMapDialog::displayMap(const VMPKKeyboardMap* map)
 {
     int row;
-    if (map != NULL) m_map.copyFrom(map);
+    if (map != nullptr) m_map.copyFrom(map);
     setWindowTitle(m_map.getRawMode() ? tr("Raw Key Map Editor") : tr("Key Map Editor"));
     ui.tableWidget->clearContents();
     ui.tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem(m_map.getRawMode() ? tr("Key Code") : tr("Key")));
@@ -65,7 +65,7 @@ void KMapDialog::updateMap()
     QTableWidgetItem* item;
     for( int i=0; i<128; ++i) {
         item = ui.tableWidget->item(i, 0);
-        if ((item != NULL) && !item->text().isEmpty()) {
+        if ((item != nullptr) && !item->text().isEmpty()) {
             if (m_map.getRawMode()) {
                 int keycode = item->text().toInt(&ok);
                 if (ok) m_map.insert(keycode, i);
@@ -85,14 +85,14 @@ void KMapDialog::getMap(VMPKKeyboardMap* map)
 
 void KMapDialog::slotOpen()
 {
-    QString fileName = QFileDialog::getOpenFileName(0,
+    QString fileName = QFileDialog::getOpenFileName(nullptr,
                                 tr("Open keyboard map definition"),
                                 VPianoSettings::dataDirectory(),
                                 tr("Keyboard map (*.xml)"));
     if (!fileName.isEmpty()) {
         m_map.clear();
         m_map.loadFromXMLFile(fileName);
-        displayMap(NULL);
+        displayMap(nullptr);
     }
 }
 

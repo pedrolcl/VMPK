@@ -33,14 +33,14 @@ class ColorDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ColorDialog(bool hiliteOnly, QWidget *parent = 0);
+    explicit ColorDialog(bool hiliteOnly, QWidget *parent = nullptr);
     ~ColorDialog();
     void retranslateUi();
     int selectedPalette() const;
 
 public slots:
     void loadPalette(int i);
-    void accept();
+    void accept() override;
 
 private slots:
     void onAnyColorWidgetClicked(int i);

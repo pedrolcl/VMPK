@@ -24,8 +24,8 @@
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_settingsChanged(false),
-    m_midiIn(0),
-    m_midiOut(0)
+    m_midiIn(nullptr),
+    m_midiOut(nullptr)
 {
     ui.setupUi(this);
     connect(ui.chkEnableInput, &QCheckBox::toggled, this, &MidiSetup::toggledInput);
@@ -103,7 +103,7 @@ void MidiSetup::accept()
     VPianoSettings::instance()->setMidiThru(ui.chkEnableThru->isChecked());
     VPianoSettings::instance()->setOmniMode(ui.chkOmni->isChecked());
     VPianoSettings::instance()->setInputEnabled(ui.chkEnableInput->isChecked());
-    if (m_midiOut != 0) {
+    if (m_midiOut != nullptr) {
         connOut = ui.comboOutput->currentData().value<MIDIConnection>();
         if (connOut != m_midiOut->currentConnection() || m_settingsChanged) {
             m_midiOut->close();
@@ -113,7 +113,7 @@ void MidiSetup::accept()
             }
         }
     }
-    if (m_midiIn != 0) {
+    if (m_midiIn != nullptr) {
         connIn = ui.comboInput->currentData().value<MIDIConnection>();
         if (connIn != m_midiIn->currentConnection() || m_settingsChanged) {
             m_midiIn->close();
@@ -137,11 +137,11 @@ void MidiSetup::accept()
 void MidiSetup::refresh()
 {
     bool advanced = ui.chkAdvanced->isChecked();
-    if (m_midiIn != 0) {
+    if (m_midiIn != nullptr) {
         ui.comboinputBackends->setCurrentText(m_midiIn->backendName());
         refreshInputDrivers(m_midiIn->backendName(), advanced);
     }
-    if (m_midiOut != 0) {
+    if (m_midiOut != nullptr) {
         ui.comboOutputBackends->setCurrentText(m_midiOut->backendName());
         refreshOutputDrivers(m_midiOut->backendName(), advanced);
     }
@@ -158,16 +158,16 @@ void MidiSetup::refreshInputDrivers(QString id, bool advanced)
 {
     //qDebug() << Q_FUNC_INFO << id;
     ui.btnConfigInput->setEnabled(id == "Network");
-    if (m_midiIn != 0 && m_midiIn->backendName() != id) {
+    if (m_midiIn != nullptr && m_midiIn->backendName() != id) {
         m_midiIn->close();
         int idx = ui.comboinputBackends->findText(id, Qt::MatchStartsWith);
         if (idx > -1)
             m_midiIn = ui.comboinputBackends->itemData(idx).value<MIDIInput*>();
         else
-            m_midiIn = 0;
+            m_midiIn = nullptr;
     }
     ui.comboInput->clear();
-    if (m_midiIn != 0) {
+    if (m_midiIn != nullptr) {
         ui.comboInput->addItem(QString());
         for (const MIDIConnection& conn : m_midiIn->connections(advanced)) {
             ui.comboInput->addItem(conn.first, QVariant::fromValue(conn));
@@ -187,16 +187,16 @@ void MidiSetup::refreshOutputDrivers(QString id, bool advanced)
 {
     //qDebug() << Q_FUNC_INFO << id;
     ui.btnConfigOutput->setEnabled(id == "Network" || id == "FluidSynth" || id == "SonivoxEAS" || id == "DLS Synth");
-    if (m_midiOut != 0 && m_midiOut->backendName() != id) {
+    if (m_midiOut != nullptr && m_midiOut->backendName() != id) {
         m_midiOut->close();
         int idx = ui.comboOutputBackends->findText(id, Qt::MatchStartsWith);
         if (idx > -1)
             m_midiOut = ui.comboOutputBackends->itemData(idx).value<MIDIOutput*>();
         else
-            m_midiOut = 0;
+            m_midiOut = nullptr;
     }
     ui.comboOutput->clear();
-    if (m_midiOut != 0) {
+    if (m_midiOut != nullptr) {
         for (const MIDIConnection& conn : m_midiOut->connections(advanced)) {
             ui.comboOutput->addItem(conn.first, QVariant::fromValue(conn));
         }

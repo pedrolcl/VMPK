@@ -39,7 +39,7 @@ public:
         ButtonSyxControl = 5
     };
 
-    ExtraControl( QListWidget *parent = 0, int type = extraControlType ):
+    ExtraControl( QListWidget *parent = nullptr, int type = extraControlType ):
             QListWidgetItem( parent, type ),
             m_type(0), m_minValue(0), m_maxValue(127), m_defValue(0), m_size(100) {}
     virtual ~ExtraControl() {}
@@ -94,7 +94,7 @@ private:
 class DialogExtraControls : public QDialog {
     Q_OBJECT
 public:
-    DialogExtraControls(QWidget *parent = 0);
+    DialogExtraControls(QWidget *parent = nullptr);
     ~DialogExtraControls();
     void setControls(const QStringList& ctls);
     QStringList getControls();
@@ -120,7 +120,7 @@ public slots:
     void openFile();
 
 protected:
-    void changeEvent(QEvent *e);
+    void changeEvent(QEvent *e) override;
 
 private:
     Ui::DialogExtraControls *m_ui;

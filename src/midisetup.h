@@ -31,7 +31,7 @@ class MidiSetup : public QDialog
     Q_OBJECT
 
 public:
-    MidiSetup(QWidget *parent = 0);
+    MidiSetup(QWidget *parent = nullptr);
     void inputNotAvailable();
     void clearCombos();
     void retranslateUi();

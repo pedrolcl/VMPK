@@ -47,7 +47,7 @@ void Riff::readFromFile(QString fileName)
 
 void Riff::readFromStream(QDataStream* ds)
 {
-    if (ds != NULL) {
+    if (ds != nullptr) {
         m_IOStream = ds;
         m_IOStream->setByteOrder(QDataStream::LittleEndian);
         read();

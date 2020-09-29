@@ -66,7 +66,7 @@ void
 ColorDialog::onAnyColorWidgetClicked(int i)
 {
     ColorWidget *wdg = findChild<ColorWidget*>(QString("widget_%1").arg(i));
-    if (wdg != 0)
+    if (wdg != nullptr)
     {
         QColor color = QColorDialog::getColor(m_workingPalette.getColor(i), this);
         if (color.isValid()) {
@@ -88,7 +88,7 @@ ColorDialog::refreshPalette()
     for (int i = 0; i < 16; ++i)
     {
         ColorWidget *wdg = findChild<ColorWidget*>(QString("widget_%1").arg(i));
-        if (wdg != 0)
+        if (wdg != nullptr)
         {
             if (i < m_workingPalette.getNumColors()) {
                 QColor color = m_workingPalette.getColor(i);

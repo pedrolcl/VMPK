@@ -36,7 +36,7 @@ class RiffImportDlg : public QDialog
     Q_OBJECT
 
 public:
-    RiffImportDlg(QWidget *parent = 0);
+    RiffImportDlg(QWidget *parent = nullptr);
     ~RiffImportDlg();
 
     void setInput(QString fileName);

@@ -155,8 +155,8 @@ bool InstrumentList::load ( const QString& sFilename )
         InstrDefs    = 6
     } sect = None;
 
-    Instrument     *pInstrument = NULL;
-    InstrumentData *pData = NULL;
+    Instrument     *pInstrument = nullptr;
+    InstrumentData *pData = nullptr;
 
     QRegExp rxTitle   ("^\\[([^\\]]+)\\]$");
     QRegExp rxData    ("^([0-9]+)=(.*)$");

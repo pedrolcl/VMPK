@@ -201,7 +201,7 @@ void Preferences::setInstrumentName( const QString name )
 
 void Preferences::slotOpenKeymapFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(0,
+    QString fileName = QFileDialog::getOpenFileName(nullptr,
                                 tr("Open keyboard map definition"),
                                 VPianoSettings::dataDirectory(),
                                 tr("Keyboard map (*.xml)"));
@@ -212,7 +212,7 @@ void Preferences::slotOpenKeymapFile()
 
 void Preferences::slotOpenRawKeymapFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(0,
+    QString fileName = QFileDialog::getOpenFileName(nullptr,
                                 tr("Open keyboard map definition"),
                                 VPianoSettings::dataDirectory(),
                                 tr("Keyboard map (*.xml)"));

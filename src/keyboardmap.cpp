@@ -166,5 +166,5 @@ void VMPKKeyboardMap::reportError( const QString filename,
                                const QString title,
                                const QString err )
 {
-    QMessageBox::warning(0, title, tr("File: %1\n%2").arg(filename).arg(err));
+    QMessageBox::warning(nullptr, title, tr("File: %1\n%2").arg(filename).arg(err));
 }

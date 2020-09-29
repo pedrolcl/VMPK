@@ -25,7 +25,7 @@ class ColorWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ColorWidget(QWidget *parent = 0);
+    explicit ColorWidget(QWidget *parent = nullptr);
 
     QString colorName() const { return m_colorName; }
     void setColorName(const QString value);
@@ -35,8 +35,8 @@ public:
 
     void disable();
 
-    void mousePressEvent(QMouseEvent *);
-    void paintEvent(QPaintEvent *);
+    void mousePressEvent(QMouseEvent *) override;
+    void paintEvent(QPaintEvent *) override;
 
 signals:
     void clicked();

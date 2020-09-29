@@ -55,15 +55,15 @@ class VPiano : public QMainWindow, public drumstick::widgets::PianoHandler
     Q_OBJECT
 
 public:
-    VPiano( QWidget * parent = 0, Qt::WindowFlags flags = 0 );
+    VPiano( QWidget * parent = nullptr, Qt::WindowFlags flags = Qt::Window );
     virtual ~VPiano();
     bool isInitialized() const { return m_initialized; }
     void retranslateUi();
-    QMenu *createPopupMenu ();
+    QMenu *createPopupMenu () override;
 
     // PianoHandler methods
-    void noteOn(const int midiNote, const int vel);
-    void noteOff(const int midiNote, const int vel);
+    void noteOn(const int midiNote, const int vel) override;
+    void noteOff(const int midiNote, const int vel) override;
 
 #if ENABLE_DBUS
 
@@ -160,9 +160,9 @@ protected Q_SLOTS:
     void toggleWindowFrame(const bool state);
 
 protected:
-    void closeEvent ( QCloseEvent *event );
-    void showEvent ( QShowEvent *event );
-    void hideEvent( QHideEvent *event );
+    void closeEvent ( QCloseEvent *event ) override;
+    void showEvent ( QShowEvent *event ) override;
+    void hideEvent( QHideEvent *event ) override;
 
 private:
     void initialization();

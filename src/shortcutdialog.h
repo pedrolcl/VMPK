@@ -42,7 +42,7 @@ class ShortcutTableItemEditor : public QWidget
 public:
 
 	// Constructor.
-	ShortcutTableItemEditor(QWidget *pParent = NULL);
+	ShortcutTableItemEditor(QWidget *pParent = nullptr);
 
 	// Shortcut text accessors.
 	void setText(const QString& sText);
@@ -88,17 +88,17 @@ protected:
 
 	void paint(QPainter *pPainter,
 		const QStyleOptionViewItem& option,
-		const QModelIndex& index) const;
+        const QModelIndex& index) const override;
 
 	QWidget *createEditor(QWidget *pParent, 
 		const QStyleOptionViewItem& option,
-		const QModelIndex & index) const;
+        const QModelIndex & index) const override;
 
 	void setEditorData(QWidget *pEditor,
-		const QModelIndex &index) const;
+        const QModelIndex &index) const override;
 	void setModelData(QWidget *pEditor,
 		QAbstractItemModel *pModel,
-		const QModelIndex& index) const;
+        const QModelIndex& index) const override;
 
 protected slots:
 
@@ -120,7 +120,7 @@ class ShortcutDialog : public QDialog
 public:
 
 	// Constructor.
-	ShortcutDialog(QList<QAction *> actions, QWidget *pParent = NULL);
+	ShortcutDialog(QList<QAction *> actions, QWidget *pParent = nullptr);
     void retranslateUi();
     void setDefaultShortcuts(QHash<QString,QList<QKeySequence> > &defs);
 
@@ -130,8 +130,8 @@ protected slots:
 	void actionChanged(QTableWidgetItem *);
     void slotRestoreDefaults();
 
-	void accept();
-	void reject();
+    void accept() override;
+    void reject() override;
 
 private:
 

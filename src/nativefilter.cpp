@@ -38,7 +38,7 @@
 bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message, long *)
 {
 
-    if (!m_enabled || (m_handler == 0)) {
+    if (!m_enabled || (m_handler == nullptr)) {
         return false;
     }
 
@@ -46,9 +46,9 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
 #if defined(Q_OS_LINUX)
         static xcb_timestamp_t last_rel_time = 0;
         static xcb_keycode_t last_rel_code = 0;
-        static xcb_connection_t *connection = 0;
+        static xcb_connection_t *connection = nullptr;
         bool isRepeat = false;
-        if (connection == 0) {
+        if (connection == nullptr) {
             //QPlatformNativeInterface *native = qApp->platformNativeInterface();
             //void *conn = native->nativeResourceForWindow(QByteArray("connection"), 0);
             //connection = reinterpret_cast<xcb_connection_t *>(conn);
@@ -76,7 +76,7 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
                 xcb_key_release_event_t *kr = reinterpret_cast<xcb_key_release_event_t *>(ev);
                 if (connection) {
                     xcb_query_keymap_cookie_t cookie = xcb_query_keymap(connection);
-                    xcb_query_keymap_reply_t *keymap = xcb_query_keymap_reply(connection, cookie, 0);
+                    xcb_query_keymap_reply_t *keymap = xcb_query_keymap_reply(connection, cookie, nullptr);
                     isRepeat = (keymap->keys[kr->detail / 8] & (1 << (kr->detail % 8)));
                     free(keymap);
                     last_rel_code = kr->detail;

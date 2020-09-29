@@ -31,7 +31,7 @@ class Preferences : public QDialog
     Q_OBJECT
 
 public:
-    Preferences(QWidget *parent = 0);
+    Preferences(QWidget *parent = nullptr);
     void setInstrumentsFileName( const QString fileName );
     void setInstrumentName( const QString name );
     void apply();
@@ -47,10 +47,10 @@ public slots:
     void slotOpenRawKeymapFile();
     void slotSelectFont();
     void slotRestoreDefaults();
-    void accept();
+    void accept() override;
 
 protected:
-    void showEvent ( QShowEvent *event );
+    void showEvent ( QShowEvent *event ) override;
 
 private:
     QString m_mapFile;

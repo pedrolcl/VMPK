@@ -86,7 +86,7 @@ void DialogExtraControls::controlUp()
 {
     int row = m_ui->extraList->currentRow();
     QListWidgetItem *e = m_ui->extraList->takeItem(row);
-    if (e != NULL) {
+    if (e != nullptr) {
         m_ui->extraList->insertItem(row - 1, e);
         m_ui->extraList->setCurrentItem(e);
     }
@@ -96,7 +96,7 @@ void DialogExtraControls::controlDown()
 {
     int row = m_ui->extraList->currentRow();
     QListWidgetItem *e = m_ui->extraList->takeItem(row);
-    if (e != NULL) {
+    if (e != nullptr) {
         m_ui->extraList->insertItem(row + 1, e);
         m_ui->extraList->setCurrentItem(e);
     }
@@ -105,13 +105,13 @@ void DialogExtraControls::controlDown()
 void DialogExtraControls::itemSelected( QListWidgetItem *current, QListWidgetItem * )
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(current);
-    m_ui->commonFrame->setEnabled( e != NULL );
-    m_ui->cboControlType->setEnabled( e != NULL );
-    m_ui->stackedPanel->setEnabled( e != NULL );
-    m_ui->btnRemove->setEnabled(e != NULL );
-    m_ui->btnUp->setEnabled(e != NULL && m_ui->extraList->currentRow() > 0);
-    m_ui->btnDown->setEnabled(e != NULL && m_ui->extraList->currentRow() < (m_ui->extraList->count()-1));
-    if (e != NULL) {
+    m_ui->commonFrame->setEnabled( e != nullptr );
+    m_ui->cboControlType->setEnabled( e != nullptr );
+    m_ui->stackedPanel->setEnabled( e != nullptr );
+    m_ui->btnRemove->setEnabled(e != nullptr );
+    m_ui->btnUp->setEnabled(e != nullptr && m_ui->extraList->currentRow() > 0);
+    m_ui->btnDown->setEnabled(e != nullptr && m_ui->extraList->currentRow() < (m_ui->extraList->count()-1));
+    if (e != nullptr) {
         m_ui->txtLabel->setText(e->text());
         m_ui->spinController->setValue(e->getControl());
         m_ui->cboControlType->setCurrentIndex(e->getType());
@@ -139,19 +139,19 @@ void DialogExtraControls::itemSelected( QListWidgetItem *current, QListWidgetIte
 void DialogExtraControls::labelEdited(QString newLabel)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setText(newLabel);
+    if (e != nullptr) e->setText(newLabel);
 }
 
 void DialogExtraControls::controlChanged(int control)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setControl(control);
+    if (e != nullptr) e->setControl(control);
 }
 
 void DialogExtraControls::typeChanged(int type)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL)  {
+    if (e != nullptr)  {
         e->setType(type);
         if (type == ExtraControl::ControlType::ButtonSyxControl) {
             e->setControl(255);
@@ -164,49 +164,49 @@ void DialogExtraControls::typeChanged(int type)
 void DialogExtraControls::minimumChanged(int minimum)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setMinimum(minimum);
+    if (e != nullptr) e->setMinimum(minimum);
 }
 
 void DialogExtraControls::maximumChanged(int maximum)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setMaximum(maximum);
+    if (e != nullptr) e->setMaximum(maximum);
 }
 
 void DialogExtraControls::onvalueChanged(int onvalue)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setOnValue(onvalue);
+    if (e != nullptr) e->setOnValue(onvalue);
 }
 
 void DialogExtraControls::offvalueChanged(int offvalue)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setOffValue(offvalue);
+    if (e != nullptr) e->setOffValue(offvalue);
 }
 
 void DialogExtraControls::defaultChanged(int defvalue)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setDefault(defvalue);
+    if (e != nullptr) e->setDefault(defvalue);
 }
 
 void DialogExtraControls::defOnChanged(bool defOn)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setOnDefault(defOn);
+    if (e != nullptr) e->setOnDefault(defOn);
 }
 
 void DialogExtraControls::sizeChanged(int size)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setSize(size);
+    if (e != nullptr) e->setSize(size);
 }
 
 void DialogExtraControls::shortcutChanged(QString keySequence)
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) e->setShortcut(keySequence);
+    if (e != nullptr) e->setShortcut(keySequence);
 }
 
 void DialogExtraControls::setControls(const QStringList& ctls)
@@ -243,7 +243,7 @@ void DialogExtraControls::changeEvent(QEvent *e)
 void DialogExtraControls::openFile()
 {
     ExtraControl *e = dynamic_cast<ExtraControl*>(m_ui->extraList->currentItem());
-    if (e != NULL) {
+    if (e != nullptr) {
         QString fileName = QFileDialog::getOpenFileName(this,
             tr("System Exclusive File"), QString(), tr("System Exclusive (*.syx)"));
         if (!fileName.isEmpty()) {

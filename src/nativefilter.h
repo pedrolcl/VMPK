@@ -27,7 +27,7 @@ using namespace drumstick::widgets;
 class NativeFilter : public QAbstractNativeEventFilter
 {
 public:
-    NativeFilter(): m_enabled(false), m_handler(0) {}
+    NativeFilter(): m_enabled(false), m_handler(nullptr) {}
     virtual ~NativeFilter() {}
 
     RawKbdHandler *getRawKbdHandler() { return m_handler; }
@@ -35,7 +35,7 @@ public:
     bool isRawKbdEnabled() { return m_enabled; }
     void setRawKbdEnabled(bool b) { m_enabled = b; }
 
-    virtual bool nativeEventFilter(const QByteArray &eventType, void *message, long *) Q_DECL_OVERRIDE;
+    virtual bool nativeEventFilter(const QByteArray &eventType, void *message, long *) override;
 
 private:
     bool m_enabled;

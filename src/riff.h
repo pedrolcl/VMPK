@@ -45,7 +45,7 @@ class Riff : public QObject
     Q_OBJECT
 
 public:
-    Riff(QObject* parent = 0);
+    Riff(QObject* parent = nullptr);
     virtual ~Riff();
     void readFromFile(QString fileName);
     void readFromStream(QDataStream* ds);

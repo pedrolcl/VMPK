@@ -56,13 +56,13 @@ class ShortcutTableItemEdit : public QLineEdit
 public:
 
 	// Constructor.
-	ShortcutTableItemEdit(QWidget *pParent = NULL)
+	ShortcutTableItemEdit(QWidget *pParent = nullptr)
 		: QLineEdit(pParent) {}
 
 protected:
 
 	// Shortcut key to text event translation.
-	void keyPressEvent(QKeyEvent *pKeyEvent)
+    void keyPressEvent(QKeyEvent *pKeyEvent) override
 	{
 		int iKey = pKeyEvent->key();
 		Qt::KeyboardModifiers modifiers = pKeyEvent->modifiers();

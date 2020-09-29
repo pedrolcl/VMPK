@@ -1757,7 +1757,7 @@ void VPiano::connect_out(const QString &value)
 
 void VPiano::connect_thru(bool value)
 {
-    if( m_midiin != 0 && m_midiout != 0) {
+    if( m_midiin != nullptr && m_midiout != nullptr) {
         m_midiin->enableMIDIThru(value);
         m_midiin->setMIDIThruDevice(m_midiout);
     }

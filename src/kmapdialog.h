@@ -28,7 +28,7 @@ class KMapDialog : public QDialog
     Q_OBJECT
 
 public:
-    KMapDialog(QWidget *parent = 0);
+    KMapDialog(QWidget *parent = nullptr);
     void load(const QString fileName);
     void save(const QString fileName);
     void displayMap(const VMPKKeyboardMap* map);
