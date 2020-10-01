@@ -146,8 +146,8 @@ void VPianoSettings::ResetDefaults()
     m_numKeys = DEFAULTNUMBEROFKEYS;
     m_startingKey = 9;
     m_defaultsMap = QVariantMap{
-        { drumstick::rt::QSTR_DRUMSTICKRT_PUBLICNAMEIN, QSTR_VMPKINPUT},
-        { drumstick::rt::QSTR_DRUMSTICKRT_PUBLICNAMEOUT, QSTR_VMPKOUTPUT}
+        { BackendManager::QSTR_DRUMSTICKRT_PUBLICNAMEIN, QSTR_VMPKINPUT},
+        { BackendManager::QSTR_DRUMSTICKRT_PUBLICNAMEOUT, QSTR_VMPKOUTPUT}
     };
 
     m_highlightPaletteId = drumstick::widgets::PAL_SINGLE;
@@ -194,7 +194,7 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_state = settings.value(QSTR_STATE).toByteArray();
     settings.endGroup();
 
-    settings.beginGroup(QSTR_DRUMSTICKRT_GROUP);
+    settings.beginGroup(BackendManager::QSTR_DRUMSTICKRT_GROUP);
     QStringList keys = settings.allKeys();
     for(const QString& key : m_defaultsMap.keys()) {
         if (!keys.contains(key)) {
@@ -289,7 +289,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.setValue("State", m_state);
     settings.endGroup();
 
-    settings.beginGroup(QSTR_DRUMSTICKRT_GROUP);
+    settings.beginGroup(BackendManager::QSTR_DRUMSTICKRT_GROUP);
     for(auto key : m_settingsMap.keys()) {
         settings.setValue(key, m_settingsMap[key]);
     }
