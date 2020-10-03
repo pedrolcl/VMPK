@@ -42,6 +42,9 @@ endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra") #-Wzero-as-null-pointer-constant -Wsuggest-override
 endif()
+#if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
+#endif()
 
 find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
 find_package(Drumstick 2.0 COMPONENTS RT Widgets REQUIRED)
