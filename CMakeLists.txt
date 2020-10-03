@@ -40,7 +40,7 @@ if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
 endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wzero-as-null-pointer-constant -Wsuggest-override")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra") #-Wzero-as-null-pointer-constant -Wsuggest-override
 endif()
 
 find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
