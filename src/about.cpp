@@ -17,6 +17,7 @@
 */
 
 #include <QtGlobal>
+#include <QSysInfo>
 #include <QUrl>
 #include <QDesktopServices>
 #include <drumstick/configurationdialogs.h>
@@ -47,13 +48,18 @@ void About::retranslateUi()
             "<body style=\"font-family:'Sans Serif'; font-size:12pt; font-style:normal;\">"
               "<p style=\"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">"
                 "Version: %1<br/>"
-                "Qt version: %5<br/>"
-                "Drumstick version: %6<br/>"
-                "Build date: %2<br/>"
-                "Build time: %3<br/>"
-                "Compiler: %4"
+                "Qt version: %2 %3<br/>"
+                "Drumstick version: %4<br/>"
+                "Build date: %5<br/>"
+                "Build time: %6<br/>"
+                "Compiler: %7"
               "</p>"
             "</body>"
-            "</html>").arg(PGM_VERSION, BLD_DATE, BLD_TIME, CMP_VERSION,
-                           qVersion(), drumstick::widgets::libraryVersion()));
+            "</html>").arg(PGM_VERSION,
+                           qVersion(),
+                           QSysInfo::buildCpuArchitecture(),
+                           drumstick::widgets::libraryVersion(),
+                           BLD_DATE,
+                           BLD_TIME,
+                           CMP_VERSION));
 }
