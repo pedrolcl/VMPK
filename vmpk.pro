@@ -50,7 +50,7 @@ macx {
     LIBS += -framework drumstick-rt -framework drumstick-widgets
 }
 
-linux* {
+linux {
     INCLUDEPATH += $$(DRUMSTICKINCLUDES)
     LIBS += -L$$(DRUMSTICKLIBS) -ldrumstick-rt -ldrumstick-widgets
 }
@@ -63,9 +63,8 @@ win32 {
     RC_FILE = src/vpianoico.rc
 }
 
-linux* {
+linux {
     QT += x11extras
-    #QT += gui-private
     CONFIG += link_pkgconfig
     PKGCONFIG += xcb
     LIBS += -lpthread
