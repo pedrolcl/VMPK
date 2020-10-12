@@ -270,7 +270,7 @@ void Preferences::setNoteNames(const QStringList& noteNames)
     }
 
     ui.cboOctaveName->clear();
-    ui.cboOctaveName->addItem(tr("Nothing"), OctaveNothing);
+    ui.cboOctaveName->addItem(noteNames[0], OctaveNothing);
     ui.cboOctaveName->addItem(noteNames[0]+"3", OctaveC3);
     ui.cboOctaveName->addItem(noteNames[0]+"4", OctaveC4);
     ui.cboOctaveName->addItem(noteNames[0]+"5", OctaveC5);
