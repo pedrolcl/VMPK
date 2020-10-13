@@ -166,13 +166,13 @@ void VPianoSettings::ResetDefaults()
 void VPianoSettings::ReadSettings()
 {
     SettingsFactory settings;
-    internalRead(*settings);
+    internalRead(*settings.getQSettings());
 }
 
 void VPianoSettings::SaveSettings()
 {
     SettingsFactory settings;
-    internalSave(*settings);
+    internalSave(*settings.getQSettings());
 }
 
 void VPianoSettings::ReadFromFile(const QString &filepath)
