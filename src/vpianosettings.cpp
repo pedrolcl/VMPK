@@ -86,7 +86,7 @@ void VPianoSettings::setPortableConfig(const QString fileName)
 
 QString VPianoSettings::dataDirectory()
 {
-#if defined(Q_OS_WIN32)
+#if defined(Q_OS_WIN)
     return QApplication::applicationDirPath() + "/";
 #elif defined(Q_OS_MAC)
     return QApplication::applicationDirPath() + "/../Resources/";
@@ -114,7 +114,7 @@ QString VPianoSettings::drumstickLocales()
 {
 #if defined(TRANSLATIONS_EMBEDDED)
     return QLatin1String(":/");
-#elif defined(Q_OS_WIN32)
+#elif defined(Q_OS_WIN)
     return QApplication::applicationDirPath() + "/";
 #elif defined(Q_OS_MAC)
     return QApplication::applicationDirPath() + "/../Resources/";
