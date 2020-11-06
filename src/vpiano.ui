@@ -206,8 +206,14 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="windowTitle">
     <string>&amp;Notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Notes Tool Bar</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextOnly</enum>
@@ -228,8 +234,14 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="windowTitle">
     <string>&amp;Programs</string>
+   </property>
+   <property name="statusTip">
+    <string>Programs Tool Bar</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextOnly</enum>
@@ -249,8 +261,14 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="windowTitle">
     <string>&amp;Controllers</string>
+   </property>
+   <property name="statusTip">
+    <string>Controllers Tool Bar</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextOnly</enum>
@@ -271,8 +289,14 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="windowTitle">
     <string>&amp;Extra Controls</string>
+   </property>
+   <property name="statusTip">
+    <string>Extra Tool Bar</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextOnly</enum>
@@ -293,8 +317,14 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="windowTitle">
     <string>Pitch &amp;Bender</string>
+   </property>
+   <property name="statusTip">
+    <string>Bender Tool Bar</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextOnly</enum>
@@ -913,9 +943,6 @@
    <property name="whatsThis">
     <string/>
    </property>
-   <property name="shortcut">
-    <string>Alt+F</string>
-   </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
    </property>
@@ -930,6 +957,9 @@
    <property name="text">
     <string>Never</string>
    </property>
+   <property name="statusTip">
+    <string>Don't show key labels</string>
+   </property>
   </action>
   <action name="actionWhen_Activated">
    <property name="checkable">
@@ -938,6 +968,9 @@
    <property name="text">
     <string>When Activated</string>
    </property>
+   <property name="statusTip">
+    <string>Show key labels when notes are activated</string>
+   </property>
   </action>
   <action name="actionAlways">
    <property name="checkable">
@@ -945,6 +978,9 @@
    </property>
    <property name="text">
     <string>Always</string>
+   </property>
+   <property name="statusTip">
+    <string>Show key labels always</string>
    </property>
   </action>
   <action name="actionSharps">
@@ -957,6 +993,9 @@
    <property name="text">
     <string>Sharps</string>
    </property>
+   <property name="statusTip">
+    <string>Display sharps</string>
+   </property>
   </action>
   <action name="actionFlats">
    <property name="checkable">
@@ -968,6 +1007,9 @@
    <property name="text">
     <string>Flats</string>
    </property>
+   <property name="statusTip">
+    <string>Display flats</string>
+   </property>
   </action>
   <action name="actionNothing">
    <property name="checkable">
@@ -975,6 +1017,9 @@
    </property>
    <property name="text">
     <string>Nothing</string>
+   </property>
+   <property name="statusTip">
+    <string>Don't display labels over black keys</string>
    </property>
   </action>
   <action name="actionHorizontal">
@@ -987,6 +1032,9 @@
    <property name="text">
     <string>Horizontal</string>
    </property>
+   <property name="statusTip">
+    <string>Display key labels horizontally</string>
+   </property>
   </action>
   <action name="actionVertical">
    <property name="checkable">
@@ -994,6 +1042,9 @@
    </property>
    <property name="text">
     <string>Vertical</string>
+   </property>
+   <property name="statusTip">
+    <string>Display key labels vertically</string>
    </property>
   </action>
   <action name="actionAutomatic">
@@ -1003,6 +1054,9 @@
    <property name="text">
     <string>Automatic</string>
    </property>
+   <property name="statusTip">
+    <string>Display key labels with automatic orientation</string>
+   </property>
   </action>
   <action name="actionMinimal">
    <property name="checkable">
@@ -1011,13 +1065,16 @@
    <property name="text">
     <string>Minimal</string>
    </property>
+   <property name="statusTip">
+    <string>Show key labels only over C notes</string>
+   </property>
   </action>
  </widget>
  <customwidgets>
   <customwidget>
    <class>drumstick::widgets::PianoKeybd</class>
    <extends>QGraphicsView</extends>
-   <header>drumstick/pianokeybd.h</header>
+   <header location="global">drumstick/pianokeybd.h</header>
   </customwidget>
  </customwidgets>
  <resources>
