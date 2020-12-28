@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.9)
 
 project(VMPK
-        VERSION 0.7.3.99
+        VERSION 0.8.0
         DESCRIPTION "Virtual MIDI Piano Keyboard"
         LANGUAGES CXX
 )
