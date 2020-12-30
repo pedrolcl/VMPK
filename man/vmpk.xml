@@ -29,13 +29,13 @@
       <year>2009</year>
       <holder>Mehdi Dogguy</holder>
     </copyright>
-    <date>June 7, 2009</date>
+    <date>December 30, 2020</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>vmpk</refentrytitle>
     <manvolnum>1</manvolnum>
-    <refmiscinfo class="version">0.3.3</refmiscinfo>
+    <refmiscinfo class="version">0.8.0</refmiscinfo>
     <refmiscinfo class="software">vmpk</refmiscinfo>
     <refmiscinfo class="manual">User Commands</refmiscinfo>
   </refmeta>

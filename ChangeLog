@@ -1,3 +1,9 @@
+2020-12-30
+    * Release 0.8.0
+
+2020-10-04
+    * Code sanitization
+
 2020-09-15
     * Implementation of RFE #52 Adding Panic signal when change Base Octave (and MIDI channel as well)
     * Initialization of extra controls toolbar with piano pedals (sustain, sostenuto, and soft) when empty
