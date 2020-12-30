@@ -6,14 +6,14 @@ Unicode true
 RequestExecutionLevel admin
 
 # Defines
-!define QTFILES "..\vmpk-0.7.2-win-x64"
-!define QTLANG  "..\vmpk-0.7.2-win-x64"
+!define QTFILES "..\vmpk-0.8.0-win-x64"
+!define QTLANG  "..\vmpk-0.8.0-win-x64"
 !define VMPKSRC "."
-!define VMPKBLD "..\vmpk-0.7.2-win-x64"
-!define DRUMSTICK  "..\vmpk-0.7.2-win-x64"
+!define VMPKBLD "..\vmpk-0.8.0-win-x64"
+!define DRUMSTICK  "..\vmpk-0.8.0-win-x64"
 !define PROGNAME "vmpk"
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.7.2
+!define VERSION 0.8.0
 !define COMPANY VMPK
 !define URL http://vmpk.sourceforge.net/
 
@@ -70,7 +70,7 @@ OutFile vmpk-${VERSION}-win-x64-setup.exe
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 0.7.2.0
+VIProductVersion 0.8.0.0
 VIAddVersionKey ProductName VMPK
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -86,7 +86,7 @@ UninstallIcon ${VMPKSRC}\src\vmpk.ico
 # Installer sections
 Section -Main SEC0000
 	CreateDirectory $INSTDIR\bearer
-	CreateDirectory $INSTDIR\drumstick
+	CreateDirectory $INSTDIR\drumstick2
 	CreateDirectory $INSTDIR\iconengines
 	CreateDirectory $INSTDIR\imageformats
 	CreateDirectory $INSTDIR\platforms
@@ -106,13 +106,13 @@ Section -Main SEC0000
     File ${QTLANG}\translations\qt_de.qm
     File ${QTLANG}\translations\qt_es.qm
     File ${QTLANG}\translations\qt_fr.qm
-    File ${QTLANG}\translations\qt_gl.qm
+    #File ${QTLANG}\translations\qt_gl.qm
     File ${QTLANG}\translations\qt_ru.qm
 	#File ${QTLANG}\translations\qt_sr.qm
-    File ${QTLANG}\translations\qt_sv.qm
+    #File ${QTLANG}\translations\qt_sv.qm
 
     SetOutPath $INSTDIR
-	File ${VMPKBLD}\vcredist_x64.exe
+	File ${VMPKBLD}\vc_redist.x64.exe
 	File ${VMPKBLD}\vmpk.exe
     File ${VMPKSRC}\data\spanish.xml
     File ${VMPKSRC}\data\german.xml
@@ -129,6 +129,13 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\help_fr.html
     File ${VMPKSRC}\data\help_sr.html
     File ${VMPKSRC}\data\help_ru.html
+	File ${VMPKBLD}\drumstick-widgets_cs.qm
+    File ${VMPKBLD}\drumstick-widgets_de.qm
+    File ${VMPKBLD}\drumstick-widgets_es.qm
+    File ${VMPKBLD}\drumstick-widgets_fr.qm
+    File ${VMPKBLD}\drumstick-widgets_gl.qm
+    File ${VMPKBLD}\drumstick-widgets_ru.qm
+    File ${VMPKBLD}\drumstick-widgets_sv.qm
 	
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Core.dll $INSTDIR\Qt5Core.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Gui.dll $INSTDIR\Qt5Gui.dll $INSTDIR
@@ -142,18 +149,18 @@ Section -Main SEC0000
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\iconengines\qsvgicon.dll $INSTDIR\iconengines\qsvgicon.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bearer\qgenericbearer.dll $INSTDIR\bearer\qgenericbearer.dll $INSTDIR
-	#insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bearer\qnativewifibearer.dll $INSTDIR\bearer\qnativewifibearer.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qgif.dll $INSTDIR\imageformats\qgif.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qicns.dll $INSTDIR\imageformats\qicns.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qico.dll $INSTDIR\imageformats\qico.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qjpeg.dll $INSTDIR\imageformats\qjpeg.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qsvg.dll $INSTDIR\imageformats\qsvg.dll $INSTDIR
 	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\styles\qwindowsvistastyle.dll $INSTDIR\styles\qwindowsvistastyle.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-rt1.dll $INSTDIR\drumstick-rt1.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-net-in1.dll $INSTDIR\drumstick\drumstick-rt-net-in1.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-net-out1.dll $INSTDIR\drumstick\drumstick-rt-net-out1.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-win-in1.dll $INSTDIR\drumstick\drumstick-rt-win-in1.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick\drumstick-rt-win-out1.dll $INSTDIR\drumstick\drumstick-rt-win-out1.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-rt.dll $INSTDIR\drumstick-rt.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-widgets.dll $INSTDIR\drumstick-widgets.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-net-in.dll $INSTDIR\drumstick2\drumstick-rt-net-in.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-net-out.dll $INSTDIR\drumstick2\drumstick-rt-net-out.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-win-in.dll $INSTDIR\drumstick2\drumstick-rt-win-in.dll $INSTDIR
+	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-win-out.dll $INSTDIR\drumstick2\drumstick-rt-win-out.dll $INSTDIR
 	
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
@@ -180,7 +187,7 @@ Section -post SEC0001
 	ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" "Installed"
 	StrCmp $1 1 installed
 	;not installed, so run the installer
-	ExecWait '"$INSTDIR\vcredist_x64.exe" /install /quiet /norestart'
+	ExecWait '"$INSTDIR\vc_redist.x64.exe" /install /quiet /norestart'
 installed:	
 SectionEnd
 
@@ -203,10 +210,10 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\translations\qt_de.qm
     Delete /REBOOTOK $INSTDIR\translations\qt_es.qm
     Delete /REBOOTOK $INSTDIR\translations\qt_fr.qm
-    Delete /REBOOTOK $INSTDIR\translations\qt_gl.qm
+    #Delete /REBOOTOK $INSTDIR\translations\qt_gl.qm
     Delete /REBOOTOK $INSTDIR\translations\qt_ru.qm
-    Delete /REBOOTOK $INSTDIR\translations\qt_sv.qm
-#   Delete /REBOOTOK $INSTDIR\translations\qt_sr.qm
+    #Delete /REBOOTOK $INSTDIR\translations\qt_sv.qm
+    #Delete /REBOOTOK $INSTDIR\translations\qt_sr.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_cs.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_de.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_es.qm
@@ -215,9 +222,16 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\translations\vmpk_ru.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_sv.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_sr.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_cs.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_de.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_es.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_fr.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_gl.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_ru.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_sv.qm
 
     Delete /REBOOTOK $INSTDIR\vmpk.exe
-	Delete /REBOOTOK $INSTDIR\vcredist_x64.exe
+	Delete /REBOOTOK $INSTDIR\vc_redist.x64.exe
     Delete /REBOOTOK $INSTDIR\spanish.xml
     Delete /REBOOTOK $INSTDIR\german.xml
     Delete /REBOOTOK $INSTDIR\azerty.xml
@@ -246,24 +260,24 @@ Section /o -un.Main UNSEC0000
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconengines\qsvgicon.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\bearer\qgenericbearer.dll
-	#insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\bearer\qnativewifibearer.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qgif.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qicns.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qico.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qjpeg.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qsvg.dll
 	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\styles\qwindowsvistastyle.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-rt1.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-net-in1.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-net-out1.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-in1.dll
-	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick\drumstick-rt-win-out1.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-rt.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-widgets.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-net-in.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-net-out.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-win-in.dll
+	!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-win-out.dll
 	RMDir /REBOOTOK $INSTDIR\translations
 	RMDir /REBOOTOK $INSTDIR\styles
 	RMDir /REBOOTOK $INSTDIR\platforms
 	RMDir /REBOOTOK $INSTDIR\iconengines
 	RMDir /REBOOTOK $INSTDIR\imageformats
-	RMDir /REBOOTOK $INSTDIR\drumstick
+	RMDir /REBOOTOK $INSTDIR\drumstick2
 	RMDir /REBOOTOK $INSTDIR\bearer
     DeleteRegValue HKLM "${REGKEY}\Components" Main
 SectionEnd
