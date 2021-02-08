@@ -111,7 +111,7 @@ if(APPLE)
     set (MACOSX_BUNDLE_ICON_FILE "vmpk.icns" )
     set (MACOSX_BUNDLE_GUI_IDENTIFIER "net.sourceforge.vmpk" )
     set (MACOSX_BUNDLE_BUNDLE_NAME "vmpk" )
-    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2020 Pedro López-Cabanillas and others")
+    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2021 Pedro López-Cabanillas and others")
     set (vmpk_RSC
         ../data/vmpk.icns
         ../data/help.html

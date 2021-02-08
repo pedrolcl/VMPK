@@ -196,12 +196,12 @@ void VPianoSettings::internalRead(QSettings &settings)
 
     settings.beginGroup(BackendManager::QSTR_DRUMSTICKRT_GROUP);
     QStringList keys = settings.allKeys();
-    for(const QString& key : m_defaultsMap.keys()) {
+    foreach(const QString& key, m_defaultsMap.keys()) {
         if (!keys.contains(key)) {
             keys.append(key);
         }
     }
-    for(const QString& key : keys) {
+    foreach(const QString& key, keys) {
         QVariant defval = m_defaultsMap.contains(key) ? m_defaultsMap[key] : QString();
         m_settingsMap.insert(key, settings.value(key, defval));
     }
@@ -220,7 +220,7 @@ void VPianoSettings::internalRead(QSettings &settings)
 
     bool mouseInputEnabledbyDefault = true;
     bool touchInputEnabledbyDefault = false;
-    for(const QTouchDevice *dev : QTouchDevice::devices()) {
+    foreach(const QTouchDevice *dev, QTouchDevice::devices()) {
         if (dev->type() == QTouchDevice::TouchScreen) {
             mouseInputEnabledbyDefault = false;
             touchInputEnabledbyDefault = true;
@@ -259,7 +259,7 @@ void VPianoSettings::internalRead(QSettings &settings)
     settings.endGroup();
 
     settings.beginGroup(QSTR_SHORTCUTS);
-    for(const QString& sKey : settings.childKeys()) {
+    foreach(const QString& sKey, settings.childKeys()) {
         const QString& sValue = settings.value('/' + sKey).toString();
         m_shortcuts.insert(sKey, sValue);
     }
@@ -290,7 +290,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.endGroup();
 
     settings.beginGroup(BackendManager::QSTR_DRUMSTICKRT_GROUP);
-    for(auto key : m_settingsMap.keys()) {
+    foreach(auto key,  m_settingsMap.keys()) {
         settings.setValue(key, m_settingsMap[key]);
     }
     settings.endGroup();

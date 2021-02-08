@@ -146,6 +146,8 @@ protected Q_SLOTS:
     void slotColorPolicy();
     void slotColorScale(bool value);
     void slotNoteName(const QString& text);
+    void slotLoadConfiguration();
+    void slotSaveConfiguration();
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 

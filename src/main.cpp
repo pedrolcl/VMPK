@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     s.setFont(sf);
     s.show();
     s.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
-    QTimer::singleShot(2500, &s, SLOT(close()));
+    QTimer::singleShot(2500, &s, &QWidget::close);
     app.processEvents();
     if (parser.isSet(portableOption) || parser.isSet(portableFileName)) {
         QString portableFile;
@@ -84,10 +84,14 @@ int main(int argc, char *argv[])
     } else {
         QSettings::setDefaultFormat(QSettings::NativeFormat);
     }
-    VPiano w;
-    if (w.isInitialized()) {
-        w.show();
-        return app.exec();
-    }
-    return EXIT_FAILURE;
+
+    int result_code{EXIT_FAILURE};
+    do {
+        VPiano w;
+        if (w.isInitialized()) {
+            w.show();
+            result_code = app.exec();
+        }
+    } while (result_code == RESTART_VMPK);
+    return result_code;
 }

@@ -18,6 +18,7 @@
 
 #include <QDesktopServices>
 #include <QInputDialog>
+#include <QFileDialog>
 #include <QDir>
 #include <QMessageBox>
 #include <QApplication>
@@ -145,6 +146,8 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionColorPalette, SIGNAL(triggered()), SLOT(slotColorPolicy()));
     connect(ui.actionColorScale, SIGNAL(toggled(bool)), SLOT(slotColorScale(bool)));
     connect(ui.actionWindowFrame, SIGNAL(toggled(bool)), SLOT(toggleWindowFrame(bool)));
+    connect(ui.actionLoad_Configuration, &QAction::triggered, this, &VPiano::slotLoadConfiguration);
+    connect(ui.actionSave_Configuration, &QAction::triggered, this, &VPiano::slotSaveConfiguration);
     // Toolbars actions: toggle view
     connect(ui.toolBarNotes->toggleViewAction(), SIGNAL(toggled(bool)),
             ui.actionNotes, SLOT(setChecked(bool)));
@@ -2168,4 +2171,29 @@ void VPiano::slotNoteName(const QString& name)
     } else {
         ui.statusBar->showMessage(name);
     }
+}
+
+void VPiano::slotLoadConfiguration()
+{
+    releaseKb();
+    auto configDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Configuration File"),
+        configDir, tr("Configuration files (*.conf *.ini)"));
+    if (!fileName.isEmpty()) {
+        VPianoSettings::instance()->ReadFromFile(fileName);
+        qApp->exit(RESTART_VMPK);
+    }
+    grabKb();
+}
+
+void VPiano::slotSaveConfiguration()
+{
+    releaseKb();
+    auto configDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save Configuration File"),
+        configDir, tr("Configuration files (*.conf *.ini)"));
+    if (!fileName.isEmpty()) {
+        VPianoSettings::instance()->SaveToFile(fileName);
+    }
+    grabKb();
 }

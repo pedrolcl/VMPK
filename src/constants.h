@@ -136,4 +136,6 @@ const int TOOLBARLABELMARGIN = 5;
 #endif
 const int NETWORKPORTNUMBER = 21928;
 
+const int RESTART_VMPK = 42;
+
 #endif /*CONSTANTS_H_*/
