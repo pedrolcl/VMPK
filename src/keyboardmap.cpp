@@ -50,7 +50,7 @@ void VMPKKeyboardMap::loadFromXMLFile(const QString fileName)
         m_fileName = fileName;
         initializeFromXML(&f);
         f.close();
-        //qDebug() << "Loaded Map: " << fileName;
+        //qDebug() << "Loaded Map: " << fileName << "count:" << count() << "rawmode:" << m_rawMode;
     }
     if (f.error() != QFile::NoError) {
         reportError(fileName, tr("Error loading a file"), f.errorString());
@@ -77,6 +77,10 @@ void VMPKKeyboardMap::initializeFromXML(QIODevice *dev)
     clear();
     while (!reader.atEnd()) {
         reader.readNext();
+        if (reader.isDTD()) {
+            //qDebug() << "DTD:" << reader.dtdName();
+            m_rawMode = (reader.dtdName() == "rawkeyboardmap");
+        } else
         if (reader.isStartElement()) {
             if (reader.name() == (m_rawMode?"rawkeymap":"keyboardmap")) {
                 reader.readNext();
@@ -166,5 +170,5 @@ void VMPKKeyboardMap::reportError( const QString filename,
                                const QString title,
                                const QString err )
 {
-    QMessageBox::warning(nullptr, title, tr("File: %1\n%2").arg(filename).arg(err));
+    QMessageBox::warning(nullptr, title, tr("File: %1\n%2").arg(filename, err));
 }

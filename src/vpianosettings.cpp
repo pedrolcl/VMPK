@@ -255,7 +255,9 @@ void VPianoSettings::internalRead(QSettings &settings)
     settings.beginGroup(QSTR_KEYBOARD);
     m_rawKeyboard = settings.value(QSTR_RAWKEYBOARDMODE, false).toBool();
     m_mapFile = settings.value(QSTR_MAPFILE, QSTR_DEFAULT).toString();
+    setMapFile(m_mapFile);
     m_rawMapFile = settings.value(QSTR_RAWMAPFILE, QSTR_DEFAULT).toString();
+    setRawMapFile(m_rawMapFile);
     settings.endGroup();
 
     settings.beginGroup(QSTR_SHORTCUTS);
@@ -275,9 +277,6 @@ void VPianoSettings::internalRead(QSettings &settings)
     setNamesAlterations(static_cast<LabelAlteration>(settings.value("namesAlteration", ShowSharps).toInt()));
     setNamesOctave(static_cast<LabelCentralOctave>(settings.value("namesOctave", OctaveC4).toInt()));
     settings.endGroup();
-
-    m_keymap.copyFrom(&g_DefaultKeyMap, false);
-    m_rawmap.copyFrom(&g_DefaultRawKeyMap, true);
 
     emit ValuesChanged();
 }
@@ -353,11 +352,12 @@ QString VPianoSettings::getRawMapFile() const
 void VPianoSettings::setRawMapFile(const QString &rawMapFile)
 {
     QFileInfo f(rawMapFile);
-    if (f.isReadable()) {
+    if (f.isReadable() && (rawMapFile != QSTR_DEFAULT)) {
         m_rawmap.loadFromXMLFile(rawMapFile);
         m_rawMapFile = rawMapFile;
     } else {
         m_rawmap.clear();
+        m_rawmap.copyFrom(&g_DefaultRawKeyMap, true);
         m_rawmap.setFileName(QSTR_DEFAULT);
         m_rawMapFile = QSTR_DEFAULT;
     }
@@ -371,11 +371,12 @@ QString VPianoSettings::getMapFile() const
 void VPianoSettings::setMapFile(const QString &mapFile)
 {
     QFileInfo f(mapFile);
-    if (f.isReadable()) {
+    if (f.isReadable() && (mapFile != QSTR_DEFAULT)) {
         m_keymap.loadFromXMLFile(mapFile);
         m_mapFile = mapFile;
     } else {
         m_keymap.clear();
+        m_keymap.copyFrom(&g_DefaultKeyMap, false);
         m_keymap.setFileName(QSTR_DEFAULT);
         m_mapFile = QSTR_DEFAULT;
     }

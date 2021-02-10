@@ -1,3 +1,6 @@
+2021-02-10
+    * Fix for ticket #68: Keyboard maps not loaded at startup 
+
 2021-02-08
     * RFE #66 Load and save configuration files
     * Updated man page
