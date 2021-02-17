@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
     splash.setFont(sf);
     splash.show();
     splash.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
+    app.processEvents();
 
     if (parser.isSet(portableOption) || parser.isSet(portableFileName)) {
         QString portableFile;
