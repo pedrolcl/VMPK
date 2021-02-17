@@ -88,16 +88,17 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_trq = new QTranslator(this);
     m_trp = new QTranslator(this);
     m_trl = new QTranslator(this);
-    if (!m_trq->load(QSTR_QTPX + VPianoSettings::instance()->language(), VPianoSettings::systemLocales())) {
-        qWarning() << "Failure loading Qt5 system translations for" << VPianoSettings::instance()->language()
+    QString lang = VPianoSettings::instance()->language();
+    if (!m_trq->load(QSTR_QTPX + lang, VPianoSettings::systemLocales()) && !lang.startsWith("en")) {
+        qWarning() << "Failure loading Qt5 system translations for" << lang
                    << "from" << VPianoSettings::systemLocales();
     }
-    if (!m_trp->load(QSTR_VMPKPX + VPianoSettings::instance()->language(), VPianoSettings::localeDirectory())) {
-        qWarning() << "Failure loading VMPK application translations for" << VPianoSettings::instance()->language()
+    if (!m_trp->load(QSTR_VMPKPX + lang, VPianoSettings::localeDirectory()) && !lang.startsWith("en")) {
+        qWarning() << "Failure loading VMPK application translations for" << lang
                    << "from" << VPianoSettings::localeDirectory();
     }
-    if (!m_trl->load(QSTR_DRUMSTICKPX + VPianoSettings::instance()->language(), VPianoSettings::drumstickLocales())) {
-        qWarning() << "Failure loading widgets library translations for" << VPianoSettings::instance()->language()
+    if (!m_trl->load(QSTR_DRUMSTICKPX + lang, VPianoSettings::drumstickLocales()) && !lang.startsWith("en")) {
+        qWarning() << "Failure loading widgets library translations for" << lang
                    << "from" << VPianoSettings::drumstickLocales();
     }
     QCoreApplication::installTranslator(m_trq);
