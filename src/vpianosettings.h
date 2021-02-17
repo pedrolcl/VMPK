@@ -247,7 +247,8 @@ private:
         PianoPalette(PAL_CHANNELS),
         PianoPalette(PAL_SCALE),
         PianoPalette(PAL_KEYS),
-        PianoPalette(PAL_FONT)
+        PianoPalette(PAL_FONT),
+        PianoPalette(PAL_HISCALE)
     };
 
     VMPKKeyboardMap m_keymap;

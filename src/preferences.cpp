@@ -21,7 +21,6 @@
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QFontDialog>
-#include <QDebug>
 
 #include "preferences.h"
 #include "constants.h"
@@ -73,7 +72,7 @@ void Preferences::slotRestoreDefaults()
 {
     ui.spinNumKeys->setValue(DEFAULTNUMBEROFKEYS);
     ui.cboStartingKey->setCurrentIndex( ui.cboStartingKey->findData( DEFAULTSTARTINGKEY ) );
-    ui.cboColorPolicy->setCurrentIndex(PAL_SINGLE);
+    ui.cboColorPolicy->setCurrentIndex(0);
     setInstrumentsFileName(VPianoSettings::dataDirectory() + QSTR_DEFAULTINS);
     ui.cboInstrument->setCurrentIndex(0);
     ui.txtFileKmap->setText(m_mapFile = QSTR_DEFAULT);
@@ -96,8 +95,15 @@ void Preferences::showEvent ( QShowEvent *event )
     if (event->type() == QEvent::Show) {
         ui.spinNumKeys->setValue(VPianoSettings::instance()->numKeys());
         ui.cboStartingKey->setCurrentIndex(ui.cboStartingKey->findData(VPianoSettings::instance()->startingKey()));
-        ui.cboColorPolicy->addItems(VPianoSettings::instance()->availablePaletteNames(true));
-        ui.cboColorPolicy->setCurrentIndex(VPianoSettings::instance()->highlightPaletteId());
+        for(int i=0; i<VPianoSettings::instance()->availablePalettes(); ++i) {
+            PianoPalette p = VPianoSettings::instance()->getPalette(i);
+            if (p.isHighLight()) {
+                ui.cboColorPolicy->addItem(p.paletteName(), p.paletteId());
+                if (p.paletteId() == VPianoSettings::instance()->highlightPaletteId()) {
+                    ui.cboColorPolicy->setCurrentText(p.paletteName());
+                }
+            }
+        }
         setInstrumentsFileName(VPianoSettings::instance()->insFileName());
         ui.cboInstrument->setCurrentText( VPianoSettings::instance()->insName());
         setKeyMapFileName(VPianoSettings::instance()->getMapFile());
@@ -120,7 +126,7 @@ void Preferences::apply()
 {
     VPianoSettings::instance()->setNumKeys(ui.spinNumKeys->value());
     VPianoSettings::instance()->setStartingKey(ui.cboStartingKey->currentData().toInt());
-    VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentIndex());
+    VPianoSettings::instance()->setHighlightPaletteId(ui.cboColorPolicy->currentData().toInt());
     VPianoSettings::instance()->setInstruments(m_insFile, ui.cboInstrument->currentText());
     VPianoSettings::instance()->setMapFile( m_mapFile);
     VPianoSettings::instance()->setRawMapFile( m_rawMapFile );
@@ -157,12 +163,12 @@ void Preferences::slotSelectColor()
 {
     QPointer<ColorDialog> dlgColorPolicy = new ColorDialog(true, this);
     if (dlgColorPolicy != nullptr) {
-        dlgColorPolicy->loadPalette(ui.cboColorPolicy->currentIndex());
+        dlgColorPolicy->loadPalette(ui.cboColorPolicy->currentData().toInt());
         if(dlgColorPolicy->exec() == QDialog::Accepted) {
             int pal = dlgColorPolicy->selectedPalette();
             PianoPalette palette = VPianoSettings::instance()->getPalette(pal);
             if (palette.isHighLight()) {
-                ui.cboColorPolicy->setCurrentIndex(pal);
+                ui.cboColorPolicy->setCurrentText(palette.paletteName());
             }
         }
     }
@@ -177,11 +183,11 @@ void Preferences::setInstrumentsFileName( const QString fileName )
         InstrumentList instruments;
         instruments.load(m_insFile);
         QStringList names;
-        for(const Instrument& i : instruments.values()) {
+        foreach(const Instrument& i, instruments.values()) {
             auto s = i.instrumentName();
-             if (!s.endsWith(QLatin1String("Drums"), Qt::CaseInsensitive)) {
+            if (!s.endsWith(QLatin1String("Drums"), Qt::CaseInsensitive)) {
                 names << s;
-             }
+            }
         }
         ui.txtFileInstrument->setText(f.fileName());
         ui.cboInstrument->clear();

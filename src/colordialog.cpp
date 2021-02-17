@@ -16,10 +16,9 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QColorDialog>
-#include <QSignalMapper>
-#include <QPushButton>
 #include <QDebug>
+#include <QColorDialog>
+#include <QPushButton>
 
 #include "constants.h"
 #include "colorwidget.h"
@@ -34,21 +33,24 @@ ColorDialog::ColorDialog(bool hiliteOnly, QWidget *parent) :
     m_workingPalette(PianoPalette(PAL_SINGLE))
 {
     m_ui->setupUi(this);
-    m_ui->paletteNames->addItems(VPianoSettings::instance()->availablePaletteNames(m_hilite));
-    QSignalMapper *signalMapper = new QSignalMapper(this);
+    for(int i=0; i<VPianoSettings::instance()->availablePalettes(); ++i) {
+        PianoPalette p = VPianoSettings::instance()->getPalette(i);
+        if (m_hilite && !p.isHighLight()) {
+            continue;
+        }
+        m_ui->paletteNames->addItem(p.paletteName(), p.paletteId());
+    }
     for(int i = 0; i < 16; ++i)
     {
         ColorWidget *wdg = new ColorWidget(m_ui->groupBox);
         wdg->setObjectName(QString("widget_%1").arg(i));
         wdg->disable();
-        signalMapper->setMapping(wdg, i);
-        connect(wdg, SIGNAL(clicked()), signalMapper, SLOT(map()));
         m_ui->gridLayout->addWidget(wdg, i / 4, i % 4, 1, 1);
+        connect(wdg, &ColorWidget::clicked, this, [=]{ onAnyColorWidgetClicked(i); });
     }
-    connect(signalMapper, SIGNAL(mapped(int)), SLOT(onAnyColorWidgetClicked(int)));
-    connect(m_ui->paletteNames, SIGNAL(activated(int)), SLOT(loadPalette(int)));
+    connect(m_ui->paletteNames, QOverload<int>::of(&QComboBox::activated), this, [=](int index){ loadPalette(m_ui->paletteNames->itemData(index).toInt()); });
     QPushButton *btnRestoreDefs = m_ui->buttonBox->button(QDialogButtonBox::RestoreDefaults);
-    connect(btnRestoreDefs, SIGNAL(clicked()), SLOT(resetCurrentPalette()));
+    connect(btnRestoreDefs, &QAbstractButton::clicked, this, &ColorDialog::resetCurrentPalette);
 }
 
 ColorDialog::~ColorDialog()
@@ -56,7 +58,8 @@ ColorDialog::~ColorDialog()
     delete m_ui;
 }
 
-void ColorDialog::accept()
+void
+ColorDialog::accept()
 {
     VPianoSettings::instance()->updatePalette(m_workingPalette);
     QDialog::accept();
@@ -108,9 +111,9 @@ ColorDialog::refreshPalette()
 void
 ColorDialog::loadPalette(int i)
 {
-    if (i > -1 && i <  VPianoSettings::instance()->availablePalettes()) {
+    if (i >= PAL_SINGLE && i <= PAL_HISCALE) {
         m_workingPalette = VPianoSettings::instance()->getPalette(i);
-        m_ui->paletteNames->setCurrentIndex(i);
+        m_ui->paletteNames->setCurrentText(m_workingPalette.paletteName());
         refreshPalette();
     }
 }
@@ -133,7 +136,8 @@ ColorDialog::retranslateUi()
     loadPalette(m_workingPalette.paletteId());
 }
 
-int ColorDialog::selectedPalette() const
+int
+ColorDialog::selectedPalette() const
 {
     return m_workingPalette.paletteId();
 }
