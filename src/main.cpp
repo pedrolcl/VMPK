@@ -50,12 +50,10 @@ int main(int argc, char *argv[])
 #endif //Q_OS_LINUX
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(
-        QString("%1 v.%2\n\n%3")
-        .arg(QCoreApplication::applicationName())
-        .arg(QCoreApplication::applicationVersion())
-        .arg(PGM_DESCRIPTION)
-    );
+    parser.setApplicationDescription(QString("%1 v.%2\n\n%3").arg(
+        QCoreApplication::applicationName(),
+        QCoreApplication::applicationVersion(),
+        PGM_DESCRIPTION));
     auto helpOption = parser.addHelpOption();
     auto versionOption = parser.addVersionOption();
     QCommandLineOption portableOption({"p", "portable"}, QCoreApplication::tr("Portable settings mode."));
@@ -68,13 +66,12 @@ int main(int argc, char *argv[])
     }
 
     QPixmap px(":/vpiano/vmpk_splash.png");
-    QSplashScreen s(px);
+    QSplashScreen splash(px);
     QFont sf("Arial", 20, QFont::ExtraBold);
-    s.setFont(sf);
-    s.show();
-    s.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
-    QTimer::singleShot(2500, &s, &QWidget::close);
-    app.processEvents();
+    splash.setFont(sf);
+    splash.show();
+    splash.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
+
     if (parser.isSet(portableOption) || parser.isSet(portableFileName)) {
         QString portableFile;
         if (parser.isSet(portableFileName)) {
@@ -89,8 +86,11 @@ int main(int argc, char *argv[])
     do {
         VPiano w;
         if (w.isInitialized()) {
+            splash.finish(&w);
             w.show();
             result_code = app.exec();
+        } else {
+            splash.close();
         }
     } while (result_code == RESTART_VMPK);
     return result_code;
