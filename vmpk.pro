@@ -13,7 +13,7 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.8.0
+VERSION = 0.8.1
 VER_MAJ = 0
 VER_MIN = 8
 VER_PAT = 0
@@ -24,7 +24,6 @@ QM_FILES_RESOURCE_PREFIX='/'
 
 requires(equals(QT_MAJOR_VERSION, 5))
 
-#lessThan(QT_MAJOR_VERSION, 5) | lessThan(QT_MINOR_VERSION, 1)  {
 equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 1) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
     error("Use Qt 5.1 or newer")

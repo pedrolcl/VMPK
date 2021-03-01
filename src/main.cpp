@@ -70,6 +70,7 @@ int main(int argc, char *argv[])
     QFont sf("Arial", 20, QFont::ExtraBold);
     splash.setFont(sf);
     splash.show();
+    app.processEvents();
     splash.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
     app.processEvents();
 

@@ -1,3 +1,8 @@
+2021-02-17
+    * Implementation of ticket #65 Highlight Color Chromatic scale
+    * Splash time restricted to main window show
+    * avoid initialization messages when loading translations and the language is the default (en)
+
 2021-02-10
     * Fix for ticket #68: Keyboard maps not loaded at startup 
 
