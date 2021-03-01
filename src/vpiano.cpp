@@ -1260,6 +1260,10 @@ void VPiano::applyPreferences()
     ui.actionMouseInput->setChecked(enableMouse);
     ui.actionTouchScreenInput->setChecked(enableTouch);
 
+#if defined(Q_OS_WINDOWS)
+    m_snapper.SetEnabled(VPianoSettings::instance()->getWinSnap());
+#endif
+
     VMPKKeyboardMap* map = VPianoSettings::instance()->getKeyboardMap();
     if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
         ui.pianokeybd->setKeyboardMap(map);
@@ -2205,4 +2209,15 @@ void VPiano::slotSaveConfiguration()
         }
     }
     grabKb();
+}
+
+bool VPiano::nativeEvent(const QByteArray &eventType, void *message, long *result)
+{
+#if defined(Q_OS_WINDOWS)
+    if (VPianoSettings::instance()->getWinSnap() && m_snapper.HandleMessage(message)) {
+        result = 0;
+        return true;
+    }
+#endif
+    return QWidget::nativeEvent(eventType, message, result);
 }

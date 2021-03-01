@@ -63,6 +63,9 @@ Preferences::Preferences(QWidget *parent)
     ui.chkEnableKeyboard->setVisible(false);
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #else
+#if !defined(Q_OS_WINDOWS)
+    ui.chkWinSnap->setVisible(false);
+#endif
     setMinimumSize(480,500);
     adjustSize();
 #endif
@@ -88,6 +91,9 @@ void Preferences::slotRestoreDefaults()
     ui.chkRawKeyboard->setChecked(false);
     ui.chkEnableMouse->setChecked(true);
     ui.chkEnableTouch->setChecked(true);
+#if defined(Q_OS_WINDOWS)
+    ui.chkWinSnap->setEnabled(true);
+#endif
 }
 
 void Preferences::showEvent ( QShowEvent *event )
@@ -119,6 +125,9 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkRawKeyboard->setChecked( VPianoSettings::instance()->rawKeyboard() );
         ui.chkEnableMouse->setChecked( VPianoSettings::instance()->enableMouse() );
         ui.chkEnableTouch->setChecked( VPianoSettings::instance()->enableTouch() );
+#if defined(Q_OS_WINDOWS)
+        ui.chkWinSnap->setChecked( VPianoSettings::instance()->getWinSnap() );
+#endif
     }
 }
 
@@ -140,6 +149,9 @@ void Preferences::apply()
     VPianoSettings::instance()->setRawKeyboard( ui.chkRawKeyboard->isChecked() );
     VPianoSettings::instance()->setEnableMouse( ui.chkEnableMouse->isChecked() );
     VPianoSettings::instance()->setEnableTouch( ui.chkEnableTouch->isChecked() );
+#if defined(Q_OS_WINDOWS)
+    VPianoSettings::instance()->setWinSnap( ui.chkWinSnap->isChecked() );
+#endif
 }
 
 void Preferences::accept()

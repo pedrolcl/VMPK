@@ -159,7 +159,9 @@ void VPianoSettings::ResetDefaults()
     m_enableKeyboard = true;
     m_enableMouse = true;
     m_enableTouch = true;
-
+#if defined(Q_OS_WINDOWS)
+    m_winSnap = true;
+#endif
     emit ValuesChanged();
 }
 
@@ -248,6 +250,9 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_highlightPaletteId = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
     m_colorScale = settings.value(QSTR_SHOWCOLORSCALE, false).toBool();
     m_language = settings.value(QSTR_LANGUAGE, QLocale::system().name()).toString();
+#if defined(Q_OS_WINDOWS)
+    m_winSnap = settings.value(QSTR_WINSNAP, true).toBool();
+#endif
     settings.endGroup();
 
     loadPalettes();
@@ -325,6 +330,9 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.setValue(QSTR_CURRENTPALETTE, m_highlightPaletteId);
     settings.setValue(QSTR_SHOWCOLORSCALE, m_colorScale);
     settings.setValue(QSTR_LANGUAGE, m_language);
+#if defined(Q_OS_WINDOWS)
+    settings.setValue(QSTR_WINSNAP, m_winSnap);
+#endif
     settings.endGroup();
 
     settings.beginGroup(QSTR_KEYBOARD);
@@ -822,6 +830,16 @@ void VPianoSettings::savePalettes()
     for (PianoPalette& pal : m_paletteList) {
         pal.saveColors();
     }
+}
+
+bool VPianoSettings::getWinSnap() const
+{
+    return m_winSnap;
+}
+
+void VPianoSettings::setWinSnap(bool winSnap)
+{
+    m_winSnap = winSnap;
 }
 
 VMPKKeyboardMap *VPianoSettings::getKeyboardMap()

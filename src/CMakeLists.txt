@@ -85,6 +85,12 @@ set(vmpk_SRCS
     ${QT_RES}
 )
 
+if(WIN32)
+    list(APPEND vmpk_SRCS
+        winsnap.cpp
+        winsnap.h)
+endif()
+
 if(ENABLE_DBUS)
     add_definitions(-DENABLE_DBUS)
     qt5_add_dbus_adaptor( vmpk_SRCS
@@ -137,15 +143,23 @@ add_executable (vmpk MACOSX_BUNDLE WIN32
     ${vmpk_RSC}
 )
 
-target_link_libraries(vmpk
+target_link_libraries(vmpk PRIVATE
     Drumstick::RT
     Drumstick::Widgets
     Qt5::Widgets
     $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
-    $<$<PLATFORM_ID:Windows>:winmm>
 )
+
+#$<$<PLATFORM_ID:Windows>:winmm>
+#$<$<BOOL:${WIN32}>:dwmapi>
+
+if (WIN32)
+    target_link_libraries(vmpk PRIVATE
+        winmm
+        dwmapi)
+endif()
 
 if (APPLE)
     target_link_libraries(vmpk "-framework CoreFoundation -framework Cocoa")

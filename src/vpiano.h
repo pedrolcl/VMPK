@@ -25,6 +25,10 @@
 #include "instrument.h"
 #include "ui_vpiano.h"
 
+#if defined(Q_OS_WINDOWS)
+#include "winsnap.h"
+#endif
+
 class QTranslator;
 class QLabel;
 class QComboBox;
@@ -165,6 +169,7 @@ protected:
     void closeEvent ( QCloseEvent *event ) override;
     void showEvent ( QShowEvent *event ) override;
     void hideEvent( QHideEvent *event ) override;
+    bool nativeEvent( const QByteArray &eventType, void *message, long *result ) override;
 
 private:
     void initialization();
@@ -250,6 +255,9 @@ private:
     QTranslator *m_trq, *m_trp, *m_trl;
     QAction *m_currentLang;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
+#if defined(Q_OS_WINDOWS)
+    WinSnap m_snapper;
+#endif
 };
 
 #endif // VPIANO_H

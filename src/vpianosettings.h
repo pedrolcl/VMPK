@@ -111,6 +111,9 @@ public:
     bool enableTouch() const;
     void setEnableTouch(bool enableTouch);
 
+    bool getWinSnap() const;
+    void setWinSnap(bool winSnap);
+
     QString insFileName() const;
     QString insName() const;
     void setInstruments( const QString fileName, const QString name );
@@ -220,6 +223,7 @@ private:
     bool m_enableTouch;
     bool m_showStatusBar;
     bool m_colorScale;
+    bool m_winSnap;
     QString m_insFileName;
     QString m_insName;
     LabelVisibility m_namesVisibility;
