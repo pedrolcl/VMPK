@@ -2191,10 +2191,18 @@ void VPiano::slotSaveConfiguration()
 {
     releaseKb();
     auto configDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save Configuration File"),
-        configDir, tr("Configuration files (*.conf *.ini)"));
-    if (!fileName.isEmpty()) {
-        VPianoSettings::instance()->SaveToFile(fileName);
+    QFileDialog dlg(this);
+    dlg.setNameFilter(tr("Configuration files (*.conf *.ini)"));
+    dlg.setDirectory(configDir);
+    dlg.setWindowTitle(tr("Save Configuration File"));
+    dlg.setDefaultSuffix("conf");
+    dlg.setFileMode(QFileDialog::AnyFile);
+    dlg.setAcceptMode(QFileDialog::AcceptSave);
+    if (dlg.exec() == QDialog::Accepted) {
+        auto selected = dlg.selectedFiles();
+        if (!selected.isEmpty()) {
+            VPianoSettings::instance()->SaveToFile(selected.first());
+        }
     }
     grabKb();
 }
