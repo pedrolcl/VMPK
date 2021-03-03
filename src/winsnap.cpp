@@ -113,7 +113,7 @@ bool WinSnap::HandleEnterSizeMove()
 		if ((styles & WS_CHILD) != 0 || (styles & WS_CAPTION) == 0)
             return true;
 		int extendedStyles = (int) GetWindowLongPtr(windowHandle, GWL_EXSTYLE);
-		if ((extendedStyles & WS_EX_TOOLWINDOW) != 0 || (extendedStyles & WS_EX_NOACTIVATE) != 0)
+        if (/*(extendedStyles & WS_EX_TOOLWINDOW) != 0 ||*/ (extendedStyles & WS_EX_NOACTIVATE) != 0)
             return true;
 		// Ignore the window class 'ApplicationFrameWindow'
 		if (GetClassWord(windowHandle, GCW_ATOM) == 0xC194)

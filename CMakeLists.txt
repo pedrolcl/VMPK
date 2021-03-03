@@ -52,7 +52,7 @@ find_package(Drumstick 2.1 COMPONENTS RT Widgets REQUIRED)
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
      Build configuration: ${CMAKE_BUILD_TYPE}
-     Processor: ${CMAKE_SYSTEM_PROCESSOR}
+     System Processor: ${CMAKE_SYSTEM_PROCESSOR}
      Qt5: ${Qt5_VERSION}
      D-Bus support: ${ENABLE_DBUS}
      Drumstick: ${Drumstick_VERSION}"

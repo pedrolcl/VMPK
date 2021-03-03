@@ -86,9 +86,14 @@ set(vmpk_SRCS
 )
 
 if(WIN32)
-    list(APPEND vmpk_SRCS
-        winsnap.cpp
-        winsnap.h)
+    include(CheckCXXSourceCompiles)
+    check_cxx_source_compiles("#include <Windows.h>
+        int main() { EnumWindows([](HWND, LPARAM) -> BOOL { return true; }, 0); return 0; }"
+        COMPILER_SUPPORTED)
+    if (NOT COMPILER_SUPPORTED)
+        message(FATAL_ERROR "Sorry, your compiler is not supported: ${CMAKE_CXX_COMPILER}")
+    endif()
+    list(APPEND vmpk_SRCS winsnap.cpp winsnap.h)
 endif()
 
 if(ENABLE_DBUS)
