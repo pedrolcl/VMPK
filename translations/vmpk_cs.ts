@@ -13,7 +13,8 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <location filename="../src/about.cpp" line="43"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Qt version: %2 %3&lt;br/&gt;Drumstick version: %4&lt;br/&gt;Build date: %5&lt;br/&gt;Build time: %6&lt;br/&gt;Compiler: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Verze: %1&lt;br/&gt;Verze Qt: %2 %3&lt;br/&gt;Verze Drumstick: %4&lt;br/&gt;Datum sestavení: %5&lt;br/&gt;Čas sestavení: %6&lt;br/&gt;Překladač: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -1066,7 +1067,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.cpp" line="247"/>
         <source>Font to display note names</source>
-        <translation type="unfinished"></translation>
+        <translation>Písmo pro zobrazení názvů not</translation>
     </message>
 </context>
 <context>
@@ -1156,7 +1157,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="331"/>
         <source>Central Octave Naming</source>
-        <translation type="unfinished"></translation>
+        <translation>Pojmenování centrální oktávy</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="408"/>
@@ -1241,22 +1242,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="504"/>
         <source>Sticky Window Snapping (Windows)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přichytávání okna (Windows)</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="168"/>
         <source>C3</source>
-        <translation type="unfinished"></translation>
+        <translation>C3</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="173"/>
         <source>C4</source>
-        <translation type="unfinished"></translation>
+        <translation>C4</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="178"/>
         <source>C5</source>
-        <translation type="unfinished"></translation>
+        <translation>C5</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="278"/>
@@ -1266,12 +1267,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="118"/>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Písmo textu</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="367"/>
         <source>Font...</source>
-        <translation type="unfinished"></translation>
+        <translation>Písmo...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="82"/>
@@ -1337,17 +1338,21 @@ Copyright (C) 2006-2021 Pedro Lopez-Cabanillas
 This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it
 under certain conditions; see the LICENSE for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtual MIDI Piano Keyboard
+Kopírovací právo (C) 2006-2021 Pedro Lopez-Cabanillas
+Tento program je dodáván BEZ ZÁRUKY;
+Toto je svobodný software a můžete jej dále šířit
+za určitých podmínek; podrobnosti viz LICENCE.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="59"/>
         <source>Portable settings mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Režim přenositelného nastavení.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="60"/>
         <source>Portable settings file name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Název souboru přenositelného nastavení.</translation>
     </message>
 </context>
 <context>
@@ -1563,32 +1568,32 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
         <source>Show Note Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázat názvy not</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="119"/>
         <source>Black Keys Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Názvy černých not</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="127"/>
         <source>Names Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Natočení názvů</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="219"/>
         <source>Notes Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Nástrojový pruh s notami</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="247"/>
         <source>Programs Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Nástrojový pruh s programy</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="274"/>
         <source>Controllers Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Nástrojový pruh s ovládacími prvky</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="299"/>
@@ -1599,12 +1604,12 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="302"/>
         <source>Extra Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Nástrojový pruh s dalším nastavením</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="330"/>
         <source>Bender Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Nástrojový pruh s měničem</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="346"/>
@@ -2036,17 +2041,17 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1072"/>
         <source>Show key labels only over C notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisy kláves pouze nad notami C</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1077"/>
         <source>Load Configuration...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrát nastavení...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1082"/>
         <source>Save Configuration...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit nastavení...</translation>
     </message>
     <message>
         <source>Alt+F</source>
@@ -2055,97 +2060,97 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="961"/>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Nikdy</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="964"/>
         <source>Don&apos;t show key labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Nezobrazovat popisy kláves</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="972"/>
         <source>When Activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Při zapnutí</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="975"/>
         <source>Show key labels when notes are activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisy kláves při zapnutí not</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="983"/>
         <source>Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Vždy</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="986"/>
         <source>Show key labels always</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisy kláves vždy</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="997"/>
         <source>Sharps</source>
-        <translation type="unfinished"></translation>
+        <translation>Křížky</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1000"/>
         <source>Display sharps</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit křížky</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1011"/>
         <source>Flats</source>
-        <translation type="unfinished"></translation>
+        <translation>Bé</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1014"/>
         <source>Display flats</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit bé</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1022"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Nic</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1025"/>
         <source>Don&apos;t display labels over black keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Nezobrazovat popisy nad černými klávesami</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1036"/>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Vodorovně</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1039"/>
         <source>Display key labels horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisy kláves vodorovně</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1047"/>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Svisle</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1050"/>
         <source>Display key labels vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisy kláves svisle</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1058"/>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1061"/>
         <source>Display key labels with automatic orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit popisy kláves s automatickým natočením</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1069"/>
         <source>Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>Velmi malé</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="1648"/>
@@ -2310,18 +2315,18 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2185"/>
         <source>Open Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít soubor s nastavením</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2186"/>
         <location filename="../src/vpiano.cpp" line="2199"/>
         <source>Configuration files (*.conf *.ini)</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubory s nastavením (*.conf *.ini)</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2201"/>
         <source>Save Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit soubor s nastavením</translation>
     </message>
 </context>
 </TS>
