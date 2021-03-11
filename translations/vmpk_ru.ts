@@ -13,7 +13,8 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
         <location filename="../src/about.cpp" line="43"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Qt version: %2 %3&lt;br/&gt;Drumstick version: %4&lt;br/&gt;Build date: %5&lt;br/&gt;Build time: %6&lt;br/&gt;Compiler: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Версия: %1&lt;br/&gt;Версия Qt: %2 %3&lt;br/&gt;Версия Drumstick: %4&lt;br/&gt;Дата сборки: %5&lt;br/&gt;Время сборки: %6&lt;br/&gt;Компилятор: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -58,7 +59,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; и другие&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Эта программа — свободное программное обеспечение: вы можете распространять её и/или модифицировать по условиям лицензии GNU General Public License, опубликованной Free Software Foundation, либо по версии 3 лицензии, либо (по вашему выбору) любой более поздней версии.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Эта программа распространяется в надежде, что она будет полезна, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ;  не гарантируется даже, что она ПОДХОДИТ ДЛЯ ЗАЯВЛЕННОЙ ЦЕЛИ. См. подробности в GNU General Public License. Вы должны были получить копию лицензии GNU General Public License вместе с этой программой. Если нет, смотрите &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -161,7 +168,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/extracontrols.ui" line="486"/>
         <location filename="../src/extracontrols.ui" line="521"/>
         <source>Key:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ:</translation>
     </message>
     <message>
         <location filename="../src/extracontrols.ui" line="271"/>
@@ -1060,7 +1067,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.cpp" line="247"/>
         <source>Font to display note names</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт для названий нот</translation>
     </message>
 </context>
 <context>
@@ -1150,7 +1157,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="331"/>
         <source>Central Octave Naming</source>
-        <translation type="unfinished"></translation>
+        <translation>Название центральной октавы</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="408"/>
@@ -1235,22 +1242,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="504"/>
         <source>Sticky Window Snapping (Windows)</source>
-        <translation type="unfinished"></translation>
+        <translation>Липкие окна (Windows)</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="168"/>
         <source>C3</source>
-        <translation type="unfinished"></translation>
+        <translation>C3</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="173"/>
         <source>C4</source>
-        <translation type="unfinished"></translation>
+        <translation>C4</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="178"/>
         <source>C5</source>
-        <translation type="unfinished"></translation>
+        <translation>C5</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="278"/>
@@ -1260,12 +1267,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="118"/>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт текста</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="367"/>
         <source>Font...</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="82"/>
@@ -1331,17 +1338,21 @@ Copyright (C) 2006-2021 Pedro Lopez-Cabanillas
 This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it
 under certain conditions; see the LICENSE for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>Виртуальная MIDI Клавиатура — пианино
+Copyright (C) 2006-2021 Pedro Lopez-Cabanillas
+Эта программа идёт БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ;
+Это свободное программное обеспечение, и вы можете распространять его
+при определённых условиях; смотрите подробности в файле LICENSE.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="59"/>
         <source>Portable settings mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим переносимых настроек.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="60"/>
         <source>Portable settings file name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя файла переносимых настроек.</translation>
     </message>
 </context>
 <context>
@@ -1557,32 +1568,32 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
         <source>Show Note Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать названия нот</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="119"/>
         <source>Black Keys Names</source>
-        <translation type="unfinished"></translation>
+        <translation>Названия черных клавиш</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="127"/>
         <source>Names Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ориентация названий</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="219"/>
         <source>Notes Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления Ноты</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="247"/>
         <source>Programs Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления Программы</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="274"/>
         <source>Controllers Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления Регуляторы</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="299"/>
@@ -1593,12 +1604,12 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="302"/>
         <source>Extra Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления Дополнительно</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="330"/>
         <source>Bender Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления Зажим</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="346"/>
@@ -2030,17 +2041,17 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="1072"/>
         <source>Show key labels only over C notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать метки клавиш только над C</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1077"/>
         <source>Load Configuration...</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить конфигурацию...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1082"/>
         <source>Save Configuration...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить конфигурацию...</translation>
     </message>
     <message>
         <source>Alt+F</source>
@@ -2049,97 +2060,97 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.ui" line="961"/>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Никогда</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="964"/>
         <source>Don&apos;t show key labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Не показывать метки клавиш</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="972"/>
         <source>When Activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Когда активно</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="975"/>
         <source>Show key labels when notes are activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать метки клавиш когда нота активна</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="983"/>
         <source>Always</source>
-        <translation type="unfinished"></translation>
+        <translation>Всегда</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="986"/>
         <source>Show key labels always</source>
-        <translation type="unfinished"></translation>
+        <translation>Всегда показывать метки клавиш</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="997"/>
         <source>Sharps</source>
-        <translation type="unfinished"></translation>
+        <translation>Диезы</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1000"/>
         <source>Display sharps</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать диезы</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1011"/>
         <source>Flats</source>
-        <translation type="unfinished"></translation>
+        <translation>Бемоли</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1014"/>
         <source>Display flats</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать бемоли</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1022"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ничего</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1025"/>
         <source>Don&apos;t display labels over black keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Не показывать метки на чёрных клавишах</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1036"/>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Горизонтально</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1039"/>
         <source>Display key labels horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать метки клавиш горизонтально</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1047"/>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Вертикально</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1050"/>
         <source>Display key labels vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать метки клавиш вертикально</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1058"/>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1061"/>
         <source>Display key labels with automatic orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать метки клавиш в автоматической ориентации</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1069"/>
         <source>Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>Минимально</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="1648"/>
@@ -2304,18 +2315,18 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2185"/>
         <source>Open Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть файл конфигурации</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2186"/>
         <location filename="../src/vpiano.cpp" line="2199"/>
         <source>Configuration files (*.conf *.ini)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы конфигурации (*.conf *.ini)</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2201"/>
         <source>Save Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить файл конфигурации</translation>
     </message>
 </context>
 </TS>

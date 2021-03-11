@@ -2,6 +2,7 @@
 Name=VMPK
 GenericName=Virtual Piano
 GenericName[de]=Virtuelles Piano
+GenericName[ru]=Виртуальное пианино
 Exec=vmpk
 Icon=vmpk
 Terminal=false
