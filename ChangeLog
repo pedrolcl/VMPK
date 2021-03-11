@@ -1,3 +1,12 @@
+2021-03-11
+    * Russian translation update. Thanks to Sergey Basalaev
+
+2021-03-06
+    * Czech translation update. Thanks to Pavel Fric
+
+2021-03-01
+    * Sticky Window Snapping (for Windows OS)
+
 2021-02-17
     * Implementation of ticket #65 Highlight Color Chromatic scale
     * Splash time restricted to main window show

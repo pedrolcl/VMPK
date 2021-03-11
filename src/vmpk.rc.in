@@ -15,7 +15,7 @@ BEGIN
       VALUE "FileVersion", "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@"
       VALUE "Full Version", "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@.0"
       VALUE "InternalName", "VMPK"
-      VALUE "LegalCopyright", "Copyright \251 2008-2020 Pedro Lopez-Cabanillas. Licensed under the terms of the GPL v3 or later"
+      VALUE "LegalCopyright", "Copyright \251 2008-2021 Pedro Lopez-Cabanillas. Licensed under the terms of the GPL v3 or later"
       VALUE "OriginalFilename", "vmpk.exe"
       VALUE "ProductName", "Virtual MIDI Piano Keyboard"
       VALUE "ProductVersion", "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@"

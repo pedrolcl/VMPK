@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020 VMPK Developers -->
+<!-- Copyright 2020-2021 VMPK Developers -->
 <component type="desktop">
  <id>net.sourceforge.VMPK</id>
  <metadata_license>CC0</metadata_license>
@@ -28,6 +28,24 @@
  ​<launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
  <url type="homepage">http://vmpk.sourceforge.net/</url>
  <releases>
+   <release type="stable" version="0.8.1" date="2021-03-20">
+     <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-081-released-/</url>
+     <description>
+       <p>This release implements the following features</p>
+       <ul>
+         <li>ticket #66: Load and save configuration files (file menu options)</li>
+         <li>ticket #65: Highlight Color Chromatic scales</li>
+         <li>Sticky Window Snapping (Windows feature)</li>
+       </ul>
+       <p>and fixes the following tickets</p>
+       <ul>
+         <li>ticket #68: Keyboard maps not loaded at startup</li>
+         <li>Splash closed when main window is shown</li>
+         <li>Hide initialization messages when loading translations and the language is the default (en)</li>
+       </ul>
+       <p>required: drumstick-2.1</p>
+     </description>
+   </release>
    <release type="stable" version="0.8.0" date="2020-12-30">
      <url>https://sourceforge.net/p/vmpk/news/2020/12/virtual-midi-piano-keyboard-080-released-/</url>
      <description>
