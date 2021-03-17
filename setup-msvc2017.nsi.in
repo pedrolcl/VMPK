@@ -8,15 +8,11 @@ RequestExecutionLevel admin
 # Defines
 !define SOURCE_FILES "@CMAKE_SOURCE_DIR@"
 !define BINARY_FILES "@CMAKE_BINARY_DIR@"
-!define FUIDSYNTH_FILES "@FLUIDSYNTH_PREFIX@"
+!define FLUIDSYNTH_FILES "@FLUIDSYNTH_PREFIX@"
 !define DRUMSTICK_FILES "@Drumstick_DIR@"
 !define VERSION @PROJECT_VERSION@
 !define PROGNAME "@PROJECT_NAME@"
-!if "@CMAKE_SYSTEM_PROCESSOR@" == "AMD64"
-!define CPU "x64"
-!else
-!define CPU "x86"
-!endif
+!define CPU "@CMAKE_SYSTEM_PROCESSOR@"
 !define QTFILES "@CMAKE_BINARY_DIR@\src"
 !define QTLANG  "@CMAKE_BINARY_DIR@\src"
 !define VMPKSRC "@CMAKE_SOURCE_DIR@"
@@ -81,13 +77,13 @@ CRCCheck on
 XPStyle on
 ShowInstDetails show
 VIProductVersion @PROJECT_VERSION@.0
-VIAddVersionKey ProductName "@PROJECT_NAME@"
-VIAddVersionKey ProductVersion "${VERSION}"
-VIAddVersionKey CompanyName "${COMPANY}"
-VIAddVersionKey CompanyWebsite "${URL}"
-VIAddVersionKey FileVersion "${VERSION}"
-VIAddVersionKey FileDescription "@PROJECT_DESCRIPTION@"
-VIAddVersionKey LegalCopyright "Copyright (C) 2008-2021 Pedro Lopez-Cabanillas and others"
+VIAddVersionKey /LANG=0 ProductName "@PROJECT_NAME@"
+VIAddVersionKey /LANG=0 ProductVersion "${VERSION}"
+VIAddVersionKey /LANG=0 CompanyName "${COMPANY}"
+VIAddVersionKey /LANG=0 CompanyWebsite "${URL}"
+VIAddVersionKey /LANG=0 FileVersion "${VERSION}"
+VIAddVersionKey /LANG=0 FileDescription "@PROJECT_DESCRIPTION@"
+VIAddVersionKey /LANG=0 LegalCopyright "Copyright (C) 2008-2021 Pedro Lopez-Cabanillas and others"
 InstallDirRegKey HKLM "${REGKEY}" Path
 ShowUninstDetails show
 Icon ${VMPKSRC}\src\vmpk.ico
@@ -171,7 +167,18 @@ Section -Main SEC0000
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-net-out.dll $INSTDIR\drumstick2\drumstick-rt-net-out.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-win-in.dll $INSTDIR\drumstick2\drumstick-rt-win-in.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-win-out.dll $INSTDIR\drumstick2\drumstick-rt-win-out.dll $INSTDIR
-
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-fluidsynth.dll $INSTDIR\drumstick2\drumstick-rt-fluidsynth.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libfluidsynth-2.dll $INSTDIR\libfluidsynth-2.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libglib-2.0-0.dll $INSTDIR\libglib-2.0-0.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libgobject-2.0-0.dll $INSTDIR\libgobject-2.0-0.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libgthread-2.0-0.dll $INSTDIR\libgthread-2.0-0.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libinstpatch-2.dll $INSTDIR\libinstpatch-2.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libsndfile-1.dll $INSTDIR\libsndfile-1.dll $INSTDIR
+!If ${CPU} == "x86"
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\intl.dll $INSTDIR\intl.dll $INSTDIR
+!Else
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libintl-8.dll $INSTDIR\libintl-8.dll $INSTDIR
+!EndIf
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
 
@@ -282,6 +289,19 @@ Section /o -un.Main UNSEC0000
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-net-out.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-win-in.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-win-out.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-fluidsynth.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libfluidsynth-2.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libglib-2.0-0.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libgobject-2.0-0.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libgthread-2.0-0.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libinstpatch-2.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libsndfile-1.dll
+!If ${CPU} == "x86"
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl.dll
+!Else
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libintl-8.dll
+!EndIf
+
     RMDir /REBOOTOK $INSTDIR\translations
     RMDir /REBOOTOK $INSTDIR\styles
     RMDir /REBOOTOK $INSTDIR\platforms

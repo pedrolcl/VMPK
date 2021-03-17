@@ -46,6 +46,12 @@ endif()
 #    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 #endif()
 
+# CMAKE_SYSTEM_PROCESSOR is broken on Windows with MSVC
+# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2021/03
+if(MSVC)
+    string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
+endif()
+
 find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
 find_package(Drumstick 2.1 COMPONENTS RT Widgets REQUIRED)
 
