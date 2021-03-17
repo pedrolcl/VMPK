@@ -52,6 +52,7 @@ find_package(Drumstick 2.1 COMPONENTS RT Widgets REQUIRED)
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
      Build configuration: ${CMAKE_BUILD_TYPE}
+     Operating System: ${CMAKE_SYSTEM_NAME}
      System Processor: ${CMAKE_SYSTEM_PROCESSOR}
      Qt5: ${Qt5_VERSION}
      D-Bus support: ${ENABLE_DBUS}
@@ -182,6 +183,9 @@ if(WIN32)
 			 DESTINATION .)
     install (FILES ${vmpk_DATA_FILES}
              DESTINATION .)
+	set(FLUIDSYNTH_PREFIX $ENV{FLUIDSYNTH})
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2017.nsi.in
+        ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2017.nsi IMMEDIATE @ONLY)
 endif()
 
 # CPack support
