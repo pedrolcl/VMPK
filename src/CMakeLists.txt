@@ -167,7 +167,7 @@ if (WIN32)
 endif()
 
 if (APPLE)
-    target_link_libraries(vmpk "-framework CoreFoundation -framework Cocoa")
+    target_link_libraries(vmpk PRIVATE "-framework CoreFoundation -framework Cocoa")
 endif()
 
 target_include_directories(vmpk PUBLIC
