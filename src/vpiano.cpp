@@ -241,6 +241,7 @@ bool VPiano::initMidi()
     SettingsFactory settings;
 
     if (m_midiin != nullptr) {
+        connectMidiInSignals();
         if (!VPianoSettings::instance()->lastInputConnection().isEmpty()) {
             m_midiin->initialize(settings.getQSettings());
             for(const MIDIConnection& conn : m_midiin->connections()) {
@@ -801,6 +802,8 @@ QColor VPiano::getHighlightColorFromPolicy(const int chan, const int note, const
         return palette.getColor(getType(note));
     case PAL_CHANNELS:
         return palette.getColor(chan);
+    case PAL_HISCALE:
+        return palette.getColor(getDegree(note));
     default:
         break;
     }
@@ -1157,6 +1160,19 @@ void VPiano::slotAboutQt()
     grabKb();
 }
 
+void VPiano::connectMidiInSignals()
+{
+    if (m_midiin != nullptr) {
+        connect(m_midiin, &MIDIInput::midiNoteOn, this, &VPiano::slotNoteOn, Qt::QueuedConnection);
+        connect(m_midiin, &MIDIInput::midiNoteOff, this, &VPiano::slotNoteOff, Qt::QueuedConnection);
+        connect(m_midiin, &MIDIInput::midiKeyPressure, this, &VPiano::slotKeyPressure, Qt::QueuedConnection);
+        connect(m_midiin, &MIDIInput::midiChannelPressure, this, &VPiano::slotChannelPressure, Qt::QueuedConnection);
+        connect(m_midiin, &MIDIInput::midiController, this, &VPiano::slotController, Qt::QueuedConnection);
+        connect(m_midiin, &MIDIInput::midiProgram, this, &VPiano::slotProgram, Qt::QueuedConnection);
+        connect(m_midiin, &MIDIInput::midiPitchBend, this, &VPiano::slotPitchBend, Qt::QueuedConnection);
+    }
+}
+
 void VPiano::slotConnections()
 {
     QPointer<MidiSetup> dlgMidiSetup = new MidiSetup(this);
@@ -1173,19 +1189,9 @@ void VPiano::slotConnections()
         if (m_midiout != nullptr) {
             m_midiout->disconnect();
         }
-
         m_midiin = dlgMidiSetup->getInput();
         m_midiout = dlgMidiSetup->getOutput();
-
-        if (m_midiin != nullptr) {
-            connect(m_midiin, SIGNAL(midiNoteOn(int,int,int)), SLOT(slotNoteOn(int,int,int)), Qt::QueuedConnection);
-            connect(m_midiin, SIGNAL(midiNoteOff(int,int,int)), SLOT(slotNoteOff(int,int,int)), Qt::QueuedConnection);
-            connect(m_midiin, SIGNAL(midiKeyPressure(int,int,int)), SLOT(slotKeyPressure(int,int,int)), Qt::QueuedConnection);
-            connect(m_midiin, SIGNAL(midiChannelPressure(int,int)), SLOT(slotChannelPressure(int,int)), Qt::QueuedConnection);
-            connect(m_midiin, SIGNAL(midiController(int,int,int)), SLOT(slotController(int,int,int)), Qt::QueuedConnection);
-            connect(m_midiin, SIGNAL(midiProgram(int,int)), SLOT(slotProgram(int,int)), Qt::QueuedConnection);
-            connect(m_midiin, SIGNAL(midiPitchBend(int,int)), SLOT(slotPitchBend(int,int)), Qt::QueuedConnection);
-        }
+        connectMidiInSignals();
         enforceMIDIChannelState();
     }
     grabKb();

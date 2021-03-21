@@ -258,6 +258,7 @@ private:
 #if defined(Q_OS_WINDOWS)
     WinSnap m_snapper;
 #endif
+    void connectMidiInSignals();
 };
 
 #endif // VPIANO_H
