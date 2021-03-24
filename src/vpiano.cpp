@@ -574,8 +574,6 @@ void VPiano::initExtraControllers()
 void VPiano::readSettings()
 {
     VPianoSettings::instance()->retranslatePalettes();
-    restoreGeometry(VPianoSettings::instance()->geometry());
-    restoreState(VPianoSettings::instance()->state());
 
     ui.actionStatusBar->setChecked(VPianoSettings::instance()->showStatusBar());
     ui.statusBar->setVisible(VPianoSettings::instance()->showStatusBar());
@@ -771,7 +769,7 @@ void VPiano::writeSettings()
 
 void VPiano::closeEvent( QCloseEvent *event )
 {
-    //qDebug() << "closeEvent:" << event->type();
+    //qDebug() << Q_FUNC_INFO;
     if (m_initialized) {
         writeSettings();
     }
@@ -910,7 +908,17 @@ void VPiano::slotPitchBend(const int chan, const int value)
 
 void VPiano::showEvent ( QShowEvent *event )
 {
-    //qDebug() << "showEvent:" << event->type();
+    static bool firstTime{true};
+    //qDebug() << Q_FUNC_INFO << firstTime;
+    if (firstTime) {
+        if (!restoreGeometry(VPianoSettings::instance()->geometry())) {
+            qWarning() << "restoreGeometry() failed!";
+        }
+        if (!restoreState(VPianoSettings::instance()->state())) {
+            qWarning() << "restoreState() failed!";
+        }
+        firstTime = false;
+    }
     QMainWindow::showEvent(event);
 #if !defined(SMALL_SCREEN)
     if (m_initialized) {
