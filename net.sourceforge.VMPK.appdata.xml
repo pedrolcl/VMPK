@@ -28,6 +28,18 @@
  ​<launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
  <url type="homepage">https://vmpk.sourceforge.io/</url>
  <releases>
+   <release type="stable" version="0.8.2" date="2021-03-30">
+     <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-082-released-/</url>
+     <description>
+       <p>This release fixes the following tickets</p>
+       <ul>
+         <li>ticket #70: Note highlighting does not respond to MIDI input events at startup</li>
+         <li>ticket #72: The window no longer remembers its size</li>
+         <li>drumstick ticket #28: highlight color is wrong unless velocity tint is active</li>
+       </ul>
+       <p>required: drumstick-2.1.1</p>
+     </description>
+   </release>
    <release type="stable" version="0.8.1" date="2021-03-20">
      <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-081-released-/</url>
      <description>
