@@ -1,3 +1,9 @@
+2021-03-24
+    * fix for ticket #72: The window no longer remembers its size
+
+2021-03-21
+    * fix for ticket #70: Note highlighting does not respond to MIDI input events at startup
+
 2021-03-20
     * Release 0.8.1
 

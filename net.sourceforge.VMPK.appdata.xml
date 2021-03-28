@@ -26,7 +26,7 @@
  <translation type="qt">vmpk</translation>
  <content_rating type="oars-1.1" />
  ​<launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
- <url type="homepage">http://vmpk.sourceforge.net/</url>
+ <url type="homepage">https://vmpk.sourceforge.io/</url>
  <releases>
    <release type="stable" version="0.8.1" date="2021-03-20">
      <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-081-released-/</url>

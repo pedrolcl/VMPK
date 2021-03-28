@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.9)
 
 project(VMPK
-        VERSION 0.8.1
+        VERSION 0.8.2
         DESCRIPTION "Virtual MIDI Piano Keyboard"
         LANGUAGES CXX
 )
@@ -60,9 +60,9 @@ message (STATUS "VMPK v${PROJECT_VERSION}
      Build configuration: ${CMAKE_BUILD_TYPE}
      Operating System: ${CMAKE_SYSTEM_NAME}
      System Processor: ${CMAKE_SYSTEM_PROCESSOR}
-     Qt5: ${Qt5_VERSION}
+     Qt5 Version: ${Qt5_VERSION}
      D-Bus support: ${ENABLE_DBUS}
-     Drumstick: ${Drumstick_VERSION}"
+     Drumstick Version: ${Drumstick_VERSION}"
 )
 
 if (ENABLE_DBUS)
