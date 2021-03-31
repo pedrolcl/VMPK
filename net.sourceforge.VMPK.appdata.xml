@@ -25,10 +25,10 @@
  </screenshots>
  <translation type="qt">vmpk</translation>
  <content_rating type="oars-1.1" />
- ​<launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
+ <launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
  <url type="homepage">https://vmpk.sourceforge.io/</url>
  <releases>
-   <release type="stable" version="0.8.2" date="2021-03-30">
+   <release type="stable" version="0.8.2" date="2021-03-31">
      <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-082-released-/</url>
      <description>
        <p>This release fixes the following tickets</p>

@@ -18,7 +18,7 @@
 <!--**********************************************************************-->
 
 <refentry>
-    
+
     <refentryinfo>
         <author>
             <firstname>Mehdi</firstname>
@@ -40,36 +40,35 @@
             <year>2010-2021</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
-        <date>March 20, 2021</date>
+        <date>March 31, 2021</date>
     </refentryinfo>
-    
+
     <refmeta>
         <refentrytitle>vmpk</refentrytitle>
         <manvolnum>1</manvolnum>
-        <refmiscinfo class="version">0.8.1</refmiscinfo>
+        <refmiscinfo class="version">0.8.2</refmiscinfo>
         <refmiscinfo class="software">vmpk</refmiscinfo>
         <refmiscinfo class="manual">User Commands</refmiscinfo>
     </refmeta>
-    
+
     <refnamediv>
         <refname>&dhprg;</refname>
         <refpurpose>Virtual MIDI Piano Keyboard</refpurpose>
     </refnamediv>
-    
+
     <refsynopsisdiv>
         <cmdsynopsis>
             &dhprg; 
             <arg choice="opt">options...</arg>
         </cmdsynopsis>
     </refsynopsisdiv>
-    
     <refsect1>
         <title>DESCRIPTION</title>
-        
+
         <para>This manual page documents briefly the &dhprg; program.</para>
-        
+
         <para>This program uses standard Qt5 options.</para>
-        
+
         <para>Virtual MIDI Piano Keyboard is a MIDI events generator and
             receiver. It doesn&apos;t produce any sound by itself, but can be used to
             drive a MIDI synthesizer (either hardware or software, internal or
@@ -79,8 +78,7 @@
             player.
         </para>
     </refsect1>
-    
-    
+
     <refsect1>
         <title>vmpk Options</title>
         <para>The following options apply to &dhprg; only:</para>
@@ -129,7 +127,7 @@
                         option.</para>
                 </listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-stylesheet=</option> <replaceable>stylesheet</replaceable> / 
@@ -140,7 +138,7 @@
                         the Style Sheet.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-widgetcount</option>
@@ -150,7 +148,7 @@
                         maximum number of widgets existed at the same time.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-reverse</option>
@@ -163,7 +161,7 @@
                         locale (see also <methodname>QLocale::textDirection()</methodname>).
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-platform</option> <replaceable>platformName[:options]</replaceable>
@@ -172,7 +170,7 @@
                         Specify the Qt Platform Abstraction (QPA) plugin.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-platformpluginpath</option> <replaceable>path</replaceable>
@@ -181,7 +179,7 @@
                         Specify the path to platform plugins.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-platformtheme</option> <replaceable>platformTheme</replaceable>
@@ -190,7 +188,7 @@
                         Specify the platform theme.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-plugin</option> <replaceable>plugin</replaceable>
@@ -199,7 +197,7 @@
                         Specify additional plugins to load. The argument may appear multiple times.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-qwindowgeometry</option> <replaceable>geometry</replaceable>
@@ -209,7 +207,7 @@
                         example: -qwindowgeometry 100x100+50+50
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-qwindowicon</option> <replaceable>icon</replaceable>
@@ -218,7 +216,7 @@
                         Set the default window icon.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-qwindowtitle</option> <replaceable>title</replaceable>
@@ -227,7 +225,7 @@
                         Set the title of the first window.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-session</option> <replaceable>session</replaceable>
@@ -236,7 +234,7 @@
                         Restore the application from an earlier session.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-display</option> <replaceable>hostname:screen_number</replaceable>
@@ -246,7 +244,7 @@
                         variable.
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-geometry</option> <replaceable>geometry</replaceable>
@@ -256,7 +254,7 @@
                         100x100+50+50
                         </para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-dialogs=</option> <replaceable>[xp|none]</replaceable>
@@ -265,7 +263,7 @@
                         Only available for the Windows platform.
                         XP uses native style dialogs and none disables them.</para></listitem>
             </varlistentry>
-            
+
             <varlistentry>
                 <term>
                     <option>-fontengine=</option> <replaceable>freetype</replaceable>
@@ -274,15 +272,15 @@
                         Use the FreeType font engine.
                         </para></listitem>
             </varlistentry>
-            
+
         </variablelist>
     </refsect1>
-    
+
     <refsect1>
         <title>See Also</title>
         <para>qt5options (7)</para>
     </refsect1>
-    
+
     <refsect1>
         <title>LICENSE</title>
         <para>
@@ -306,5 +304,5 @@
             Software Foundation; considering as source code all the file that
             enable the production of this manpage.</para>
     </refsect1>
-    
+
 </refentry>
