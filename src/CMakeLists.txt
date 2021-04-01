@@ -174,12 +174,17 @@ target_include_directories(vmpk PUBLIC
     $<$<BOOL:${XCB_FOUND}>:${XCB_INCLUDE_DIRS}>
 )
 
-target_compile_definitions(vmpk PUBLIC
+target_compile_definitions ( vmpk PUBLIC
     VERSION=${PROJECT_VERSION}
     RAWKBD_SUPPORT
     PALETTE_SUPPORT
     $<$<BOOL:${ENABLE_DBUS}>:ENABLE_DBUS>
 )
+
+if (DEFINED PROJECT_WC_REVISION)
+    target_compile_definitions ( vmpk PRIVATE
+        REVISION=${PROJECT_WC_REVISION} )
+endif()
 
 target_compile_definitions(vmpk PRIVATE
     $<$<BOOL:${EMBED_TRANSLATIONS}>:TRANSLATIONS_EMBEDDED>

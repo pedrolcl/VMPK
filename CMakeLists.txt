@@ -14,12 +14,14 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.14)
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.12" CACHE STRING "Minimum OS X deployment version")
 
-project(VMPK
-        VERSION 0.8.2
-        DESCRIPTION "Virtual MIDI Piano Keyboard"
-        LANGUAGES CXX
+project( VMPK
+    VERSION 0.8.3
+    LANGUAGES CXX
+    DESCRIPTION "Virtual MIDI Piano Keyboard"
+    HOMEPAGE_URL "https://vmpk.sourceforge.io/"
 )
 
 set(DBUS_INIT OFF)
@@ -30,6 +32,7 @@ option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 option(EMBED_TRANSLATIONS "Embed translations instead of installing" OFF)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
+include(SCMRevision)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -60,8 +63,8 @@ message (STATUS "VMPK v${PROJECT_VERSION}
      Build configuration: ${CMAKE_BUILD_TYPE}
      Operating System: ${CMAKE_SYSTEM_NAME}
      System Processor: ${CMAKE_SYSTEM_PROCESSOR}
-     Qt5 Version: ${Qt5_VERSION}
      D-Bus support: ${ENABLE_DBUS}
+     Qt5 Version: ${Qt5_VERSION}
      Drumstick Version: ${Drumstick_VERSION}"
 )
 
@@ -83,20 +86,10 @@ if (UNIX AND NOT APPLE)
     endif()
 endif()
 
-include(GNUInstallDirs)
-
 add_subdirectory(src)
-if (NOT EMBED_TRABSLATIONS)
+if (NOT EMBED_TRANSLATIONS)
     add_subdirectory(translations)
 endif()
-
-# uninstall custom target
-configure_file(
-    "${CMAKE_SOURCE_DIR}/cmake_admin/cmake_uninstall.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-    IMMEDIATE @ONLY)
-add_custom_target( uninstall
-    "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
 set(vmpk_DATA_FILES
     data/gmgsxg.ins
@@ -124,7 +117,6 @@ set(vmpk_DATA_FILES
     #data/help_de.html
     #data/help_fr.html
     #data/help_nl.html
-    #data/help_ru.html
 
 if(UNIX)
     add_custom_target (tarball
@@ -146,8 +138,11 @@ if(UNIX)
 endif ()
 
 if(UNIX AND NOT APPLE)
-    configure_file(vmpk.spec.in vmpk.spec IMMEDIATE @ONLY)
+    include(GNUInstallDirs)
 
+    configure_file ( vmpk.spec.in
+        ${CMAKE_CURRENT_BINARY_DIR}/vmpk.spec
+        IMMEDIATE @ONLY )
     add_subdirectory (man)
 
     install (FILES ${vmpk_DATA_FILES}
@@ -181,6 +176,14 @@ if(UNIX AND NOT APPLE)
 
     install (FILES net.sourceforge.VMPK.appdata.xml
              DESTINATION share/metainfo )
+
+     # uninstall custom target
+     configure_file(
+         "${CMAKE_SOURCE_DIR}/cmake_admin/cmake_uninstall.cmake.in"
+         "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+         IMMEDIATE @ONLY)
+     add_custom_target( uninstall
+         "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 endif ()
 
 if(WIN32)

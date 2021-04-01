@@ -39,6 +39,11 @@ About::About(QWidget *parent)
 
 void About::retranslateUi()
 {
+    QString strver = PGM_VERSION;
+#ifdef REVISION
+    strver.append(" r");
+    strver.append(QT_STRINGIFY(REVISION));
+#endif
     ui.retranslateUi(this);
     ui.labelVersion->setText(tr("<html>"
             "<head>"
@@ -55,7 +60,7 @@ void About::retranslateUi()
                 "Compiler: %7"
               "</p>"
             "</body>"
-            "</html>").arg(PGM_VERSION,
+            "</html>").arg(strver,
                            qVersion(),
                            QSysInfo::buildCpuArchitecture(),
                            drumstick::widgets::libraryVersion(),
