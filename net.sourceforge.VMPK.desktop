@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=VMPK
 GenericName=Virtual Piano
+GenericName[es]=Piano virtual
 GenericName[de]=Virtuelles Piano
 GenericName[ru]=Виртуальное пианино
 Exec=vmpk
@@ -8,7 +9,7 @@ Icon=vmpk
 Terminal=false
 Type=Application
 Categories=AudioVideo;Audio;Midi;Education;Music;
-Keywords=Audio;Midi;Music;Keyboard;Piano;
+Keywords=Virtual;Midi;Controller;Music;Keyboard;Piano;
 Comment=Virtual MIDI Piano Keyboard
 Comment[es]=Teclado de piano MIDI virtual 
 Comment[ru]=Виртуальная MIDI Клавиатура-пианино

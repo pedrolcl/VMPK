@@ -17,7 +17,13 @@
      instrument or MIDI file player.
    </p>
  </description>
+ <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+ </recommends>
  <screenshots>
+  <!--TODO: pending better screenshots-->
   <screenshot type="default">
    <image>http://vmpk.sourceforge.net/images/vmpk_605x334.png</image>
    <caption>The VMPK window</caption>
