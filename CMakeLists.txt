@@ -30,6 +30,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 endif()
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 option(EMBED_TRANSLATIONS "Embed translations instead of installing" OFF)
+option(BUILD_DOCS "Build man page" ON)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 include(SCMRevision)
@@ -84,6 +85,7 @@ if (UNIX AND NOT APPLE)
     if(XCB_FOUND)
         message(STATUS "Found XCB development libs v${XCB_VERSION}")
     endif()
+    include(GNUInstallDirs)
 endif()
 
 add_subdirectory(src)
@@ -138,44 +140,42 @@ if(UNIX)
 endif ()
 
 if(UNIX AND NOT APPLE)
-    include(GNUInstallDirs)
-
     configure_file ( vmpk.spec.in
         ${CMAKE_CURRENT_BINARY_DIR}/vmpk.spec
         IMMEDIATE @ONLY )
     add_subdirectory (man)
 
     install (FILES ${vmpk_DATA_FILES}
-             DESTINATION share/vmpk )
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/vmpk )
 
     install (FILES data/vmpk_16x16.png
-             DESTINATION share/icons/hicolor/16x16/apps
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/16x16/apps
              RENAME vmpk.png)
 
     install (FILES data/vmpk_32x32.png
-             DESTINATION share/icons/hicolor/32x32/apps
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/32x32/apps
              RENAME vmpk.png)
 
     install (FILES data/vmpk_48x48.png
-             DESTINATION share/icons/hicolor/48x48/apps
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/48x48/apps
              RENAME vmpk.png)
 
     install (FILES data/vmpk_64x64.png
-             DESTINATION share/icons/hicolor/64x64/apps
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/64x64/apps
              RENAME vmpk.png)
 
     install (FILES data/vmpk_128x128.png
-             DESTINATION share/icons/hicolor/128x128/apps
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/128x128/apps
              RENAME vmpk.png)
 
     install (FILES data/vmpk.svgz
-             DESTINATION share/icons/hicolor/scalable/apps )
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps )
 
     install (FILES net.sourceforge.VMPK.desktop
-             DESTINATION share/applications )
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/applications )
 
     install (FILES net.sourceforge.VMPK.appdata.xml
-             DESTINATION share/metainfo )
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo )
 
      # uninstall custom target
      configure_file(

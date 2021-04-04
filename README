@@ -118,6 +118,10 @@ $ cmake . -DCMAKE_INSTALL_PREFIX=/usr
 
 Other optional configuration options are:
 * ENABLE_DBUS: activates the DBus interface, enabled on Linux by default.
+* EMBED_TRANSLATIONS: include translations inside the executable as resources.
+This option is OFF by default. Useful for portable builds.
+* BUILD_DOCS: create the man page from XML sources (ON by default). If OFF,
+then a pre-built man page included in the source tarball is installed.
 
 example:
 $ cmake . -DENABLE_DBUS=No

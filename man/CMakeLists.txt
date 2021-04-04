@@ -14,11 +14,14 @@
 # You should have received a copy of the GNU General Public License along 
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
-find_program(XSLTPROC_EXECUTABLE xsltproc)
-if(XSLTPROC_EXECUTABLE)
+if (BUILD_DOCS)
+    find_program(XSLTPROC_EXECUTABLE xsltproc)
+endif()
+
+if (XSLTPROC_EXECUTABLE)
     message(STATUS "XSLTPROC Found: ${XSLTPROC_EXECUTABLE}")
     include(CreateManpages)
     create_manpages(vmpk.xml)
 else()
-    install( FILES vmpk.1 DESTINATION share/man/man1 )
+    install( FILES vmpk.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1 )
 endif()
