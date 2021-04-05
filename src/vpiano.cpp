@@ -38,7 +38,6 @@
 #include <QTranslator>
 #include <QMapIterator>
 #include <QShortcut>
-//#include <QDebug>
 
 #include <drumstick/backendmanager.h>
 #include <drumstick/rtmidiinput.h>
@@ -2245,6 +2244,7 @@ bool VPiano::nativeEvent(const QByteArray &eventType, void *message, long *resul
 
 void VPiano::changeEvent(QEvent *event)
 {
+#if defined(Q_OS_WINDOWS)
     if (event->type() == QEvent::PaletteChange) {
         foreach(QToolBar *tb, findChildren<QToolBar*>()) {
             foreach(QComboBox *cb, tb->findChildren<QComboBox*>()) {
@@ -2256,5 +2256,6 @@ void VPiano::changeEvent(QEvent *event)
             }
         }
     }
+#endif
     QMainWindow::changeEvent(event);
 }

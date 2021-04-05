@@ -1,3 +1,15 @@
+2021-04-05
+    * Fixed URLs (GH ticket #2, Thanks to Darío Hereñú)
+    * Fusion style assigned by default (can be changed by the std. command line option)
+    * New settings option: forced dark mode
+
+2021-04-04
+    * Revised GNUInstallDirs usage. New option: BUILD_DOCS
+
+2021-04-02
+    * Desktop file updated
+    * AppStream Metadata updated
+
 2021-04-01
     * added SCM Revision to the about box
 

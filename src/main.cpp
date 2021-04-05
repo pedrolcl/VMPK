@@ -44,7 +44,9 @@ int main(int argc, char *argv[])
 #endif
     QCoreApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
     QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
+#if defined(Q_OS_WINDOWS)
     QApplication::setStyle("fusion");
+#endif
     QApplication app(argc, argv);
 #if defined(Q_OS_LINUX)
     app.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));

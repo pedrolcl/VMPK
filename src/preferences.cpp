@@ -65,6 +65,7 @@ Preferences::Preferences(QWidget *parent)
 #else
 #if !defined(Q_OS_WINDOWS)
     ui.chkWinSnap->setVisible(false);
+    //ui.chkDarkMode->setVisible(false);
 #endif
     setMinimumSize(480,500);
     adjustSize();
