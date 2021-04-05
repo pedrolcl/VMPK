@@ -38,7 +38,7 @@
 #include <QTranslator>
 #include <QMapIterator>
 #include <QShortcut>
-#include <QDebug>
+//#include <QDebug>
 
 #include <drumstick/backendmanager.h>
 #include <drumstick/rtmidiinput.h>
@@ -342,7 +342,8 @@ void VPiano::initToolBars()
     ui.toolBarControllers->addWidget(m_lblControl);
     m_lblControl ->setMargin(TOOLBARLABELMARGIN);
     m_comboControl = new QComboBox(this);
-    m_comboControl->setStyleSheet("combobox-popup: 0;");
+    m_comboControl->setObjectName("cboControl");
+    //m_comboControl->setStyleSheet("combobox-popup: 0;");
     m_comboControl->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboControl->setFocusPolicy(Qt::NoFocus);
     ui.toolBarControllers->addWidget(m_comboControl);
@@ -383,14 +384,16 @@ void VPiano::initToolBars()
     ui.toolBarPrograms->addWidget(m_lblBank);
     m_lblBank->setMargin(TOOLBARLABELMARGIN);
     m_comboBank = new QComboBox(this);
+    m_comboBank->setObjectName("cboBank");
     m_comboBank->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    m_comboBank->setStyleSheet("combobox-popup: 0;");
+    //m_comboBank->setStyleSheet("combobox-popup: 0;");
     m_comboBank->setFocusPolicy(Qt::NoFocus);
     ui.toolBarPrograms->addWidget(m_comboBank);
     m_lblProgram = new QLabel(this);
     ui.toolBarPrograms->addWidget(m_lblProgram);
     m_lblProgram->setMargin(TOOLBARLABELMARGIN);
     m_comboProg = new QComboBox(this);
+    m_comboProg->setObjectName("cboProg");
     m_comboProg->setStyleSheet("combobox-popup: 0;");
     m_comboProg->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboProg->setFocusPolicy(Qt::NoFocus);
@@ -1250,6 +1253,9 @@ void VPiano::populateControllers()
 
 void VPiano::applyPreferences()
 {
+    static QPalette defaultPalette = qApp->palette();
+    static QPalette darkPalette(QColor(0x30,0x30,0x30));
+
     ui.pianokeybd->allKeysOff();
     ui.pianokeybd->setFont(VPianoSettings::instance()->namesFont());
     ui.pianokeybd->setLabelOctave(VPianoSettings::instance()->namesOctave());
@@ -1277,6 +1283,7 @@ void VPiano::applyPreferences()
 #if defined(Q_OS_WINDOWS)
     m_snapper.SetEnabled(VPianoSettings::instance()->getWinSnap());
 #endif
+    qApp->setPalette( VPianoSettings::instance()->getDarkMode() ? darkPalette : defaultPalette );
 
     VMPKKeyboardMap* map = VPianoSettings::instance()->getKeyboardMap();
     if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
@@ -2234,4 +2241,20 @@ bool VPiano::nativeEvent(const QByteArray &eventType, void *message, long *resul
     }
 #endif
     return QWidget::nativeEvent(eventType, message, result);
+}
+
+void VPiano::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::PaletteChange) {
+        foreach(QToolBar *tb, findChildren<QToolBar*>()) {
+            foreach(QComboBox *cb, tb->findChildren<QComboBox*>()) {
+                cb->setPalette(qApp->palette());
+                foreach(QWidget *w, cb->findChildren<QWidget*>()) {
+                    w->setPalette(qApp->palette());
+                }
+                //qDebug() << cb;
+            }
+        }
+    }
+    QMainWindow::changeEvent(event);
 }

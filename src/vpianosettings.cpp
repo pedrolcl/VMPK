@@ -253,6 +253,7 @@ void VPianoSettings::internalRead(QSettings &settings)
 #if defined(Q_OS_WINDOWS)
     m_winSnap = settings.value(QSTR_WINSNAP, true).toBool();
 #endif
+    m_darkMode = settings.value(QSTR_DARKMODE, false).toBool();
     settings.endGroup();
 
     loadPalettes();
@@ -333,6 +334,7 @@ void VPianoSettings::internalSave(QSettings &settings)
 #if defined(Q_OS_WINDOWS)
     settings.setValue(QSTR_WINSNAP, m_winSnap);
 #endif
+    settings.setValue(QSTR_DARKMODE, m_darkMode);
     settings.endGroup();
 
     settings.beginGroup(QSTR_KEYBOARD);
@@ -830,6 +832,16 @@ void VPianoSettings::savePalettes()
     for (PianoPalette& pal : m_paletteList) {
         pal.saveColors();
     }
+}
+
+bool VPianoSettings::getDarkMode() const
+{
+    return m_darkMode;
+}
+
+void VPianoSettings::setDarkMode(bool darkMode)
+{
+    m_darkMode = darkMode;
 }
 
 bool VPianoSettings::getWinSnap() const

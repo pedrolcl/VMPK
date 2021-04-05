@@ -114,6 +114,9 @@ public:
     bool getWinSnap() const;
     void setWinSnap(bool winSnap);
 
+    bool getDarkMode() const;
+    void setDarkMode(bool darkMode);
+
     QString insFileName() const;
     QString insName() const;
     void setInstruments( const QString fileName, const QString name );
@@ -224,6 +227,7 @@ private:
     bool m_showStatusBar;
     bool m_colorScale;
     bool m_winSnap;
+    bool m_darkMode;
     QString m_insFileName;
     QString m_insName;
     LabelVisibility m_namesVisibility;

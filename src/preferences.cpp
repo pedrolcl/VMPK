@@ -94,6 +94,7 @@ void Preferences::slotRestoreDefaults()
 #if defined(Q_OS_WINDOWS)
     ui.chkWinSnap->setEnabled(true);
 #endif
+    ui.chkDarkMode->setChecked(false);
 }
 
 void Preferences::showEvent ( QShowEvent *event )
@@ -128,6 +129,7 @@ void Preferences::showEvent ( QShowEvent *event )
 #if defined(Q_OS_WINDOWS)
         ui.chkWinSnap->setChecked( VPianoSettings::instance()->getWinSnap() );
 #endif
+        ui.chkDarkMode->setChecked( VPianoSettings::instance()->getDarkMode() );
     }
 }
 
@@ -152,6 +154,7 @@ void Preferences::apply()
 #if defined(Q_OS_WINDOWS)
     VPianoSettings::instance()->setWinSnap( ui.chkWinSnap->isChecked() );
 #endif
+    VPianoSettings::instance()->setDarkMode( ui.chkDarkMode->isChecked() );
 }
 
 void Preferences::accept()

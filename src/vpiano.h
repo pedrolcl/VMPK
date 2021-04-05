@@ -170,6 +170,7 @@ protected:
     void showEvent ( QShowEvent *event ) override;
     void hideEvent( QHideEvent *event ) override;
     bool nativeEvent( const QByteArray &eventType, void *message, long *result ) override;
+    void changeEvent ( QEvent *event ) override;
 
 private:
     void initialization();
