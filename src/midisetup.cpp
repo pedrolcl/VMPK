@@ -16,7 +16,6 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QDebug>
 #include <drumstick/configurationdialogs.h>
 #include <drumstick/settingsfactory.h>
 #include "midisetup.h"

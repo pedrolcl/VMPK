@@ -18,7 +18,6 @@
 
 #include "nativefilter.h"
 #include <QApplication>
-#include <QDebug>
 
 #if defined(Q_OS_WIN)
 #include <windows.h>

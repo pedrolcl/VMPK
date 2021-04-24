@@ -16,9 +16,9 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QDebug>
 #include <QColorDialog>
 #include <QPushButton>
+#include <QDebug>
 
 #include "constants.h"
 #include "colorwidget.h"

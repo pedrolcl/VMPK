@@ -750,7 +750,7 @@ void VPianoSettings::setInstruments( const QString fileName, const QString instr
             m_insName = QString();
         }
     } else {
-        qDebug() << "file" << fileName << "not readable.";
+        qWarning() << "file" << fileName << "not readable.";
     }
 }
 
