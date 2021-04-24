@@ -172,6 +172,9 @@ public:
     QFont namesFont() const;
     void setNamesFont(const QFont &namesFont);
 
+    QString getStyle() const;
+    void setStyle(const QString &style);
+
     // static methods
     static VPianoSettings* instance();
     static void setPortableConfig(const QString fileName = QString());
@@ -261,6 +264,7 @@ private:
 
     VMPKKeyboardMap m_keymap;
     VMPKKeyboardMap m_rawmap;
+    QString m_style;
 };
 
 #endif // PORTABLESETTINGS_H

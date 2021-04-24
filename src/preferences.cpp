@@ -21,6 +21,7 @@
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QFontDialog>
+#include <QStyleFactory>
 
 #include "preferences.h"
 #include "constants.h"
@@ -36,6 +37,7 @@ Preferences::Preferences(QWidget *parent)
     ui.cboStartingKey->clear();
     ui.cboColorPolicy->clear();
     ui.cboOctaveName->clear();
+    populateStyles();
     slotRestoreDefaults();
     connect(ui.btnInstrument, &QPushButton::clicked, this, &Preferences::slotOpenInstrumentFile);
     connect(ui.btnColor, &QPushButton::clicked, this, &Preferences::slotSelectColor);
@@ -65,10 +67,8 @@ Preferences::Preferences(QWidget *parent)
 #else
 #if !defined(Q_OS_WINDOWS)
     ui.chkWinSnap->setVisible(false);
-    //ui.chkDarkMode->setVisible(false);
 #endif
-    setMinimumSize(480,500);
-    adjustSize();
+   adjustSize();
 #endif
 }
 
@@ -96,6 +96,7 @@ void Preferences::slotRestoreDefaults()
     ui.chkWinSnap->setEnabled(true);
 #endif
     ui.chkDarkMode->setChecked(false);
+    ui.cboStyle->setCurrentText(DEFAULTSTYLE);
 }
 
 void Preferences::showEvent ( QShowEvent *event )
@@ -296,4 +297,18 @@ void Preferences::setNoteNames(const QStringList& noteNames)
     ui.cboOctaveName->addItem(noteNames[0]+"3", OctaveC3);
     ui.cboOctaveName->addItem(noteNames[0]+"4", OctaveC4);
     ui.cboOctaveName->addItem(noteNames[0]+"5", OctaveC5);
+}
+
+void Preferences::populateStyles()
+{
+    ui.cboStyle->clear();
+    QStringList styleNames = QStyleFactory::keys();
+    ui.cboStyle->addItems(styleNames);
+    QString currentStyle = qApp->style()->objectName();
+    foreach(const QString& s, styleNames) {
+        if (QString::compare(s, currentStyle, Qt::CaseInsensitive) == 0) {
+            ui.cboStyle->setCurrentText(s);
+            break;
+        }
+    }
 }

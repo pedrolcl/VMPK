@@ -104,6 +104,13 @@ const QString QSTR_CHKBOXSTYLE("QCheckBox::indicator {width: 20px; height: 20px;
 const QString QSTR_DEFAULTFONT("Sans Serif, 50");
 const QString QSTR_WINSNAP("StickyWindowSnapping");
 const QString QSTR_DARKMODE("ForcedDarkMode");
+const QString QSTR_STYLE("QtStyle");
+
+#if defined(Q_OS_WINDOWS)
+const QString DEFAULTSTYLE("fusion");
+#else
+const QString DEFAULTSTYLE;
+#endif
 
 #if defined(SMALL_SCREEN)
 const QString QSTR_VMPKURL("http://vmpk.sourceforge.net/m/");

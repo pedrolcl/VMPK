@@ -39,6 +39,7 @@ public:
     void setKeyMapFileName( const QString fileName );
     void retranslateUi();
     void setNoteNames(const QStringList& noteNames);
+    void populateStyles();
 
 public slots:
     void slotOpenInstrumentFile();

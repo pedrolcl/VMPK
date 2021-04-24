@@ -1,3 +1,7 @@
+2021-04-24
+    * Preferences dialog reorganization
+    * new option: Qt Widgets style
+
 2021-04-05
     * Fixed URLs (GH ticket #2, Thanks to Darío Hereñú)
     * Fusion style assigned by default (can be changed by the std. command line option)

@@ -1283,6 +1283,7 @@ void VPiano::applyPreferences()
     m_snapper.SetEnabled(VPianoSettings::instance()->getWinSnap());
 #endif
     qApp->setPalette( VPianoSettings::instance()->getDarkMode() ? darkPalette : defaultPalette );
+    qApp->setStyle( VPianoSettings::instance()->getStyle() );
 
     VMPKKeyboardMap* map = VPianoSettings::instance()->getKeyboardMap();
     if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
