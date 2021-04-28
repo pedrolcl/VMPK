@@ -20,13 +20,17 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "instrument.h"
-
 #include <QFileInfo>
 #include <QFile>
 #include <QTextStream>
 #include <QRegExp>
 #include <QDate>
+
+#include "instrument.h"
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+#define endl Qt::endl
+#endif
 
 //----------------------------------------------------------------------
 // class Instrument -- instrument definition instance class.

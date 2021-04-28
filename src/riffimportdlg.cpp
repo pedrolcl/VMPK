@@ -25,6 +25,10 @@
 #include "riffimportdlg.h"
 #include "ui_riffimportdlg.h"
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+#define endl Qt::endl
+#endif
+
 RiffImportDlg::RiffImportDlg(QWidget *parent)
     : QDialog(parent), ui(new Ui::RiffImportDlg)
 {
