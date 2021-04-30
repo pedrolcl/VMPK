@@ -16,7 +16,11 @@ if (NOT DEFINED PROJECT_WC_REVISION)
             OUTPUT_VARIABLE PROJECT_WC_REVISION
             ERROR_QUIET
             OUTPUT_STRIP_TRAILING_WHITESPACE)
-        message(STATUS "Current revision (Git) is ${PROJECT_WC_REVISION}")
+        if (${res} EQUAL 0)
+            message(STATUS "Current revision (Git) is ${PROJECT_WC_REVISION}")
+        else()
+            unset(PROJECT_WC_REVISION)
+        endif()
     endif()
 endif()
 
