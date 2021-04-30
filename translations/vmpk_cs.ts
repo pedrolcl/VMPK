@@ -10,7 +10,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Verze: %1&lt;br/&gt;Datum sestavení: %2&lt;br/&gt;Čas sestavení: %3&lt;br/&gt;Překladač: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="43"/>
+        <location filename="../src/about.cpp" line="48"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Qt version: %2 %3&lt;br/&gt;Drumstick version: %4&lt;br/&gt;Build date: %5&lt;br/&gt;Build time: %6&lt;br/&gt;Compiler: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -38,20 +38,38 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Zdánlivá klaviatura klavíru MIDI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../src/about.ui" line="58"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/about.ui" line="155"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;https://vmpk.sourceforge.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://vmpk.sourceforge.net&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="58"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -59,7 +77,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Copyright © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#000000;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1043,29 +1061,29 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Preferences</name>
     <message>
-        <location filename="../src/preferences.cpp" line="166"/>
+        <location filename="../src/preferences.cpp" line="171"/>
         <source>Open instruments definition</source>
         <translation>Otevřít soubor s vymezením nástroje</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="168"/>
+        <location filename="../src/preferences.cpp" line="173"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>Vymezení nástrojů (*.ins)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="223"/>
-        <location filename="../src/preferences.cpp" line="234"/>
+        <location filename="../src/preferences.cpp" line="228"/>
+        <location filename="../src/preferences.cpp" line="239"/>
         <source>Open keyboard map definition</source>
         <translation>Otevřít soubor s přiřazením kláves na klávesnici</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="225"/>
-        <location filename="../src/preferences.cpp" line="236"/>
+        <location filename="../src/preferences.cpp" line="230"/>
+        <location filename="../src/preferences.cpp" line="241"/>
         <source>Keyboard map (*.xml)</source>
         <translation>Soubor s uspořádáním klávesnice (*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="247"/>
+        <location filename="../src/preferences.cpp" line="252"/>
         <source>Font to display note names</source>
         <translation>Písmo pro zobrazení názvů not</translation>
     </message>
@@ -1078,224 +1096,253 @@ p, li { white-space: pre-wrap; }
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="66"/>
+        <location filename="../src/preferences.ui" line="271"/>
         <source>Number of keys</source>
         <translation>Počet předznamenání</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="151"/>
+        <location filename="../src/preferences.ui" line="226"/>
         <source>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</source>
         <translation>Počet oktáv, od 1 do 10. Každá oktáva má 12 kláves: 7 bílých a 5 černých. MIDI standard má 128 not, ale všechny nástroje je dokáží přehrát všechny.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="92"/>
+        <location filename="../src/preferences.ui" line="255"/>
         <source>Starting Key</source>
         <translation>Počáteční předznamenání</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="192"/>
+        <location filename="../src/preferences.ui" line="245"/>
         <source>Note highlight color</source>
         <translation>Barva na zvýraznění noty</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="341"/>
+        <location filename="../src/preferences.ui" line="190"/>
         <source>Press this button to change the highligh color used to paint the keys that are being activated.</source>
         <translation>Stiskněte toto tlačítko, abyste změnil zvýrazňovací barvu, která je použita pro nakreslení kláves, jež jsou uváděny v činnost.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="344"/>
+        <location filename="../src/preferences.ui" line="193"/>
         <source>Colors...</source>
         <translation>Barvy...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="108"/>
+        <location filename="../src/preferences.ui" line="473"/>
         <source>Instruments file</source>
         <translation>Soubor s nástrojem</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="47"/>
+        <location filename="../src/preferences.ui" line="489"/>
         <source>The instruments definition file currently loaded</source>
         <translation>Soubor s vymezením nástroje, který je v současnosti nahrán</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="321"/>
+        <location filename="../src/preferences.ui" line="499"/>
         <source>Press this button to load an instruments definition file from disk.</source>
         <translation>Stiskněte toto tlačítko, abyste nahrál soubor s vymezením nástroje z pevného disku.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="144"/>
-        <location filename="../src/preferences.ui" line="216"/>
-        <location filename="../src/preferences.ui" line="324"/>
+        <location filename="../src/preferences.ui" line="68"/>
+        <location filename="../src/preferences.ui" line="92"/>
+        <location filename="../src/preferences.ui" line="502"/>
         <source>Load...</source>
         <translation>Nahrát...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="262"/>
+        <location filename="../src/preferences.ui" line="515"/>
         <source>Instrument</source>
         <translation>Nástroj</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="384"/>
+        <location filename="../src/preferences.ui" line="525"/>
         <source>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</source>
         <translation>Změňte soubor s vymezením nástroje, který je v současnosti používán. Každý soubor s vymezením nástroje může více obsahovat nástrojů.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="311"/>
+        <location filename="../src/preferences.ui" line="51"/>
         <source>Keyboard Map</source>
         <translation>Uspořádání klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="285"/>
+        <location filename="../src/preferences.ui" line="45"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="75"/>
         <source>Raw Keyboard Map</source>
         <translation>Neupravené přiřazení kláves</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="374"/>
+        <location filename="../src/preferences.ui" line="184"/>
+        <source>Visualization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="206"/>
+        <source>Translate MIDI velocity to highlighting color tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="219"/>
+        <source>Forced Dark Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="303"/>
         <source>Drums Channel</source>
         <translation>Kanál bicích</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="331"/>
+        <location filename="../src/preferences.ui" line="326"/>
         <source>Central Octave Naming</source>
         <translation>Pojmenování centrální oktávy</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="408"/>
+        <location filename="../src/preferences.ui" line="337"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="413"/>
+        <location filename="../src/preferences.ui" line="342"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="418"/>
+        <location filename="../src/preferences.ui" line="347"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="423"/>
+        <location filename="../src/preferences.ui" line="352"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="428"/>
+        <location filename="../src/preferences.ui" line="357"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="433"/>
+        <location filename="../src/preferences.ui" line="362"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="438"/>
+        <location filename="../src/preferences.ui" line="367"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="443"/>
+        <location filename="../src/preferences.ui" line="372"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="448"/>
+        <location filename="../src/preferences.ui" line="377"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="453"/>
+        <location filename="../src/preferences.ui" line="382"/>
         <source>9</source>
         <translation>9</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="458"/>
+        <location filename="../src/preferences.ui" line="387"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="463"/>
+        <location filename="../src/preferences.ui" line="392"/>
         <source>11</source>
         <translation>11</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="468"/>
+        <location filename="../src/preferences.ui" line="397"/>
         <source>12</source>
         <translation>12</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="473"/>
+        <location filename="../src/preferences.ui" line="402"/>
         <source>13</source>
         <translation>13</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="478"/>
+        <location filename="../src/preferences.ui" line="407"/>
         <source>14</source>
         <translation>14</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="483"/>
+        <location filename="../src/preferences.ui" line="412"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="504"/>
+        <location filename="../src/preferences.ui" line="450"/>
+        <source>Qt Widgets Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="461"/>
+        <source>Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/preferences.ui" line="567"/>
         <source>Sticky Window Snapping (Windows)</source>
         <translation>Přichytávání okna (Windows)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="168"/>
+        <location filename="../src/preferences.ui" line="285"/>
         <source>C3</source>
         <translation>C3</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="173"/>
+        <location filename="../src/preferences.ui" line="290"/>
         <source>C4</source>
         <translation>C4</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="178"/>
+        <location filename="../src/preferences.ui" line="295"/>
         <source>C5</source>
         <translation>C5</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="278"/>
+        <location filename="../src/preferences.ui" line="538"/>
         <source>MIDI channel state consistency</source>
         <translation>Konzistence stavu kanálu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="118"/>
+        <location filename="../src/preferences.ui" line="316"/>
         <source>Text Font</source>
         <translation>Písmo textu</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="367"/>
+        <location filename="../src/preferences.ui" line="436"/>
         <source>Font...</source>
         <translation>Písmo...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="82"/>
         <source>Translate MIDI velocity to key pressed color tint</source>
-        <translation>Přeložit rychlost MIDI na barevný odstín stisknuté klávesy</translation>
+        <translation type="vanished">Přeložit rychlost MIDI na barevný odstín stisknuté klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="134"/>
+        <location filename="../src/preferences.ui" line="551"/>
         <source>Check this box to keep the keyboard window always visible, on top of other windows.</source>
         <translation>Zaškrtnutí tohoto políčka zajistí to, že okno s klávesnicí bude vždy viditelné a zůstane zobrazeno v popředí nad všemi ostatními okny.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="137"/>
+        <location filename="../src/preferences.ui" line="554"/>
         <source>Always On Top</source>
         <translation>Vždy nahoře</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="357"/>
+        <location filename="../src/preferences.ui" line="105"/>
         <source>Enable Computer Keyboard Input</source>
         <translation>Povolit vstup přes klávesnici počítače</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="236"/>
+        <location filename="../src/preferences.ui" line="121"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1314,17 +1361,17 @@ p, li { white-space: pre-wrap; }
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rychlejší zpracování&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="246"/>
+        <location filename="../src/preferences.ui" line="131"/>
         <source>Raw Computer Keyboard</source>
         <translation>Popadnout neupravenou klávesnici počítače</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="397"/>
+        <location filename="../src/preferences.ui" line="144"/>
         <source>Enable Mouse Input</source>
         <translation>Povolit vstup přes myš</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="301"/>
+        <location filename="../src/preferences.ui" line="160"/>
         <source>Enable Touch Screen Input</source>
         <translation>Povolit vstup přes dotykovou obrazovku</translation>
     </message>
@@ -1345,12 +1392,12 @@ Toto je svobodný software a můžete jej dále šířit
 za určitých podmínek; podrobnosti viz LICENCE.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="59"/>
+        <location filename="../src/main.cpp" line="62"/>
         <source>Portable settings mode.</source>
         <translation>Režim přenositelného nastavení.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="60"/>
+        <location filename="../src/main.cpp" line="63"/>
         <source>Portable settings file name.</source>
         <translation>Název souboru přenositelného nastavení.</translation>
     </message>
@@ -1358,17 +1405,17 @@ za určitých podmínek; podrobnosti viz LICENCE.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/instrument.cpp" line="386"/>
+        <location filename="../src/instrument.cpp" line="390"/>
         <source>Cakewalk Instrument Definition File</source>
         <translation>Soubor s vymezením nástroje Cakewalk</translation>
     </message>
     <message>
-        <location filename="../src/instrument.cpp" line="396"/>
+        <location filename="../src/instrument.cpp" line="400"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/instrument.cpp" line="398"/>
+        <location filename="../src/instrument.cpp" line="402"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
@@ -1432,22 +1479,22 @@ za určitých podmínek; podrobnosti viz LICENCE.</translation>
         <translation>Stiskněte toto tlačítko, abyste vybral cestu a souborový název pro výstupní soubor</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <location filename="../src/riffimportdlg.cpp" line="53"/>
         <source>Input SoundFont</source>
         <translation>Zvukové písmo pro vstup</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="49"/>
+        <location filename="../src/riffimportdlg.cpp" line="53"/>
         <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
         <translation>Zvuková písma (*.sf2 *.sbk *.dls)</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="60"/>
+        <location filename="../src/riffimportdlg.cpp" line="64"/>
         <source>Output</source>
         <translation>Výstup</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="59"/>
+        <location filename="../src/riffimportdlg.cpp" line="63"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>Vymezení nástrojů (*.ins)</translation>
     </message>
@@ -2153,178 +2200,178 @@ Chcete použít tyto změny?</translation>
         <translation>Velmi malé</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1648"/>
+        <location filename="../src/vpiano.cpp" line="1670"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1648"/>
+        <location filename="../src/vpiano.cpp" line="1670"/>
         <source>No help file found</source>
         <translation>Nepodařilo se najít žádný soubor s nápovědou</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1907"/>
+        <location filename="../src/vpiano.cpp" line="1929"/>
         <source>Language Changed</source>
         <translation>Jazyk byl změněn</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1908"/>
+        <location filename="../src/vpiano.cpp" line="1930"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>Jazyk pro tento program bude změněn na %1. Chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1952"/>
+        <location filename="../src/vpiano.cpp" line="1974"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK je vyvíjen a překládán díky dobrovolnické práci mnoha lidí z celého světa. Pokud se chcete připojit k družstvu, nebo máte nějaké otázky, navštivte, prosím, fórum na &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1970"/>
+        <location filename="../src/vpiano.cpp" line="1992"/>
         <source>Translation</source>
         <translation>Překlad</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1971"/>
+        <location filename="../src/vpiano.cpp" line="1993"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Překlad: Pavel Fric, fripohled.blogspot.com&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1973"/>
+        <location filename="../src/vpiano.cpp" line="1995"/>
         <source>Translation Information</source>
         <translation>Informace o překladech</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1993"/>
+        <location filename="../src/vpiano.cpp" line="2015"/>
         <source>Czech</source>
         <translation>Čeština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1994"/>
+        <location filename="../src/vpiano.cpp" line="2016"/>
         <source>German</source>
         <translation>Němčina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1995"/>
+        <location filename="../src/vpiano.cpp" line="2017"/>
         <source>English</source>
         <translation>Angličtina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1996"/>
+        <location filename="../src/vpiano.cpp" line="2018"/>
         <source>Spanish</source>
         <translation>Španělština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1997"/>
+        <location filename="../src/vpiano.cpp" line="2019"/>
         <source>French</source>
         <translation>Francouzština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1998"/>
+        <location filename="../src/vpiano.cpp" line="2020"/>
         <source>Galician</source>
         <translation>Galicijština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1999"/>
+        <location filename="../src/vpiano.cpp" line="2021"/>
         <source>Dutch</source>
         <translation>Nizozemština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2000"/>
+        <location filename="../src/vpiano.cpp" line="2022"/>
         <source>Russian</source>
         <translation>Ruština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2001"/>
+        <location filename="../src/vpiano.cpp" line="2023"/>
         <source>Serbian</source>
         <translation>Srbština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2002"/>
+        <location filename="../src/vpiano.cpp" line="2024"/>
         <source>Swedish</source>
         <translation>Švédština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2003"/>
+        <location filename="../src/vpiano.cpp" line="2025"/>
         <source>Chinese</source>
         <translation>Čínština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2010"/>
+        <location filename="../src/vpiano.cpp" line="2032"/>
         <source>Chan:</source>
         <translation>Kan:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2012"/>
+        <location filename="../src/vpiano.cpp" line="2034"/>
         <source>Channel:</source>
         <translation>Kanál:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2017"/>
+        <location filename="../src/vpiano.cpp" line="2039"/>
         <source>Oct:</source>
         <translation>Okt:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2019"/>
+        <location filename="../src/vpiano.cpp" line="2041"/>
         <source>Base Octave:</source>
         <translation>Základní oktáva:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2024"/>
+        <location filename="../src/vpiano.cpp" line="2046"/>
         <source>Trans:</source>
         <translation>Přev:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2026"/>
+        <location filename="../src/vpiano.cpp" line="2048"/>
         <source>Transpose:</source>
         <translation>Převést:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2031"/>
+        <location filename="../src/vpiano.cpp" line="2053"/>
         <source>Vel:</source>
         <translation>Rych:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2033"/>
+        <location filename="../src/vpiano.cpp" line="2055"/>
         <source>Velocity:</source>
         <translation>Rychlost:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2036"/>
+        <location filename="../src/vpiano.cpp" line="2058"/>
         <source>Bank:</source>
         <translation>Banka:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2037"/>
+        <location filename="../src/vpiano.cpp" line="2059"/>
         <source>Bender:</source>
         <translation>Měnič:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2038"/>
+        <location filename="../src/vpiano.cpp" line="2060"/>
         <source>Control:</source>
         <translation>Ovládací prvek:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2039"/>
+        <location filename="../src/vpiano.cpp" line="2061"/>
         <source>Program:</source>
         <translation>Program:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2040"/>
+        <location filename="../src/vpiano.cpp" line="2062"/>
         <source>Value:</source>
         <translation>Hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2185"/>
+        <location filename="../src/vpiano.cpp" line="2207"/>
         <source>Open Configuration File</source>
         <translation>Otevřít soubor s nastavením</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2186"/>
-        <location filename="../src/vpiano.cpp" line="2199"/>
+        <location filename="../src/vpiano.cpp" line="2208"/>
+        <location filename="../src/vpiano.cpp" line="2221"/>
         <source>Configuration files (*.conf *.ini)</source>
         <translation>Soubory s nastavením (*.conf *.ini)</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2201"/>
+        <location filename="../src/vpiano.cpp" line="2223"/>
         <source>Save Configuration File</source>
         <translation>Uložit soubor s nastavením</translation>
     </message>
