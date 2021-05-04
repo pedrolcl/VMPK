@@ -1378,7 +1378,7 @@ This is free software, and you are welcome to redistribute it
 under certain conditions; see the LICENSE for details.</source>
         <translation>Virtual MIDI Piano Keyboard
 Copyright (C) 2006-2021 Pedro Lopez-Cabanillas
-Sie benutzen dieses Programm ist ohne jedwede Gewähr;
+Sie benutzen dieses Programm ohne jedwede Gewähr;
 Es ist freie Software, und Sie können es gerne an andere weitergeben
 unter einigen Bedingungen; bitte sehen Sie die diese in der LICENSE ein.</translation>
     </message>
