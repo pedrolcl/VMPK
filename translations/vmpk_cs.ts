@@ -46,7 +46,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Autorské právo © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &lt;plcl@users.sf.net&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je svobodným programem: můžete jej šířit a/nebo upravovat za podmínek GNU General Public License, jak jsou zveřejněny Free Software Foundation, buď ve verzi 3 povolení, nebo (podle své volby) v jakékoli pozdější verzi.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je šířen s nadějí, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY;  dokonce bez předpokládané záruky PRODEJNOSTI nebo VHODNOSTI PRO ZVLÁŠTNÍ ÚČEL. Kvůli podrobnostem se podívejte na GNU General Public License. Měl byste kopii GNU General Public License obdržet společně s tímto programem. A pokud ne, podívejte se na &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/about.ui" line="155"/>
@@ -55,7 +61,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;https://vmpk.sourceforge.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;https://vmpk.sourceforge.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1165,7 +1175,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="45"/>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Vstup</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="75"/>
@@ -1175,17 +1185,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="184"/>
         <source>Visualization</source>
-        <translation type="unfinished"></translation>
+        <translation>Vizualizace</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="206"/>
         <source>Translate MIDI velocity to highlighting color tint</source>
-        <translation type="unfinished"></translation>
+        <translation>Přeložit dynamiku MIDI (velocity - rychlost stisku klávesy technicky určující výslednou dynamiku v MIDI) na zvýraznění barevného odstínu</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="219"/>
         <source>Forced Dark Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vynucený tmavý režim</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="303"/>
@@ -1280,12 +1290,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="450"/>
         <source>Qt Widgets Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Styl grafických prvků Qt</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="461"/>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Chování</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="567"/>
@@ -1998,22 +2008,22 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="820"/>
         <source>Velocity Up</source>
-        <translation>Rychlost nahoru</translation>
+        <translation>Dynamika MIDI (velocity) nahoru</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="823"/>
         <source>Increment note velocity</source>
-        <translation>Zvýšit rychlost noty</translation>
+        <translation>Zvýšit dynamiku MIDI (velocity) noty</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="834"/>
         <source>Velocity Down</source>
-        <translation>Rychlost dolů</translation>
+        <translation>Dynamika MIDI (velocity)  dolů</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="837"/>
         <source>Decrement note velocity</source>
-        <translation>Snížit rychlost noty</translation>
+        <translation>Snížit dynamiku MIDI (velocity) noty</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="848"/>
@@ -2332,7 +2342,7 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2055"/>
         <source>Velocity:</source>
-        <translation>Rychlost:</translation>
+        <translation>Dynamika MIDI (velocity):</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2058"/>
