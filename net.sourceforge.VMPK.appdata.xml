@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2020-2021 VMPK Developers -->
-<component type="desktop">
+<component type="desktop-application">
  <id>net.sourceforge.VMPK</id>
  <metadata_license>CC0</metadata_license>
  <project_license>GPL-3.0+</project_license>
@@ -23,7 +23,6 @@
     <control>touch</control>
  </recommends>
  <screenshots>
-  <!--TODO: pending better screenshots-->
   <screenshot type="default">
    <image>http://vmpk.sourceforge.net/images/vmpk_605x334.png</image>
    <caption>The VMPK window</caption>
@@ -36,6 +35,22 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.8.3" date="2021-05-01">
+     <url>https://sourceforge.net/p/vmpk/news/2021/05/virtual-midi-piano-keyboard-083-released-/</url>
+     <description>
+       <p>This release includes the following fixes and features</p>
+       <ul>
+         <li>French and German translations updated, thanks to Frank Kober</li>
+         <li>Documentation fixes (GitHub ticket #2, Thanks to Darío Hereñú)</li>
+         <li>Preferences dialog reorganization, options are now split into three tabs</li>
+         <li>New options: Qt Widgets style, and Forced dark mode</li>
+         <li>Windows: Fusion style assigned by default (option can be changed in the command line or the preferences dialog)</li>
+         <li>Added SCM Revision to the about box, when building from SVN or Git repositories</li>
+         <li>New CMake option: BUILD_DOCS, enabled by default in Unix. You can use it to avoid building the man page</li>
+        </ul>
+        <p>required: drumstick-2.2.0</p>
+     </description>
+   </release>
    <release type="stable" version="0.8.2" date="2021-03-31">
      <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-082-released-/</url>
      <description>

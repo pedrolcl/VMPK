@@ -1,10 +1,17 @@
+2021-05-04 
+    * French and German translations updated (Thanks to Frank Kober)
+
+2021-04-28
+    * removed warnings when building with qt >= 5.15
+    * fixed qdebug inclusions
+
 2021-04-24
     * Preferences dialog reorganization
     * new option: Qt Widgets style
 
 2021-04-05
     * Fixed URLs (GH ticket #2, Thanks to Darío Hereñú)
-    * Fusion style assigned by default (can be changed by the std. command line option)
+    * Fusion style assigned by default in Windows (can be changed by the std. command line option)
     * New settings option: forced dark mode
 
 2021-04-04
