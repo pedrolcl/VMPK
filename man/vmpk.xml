@@ -40,13 +40,13 @@
             <year>2010-2021</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
-        <date>March 31, 2021</date>
+        <date>May 9, 2021</date>
     </refentryinfo>
 
     <refmeta>
         <refentrytitle>vmpk</refentrytitle>
         <manvolnum>1</manvolnum>
-        <refmiscinfo class="version">0.8.2</refmiscinfo>
+        <refmiscinfo class="version">0.8.3</refmiscinfo>
         <refmiscinfo class="software">vmpk</refmiscinfo>
         <refmiscinfo class="manual">User Commands</refmiscinfo>
     </refmeta>
