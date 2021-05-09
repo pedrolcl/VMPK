@@ -193,8 +193,8 @@ if(WIN32)
     install (FILES ${vmpk_DATA_FILES}
              DESTINATION .)
 	set(FLUIDSYNTH_PREFIX $ENV{FLUIDSYNTH})
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2017.nsi.in
-        ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2017.nsi IMMEDIATE @ONLY)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2019.nsi.in
+        ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2019.nsi IMMEDIATE @ONLY)
 endif()
 
 # CPack support
