@@ -196,11 +196,11 @@ Section -post SEC0001
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
     ;VS2015 Runtime
-    ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\${CPU}" "Installed"
-    StrCmp $1 1 installed
+    ;ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\${CPU}" "Version"
+    ;StrCmp $1 "v14.28.29914.00" installed
     ;not installed, so run the installer
     ExecWait '"$INSTDIR\vc_redist.${CPU}.exe" /install /quiet /norestart'
-installed:	
+	;installed:	
 SectionEnd
 
 # Macro for selecting uninstaller sections
