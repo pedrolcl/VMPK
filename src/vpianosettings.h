@@ -79,9 +79,6 @@ public:
     int startingKey() const;
     void setStartingKey(int startingKey);
 
-    QString nativeInput() const;
-    QString nativeOutput() const;
-
     QVariantMap settingsMap() const;
 
     QString language() const;
@@ -129,9 +126,6 @@ public:
 
     int transpose() const;
     void setTranspose(int transpose);
-
-    QString defaultInputConnection() const;
-    QString defaultOutputConnection() const;
 
     bool showStatusBar() const;
     void setShowStatusBar(bool showStatusBar);
@@ -239,10 +233,6 @@ private:
     LabelOrientation m_namesOrientation;
     QFont m_namesFont;
 
-    QString m_defaultInputBackend;
-    QString m_defaultOutputBackend;
-    QString m_defaultInputConnection;
-    QString m_defaultOutputConnection;
     QString m_language;
     QVariantMap m_settingsMap;
     QVariantMap m_defaultsMap;

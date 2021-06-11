@@ -36,8 +36,8 @@ public:
     void clearCombos();
     void retranslateUi();
 
-    void setInput(MIDIInput *in) { m_midiIn = in; }
-    void setOutput(MIDIOutput *out) { m_midiOut = out; }
+    void setInput(MIDIInput *in);
+    void setOutput(MIDIOutput *out);
     void setInputs(QList<MIDIInput *> ins);
     void setOutputs(QList<MIDIOutput *> outs);
     MIDIInput *getInput() { return m_midiIn; }
@@ -53,7 +53,9 @@ public slots:
     void configureInput();
     void configureOutput();
     void refresh();
+    void reopen();
     void accept() override;
+    void reject() override;
 
 private:
     void refreshInputDrivers(QString id, bool advanced);
@@ -61,8 +63,9 @@ private:
 
     bool m_settingsChanged;
     Ui::MidiSetupClass ui;
-    MIDIInput* m_midiIn;
-    MIDIOutput* m_midiOut;
+    MIDIInput* m_midiIn, *m_savedIn;
+    MIDIOutput* m_midiOut, *m_savedOut;
+    MIDIConnection m_connIn, m_connOut;
 };
 
 #endif /* MIDISETUP_H */

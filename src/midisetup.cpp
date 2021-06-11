@@ -24,7 +24,9 @@
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_settingsChanged(false),
     m_midiIn(nullptr),
-    m_midiOut(nullptr)
+    m_savedIn(nullptr),
+    m_midiOut(nullptr),
+    m_savedOut(nullptr)
 {
     ui.setupUi(this);
     connect(ui.chkEnableInput, &QCheckBox::toggled, this, &MidiSetup::toggledInput);
@@ -67,6 +69,18 @@ void MidiSetup::retranslateUi()
     ui.retranslateUi(this);
 }
 
+void MidiSetup::setInput(MIDIInput *in)
+{
+    m_savedIn = m_midiIn = in;
+    m_connIn = in->currentConnection();
+}
+
+void MidiSetup::setOutput(MIDIOutput *out)
+{
+    m_savedOut = m_midiOut = out;
+    m_connOut = out->currentConnection();
+}
+
 void MidiSetup::setInputs(QList<MIDIInput *> ins)
 {
     ui.comboinputBackends->disconnect();
@@ -96,41 +110,27 @@ void MidiSetup::showEvent(QShowEvent *)
 
 void MidiSetup::accept()
 {
-    MIDIConnection connOut, connIn;
-    drumstick::widgets::SettingsFactory settings;
+    m_connIn = ui.comboInput->currentData().value<MIDIConnection>();
+    m_connOut = ui.comboOutput->currentData().value<MIDIConnection>();
     VPianoSettings::instance()->setAdvanced(ui.chkAdvanced->isChecked());
     VPianoSettings::instance()->setMidiThru(ui.chkEnableThru->isChecked());
     VPianoSettings::instance()->setOmniMode(ui.chkOmni->isChecked());
     VPianoSettings::instance()->setInputEnabled(ui.chkEnableInput->isChecked());
-    if (m_midiOut != nullptr) {
-        connOut = ui.comboOutput->currentData().value<MIDIConnection>();
-        if (connOut != m_midiOut->currentConnection() || m_settingsChanged) {
-            m_midiOut->close();
-            if (!connOut.first.isEmpty()) {
-                m_midiOut->initialize(settings.getQSettings());
-                m_midiOut->open(connOut);
-            }
-        }
-    }
-    if (m_midiIn != nullptr) {
-        connIn = ui.comboInput->currentData().value<MIDIConnection>();
-        if (connIn != m_midiIn->currentConnection() || m_settingsChanged) {
-            m_midiIn->close();
-            if (!connIn.first.isEmpty()) {
-                m_midiIn->initialize(settings.getQSettings());
-                m_midiIn->open(connIn);
-            }
-        }
-        m_midiIn->enableMIDIThru(ui.chkEnableThru->isChecked());
-        m_midiIn->setMIDIThruDevice(m_midiOut);
-    }
-
+    reopen();
     VPianoSettings::instance()->setLastInputBackend(m_midiIn->backendName());
     VPianoSettings::instance()->setLastOutputBackend(m_midiOut->backendName());
-    VPianoSettings::instance()->setLastInputConnection(connIn.first);
-    VPianoSettings::instance()->setLastOutputConnection(connOut.first);
+    VPianoSettings::instance()->setLastInputConnection(m_connIn.first);
+    VPianoSettings::instance()->setLastOutputConnection(m_connOut.first);
     m_settingsChanged = false;
     QDialog::accept();
+}
+
+void MidiSetup::reject()
+{
+    m_midiIn = m_savedIn;
+    m_midiOut = m_savedOut;
+    reopen();
+    QDialog::reject();
 }
 
 void MidiSetup::refresh()
@@ -146,6 +146,33 @@ void MidiSetup::refresh()
     }
 }
 
+void MidiSetup::reopen()
+{
+    drumstick::widgets::SettingsFactory settings;
+    if (m_midiOut != nullptr) {
+        if (m_connOut != m_midiOut->currentConnection() || m_settingsChanged) {
+            m_midiOut->close();
+            if (!m_connOut.first.isEmpty()) {
+                m_midiOut->initialize(settings.getQSettings());
+                m_midiOut->open(m_connOut);
+            }
+        }
+    }
+    if (m_midiIn != nullptr) {
+        if (m_connIn != m_midiIn->currentConnection() || m_settingsChanged) {
+            m_midiIn->close();
+            if (!m_connIn.first.isEmpty()) {
+                m_midiIn->initialize(settings.getQSettings());
+                m_midiIn->open(m_connIn);
+            }
+        }
+        if (m_midiOut != nullptr) {
+            m_midiIn->enableMIDIThru(ui.chkEnableThru->isChecked());
+            m_midiIn->setMIDIThruDevice(m_midiOut);
+        }
+    }
+}
+
 void MidiSetup::refreshInputs(int idx)
 {
     bool advanced = ui.chkAdvanced->isChecked();
@@ -155,8 +182,7 @@ void MidiSetup::refreshInputs(int idx)
 
 void MidiSetup::refreshInputDrivers(QString id, bool advanced)
 {
-    //qDebug() << Q_FUNC_INFO << id;
-    ui.btnConfigInput->setEnabled(id == "Network");
+    ui.btnConfigInput->setEnabled(drumstick::widgets::inputDriverIsConfigurable(id));
     if (m_midiIn != nullptr && m_midiIn->backendName() != id) {
         m_midiIn->close();
         int idx = ui.comboinputBackends->findText(id, Qt::MatchStartsWith);
@@ -168,10 +194,15 @@ void MidiSetup::refreshInputDrivers(QString id, bool advanced)
     ui.comboInput->clear();
     if (m_midiIn != nullptr) {
         ui.comboInput->addItem(QString());
-        for (const MIDIConnection& conn : m_midiIn->connections(advanced)) {
+        auto connections = m_midiIn->connections(advanced);
+        foreach (const MIDIConnection& conn, connections) {
             ui.comboInput->addItem(conn.first, QVariant::fromValue(conn));
         }
-        ui.comboInput->setCurrentText(m_midiIn->currentConnection().first);
+        QString connIn = m_midiIn->currentConnection().first;
+        if (connIn.isEmpty()) {
+            connIn = connections.first().first;
+        }
+        ui.comboInput->setCurrentText(connIn);
     }
 }
 
@@ -184,8 +215,7 @@ void MidiSetup::refreshOutputs(int idx)
 
 void MidiSetup::refreshOutputDrivers(QString id, bool advanced)
 {
-    //qDebug() << Q_FUNC_INFO << id;
-    ui.btnConfigOutput->setEnabled(id == "Network" || id == "FluidSynth" || id == "SonivoxEAS" || id == "DLS Synth");
+    ui.btnConfigOutput->setEnabled(drumstick::widgets::outputDriverIsConfigurable(id));
     if (m_midiOut != nullptr && m_midiOut->backendName() != id) {
         m_midiOut->close();
         int idx = ui.comboOutputBackends->findText(id, Qt::MatchStartsWith);
@@ -196,29 +226,31 @@ void MidiSetup::refreshOutputDrivers(QString id, bool advanced)
     }
     ui.comboOutput->clear();
     if (m_midiOut != nullptr) {
-        for (const MIDIConnection& conn : m_midiOut->connections(advanced)) {
+        auto connections = m_midiOut->connections(advanced);
+        foreach (const MIDIConnection& conn, connections) {
             ui.comboOutput->addItem(conn.first, QVariant::fromValue(conn));
         }
-        ui.comboOutput->setCurrentText(m_midiOut->currentConnection().first);
+        QString connOut = m_midiOut->currentConnection().first;
+        if (connOut.isEmpty()) {
+            connOut = connections.first().first;
+        }
+        ui.comboOutput->setCurrentText(connOut);
     }
 }
 
 void MidiSetup::configureInput()
 {
     QString driver = ui.comboinputBackends->currentText();
-    if (driver == "Network") {
-        m_settingsChanged = drumstick::widgets::configureInputDriver(driver, this);
+    if (drumstick::widgets::inputDriverIsConfigurable(driver)) {
+        m_settingsChanged |= drumstick::widgets::configureInputDriver(driver, this);
     }
 }
 
 void MidiSetup::configureOutput()
 {
     QString driver = ui.comboOutputBackends->currentText();
-    if (driver == "Network" ||
-        driver == "FluidSynth" ||
-        driver == "DLS Synth" ||
-        driver == "SonivoxEAS") {
-        m_settingsChanged = drumstick::widgets::configureOutputDriver(driver, this);
+    if (drumstick::widgets::outputDriverIsConfigurable(driver)) {
+        m_settingsChanged |= drumstick::widgets::configureOutputDriver(driver, this);
     }
 }
 

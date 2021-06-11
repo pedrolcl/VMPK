@@ -37,21 +37,6 @@ using namespace drumstick::widgets;
 
 VPianoSettings::VPianoSettings(QObject *parent) : QObject(parent)
 {
-    m_defaultInputBackend = QLatin1String("Network");
-    m_defaultInputConnection = QLatin1String("21928");
-#if defined(Q_OS_LINUX)
-    m_defaultOutputBackend = QLatin1String("SonivoxEAS");
-    m_defaultOutputConnection = QLatin1String("SonivoxEAS");
-#elif defined(Q_OS_MACOS)
-    m_defaultOutputBackend = QLatin1String("DLS Synth");
-    m_defaultOutputConnection = QLatin1String("DLS Synth");
-#elif defined(Q_OS_WIN)
-    m_defaultOutputBackend = QLatin1String("Windows MM");
-    m_defaultOutputConnection = QLatin1String("Microsoft GS Wavetable Synth");
-#else
-    m_defaultOutputBackend = m_defaultInputBackend;
-    m_defaultOutputConnection = m_defaultInputConnection;
-#endif
     ResetDefaults();
     initializePalettes();
     ReadSettings();
@@ -214,10 +199,10 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_midiThru = settings.value(QSTR_THRUENABLED, true).toBool();
     m_omniMode = settings.value(QSTR_OMNIENABLED, false).toBool();
     m_advanced = settings.value(QSTR_ADVANCEDENABLED, false).toBool();
-    m_lastInputBackend = settings.value(QSTR_INDRIVER, m_defaultInputBackend).toString();
-    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER, m_defaultOutputBackend).toString();
-    m_lastInputConnection = settings.value(QSTR_INPORT, m_defaultInputConnection).toString();
-    m_lastOutputConnection = settings.value(QSTR_OUTPORT, m_defaultOutputConnection).toString();
+    m_lastInputBackend = settings.value(QSTR_INDRIVER).toString();
+    m_lastOutputBackend = settings.value(QSTR_OUTDRIVER).toString();
+    m_lastInputConnection = settings.value(QSTR_INPORT).toString();
+    m_lastOutputConnection = settings.value(QSTR_OUTPORT).toString();
     settings.endGroup();
 
     bool mouseInputEnabledbyDefault = true;
@@ -414,16 +399,6 @@ void VPianoSettings::setShowStatusBar(bool showStatusBar)
     m_showStatusBar = showStatusBar;
 }
 
-QString VPianoSettings::defaultOutputConnection() const
-{
-    return m_defaultOutputConnection;
-}
-
-QString VPianoSettings::defaultInputConnection() const
-{
-    return m_defaultInputConnection;
-}
-
 QString VPianoSettings::insName() const
 {
     return m_insName;
@@ -567,16 +542,6 @@ void VPianoSettings::setOmniMode(bool omniMode)
 QVariantMap VPianoSettings::settingsMap() const
 {
     return m_settingsMap;
-}
-
-QString VPianoSettings::nativeOutput() const
-{
-    return m_defaultOutputBackend;
-}
-
-QString VPianoSettings::nativeInput() const
-{
-    return m_defaultInputBackend;
 }
 
 int VPianoSettings::startingKey() const

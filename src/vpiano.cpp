@@ -216,36 +216,29 @@ bool VPiano::initMidi()
     m_backendManager = new BackendManager();
     m_backendManager->refresh(VPianoSettings::instance()->settingsMap());
 
-    m_midiin = m_backendManager->inputBackendByName(VPianoSettings::instance()->lastInputBackend());
+    m_midiin = m_backendManager->findInput(VPianoSettings::instance()->lastInputBackend());
     if (m_midiin == nullptr) {
-        if (VPianoSettings::instance()->lastInputBackend() != VPianoSettings::instance()->nativeInput()) {
-            qWarning() << "Last MIDI IN driver" << VPianoSettings::instance()->lastInputBackend() << "not found";
-        }
-        m_midiin = m_backendManager->inputBackendByName(VPianoSettings::instance()->nativeInput());
-        if (m_midiin == nullptr) {
-            qWarning() << "Default MIDI IN driver" << VPianoSettings::instance()->nativeInput() << "not found";
-        }
+        qWarning() << "MIDI IN driver not available";
     }
 
-    m_midiout = m_backendManager->outputBackendByName(VPianoSettings::instance()->lastOutputBackend());
+    m_midiout = m_backendManager->findOutput(VPianoSettings::instance()->lastOutputBackend());
     if (m_midiout == nullptr) {
-        if (VPianoSettings::instance()->lastOutputBackend() != VPianoSettings::instance()->nativeOutput()) {
-            qWarning() << "Last MIDI OUT driver" << VPianoSettings::instance()->lastOutputBackend() << "not found";
-        }
-        m_midiout = m_backendManager->outputBackendByName(VPianoSettings::instance()->nativeOutput());
-        if (m_midiout == nullptr) {
-            qWarning() << "Default MIDI OUT driver" << VPianoSettings::instance()->nativeOutput() << "not found";
-        }
+        qWarning() << "MIDI OUT driver not available";
     }
 
     SettingsFactory settings;
 
     if (m_midiin != nullptr) {
         connectMidiInSignals();
-        if (!VPianoSettings::instance()->lastInputConnection().isEmpty()) {
-            m_midiin->initialize(settings.getQSettings());
-            for(const MIDIConnection& conn : m_midiin->connections()) {
-                if (conn.first == VPianoSettings::instance()->lastInputConnection()) {
+        m_midiin->initialize(settings.getQSettings());
+        auto connections = m_midiin->connections();
+        auto lastConn = VPianoSettings::instance()->lastInputConnection();
+        if (lastConn.isEmpty()) {
+            lastConn = connections.first().first;
+        }
+        if (!lastConn.isEmpty()) {
+            foreach(const MIDIConnection& conn, connections) {
+                if (conn.first == lastConn) {
                     m_midiin->open(conn);
                     break;
                 }
@@ -253,12 +246,17 @@ bool VPiano::initMidi()
         }
     }
 
-    if (m_midiout != nullptr && !VPianoSettings::instance()->lastOutputConnection().isEmpty()) {
+    if (m_midiout != nullptr) {
         m_midiout->initialize(settings.getQSettings());
-        for(const MIDIConnection& conn : m_midiout->connections()) {
-            if (conn.first == VPianoSettings::instance()->lastOutputConnection()) {
+        auto connections = m_midiout->connections();
+        auto lastConn = VPianoSettings::instance()->lastOutputConnection();
+        if (lastConn.isEmpty()) {
+            lastConn = connections.first().first;
+        }
+        foreach(const MIDIConnection& conn, connections) {
+            if (conn.first == lastConn) {
                 m_midiout->open(conn);
-                if (!VPianoSettings::instance()->lastInputConnection().isEmpty()) {
+                if (m_midiin != nullptr) {
                     m_midiin->setMIDIThruDevice(m_midiout);
                     m_midiin->enableMIDIThru(VPianoSettings::instance()->midiThru());
                 }

@@ -18,7 +18,7 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_OSX_DEPLOYMENT_TARGET "10.12" CACHE STRING "Minimum OS X deployment version")
 
 project( VMPK
-    VERSION 0.8.3
+    VERSION 0.8.4
     LANGUAGES CXX
     DESCRIPTION "Virtual MIDI Piano Keyboard"
     HOMEPAGE_URL "https://vmpk.sourceforge.io/"
@@ -57,7 +57,7 @@ if(MSVC)
 endif()
 
 find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
-find_package(Drumstick 2.1 COMPONENTS RT Widgets REQUIRED)
+find_package(Drumstick 2.3 COMPONENTS RT Widgets REQUIRED)
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
