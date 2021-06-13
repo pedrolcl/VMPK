@@ -240,6 +240,18 @@ bool VPiano::initMidi()
             foreach(const MIDIConnection& conn, connections) {
                 if (conn.first == lastConn) {
                     m_midiin->open(conn);
+                    auto metaObj = m_midiin->metaObject();
+                    if ((metaObj->indexOfProperty("status") != -1) &&
+                        (metaObj->indexOfProperty("diagnostics") != -1)) {
+                        auto status = m_midiin->property("status");
+                        if (status.isValid() && !status.toBool()) {
+                            auto diagnostics = m_midiin->property("diagnostics");
+                            if (diagnostics.isValid()) {
+                                auto text = diagnostics.toStringList().join(QChar::LineFeed).trimmed();
+                                qWarning() << "MIDI Input" << text;
+                            }
+                        }
+                    }
                     break;
                 }
             }
@@ -256,6 +268,18 @@ bool VPiano::initMidi()
         foreach(const MIDIConnection& conn, connections) {
             if (conn.first == lastConn) {
                 m_midiout->open(conn);
+                auto metaObj = m_midiout->metaObject();
+                if ((metaObj->indexOfProperty("status") != -1) &&
+                    (metaObj->indexOfProperty("diagnostics") != -1)) {
+                    auto status = m_midiout->property("status");
+                    if (status.isValid() && !status.toBool()) {
+                        auto diagnostics = m_midiout->property("diagnostics");
+                        if (diagnostics.isValid()) {
+                            auto text = diagnostics.toStringList().join(QChar::LineFeed).trimmed();
+                            qWarning() << "MIDI Output" << text;
+                        }
+                    }
+                }
                 if (m_midiin != nullptr) {
                     m_midiin->setMIDIThruDevice(m_midiout);
                     m_midiin->enableMIDIThru(VPianoSettings::instance()->midiThru());

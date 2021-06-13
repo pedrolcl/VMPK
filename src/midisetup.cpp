@@ -16,10 +16,11 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QMessageBox>
 #include <drumstick/configurationdialogs.h>
 #include <drumstick/settingsfactory.h>
-#include "midisetup.h"
 #include "vpianosettings.h"
+#include "midisetup.h"
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_settingsChanged(false),
@@ -155,6 +156,18 @@ void MidiSetup::reopen()
             if (!m_connOut.first.isEmpty()) {
                 m_midiOut->initialize(settings.getQSettings());
                 m_midiOut->open(m_connOut);
+                auto metaObj = m_midiOut->metaObject();
+                if ((metaObj->indexOfProperty("status") != -1) &&
+                    (metaObj->indexOfProperty("diagnostics") != -1)) {
+                    auto status = m_midiOut->property("status");
+                    if (status.isValid() && !status.toBool()) {
+                        auto diagnostics = m_midiOut->property("diagnostics");
+                        if (diagnostics.isValid()) {
+                            auto text = diagnostics.toStringList().join(QChar::LineFeed).trimmed();
+                            QMessageBox::warning(this, tr("MIDI Output"), text);
+                        }
+                    }
+                }
             }
         }
     }
@@ -164,6 +177,18 @@ void MidiSetup::reopen()
             if (!m_connIn.first.isEmpty()) {
                 m_midiIn->initialize(settings.getQSettings());
                 m_midiIn->open(m_connIn);
+                auto metaObj = m_midiIn->metaObject();
+                if ((metaObj->indexOfProperty("status") != -1) &&
+                    (metaObj->indexOfProperty("diagnostics") != -1)) {
+                    auto status = m_midiIn->property("status");
+                    if (status.isValid() && !status.toBool()) {
+                        auto diagnostics = m_midiIn->property("diagnostics");
+                        if (diagnostics.isValid()) {
+                            auto text = diagnostics.toStringList().join(QChar::LineFeed).trimmed();
+                            QMessageBox::warning(this, tr("MIDI Input"), text);
+                        }
+                    }
+                }
             }
         }
         if (m_midiOut != nullptr) {
