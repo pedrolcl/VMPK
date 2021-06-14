@@ -56,8 +56,12 @@ if(MSVC)
     string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
 endif()
 
-find_package(Qt5 5.12 COMPONENTS Widgets Network LinguistTools REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Network LinguistTools REQUIRED)
 find_package(Drumstick 2.3 COMPONENTS RT Widgets REQUIRED)
+if (QT_VERSION VERSION_GREATER_EQUAL 6.0.0)
+    find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
+endif()
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
@@ -70,11 +74,11 @@ message (STATUS "VMPK v${PROJECT_VERSION}
 )
 
 if (ENABLE_DBUS)
-    find_package(Qt5DBus REQUIRED)
+    find_package(Qt${QT_VERSION_MAJOR}DBus REQUIRED)
 endif ()
 
 if (UNIX AND NOT APPLE)
-    find_package(Qt5X11Extras REQUIRED)
+    find_package(Qt${QT_VERSION_MAJOR}X11Extras REQUIRED)
     find_package(PkgConfig REQUIRED)
     if(PKG_CONFIG_FOUND)
         message(STATUS "Program pkg-config v${PKG_CONFIG_VERSION_STRING} found (${PKG_CONFIG_EXECUTABLE})")

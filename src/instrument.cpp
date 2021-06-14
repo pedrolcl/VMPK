@@ -23,9 +23,8 @@
 #include <QFileInfo>
 #include <QFile>
 #include <QTextStream>
-#include <QRegExp>
 #include <QDate>
-
+#include <QRegExp>
 #include "instrument.h"
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))

@@ -79,17 +79,17 @@ void VMPKKeyboardMap::initializeFromXML(QIODevice *dev)
         reader.readNext();
         if (reader.isDTD()) {
             //qDebug() << "DTD:" << reader.dtdName();
-            m_rawMode = (reader.dtdName() == "rawkeyboardmap");
+            m_rawMode = (reader.dtdName() == QStringLiteral("rawkeyboardmap"));
         } else
         if (reader.isStartElement()) {
-            if (reader.name() == (m_rawMode?"rawkeymap":"keyboardmap")) {
+            if (reader.name() == (m_rawMode?QStringLiteral("rawkeymap"):QStringLiteral("keyboardmap"))) {
                 reader.readNext();
                 while (reader.isWhitespace() || reader.isComment()) {
                     //qDebug() << "1st. junk place" << reader.text();
                     reader.readNext();
                 }
                 while (reader.isStartElement()) {
-                    if (reader.name() == "mapping") {
+                    if (reader.name() == QStringLiteral("mapping")) {
                         QString key = reader.attributes().value(m_rawMode?"keycode":"key").toString();
                         QString sn = reader.attributes().value("note").toString();
                         bool ok = false;

@@ -34,7 +34,11 @@
 #include "maceventhelper.h"
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
 bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message, long *)
+#else
+bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message, qintptr *)
+#endif
 {
 
     if (!m_enabled || (m_handler == nullptr)) {

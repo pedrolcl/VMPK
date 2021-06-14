@@ -14,7 +14,12 @@ set( TRANSLATIONS_FILES
      vmpk_sv.ts
 )
 
-qt5_add_translation(QM_FILES ${TRANSLATIONS_FILES})
+if (QT_VERSION VERSION_LESS 5.15.0)
+    qt5_add_translation(QM_FILES ${TRANSLATIONS_FILES})
+else()
+    qt_add_translation(QM_FILES ${TRANSLATIONS_FILES})
+endif()
+
 add_custom_target(translations ALL DEPENDS ${QM_FILES})
 
 if (UNIX AND NOT APPLE)

@@ -16,11 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QFileInfo>
-#include <QDir>
 #include <QDebug>
-#include <QTouchDevice>
+#include <QDir>
+#include <QFileInfo>
 #include <QLibraryInfo>
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+#include <QTouchDevice>
+#else
+#include <QInputDevice>
+#endif
 
 #if defined(Q_OS_MACOS)
 #include <CoreFoundation/CoreFoundation.h>
@@ -207,8 +211,13 @@ void VPianoSettings::internalRead(QSettings &settings)
 
     bool mouseInputEnabledbyDefault = true;
     bool touchInputEnabledbyDefault = false;
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     foreach(const QTouchDevice *dev, QTouchDevice::devices()) {
         if (dev->type() == QTouchDevice::TouchScreen) {
+#else
+    foreach(const QInputDevice *dev, QInputDevice::devices()) {
+        if (dev->type() == QInputDevice::DeviceType::TouchScreen) {
+#endif
             mouseInputEnabledbyDefault = false;
             touchInputEnabledbyDefault = true;
             break;

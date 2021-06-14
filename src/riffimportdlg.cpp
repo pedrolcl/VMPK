@@ -21,6 +21,7 @@
 #include <QTextStream>
 #include <QFileDialog>
 #include <QDesktopServices>
+#include <QStandardPaths>
 
 #include "riffimportdlg.h"
 #include "ui_riffimportdlg.h"

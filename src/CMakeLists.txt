@@ -30,7 +30,11 @@ if (EMBED_TRANSLATIONS)
          ../translations/vmpk_sr.ts
          ../translations/vmpk_sv.ts
     )
-    qt5_add_translation(QM_FILES ${TRANSLATIONS})
+    if (QT_VERSION VERSION_LESS 5.15.0)
+        qt5_add_translation(QM_FILES ${TRANSLATIONS})
+    else()
+        qt_add_translation(QM_FILES ${TRANSLATIONS})
+    endif()
     include(TranslationUtils)
     add_app_translations_resource(APP_RES ${QM_FILES})
     add_qt_translations_resource(QT_RES cs de es fr gl ru sr sv)
@@ -98,11 +102,19 @@ endif()
 
 if(ENABLE_DBUS)
     add_definitions(-DENABLE_DBUS)
-    qt5_add_dbus_adaptor( vmpk_SRCS
-                          net.sourceforge.vmpk.xml 
-                          vpiano.h 
-                          VPiano
-                          vmpk_adaptor )
+    if (QT_VERSION VERSION_LESS 5.15.0)
+        qt5_add_dbus_adaptor( vmpk_SRCS
+                              net.sourceforge.vmpk.xml
+                              vpiano.h
+                              VPiano
+                              vmpk_adaptor )
+    else()
+        qt_add_dbus_adaptor( vmpk_SRCS
+                             net.sourceforge.vmpk.xml
+                             vpiano.h
+                             VPiano
+                             vmpk_adaptor )
+    endif()
     set_property(SOURCE
         ${CMAKE_CURRENT_BINARY_DIR}/vmpk_adaptor.h
         ${CMAKE_CURRENT_BINARY_DIR}/vmpk_adaptor.cpp
@@ -151,11 +163,16 @@ add_executable (vmpk MACOSX_BUNDLE WIN32
 target_link_libraries(vmpk PRIVATE
     Drumstick::RT
     Drumstick::Widgets
-    Qt5::Widgets
-    $<$<BOOL:${ENABLE_DBUS}>:Qt5::DBus>
-    $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
+    Qt${QT_VERSION_MAJOR}::Widgets
+    $<$<BOOL:${ENABLE_DBUS}>:Qt${QT_VERSION_MAJOR}::DBus>
+    $<$<BOOL:${Qt${QT_VERSION_MAJOR}X11Extras_FOUND}>:Qt${QT_VERSION_MAJOR}::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
 )
+if (QT_VERSION VERSION_GREATER_EQUAL 6.0.0)
+    target_link_libraries(vmpk PRIVATE
+        Qt6::Core5Compat
+    )
+endif()
 
 #$<$<PLATFORM_ID:Windows>:winmm>
 #$<$<BOOL:${WIN32}>:dwmapi>

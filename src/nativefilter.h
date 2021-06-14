@@ -35,7 +35,11 @@ public:
     bool isRawKbdEnabled() { return m_enabled; }
     void setRawKbdEnabled(bool b) { m_enabled = b; }
 
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     virtual bool nativeEventFilter(const QByteArray &eventType, void *message, long *) override;
+#else
+    virtual bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr*) override;
+#endif
 
 private:
     bool m_enabled;

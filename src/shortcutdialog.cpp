@@ -103,7 +103,7 @@ ShortcutTableItemEditor::ShortcutTableItemEditor (
 
 	QHBoxLayout *pLayout = new QHBoxLayout();
 	pLayout->setSpacing(0);
-	pLayout->setMargin(0);
+    pLayout->setContentsMargins(0,0,0,0);
 	pLayout->addWidget(m_pLineEdit);
 	pLayout->addWidget(m_pToolButton);
 	QWidget::setLayout(pLayout);

@@ -169,7 +169,11 @@ protected:
     void closeEvent ( QCloseEvent *event ) override;
     void showEvent ( QShowEvent *event ) override;
     void hideEvent( QHideEvent *event ) override;
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     bool nativeEvent( const QByteArray &eventType, void *message, long *result ) override;
+#else
+    bool nativeEvent( const QByteArray &eventType, void *message, qintptr *result ) override;
+#endif
     void changeEvent ( QEvent *event ) override;
 
 private:
