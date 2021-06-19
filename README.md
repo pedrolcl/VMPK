@@ -1,5 +1,4 @@
-Virtual MIDI Piano Keyboard
-===========================
+# Virtual MIDI Piano Keyboard
 
 This program is a MIDI events generator/receiver. It doesn't produce any sound
 by itself, but can be used to drive a MIDI synthesizer (either hardware or
@@ -8,13 +7,16 @@ MIDI notes, and also the mouse. You can use the Virtual MIDI Piano Keyboard
 to display the played MIDI notes from another instrument or MIDI file player.
 To do so, connect the other MIDI port to the input port of VMPK.
 
+![Screenshot](https://vmpk.sourceforge.io/images/vmpk_0.8_linux.png "main window")
+
+[![Screencast at YouTube](https://img.youtube.com/vi/3TGNSYKjEtg/0.jpg)](https://www.youtube.com/watch?v=3TGNSYKjEtg)
+
 VMPK has been tested in Linux, Windows and Mac, but maybe you can build it also 
 other operating systems. If you can compile and test the program, please drop
 a mail to the author.
 
-The Virtual Keyboard by Takashi Iway (vkeybd) has been the inspiration for this 
-one. It is a wonderful piece of software and has served us well for many years.
-Thanks!
+The Virtual Keyboard by Takashi Iway [vkeybd](https://github.com/tiwai/vkeybd) has been the inspiration for this 
+one. It is a wonderful piece of software and has served us well for many years. Thanks!
 
 VMPK uses a modern GUI framework: Qt5, that gives excellent features and
 performance. Drumstick-RT provides MIDI input/output features. Both frameworks are
@@ -37,12 +39,17 @@ report bugs, and propose new features.
 
 See https://vmpk.sourceforge.io for more details.
 
-DOWNLOAD
+## DOWNLOAD
 
 Latest release is available in Sourceforge:
+
+[![Download Virtual MIDI Piano Keyboard](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/vmpk/files/latest/download)
+
 https://sourceforge.net/projects/vmpk/files
 
-REQUIREMENTS
+[![Packaging status](https://repology.org/badge/vertical-allrepos/vmpk.svg)](https://repology.org/project/vmpk/versions)
+
+## REQUIREMENTS
 
 You need Qt 5.1 or newer. Install the -devel package for your system, or
 download the open source edition:
@@ -68,55 +75,57 @@ Optionally, you can build a Windows setup program using NSIS.
 
     https://nsis.sourceforge.io/
 
-INSTALLATION
+## INSTALLATION
 
 Download the sources from https://sourceforge.net/projects/vmpk/files
 Unpack the sources in your home directory, and change to the unpacked dir.
 
-$ cd vmpk-x.x.x
+    $ cd vmpk-x.x.x
 
 You can choose between CMake and Qmake to prepare the build system, but qmake is
 intended only for testing and development.
 
-$ cmake .
-or
-$ ccmake .
-or
-$ qmake
+    $ cmake .
+    or
+    $ ccmake .
+    or
+    $ qmake
 
 After that, compile the program:
 
-$ make
+    $ make
 
 if the program has been compiled successfully, you can install it:
 
-$ make install
+    $ make install
 
 There are more commands available:
 
-$ make uninstall
-$ make clean
+    $ make uninstall
+    $ make clean
 
 You can get some compiler optimisation when building the program, but don't 
 expect too much improvement. There are two ways. First, using a predefined 
 configuration type:
 
-$ cmake . -DCMAKE_BUILD_TYPE=Release
+    $ cmake . -DCMAKE_BUILD_TYPE=Release
 
-The CMake "Release" type uses the compiler flags: "-O3 -DNDEBUG". Other 
-predefined build types are "Debug", "RelWithDebInfo", and "MinSizeRel".
+The CMake "Release" type uses the compiler flags: `-O3 -DNDEBUG`. Other 
+predefined build types are `Debug`, `RelWithDebInfo`, and `MinSizeRel`.
 The second way is to choose the compiler flags yourself:
 
-$ export CXXFLAGS="-O2 -march=native -mtune=native -DNDEBUG" 
-$ cmake .
+    $ export CXXFLAGS="-O2 -march=native -mtune=native -DNDEBUG" 
+    $ cmake .
 
-You need to find the better CXXFLAGS for your own system.
+You need to find the best `CXXFLAGS` for your own system.
 
 If you want to install the program at some place other than the default 
-(/usr/local) use the following CMake option:
-$ cmake . -DCMAKE_INSTALL_PREFIX=/usr
+(`/usr/local`) use the following CMake option:
+
+    $ cmake . -DCMAKE_INSTALL_PREFIX=/usr
 
 Other optional configuration options are:
+
 * ENABLE_DBUS: activates the DBus interface, enabled on Linux by default.
 * EMBED_TRANSLATIONS: include translations inside the executable as resources.
 This option is OFF by default. Useful for portable builds.
@@ -124,25 +133,27 @@ This option is OFF by default. Useful for portable builds.
 then a pre-built man page included in the source tarball is installed.
 
 example:
-$ cmake . -DENABLE_DBUS=No
 
-NOTES FOR LINUX USERS
+    $ cmake . -DENABLE_DBUS=No
+
+## NOTES FOR LINUX USERS
 
 A man page is included in the source package, ready to be installed and used. 
 But if you prefer to generate the man page yourself, the build system can do it 
 if you have installed in your system the following packages:
+
 * xsltproc program.
 * docbook XSLT stylesheets.
 
 The package names depend on the Linux distribution. For Debian they are:
-xsltproc, docbook-xsl and docbook-xml. For openSUSE: libxslt, docbook_4, and 
-docbook-xsl-stylesheets.
+`xsltproc`, `docbook-xsl` and `docbook-xml`. For openSUSE: `libxslt`, `docbook_4`, and 
+`docbook-xsl-stylesheets`.
 
-NOTES FOR WINDOWS USERS
+## NOTES FOR WINDOWS USERS
 
 To compile the sources in Windows, you need to download either the .bz2 or .gz 
 archive and uncompress it using any utility that supports the format, like 
-7-Zip (https://www.7-zip.org/)
+[7-Zip](https://www.7-zip.org/).
 
 To configure the sources, you need qmake (from Qt5) or CMake. You need to set
 the PATH including the directories for Qt5 binaries, MinGW binaries, and also
@@ -151,7 +162,7 @@ CMake binaries. The program cmake-gui is the graphic version of CMake.
 To use the program in Windows, you need some MIDI synth. It is possible to use  
 the "Microsoft GS Wavetable SW Synth" that cames with Windows, but for better
 performance and quality, the FluidSynth library is included. Another option
-is Virtual MIDI Synth (https://coolsoft.altervista.org/en/virtualmidisynth)
+is [Virtual MIDI Synth](https://coolsoft.altervista.org/en/virtualmidisynth).
 
 Of course, an external MIDI hardware synth would be an even better approach. 
 
@@ -162,7 +173,7 @@ software, like MIDI Yoke, LoopBe1 or Tobias Erichsen's LoopMIDI.
     https://www.nerds.de/en/loopbe1.html
     https://www.tobias-erichsen.de/software/loopmidi.html
 
-NOTES FOR MAC OSX USERS
+## NOTES FOR MAC OSX USERS
 
 The build system is configured to create an app bundle. You need the Apple 
 development tools and frameworks, as well as the Qt5 SDK. Note that VMPK >= 0.6
@@ -170,25 +181,26 @@ requires the Cocoa framework, with the corresponding Cocoa version of Qt.
 
 To compile VMPK using Makefiles, generated by qmake:
 
-$ qmake vmpk.pro -spec macx-g++
-$ make
-$ macdeployqt build/vmpk.app
+    $ qmake vmpk.pro -spec macx-g++
+    $ make
+    $ macdeployqt build/vmpk.app
 
 To compile using Makefiles, generated by CMake:
 
-$ cmake -G "Unix Makefiles" .
-$ make
+    $ cmake -G "Unix Makefiles" .
+    $ make
 
 To create Xcode project files:
-$ qmake vmpk.pro -spec macx-xcode
-or
-$ cmake -G Xcode .
+
+    $ qmake vmpk.pro -spec macx-xcode
+    or
+    $ cmake -G Xcode .
 
 You can use the MIDI synth library that is included in Mac OSX, with or
-without an external program like SimpleSynth (https://notahat.com/simplesynth/).
-Also from the same author is MIDI Patchbay (https://notahat.com/midi_patchbay/).
+without an external program like [SimpleSynth](https://notahat.com/simplesynth/).
+Also from the same author is [MIDI Patchbay](https://notahat.com/midi_patchbay/).
 
-ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 In addition to the aforementioned tools, VMPK uses work from the following
 open source projects. 

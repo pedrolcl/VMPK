@@ -35,6 +35,17 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.8.4" date="2021-06-29">
+     <url>https://sourceforge.net/p/vmpk/news/2021/06/virtual-midi-piano-keyboard-084-released-/</url>
+     <description>
+       <p>This release includes the following fixes and features</p>
+       <ul>
+         <li>Experimental support for building with Qt6</li>
+         <li>Applied drumstick ticket #31: fallback MIDI drivers</li>
+       </ul>
+       <p>required: drumstick-2.3.0</p>
+     </description>
+   </release>     
    <release type="stable" version="0.8.3" date="2021-05-09">
      <url>https://sourceforge.net/p/vmpk/news/2021/05/virtual-midi-piano-keyboard-083-released-/</url>
      <description>
