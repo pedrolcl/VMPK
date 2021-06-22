@@ -105,6 +105,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     QCoreApplication::installTranslator(m_trq);
     QCoreApplication::installTranslator(m_trp);
     QCoreApplication::installTranslator(m_trl);
+    VPianoSettings::instance()->retranslatePalettes();
     ui.setupUi(this);
     initLanguages();
 
