@@ -171,9 +171,15 @@ Section -Main SEC0000
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-fluidsynth.dll $INSTDIR\drumstick2\drumstick-rt-fluidsynth.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libfluidsynth-3.dll $INSTDIR\libfluidsynth-3.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\glib-2.0-0.dll $INSTDIR\glib-2.0-0.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\iconv-2.dll $INSTDIR\iconv-2.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\intl-8.dll $INSTDIR\intl-8.dll $INSTDIR
-	!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre.dll $INSTDIR\pcre.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\iconv-2.dll $INSTDIR\iconv-2.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\intl-8.dll $INSTDIR\intl-8.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre.dll $INSTDIR\pcre.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\FLAC.dll $INSTDIR\FLAC.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\ogg.dll $INSTDIR\ogg.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\opus.dll $INSTDIR\opus.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\sndfile.dll $INSTDIR\sndfile.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\vorbis.dll $INSTDIR\vorbis.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\vorbisenc.dll $INSTDIR\vorbisenc.dll $INSTDIR
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
 
@@ -200,7 +206,7 @@ Section -post SEC0001
     ;StrCmp $1 "v14.28.29914.00" installed
     ;not installed, so run the installer
     ExecWait '"$INSTDIR\vc_redist.${CPU}.exe" /install /quiet /norestart'
-	;installed:	
+    ;installed:
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -291,6 +297,12 @@ Section /o -un.Main UNSEC0000
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl-8.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconv-2.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\FLAC.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\ogg.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opus.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\sndfile.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\vorbis.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\vorbisenc.dll
 
     RMDir /REBOOTOK $INSTDIR\translations
     RMDir /REBOOTOK $INSTDIR\styles
