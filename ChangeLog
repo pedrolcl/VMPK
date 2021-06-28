@@ -1,5 +1,8 @@
-2021-06-xx
+2021-06-29
     * Release 0.8.4
+
+2021-06-28
+    * Fixed CMake build option EMBED_TRANSLATIONS, including widgets translations
 
 2021-06-14
     * Experimental support for building with Qt6
