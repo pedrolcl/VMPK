@@ -40,6 +40,7 @@
 #include <QMapIterator>
 #include <QShortcut>
 #include <QActionGroup>
+#include <QStandardPaths>
 
 #include <drumstick/backendmanager.h>
 #include <drumstick/rtmidiinput.h>
