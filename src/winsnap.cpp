@@ -143,16 +143,16 @@ bool WinSnap::HandleEnterSizeMove()
 			// only snap edges they would have are on the outside of the monitor.
 			if (!IsZoomed(windowHandle)) {
 				RECT frame, border;
-				DwmGetWindowAttribute(windowHandle, DWMWA_EXTENDED_FRAME_BOUNDS, &frame, sizeof(RECT));
-				border.left = frame.left - thisRect.left;
-				border.top = frame.top - thisRect.top;
-				border.right = thisRect.right - frame.right;
-				border.bottom = thisRect.bottom - frame.bottom;
-				thisRect.left += border.left;
-				thisRect.top += border.top;
-				thisRect.right -= border.right;
-				thisRect.bottom -= border.bottom;
-
+                if (S_OK == DwmGetWindowAttribute(windowHandle, DWMWA_EXTENDED_FRAME_BOUNDS, &frame, sizeof(RECT))) {
+                    border.left = frame.left - thisRect.left;
+                    border.top = frame.top - thisRect.top;
+                    border.right = thisRect.right - frame.right;
+                    border.bottom = thisRect.bottom - frame.bottom;
+                    thisRect.left += border.left;
+                    thisRect.top += border.top;
+                    thisRect.right -= border.right;
+                    thisRect.bottom -= border.bottom;
+                }
 				param->_this->AddRectToEdges(thisRect);
 			}
 		}
@@ -179,12 +179,12 @@ bool WinSnap::HandleEnterSizeMove()
     m_originalCursorOffset.x -= bounds.left;
     m_originalCursorOffset.y -= bounds.top;
 
-    DwmGetWindowAttribute(m_window, DWMWA_EXTENDED_FRAME_BOUNDS, &frame, sizeof(RECT));
-    m_border.left = frame.left - bounds.left;
-    m_border.top = frame.top - bounds.top;
-    m_border.right = bounds.right - frame.right;
-    m_border.bottom = bounds.bottom - frame.bottom;
-
+    if (S_OK == DwmGetWindowAttribute(m_window, DWMWA_EXTENDED_FRAME_BOUNDS, &frame, sizeof(RECT))) {
+        m_border.left = frame.left - bounds.left;
+        m_border.top = frame.top - bounds.top;
+        m_border.right = bounds.right - frame.right;
+        m_border.bottom = bounds.bottom - frame.bottom;
+    }
 	return true;
 }
 
