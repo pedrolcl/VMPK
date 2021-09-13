@@ -1947,10 +1947,11 @@ void VPiano::slotControllerDown()
 void VPiano::slotSwitchLanguage(QAction *action)
 {
     QString lang = action->data().toString();
-    if ( QMessageBox::question (this, tr("Language Changed"),
+    bool result = QMessageBox::question (this, tr("Language Changed"),
             tr("The language for this application is going to change to %1. "
                "Do you want to continue?").arg(m_supportedLangs[lang]),
-            QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes )
+            QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes;
+    if ( result )
     {
         VPianoSettings::instance()->setLanguage(lang);
         retranslateUi();
@@ -1964,8 +1965,7 @@ void VPiano::createLanguageMenu()
     QString currentLang = VPianoSettings::instance()->language();
     QActionGroup *languageGroup = new QActionGroup(this);
     languageGroup->setExclusive(true);
-    connect(languageGroup, SIGNAL(triggered(QAction *)),
-            SLOT(slotSwitchLanguage(QAction *)));
+    connect(languageGroup, &QActionGroup::triggered, this, &VPiano::slotSwitchLanguage, Qt::QueuedConnection);
     QDir dir(VPianoSettings::localeDirectory());
     QStringList fileNames = dir.entryList(QStringList(QSTR_VMPKPX + "*.qm"));
     QStringList locales;
