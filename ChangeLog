@@ -1,3 +1,6 @@
+2021-10-20
+    * fix for ticket #74: crash under Linux, if there are no suitable MIDI inputs/outputs available and the user opens the MIDI Connections dialog.
+
 2021-09-01
     * fixed error checking of DwmGetWindowAttribute() call. This caused a problem in Windows 7 running the "Windows Classic" theme.
 

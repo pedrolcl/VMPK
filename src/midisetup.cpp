@@ -224,7 +224,7 @@ void MidiSetup::refreshInputDrivers(QString id, bool advanced)
             ui.comboInput->addItem(conn.first, QVariant::fromValue(conn));
         }
         QString connIn = m_midiIn->currentConnection().first;
-        if (connIn.isEmpty()) {
+        if (connIn.isEmpty() && !connections.isEmpty()) {
             connIn = connections.first().first;
         }
         ui.comboInput->setCurrentText(connIn);
@@ -256,7 +256,7 @@ void MidiSetup::refreshOutputDrivers(QString id, bool advanced)
             ui.comboOutput->addItem(conn.first, QVariant::fromValue(conn));
         }
         QString connOut = m_midiOut->currentConnection().first;
-        if (connOut.isEmpty()) {
+        if (connOut.isEmpty() && !connections.isEmpty()) {
             connOut = connections.first().first;
         }
         ui.comboOutput->setCurrentText(connOut);
