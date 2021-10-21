@@ -2208,178 +2208,178 @@ Quere aplicar os cambios?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1689"/>
+        <location filename="../src/vpiano.cpp" line="1695"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1689"/>
+        <location filename="../src/vpiano.cpp" line="1695"/>
         <source>No help file found</source>
         <translation>Non se atopou o ficheiro de axuda</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1948"/>
+        <location filename="../src/vpiano.cpp" line="1954"/>
         <source>Language Changed</source>
         <translation>Cambiado o idioma</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1949"/>
+        <location filename="../src/vpiano.cpp" line="1955"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>O idioma deste aplicativo vai ser cambiado a %1. Quere continuar?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1993"/>
+        <location filename="../src/vpiano.cpp" line="1999"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK desenvolvese e tradúcese grazas ao traballo de moitas persoas voluntarias de todo o mundo. Se quere formar parte do equipo ou se ten algunha pregunta, visite os foros en &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2011"/>
+        <location filename="../src/vpiano.cpp" line="2017"/>
         <source>Translation</source>
         <translation>Tradución</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2012"/>
+        <location filename="../src/vpiano.cpp" line="2018"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Traductor: Miguel Anxo Bouzada &lt;mbouzada@gmail.com&gt;&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2014"/>
+        <location filename="../src/vpiano.cpp" line="2020"/>
         <source>Translation Information</source>
         <translation>Información sobre a tradución</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2034"/>
+        <location filename="../src/vpiano.cpp" line="2040"/>
         <source>Czech</source>
         <translation>Checo</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2035"/>
+        <location filename="../src/vpiano.cpp" line="2041"/>
         <source>German</source>
         <translation>Alemán</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2036"/>
+        <location filename="../src/vpiano.cpp" line="2042"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2037"/>
+        <location filename="../src/vpiano.cpp" line="2043"/>
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2038"/>
+        <location filename="../src/vpiano.cpp" line="2044"/>
         <source>French</source>
         <translation>Francés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2039"/>
+        <location filename="../src/vpiano.cpp" line="2045"/>
         <source>Galician</source>
         <translation>Galego</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2040"/>
+        <location filename="../src/vpiano.cpp" line="2046"/>
         <source>Dutch</source>
         <translation>Holandés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2041"/>
+        <location filename="../src/vpiano.cpp" line="2047"/>
         <source>Russian</source>
         <translation>Ruso</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2042"/>
+        <location filename="../src/vpiano.cpp" line="2048"/>
         <source>Serbian</source>
         <translation>Serbio</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2043"/>
+        <location filename="../src/vpiano.cpp" line="2049"/>
         <source>Swedish</source>
         <translation>Sueco</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2044"/>
+        <location filename="../src/vpiano.cpp" line="2050"/>
         <source>Chinese</source>
         <translation>Chinés</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2051"/>
+        <location filename="../src/vpiano.cpp" line="2057"/>
         <source>Chan:</source>
         <translation>Can:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2053"/>
+        <location filename="../src/vpiano.cpp" line="2059"/>
         <source>Channel:</source>
         <translation>Canle:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2058"/>
+        <location filename="../src/vpiano.cpp" line="2064"/>
         <source>Oct:</source>
         <translation>Oit:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2060"/>
+        <location filename="../src/vpiano.cpp" line="2066"/>
         <source>Base Octave:</source>
         <translation>Oitava base: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2065"/>
+        <location filename="../src/vpiano.cpp" line="2071"/>
         <source>Trans:</source>
         <translation>Trans:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2067"/>
+        <location filename="../src/vpiano.cpp" line="2073"/>
         <source>Transpose:</source>
         <translation>Transposición: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2072"/>
+        <location filename="../src/vpiano.cpp" line="2078"/>
         <source>Vel:</source>
         <translation>Vel:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2074"/>
+        <location filename="../src/vpiano.cpp" line="2080"/>
         <source>Velocity:</source>
         <translation>Velocidade: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2077"/>
+        <location filename="../src/vpiano.cpp" line="2083"/>
         <source>Bank:</source>
         <translation>Banco: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2078"/>
+        <location filename="../src/vpiano.cpp" line="2084"/>
         <source>Bender:</source>
         <translation>Inflexión: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2079"/>
+        <location filename="../src/vpiano.cpp" line="2085"/>
         <source>Control:</source>
         <translation>Control: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2080"/>
+        <location filename="../src/vpiano.cpp" line="2086"/>
         <source>Program:</source>
         <translation>Programa: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2081"/>
+        <location filename="../src/vpiano.cpp" line="2087"/>
         <source>Value:</source>
         <translation>Valor: </translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2226"/>
+        <location filename="../src/vpiano.cpp" line="2232"/>
         <source>Open Configuration File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2227"/>
-        <location filename="../src/vpiano.cpp" line="2240"/>
+        <location filename="../src/vpiano.cpp" line="2233"/>
+        <location filename="../src/vpiano.cpp" line="2246"/>
         <source>Configuration files (*.conf *.ini)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2242"/>
+        <location filename="../src/vpiano.cpp" line="2248"/>
         <source>Save Configuration File</source>
         <translation type="unfinished"></translation>
     </message>
