@@ -31,7 +31,7 @@
 // private header, avoid if possible...
 //#include <qpa/qplatformnativeinterface.h>
 #else // needs Qt6 >= 6.2
-#include <QX11Application>
+#include <QGuiApplication>
 #endif
 #endif
 

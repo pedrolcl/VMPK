@@ -172,6 +172,7 @@ target_link_libraries(vmpk PRIVATE
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
 )
+
 if (QT_VERSION VERSION_GREATER_EQUAL 6.0.0)
     target_link_libraries(vmpk PRIVATE
         Qt6::Core5Compat
