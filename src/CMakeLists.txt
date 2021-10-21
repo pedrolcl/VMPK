@@ -169,12 +169,13 @@ target_link_libraries(vmpk PRIVATE
     Drumstick::Widgets
     Qt${QT_VERSION_MAJOR}::Widgets
     $<$<BOOL:${ENABLE_DBUS}>:Qt${QT_VERSION_MAJOR}::DBus>
-    $<$<BOOL:${Qt${QT_VERSION_MAJOR}X11Extras_FOUND}>:Qt${QT_VERSION_MAJOR}::X11Extras>
+    $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>
 )
 if (QT_VERSION VERSION_GREATER_EQUAL 6.0.0)
     target_link_libraries(vmpk PRIVATE
         Qt6::Core5Compat
+        Qt6::Gui
     )
 endif()
 

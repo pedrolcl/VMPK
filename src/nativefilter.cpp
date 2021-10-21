@@ -60,7 +60,9 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
             //connection = reinterpret_cast<xcb_connection_t *>(conn);
             connection = QX11Info::connection();
 #else // needs Qt6 >= 6.2
-            connection = QX11Application::connection();
+            if (auto x11nativeitf = qApp->nativeInterface<QNativeInterface::QX11Application>()) {
+                connection = x11nativeitf->connection();
+            }
 #endif
         }
         xcb_generic_event_t* ev = reinterpret_cast<xcb_generic_event_t *>(message);
