@@ -57,10 +57,13 @@ if(MSVC)
 endif()
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Network LinguistTools REQUIRED)
-find_package(Drumstick 2.3 COMPONENTS RT Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Gui Widgets Network LinguistTools REQUIRED)
+find_package(Drumstick 2.4 COMPONENTS RT Widgets REQUIRED)
 if (QT_VERSION VERSION_GREATER_EQUAL 6.0.0)
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
+    if (QT_VERSION VERSION_LESS 6.2.0)
+        message (FATAL "Qt6 >= 6.2 is required, or use Qt5 >= 5.9")
+    endif()
 endif()
 
 message (STATUS "VMPK v${PROJECT_VERSION}
@@ -69,7 +72,7 @@ message (STATUS "VMPK v${PROJECT_VERSION}
      Operating System: ${CMAKE_SYSTEM_NAME}
      System Processor: ${CMAKE_SYSTEM_PROCESSOR}
      D-Bus support: ${ENABLE_DBUS}
-     Qt5 Version: ${Qt5_VERSION}
+     Qt${QT_VERSION_MAJOR} Version: ${QT_VERSION}
      Drumstick Version: ${Drumstick_VERSION}"
 )
 
@@ -78,7 +81,9 @@ if (ENABLE_DBUS)
 endif ()
 
 if (UNIX AND NOT APPLE)
-    find_package(Qt${QT_VERSION_MAJOR}X11Extras REQUIRED)
+    if (QT_VERSION VERSION_LESS 6.0.0)
+        find_package(Qt5X11Extras REQUIRED)
+    endif()
     find_package(PkgConfig REQUIRED)
     if(PKG_CONFIG_FOUND)
         message(STATUS "Program pkg-config v${PKG_CONFIG_VERSION_STRING} found (${PKG_CONFIG_EXECUTABLE})")

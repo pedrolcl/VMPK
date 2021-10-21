@@ -22,16 +22,17 @@
 #if defined(Q_OS_WIN)
 #include <windows.h>
 /* http://msdn.microsoft.com/en-us/library/ms646280(VS.85).aspx */
-#endif
-
-#if defined(Q_OS_LINUX)
-//#include <qpa/qplatformnativeinterface.h>
-#include <QX11Info>
-#include <xcb/xcb.h>
-#endif
-
-#if defined(Q_OS_MAC)
+#elif defined(Q_OS_MAC)
 #include "maceventhelper.h"
+#elif defined(Q_OS_UNIX)
+#include <xcb/xcb.h>
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+#include <QX11Info>
+// private header, avoid if possible...
+//#include <qpa/qplatformnativeinterface.h>
+#else // needs Qt6 >= 6.2
+#include <QX11Application>
+#endif
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
@@ -52,10 +53,15 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
         static xcb_connection_t *connection = nullptr;
         bool isRepeat = false;
         if (connection == nullptr) {
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+            // private API, avoid if possible...
             //QPlatformNativeInterface *native = qApp->platformNativeInterface();
             //void *conn = native->nativeResourceForWindow(QByteArray("connection"), 0);
             //connection = reinterpret_cast<xcb_connection_t *>(conn);
             connection = QX11Info::connection();
+#else // needs Qt6 >= 6.2
+            connection = QX11Application::connection();
+#endif
         }
         xcb_generic_event_t* ev = reinterpret_cast<xcb_generic_event_t *>(message);
         switch (ev->response_type & ~0x80) {
