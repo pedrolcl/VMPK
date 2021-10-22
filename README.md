@@ -37,15 +37,15 @@ https://sourceforge.net/projects/vmpk/files
 
 ## REQUIREMENTS
 
-You need Qt 5.1 or newer. Install the -devel package for your system, or download the open source edition:
+You need Qt 5.9 or newer. Install the -devel package for your system, or download the open source edition:
 
     https://www.qt.io/download
 
-Drumstick is required in all platforms. It uses the ALSA sequencer in Linux, WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in all the supported platforms.
+Drumstick 2.4 is required in all platforms. It uses the ALSA sequencer in Linux, WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in all the supported platforms.
 
     https://drumstick.sourceforge.net
 
-The build system is based on CMake. You can download it from:
+The build system is based on CMake (>= 3.14). You can download it from:
 
     https://www.cmake.org
 
