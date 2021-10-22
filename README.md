@@ -109,6 +109,9 @@ Other optional configuration options are:
 This option is OFF by default. Useful for portable builds.
 * BUILD_DOCS: create the man page from XML sources (ON by default). If OFF,
 then a pre-built man page included in the source tarball is installed.
+* USE_QT: valid values=5 or 6. Choose which Qt major version (5 or 6) to prefer. 
+By default (if not set) uses whatever is found.
+note: Qt6 support is still experimental.
 
 example:
 
