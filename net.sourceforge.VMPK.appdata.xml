@@ -35,6 +35,19 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.8.5" date="2021-10-24">
+     <url>https://sourceforge.net/p/vmpk/news/2021/06/virtual-midi-piano-keyboard-085-released-/</url>
+     <description>
+       <p>This release includes the following fixes and features</p>
+       <ul>
+            <li>New build option USE_QT with valid values 5 or 6, to choose which Qt major version to prefer.</li>
+            <li>Fixed ticket #74: crash under Linux using the MIDI Connections dialog. if there are no suitable MIDI inputs/outputs available.</li>
+            <li>Fixed error checking of DwmGetWindowAttribute() call. This caused a problem in Windows 7 running the "Windows Classic" theme.</li>
+            <li>Swedish translation updated. Thanks to Magnus Johansson</li>
+       </ul>
+       <p>required: drumstick-2.4.0</p>
+     </description>
+   </release>     
    <release type="stable" version="0.8.4" date="2021-06-29">
      <url>https://sourceforge.net/p/vmpk/news/2021/06/virtual-midi-piano-keyboard-084-released-/</url>
      <description>

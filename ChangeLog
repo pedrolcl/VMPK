@@ -1,3 +1,9 @@
+2021-10-23
+    * Swedish translation updated. Thanks to Magnus Johansson
+
+2021-10-22
+    * New build option USE_QT. Valid values are 5 or 6.
+
 2021-10-20
     * fix for ticket #74: crash under Linux, if there are no suitable MIDI inputs/outputs available and the user opens the MIDI Connections dialog.
 
