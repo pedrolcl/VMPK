@@ -31,7 +31,7 @@ https://sourceforge.net/projects/vmpk/files
 
 [![Download Virtual MIDI Piano Keyboard](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/vmpk/files/latest/download)
 
-[![Download on Flathub](https://flathub.org/assets/badges/flathub-badge-en.png)](https://flathub.org/apps/details/net.sourceforge.VMPK)
+[<img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/>](https://flathub.org/apps/details/net.sourceforge.VMPK)
 
 [![Packaging status](https://repology.org/badge/tiny-repos/vmpk.svg)](https://repology.org/project/vmpk/versions)
 
