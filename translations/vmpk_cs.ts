@@ -999,12 +999,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.cpp" line="167"/>
         <source>MIDI Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstup MIDI</translation>
     </message>
     <message>
         <location filename="../src/midisetup.cpp" line="188"/>
         <source>MIDI Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Vstup MIDI</translation>
     </message>
 </context>
 <context>
