@@ -13,10 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.8.4
+VERSION = 0.8.5
 VER_MAJ = 0
 VER_MIN = 8
-VER_PAT = 4
+VER_PAT = 5
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT TRANSLATIONS_EMBEDDED
 CONFIG += lrelease embed_translations
 LRELEASE_DIR='.'
@@ -24,9 +24,9 @@ QM_FILES_RESOURCE_PREFIX='/'
 
 requires(equals(QT_MAJOR_VERSION, 5))
 
-equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 1) {
+equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9) {
     message("Cannot build VMPK with Qt $${QT_VERSION}")
-    error("Use Qt 5.1 or newer")
+    error("Use Qt 5.9 or newer")
 }
 
 QT += core \
