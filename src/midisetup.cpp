@@ -107,6 +107,7 @@ void MidiSetup::showEvent(QShowEvent *)
     ui.chkEnableThru->setChecked(VPianoSettings::instance()->midiThru());
     ui.chkAdvanced->setChecked(VPianoSettings::instance()->advanced());
     ui.chkOmni->setChecked(VPianoSettings::instance()->omniMode());
+    refresh();
 }
 
 void MidiSetup::accept()
@@ -174,8 +175,8 @@ void MidiSetup::reopen()
     if (m_midiIn != nullptr) {
         if (m_connIn != m_midiIn->currentConnection() || m_settingsChanged) {
             m_midiIn->close();
+            m_midiIn->initialize(settings.getQSettings());
             if (!m_connIn.first.isEmpty()) {
-                m_midiIn->initialize(settings.getQSettings());
                 m_midiIn->open(m_connIn);
                 auto metaObj = m_midiIn->metaObject();
                 if ((metaObj->indexOfProperty("status") != -1) &&
@@ -218,7 +219,6 @@ void MidiSetup::refreshInputDrivers(QString id, bool advanced)
     }
     ui.comboInput->clear();
     if (m_midiIn != nullptr) {
-        ui.comboInput->addItem(QString());
         auto connections = m_midiIn->connections(advanced);
         foreach (const MIDIConnection& conn, connections) {
             ui.comboInput->addItem(conn.first, QVariant::fromValue(conn));

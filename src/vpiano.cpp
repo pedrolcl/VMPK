@@ -235,7 +235,7 @@ bool VPiano::initMidi()
         connectMidiInSignals();
         m_midiin->initialize(settings.getQSettings());
         MIDIConnection conn;
-        auto connections = m_midiin->connections();
+        auto connections = m_midiin->connections(VPianoSettings::instance()->advanced());
         auto lastConn = VPianoSettings::instance()->lastInputConnection();
         auto itr = std::find_if(connections.constBegin(), connections.constEnd(), [lastConn](const MIDIConnection& c){return c.first == lastConn;});
         if (itr == connections.constEnd()) {
@@ -263,7 +263,7 @@ bool VPiano::initMidi()
     if (m_midiout != nullptr) {
         m_midiout->initialize(settings.getQSettings());
         MIDIConnection conn;
-        auto connections = m_midiout->connections();
+        auto connections = m_midiout->connections(VPianoSettings::instance()->advanced());
         auto lastConn = VPianoSettings::instance()->lastOutputConnection();
         auto itr = std::find_if(connections.constBegin(), connections.constEnd(), [lastConn](const MIDIConnection& c){return c.first == lastConn;});
         if (itr == connections.constEnd()) {
@@ -1216,7 +1216,6 @@ void VPiano::slotConnections()
     dlgMidiSetup->setOutputs(m_backendManager->availableOutputs());
     dlgMidiSetup->setInput(m_midiin);
     dlgMidiSetup->setOutput(m_midiout);
-    dlgMidiSetup->refresh();
     releaseKb();
     if (dlgMidiSetup->exec() == QDialog::Accepted) {
         if (m_midiin != nullptr) {
