@@ -80,7 +80,7 @@ else()
     find_package(Qt6 6.2 COMPONENTS Gui Widgets Network LinguistTools Core5Compat REQUIRED)
 endif()
 
-find_package(Drumstick 2.4 COMPONENTS RT Widgets REQUIRED)
+find_package(Drumstick 2.5 COMPONENTS RT Widgets REQUIRED)
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
