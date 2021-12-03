@@ -24,7 +24,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDate>
-#include <QRegExp>
+#include <QRegularExpression>
 #include "instrument.h"
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
@@ -161,17 +161,19 @@ bool InstrumentList::load ( const QString& sFilename )
     Instrument     *pInstrument = nullptr;
     InstrumentData *pData = nullptr;
 
-    QRegExp rxTitle   ("^\\[([^\\]]+)\\]$");
-    QRegExp rxData    ("^([0-9]+)=(.*)$");
-    QRegExp rxBasedOn ("^BasedOn=(.+)$");
-    QRegExp rxBankSel ("^BankSelMethod=(0|1|2|3)$");
-    QRegExp rxUseNotes("^UsesNotesAsControllers=(0|1)$");
-    QRegExp rxControl ("^Control=(.+)$");
-    QRegExp rxRpn     ("^RPN=(.+)$");
-    QRegExp rxNrpn    ("^NRPN=(.+)$");
-    QRegExp rxPatch   ("^Patch\\[([0-9]+|\\*)\\]=(.+)$");
-    QRegExp rxKey     ("^Key\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(.+)$");
-    QRegExp rxDrum    ("^Drum\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(0|1)$");
+    QRegularExpression rxTitle   ("^\\[([^\\]]+)\\]$");
+    QRegularExpression rxData    ("^([0-9]+)=(.*)$");
+    QRegularExpression rxBasedOn ("^BasedOn=(.+)$");
+    QRegularExpression rxBankSel ("^BankSelMethod=(0|1|2|3)$");
+    QRegularExpression rxUseNotes("^UsesNotesAsControllers=(0|1)$");
+    QRegularExpression rxControl ("^Control=(.+)$");
+    QRegularExpression rxRpn     ("^RPN=(.+)$");
+    QRegularExpression rxNrpn    ("^NRPN=(.+)$");
+    QRegularExpression rxPatch   ("^Patch\\[([0-9]+|\\*)\\]=(.+)$");
+    QRegularExpression rxKey     ("^Key\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(.+)$");
+    QRegularExpression rxDrum    ("^Drum\\[([0-9]+|\\*),([0-9]+|\\*)\\]=(0|1)$");
+
+    QRegularExpressionMatch match;
 
     const QString s0_127    = "0..127";
     const QString s1_128    = "1..128";
@@ -235,123 +237,214 @@ bool InstrumentList::load ( const QString& sFilename )
         // Now it depends on the section...
         switch (sect) {
         case PatchNames: {
-            if (rxTitle.exactMatch(sLine)) {
+            match = rxTitle.match(sLine);
+            if (match.hasMatch()) {
                 // New patch name...
-                const QString& sTitle = rxTitle.cap(1);
+                const QString& sTitle = match.captured(1);
                 pData = &(m_patches[sTitle]);
                 pData->setName(sTitle);
-            } else if (rxBasedOn.exactMatch(sLine)) {
-                pData->setBasedOn(rxBasedOn.cap(1));
-            } else if (rxData.exactMatch(sLine)) {
-                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+                break;
+            }
+            if (pData == nullptr) {
+                qWarning("%s(%d): %s: Untitled .Patch Names entry.",
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                break;
+            }
+            match = rxBasedOn.match(sLine);
+            if (match.hasMatch()) {
+                pData->setBasedOn(match.captured(1));
+                break;
+            }
+            match = rxData.match(sLine);
+            if (match.hasMatch()) {
+                (*pData)[match.captured(1).toInt()] = match.captured(2);
             } else {
                 qWarning("%s(%d): %s: Unknown .Patch Names entry.",
-                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
             }
             break;
         }
         case NoteNames: {
-            if (rxTitle.exactMatch(sLine)) {
+            match = rxTitle.match(sLine);
+            if (match.hasMatch()) {
                 // New note name...
-                const QString& sTitle = rxTitle.cap(1);
+                const QString& sTitle = match.captured(1);
                 pData = &(m_notes[sTitle]);
                 pData->setName(sTitle);
-            } else if (rxBasedOn.exactMatch(sLine)) {
-                pData->setBasedOn(rxBasedOn.cap(1));
-            } else if (rxData.exactMatch(sLine)) {
-                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+                break;
+            }
+            if (pData == nullptr) {
+                qWarning("%s(%d): %s: Untitled .Note Names entry.",
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                break;
+            }
+            match = rxBasedOn.match(sLine);
+            if (match.hasMatch()) {
+                pData->setBasedOn(match.captured(1));
+                break;
+            }
+            match = rxData.match(sLine);
+            if (match.hasMatch()) {
+                (*pData)[match.captured(1).toInt()] = match.captured(2);
             } else {
                 qWarning("%s(%d): %s: Unknown .Note Names entry.",
-                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
             }
             break;
         }
         case ControlNames: {
-            if (rxTitle.exactMatch(sLine)) {
+            match = rxTitle.match(sLine);
+            if (match.hasMatch()) {
                 // New controller name...
-                const QString& sTitle = rxTitle.cap(1);
+                const QString& sTitle = match.captured(1);
                 pData = &(m_controllers[sTitle]);
                 pData->setName(sTitle);
-            } else if (rxBasedOn.exactMatch(sLine)) {
-                pData->setBasedOn(rxBasedOn.cap(1));
-            } else if (rxData.exactMatch(sLine)) {
-                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+                break;
+            }
+            if (pData == nullptr) {
+                qWarning("%s(%d): %s: Untitled .Controller Names entry.",
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                break;
+            }
+            match = rxBasedOn.match(sLine);
+            if (match.hasMatch()) {
+                pData->setBasedOn(match.captured(1));
+                break;
+            }
+            match = rxData.match(sLine);
+            if (match.hasMatch()) {
+                (*pData)[match.captured(1).toInt()] = match.captured(2);
             } else {
                 qWarning("%s(%d): %s: Unknown .Controller Names entry.",
-                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
             }
             break;
         }
         case RpnNames: {
-            if (rxTitle.exactMatch(sLine)) {
+            match = rxTitle.match(sLine);
+            if (match.hasMatch()) {
                 // New RPN name...
-                const QString& sTitle = rxTitle.cap(1);
+                const QString& sTitle = match.captured(1);
                 pData = &(m_rpns[sTitle]);
                 pData->setName(sTitle);
-            } else if (rxBasedOn.exactMatch(sLine)) {
-                pData->setBasedOn(rxBasedOn.cap(1));
-            } else if (rxData.exactMatch(sLine)) {
-                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+                break;
+            }
+            if (pData == nullptr) {
+                qWarning("%s(%d): %s: Untitled .RPN Names entry.",
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                break;
+            }
+            match = rxBasedOn.match(sLine);
+            if (match.hasMatch()) {
+                pData->setBasedOn(match.captured(1));
+                break;
+            }
+            match = rxData.match(sLine);
+            if (match.hasMatch()) {
+                (*pData)[match.captured(1).toInt()] = match.captured(2);
             } else {
                 qWarning("%s(%d): %s: Unknown .RPN Names entry.",
-                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
             }
             break;
         }
         case NrpnNames: {
-            if (rxTitle.exactMatch(sLine)) {
+            match = rxTitle.match(sLine);
+            if (match.hasMatch()) {
                 // New NRPN name...
-                const QString& sTitle = rxTitle.cap(1);
+                const QString& sTitle = match.captured(1);
                 pData = &(m_nrpns[sTitle]);
                 pData->setName(sTitle);
-            } else if (rxBasedOn.exactMatch(sLine)) {
-                pData->setBasedOn(rxBasedOn.cap(1));
-            } else if (rxData.exactMatch(sLine)) {
-                (*pData)[rxData.cap(1).toInt()] = rxData.cap(2);
+                break;
+            }
+            if (pData == nullptr) {
+                qWarning("%s(%d): %s: Untitled .NRPN Names entry.",
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                break;
+            }
+            match = rxBasedOn.match(sLine);
+            if (match.hasMatch()) {
+                pData->setBasedOn(match.captured(1));
+                break;
+            }
+            match = rxData.match(sLine);
+            if (match.hasMatch()) {
+                (*pData)[match.captured(1).toInt()] = match.captured(2);
             } else {
                 qWarning("%s(%d): %s: Unknown .NRPN Names entry.",
-                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
             }
             break;
         }
         case InstrDefs: {
-            if (rxTitle.exactMatch(sLine)) {
+            match = rxTitle.match(sLine);
+            if (match.hasMatch()) {
                 // New instrument definition...
-                const QString& sTitle = rxTitle.cap(1);
+                const QString& sTitle = match.captured(1);
                 pInstrument = &((*this)[sTitle]);
                 pInstrument->setInstrumentName(sTitle);
-            } else if (rxBankSel.exactMatch(sLine)) {
+                break;
+            }
+            if (pInstrument == nullptr) {
+                // New instrument definition (use filename as default)
+                const QString& sTitle = QFileInfo(sFilename).completeBaseName();
+                pInstrument = &((*this)[sTitle]);
+                pInstrument->setInstrumentName(sTitle);
+            }
+            match = rxBankSel.match(sLine);
+            if (match.hasMatch()) {
                 pInstrument->setBankSelMethod(
-                            rxBankSel.cap(1).toInt());
-            } else if (rxUseNotes.exactMatch(sLine)) {
+                    match.captured(1).toInt());
+                break;
+            }
+            match = rxUseNotes.match(sLine);
+            if (match.hasMatch()) {
                 pInstrument->setUsesNotesAsControllers(
-                            (bool) rxBankSel.cap(1).toInt());
-            } else if (rxPatch.exactMatch(sLine)) {
-                int iBank = (rxPatch.cap(1) == sAsterisk
-                             ? -1 : rxPatch.cap(1).toInt());
-                pInstrument->setPatch(iBank, m_patches[rxPatch.cap(2)]);
-            } else if (rxControl.exactMatch(sLine)) {
-                pInstrument->setControl(m_controllers[rxControl.cap(1)]);
-            } else if (rxRpn.exactMatch(sLine)) {
-                pInstrument->setRpn(m_rpns[rxRpn.cap(1)]);
-            } else if (rxNrpn.exactMatch(sLine)) {
-                pInstrument->setNrpn(m_nrpns[rxNrpn.cap(1)]);
-            } else if (rxKey.exactMatch(sLine)) {
-                int iBank = (rxKey.cap(1) == sAsterisk
-                             ? -1 : rxKey.cap(1).toInt());
-                int iProg = (rxKey.cap(2) == sAsterisk
-                             ? -1 : rxKey.cap(2).toInt());
-                pInstrument->setNotes(iBank, iProg,	m_notes[rxKey.cap(3)]);
-            } else if (rxDrum.exactMatch(sLine)) {
-                int iBank = (rxDrum.cap(1) == sAsterisk
-                             ? -1 : rxDrum.cap(1).toInt());
-                int iProg = (rxDrum.cap(2) == sAsterisk
-                             ? -1 : rxKey.cap(2).toInt());
+                    bool(match.captured(1).toInt()));
+                break;
+            }
+            match = rxPatch.match(sLine);
+            if (match.hasMatch()) {
+                const QString& cap1 = match.captured(1);
+                const int iBank = (cap1 == sAsterisk ? -1 : cap1.toInt());
+                pInstrument->setPatch(iBank, m_patches[match.captured(2)]);
+                break;
+            }
+            match = rxControl.match(sLine);
+            if (match.hasMatch()) {
+                pInstrument->setControl(m_controllers[match.captured(1)]);
+                break;
+            }
+            match = rxRpn.match(sLine);
+            if (match.hasMatch()) {
+                pInstrument->setRpn(m_rpns[match.captured(1)]);
+                break;
+            }
+            match = rxNrpn.match(sLine);
+            if (match.hasMatch()) {
+                pInstrument->setNrpn(m_nrpns[match.captured(1)]);
+                break;
+            }
+            match = rxKey.match(sLine);
+            if (match.hasMatch()) {
+                const QString& cap1 = match.captured(1);
+                const QString& cap2 = match.captured(2);
+                const int iBank = (cap1 == sAsterisk ? -1 : cap1.toInt());
+                const int iProg = (cap2 == sAsterisk ? -1 : cap2.toInt());
+                pInstrument->setNotes(iBank, iProg,	m_notes[match.captured(3)]);
+                break;
+            }
+            match = rxDrum.match(sLine);
+            if (match.hasMatch()) {
+                const QString& cap1 = match.captured(1);
+                const QString& cap2 = match.captured(2);
+                const int iBank = (cap1 == sAsterisk ? -1 : cap1.toInt());
+                const int iProg = (cap2 == sAsterisk ? -1 : cap2.toInt());
                 pInstrument->setDrum(iBank, iProg,
-                                     (bool) rxDrum.cap(3).toInt());
+                    bool(match.captured(3).toInt()));
             } else {
                 qWarning("%s(%d): %s: Unknown .Instrument Definitions entry.",
-                         sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
+                    sFilename.toUtf8().constData(), iLine, sLine.toUtf8().constData());
             }
             break;
         }

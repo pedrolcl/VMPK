@@ -77,7 +77,7 @@ else()
     if (QT_VERSION VERSION_LESS 6.2.0)
        message (FATAL_ERROR "Qt6 >= 6.2 is required, or use Qt5 >= 5.9")
     endif()
-    find_package(Qt6 6.2 COMPONENTS Gui Widgets Network LinguistTools Core5Compat REQUIRED)
+    find_package(Qt6 6.2 COMPONENTS Gui Widgets Network LinguistTools REQUIRED)
 endif()
 
 find_package(Drumstick 2.5 COMPONENTS RT Widgets REQUIRED)

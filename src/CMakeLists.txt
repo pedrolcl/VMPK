@@ -174,14 +174,8 @@ target_link_libraries(vmpk PRIVATE
 )
 
 if (QT_VERSION VERSION_GREATER_EQUAL 6.0.0)
-    target_link_libraries(vmpk PRIVATE
-        Qt6::Core5Compat
-        Qt6::Gui
-    )
+    target_link_libraries(vmpk PRIVATE Qt6::Gui)
 endif()
-
-#$<$<PLATFORM_ID:Windows>:winmm>
-#$<$<BOOL:${WIN32}>:dwmapi>
 
 if (WIN32)
     target_link_libraries(vmpk PRIVATE
