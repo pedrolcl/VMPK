@@ -101,7 +101,7 @@ const QString QSTR_PALETTEPREFIX("Palette_");
 const QString QSTR_CURRENTPALETTE("CurrentPalette");
 const QString QSTR_SHOWCOLORSCALE("ShowColorScale");
 const QString QSTR_CHKBOXSTYLE("QCheckBox::indicator {width: 20px; height: 20px; background: none;} QCheckBox::indicator:checked {image: url(:/vpiano/led_green.png);} QCheckBox::indicator:unchecked{image: url(:/vpiano/led_grey.png);}");
-const QString QSTR_DEFAULTFONT("Sans Serif, 50");
+const QString QSTR_DEFAULTFONT("Helvetica, 50");
 const QString QSTR_WINSNAP("StickyWindowSnapping");
 const QString QSTR_DARKMODE("ForcedDarkMode");
 const QString QSTR_STYLE("QtStyle");

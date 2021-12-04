@@ -70,7 +70,8 @@ int main(int argc, char *argv[])
 
     QPixmap px(":/vpiano/vmpk_splash.png");
     QSplashScreen splash(px);
-    QFont sf("Arial", 20, QFont::ExtraBold);
+    QFont sf = app.font();
+    sf.setPointSize(20);
     splash.setFont(sf);
     splash.show();
     app.processEvents();

@@ -83,8 +83,9 @@ void Preferences::slotRestoreDefaults()
     ui.txtFileRawKmap->setText(m_rawMapFile = QSTR_DEFAULT);
     ui.cboDrumsChannel->setCurrentIndex(MIDIGMDRUMSCHANNEL + 1);
     ui.cboOctaveName->setCurrentIndex(ui.cboOctaveName->findData(OctaveC4));
-    m_font = QFont(QSTR_DEFAULTFONT);
-    ui.txtFont->setText(QSTR_DEFAULTFONT);
+    m_font = qApp->font();
+    m_font.setPointSize(50);
+    ui.txtFont->setText(m_font.toString());
     ui.chkEnforceChannelState->setChecked(false);
     ui.chkVelocityColor->setChecked(true);
     ui.chkAlwaysOnTop->setChecked(false);

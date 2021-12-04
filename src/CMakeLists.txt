@@ -209,5 +209,5 @@ target_compile_definitions(vmpk PRIVATE
 
 install (TARGETS vmpk
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
+    BUNDLE DESTINATION ~/Applications
 )
