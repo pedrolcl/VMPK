@@ -1,12 +1,19 @@
+2021-12-04
+    * raised the macos target version to 10.13 to match the Qt 5.15 minimum
+    * Revised font default settings
+
 2021-12-03
-    * Removed dependency on Qt6::Core5Compat
+    * Removed dependency on Qt6::Core5Compat : QRegExp migrated to QRegularExpression
+    * require drumstick 2.5
 
 2021-12-02
-    * Fixed advanced connection setting
-    * Enable empty input connection
+    * Fixed MIDI connections advanced property
+    * Initialization of RT Input backend even for empty connections: enables empty input connection
 
 2021-11-06
     * Removed unused image
+    * web updated (download links)
+    * bumped version for the next development cycle
 
 2021-10-24
     * Czech translation updated. Thanks to Pavel Fric
