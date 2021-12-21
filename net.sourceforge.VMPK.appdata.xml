@@ -35,6 +35,19 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.8.6" date="2021-12-24">
+     <url>https://sourceforge.net/p/vmpk/news/2021/12/virtual-midi-piano-keyboard-086-released-/</url>
+     <description>
+         <p>This release includes the following changes</p>
+         <ul>
+             <li>Fixed advanced setting on connections dialog.</li>
+             <li>Enabled empty input connection after a fix on drumstick-ALSA. This requires an external connections utility.</li>
+             <li>Better inverted piano colors after a fix on drumstick-widgets: changed the white keys background picture depending on the key background color.</li>
+             <li>Removed the Qt6::Core5Compat dependency when building with Qt6.</li>
+             <li>Requires: drumstick-2.5.</li>
+         </ul>
+     </description>
+   </release>
    <release type="stable" version="0.8.5" date="2021-10-24">
      <url>https://sourceforge.net/p/vmpk/news/2021/06/virtual-midi-piano-keyboard-085-released-/</url>
      <description>
