@@ -35,7 +35,7 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
-   <release type="stable" version="0.8.6" date="2021-12-24">
+   <release type="stable" version="0.8.6" date="2021-12-22">
      <url>https://sourceforge.net/p/vmpk/news/2021/12/virtual-midi-piano-keyboard-086-released-/</url>
      <description>
          <p>This release includes the following changes</p>

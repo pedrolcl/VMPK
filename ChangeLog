@@ -1,3 +1,6 @@
+2021-12-22
+    * Release 0.8.6
+
 2021-12-04
     * raised the macos target version to 10.13 to match the Qt 5.15 minimum
     * Revised font default settings
