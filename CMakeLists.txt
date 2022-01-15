@@ -155,7 +155,7 @@ if(UNIX)
         COMMAND cp -r dbus vmpk-${PROJECT_VERSION}
         COMMAND cp translations/vmpk_{cs,de,es,fr,gl,ru,sr,sv}.ts vmpk-${PROJECT_VERSION}/translations/
         COMMAND cp translations/CMakeLists.txt vmpk-${PROJECT_VERSION}/translations/
-        COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README.md TODO *.nsi *.nsi.in net.sourceforge.VMPK.desktop net.sourceforge.VMPK.appdata.xml vmpk.pro *.pri vmpk.spec.in qt.conf vmpk-${PROJECT_VERSION}
+        COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README.md TODO *.nsi *.nsi.in net.sourceforge.VMPK.desktop net.sourceforge.VMPK.metainfo.xml vmpk.pro *.pri vmpk.spec.in qt.conf vmpk-${PROJECT_VERSION}
         COMMAND tar -cj --exclude=.* -f vmpk-${PROJECT_VERSION}.tar.bz2 vmpk-${PROJECT_VERSION}
         COMMAND tar -cz --exclude=.* -f vmpk-${PROJECT_VERSION}.tar.gz vmpk-${PROJECT_VERSION}
         COMMAND zip -qr vmpk-${PROJECT_VERSION}.zip vmpk-${PROJECT_VERSION} -x '.[a-z]*'
@@ -199,7 +199,7 @@ if(UNIX AND NOT APPLE)
     install (FILES net.sourceforge.VMPK.desktop
              DESTINATION ${CMAKE_INSTALL_DATADIR}/applications )
 
-    install (FILES net.sourceforge.VMPK.appdata.xml
+    install (FILES net.sourceforge.VMPK.metainfo.xml
              DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo )
 
      # uninstall custom target

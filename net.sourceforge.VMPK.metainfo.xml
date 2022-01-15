@@ -2,7 +2,7 @@
 <!-- Copyright 2020-2021 VMPK Developers -->
 <component type="desktop-application">
  <id>net.sourceforge.VMPK</id>
- <metadata_license>CC0</metadata_license>
+ <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-3.0+</project_license>
  <name>VMPK</name>
  <summary>Virtual MIDI Piano Keyboard: a MIDI events generator and receiver</summary>
