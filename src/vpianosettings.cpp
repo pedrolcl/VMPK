@@ -247,7 +247,7 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_startingKey = settings.value(QSTR_STARTINGKEY, DEFAULTSTARTINGKEY).toInt();
     m_highlightPaletteId = settings.value(QSTR_CURRENTPALETTE, PAL_SINGLE).toInt();
     m_colorScale = settings.value(QSTR_SHOWCOLORSCALE, false).toBool();
-    m_language = settings.value(QSTR_LANGUAGE, QLocale::system().name()).toString();
+    m_language = settings.value(QSTR_LANGUAGE).toString();
 #if defined(Q_OS_WINDOWS)
     m_winSnap = settings.value(QSTR_WINSNAP, true).toBool();
 #endif

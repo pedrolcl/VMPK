@@ -82,7 +82,8 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_filter(nullptr),
     m_trq(nullptr),
     m_trp(nullptr),
-    m_trl(nullptr)
+    m_trl(nullptr),
+    m_currentLang(nullptr)
 {
 #if defined(ENABLE_DBUS)
     new VmpkAdaptor(this);
@@ -1975,6 +1976,9 @@ void VPiano::slotSwitchLanguage(QAction *action)
         VPianoSettings::instance()->setLanguage(lang);
         retranslateUi();
     } else {
+        if (m_currentLang == nullptr) {
+            m_currentLang = action;
+        }
         m_currentLang->setChecked(true);
     }
 }
@@ -1982,6 +1986,13 @@ void VPiano::slotSwitchLanguage(QAction *action)
 void VPiano::createLanguageMenu()
 {
     QString currentLang = VPianoSettings::instance()->language();
+    if (currentLang.isEmpty()) {
+        QLocale locale;
+        if (locale.language() == QLocale::C || locale.language() == QLocale::English)
+            currentLang = "C";
+        else
+            currentLang = locale.name().left(2);
+    }
     QActionGroup *languageGroup = new QActionGroup(this);
     languageGroup->setExclusive(true);
     connect(languageGroup, &QActionGroup::triggered, this, &VPiano::slotSwitchLanguage, Qt::QueuedConnection);
@@ -2058,12 +2069,18 @@ void VPiano::retranslateUi()
         m_trq = new QTranslator(this);
         if (m_trq->load(loc, QSTR_QTPX, "_", VPianoSettings::systemLocales()))
             QCoreApplication::installTranslator(m_trq);
+        else
+            delete m_trq;
         m_trp = new QTranslator(this);
         if (m_trp->load(loc, QSTR_VMPKPX, "_", VPianoSettings::localeDirectory()))
             QCoreApplication::installTranslator(m_trp);
+        else
+            delete m_trp;
         m_trl = new QTranslator(this);
         if (m_trl->load(loc, QSTR_DRUMSTICKPX, "_", VPianoSettings::drumstickLocales()))
             QCoreApplication::installTranslator(m_trl);
+        else
+            delete m_trl;
     }
     VPianoSettings::instance()->retranslatePalettes();
     ui.retranslateUi(this);
