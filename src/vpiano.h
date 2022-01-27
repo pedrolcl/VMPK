@@ -20,6 +20,7 @@
 #define VPIANO_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include <drumstick/pianokeybd.h>
 #include "nativefilter.h"
 #include "instrument.h"
@@ -257,7 +258,7 @@ private:
     QMap<int,int> m_lastProg;
     QMap<int,int> m_lastCtl;
     QMap<QString, QString> m_supportedLangs;
-    QTranslator *m_trq, *m_trp, *m_trl;
+    QPointer<QTranslator> m_trq, m_trp, m_trl;
     QAction *m_currentLang;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
 #if defined(Q_OS_WINDOWS)

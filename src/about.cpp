@@ -25,8 +25,7 @@
 #include "constants.h"
 
 About::About(QWidget *parent)
-    : QDialog(parent),
-      m_lang("en")
+    : QDialog(parent)
 {
     ui.setupUi(this);
     retranslateUi();

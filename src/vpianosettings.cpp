@@ -230,8 +230,12 @@ void VPianoSettings::internalRead(QSettings &settings)
     m_baseOctave = settings.value(QSTR_BASEOCTAVE, 1).toInt();
     m_transpose = settings.value(QSTR_TRANSPOSE, 0).toInt();
     m_numKeys = settings.value(QSTR_NUMKEYS, DEFAULTNUMBEROFKEYS).toInt();
-    setInstruments(settings.value(QSTR_INSTRUMENTSDEFINITION, QLatin1String(":/vpiano/") + QSTR_DEFAULTINS).toString(),
-        settings.value(QSTR_INSTRUMENTNAME).toString());
+    QString insFile = settings.value(QSTR_INSTRUMENTSDEFINITION).toString();
+    if (insFile.isEmpty()) {
+        insFile = QLatin1String(":/vpiano/") + QSTR_DEFAULTINS;
+    }
+    QString insName = settings.value(QSTR_INSTRUMENTNAME).toString();
+    setInstruments(insFile, insName);
     m_alwaysOnTop = settings.value(QSTR_ALWAYSONTOP, false).toBool();
     m_showStatusBar = settings.value(QSTR_SHOWSTATUSBAR, false).toBool();
     m_velocityColor = settings.value(QSTR_VELOCITYCOLOR, true).toBool();
@@ -720,11 +724,11 @@ void VPianoSettings::setInstruments( const QString fileName, const QString instr
                 m_insName = m_insList.first().instrumentName();
             }
         } else {
-            m_insFileName = QString();
-            m_insName = QString();
+            m_insFileName.clear();
+            m_insName.clear();
         }
     } else {
-        qWarning() << "file" << fileName << "not readable.";
+        qWarning() << "instruments definition file" << fileName << "not readable.";
     }
 }
 

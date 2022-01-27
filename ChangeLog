@@ -1,3 +1,7 @@
+2022-01-27
+    * Avoid loading translations for English
+    * Fixed default.ins file loading
+
 2022-01-15
     * AppStream MetaInfo renamed.
 

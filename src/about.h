@@ -29,11 +29,9 @@ class About : public QDialog
 public:
     About(QWidget *parent = nullptr);
     void retranslateUi();
-    void setLanguage(const QString lang) { m_lang = lang; }
 
 private:
     Ui::AboutClass ui;
-    QString m_lang;
 };
 
 #endif // ABOUT_H
