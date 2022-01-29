@@ -18,7 +18,7 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum OS X deployment version")
 
 project( VMPK
-    VERSION 0.8.6
+    VERSION 0.8.7
     LANGUAGES CXX
     DESCRIPTION "Virtual MIDI Piano Keyboard"
     HOMEPAGE_URL "https://vmpk.sourceforge.io/"

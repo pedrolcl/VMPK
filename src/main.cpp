@@ -60,9 +60,9 @@ int main(int argc, char *argv[])
     auto helpOption = parser.addHelpOption();
     auto versionOption = parser.addVersionOption();
     QCommandLineOption portableOption({"p", "portable"}, QCoreApplication::tr("Portable settings mode."));
-    QCommandLineOption portableFileName("f", "file", QCoreApplication::tr("Portable settings file name."), "portableFile");
+    QCommandLineOption portableFileOption({"f", "file"}, QCoreApplication::tr("Portable settings file name."), "file");
     parser.addOption(portableOption);
-    parser.addOption(portableFileName);
+    parser.addOption(portableFileOption);
     parser.process(app);
     if (parser.isSet(versionOption) || parser.isSet(helpOption)) {
         return 0;
@@ -78,10 +78,10 @@ int main(int argc, char *argv[])
     splash.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
     app.processEvents();
 
-    if (parser.isSet(portableOption) || parser.isSet(portableFileName)) {
+    if (parser.isSet(portableOption) || parser.isSet(portableFileOption)) {
         QString portableFile;
-        if (parser.isSet(portableFileName)) {
-            portableFile = parser.value(portableFileName);
+        if (parser.isSet(portableFileOption)) {
+            portableFile = parser.value(portableFileOption);
         }
         VPianoSettings::setPortableConfig(portableFile);
     } else {

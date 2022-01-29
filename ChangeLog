@@ -1,3 +1,6 @@
+2022-01-29
+    * Fixed command line option "file"
+
 2022-01-27
     * Avoid loading translations for English
     * Fixed default.ins file loading
