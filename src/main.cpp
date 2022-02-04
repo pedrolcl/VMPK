@@ -26,7 +26,7 @@
 #include "vpiano.h"
 #include "vpianosettings.h"
 
-const QString PGM_DESCRIPTION = QCoreApplication::tr(
+const char* PGM_DESCRIPTION = QT_TRANSLATE_NOOP("QCoreApplication",
      "Virtual MIDI Piano Keyboard\n"
      "Copyright (C) 2006-2022 Pedro Lopez-Cabanillas\n"
      "This program comes with ABSOLUTELY NO WARRANTY;\n"
@@ -35,28 +35,29 @@ const QString PGM_DESCRIPTION = QCoreApplication::tr(
 
 int main(int argc, char *argv[])
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+    QApplication app(argc, argv);
     QCoreApplication::setOrganizationName(QSTR_DOMAIN);
     QCoreApplication::setOrganizationDomain(QSTR_DOMAIN);
     QCoreApplication::setApplicationName(QSTR_APPNAME);
     QCoreApplication::setApplicationVersion(PGM_VERSION);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
     QCoreApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
     QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
 #if defined(Q_OS_WINDOWS)
     QApplication::setStyle("fusion");
-#endif
-    QApplication app(argc, argv);
-#if defined(Q_OS_LINUX)
+#elif defined(Q_OS_LINUX)
     app.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
 #endif //Q_OS_LINUX
 
+    VPianoSettings::instance()->loadTranslations();
+
     QCommandLineParser parser;
-    parser.setApplicationDescription(QString("%1 v.%2\n\n%3").arg(
+    parser.setApplicationDescription(QString("%1 v%2\n\n%3").arg(
         QCoreApplication::applicationName(),
         QCoreApplication::applicationVersion(),
-        PGM_DESCRIPTION));
+        QCoreApplication::tr(PGM_DESCRIPTION)));
     auto helpOption = parser.addHelpOption();
     auto versionOption = parser.addVersionOption();
     QCommandLineOption portableOption({"p", "portable"}, QCoreApplication::tr("Portable settings mode."));

@@ -10,7 +10,7 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Verze: %1&lt;br/&gt;Datum sestavení: %2&lt;br/&gt;Čas sestavení: %3&lt;br/&gt;Překladač: %4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="48"/>
+        <location filename="../../../vmpk-desktop/src/about.cpp" line="47"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Qt version: %2 %3&lt;br/&gt;Drumstick version: %4&lt;br/&gt;Build date: %5&lt;br/&gt;Build time: %6&lt;br/&gt;Compiler: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -20,12 +20,12 @@ p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
 <context>
     <name>AboutClass</name>
     <message>
-        <location filename="../src/about.ui" line="31"/>
+        <location filename="../../../vmpk-desktop/src/about.ui" line="31"/>
         <source>About</source>
         <translation>O programu</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="41"/>
+        <location filename="../../../vmpk-desktop/src/about.ui" line="41"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -38,7 +38,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Zdánlivá klaviatura klavíru MIDI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="58"/>
+        <location filename="../../../vmpk-desktop/src/about.ui" line="58"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -55,7 +55,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Tento program je šířen s nadějí, že bude užitečný, ale BEZ JAKÉKOLI ZÁRUKY;  dokonce bez předpokládané záruky PRODEJNOSTI nebo VHODNOSTI PRO ZVLÁŠTNÍ ÚČEL. Kvůli podrobnostem se podívejte na GNU General Public License. Měl byste kopii GNU General Public License obdržet společně s tímto programem. A pokud ne, podívejte se na &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/about.ui" line="155"/>
+        <location filename="../../../vmpk-desktop/src/about.ui" line="155"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -99,12 +99,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ColorDialog</name>
     <message>
-        <location filename="../src/colordialog.ui" line="37"/>
+        <location filename="../../../vmpk-desktop/src/colordialog.ui" line="37"/>
         <source>Color Palette</source>
         <translation>Paleta barev</translation>
     </message>
     <message>
-        <location filename="../src/colordialog.ui" line="57"/>
+        <location filename="../../../vmpk-desktop/src/colordialog.ui" line="57"/>
         <source>Colors</source>
         <translation>Barvy</translation>
     </message>
@@ -112,145 +112,145 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DialogExtraControls</name>
     <message>
-        <location filename="../src/extracontrols.ui" line="31"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="31"/>
         <source>Extra Controls Editor</source>
         <translation>Editor ovládacích prvků navíc</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="63"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="63"/>
         <source>Label:</source>
         <translation>Štítek:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="76"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="76"/>
         <source>MIDI Controller:</source>
         <translation>Ovládací prvek MIDI:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="102"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="102"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="116"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="116"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="130"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="130"/>
         <source>Up</source>
         <translation>Nahoru</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="140"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="140"/>
         <source>Down</source>
         <translation>Dolů</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="167"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="167"/>
         <source>Switch</source>
         <translation>Přepnout</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="172"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="172"/>
         <source>Knob</source>
         <translation>Knoflík</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="177"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="177"/>
         <source>Spin box</source>
         <translation>Otočný regulátor</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="182"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="182"/>
         <source>Slider</source>
         <translation>Posuvník</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="187"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="187"/>
         <source>Button Ctl</source>
         <translation>Tlačítko Ctl</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="192"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="192"/>
         <source>Button SysEx</source>
         <translation>Tlačítko SysEx</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="216"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="216"/>
         <source>Default ON</source>
         <translation>Výchozí ZAPNUTO</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="223"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="223"/>
         <source>value ON:</source>
         <translation>Hodnota ZAPNUTO:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="240"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="240"/>
         <source>value OFF:</source>
         <translation>Hodnota VYPNUTO:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="260"/>
-        <location filename="../src/extracontrols.ui" line="486"/>
-        <location filename="../src/extracontrols.ui" line="521"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="260"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="486"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="521"/>
         <source>Key:</source>
         <translation>Klávesa:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="271"/>
-        <location filename="../src/extracontrols.ui" line="326"/>
-        <location filename="../src/extracontrols.ui" line="398"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="271"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="326"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="398"/>
         <source>Min. value:</source>
         <translation>Nejmenší hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="288"/>
-        <location filename="../src/extracontrols.ui" line="343"/>
-        <location filename="../src/extracontrols.ui" line="415"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="288"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="343"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="415"/>
         <source>Max. value:</source>
         <translation>Největší hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="305"/>
-        <location filename="../src/extracontrols.ui" line="360"/>
-        <location filename="../src/extracontrols.ui" line="432"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="305"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="360"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="432"/>
         <source>Default value:</source>
         <translation>Výchozí hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="381"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="381"/>
         <source>Display size:</source>
         <translation>Velikost zobrazení:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="453"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="453"/>
         <source>value:</source>
         <translation>Hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="497"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="497"/>
         <source>File name:</source>
         <translation>Název souboru:</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.ui" line="514"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.ui" line="514"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="74"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.cpp" line="74"/>
         <source>New Control</source>
         <translation>Nový ovládací prvek</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="248"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.cpp" line="248"/>
         <source>System Exclusive File</source>
         <translation>Výhradní systémový soubor</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="248"/>
+        <location filename="../../../vmpk-desktop/src/extracontrols.cpp" line="248"/>
         <source>System Exclusive (*.syx)</source>
         <translation>Výhradní systémový (*.syx)</translation>
     </message>
@@ -258,50 +258,50 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>KMapDialog</name>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="32"/>
-        <location filename="../src/kmapdialog.cpp" line="118"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="32"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="118"/>
         <source>Open...</source>
         <translation>Otevřít...</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="33"/>
-        <location filename="../src/kmapdialog.cpp" line="119"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="33"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="119"/>
         <source>Save As...</source>
         <translation>Uložit jako...</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="44"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="44"/>
         <source>Raw Key Map Editor</source>
         <translation>Editor neupraveného přiřazení kláves</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="44"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="44"/>
         <source>Key Map Editor</source>
         <translation>Editor přiřazení kláves</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="46"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="46"/>
         <source>Key Code</source>
         <translation>Kód klávesy</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="46"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="46"/>
         <source>Key</source>
         <translation>Klávesa</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="89"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="89"/>
         <source>Open keyboard map definition</source>
         <translation>Otevřít soubor s přiřazením kláves na klávesnici</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="91"/>
-        <location filename="../src/kmapdialog.cpp" line="102"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="91"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="102"/>
         <source>Keyboard map (*.xml)</source>
         <translation>Soubor s uspořádáním klávesnice (*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="104"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.cpp" line="104"/>
         <source>Save keyboard map definition</source>
         <translation>Uložit soubor s uspořádáním klávesnice</translation>
     </message>
@@ -309,662 +309,662 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>KMapDialogClass</name>
     <message>
-        <location filename="../src/kmapdialog.ui" line="31"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="31"/>
         <source>Key Map Editor</source>
         <translation>Editor přiřazení kláves</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="48"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="48"/>
         <source>This box displays the name of the current mapping file</source>
         <translation>Toto políčko ukazuje název nyní používaného souboru s uspořádáním klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="67"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="67"/>
         <source>This is the list of the PC keyboard mappings. Each row has a number corresponding to the MIDI note number, and you can type an alphanumeric Key name that will be translated to the given note</source>
         <translation>Toto je seznam s uspořádáním klávesnice počítače. Každý řádek má své číslo, které odpovídá číslu noty MIDI, přičemž musíte zadat název alfanumerické klávesy, jenž bude přeložen do dané noty</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="74"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="74"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="79"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="79"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="84"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="84"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="89"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="89"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="94"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="94"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="99"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="99"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="104"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="104"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="109"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="109"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="114"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="114"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="119"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="119"/>
         <source>9</source>
         <translation>9</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="124"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="124"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="129"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="129"/>
         <source>11</source>
         <translation>11</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="134"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="134"/>
         <source>12</source>
         <translation>12</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="139"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="139"/>
         <source>13</source>
         <translation>13</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="144"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="144"/>
         <source>14</source>
         <translation>14</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="149"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="149"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="154"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="154"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="159"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="159"/>
         <source>17</source>
         <translation>17</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="164"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="164"/>
         <source>18</source>
         <translation>18</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="169"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="169"/>
         <source>19</source>
         <translation>19</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="174"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="174"/>
         <source>20</source>
         <translation>20</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="179"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="179"/>
         <source>21</source>
         <translation>21</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="184"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="184"/>
         <source>22</source>
         <translation>22</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="189"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="189"/>
         <source>23</source>
         <translation>23</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="194"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="194"/>
         <source>24</source>
         <translation>24</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="199"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="199"/>
         <source>25</source>
         <translation>25</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="204"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="204"/>
         <source>26</source>
         <translation>26</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="209"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="209"/>
         <source>27</source>
         <translation>27</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="214"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="214"/>
         <source>28</source>
         <translation>28</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="219"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="219"/>
         <source>29</source>
         <translation>29</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="224"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="224"/>
         <source>30</source>
         <translation>30</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="229"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="229"/>
         <source>31</source>
         <translation>31</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="234"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="234"/>
         <source>32</source>
         <translation>32</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="239"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="239"/>
         <source>33</source>
         <translation>33</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="244"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="244"/>
         <source>34</source>
         <translation>34</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="249"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="249"/>
         <source>35</source>
         <translation>35</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="254"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="254"/>
         <source>36</source>
         <translation>36</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="259"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="259"/>
         <source>37</source>
         <translation>37</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="264"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="264"/>
         <source>38</source>
         <translation>38</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="269"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="269"/>
         <source>39</source>
         <translation>39</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="274"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="274"/>
         <source>40</source>
         <translation>40</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="279"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="279"/>
         <source>41</source>
         <translation>41</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="284"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="284"/>
         <source>42</source>
         <translation>42</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="289"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="289"/>
         <source>43</source>
         <translation>43</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="294"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="294"/>
         <source>44</source>
         <translation>44</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="299"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="299"/>
         <source>45</source>
         <translation>45</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="304"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="304"/>
         <source>46</source>
         <translation>46</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="309"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="309"/>
         <source>47</source>
         <translation>47</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="314"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="314"/>
         <source>48</source>
         <translation>48</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="319"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="319"/>
         <source>49</source>
         <translation>49</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="324"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="324"/>
         <source>50</source>
         <translation>50</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="329"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="329"/>
         <source>51</source>
         <translation>51</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="334"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="334"/>
         <source>52</source>
         <translation>52</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="339"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="339"/>
         <source>53</source>
         <translation>53</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="344"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="344"/>
         <source>54</source>
         <translation>54</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="349"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="349"/>
         <source>55</source>
         <translation>55</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="354"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="354"/>
         <source>56</source>
         <translation>56</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="359"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="359"/>
         <source>57</source>
         <translation>57</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="364"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="364"/>
         <source>58</source>
         <translation>58</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="369"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="369"/>
         <source>59</source>
         <translation>59</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="374"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="374"/>
         <source>60</source>
         <translation>60</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="379"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="379"/>
         <source>61</source>
         <translation>61</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="384"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="384"/>
         <source>62</source>
         <translation>62</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="389"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="389"/>
         <source>63</source>
         <translation>63</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="394"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="394"/>
         <source>64</source>
         <translation>64</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="399"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="399"/>
         <source>65</source>
         <translation>65</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="404"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="404"/>
         <source>66</source>
         <translation>66</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="409"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="409"/>
         <source>67</source>
         <translation>67</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="414"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="414"/>
         <source>68</source>
         <translation>68</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="419"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="419"/>
         <source>69</source>
         <translation>69</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="424"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="424"/>
         <source>70</source>
         <translation>70</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="429"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="429"/>
         <source>71</source>
         <translation>71</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="434"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="434"/>
         <source>72</source>
         <translation>72</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="439"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="439"/>
         <source>73</source>
         <translation>73</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="444"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="444"/>
         <source>74</source>
         <translation>74</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="449"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="449"/>
         <source>75</source>
         <translation>75</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="454"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="454"/>
         <source>76</source>
         <translation>76</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="459"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="459"/>
         <source>77</source>
         <translation>77</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="464"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="464"/>
         <source>78</source>
         <translation>78</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="469"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="469"/>
         <source>79</source>
         <translation>79</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="474"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="474"/>
         <source>80</source>
         <translation>80</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="479"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="479"/>
         <source>81</source>
         <translation>81</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="484"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="484"/>
         <source>82</source>
         <translation>82</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="489"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="489"/>
         <source>83</source>
         <translation>83</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="494"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="494"/>
         <source>84</source>
         <translation>84</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="499"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="499"/>
         <source>85</source>
         <translation>85</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="504"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="504"/>
         <source>86</source>
         <translation>86</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="509"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="509"/>
         <source>87</source>
         <translation>87</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="514"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="514"/>
         <source>88</source>
         <translation>88</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="519"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="519"/>
         <source>89</source>
         <translation>89</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="524"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="524"/>
         <source>90</source>
         <translation>90</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="529"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="529"/>
         <source>91</source>
         <translation>91</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="534"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="534"/>
         <source>92</source>
         <translation>92</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="539"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="539"/>
         <source>93</source>
         <translation>93</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="544"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="544"/>
         <source>94</source>
         <translation>94</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="549"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="549"/>
         <source>95</source>
         <translation>95</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="554"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="554"/>
         <source>96</source>
         <translation>96</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="559"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="559"/>
         <source>97</source>
         <translation>97</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="564"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="564"/>
         <source>98</source>
         <translation>98</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="569"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="569"/>
         <source>99</source>
         <translation>99</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="574"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="574"/>
         <source>100</source>
         <translation>100</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="579"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="579"/>
         <source>101</source>
         <translation>101</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="584"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="584"/>
         <source>102</source>
         <translation>102</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="589"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="589"/>
         <source>103</source>
         <translation>103</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="594"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="594"/>
         <source>104</source>
         <translation>104</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="599"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="599"/>
         <source>105</source>
         <translation>105</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="604"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="604"/>
         <source>106</source>
         <translation>106</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="609"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="609"/>
         <source>107</source>
         <translation>107</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="614"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="614"/>
         <source>108</source>
         <translation>108</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="619"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="619"/>
         <source>109</source>
         <translation>109</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="624"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="624"/>
         <source>110</source>
         <translation>110</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="629"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="629"/>
         <source>111</source>
         <translation>111</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="634"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="634"/>
         <source>112</source>
         <translation>112</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="639"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="639"/>
         <source>113</source>
         <translation>113</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="644"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="644"/>
         <source>114</source>
         <translation>114</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="649"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="649"/>
         <source>115</source>
         <translation>115</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="654"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="654"/>
         <source>116</source>
         <translation>116</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="659"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="659"/>
         <source>117</source>
         <translation>117</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="664"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="664"/>
         <source>118</source>
         <translation>118</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="669"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="669"/>
         <source>119</source>
         <translation>119</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="674"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="674"/>
         <source>120</source>
         <translation>120</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="679"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="679"/>
         <source>121</source>
         <translation>121</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="684"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="684"/>
         <source>122</source>
         <translation>122</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="689"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="689"/>
         <source>123</source>
         <translation>123</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="694"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="694"/>
         <source>124</source>
         <translation>124</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="699"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="699"/>
         <source>125</source>
         <translation>125</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="704"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="704"/>
         <source>126</source>
         <translation>126</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="709"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="709"/>
         <source>127</source>
         <translation>127</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="714"/>
+        <location filename="../../../vmpk-desktop/src/kmapdialog.ui" line="714"/>
         <source>Key</source>
         <translation>Klávesa</translation>
     </message>
@@ -972,22 +972,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>KeyboardMap</name>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="56"/>
+        <location filename="../../../vmpk-desktop/src/keyboardmap.cpp" line="56"/>
         <source>Error loading a file</source>
         <translation>Chyba při nahrávání souboru</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="70"/>
+        <location filename="../../../vmpk-desktop/src/keyboardmap.cpp" line="70"/>
         <source>Error saving a file</source>
         <translation>Chyba při ukládání souboru</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="119"/>
+        <location filename="../../../vmpk-desktop/src/keyboardmap.cpp" line="119"/>
         <source>Error reading XML</source>
         <translation>Chyba při čtení souboru XML</translation>
     </message>
     <message>
-        <location filename="../src/keyboardmap.cpp" line="173"/>
+        <location filename="../../../vmpk-desktop/src/keyboardmap.cpp" line="173"/>
         <source>File: %1
 %2</source>
         <translation>Soubor: %1
@@ -997,12 +997,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MidiSetup</name>
     <message>
-        <location filename="../src/midisetup.cpp" line="167"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.cpp" line="168"/>
         <source>MIDI Output</source>
         <translation>Výstup MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.cpp" line="188"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.cpp" line="189"/>
         <source>MIDI Input</source>
         <translation>Vstup MIDI</translation>
     </message>
@@ -1010,73 +1010,73 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MidiSetupClass</name>
     <message>
-        <location filename="../src/midisetup.ui" line="37"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="37"/>
         <source>MIDI Setup</source>
         <translation>Nastavení MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="47"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="47"/>
         <source>Check this box to enable MIDI input for the program. In Linux and Mac OSX the input port is always enabled and can&apos;t be un-ckecked</source>
         <translation>Zaškrtněte toto políčko kvůli zapnutí vstupu MIDI pro program. V Linuxu a MacOS X je vstup vždy zapnut a nelze jej vypnout</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="50"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="50"/>
         <source>Enable MIDI Input</source>
         <translation>Povolit vstup MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="60"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="60"/>
         <source>MIDI Omni Mode</source>
         <translation>Režim Omni MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="67"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="67"/>
         <source>MIDI IN Driver</source>
         <translation>Ovladač vstupu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="87"/>
-        <location filename="../src/midisetup.ui" line="159"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="87"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="159"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="100"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="100"/>
         <source>Input MIDI Connection</source>
         <translation>Spojení vstupu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="122"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="122"/>
         <source>Use this control to change the connection for the MIDI input port, if it is enabled</source>
         <translation>Použijte tento ovládací prvek pro změnu současného uspořádání spojení vstupu MIDI, pokud je povoleno</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="129"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="129"/>
         <source>Check this box to enable the MIDI Thru function: any MIDI event received in the input port will be copied unchanged to the output port</source>
         <translation>Zaškrtněte toto políčko kvůli zapnutí funkce přepojení MIDI. Při zapnutí této volby bude kterákoli událost MIDI, příchozí signál přijatý ve vstupní přípojce, kopírována automaticky také do výstupní přípojky</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="132"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="132"/>
         <source>Enable MIDI Thru on MIDI Output</source>
         <translation>Povolit přepojení MIDI na výstup MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="139"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="139"/>
         <source>MIDI OUT Driver</source>
         <translation>Ovladač výstupu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="172"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="172"/>
         <source>Output MIDI Connection</source>
         <translation>Spojení výstupu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="194"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="194"/>
         <source>Use this control to change the connection for the MIDI output port</source>
         <translation>Použijte tento ovládací prvek pro změnu současného uspořádání spojení výstupu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.ui" line="201"/>
+        <location filename="../../../vmpk-desktop/src/midisetup.ui" line="201"/>
         <source>Show Advanced Connections</source>
         <translation>Ukázat pokročilá spojení</translation>
     </message>
@@ -1084,29 +1084,29 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Preferences</name>
     <message>
-        <location filename="../src/preferences.cpp" line="171"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="172"/>
         <source>Open instruments definition</source>
         <translation>Otevřít soubor s vymezením nástroje</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="173"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="174"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>Vymezení nástrojů (*.ins)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="228"/>
-        <location filename="../src/preferences.cpp" line="239"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="229"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="240"/>
         <source>Open keyboard map definition</source>
         <translation>Otevřít soubor s přiřazením kláves na klávesnici</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="230"/>
-        <location filename="../src/preferences.cpp" line="241"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="231"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="242"/>
         <source>Keyboard map (*.xml)</source>
         <translation>Soubor s uspořádáním klávesnice (*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="252"/>
+        <location filename="../../../vmpk-desktop/src/preferences.cpp" line="253"/>
         <source>Font to display note names</source>
         <translation>Písmo pro zobrazení názvů not</translation>
     </message>
@@ -1114,234 +1114,234 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PreferencesClass</name>
     <message>
-        <location filename="../src/preferences.ui" line="31"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="31"/>
         <source>Preferences</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="271"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="271"/>
         <source>Number of keys</source>
         <translation>Počet předznamenání</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="226"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="226"/>
         <source>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</source>
         <translation>Počet oktáv, od 1 do 10. Každá oktáva má 12 kláves: 7 bílých a 5 černých. MIDI standard má 128 not, ale všechny nástroje je dokáží přehrát všechny.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="255"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="255"/>
         <source>Starting Key</source>
         <translation>Počáteční předznamenání</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="245"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="245"/>
         <source>Note highlight color</source>
         <translation>Barva na zvýraznění noty</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="190"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="190"/>
         <source>Press this button to change the highligh color used to paint the keys that are being activated.</source>
         <translation>Stiskněte toto tlačítko, abyste změnil zvýrazňovací barvu, která je použita pro nakreslení kláves, jež jsou uváděny v činnost.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="193"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="193"/>
         <source>Colors...</source>
         <translation>Barvy...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="473"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="473"/>
         <source>Instruments file</source>
         <translation>Soubor s nástrojem</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="489"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="489"/>
         <source>The instruments definition file currently loaded</source>
         <translation>Soubor s vymezením nástroje, který je v současnosti nahrán</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="499"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="499"/>
         <source>Press this button to load an instruments definition file from disk.</source>
         <translation>Stiskněte toto tlačítko, abyste nahrál soubor s vymezením nástroje z pevného disku.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="68"/>
-        <location filename="../src/preferences.ui" line="92"/>
-        <location filename="../src/preferences.ui" line="502"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="68"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="92"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="502"/>
         <source>Load...</source>
         <translation>Nahrát...</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="515"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="515"/>
         <source>Instrument</source>
         <translation>Nástroj</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="525"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="525"/>
         <source>Change the instrument definition being currently used. Each instruments definition file may hold several instruments on it.</source>
         <translation>Změňte soubor s vymezením nástroje, který je v současnosti používán. Každý soubor s vymezením nástroje může více obsahovat nástrojů.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="51"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="51"/>
         <source>Keyboard Map</source>
         <translation>Uspořádání klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="45"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="45"/>
         <source>Input</source>
         <translation>Vstup</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="75"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="75"/>
         <source>Raw Keyboard Map</source>
         <translation>Neupravené přiřazení kláves</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="184"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="184"/>
         <source>Visualization</source>
         <translation>Vizualizace</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="206"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="206"/>
         <source>Translate MIDI velocity to highlighting color tint</source>
         <translation>Přeložit dynamiku MIDI (velocity - rychlost stisku klávesy technicky určující výslednou dynamiku v MIDI) na zvýraznění barevného odstínu</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="219"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="219"/>
         <source>Forced Dark Mode</source>
         <translation>Vynucený tmavý režim</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="303"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="303"/>
         <source>Drums Channel</source>
         <translation>Kanál bicích</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="326"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="326"/>
         <source>Central Octave Naming</source>
         <translation>Pojmenování centrální oktávy</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="337"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="337"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="342"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="342"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="347"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="347"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="352"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="352"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="357"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="357"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="362"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="362"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="367"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="367"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="372"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="372"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="377"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="377"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="382"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="382"/>
         <source>9</source>
         <translation>9</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="387"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="387"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="392"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="392"/>
         <source>11</source>
         <translation>11</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="397"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="397"/>
         <source>12</source>
         <translation>12</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="402"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="402"/>
         <source>13</source>
         <translation>13</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="407"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="407"/>
         <source>14</source>
         <translation>14</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="412"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="412"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="450"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="450"/>
         <source>Qt Widgets Style</source>
         <translation>Styl grafických prvků Qt</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="461"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="461"/>
         <source>Behavior</source>
         <translation>Chování</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="567"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="567"/>
         <source>Sticky Window Snapping (Windows)</source>
         <translation>Přichytávání okna (Windows)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="285"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="285"/>
         <source>C3</source>
         <translation>C3</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="290"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="290"/>
         <source>C4</source>
         <translation>C4</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="295"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="295"/>
         <source>C5</source>
         <translation>C5</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="538"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="538"/>
         <source>MIDI channel state consistency</source>
         <translation>Konzistence stavu kanálu MIDI</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="316"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="316"/>
         <source>Text Font</source>
         <translation>Písmo textu</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="436"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="436"/>
         <source>Font...</source>
         <translation>Písmo...</translation>
     </message>
@@ -1350,22 +1350,22 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Přeložit rychlost MIDI na barevný odstín stisknuté klávesy</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="551"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="551"/>
         <source>Check this box to keep the keyboard window always visible, on top of other windows.</source>
         <translation>Zaškrtnutí tohoto políčka zajistí to, že okno s klávesnicí bude vždy viditelné a zůstane zobrazeno v popředí nad všemi ostatními okny.</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="554"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="554"/>
         <source>Always On Top</source>
         <translation>Vždy nahoře</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="105"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="105"/>
         <source>Enable Computer Keyboard Input</source>
         <translation>Povolit vstup přes klávesnici počítače</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="121"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="121"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1384,17 +1384,17 @@ p, li { white-space: pre-wrap; }
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rychlejší zpracování&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="131"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="131"/>
         <source>Raw Computer Keyboard</source>
         <translation>Popadnout neupravenou klávesnici počítače</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="144"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="144"/>
         <source>Enable Mouse Input</source>
         <translation>Povolit vstup přes myš</translation>
     </message>
     <message>
-        <location filename="../src/preferences.ui" line="160"/>
+        <location filename="../../../vmpk-desktop/src/preferences.ui" line="160"/>
         <source>Enable Touch Screen Input</source>
         <translation>Povolit vstup přes dotykovou obrazovku</translation>
     </message>
@@ -1402,7 +1402,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QCoreApplication</name>
     <message>
-        <location filename="../src/main.cpp" line="29"/>
+        <location filename="../../../vmpk-desktop/src/main.cpp" line="29"/>
         <source>Virtual MIDI Piano Keyboard
 Copyright (C) 2006-2022 Pedro Lopez-Cabanillas
 This program comes with ABSOLUTELY NO WARRANTY;
@@ -1415,12 +1415,12 @@ Toto je svobodný software a můžete jej dále šířit
 za určitých podmínek; podrobnosti viz LICENCE.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="62"/>
+        <location filename="../../../vmpk-desktop/src/main.cpp" line="63"/>
         <source>Portable settings mode.</source>
         <translation>Režim přenositelného nastavení.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="63"/>
+        <location filename="../../../vmpk-desktop/src/main.cpp" line="64"/>
         <source>Portable settings file name.</source>
         <translation>Název souboru přenositelného nastavení.</translation>
     </message>
@@ -1428,17 +1428,17 @@ za určitých podmínek; podrobnosti viz LICENCE.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/instrument.cpp" line="389"/>
+        <location filename="../../../vmpk-desktop/src/instrument.cpp" line="482"/>
         <source>Cakewalk Instrument Definition File</source>
         <translation>Soubor s vymezením nástroje Cakewalk</translation>
     </message>
     <message>
-        <location filename="../src/instrument.cpp" line="399"/>
+        <location filename="../../../vmpk-desktop/src/instrument.cpp" line="492"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/instrument.cpp" line="401"/>
+        <location filename="../../../vmpk-desktop/src/instrument.cpp" line="494"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
@@ -1446,78 +1446,78 @@ za určitých podmínek; podrobnosti viz LICENCE.</translation>
 <context>
     <name>RiffImportDlg</name>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="31"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
         <translation>Zavést nástroje se zvukovým písmem</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="50"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="50"/>
         <source>Input File</source>
         <translation>Vstupní soubor</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="63"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="63"/>
         <source>This text box displays the path and name of the selected SoundFont to be  imported</source>
         <translation>Toto zadávací textové pole zobrazuje cestu a název vybraného zvukového písma, které se má zavést</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="85"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="85"/>
         <source>Press this button to select a SoundFont file to be imported</source>
         <translation>Stiskněte toto tlačítko, abyste vybral soubor se zvukovým písmem, které se má zavést</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="88"/>
-        <location filename="../src/riffimportdlg.ui" line="161"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="88"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="161"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="95"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="95"/>
         <source>Name</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="109"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="109"/>
         <source>Version</source>
         <translation>Verze</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="119"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="119"/>
         <source>Copyright</source>
         <translation>Autorské právo</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="129"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="129"/>
         <source>Output File</source>
         <translation>Výstupní soubor</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="139"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="139"/>
         <source>This text box displays the name of the output file in .INS format that will be created</source>
         <translation>Toto zadávací textové pole zobrazuje název výstupního souboru ve formátu .INS, který bude vytvořen</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="158"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.ui" line="158"/>
         <source>Press this button to select a path and file name for the output file</source>
         <translation>Stiskněte toto tlačítko, abyste vybral cestu a souborový název pro výstupní soubor</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="54"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.cpp" line="54"/>
         <source>Input SoundFont</source>
         <translation>Zvukové písmo pro vstup</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="54"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.cpp" line="54"/>
         <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
         <translation>Zvuková písma (*.sf2 *.sbk *.dls)</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="65"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.cpp" line="65"/>
         <source>Output</source>
         <translation>Výstup</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="64"/>
+        <location filename="../../../vmpk-desktop/src/riffimportdlg.cpp" line="64"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>Vymezení nástrojů (*.ins)</translation>
     </message>
@@ -1525,32 +1525,32 @@ za určitých podmínek; podrobnosti viz LICENCE.</translation>
 <context>
     <name>ShortcutDialog</name>
     <message>
-        <location filename="../src/shortcutdialog.ui" line="32"/>
+        <location filename="../../../vmpk-desktop/src/shortcutdialog.ui" line="32"/>
         <source>Keyboard Shortcuts</source>
         <translation>Klávesové zkratky</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.ui" line="64"/>
+        <location filename="../../../vmpk-desktop/src/shortcutdialog.ui" line="64"/>
         <source>Action</source>
         <translation>Činnost</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.ui" line="69"/>
+        <location filename="../../../vmpk-desktop/src/shortcutdialog.ui" line="69"/>
         <source>Description</source>
         <translation>Popis</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.ui" line="74"/>
+        <location filename="../../../vmpk-desktop/src/shortcutdialog.ui" line="74"/>
         <source>Shortcut</source>
         <translation>Zkratka</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.cpp" line="340"/>
+        <location filename="../../../vmpk-desktop/src/shortcutdialog.cpp" line="340"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.cpp" line="341"/>
+        <location filename="../../../vmpk-desktop/src/shortcutdialog.cpp" line="341"/>
         <source>Keyboard shortcuts have been changed.
 
 Do you want to apply the changes?</source>
@@ -1562,564 +1562,564 @@ Chcete použít tyto změny?</translation>
 <context>
     <name>VPiano</name>
     <message>
-        <location filename="../src/vpiano.ui" line="67"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="67"/>
         <source>&amp;File</source>
         <translation>&amp;Soubor</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="78"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="78"/>
         <source>&amp;Edit</source>
         <translation>&amp;Úpravy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="89"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="89"/>
         <source>&amp;Help</source>
         <translation>&amp;Nápověda</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="93"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="93"/>
         <source>&amp;Language</source>
         <translation>&amp;Jazyk</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="106"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="106"/>
         <source>&amp;View</source>
         <translation>&amp;Pohled</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="148"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="148"/>
         <source>&amp;Tools</source>
         <translation>&amp;Nástroje</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="152"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="152"/>
         <source>Notes</source>
         <translation>Noty</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="163"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="163"/>
         <source>Controllers</source>
         <translation>Ovladače</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="172"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="172"/>
         <source>Programs</source>
         <translation>Programy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="181"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="181"/>
         <source>Note Input</source>
         <translation>Vstup noty</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="216"/>
-        <location filename="../src/vpiano.ui" line="404"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="216"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="404"/>
         <source>&amp;Notes</source>
         <translation>&amp;Noty</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="271"/>
-        <location filename="../src/vpiano.ui" line="418"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="271"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="418"/>
         <source>&amp;Controllers</source>
         <translation>&amp;Ovládací prvky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="327"/>
-        <location filename="../src/vpiano.ui" line="432"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="327"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="432"/>
         <source>Pitch &amp;Bender</source>
         <translation>&amp;Měnič výšky tónu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="244"/>
-        <location filename="../src/vpiano.ui" line="446"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="244"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="446"/>
         <source>&amp;Programs</source>
         <translation>&amp;Programy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="110"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="110"/>
         <source>Show Note Names</source>
         <translation>Ukázat názvy not</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="119"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="119"/>
         <source>Black Keys Names</source>
         <translation>Názvy černých not</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="127"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="127"/>
         <source>Names Orientation</source>
         <translation>Natočení názvů</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="219"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="219"/>
         <source>Notes Tool Bar</source>
         <translation>Nástrojový pruh s notami</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="247"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="247"/>
         <source>Programs Tool Bar</source>
         <translation>Nástrojový pruh s programy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="274"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="274"/>
         <source>Controllers Tool Bar</source>
         <translation>Nástrojový pruh s ovládacími prvky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="299"/>
-        <location filename="../src/vpiano.ui" line="560"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="299"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="560"/>
         <source>&amp;Extra Controls</source>
         <translation>Další &amp;nastavení</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="302"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="302"/>
         <source>Extra Tool Bar</source>
         <translation>Nástrojový pruh s dalším nastavením</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="330"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="330"/>
         <source>Bender Tool Bar</source>
         <translation>Nástrojový pruh s měničem</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="346"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="346"/>
         <source>&amp;Quit</source>
         <translation>&amp;Ukončit</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="349"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="349"/>
         <source>Exit the program</source>
         <translation>Ukončit program</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="357"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="357"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="360"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="360"/>
         <source>Edit the program settings</source>
         <translation>Upravit nastavení programu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="368"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="368"/>
         <source>MIDI &amp;Connections</source>
         <translation>&amp;Spojení MIDI</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="371"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="371"/>
         <source>Edit the MIDI connections</source>
         <translation>Upravit spojení MIDI</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="379"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="379"/>
         <source>&amp;About</source>
         <translation>&amp;O</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="382"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="382"/>
         <source>Show the About box</source>
         <translation>Ukázat informace o programu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="390"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="390"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="393"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="393"/>
         <source>Show the Qt about box</source>
         <translation>Ukázat informace o Qt</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="407"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="407"/>
         <source>Show or hide the Notes toolbar</source>
         <translation>Ukázat nebo skrýt nástrojový pruh s notami</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="421"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="421"/>
         <source>Show or hide the Controller toolbar</source>
         <translation>Ukázat nebo skrýt nástrojový pruh s ovládacími prvky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="435"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="435"/>
         <source>Show or hide the Pitch Bender toolbar</source>
         <translation>Ukázat nebo skrýt nástrojový pruh s měničem výšky tónu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="449"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="449"/>
         <source>Show or hide the Programs toolbar</source>
         <translation>Ukázat nebo skrýt nástrojový pruh programu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="463"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="463"/>
         <source>&amp;Status Bar</source>
         <translation>&amp;Stavový řádek</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="466"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="466"/>
         <source>Show or hide the Status Bar</source>
         <translation>Ukázat nebo skrýt stavový pruh</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="474"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="474"/>
         <source>Panic</source>
         <translation>Nouzové zastavení</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="477"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="477"/>
         <source>Stops all active notes</source>
         <translation>Zastaví všechny noty, které jsou v činnosti</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="488"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="488"/>
         <source>Reset All</source>
         <translation>Nastavit znovu vše</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="491"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="491"/>
         <source>Resets all the controllers</source>
         <translation>Nastaví znovu všechny ovládací prvky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="499"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="499"/>
         <source>Reset</source>
         <translation>Nastavit znovu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="502"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="502"/>
         <source>Resets the Bender value</source>
         <translation>Nastaví znovu hodnotu měniče</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="510"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="510"/>
         <source>&amp;Keyboard Map</source>
         <translation>&amp;Uspořádání klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="513"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="513"/>
         <source>Edit the current keyboard layout</source>
         <translation>Upravit nynější uspořádání klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="521"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="521"/>
         <source>&amp;Contents</source>
         <translation>&amp;Obsah</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="524"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="524"/>
         <source>Open the index of the help document</source>
         <translation>Otevřít rejstřík dokumentu s nápovědou</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="535"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="535"/>
         <source>VMPK &amp;Web site</source>
         <translation>VMPK &amp;stránky na internetu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="538"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="538"/>
         <source>Open the VMPK web site address using a web browser</source>
         <translation>Otevřít adresu internetových stránek VMPK v prohlížeči</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="546"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="546"/>
         <source>&amp;Import SoundFont...</source>
         <translation>&amp;Zavést zvukové písmo...</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="549"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="549"/>
         <source>Import SoundFont</source>
         <translation>Zavést zvukové písmo</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="563"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="563"/>
         <source>Show or hide the Extra Controls toolbar</source>
         <translation>Ukázat nebo skrýt nástrojový pruh s ovládacími prvky navíc</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="571"/>
-        <location filename="../src/vpiano.ui" line="585"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="571"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="585"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="574"/>
-        <location filename="../src/vpiano.ui" line="605"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="574"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="605"/>
         <source>Open the Extra Controls editor</source>
         <translation>Ukázat editor dalších ovládacích prvků</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="588"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="588"/>
         <source>Open the Banks/Programs editor</source>
         <translation>Ukázat editor bank/programů</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="602"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="602"/>
         <source>&amp;Extra Controllers</source>
         <translation>&amp;Další ovládací prvky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="613"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="613"/>
         <source>&amp;Shortcuts</source>
         <translation>&amp;Zkratky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="616"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="616"/>
         <source>Open the Shortcuts editor</source>
         <translation>Otevřít editor zkratek</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="624"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="624"/>
         <source>Octave Up</source>
         <translation>O oktávu nahoru</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="627"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="627"/>
         <source>Play one octave higher</source>
         <translation>Přehrát o jednu oktávu výše</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="638"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="638"/>
         <source>Octave Down</source>
         <translation>O oktávu dolů</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="641"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="641"/>
         <source>Play one octave lower</source>
         <translation>Přehrát o jednu oktávu níže</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="652"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="652"/>
         <source>Transpose Up</source>
         <translation>Převést nahoru</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="655"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="655"/>
         <source>Transpose one semitone higher</source>
         <translation>Převést o jeden půltón výše</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="666"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="666"/>
         <source>Transpose Down</source>
         <translation>Převést dolů</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="669"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="669"/>
         <source>Transpose one semitone lower</source>
         <translation>Převést o jeden půltón níže</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="680"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="680"/>
         <source>Next  Channel</source>
         <translation>Další kanál</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="683"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="683"/>
         <source>Play and listen next channel</source>
         <translation>Přehrát a poslouchat další kanál</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="694"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="694"/>
         <source>Previous Channel</source>
         <translation>Předchozí kanál</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="697"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="697"/>
         <source>Play and listen previous channel</source>
         <translation>Přehrát a poslouchat předchozí kanál</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="708"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="708"/>
         <source>Next Controller</source>
         <translation>Další ovládací prvek</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="711"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="711"/>
         <source>Select the next controller</source>
         <translation>Vybrat další ovládací prvek</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="722"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="722"/>
         <source>Previous Controller</source>
         <translation>Předchozí ovládací prvek</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="725"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="725"/>
         <source>Select the previous controller</source>
         <translation>Vybrat předchozí ovládací prvek</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="736"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="736"/>
         <source>Controller Up</source>
         <translation>Ovládací prvek nahoru</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="739"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="739"/>
         <source>Increment the controller value</source>
         <translation>Zvýšit hodnotu ovladače</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="742"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="742"/>
         <source>Alt++</source>
         <translation>Alt++</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="750"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="750"/>
         <source>Controller Down</source>
         <translation>Ovládací prvek dolů</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="753"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="753"/>
         <source>Decrement the controller value</source>
         <translation>Snížit hodnotu ovladače</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="756"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="756"/>
         <source>Alt+-</source>
         <translation>Alt+-</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="764"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="764"/>
         <source>Next Bank</source>
         <translation>Další banka</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="767"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="767"/>
         <source>Select the next instrument bank</source>
         <translation>Vybrat další nástrojovou banku</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="778"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="778"/>
         <source>Previous Bank</source>
         <translation>Předchozí banka</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="781"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="781"/>
         <source>Select the previous instrument bank</source>
         <translation>Vybrat předchozí nástrojovou banku</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="792"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="792"/>
         <source>Next Program</source>
         <translation>Další program</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="795"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="795"/>
         <source>Select the next instrument program</source>
         <translation>Vybrat další nástrojový program</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="806"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="806"/>
         <source>Previous Program</source>
         <translation>Předchozí program</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="809"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="809"/>
         <source>Select the previous instrument program</source>
         <translation>Vybrat předchozí nástrojový program</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="820"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="820"/>
         <source>Velocity Up</source>
         <translation>Dynamika MIDI (velocity) nahoru</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="823"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="823"/>
         <source>Increment note velocity</source>
         <translation>Zvýšit dynamiku MIDI (velocity) noty</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="834"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="834"/>
         <source>Velocity Down</source>
         <translation>Dynamika MIDI (velocity)  dolů</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="837"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="837"/>
         <source>Decrement note velocity</source>
         <translation>Snížit dynamiku MIDI (velocity) noty</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="848"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="848"/>
         <source>About &amp;Translation</source>
         <translation>O &amp;překladu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="851"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="851"/>
         <source>Show information about the program language translation</source>
         <translation>Ukázat informace o překladu jazyka programu</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="865"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="865"/>
         <source>Computer Keyboard</source>
         <translation>Klávesnice počítače</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="868"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="868"/>
         <source>Enable computer keyboard triggered note input</source>
         <translation>Povolit zadávání not spouštěné klávesnicí počítače</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="882"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="882"/>
         <source>Mouse</source>
         <translation>Myš</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="885"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="885"/>
         <source>Enable mouse triggered note input</source>
         <translation>Povolit zadávání not spouštěné myší</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="899"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="899"/>
         <source>Touch Screen</source>
         <translation>Dotyková obrazovka</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="902"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="902"/>
         <source>Enable screen touch triggered note input</source>
         <translation>Povolit zadávání not spouštěné dotknutím se obrazovky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="910"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="910"/>
         <source>Color Palette</source>
         <translation>Paleta barev</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="913"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="913"/>
         <source>Open the color palette editor</source>
         <translation>Otevřít editor barevné palety</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="924"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="924"/>
         <source>Color Scale</source>
         <translation>Barevný rozsah</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="927"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="927"/>
         <source>Show or hide the colorized keys</source>
         <translation>Ukázat nebo skrýt obarvené klávesy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="941"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="941"/>
         <source>Window frame</source>
         <translation>Rámeček okna</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="944"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="944"/>
         <source>Show or hide window decorations</source>
         <translation>Ukázat nebo skrýt dekorace oken</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1072"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1072"/>
         <source>Show key labels only over C notes</source>
         <translation>Zobrazit popisy kláves pouze nad notami C</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1077"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1077"/>
         <source>Load Configuration...</source>
         <translation>Nahrát nastavení...</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1082"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1082"/>
         <source>Save Configuration...</source>
         <translation>Uložit nastavení...</translation>
     </message>
@@ -2128,273 +2128,273 @@ Chcete použít tyto změny?</translation>
         <translation type="vanished">Alt+F</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="961"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="961"/>
         <source>Never</source>
         <translation>Nikdy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="964"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="964"/>
         <source>Don&apos;t show key labels</source>
         <translation>Nezobrazovat popisy kláves</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="972"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="972"/>
         <source>When Activated</source>
         <translation>Při zapnutí</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="975"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="975"/>
         <source>Show key labels when notes are activated</source>
         <translation>Zobrazit popisy kláves při zapnutí not</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="983"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="983"/>
         <source>Always</source>
         <translation>Vždy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="986"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="986"/>
         <source>Show key labels always</source>
         <translation>Zobrazit popisy kláves vždy</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="997"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="997"/>
         <source>Sharps</source>
         <translation>Křížky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1000"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1000"/>
         <source>Display sharps</source>
         <translation>Zobrazit křížky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1011"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1011"/>
         <source>Flats</source>
         <translation>Bé</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1014"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1014"/>
         <source>Display flats</source>
         <translation>Zobrazit bé</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1022"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1022"/>
         <source>Nothing</source>
         <translation>Nic</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1025"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1025"/>
         <source>Don&apos;t display labels over black keys</source>
         <translation>Nezobrazovat popisy nad černými klávesami</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1036"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1036"/>
         <source>Horizontal</source>
         <translation>Vodorovně</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1039"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1039"/>
         <source>Display key labels horizontally</source>
         <translation>Zobrazit popisy kláves vodorovně</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1047"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1047"/>
         <source>Vertical</source>
         <translation>Svisle</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1050"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1050"/>
         <source>Display key labels vertically</source>
         <translation>Zobrazit popisy kláves svisle</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1058"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1058"/>
         <source>Automatic</source>
         <translation>Automaticky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1061"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1061"/>
         <source>Display key labels with automatic orientation</source>
         <translation>Zobrazit popisy kláves s automatickým natočením</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1069"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.ui" line="1069"/>
         <source>Minimal</source>
         <translation>Velmi malé</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1695"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="1674"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1695"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="1674"/>
         <source>No help file found</source>
         <translation>Nepodařilo se najít žádný soubor s nápovědou</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1954"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="1933"/>
         <source>Language Changed</source>
         <translation>Jazyk byl změněn</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1955"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="1934"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>Jazyk pro tento program bude změněn na %1. Chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1999"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="1988"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK je vyvíjen a překládán díky dobrovolnické práci mnoha lidí z celého světa. Pokud se chcete připojit k družstvu, nebo máte nějaké otázky, navštivte, prosím, fórum na &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2017"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2006"/>
         <source>Translation</source>
         <translation>Překlad</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2018"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2007"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;Překlad: Pavel Fric, fripohled.blogspot.com&lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2020"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2009"/>
         <source>Translation Information</source>
         <translation>Informace o překladech</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2040"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2027"/>
         <source>Czech</source>
         <translation>Čeština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2041"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2028"/>
         <source>German</source>
         <translation>Němčina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2042"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2026"/>
         <source>English</source>
         <translation>Angličtina</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2043"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2029"/>
         <source>Spanish</source>
         <translation>Španělština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2044"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2030"/>
         <source>French</source>
         <translation>Francouzština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2045"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2031"/>
         <source>Galician</source>
         <translation>Galicijština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2046"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2032"/>
         <source>Dutch</source>
         <translation>Nizozemština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2047"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2033"/>
         <source>Russian</source>
         <translation>Ruština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2048"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2034"/>
         <source>Serbian</source>
         <translation>Srbština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2049"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2035"/>
         <source>Swedish</source>
         <translation>Švédština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2050"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2036"/>
         <source>Chinese</source>
         <translation>Čínština</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2057"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2043"/>
         <source>Chan:</source>
         <translation>Kan:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2059"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2045"/>
         <source>Channel:</source>
         <translation>Kanál:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2064"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2050"/>
         <source>Oct:</source>
         <translation>Okt:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2066"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2052"/>
         <source>Base Octave:</source>
         <translation>Základní oktáva:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2071"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2057"/>
         <source>Trans:</source>
         <translation>Přev:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2073"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2059"/>
         <source>Transpose:</source>
         <translation>Převést:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2078"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2064"/>
         <source>Vel:</source>
         <translation>Rych:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2080"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2066"/>
         <source>Velocity:</source>
         <translation>Dynamika MIDI (velocity):</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2083"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2069"/>
         <source>Bank:</source>
         <translation>Banka:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2084"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2070"/>
         <source>Bender:</source>
         <translation>Měnič:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2085"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2071"/>
         <source>Control:</source>
         <translation>Ovládací prvek:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2086"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2072"/>
         <source>Program:</source>
         <translation>Program:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2087"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2073"/>
         <source>Value:</source>
         <translation>Hodnota:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2232"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2218"/>
         <source>Open Configuration File</source>
         <translation>Otevřít soubor s nastavením</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2233"/>
-        <location filename="../src/vpiano.cpp" line="2246"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2219"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2232"/>
         <source>Configuration files (*.conf *.ini)</source>
         <translation>Soubory s nastavením (*.conf *.ini)</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2248"/>
+        <location filename="../../../vmpk-desktop/src/vpiano.cpp" line="2234"/>
         <source>Save Configuration File</source>
         <translation>Uložit soubor s nastavením</translation>
     </message>

@@ -1,3 +1,6 @@
+2022-02-05
+    * Load translations earlier, for command line option "--help"
+
 2022-01-29
     * Fixed command line option "file"
 

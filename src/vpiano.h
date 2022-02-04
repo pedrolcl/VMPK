@@ -30,7 +30,6 @@
 #include "winsnap.h"
 #endif
 
-class QTranslator;
 class QLabel;
 class QComboBox;
 class QSpinBox;
@@ -258,7 +257,6 @@ private:
     QMap<int,int> m_lastProg;
     QMap<int,int> m_lastCtl;
     QMap<QString, QString> m_supportedLangs;
-    QPointer<QTranslator> m_trq, m_trp, m_trl;
     QAction *m_currentLang;
     QHash<QString,QList<QKeySequence> > m_defaultShortcuts;
 #if defined(Q_OS_WINDOWS)

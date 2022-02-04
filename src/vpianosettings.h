@@ -22,6 +22,8 @@
 #include <QObject>
 #include <QString>
 #include <QSettings>
+#include <QTranslator>
+
 #include <drumstick/backendmanager.h>
 #include <drumstick/pianopalette.h>
 #include "instrument.h"
@@ -169,6 +171,8 @@ public:
     QString getStyle() const;
     void setStyle(const QString &style);
 
+    void loadTranslations();
+
     // static methods
     static VPianoSettings* instance();
     static void setPortableConfig(const QString fileName = QString());
@@ -255,6 +259,8 @@ private:
     VMPKKeyboardMap m_keymap;
     VMPKKeyboardMap m_rawmap;
     QString m_style;
+
+    QPointer<QTranslator> m_trq, m_trp, m_trl;
 };
 
 #endif // PORTABLESETTINGS_H

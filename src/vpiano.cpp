@@ -36,7 +36,6 @@
 #include <QDialog>
 #include <QUrl>
 #include <QString>
-#include <QTranslator>
 #include <QMapIterator>
 #include <QShortcut>
 #include <QActionGroup>
@@ -80,9 +79,6 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_backendManager(nullptr),
     m_initialized(false),
     m_filter(nullptr),
-    m_trq(nullptr),
-    m_trp(nullptr),
-    m_trl(nullptr),
     m_currentLang(nullptr)
 {
 #if defined(ENABLE_DBUS)
@@ -91,39 +87,6 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     dbus.registerObject("/", this);
     dbus.registerService("net.sourceforge.vmpk");
 #endif
-    QLocale loc;
-    QString lang = VPianoSettings::instance()->language();
-    if (!lang.isEmpty()) {
-        loc = QLocale(lang);
-    }
-    if ((loc.language() != QLocale::C) && (loc.language() != QLocale::English)) {
-        m_trq = new QTranslator(this);
-        if (m_trq->load(loc, QSTR_QTPX, "_", VPianoSettings::systemLocales())) {
-            QCoreApplication::installTranslator(m_trq);
-        } else {
-            qWarning() << "Failure loading Qt system translations for" << lang
-                       << "from" << VPianoSettings::systemLocales();
-            delete m_trq;
-        }
-        m_trp = new QTranslator(this);
-        if (m_trp->load(loc, QSTR_VMPKPX, "_", VPianoSettings::localeDirectory())) {
-            QCoreApplication::installTranslator(m_trp);
-        } else {
-            qWarning() << "Failure loading VMPK application translations for" << lang
-                       << "from" << VPianoSettings::localeDirectory();
-            delete m_trp;
-        }
-        m_trl = new QTranslator(this);
-        if (m_trl->load(loc, QSTR_DRUMSTICKPX, "_", VPianoSettings::drumstickLocales())) {
-            QCoreApplication::installTranslator(m_trl);
-        } else {
-            qWarning() << "Failure loading widgets library translations for" << lang
-                       << "from" << VPianoSettings::drumstickLocales();
-            delete m_trl;
-        }
-    }
-
-    VPianoSettings::instance()->retranslatePalettes();
     ui.setupUi(this);
     initLanguages();
 
@@ -2048,41 +2011,7 @@ void VPiano::slotAboutTranslation()
 
 void VPiano::retranslateUi()
 {
-    QLocale loc;
-    QString lang = VPianoSettings::instance()->language();
-    if (!lang.isEmpty()) {
-        loc = QLocale(lang);
-    }
-    if (m_trq) {
-        QCoreApplication::removeTranslator(m_trq);
-        delete m_trq;
-    }
-    if (m_trp) {
-        QCoreApplication::removeTranslator(m_trp);
-        delete m_trp;
-    }
-    if (m_trl) {
-        QCoreApplication::removeTranslator(m_trl);
-        delete m_trl;
-    }
-    if ((loc.language() != QLocale::C) && (loc.language() != QLocale::English)) {
-        m_trq = new QTranslator(this);
-        if (m_trq->load(loc, QSTR_QTPX, "_", VPianoSettings::systemLocales()))
-            QCoreApplication::installTranslator(m_trq);
-        else
-            delete m_trq;
-        m_trp = new QTranslator(this);
-        if (m_trp->load(loc, QSTR_VMPKPX, "_", VPianoSettings::localeDirectory()))
-            QCoreApplication::installTranslator(m_trp);
-        else
-            delete m_trp;
-        m_trl = new QTranslator(this);
-        if (m_trl->load(loc, QSTR_DRUMSTICKPX, "_", VPianoSettings::drumstickLocales()))
-            QCoreApplication::installTranslator(m_trl);
-        else
-            delete m_trl;
-    }
-    VPianoSettings::instance()->retranslatePalettes();
+    VPianoSettings::instance()->loadTranslations();
     ui.retranslateUi(this);
     ui.pianokeybd->retranslate();
     initLanguages();
