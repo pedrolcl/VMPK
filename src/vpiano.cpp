@@ -1314,12 +1314,10 @@ void VPiano::applyPreferences()
 
     QPoint wpos = pos();
     Qt::WindowFlags flags = windowFlags();
-    if (VPianoSettings::instance()->alwaysOnTop())
-        flags |= Qt::WindowStaysOnTopHint;
-    else
-        flags &= ~Qt::WindowStaysOnTopHint;
+    flags.setFlag( Qt::WindowStaysOnTopHint, VPianoSettings::instance()->alwaysOnTop() );
     setWindowFlags( flags );
     move(wpos);
+    show();
 }
 
 void VPiano::populateInstruments()
@@ -2152,17 +2150,13 @@ void VPiano::slotColorScale(bool value)
 
 void VPiano::toggleWindowFrame(const bool state)
 {
+    QPoint wpos = pos();
     Qt::WindowFlags flags = windowFlags();
-
-    if (state)
-        flags &= ~Qt::FramelessWindowHint;
-    else
-        flags |= Qt::FramelessWindowHint;
-
+    flags.setFlag( Qt::FramelessWindowHint, !state );
     setWindowFlags(flags);
+    move(wpos);
     show();
 }
-
 
 void VPiano::slotNameOrientation(QAction* action)
 {
