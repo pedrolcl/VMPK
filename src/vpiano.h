@@ -22,7 +22,9 @@
 #include <QMainWindow>
 #include <QPointer>
 #include <drumstick/pianokeybd.h>
-#include "nativefilter.h"
+#if defined(ENABLE_NATIVE_FILTER)
+	#include "nativefilter.h"
+#endif
 #include "instrument.h"
 #include "ui_vpiano.h"
 
@@ -228,7 +230,9 @@ private:
 
     bool m_initialized;
 
+#if defined(ENABLE_NATIVE_FILTER)
     NativeFilter *m_filter;
+#endif
 
     Ui::VPiano ui;
 

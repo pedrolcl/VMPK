@@ -1,3 +1,11 @@
+2022-03-29
+    * New build option to enable or disable: NATIVE_EVENT_FILTER
+      this new option is enabled by default on Windows, and disabled elsewere.
+    * removed several warnings when building with Qt6.
+
+2022-03-27
+    * fixed ticket #80: always-on-top preference hides main window [r674]
+
 2022-02-05
     * Load translations earlier, for command line option "--help"
 

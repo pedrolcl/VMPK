@@ -78,7 +78,9 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_midiin(nullptr),
     m_backendManager(nullptr),
     m_initialized(false),
+#if defined(ENABLE_NATIVE_FILTER)	
     m_filter(nullptr),
+#endif	
     m_currentLang(nullptr)
 {
 #if defined(ENABLE_DBUS)
@@ -159,7 +161,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     //ui.actionExitFullScreen->setShortcut(QKeySequence::FullScreen);
 #endif
     ui.pianokeybd->setPianoHandler(this);
-#if defined(RAWKBD_SUPPORT)
+#if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter = new NativeFilter;
     m_filter->setRawKbdHandler(ui.pianokeybd);
     qApp->installNativeEventFilter(m_filter);
@@ -169,7 +171,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
 
 VPiano::~VPiano()
 {
-#if defined(RAWKBD_SUPPORT)
+#if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(false);
     qApp->removeNativeEventFilter(m_filter);
     delete m_filter;
@@ -1268,7 +1270,7 @@ void VPiano::applyPreferences()
     {
         ui.pianokeybd->setNumKeys(VPianoSettings::instance()->numKeys(), VPianoSettings::instance()->startingKey());
     }
-#if defined(RAWKBD_SUPPORT)
+#if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
 #endif
     ui.pianokeybd->setRawKeyboardMode(VPianoSettings::instance()->rawKeyboard());
@@ -1290,18 +1292,21 @@ void VPiano::applyPreferences()
     qApp->setPalette( VPianoSettings::instance()->getDarkMode() ? darkPalette : defaultPalette );
     qApp->setStyle( VPianoSettings::instance()->getStyle() );
 
-    VMPKKeyboardMap* map = VPianoSettings::instance()->getKeyboardMap();
-    if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
-        ui.pianokeybd->setKeyboardMap(map);
-    else
-        ui.pianokeybd->resetKeyboardMap();
-
-    map = VPianoSettings::instance()->getRawKeyboardMap();
-    if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT )
-        ui.pianokeybd->setRawKeyboardMap(map);
-    else
-        ui.pianokeybd->resetRawKeyboardMap();
-
+	if (VPianoSettings::instance()->rawKeyboard()) {
+		VMPKKeyboardMap* map = VPianoSettings::instance()->getRawKeyboardMap();
+		if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT ) {
+			ui.pianokeybd->setRawKeyboardMap(map);
+		} else {
+			ui.pianokeybd->resetRawKeyboardMap();
+		}
+	} else {
+		VMPKKeyboardMap* map = VPianoSettings::instance()->getKeyboardMap();
+		if (!map->getFileName().isEmpty() && map->getFileName() != QSTR_DEFAULT ) {
+			ui.pianokeybd->setKeyboardMap(map);
+		} else {
+			ui.pianokeybd->resetKeyboardMap();
+		}
+	}
     PianoPalette highlight = VPianoSettings::instance()->getPalette(VPianoSettings::instance()->highlightPaletteId());
     ui.pianokeybd->setHighlightPalette(highlight);
     PianoPalette background = VPianoSettings::instance()->getPalette(VPianoSettings::instance()->colorScale() ? PAL_SCALE : PAL_KEYS);
@@ -1615,14 +1620,14 @@ void VPiano::slotComboControlCurrentIndexChanged(const int index)
 
 void VPiano::grabKb()
 {
-#if defined(RAWKBD_SUPPORT)
+#if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
 #endif
 }
 
 void VPiano::releaseKb()
 {
-#if defined(RAWKBD_SUPPORT)
+#if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(false);
 #endif
 }

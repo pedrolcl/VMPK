@@ -100,7 +100,11 @@ void VMPKKeyboardMap::initializeFromXML(QIODevice *dev)
                                 if (ok) insert(keycode, note);
                             } else {
                                 QKeySequence ks(key);
+							#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
                                 insert(ks[0], note);
+							#else
+								insert(ks[0].key(), note);
+							#endif
                             }
                         }
                     }

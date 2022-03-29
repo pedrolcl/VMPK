@@ -71,7 +71,11 @@ void KMapDialog::updateMap()
                 if (ok) m_map.insert(keycode, i);
             } else {
                 QKeySequence ks(item->text());
+			#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
                 m_map.insert(ks[0], i);
+			#else
+				m_map.insert(ks[0].key(), i);
+			#endif
             }
         }
     }

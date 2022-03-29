@@ -69,15 +69,12 @@ set(vmpk_SRCS
     keyboardmap.h
     kmapdialog.cpp
     kmapdialog.h
-    maceventhelper.h
     main.cpp
     mididefs.h
     midisetup.cpp
     midisetup.h
     preferences.cpp
     preferences.h
-    nativefilter.cpp
-    nativefilter.h
     riff.cpp
     riff.h
     riffimportdlg.cpp
@@ -93,6 +90,19 @@ set(vmpk_SRCS
     ${QT_RES}
 )
 
+if (ENABLE_NATIVE_FILTER)
+    list(APPEND vmpk_SRCS
+        nativefilter.cpp
+        nativefilter.h
+    )
+    if (APPLE)
+        list(APPEND vmpk_SRCS
+            maceventhelper.mm
+            maceventhelper.h
+        )
+    endif()
+endif()
+
 if(WIN32)
     include(CheckCXXSourceCompiles)
     check_cxx_source_compiles("#include <Windows.h>
@@ -105,7 +115,6 @@ if(WIN32)
 endif()
 
 if(ENABLE_DBUS)
-    add_definitions(-DENABLE_DBUS)
     if (QT_VERSION VERSION_LESS 5.15.0)
         qt5_add_dbus_adaptor( vmpk_SRCS
                               net.sourceforge.vmpk.xml
@@ -158,7 +167,6 @@ if(APPLE)
 endif()
 
 add_executable (vmpk MACOSX_BUNDLE WIN32
-    $<$<PLATFORM_ID:Darwin>:maceventhelper.mm>
     $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc>
     ${vmpk_SRCS}
     ${vmpk_RSC}
@@ -196,6 +204,7 @@ target_compile_definitions ( vmpk PUBLIC
     RAWKBD_SUPPORT
     PALETTE_SUPPORT
     $<$<BOOL:${ENABLE_DBUS}>:ENABLE_DBUS>
+    $<$<BOOL:${ENABLE_NATIVE_FILTER}>:ENABLE_NATIVE_FILTER>
 )
 
 if (DEFINED PROJECT_WC_REVISION)
