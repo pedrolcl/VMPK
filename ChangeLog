@@ -1,3 +1,6 @@
+2022-03-31
+    * require drumstick 2.6 to use the new function PianoKeybd::setUsingNativeFilter().
+
 2022-03-29
     * New build option to enable or disable: NATIVE_EVENT_FILTER
       this new option is enabled by default on Windows, and disabled elsewere.

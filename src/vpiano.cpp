@@ -1272,6 +1272,7 @@ void VPiano::applyPreferences()
     }
 #if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
+    ui.pianokeybd->setUsingNativeFilter(VPianoSettings::instance()->rawKeyboard());
 #endif
     ui.pianokeybd->setRawKeyboardMode(VPianoSettings::instance()->rawKeyboard());
     ui.pianokeybd->setVelocityTint(VPianoSettings::instance()->velocityColor());
@@ -1622,6 +1623,7 @@ void VPiano::grabKb()
 {
 #if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
+    ui.pianokeybd->setUsingNativeFilter(VPianoSettings::instance()->rawKeyboard());
 #endif
 }
 
@@ -1629,6 +1631,7 @@ void VPiano::releaseKb()
 {
 #if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(false);
+    ui.pianokeybd->setUsingNativeFilter(false);
 #endif
 }
 
