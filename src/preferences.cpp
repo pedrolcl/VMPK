@@ -85,7 +85,7 @@ void Preferences::slotRestoreDefaults()
     ui.cboOctaveName->setCurrentIndex(ui.cboOctaveName->findData(OctaveC4));
     m_font = qApp->font();
     m_font.setPointSize(50);
-    ui.txtFont->setText(m_font.toString());
+    ui.txtFont->setText( fontString(m_font) );
     ui.chkEnforceChannelState->setChecked(false);
     ui.chkVelocityColor->setChecked(true);
     ui.chkAlwaysOnTop->setChecked(false);
@@ -121,7 +121,7 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.cboDrumsChannel->setCurrentIndex(VPianoSettings::instance()->drumsChannel()+1);
         ui.cboOctaveName->setCurrentIndex(ui.cboOctaveName->findData(VPianoSettings::instance()->namesOctave()));
         m_font = VPianoSettings::instance()->namesFont();
-        ui.txtFont->setText( m_font.toString() );
+        ui.txtFont->setText( fontString(m_font) );
         ui.chkEnforceChannelState->setChecked( VPianoSettings::instance()->enforceChannelState() );
         ui.chkVelocityColor->setChecked( VPianoSettings::instance()->velocityColor() );
         ui.chkAlwaysOnTop->setChecked( VPianoSettings::instance()->alwaysOnTop() );
@@ -254,7 +254,7 @@ void Preferences::slotSelectFont()
                     QFontDialog::DontUseNativeDialog | QFontDialog::ScalableFonts);
     if (ok) {
         m_font = font;
-        ui.txtFont->setText(font.toString());
+        ui.txtFont->setText( fontString(font) );
     }
 }
 
@@ -312,4 +312,9 @@ void Preferences::populateStyles()
             break;
         }
     }
+}
+
+QString Preferences::fontString(const QFont &f) const
+{
+    return QString("%1,%2").arg(f.family()).arg(f.pointSize());
 }

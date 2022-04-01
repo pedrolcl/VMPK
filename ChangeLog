@@ -1,3 +1,6 @@
+2022-04-01
+    * note labels font stability fix.
+
 2022-03-31
     * require drumstick 2.6 to use the new function PianoKeybd::setUsingNativeFilter().
 

@@ -199,6 +199,7 @@ private:
     void initializePalettes();
     void loadPalettes();
     void savePalettes();
+    QString fontString(const QFont &f) const;
 
     QByteArray m_geometry;
     QByteArray m_state;

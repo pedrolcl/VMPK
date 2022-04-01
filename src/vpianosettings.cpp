@@ -283,6 +283,9 @@ void VPianoSettings::internalRead(QSettings &settings)
     QFont f;
     if (f.fromString(settings.value("namesFont", QSTR_DEFAULTFONT).toString())) {
         setNamesFont(f);
+    } else {
+        f.fromString(QApplication::font().family() + ",50");
+        setNamesFont(f);
     }
     setNamesOrientation(static_cast<LabelOrientation>(settings.value("namesOrientation", HorizontalOrientation).toInt()));
     setNamesVisibility(static_cast<LabelVisibility>(settings.value("namesVisibility", ShowNever).toInt()));
@@ -351,7 +354,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.endGroup();
 
     settings.beginGroup("TextSettings");
-    settings.setValue("namesFont", m_namesFont.toString());
+    settings.setValue("namesFont", fontString(m_namesFont));
     settings.setValue("namesOrientation", m_namesOrientation);
     settings.setValue("namesVisibility", m_namesVisibility);
     settings.setValue("namesAlteration", m_namesAlteration);
@@ -819,6 +822,11 @@ void VPianoSettings::savePalettes()
     for (PianoPalette& pal : m_paletteList) {
         pal.saveColors();
     }
+}
+
+QString VPianoSettings::fontString(const QFont& f) const
+{
+    return QString("%1,%2").arg(f.family()).arg(f.pointSize());
 }
 
 QString VPianoSettings::getStyle() const

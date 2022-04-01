@@ -40,6 +40,7 @@ public:
     void retranslateUi();
     void setNoteNames(const QStringList& noteNames);
     void populateStyles();
+    QString fontString(const QFont& f) const;
 
 public slots:
     void slotOpenInstrumentFile();
