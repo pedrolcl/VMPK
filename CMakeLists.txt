@@ -57,7 +57,7 @@ endif()
 #endif()
 
 # CMAKE_SYSTEM_PROCESSOR is broken on Windows with MSVC
-# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2021/03
+# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2022/04
 if(MSVC)
     string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
 endif()

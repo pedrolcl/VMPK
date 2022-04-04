@@ -1,3 +1,6 @@
+2022-04-04
+    * Release 0.8.7
+
 2022-04-01
     * note labels font stability fix.
 
@@ -5,7 +8,7 @@
     * require drumstick 2.6 to use the new function PianoKeybd::setUsingNativeFilter().
 
 2022-03-29
-    * New build option to enable or disable: NATIVE_EVENT_FILTER
+    * New build option to enable or disable: ENABLE_NATIVE_FILTER
       this new option is enabled by default on Windows, and disabled elsewere.
     * removed several warnings when building with Qt6.
 

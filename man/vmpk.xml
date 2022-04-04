@@ -37,16 +37,16 @@
             <personblurb><para></para></personblurb>
         </author>
         <copyright>
-            <year>2010-2021</year>
+            <year>2010-2022</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
-        <date>Dec 22, 2021</date>
+        <date>Apr 4, 2022</date>
     </refentryinfo>
 
     <refmeta>
         <refentrytitle>vmpk</refentrytitle>
         <manvolnum>1</manvolnum>
-        <refmiscinfo class="version">0.8.6</refmiscinfo>
+        <refmiscinfo class="version">0.8.7</refmiscinfo>
         <refmiscinfo class="software">vmpk</refmiscinfo>
         <refmiscinfo class="manual">User Commands</refmiscinfo>
     </refmeta>
@@ -67,7 +67,7 @@
 
         <para>This manual page documents briefly the &dhprg; program.</para>
 
-        <para>This program uses standard Qt5 options.</para>
+        <para>This program uses standard Qt options.</para>
 
         <para>Virtual MIDI Piano Keyboard is a MIDI events generator and
             receiver. It doesn&apos;t produce any sound by itself, but can be used to
