@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion(PGM_VERSION);
     QCoreApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
     QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
+    QGuiApplication::setDesktopFileName("net.sourceforge.VMPK");
 #if defined(Q_OS_WINDOWS)
     QApplication::setStyle("fusion");
 #elif defined(Q_OS_LINUX)
