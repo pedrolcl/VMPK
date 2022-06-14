@@ -1,5 +1,10 @@
+2022-06-14
+    * Octave subscript designation:
+    * - require drumstick 2.7
+    * - new view menu option
+
 2022-04-22
-    * Using QGuiApplication::setDesktopFileName on utils to fix the wrong icon in KDE+Wayland
+    * Using QGuiApplication::setDesktopFileName to fix the wrong icon in KDE+Wayland
 
 2022-04-04
     * Release 0.8.7

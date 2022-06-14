@@ -154,6 +154,7 @@ protected Q_SLOTS:
     void slotNoteName(const QString& text);
     void slotLoadConfiguration();
     void slotSaveConfiguration();
+    void slotOctaveSubscript(bool value);
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 

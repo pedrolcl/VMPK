@@ -139,6 +139,7 @@
     <addaction name="menuNames"/>
     <addaction name="menuBlack_Keys_Names"/>
     <addaction name="menuNames_Orientation"/>
+    <addaction name="actionOctave_Subscript_Designation"/>
     <addaction name="actionColorScale"/>
     <addaction name="actionStatusBar"/>
     <addaction name="actionWindowFrame"/>
@@ -1080,6 +1081,17 @@
   <action name="actionSave_Configuration">
    <property name="text">
     <string>Save Configuration...</string>
+   </property>
+  </action>
+  <action name="actionOctave_Subscript_Designation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Octave Subscript Designation</string>
    </property>
   </action>
  </widget>

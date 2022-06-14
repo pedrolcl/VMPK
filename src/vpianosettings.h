@@ -144,6 +144,9 @@ public:
     bool savedShortcuts() const;
     QString getShortcut(const QString& sKey) const;
 
+    bool octaveSubscript() const;
+    void setOctaveSubscript(bool newOctaveSubscript);
+
     int availablePalettes() const;
     PianoPalette getPalette(int pal);
     QList<QString> availablePaletteNames(bool forHighlight);
@@ -230,6 +233,7 @@ private:
     bool m_colorScale;
     bool m_winSnap;
     bool m_darkMode;
+    bool m_octaveSubscript;
     QString m_insFileName;
     QString m_insName;
     LabelVisibility m_namesVisibility;

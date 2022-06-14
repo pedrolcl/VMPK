@@ -132,6 +132,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionColorPalette, SIGNAL(triggered()), SLOT(slotColorPolicy()));
     connect(ui.actionColorScale, SIGNAL(toggled(bool)), SLOT(slotColorScale(bool)));
     connect(ui.actionWindowFrame, SIGNAL(toggled(bool)), SLOT(toggleWindowFrame(bool)));
+    connect(ui.actionOctave_Subscript_Designation, SIGNAL(toggled(bool)), SLOT(slotOctaveSubscript(bool)));
     connect(ui.actionLoad_Configuration, &QAction::triggered, this, &VPiano::slotLoadConfiguration);
     connect(ui.actionSave_Configuration, &QAction::triggered, this, &VPiano::slotSaveConfiguration);
     // Toolbars actions: toggle view
@@ -641,6 +642,8 @@ void VPiano::readSettings()
     }
     ui.pianokeybd->setLabelOrientation(VPianoSettings::instance()->namesOrientation());
     ui.pianokeybd->setLabelOctave(VPianoSettings::instance()->namesOctave());
+    ui.actionOctave_Subscript_Designation->setChecked(VPianoSettings::instance()->octaveSubscript());
+    ui.pianokeybd->setOctaveSubscript(VPianoSettings::instance()->octaveSubscript());
 
     bool savedShortcuts = VPianoSettings::instance()->savedShortcuts();
     QList<QAction *> actions = findChildren<QAction *> ();
@@ -2244,6 +2247,13 @@ void VPiano::slotSaveConfiguration()
         }
     }
     grabKb();
+}
+
+void VPiano::slotOctaveSubscript(bool value)
+{
+    //qDebug() << Q_FUNC_INFO << value;
+    VPianoSettings::instance()->setOctaveSubscript(value);
+    ui.pianokeybd->setOctaveSubscript(value);
 }
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)

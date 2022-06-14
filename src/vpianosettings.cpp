@@ -291,6 +291,7 @@ void VPianoSettings::internalRead(QSettings &settings)
     setNamesVisibility(static_cast<LabelVisibility>(settings.value("namesVisibility", ShowNever).toInt()));
     setNamesAlterations(static_cast<LabelAlteration>(settings.value("namesAlteration", ShowSharps).toInt()));
     setNamesOctave(static_cast<LabelCentralOctave>(settings.value("namesOctave", OctaveC4).toInt()));
+    setOctaveSubscript(settings.value("octaveSubscript", true).toBool());
     settings.endGroup();
 
     emit ValuesChanged();
@@ -359,6 +360,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.setValue("namesVisibility", m_namesVisibility);
     settings.setValue("namesAlteration", m_namesAlteration);
     settings.setValue("namesOctave", m_namesOctave);
+    settings.setValue("octaveSubscript", m_octaveSubscript);
     settings.endGroup();
 
     savePalettes();
@@ -827,6 +829,16 @@ void VPianoSettings::savePalettes()
 QString VPianoSettings::fontString(const QFont& f) const
 {
     return QString("%1,%2").arg(f.family()).arg(f.pointSize());
+}
+
+bool VPianoSettings::octaveSubscript() const
+{
+    return m_octaveSubscript;
+}
+
+void VPianoSettings::setOctaveSubscript(bool newOctaveSubscript)
+{
+    m_octaveSubscript = newOctaveSubscript;
 }
 
 QString VPianoSettings::getStyle() const
