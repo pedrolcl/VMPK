@@ -40,13 +40,13 @@
             <year>2010-2022</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
-        <date>Apr 4, 2022</date>
+        <date>Aug 28, 2022</date>
     </refentryinfo>
 
     <refmeta>
         <refentrytitle>vmpk</refentrytitle>
         <manvolnum>1</manvolnum>
-        <refmiscinfo class="version">0.8.7</refmiscinfo>
+        <refmiscinfo class="version">0.8.8</refmiscinfo>
         <refmiscinfo class="software">vmpk</refmiscinfo>
         <refmiscinfo class="manual">User Commands</refmiscinfo>
     </refmeta>
@@ -111,7 +111,7 @@
     
     <refsect1>
         <title>Standard Options</title>
-        <para>The following options apply to all Qt5 applications:</para>
+        <para>The following options apply to all Qt5/6 applications:</para>
         <variablelist>
             
             <varlistentry>
@@ -291,7 +291,7 @@
             </personname>
             <email>dogguy@pps.jussieu.fr</email>
             for the Debian GNU/Linux system (but may be used by others).</para>
-        <para>Updated for Qt5 by
+        <para>Updated for Qt5/6 by
             <personname>
                 <firstname>Pedro</firstname>
                 <surname>Lopez-Cabanillas</surname>

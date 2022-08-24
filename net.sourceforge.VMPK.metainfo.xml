@@ -35,6 +35,18 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.8.8" date="2022-08-28">
+     <url>https://sourceforge.net/p/vmpk/news/2022/08/virtual-midi-piano-keyboard-088-released-/</url>
+     <description>
+         <p>This release includes the following changes</p>
+         <ul>
+             <li>New View menu option: Subscript Octave Designation.</li>
+             <li>Fixed the wrong icon on KDE+Wayland</li>
+             <li>Checked MIDI backends at startup with diagnostic messages.</li>
+             <li>Requires: drumstick-2.7.</li>
+         </ul>
+     </description>
+   </release>
    <release type="stable" version="0.8.7" date="2022-04-04">
      <url>https://sourceforge.net/p/vmpk/news/2022/04/virtual-midi-piano-keyboard-087-released-/</url>
      <description>
