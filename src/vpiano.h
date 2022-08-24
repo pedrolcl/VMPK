@@ -155,6 +155,7 @@ protected Q_SLOTS:
     void slotLoadConfiguration();
     void slotSaveConfiguration();
     void slotOctaveSubscript(bool value);
+    void slotBackendTest(const QString& name);
     //void slotEditPrograms();
     //void slotDebugDestroyed(QObject *obj);
 
@@ -214,6 +215,7 @@ private:
     void releaseKb();
     void updateNoteNames(bool drums);
     void setWidgetTip(QWidget* w, int val);
+    void checkBackends();
 
     QByteArray readSysexDataFile(const QString& fileName);
     void createLanguageMenu();

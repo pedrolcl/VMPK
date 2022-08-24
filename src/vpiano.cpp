@@ -192,8 +192,10 @@ void VPiano::initialization()
         initExtraControllers();
         enforceMIDIChannelState();
         activateWindow();
+        checkBackends();
     } else {
-        qWarning() << "Unable to initialize all MIDI drivers. Terminating.";
+        qWarning() << "MIDI drivers are missing. Perhaps you need to set a DRUMSTICKRT environment variable?."
+                   << "Unable to initialize MIDI. Terminating.";
     }
 }
 
@@ -1724,6 +1726,35 @@ void VPiano::setWidgetTip(QWidget* w, int val)
     QToolTip::showText(w->parentWidget()->mapToGlobal(w->pos()), tip);
 }
 
+void VPiano::checkBackends()
+{
+#if defined(Q_OS_LINUX)
+    const QString output{QLatin1String("SonivoxEAS")};
+#elif defined(Q_OS_MACOS)
+    const QString output{QLatin1String("DLS Synth")};
+#elif defined(Q_OS_WINDOWS)
+    const QString output{QLatin1String("Windows MM")};
+#elif defined(Q_OS_UNIX)
+    const QString output{QLatin1String("FluidSynth")};
+#else
+    const QString output{QLatin1String("Network")};;
+#endif
+
+    if (m_backendManager != nullptr) {
+        auto outs = m_backendManager->availableOutputs();
+        bool found = false;
+        foreach(const auto obj, outs) {
+            if (obj->backendName() == output) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            QTimer::singleShot(1500, this, [=](){slotBackendTest(output);});
+        }
+    }
+}
+
 //void VPiano::slotEditPrograms()
 //{ }
 
@@ -2254,6 +2285,17 @@ void VPiano::slotOctaveSubscript(bool value)
     //qDebug() << Q_FUNC_INFO << value;
     VPianoSettings::instance()->setOctaveSubscript(value);
     ui.pianokeybd->setOctaveSubscript(value);
+}
+
+void VPiano::slotBackendTest(const QString &name)
+{
+    //qDebug() << Q_FUNC_INFO << name;
+    QString msg = tr("The important component called '%1' is missing.\n"
+      "This probably means that your installation is corrupt, or "
+      "the 'drumstick' packages on which this program depends are "
+      "incomplete, outdated or wrong. You may still use the program, "
+      "but probably without sound.").arg(name);
+    QMessageBox::warning(this, tr("MIDI Output"), msg);
 }
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
