@@ -40,6 +40,7 @@
 #include <QShortcut>
 #include <QActionGroup>
 #include <QStandardPaths>
+#include <QTimer>
 
 #include <drumstick/backendmanager.h>
 #include <drumstick/rtmidiinput.h>
