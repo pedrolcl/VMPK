@@ -2126,7 +2126,7 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1094"/>
         <source>Octave Subscript Designation</source>
-        <translation type="unfinished"></translation>
+        <translation>Označení dolního indexu oktávy</translation>
     </message>
     <message>
         <source>Alt+F</source>
@@ -2407,12 +2407,13 @@ Chcete použít tyto změny?</translation>
         <location filename="../src/vpiano.cpp" line="2294"/>
         <source>The important component called &apos;%1&apos; is missing.
 This probably means that your installation is corrupt, or the &apos;drumstick&apos; packages on which this program depends are incomplete, outdated or wrong. You may still use the program, but probably without sound.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chybí důležitá součást s názvem &apos;%1&apos;.
+To pravděpodobně znamená, že vaše instalace je poškozená nebo že balíčky &apos;drumstick&apos;, na kterých tento program závisí, jsou neúplné, zastaralé nebo chybné. Program můžete nadále používat, ale pravděpodobně bez zvuku.</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2299"/>
         <source>MIDI Output</source>
-        <translation type="unfinished">Výstup MIDI</translation>
+        <translation>Výstup MIDI</translation>
     </message>
 </context>
 </TS>

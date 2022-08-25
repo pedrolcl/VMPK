@@ -1,3 +1,6 @@
+2022-08-25
+    * Czech translation updated. Thanks to Pavel Fric
+
 2022-08-24
     * Checking MIDI backends at startup with user messages when missing.
 
