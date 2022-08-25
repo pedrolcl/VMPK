@@ -1136,12 +1136,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="245"/>
         <source>Note highlight color</source>
-        <translation>Cor de resaltado das notas</translation>
+        <translation>Cor de salientado das notas</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="190"/>
         <source>Press this button to change the highligh color used to paint the keys that are being activated.</source>
-        <translation>Prema este botón para cambiar a cor resaltada utilizada para pintar as teclas que se teñan activado.</translation>
+        <translation>Prema este botón para cambiar a cor salientada utilizada para pintar as teclas que se teñan activado.</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="193"/>
@@ -1203,7 +1203,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="206"/>
         <source>Translate MIDI velocity to highlighting color tint</source>
-        <translation>Traducir a velocidade MIDI no matiz de cor de resaltado</translation>
+        <translation>Traducir a velocidade MIDI no matiz de cor de salientado</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="219"/>
@@ -1643,9 +1643,7 @@ Quere aplicar os cambios?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="119"/>
         <source>Black Keys Names</source>
-        <translation>16 / 5,000
-Translation results
-Nomes das teclas negras</translation>
+        <translation>Nomes das teclas negras</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="127"/>
