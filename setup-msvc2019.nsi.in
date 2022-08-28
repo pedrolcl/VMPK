@@ -89,6 +89,11 @@ ShowUninstDetails show
 Icon ${VMPKSRC}\src\vmpk.ico
 UninstallIcon ${VMPKSRC}\src\vmpk.ico
 
+Section # hidden section
+    DetailPrint "Removing previous installation."
+    ExecWait '"$INSTDIR\uninstall.exe" /S _?=$INSTDIR'
+SectionEnd
+
 # Installer sections
 Section -Main SEC0000
     CreateDirectory $INSTDIR\bearer

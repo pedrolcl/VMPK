@@ -216,7 +216,12 @@ target_compile_definitions(vmpk PRIVATE
     $<$<BOOL:${EMBED_TRANSLATIONS}>:TRANSLATIONS_EMBEDDED>
 )
 
-install (TARGETS vmpk
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    BUNDLE DESTINATION ~/Applications
-)
+if (UNIX AND NOT APPLE)
+    install (TARGETS vmpk
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        BUNDLE DESTINATION ~/Applications
+    )
+else()
+    set(DEPLOYMENT_TARGET vmpk)
+    include(DeploymentUtils)
+endif()

@@ -217,17 +217,17 @@ if(UNIX AND NOT APPLE)
          IMMEDIATE @ONLY)
      add_custom_target( uninstall
          "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-endif ()
-
-if(WIN32)
-    include (InstallRequiredSystemLibraries)
-	install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} 
-			 DESTINATION .)
-    install (FILES ${vmpk_DATA_FILES}
-             DESTINATION .)
-	set(FLUIDSYNTH_PREFIX $ENV{FLUIDSYNTH})
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2019.nsi.in
-        ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2019.nsi IMMEDIATE @ONLY)
+else()
+    if(WIN32)
+        include (InstallRequiredSystemLibraries)
+        install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} 
+                 DESTINATION .)
+        install (FILES ${vmpk_DATA_FILES}
+                 DESTINATION .)
+        set(FLUIDSYNTH_PREFIX $ENV{FLUIDSYNTH})
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2019.nsi.in
+            ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2019.nsi IMMEDIATE @ONLY)
+    endif()
 endif()
 
 # CPack support
