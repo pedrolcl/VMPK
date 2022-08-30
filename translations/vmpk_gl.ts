@@ -2301,7 +2301,7 @@ anterior: Miguel Anxo Bouzada &lt;mbouzada@gmail.com&gt;&lt;/p&gt;%1</translatio
     <message>
         <location filename="../src/vpiano.cpp" line="2073"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2074"/>

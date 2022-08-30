@@ -2289,7 +2289,7 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2073"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>italiano</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2074"/>
