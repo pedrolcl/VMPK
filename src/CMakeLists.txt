@@ -26,6 +26,7 @@ if (EMBED_TRANSLATIONS)
          ../translations/vmpk_es.ts
          ../translations/vmpk_fr.ts
          ../translations/vmpk_gl.ts
+         ../translations/vmpk_it.ts
          ../translations/vmpk_ru.ts
          ../translations/vmpk_sr.ts
          ../translations/vmpk_sv.ts
@@ -41,7 +42,7 @@ if (EMBED_TRANSLATIONS)
     file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/drumstick/drumstick-widgets_*.qm")
     file(COPY ${WIDGETS_TRANS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
     add_app_translations_resource(APP_RES ${QM_FILES} ${WIDGETS_TRANS})
-    add_qt_translations_resource(QT_RES cs de es fr gl ru sr sv)
+    add_qt_translations_resource(QT_RES cs de es fr gl it ru sr sv)
 endif()
 
 set(vmpk_SRCS

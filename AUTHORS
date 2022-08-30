@@ -4,10 +4,10 @@ Translators:
 
     Serdar Soytetir - Turkish translation
         translations/vmpk_tr.ts
-        
+
     Andreas Steinel - German translation
         translations/vmpk_de.ts
-    
+
     Pedro Lopez-Cabanillas - Spanish translation
         translations/vmpk_es.ts
         data/help_es.html
@@ -16,37 +16,40 @@ Translators:
         translations/vmpk_ru.ts
         data/help_ru.html
         data/hm_ru.html
-	
+
     Frank Kober - French and German translations
         translations/vmpk_fr.ts
         translations/vmpk_de.ts
         data/help_de.html
- 
+
     Pavel Fric - Czech translation
         translations/vmpk_cs.ts
 
     Philip Edelmann - German translation
         data/help_de.html
-        
+
     Rui Fan - Chinese translation
         translations/vmpk_zh_CN.ts
 
     Wouter Reckman - Dutch translation
         translations/vmpk_nl.ts
         data/help_nl.html
-     
+
     Magnus Johansson - Swedish translation
         translations/vmpk_sv.ts
 
     Nicolas Froment - French translation
         data/help_fr.html
-        
+
     Miguel Bouzada - Galician translation
         translations/vmpk_gl.ts
-        
+
     Jay Alexander Fleming - Serbian translation
         translations/vmpk_sr.ts
-        
+
+    Giovanni Mariani - Italian translation
+        translations/vmpk_it.ts
+
 Other copyright owners:
 
     Rui Nuno Capela     Instrument definition data classes, Knob widget, 

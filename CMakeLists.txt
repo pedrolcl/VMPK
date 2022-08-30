@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project( VMPK
-    VERSION 0.8.8
+    VERSION 0.8.9
     LANGUAGES CXX
     DESCRIPTION "Virtual MIDI Piano Keyboard"
     HOMEPAGE_URL "https://vmpk.sourceforge.io/"

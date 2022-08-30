@@ -13,10 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.8.8
+VERSION = 0.8.9
 VER_MAJ = 0
 VER_MIN = 8
-VER_PAT = 8
+VER_PAT = 9
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT TRANSLATIONS_EMBEDDED
 CONFIG += lrelease embed_translations
 LRELEASE_DIR='.'
@@ -105,6 +105,7 @@ macx {
         vmpk_es.qm \
         vmpk_fr.qm \
         vmpk_gl.qm \
+        vmpk_it.qm \
         vmpk_ru.qm \
         vmpk_sr.qm \
         vmpk_sv.qm
@@ -181,6 +182,7 @@ TRANSLATIONS +=  \
     translations/vmpk_es.ts \
     translations/vmpk_fr.ts \
     translations/vmpk_gl.ts \
+    translations/vmpk_it.ts \
     translations/vmpk_nl.ts \
     translations/vmpk_ru.ts \
     translations/vmpk_sr.ts \
@@ -194,9 +196,10 @@ EXTRA_TRANSLATIONS +=  \
     $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_es.ts \
     $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_fr.ts \
     $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_gl.ts \
+    $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_it.ts \
     $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_ru.ts \
     $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_sr.ts \
     $(DRUMSTICK_TRANSLATIONS)/drumstick-widgets_sv.ts
 
-LCONVERT_LANGS=cs de es fr ru
+LCONVERT_LANGS=cs de es fr it ru
 include(lconvert.pri)
