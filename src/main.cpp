@@ -72,9 +72,12 @@ int main(int argc, char *argv[])
     }
 
     QPixmap px(":/vpiano/vmpk_splash.png");
-    qreal scale = app.primaryScreen()->logicalDotsPerInch() / app.primaryScreen()->physicalDotsPerInch();
-    QSize newsize = px.size() * scale;
-    QSplashScreen splash(px.scaled(newsize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+    if (app.platformName() != "wayland") {
+        qreal scale = app.primaryScreen()->logicalDotsPerInch() / app.primaryScreen()->physicalDotsPerInch();
+        QSize newsize = px.size() * scale;
+        px = px.scaled(newsize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    }
+    QSplashScreen splash(px);
     QFont sf = app.font();
     sf.setPointSize(20);
     splash.setFont(sf);
