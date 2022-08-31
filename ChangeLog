@@ -1,3 +1,6 @@
+2022-08-31
+    * Splash screen scaled (by logicalDPI / physicalDPI).
+
 2022-08-30
     * New Italian translation. Thanks to Giovanni Mariani.
 
