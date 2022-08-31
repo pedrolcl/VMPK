@@ -1592,8 +1592,7 @@ Volete applicare i cambimenti?</translation>
         <location filename="../src/vpiano.ui" line="328"/>
         <location filename="../src/vpiano.ui" line="433"/>
         <source>Pitch &amp;Bender</source>
-        <translatorcomment>??</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Glissando</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="245"/>
@@ -1645,8 +1644,7 @@ Volete applicare i cambimenti?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="331"/>
         <source>Bender Tool Bar</source>
-        <translatorcomment>??</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>Barra strumenti glissando</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="347"/>
@@ -1711,7 +1709,7 @@ Volete applicare i cambimenti?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="436"/>
         <source>Show or hide the Pitch Bender toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Mosta o nascondi la barra degli strumenti glissando</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="450"/>
@@ -1756,7 +1754,7 @@ Volete applicare i cambimenti?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="503"/>
         <source>Resets the Bender value</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina il valore del glissando</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="511"/>
@@ -2223,7 +2221,7 @@ Volete applicare i cambimenti?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2048"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;Traduzione a cura di TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</translation>
+        <translation>&lt;p&gt;Traduzione a cura di Giovanni Mariani&lt;/p&gt;%1</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2050"/>
@@ -2263,7 +2261,7 @@ Volete applicare i cambimenti?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2073"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2074"/>
