@@ -71,20 +71,23 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    QPixmap px(":/vpiano/vmpk_splash.png");
-    if (app.platformName() != "wayland") {
-        qreal scale = app.primaryScreen()->logicalDotsPerInch() / app.primaryScreen()->physicalDotsPerInch();
-        QSize newsize = px.size() * scale;
-        px = px.scaled(newsize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    QScopedPointer<QSplashScreen> pSplash;
+    if (app.platformName() != QLatin1String("wayland")) {
+        QPixmap px(":/vpiano/vmpk_splash.png");
+        if (app.platformName() != "wayland") {
+            qreal scale = app.primaryScreen()->logicalDotsPerInch() / app.primaryScreen()->physicalDotsPerInch();
+            QSize newsize = px.size() * scale;
+            px = px.scaled(newsize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+        }
+        pSplash.reset(new QSplashScreen(px));
+        QFont sf = app.font();
+        sf.setPointSize(20);
+        pSplash->setFont(sf);
+        pSplash->show();
+        app.processEvents();
+        pSplash->showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
+        app.processEvents();
     }
-    QSplashScreen splash(px);
-    QFont sf = app.font();
-    sf.setPointSize(20);
-    splash.setFont(sf);
-    splash.show();
-    app.processEvents();
-    splash.showMessage("Virtual MIDI Piano Keyboard " + PGM_VERSION, Qt::AlignBottom | Qt::AlignRight);
-    app.processEvents();
 
     if (parser.isSet(portableOption) || parser.isSet(portableFileOption)) {
         QString portableFile;
@@ -100,11 +103,16 @@ int main(int argc, char *argv[])
     do {
         VPiano w;
         if (w.isInitialized()) {
-            splash.finish(&w);
+            if (!pSplash.isNull()) {
+                pSplash->finish(&w);
+            }
             w.show();
             result_code = app.exec();
         } else {
-            splash.close();
+            if (!pSplash.isNull()) {
+                pSplash->close();
+                pSplash.reset();
+            }
         }
     } while (result_code == RESTART_VMPK);
     return result_code;
