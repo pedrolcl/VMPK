@@ -1,5 +1,5 @@
 # Virtual MIDI Piano Keyboard
-# Copyright (C) 2008-2022 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
+# Copyright (C) 2008-2023 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -148,7 +148,7 @@ if(APPLE)
     set (MACOSX_BUNDLE_ICON_FILE "vmpk.icns" )
     set (MACOSX_BUNDLE_GUI_IDENTIFIER "net.sourceforge.vmpk" )
     set (MACOSX_BUNDLE_BUNDLE_NAME "vmpk" )
-    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2022 Pedro López-Cabanillas and others")
+    set (MACOSX_BUNDLE_COPYRIGHT "© 2008-2023 Pedro López-Cabanillas and others")
     set (vmpk_RSC
         ../data/vmpk.icns
         ../data/help.html

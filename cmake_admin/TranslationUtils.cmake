@@ -1,5 +1,5 @@
 #=======================================================================
-# Copyright © 2019-2022 Pedro López-Cabanillas <plcl@users.sf.net>
+# Copyright © 2019-2023 Pedro López-Cabanillas <plcl@users.sf.net>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions

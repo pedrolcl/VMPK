@@ -1,9 +1,9 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2022, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2023, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     For this file, the following copyright notice is also applicable:
-    Copyright (C) 2005-2022, rncbc aka Rui Nuno Capela. All rights reserved.
+    Copyright (C) 2005-2023, rncbc aka Rui Nuno Capela. All rights reserved.
     See http://qtractor.sourceforge.net
 
     This program is free software; you can redistribute it and/or modify

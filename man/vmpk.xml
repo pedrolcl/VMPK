@@ -9,7 +9,7 @@
 <!-- VMPK manpage                                                         -->
 <!--                                                                      -->
 <!-- Copyright (C) 2009 Mehdi Dogguy <dogguy@pps.jussieu.fr>              -->
-<!-- Copyright (C) 2010-2022 Pedro Lopez-Cabanillas <plcl@users.sf.net>   -->
+<!-- Copyright (C) 2010-2023 Pedro Lopez-Cabanillas <plcl@users.sf.net>   -->
 <!--                                                                      -->
 <!-- You have permission to copy, modify, and redistribute under the terms-->
 <!-- of the GNU GPL-3.0. For full license terms, see                      -->
@@ -37,7 +37,7 @@
             <personblurb><para></para></personblurb>
         </author>
         <copyright>
-            <year>2010-2022</year>
+            <year>2010-2023</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
         <date>Aug 28, 2022</date>
