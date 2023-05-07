@@ -49,6 +49,7 @@ public:
 
 protected slots:
     void slotInstrument(int bank, int pc, QString name);
+    void slotPercussion(int bank, int pc, QString name);
     void slotCompleted(QString name, QString version, QString copyright);
     void openInput();
     void openOutput();
@@ -57,6 +58,7 @@ private:
     Ui::RiffImportDlg *ui;
     Riff* m_riff;
     QMap<int, Bank> m_ins;
+    QMap<int, Bank> m_perc;
     QString m_input;
     QString m_output;
     QString m_name;

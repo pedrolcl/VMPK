@@ -47,6 +47,7 @@
 #include <drumstick/rtmidioutput.h>
 #include <drumstick/pianokeybd.h>
 #include <drumstick/settingsfactory.h>
+#include <drumstick/configurationdialogs.h>
 
 #include "vpiano.h"
 #include "instrument.h"
@@ -1700,6 +1701,8 @@ void VPiano::slotImportSF()
         !dlgRiffImport->getOutput().isEmpty()) {
         dlgRiffImport->save();
         VPianoSettings::instance()->setInstruments(dlgRiffImport->getOutput(), dlgRiffImport->getName());
+        //set the soundfont in the output driver preferences:
+        drumstick::widgets::changeSoundFont(VPianoSettings::instance()->lastOutputBackend(), dlgRiffImport->getInput(), this);
         applyPreferences();
     }
     grabKb();

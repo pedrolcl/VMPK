@@ -134,7 +134,6 @@ QString Riff::readDLSVersion()
 
 void Riff::processINFO(int size)
 {
-    QString str;
     quint32 chunkID = 0;
     quint32 length = 0;
     while (size > 0) {
@@ -171,11 +170,13 @@ void Riff::processPHDR(int size)
         pc = read16bit();
         bank = read16bit();
         skip(14);
-        if (bank < 128)
+        if (bank < 128) {
             emit signalInstrument(bank, pc, QString(name));
-        else
+            qDebug() << Q_FUNC_INFO << "Instrument: " << bank << pc << name;
+        } else {
             emit signalPercussion(bank, pc, QString(name));
-        //qDebug() << "Instrument: " << bank << pc << name;
+            qDebug() << Q_FUNC_INFO << "Percussion Instrument: " << bank << pc << name;
+        }
     }
     skip(38);
 }
@@ -222,7 +223,11 @@ void Riff::processINSH(quint32& bank, quint32& pc, bool& perc)
     bank = read32bit();
     pc = read32bit();
     perc = (bank & 0x80000000) != 0;
-    bank &= 0x3FFF;
+    bank &= 0x7FFF;
+    if (perc) {
+        bank |= 0x80;
+    }
+    //qDebug() << Q_FUNC_INFO << bank << pc << perc;
 }
 
 void Riff::processINS(int size)
@@ -247,11 +252,13 @@ void Riff::processINS(int size)
         }
         size -= length;
     }
-    //qDebug() << "Instrument:" << bank << pc << m_name;
-    if (perc)
+    if (perc) {
         emit signalPercussion(bank, pc, m_name);
-    else
+        //qDebug() << Q_FUNC_INFO << "Percussion Instrument:" << bank << pc << m_name;
+    } else {
         emit signalInstrument(bank, pc, m_name);
+        //qDebug() << Q_FUNC_INFO << "Instrument:" << bank << pc << m_name;
+    }
     m_name.clear();
     m_copyright.clear();
 }
@@ -304,7 +311,6 @@ void Riff::processDLS(int size)
         switch (chunkID) {
         case CKID_VERS:
             m_version = readDLSVersion();
-            //qDebug() << "Version: " << m_version;
             break;
         case CKID_LIST:
             processDLSList(length);

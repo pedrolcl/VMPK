@@ -34,9 +34,10 @@ RiffImportDlg::RiffImportDlg(QWidget *parent)
     : QDialog(parent), ui(new Ui::RiffImportDlg)
 {
     m_riff = new Riff(this);
-    connect(m_riff, SIGNAL(signalInstrument(int, int, QString)), SLOT(slotInstrument(int, int, QString)));
-    connect(m_riff, SIGNAL(signalSoundFont(QString, QString, QString)), SLOT(slotCompleted(QString, QString, QString)));
-    connect(m_riff, SIGNAL(signalDLS(QString, QString, QString)), SLOT(slotCompleted(QString, QString, QString)));
+    connect(m_riff, &Riff::signalInstrument, this, &RiffImportDlg::slotInstrument);
+    connect(m_riff, &Riff::signalPercussion, this, &RiffImportDlg::slotPercussion);
+    connect(m_riff, &Riff::signalSoundFont, this, &RiffImportDlg::slotCompleted);
+    connect(m_riff, &Riff::signalDLS, this, &RiffImportDlg::slotCompleted);
 
     ui->setupUi(this);
     connect(ui->m_inputBtn, SIGNAL(clicked()), SLOT(openInput()));
@@ -69,7 +70,7 @@ void RiffImportDlg::openOutput()
     dlg.setFileMode(QFileDialog::AnyFile);
     dlg.setAcceptMode(QFileDialog::AcceptSave);
     if (dlg.exec() == QFileDialog::Accepted) {
-        QString fileName = dlg.selectedFiles().first();
+        const QString& fileName = dlg.selectedFiles().constFirst();
         setOutput(fileName);
     }
 }
@@ -92,7 +93,14 @@ void RiffImportDlg::setOutput(QString fileName)
 
 void RiffImportDlg::slotInstrument(int bank, int pc, QString name)
 {
+    //qDebug() << Q_FUNC_INFO << bank << pc << name;
     m_ins[bank][pc] = name;
+}
+
+void RiffImportDlg::slotPercussion(int bank, int pc, QString name)
+{
+    //qDebug() << Q_FUNC_INFO << bank << pc << name;
+    m_perc[bank][pc] = name;
 }
 
 void RiffImportDlg::slotCompleted(QString name, QString version, QString copyright)
@@ -111,11 +119,22 @@ void RiffImportDlg::save()
         out << "; Version: " << ui->m_version->text() << endl;
         out << "; Copyright: " << ui->m_copyright->text() << endl << endl;
         out << endl << ".Patch Names" << endl;
-        QMapIterator<int,Bank> i(m_ins);
-        while( i.hasNext() ) {
-            i.next();
-            out << endl << "[Bank" << i.key() << "]" << endl;
-            Bank b = i.value();
+        QMapIterator<int,Bank> im(m_ins);
+        while( im.hasNext() ) {
+            im.next();
+            out << endl << "[Bank" << im.key() << "]" << endl;
+            Bank b = im.value();
+            QMapIterator<int,QString> j(b);
+            while( j.hasNext() ) {
+                j.next();
+                out << j.key() << "=" << j.value() << endl;
+            }
+        }
+        QMapIterator<int,Bank> id(m_perc);
+        while( id.hasNext() ) {
+            id.next();
+            out << endl << "[Drums" << id.key() << "]" << endl;
+            Bank b = id.value();
             QMapIterator<int,QString> j(b);
             while( j.hasNext() ) {
                 j.next();
@@ -145,10 +164,21 @@ void RiffImportDlg::save()
         out << endl << ".Instrument Definitions" << endl;
         out << endl << "["  << m_name <<  "]" << endl;
         out << "Control=Standard" << endl;
-        i.toFront();
-        while( i.hasNext() ) {
-            i.next();
-            out << "Patch[" << i.key() << "]=Bank" << i.key() << endl;
+        out << "BankSelMethod=0" << endl;
+        im.toFront();
+        while( im.hasNext() ) {
+            im.next();
+            out << "Patch[" << im.key() << "]=Bank" << im.key() << endl;
+        }
+        out << endl << "["  << m_name <<  " Drums]" << endl;
+        out << "Control=Standard" << endl;
+        out << "BankSelMethod=0" << endl;
+        out << "Key[*,*]=0..127" << endl;
+        out << "Drum[*,*]=1" << endl;
+        id.toFront();
+        while( id.hasNext() ) {
+            id.next();
+            out << "Patch[" << id.key() << "]=Drums" << id.key() << endl;
         }
         data.close();
     }

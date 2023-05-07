@@ -1,3 +1,6 @@
+2023-05-07
+    * Import DLS instruments for the SonivoxEAS synth backend.
+
 2022-08-31
     * Splash screen scaled (by logicalDPI / physicalDPI).
     * Italian translation updated. Thanks to Giovanni Mariani.
