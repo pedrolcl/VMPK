@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" 
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
 <!ENTITY debian "Debian GNU/Linux">
 <!ENTITY dhprg  "<command>vmpk</command>">
@@ -40,13 +40,13 @@
             <year>2010-2023</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
-        <date>Aug 28, 2022</date>
+        <date>Jul 23, 2023</date>
     </refentryinfo>
 
     <refmeta>
         <refentrytitle>vmpk</refentrytitle>
         <manvolnum>1</manvolnum>
-        <refmiscinfo class="version">0.8.8</refmiscinfo>
+        <refmiscinfo class="version">0.8.9</refmiscinfo>
         <refmiscinfo class="software">vmpk</refmiscinfo>
         <refmiscinfo class="manual">User Commands</refmiscinfo>
     </refmeta>
@@ -58,7 +58,7 @@
 
     <refsynopsisdiv>
         <cmdsynopsis>
-            &dhprg; 
+            &dhprg;
             <arg choice="opt">options...</arg>
         </cmdsynopsis>
     </refsynopsisdiv>
@@ -96,45 +96,45 @@
                 <listitem><para>Enables portable settings mode using a default configuration file name.</para></listitem>
             </varlistentry>
             <varlistentry>
-                <term><option>-f</option> 
+                <term><option>-f</option>
                     <replaceable>path/file.conf</replaceable></term>
                 <listitem>
-                    <para>This option implies <option>--portable</option> as well. Reads and writes 
-                        <replaceable>path/file.conf</replaceable> as the portable settings configuration file 
+                    <para>This option implies <option>--portable</option> as well. Reads and writes
+                        <replaceable>path/file.conf</replaceable> as the portable settings configuration file
                         name.</para>
-                    <para>This configuration file is always a text file with INI 
+                    <para>This configuration file is always a text file with INI
                         format, despite the running Operating System conventions.</para>
                 </listitem>
             </varlistentry>
-        </variablelist>    
+        </variablelist>
     </refsect1>
-    
+
     <refsect1>
         <title>Standard Options</title>
         <para>The following options apply to all Qt5/6 applications:</para>
         <variablelist>
-            
+
             <varlistentry>
                 <term>
-                    <option>-style=</option> <replaceable>style</replaceable> / 
+                    <option>-style=</option> <replaceable>style</replaceable> /
                     <option>-style</option> <replaceable>style</replaceable>
                 </term>
                 <listitem><para>
-                        Set the application GUI style. Possible values depend on the system 
+                        Set the application GUI style. Possible values depend on the system
                         configuration.
-                        If Qt is compiled with additional styles or has additional styles as plugins 
-                        these will be available to the <option>-style</option> command line 
+                        If Qt is compiled with additional styles or has additional styles as plugins
+                        these will be available to the <option>-style</option> command line
                         option.</para>
                 </listitem>
             </varlistentry>
 
             <varlistentry>
                 <term>
-                    <option>-stylesheet=</option> <replaceable>stylesheet</replaceable> / 
+                    <option>-stylesheet=</option> <replaceable>stylesheet</replaceable> /
                     <option>-stylesheet</option> <replaceable>stylesheet</replaceable>
                 </term>
                 <listitem><para>
-                        Set the application styleSheet. The value must be a path to a file that contains 
+                        Set the application styleSheet. The value must be a path to a file that contains
                         the Style Sheet.
                         </para></listitem>
             </varlistentry>
@@ -144,7 +144,7 @@
                     <option>-widgetcount</option>
                 </term>
                 <listitem><para>
-                        Print debug message at the end about number of widgets left undestroyed and 
+                        Print debug message at the end about number of widgets left undestroyed and
                         maximum number of widgets existed at the same time.
                         </para></listitem>
             </varlistentry>
@@ -154,7 +154,7 @@
                     <option>-reverse</option>
                 </term>
                 <listitem><para>
-                        Set the application's layout direction to 
+                        Set the application's layout direction to
                         <methodname>Qt::RightToLeft</methodname>.
                         This option is intended to aid debugging and should not be used in production.
                         The default value is automatically detected from the user's
@@ -203,7 +203,7 @@
                     <option>-qwindowgeometry</option> <replaceable>geometry</replaceable>
                 </term>
                 <listitem><para>
-                        Specify the window geometry for the main window using the X11-syntax. For 
+                        Specify the window geometry for the main window using the X11-syntax. For
                         example: -qwindowgeometry 100x100+50+50
                         </para></listitem>
             </varlistentry>
@@ -240,7 +240,7 @@
                     <option>-display</option> <replaceable>hostname:screen_number</replaceable>
                 </term>
                 <listitem><para>
-                        Switch displays on X11. Overrides the <envar>DISPLAY</envar> environment 
+                        Switch displays on X11. Overrides the <envar>DISPLAY</envar> environment
                         variable.
                         </para></listitem>
             </varlistentry>
@@ -250,7 +250,7 @@
                     <option>-geometry</option> <replaceable>geometry</replaceable>
                 </term>
                 <listitem><para>
-                        Specify the window geometry for the main window on X11. For example: -geometry 
+                        Specify the window geometry for the main window on X11. For example: -geometry
                         100x100+50+50
                         </para></listitem>
             </varlistentry>
@@ -284,7 +284,7 @@
     <refsect1>
         <title>LICENSE</title>
         <para>
-            This manual page was originally written by 
+            This manual page was originally written by
             <personname>
                 <firstname>Mehdi</firstname>
                 <surname>Dogguy</surname>

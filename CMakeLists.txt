@@ -84,7 +84,7 @@ else()
     find_package(Qt6 6.2 COMPONENTS Gui Widgets Network LinguistTools REQUIRED)
 endif()
 
-find_package(Drumstick 2.7 COMPONENTS RT Widgets REQUIRED)
+find_package(Drumstick 2.8 COMPONENTS RT Widgets REQUIRED)
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
@@ -117,7 +117,7 @@ if (UNIX AND NOT APPLE)
             message(STATUS "Found XCB development libs v${XCB_VERSION}")
         endif()
     endif()
-    
+
     include(GNUInstallDirs)
 endif()
 
@@ -220,7 +220,7 @@ if(UNIX AND NOT APPLE)
 else()
     if(WIN32)
         include (InstallRequiredSystemLibraries)
-        install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} 
+        install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}
                  DESTINATION .)
         install (FILES ${vmpk_DATA_FILES}
                  DESTINATION .)
