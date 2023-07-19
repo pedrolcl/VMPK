@@ -1569,7 +1569,7 @@ Chcete použít tyto změny?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="78"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Úpravy</translation>
+        <translation>Úp&amp;ravy</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="89"/>
@@ -1633,7 +1633,7 @@ Chcete použít tyto změny?</translation>
         <location filename="../src/vpiano.ui" line="245"/>
         <location filename="../src/vpiano.ui" line="447"/>
         <source>&amp;Programs</source>
-        <translation>&amp;Programy</translation>
+        <translation>Pro&amp;gramy</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
