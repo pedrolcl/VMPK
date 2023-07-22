@@ -160,7 +160,7 @@ Section -Main SEC0000
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Widgets.dll $INSTDIR\Qt5Widgets.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libEGL.dll $INSTDIR\libEGL.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libGLESV2.dll $INSTDIR\libGLESV2.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\opengl32sw.dll $INSTDIR\opengl32sw.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\opengl32sw.dll $INSTDIR\opengl32sw.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\d3dcompiler_47.dll $INSTDIR\d3dcompiler_47.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\iconengines\qsvgicon.dll $INSTDIR\iconengines\qsvgicon.dll $INSTDIR
@@ -182,13 +182,34 @@ Section -Main SEC0000
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\glib-2.0-0.dll $INSTDIR\glib-2.0-0.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\iconv-2.dll $INSTDIR\iconv-2.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\intl-8.dll $INSTDIR\intl-8.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre.dll $INSTDIR\pcre.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre2-8.dll $INSTDIR\pcre2-8.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre2-16.dll $INSTDIR\pcre2-16.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre2-32.dll $INSTDIR\pcre2-32.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\zlib1.dll $INSTDIR\zlib1.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\double-conversion.dll $INSTDIR\double-conversion.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\zstd.dll $INSTDIR\zstd.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\FLAC.dll $INSTDIR\FLAC.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\ogg.dll $INSTDIR\ogg.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\opus.dll $INSTDIR\opus.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\sndfile.dll $INSTDIR\sndfile.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\vorbis.dll $INSTDIR\vorbis.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\vorbisenc.dll $INSTDIR\vorbisenc.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libmp3lame.dll $INSTDIR\libmp3lame.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\mpg123.dll $INSTDIR\mpg123.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libpng16.dll $INSTDIR\libpng16.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\harfbuzz.dll $INSTDIR\harfbuzz.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\freetype.dll $INSTDIR\freetype.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\bz2.dll $INSTDIR\bz2.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\brotlidec.dll $INSTDIR\brotlidec.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\brotlicommon.dll $INSTDIR\brotlicommon.dll $INSTDIR
+    !if ${CPU} == "x64"
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libssl-3-x64.dll $INSTDIR\libssl-3-x64.dll $INSTDIR
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libcrypto-3-x64.dll $INSTDIR\libcrypto-3-x64.dll $INSTDIR
+    !else
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libssl-3.dll $INSTDIR\libssl-3.dll $INSTDIR
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libcrypto-3.dll $INSTDIR\libcrypto-3.dll $INSTDIR
+    !endif
+
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
 
@@ -286,7 +307,7 @@ Section /o -un.Main UNSEC0000
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Widgets.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libEGL.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libGLESV2.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opengl32sw.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opengl32sw.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\d3dcompiler_47.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconengines\qsvgicon.dll
@@ -308,13 +329,33 @@ Section /o -un.Main UNSEC0000
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\glib-2.0-0.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl-8.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconv-2.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre2-8.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre2-16.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre2-32.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\zlib1.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\double-conversion.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\zstd.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\FLAC.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\ogg.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opus.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\sndfile.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\vorbis.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\vorbisenc.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libmp3lame.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\mpg123.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libpng16.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\harfbuzz.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\freetype.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\bz2.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\brotlidec.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\brotlicommon.dll
+!if ${CPU} == "x64"
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libssl-3-x64.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libcrypto-3-x64.dll
+!else
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libssl-3.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libcrypto-3.dll
+!endif
 
     RMDir /REBOOTOK $INSTDIR\translations
     RMDir /REBOOTOK $INSTDIR\styles
