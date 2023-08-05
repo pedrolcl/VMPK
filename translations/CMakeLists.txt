@@ -1,7 +1,6 @@
 # unmaintained translations, not installed
 #    vmpk_nl.ts
 #    vmpk_tr.ts
-#    vmpk_zh_CN.ts
 
 set( TRANSLATIONS_FILES
      vmpk_cs.ts
@@ -13,6 +12,7 @@ set( TRANSLATIONS_FILES
      vmpk_ru.ts
      vmpk_sr.ts
      vmpk_sv.ts
+     vmpk_zh_CN.ts
 )
 
 if (QT_VERSION VERSION_LESS 5.15.0)
