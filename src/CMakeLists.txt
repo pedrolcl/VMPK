@@ -11,7 +11,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
-# You should have received a copy of the GNU General Public License along 
+# You should have received a copy of the GNU General Public License along
 # with this program; If not, see <http://www.gnu.org/licenses/>.
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -30,6 +30,7 @@ if (EMBED_TRANSLATIONS)
          ../translations/vmpk_ru.ts
          ../translations/vmpk_sr.ts
          ../translations/vmpk_sv.ts
+         ../translations/vmpk_zh_CN.ts
     )
     if (QT_VERSION VERSION_LESS 5.15.0)
         qt5_add_translation(QM_FILES ${TRANSLATIONS})
@@ -42,7 +43,7 @@ if (EMBED_TRANSLATIONS)
     file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/drumstick/drumstick-widgets_*.qm")
     file(COPY ${WIDGETS_TRANS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
     add_app_translations_resource(APP_RES ${QM_FILES} ${WIDGETS_TRANS})
-    add_qt_translations_resource(QT_RES cs de es fr gl it ru sr sv)
+    add_qt_translations_resource(QT_RES cs de es fr gl it ru sr sv zh_CN)
 endif()
 
 set(vmpk_SRCS
@@ -136,7 +137,7 @@ if(ENABLE_DBUS)
 endif()
 
 if(WIN32)
-    configure_file (vmpk.rc.in ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc 
+    configure_file (vmpk.rc.in ${CMAKE_CURRENT_BINARY_DIR}/vmpk.rc
                     IMMEDIATE @ONLY)
 endif()
 
