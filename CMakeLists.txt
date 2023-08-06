@@ -132,6 +132,7 @@ set(vmpk_DATA_FILES
     data/help_es.html
     data/help_ru.html
     data/help_sr.html
+    data/help_zh_CN.html
     data/azerty.xml
     data/german.xml
     data/it-qwerty.xml
