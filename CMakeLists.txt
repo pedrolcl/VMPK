@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project( VMPK
-    VERSION 0.8.9
+    VERSION 0.8.10
     LANGUAGES CXX
     DESCRIPTION "Virtual MIDI Piano Keyboard"
     HOMEPAGE_URL "https://vmpk.sourceforge.io/"
@@ -56,7 +56,7 @@ endif()
 #endif()
 
 # CMAKE_SYSTEM_PROCESSOR is broken on Windows with MSVC
-# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2022/04
+# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2023/08
 if(MSVC)
     string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
 endif()
