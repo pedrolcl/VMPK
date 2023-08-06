@@ -995,7 +995,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="139"/>
         <source>MIDI OUT Driver</source>
-        <translation>MIDI输出驱动</translation>
+        <translation>MIDI 输出驱动</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="172"/>
@@ -1245,7 +1245,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="206"/>
         <source>Translate MIDI velocity to highlighting color tint</source>
-        <translation>将Midi音符力度显示为高亮色的深浅</translation>
+        <translation>将 MIDI 音符力度显示为高亮色的深浅</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="219"/>
@@ -1344,7 +1344,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Translate MIDI velocity to key pressed color tint</source>
-        <translation type="vanished">用颜色深浅表示Midi音符力度</translation>
+        <translation type="vanished">用颜色深浅表示 MIDI 音符力度</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="316"/>
@@ -1740,7 +1740,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="93"/>
         <source>&amp;Language</source>
-        <translation>(&amp;L)语言</translation>
+        <translation>(&amp;L) 语言</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="106"/>
@@ -1776,25 +1776,25 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
         <location filename="../src/vpiano.ui" line="217"/>
         <location filename="../src/vpiano.ui" line="405"/>
         <source>&amp;Notes</source>
-        <translation>(&amp;N)音符</translation>
+        <translation>(&amp;N) 音符</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="272"/>
         <location filename="../src/vpiano.ui" line="419"/>
         <source>&amp;Controllers</source>
-        <translation>(&amp;C)控制器</translation>
+        <translation>(&amp;C) 控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="328"/>
         <location filename="../src/vpiano.ui" line="433"/>
         <source>Pitch &amp;Bender</source>
-        <translation>(&amp;B)弯音轮</translation>
+        <translation>(&amp;B) 弯音轮</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="245"/>
         <location filename="../src/vpiano.ui" line="447"/>
         <source>&amp;Programs</source>
-        <translation>(&amp;P)音色</translation>
+        <translation>(&amp;P) 音色</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
@@ -1815,12 +1815,12 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
         <location filename="../src/vpiano.ui" line="300"/>
         <location filename="../src/vpiano.ui" line="561"/>
         <source>&amp;Extra Controls</source>
-        <translation>(&amp;E)附加控制器</translation>
+        <translation>(&amp;E) 附加控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="347"/>
         <source>&amp;Quit</source>
-        <translation>(&amp;Q)退出</translation>
+        <translation>(&amp;Q) 退出</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="350"/>
@@ -1830,7 +1830,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="358"/>
         <source>&amp;Preferences</source>
-        <translation>(&amp;P)首选项</translation>
+        <translation>(&amp;P) 首选项</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="361"/>
@@ -1840,7 +1840,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="369"/>
         <source>MIDI &amp;Connections</source>
-        <translation>(&amp;C)MIDI连接</translation>
+        <translation>(&amp;C) MIDI连接</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="743"/>
@@ -2040,7 +2040,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="380"/>
         <source>&amp;About</source>
-        <translation>(&amp;A)关于</translation>
+        <translation>(&amp;A) 关于</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="383"/>
@@ -2080,7 +2080,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="464"/>
         <source>&amp;Status Bar</source>
-        <translation>(&amp;S)状态栏</translation>
+        <translation>(&amp;S) 状态栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="467"/>
@@ -2147,12 +2147,12 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="603"/>
         <source>&amp;Extra Controllers</source>
-        <translation>(&amp;E)附加控制器</translation>
+        <translation>(&amp;E) 附加控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="614"/>
         <source>&amp;Shortcuts</source>
-        <translation>(&amp;S)快捷键</translation>
+        <translation>(&amp;S) 快捷键</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="617"/>
@@ -2222,7 +2222,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="849"/>
         <source>About &amp;Translation</source>
-        <translation>(&amp;T)关于 翻译</translation>
+        <translation>(&amp;T) 关于 翻译</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="852"/>
@@ -2352,7 +2352,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="511"/>
         <source>&amp;Keyboard Map</source>
-        <translation>(&amp;K)键盘映射</translation>
+        <translation>(&amp;K) 键盘映射</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="514"/>
@@ -2362,7 +2362,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="522"/>
         <source>&amp;Contents</source>
-        <translation>(&amp;C)内容</translation>
+        <translation>(&amp;C) 内容</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="525"/>
@@ -2372,7 +2372,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="536"/>
         <source>VMPK &amp;Web site</source>
-        <translation>(&amp;W)VMPK 网站</translation>
+        <translation>(&amp;W) VMPK 网站</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="539"/>
@@ -2382,7 +2382,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="547"/>
         <source>&amp;Import SoundFont...</source>
-        <translation>(&amp;I)导入音色库(SoundFont)...</translation>
+        <translation>(&amp;I) 导入音色库(SoundFont)...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="1687"/>
