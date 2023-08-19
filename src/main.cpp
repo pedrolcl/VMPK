@@ -53,8 +53,6 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/vpiano/vmpk_32x32.png"));
 #endif //Q_OS_LINUX
 
-    VPianoSettings::instance()->loadTranslations();
-
     QCommandLineParser parser;
     parser.setApplicationDescription(QString("%1 v%2\n\n%3").arg(
         QCoreApplication::applicationName(),
@@ -80,6 +78,8 @@ int main(int argc, char *argv[])
     } else {
         QSettings::setDefaultFormat(QSettings::NativeFormat);
     }
+
+    VPianoSettings::instance()->loadTranslations();
 
     int result_code{EXIT_FAILURE};
     do {

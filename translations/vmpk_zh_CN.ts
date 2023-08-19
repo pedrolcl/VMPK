@@ -7,7 +7,8 @@
         <location filename="../src/about.cpp" line="47"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: %1&lt;br/&gt;Qt version: %2 %3&lt;br/&gt;Drumstick version: %4&lt;br/&gt;Build date: %5&lt;br/&gt;Build time: %6&lt;br/&gt;Compiler: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+    p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:normal;&quot;&gt;&lt;p style=&quot;margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;版本: %1&lt;br/&gt;Qt 版本: %2 %3&lt;br/&gt;Drumstick 版本: %4&lt;br/&gt;构建日期: %5&lt;br/&gt;构建时间: %6&lt;br/&gt;编译器: %7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -26,7 +27,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2023, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; and others&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License  along with this program. If not, see &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;版权所有 © 2008-2023， &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; 与其他作者&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;本程序是自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证条款（许可证第 3 版或任何后续版本，由您选择）重新发布和/或修改本程序。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;发布本程序是希望其有用，但不附带任何保证；甚至不附带适销性或特定用途适用性的默示保证。详情请参见 GNU 通用公共许可证。你应该随本程序一起收到一份 GNU 通用公共许可证。如果没有，请参阅 &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/about.ui" line="155"/>
@@ -35,7 +42,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;https://vmpk.sourceforge.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        p, li { white-space: pre-wrap; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://vmpk.sourceforge.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;https://vmpk.sourceforge.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/about.ui" line="41"/>
@@ -44,7 +55,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;Virtual MIDI Piano Keyboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        p, li { white-space: pre-wrap; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;VMPK MIDI 钢琴键盘&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -60,12 +75,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/colordialog.ui" line="37"/>
         <source>Color Palette</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色面板</translation>
     </message>
     <message>
         <location filename="../src/colordialog.ui" line="57"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
 </context>
 <context>
@@ -170,7 +185,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/extracontrols.ui" line="486"/>
         <location filename="../src/extracontrols.ui" line="521"/>
         <source>Key:</source>
-        <translation type="unfinished"></translation>
+        <translation>按键:</translation>
     </message>
     <message>
         <location filename="../src/extracontrols.ui" line="271"/>
@@ -957,12 +972,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.cpp" line="168"/>
         <source>MIDI Output</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 输出</translation>
     </message>
     <message>
         <location filename="../src/midisetup.cpp" line="189"/>
         <source>MIDI Input</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 输入</translation>
     </message>
 </context>
 <context>
@@ -980,7 +995,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="139"/>
         <source>MIDI OUT Driver</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 输出驱动</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="172"/>
@@ -1000,23 +1015,23 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="50"/>
         <source>Enable MIDI Input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用 MIDI 输入</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="60"/>
         <source>MIDI Omni Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 全频模式</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="67"/>
         <source>MIDI IN Driver</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 输入驱动</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="87"/>
         <location filename="../src/midisetup.ui" line="159"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="129"/>
@@ -1026,7 +1041,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="201"/>
         <source>Show Advanced Connections</source>
-        <translation type="unfinished"></translation>
+        <translation>显示高级连接</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="122"/>
@@ -1066,7 +1081,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.cpp" line="253"/>
         <source>Font to display note names</source>
-        <translation type="unfinished"></translation>
+        <translation>音名显示字体</translation>
     </message>
 </context>
 <context>
@@ -1099,7 +1114,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="193"/>
         <source>Colors...</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="489"/>
@@ -1114,47 +1129,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="538"/>
         <source>MIDI channel state consistency</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 通道状态一致</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="160"/>
         <source>Enable Touch Screen Input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用触摸屏输入</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="144"/>
         <source>Enable Mouse Input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用鼠标输入</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="271"/>
         <source>Number of keys</source>
-        <translation type="unfinished"></translation>
+        <translation>琴键数量</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="285"/>
         <source>C3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="290"/>
         <source>C4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="295"/>
         <source>C5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="255"/>
         <source>Starting Key</source>
-        <translation type="unfinished"></translation>
+        <translation>起始琴键</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="105"/>
         <source>Enable Computer Keyboard Input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用计算机键盘输入</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="525"/>
@@ -1205,7 +1220,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="245"/>
         <source>Note highlight color</source>
-        <translation type="unfinished"></translation>
+        <translation>音符高亮色</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="337"/>
@@ -1215,27 +1230,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="326"/>
         <source>Central Octave Naming</source>
-        <translation type="unfinished"></translation>
+        <translation>中央八度命名</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="45"/>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>输入</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="184"/>
         <source>Visualization</source>
-        <translation type="unfinished"></translation>
+        <translation>显示</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="206"/>
         <source>Translate MIDI velocity to highlighting color tint</source>
-        <translation type="unfinished"></translation>
+        <translation>将 MIDI 音符力度显示为高亮色的深浅</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="219"/>
         <source>Forced Dark Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>强制黑暗模式</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="342"/>
@@ -1315,31 +1330,31 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="450"/>
         <source>Qt Widgets Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Qt 控件风格</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="461"/>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>表现</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="567"/>
         <source>Sticky Window Snapping (Windows)</source>
-        <translation type="unfinished"></translation>
+        <translation>粘贴式窗口捕捉 (Windows)</translation>
     </message>
     <message>
         <source>Translate MIDI velocity to key pressed color tint</source>
-        <translation type="vanished">用颜色深浅表示Midi音符力度</translation>
+        <translation type="vanished">用颜色深浅表示 MIDI 音符力度</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="316"/>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>文字字体</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="436"/>
         <source>Font...</source>
-        <translation type="unfinished"></translation>
+        <translation>字体...</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="551"/>
@@ -1366,17 +1381,21 @@ Copyright (C) 2006-2023 Pedro Lopez-Cabanillas
 This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it
 under certain conditions; see the LICENSE for details.</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtual MIDI Piano Keyboard
+Copyright (C) 2006-2023 Pedro Lopez-Cabanillas
+本程序绝对不提供任何担保；
+本软件为自由软件，欢迎您在特定条件下重新分发。
+详情请参见许可协议LICENSE文件。</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="65"/>
         <source>Portable settings mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>便携式设置模式。</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="66"/>
         <source>Portable settings file name.</source>
-        <translation type="unfinished"></translation>
+        <translation>便携式设置文件名。</translation>
     </message>
 </context>
 <context>
@@ -1402,12 +1421,12 @@ under certain conditions; see the LICENSE for details.</source>
     <message>
         <location filename="../src/riffimportdlg.cpp" line="55"/>
         <source>Input SoundFont</source>
-        <translation>输入音色库 SoundFont</translation>
+        <translation>输入音色库(SoundFont)</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.cpp" line="55"/>
         <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
-        <translation>音色库文件 SoundFonts (*.sf2 *.sbk *.dls)</translation>
+        <translation>SoundFont 音色库文件 (*.sf2 *.sbk *.dls)</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.cpp" line="66"/>
@@ -1463,12 +1482,12 @@ under certain conditions; see the LICENSE for details.</source>
     <message>
         <location filename="../src/riffimportdlg.ui" line="31"/>
         <source>Import SoundFont instruments</source>
-        <translation>导入音色库 SoundFont 中的乐器</translation>
+        <translation>导入 SoundFont 音色库中的乐器</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="63"/>
         <source>This text box displays the path and name of the selected SoundFont to be  imported</source>
-        <translation>此文本框显示要导入的音色库 SoundFont 文件的路径和文件名</translation>
+        <translation>此文本框显示要导入的 SoundFont 音色库文件的路径和文件名</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="85"/>
@@ -1523,99 +1542,100 @@ Do you want to apply the changes?</source>
     <message>
         <location filename="../src/vpiano.cpp" line="2076"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2088"/>
         <source>Chan:</source>
-        <translation type="unfinished"></translation>
+        <translation>通：</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2090"/>
         <source>Channel:</source>
-        <translation>通道: </translation>
+        <translation>通道:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2095"/>
         <source>Oct:</source>
-        <translation type="unfinished"></translation>
+        <translation>八度:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2097"/>
         <source>Base Octave:</source>
-        <translation>基准八度: </translation>
+        <translation>基准八度:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2102"/>
         <source>Trans:</source>
-        <translation type="unfinished"></translation>
+        <translation>移:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2104"/>
         <source>Transpose:</source>
-        <translation>移调: </translation>
+        <translation>移调:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2109"/>
         <source>Vel:</source>
-        <translation type="unfinished"></translation>
+        <translation>力：</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2111"/>
         <source>Velocity:</source>
-        <translation>力度: </translation>
+        <translation>力度：</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2116"/>
         <source>Control:</source>
-        <translation>控制器: </translation>
+        <translation>控制器:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2118"/>
         <source>Value:</source>
-        <translation>值: </translation>
+        <translation>值:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2259"/>
         <source>Open Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>打开配置文件</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2260"/>
         <location filename="../src/vpiano.cpp" line="2273"/>
         <source>Configuration files (*.conf *.ini)</source>
-        <translation type="unfinished"></translation>
+        <translation>配置文件 (*.conf *.ini)</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2275"/>
         <source>Save Configuration File</source>
-        <translation type="unfinished"></translation>
+        <translation>保存配置文件</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2298"/>
         <source>The important component called &apos;%1&apos; is missing.
 This probably means that your installation is corrupt, or the &apos;drumstick&apos; packages on which this program depends are incomplete, outdated or wrong. You may still use the program, but probably without sound.</source>
-        <translation type="unfinished"></translation>
+        <translation>缺少叫做&quot;%1 &quot;的重要组件。
+这可能意味着您的安装程序已损坏，或者该程序所依赖的 &quot;drumstick &quot;软件包不完整、过时或错误。您仍然可以使用该程序，但可能没有声音。</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2303"/>
         <source>MIDI Output</source>
-        <translation type="unfinished"></translation>
+        <translation>MIDI 输出</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2115"/>
         <source>Bender:</source>
-        <translation>弯音控制器: </translation>
+        <translation>弯音轮:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2114"/>
         <source>Bank:</source>
-        <translation>音色库号: </translation>
+        <translation>音色库:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2117"/>
         <source>Program:</source>
-        <translation>音色: </translation>
+        <translation>音色:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="1978"/>
@@ -1635,12 +1655,12 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.cpp" line="2079"/>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>Српски</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2080"/>
         <source>Swedish</source>
-        <translation type="unfinished"></translation>
+        <translation>Svenska</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2050"/>
@@ -1650,17 +1670,17 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.cpp" line="2051"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;译者 Rui Fan (&lt;a href=&apos;mailto:vanferry@gmail.com&apos;&gt;vanferry@gmail.com&lt;/a&gt;)&lt;/p&gt;%1</translation>
+        <translation>&lt;p&gt;译者 Rui Fan (&lt;a href=&apos;mailto:vanferry@gmail.com&apos;&gt;vanferry@gmail.com&lt;/a&gt;) 和 hycinth (&lt;a href=&apos;mailto:realhycinth@gmail.com&apos;&gt;realhycinth@gmail.com&lt;/a&gt;) &lt;/p&gt;%1</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2071"/>
         <source>Czech</source>
-        <translation>Czech</translation>
+        <translation>Česky</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2072"/>
         <source>German</source>
-        <translation>German</translation>
+        <translation>Deutsch</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2070"/>
@@ -1670,27 +1690,27 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.cpp" line="2073"/>
         <source>Spanish</source>
-        <translation>Spanish</translation>
+        <translation>Español</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2074"/>
         <source>French</source>
-        <translation>French</translation>
+        <translation>Français</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2075"/>
         <source>Galician</source>
-        <translation type="unfinished"></translation>
+        <translation>Galego</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2077"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederlands</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2078"/>
         <source>Russian</source>
-        <translation>Russian</translation>
+        <translation>Русский</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2081"/>
@@ -1720,7 +1740,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="93"/>
         <source>&amp;Language</source>
-        <translation>(&amp;L)语言</translation>
+        <translation>(&amp;L) 语言</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="106"/>
@@ -1750,57 +1770,57 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="182"/>
         <source>Note Input</source>
-        <translation type="unfinished"></translation>
+        <translation>音符输入</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="217"/>
         <location filename="../src/vpiano.ui" line="405"/>
         <source>&amp;Notes</source>
-        <translation>(&amp;N)音符</translation>
+        <translation>(&amp;N) 音符</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="272"/>
         <location filename="../src/vpiano.ui" line="419"/>
         <source>&amp;Controllers</source>
-        <translation>(&amp;C)控制器</translation>
+        <translation>(&amp;C) 控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="328"/>
         <location filename="../src/vpiano.ui" line="433"/>
         <source>Pitch &amp;Bender</source>
-        <translation>弯音控制器</translation>
+        <translation>(&amp;B) 弯音轮</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="245"/>
         <location filename="../src/vpiano.ui" line="447"/>
         <source>&amp;Programs</source>
-        <translation>(&amp;P)音色</translation>
+        <translation>(&amp;P) 音色</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
         <source>Show Note Names</source>
-        <translation type="unfinished">Mostrar nombres de notas</translation>
+        <translation>显示音符名称</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="119"/>
         <source>Black Keys Names</source>
-        <translation type="unfinished"></translation>
+        <translation>黑键名称</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="127"/>
         <source>Names Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>名称方向</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="300"/>
         <location filename="../src/vpiano.ui" line="561"/>
         <source>&amp;Extra Controls</source>
-        <translation>(&amp;E)附加控制器</translation>
+        <translation>(&amp;E) 附加控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="347"/>
         <source>&amp;Quit</source>
-        <translation>(&amp;Q)退出</translation>
+        <translation>(&amp;Q) 退出</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="350"/>
@@ -1810,7 +1830,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="358"/>
         <source>&amp;Preferences</source>
-        <translation>(&amp;P)首选项</translation>
+        <translation>(&amp;P) 首选项</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="361"/>
@@ -1820,172 +1840,172 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="369"/>
         <source>MIDI &amp;Connections</source>
-        <translation type="unfinished"></translation>
+        <translation>(&amp;C) MIDI连接</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="743"/>
         <source>Alt++</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="757"/>
         <source>Alt+-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="866"/>
         <source>Computer Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机键盘</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="869"/>
         <source>Enable computer keyboard triggered note input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用计算机键盘触发音符输入</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="883"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="886"/>
         <source>Enable mouse triggered note input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用鼠标触发音符输入</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="900"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>触摸屏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="903"/>
         <source>Enable screen touch triggered note input</source>
-        <translation type="unfinished"></translation>
+        <translation>启用触摸屏触发音符输入</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="911"/>
         <source>Color Palette</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色面板</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="914"/>
         <source>Open the color palette editor</source>
-        <translation type="unfinished"></translation>
+        <translation>打开颜色面板编辑器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="925"/>
         <source>Color Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>色阶</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="928"/>
         <source>Show or hide the colorized keys</source>
-        <translation type="unfinished"></translation>
+        <translation>显示或隐藏彩色按键</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="942"/>
         <source>Window frame</source>
-        <translation type="unfinished"></translation>
+        <translation>窗口边框</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="945"/>
         <source>Show or hide window decorations</source>
-        <translation type="unfinished"></translation>
+        <translation>显示或隐藏窗口装饰</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="962"/>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="965"/>
         <source>Don&apos;t show key labels</source>
-        <translation type="unfinished"></translation>
+        <translation>不显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="973"/>
         <source>When Activated</source>
-        <translation type="unfinished"></translation>
+        <translation>当激活时</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="976"/>
         <source>Show key labels when notes are activated</source>
-        <translation type="unfinished"></translation>
+        <translation>当音符激活时显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="984"/>
         <source>Always</source>
-        <translation type="unfinished"></translation>
+        <translation>总是</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="987"/>
         <source>Show key labels always</source>
-        <translation type="unfinished"></translation>
+        <translation>总是显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="998"/>
         <source>Sharps</source>
-        <translation type="unfinished"></translation>
+        <translation>升音</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1001"/>
         <source>Display sharps</source>
-        <translation type="unfinished"></translation>
+        <translation>显示升音</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1012"/>
         <source>Flats</source>
-        <translation type="unfinished"></translation>
+        <translation>降音</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1015"/>
         <source>Display flats</source>
-        <translation type="unfinished"></translation>
+        <translation>显示降音</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1023"/>
         <source>Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>无</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1026"/>
         <source>Don&apos;t display labels over black keys</source>
-        <translation type="unfinished"></translation>
+        <translation>不在黑键上显示标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1037"/>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>水平</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1040"/>
         <source>Display key labels horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>水平显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1048"/>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>垂直</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1051"/>
         <source>Display key labels vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>垂直显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1059"/>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1062"/>
         <source>Display key labels with automatic orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>使用自动方向显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1070"/>
         <source>Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>最简</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="372"/>
@@ -1995,32 +2015,32 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="220"/>
         <source>Notes Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>音符工具栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="248"/>
         <source>Programs Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>音色工具栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="275"/>
         <source>Controllers Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>控制器工具栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="303"/>
         <source>Extra Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>附加工具栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="331"/>
         <source>Bender Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>弯音轮工具栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="380"/>
         <source>&amp;About</source>
-        <translation>(&amp;A)关于</translation>
+        <translation>(&amp;A) 关于</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="383"/>
@@ -2030,7 +2050,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="391"/>
         <source>About &amp;Qt</source>
-        <translation>关于 Q&amp;t</translation>
+        <translation>关于 &amp;Qt</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="394"/>
@@ -2050,7 +2070,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="436"/>
         <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>显示或隐藏弯音工具栏</translation>
+        <translation>显示或隐藏弯音轮工具栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="450"/>
@@ -2060,7 +2080,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="464"/>
         <source>&amp;Status Bar</source>
-        <translation>(&amp;S)状态栏</translation>
+        <translation>(&amp;S) 状态栏</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="467"/>
@@ -2070,7 +2090,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="475"/>
         <source>Panic</source>
-        <translation type="unfinished">Panic</translation>
+        <translation>终止发声</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="478"/>
@@ -2080,7 +2100,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="489"/>
         <source>Reset All</source>
-        <translation>重置所有</translation>
+        <translation>全部重置</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="492"/>
@@ -2095,7 +2115,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="503"/>
         <source>Resets the Bender value</source>
-        <translation>重置弯音控制器</translation>
+        <translation>重置弯音轮</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="550"/>
@@ -2122,17 +2142,17 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="589"/>
         <source>Open the Banks/Programs editor</source>
-        <translation>打开 音色库(Bank)/音色 编辑器</translation>
+        <translation>打开 音色库/音色 编辑器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="603"/>
         <source>&amp;Extra Controllers</source>
-        <translation>(&amp;E)附加控制器</translation>
+        <translation>(&amp;E) 附加控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="614"/>
         <source>&amp;Shortcuts</source>
-        <translation>(&amp;S)快捷键</translation>
+        <translation>(&amp;S) 快捷键</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="617"/>
@@ -2202,7 +2222,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="849"/>
         <source>About &amp;Translation</source>
-        <translation>关于翻译</translation>
+        <translation>(&amp;T) 关于 翻译</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="852"/>
@@ -2212,22 +2232,22 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="1073"/>
         <source>Show key labels only over C notes</source>
-        <translation type="unfinished"></translation>
+        <translation>仅在 C 音符上显示琴键标签</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1078"/>
         <source>Load Configuration...</source>
-        <translation type="unfinished"></translation>
+        <translation>加载配置...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1083"/>
         <source>Save Configuration...</source>
-        <translation type="unfinished"></translation>
+        <translation>保存配置...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1094"/>
         <source>Octave Subscript Designation</source>
-        <translation type="unfinished"></translation>
+        <translation>用下标表示八度</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="709"/>
@@ -2272,22 +2292,22 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="765"/>
         <source>Next Bank</source>
-        <translation>下一个库号</translation>
+        <translation>下一个音色库</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="768"/>
         <source>Select the next instrument bank</source>
-        <translation>选中下一个乐器库号(Bank)</translation>
+        <translation>选中下一个乐器库</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="779"/>
         <source>Previous Bank</source>
-        <translation>前一个库号</translation>
+        <translation>前一个控制器</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="782"/>
         <source>Select the previous instrument bank</source>
-        <translation>选中前一个乐器库号</translation>
+        <translation>选中前一个乐器库</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="793"/>
@@ -2332,7 +2352,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="511"/>
         <source>&amp;Keyboard Map</source>
-        <translation>(&amp;K)键盘映射</translation>
+        <translation>(&amp;K) 键盘映射</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="514"/>
@@ -2342,7 +2362,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="522"/>
         <source>&amp;Contents</source>
-        <translation>(&amp;C)内容</translation>
+        <translation>(&amp;C) 内容</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="525"/>
@@ -2352,7 +2372,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="536"/>
         <source>VMPK &amp;Web site</source>
-        <translation>(&amp;W)VMPK 网站</translation>
+        <translation>(&amp;W) VMPK 网站</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="539"/>
@@ -2362,7 +2382,7 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
     <message>
         <location filename="../src/vpiano.ui" line="547"/>
         <source>&amp;Import SoundFont...</source>
-        <translation>(&amp;I)导入音色库(SoundFont)...</translation>
+        <translation>(&amp;I) 导入音色库(SoundFont)...</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="1687"/>

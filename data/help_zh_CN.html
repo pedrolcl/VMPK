@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+    <title>VMPK：虚拟 MIDI 钢琴键盘</title>
+</head>
+<body>
+
+<h1>虚拟 MIDI 钢琴键盘</h1>
+
+<div id="navcontainer">
+<ul>
+  <li><a href="#Introduction">介绍</a></li>
+  <li><a href="#Getting_started">轻松入门</a>
+    <ul>
+      <li><a href="#MIDI_concepts">MIDI 概念</a></li>
+      <li><a href="#maps_instruments">键盘映射和乐器定义</a></li>
+      <li><a href="#MIDI_Connections">MIDI 连接和虚拟 MIDI 电缆</a></li>
+    </ul>
+  </li>
+  <li><a href="#FAQ">常见问题（FAQ）</a></li>
+  <li><a href="#Download">下载</a></li>
+  <li><a href="#Installation">从源码安装</a>
+    <ul>
+      <li><a href="#Requirements">构建需求</a></li>
+      <li><a href="#windows_notes">Windows 用户注意事项</a></li>
+      <li><a href="#mac_notes">Mac OSX 用户注意事项</a></li>
+      <li><a href="#packager_notes">打包人员和高级用户注意事项</a></li>
+    </ul>
+  </li>
+  <li><a href="#Acknowledgements">致谢</a></li>
+</ul>
+</div>
+
+<br>
+
+<h2><a name="Introduction"></a>介绍</h2>
+
+<p>
+VMPK 是一款 MIDI 事件生成器和接收器。它本身不产生任何声音，但可用于驱动 MIDI 合成器（硬件或软件、内部或外部
+软件，内部或外部）。您可以用计算机键盘输入MIDI 音符，也可以用鼠标。您可以使用 VMPK 显示其他乐器或 MIDI 文件播放器播放的 MIDI 音符。为此，请将另一个 MIDI 端口连接到 VMPK 的输入端口。</p>
+
+<p>VMPK 已在 Linux、Windows 和 Mac OSX 中进行了测试，但也许您也可以在其他系统中构建它。如果可以，请给作者发邮件。</p>
+
+<p>Takashi Iway (vkeybd) 的虚拟键盘是这一键盘的灵感来源。它是一款出色的软件，多年来为我们提供了良好的服务。
+感谢！</p>
+
+<p>VMPK 使用现代图形用户界面框架：Qt5，它具有出色的功能和性能。
+<a href="http://drumstick.sourceforge.net/">Drumstick-rt</a> 提供 MIDI 输入/输出功能。
+这两个框架免费且不受平台限制，适用于 Linux、Windows 和 Mac OSX。</p>
+
+<p>可以使用 GUI 界面从程序内部配置字母数字键盘映射，并且设置存储在 XML 文件中。程序提供了一些西班牙语、德语和法语键盘布局映射，这些映射由 VKeybd 提供的映射翻译而来。</p>
+
+<p>VMPK 可以将程序更改和控制器发送到 MIDI 合成器。不同标准和设备的定义可以作为 .INS 文件提供，与 QTractor 和 TSE3 使用的格式相同。它由 Cakewalk 开发，也用于 Sonar。</p>
+
+<p>该软件正处于非常早期的 alpha 阶段。请参阅 TODO 文件以获取待处理功能的列表。请随时联系作者提出问题、报告错误并提出新功能。您可以使用 SourceForge 项目站点上的跟踪系统。
+<a href="http://sourceforge.net/p/vmpk/_list/tickets">SourceForge 项目网站</a>.</p>
+<p>版权所有 (C) 2008-2023, Pedro Lopez-Cabanillas <b>&lt;plcl AT
+users.sourceforge.net&gt; </b> 等。</p>
+<p>VMPK 是根据 <a href="http://www.gnu.org/copyleft/gpl.html">GPL v3 许可证条款</a> 获得许可的自由软件
+。</p>
+
+<h2><a name="Getting_started"></a>轻松入门</h2>
+
+<h3><a name="MIDI_concepts"></a>MIDI 概念</h3>
+
+<p>MIDI 是连接乐器的行业标准。它基于将演奏某种乐器的音乐家执行的动作传输到另一种不同的乐器。支持 MIDI 接口的乐器通常有两个 DIN 插座，标记为 MIDI IN 和 MIDI OUT。有时还有第三个标记为 MIDI THRU 的插座。要将一台 MIDI 乐器连接到另一台乐器，您需要一根 MIDI 电缆，将其连接到发送乐器的 MIDI OUT 插孔和接收乐器的 MIDI IN 插孔。您可以在网上找到更多像<a href="http://home.roadrunner.com/~jgglatt/tutr/whatmidi.htm">这个</a>的信息和教程。</p>
+
+<p>还有用于计算机的硬件 MIDI 接口，提供 MIDI IN 和 OUT 端口，您可以在其中连接 MIDI 电缆，使计算机与外部 MIDI 乐器进行通信。无需硬件接口，计算机也可以使用MIDI软件。一个例子是 VMPK，它提供 MIDI IN 和 OUT 端口。您可以将虚拟 MIDI 电缆连接到 VMPK 的端口，以将程序连接到其他程序或计算机的物理 MIDI 接口端口。稍后将提供有关此内容的更多详细信息。您通常希望将 VMPK 的 MIDI 输出连接到某个将 MIDI 转换为声音的合成器的输入。连接的另一个常见目标是 MIDI 监视器，它将 MIDI 事件转换为可读文本。这将帮助您了解使用 MIDI 协议传输什么样的信息。在 Linux 中您可以尝试 <a href="http://kmidimon.sourceforge.net">KMidimon</a>，在 Windows 中您可以尝试 <a href="http://www.midiox.com">MIDIOX</a>。</p>
+
+<p>VMPK 不产生任何声音。您需要一个 MIDI 软件合成器才能听到演奏的音符。我建议你尝试一下 rumstick-rt 提供的 <a href="https://www.fluidsynth.org">Fluidsynth</a> 直接输出。也可以使用 Windows 附带的“Microsoft GS Wavetable SW Synth”。当然，外部 MIDI 硬件合成器将是更好的方法。</p>
+
+<h3><a name="maps_instruments"></a>键盘映射和乐器定义</h3>
+
+<p>VMPK 可以帮助您更改 MIDI 合成器中的声音，但前提是您首先提供合成器声音的定义。这些定义是扩展名为 .INS 的文本文件，与 <a href="http://qtractor.sourceforge.net">Qtractor</a> (Linux) 和 <a href="http://www.cakewalk.com">Sonar</a> (Windows) 使用的格式相同。</p>
+
+<p>第一次启动VMPK时，您应该打开“首选项”对话框并选择一个定义文件，然后从定义文件提供的名称中选择乐器名称。 VMPK 的数据目录（Linux 中通常为“/usr/share/vmpk”，Windows 中为“C:\Program Files\VMPK”）中应安装一个名为“gmgsxg.ins”的乐器定义文件，其中包含通用 MIDI、Roland GS 和 Yamaha XG 标准。这是一种非常简单的格式，您可以使用任何文本编辑器来查看、更改和创建新格式。您可以在 <a href="ftp://ftp.cakewalk.com/pub/InstrumentDefinitions/">cakewalk FTP 服务器</a> 上找到乐器定义库。</p>
+
+<p>从 0.2.5 版本开始，您还可以使用菜单“文件”->“导入音色库(SoundFont)...”中的对话框导入 Sound Font 文件（.SF2 或 DLS 格式）作为乐器定义。</p> 
+
+<p>您可能想要调整的另一个自定义是键盘映射。默认布局映射 QWERTY 字母数字键盘的大约两个半八度音阶，但数据目录中有更多定义，适用于其他国际布局。您甚至可以使用“编辑”->“键盘映射”菜单中的对话框定义自己的映射。还可以选择将映射加载和保存为 XML 文件。下次启动 VMPK 时将记住上次加载的映射。事实上，您的所有首选项、选定的 MIDI 库和音色以及控制器值都将在退出时保存，并在您下次重新启动 VMPK 时恢复。</p>
+
+<h3><a name="MIDI_Connections"></a>MIDI 连接和虚拟 MIDI 电缆</h3>
+
+<p>要连接硬件 MIDI 设备，您需要物理 MIDI 电缆。要连接 MIDI 软件，您需要虚拟电缆。在 Windows 中，您可以使用一些虚拟 MIDI 电缆软件，例如 <a href="http://www.midiox.com/myoke.htm">MIDI Yoke</a>、Maple、<a href="http://www.nerds.de/en/loopbe1.html">LoopBe1</a> 或 <a href="http://www.sonycreativesoftware.com/dl/dl.aspx?dwnid=77">Sony Virtual MIDI Router</a>。</p>
+
+<p>MIDI Yoke 设置过程将安装驱动程序和控制面板小程序，以更改可用的 MIDI 端口数量（更改此设置后需要重新启动计算机）。 MIDI Yoke 会将写入 OUT 端口的每个 MIDI 事件发送到相应的 IN 端口。例如，VMPK 可以将输出连接到端口 1，而另一个程序（如 <a href="http://qsynth.sourceforge.net">QSynth</a>）可以从端口 1 读取相同的事件。</p>
+
+<p>使用 <a href="http://www.midiox.com/moxdown.htm">MIDIOX</a>，您可以在 MIDI Yoke 端口和其他系统 MIDI 端口之间添加更多路由。该程序还提供其他有趣的功能，例如 MIDI 文件播放器。您可以聆听 MIDI 合成器中播放的歌曲，同时在 VMPK 中查看播放的音符（一次仅一个通道）。为此，您可以使用 MIDIOX 中的“路由”窗口将输入端口 1 连接到 Windows Synth 端口。另外，将播放器的 MIDI 端口配置为发送到 MIDI Yoke 1。并将 VMPK 输入端口配置为从 MIDI Yoke 1 读取。播放器将把事件发送到输出端口 1，该事件将被路由到输入端口 1 和同时到合成器端口。</p>
+
+<p>在 Linux 中，您可以使用 ALSA 定序器来提供虚拟电缆。端口是在启动程序时动态创建的，因此端口数量不像 MIDI Yoke 那样是固定数量的。命令行实用程序“aconnect”允许连接和断开任何端口（硬件接口或应用程序）之间的虚拟 MIDI 电缆。 <a href="http://qjackctl.sourceforge.net">QJackCtl</a> 是一个很好的 GUI 实用程序，可以完成同样的任务。该程序的主要目的是控制 Jack 守护进程（启动、停止和监视状态）。 Jack 提供虚拟音频电缆来连接声卡端口和音频程序，其方式与 MIDI 虚拟电缆类似，但用于数字音频数据。</p>
+
+<h2><a name="FAQ"></a>常见问题（FAQ）</h2>
+
+<h3>如何显示88个键？</h3>
+<p>从 0.6 版本开始，您可以在“首选项”对话框中选择任意数量（在 1 到 121 之间）的琴键和起始琴键音符。</p>
+
+<h3>没有声音</h3>
+<p>VMPK 本身不产生任何声音。您需要一个 MIDI 合成器，请再次阅读文档。</p>
+
+<h3>有些按键是静音的</h3>
+<p>当您在标准 MIDI 合成器上选择通道 10 时，它会播放分配给许多键（但不是全部）的打击乐声音。在旋律通道（不是通道 10）上，您可以选择音符范围有限的音色。这在音乐中被称为 <a href="http://en.wikipedia.org/wiki/Tessitura">Tessitura</a>。</p>
+
+<h3>音色名称（Patch names）与真实声音不符</h3>
+<p>您需要提供准确描述合成器声音集或声音字体的 .INS 文件。包含的文件 (gmgsxg.ins) 仅包含标准 GM、GS 和 XG 仪器的定义。如果您的 MIDI 合成器与其中任何一个都不完全匹配，您需要获取另一个 .INS 文件，或自己创建它。</p>
+
+<h3>乐器定义 (.INS) 文件的语法？</h3>
+<p>INS 格式的一种解释在<a href="http://tse3.sourceforge.net/doc/InsFiles.html">这里</a>。</p>
+
+<h3>我可以将 vkeybd 的乐器定义转换为 .INS 文件吗？</h3>
+<p>当然。使用 AWK 脚本“txt2ins.awk”。您甚至可以使用 vkeybd 中的实用程序 sftovkb 从任何 SF2 声音字体创建 .INS 文件，但还有一个功能可以从 VMPK 中的 SF2 和 DLS 文件导入乐器名称。</p>
+
+<pre>
+$ sftovkb SF2NAME.sf2 | sort -n -k1,1 -k2,2 > SF2NAME.txt
+$ awk -f txt2ins.awk SF2NAME.txt > SF2NAME.ins
+</pre>
+
+<p>您可以在 VMPK 的数据目录中找到安装的 AWK 脚本“txt2ins.awk”。</p>
+
+<h2><a name="Download"></a>下载</h2>
+<p>您可以在 <a href="http://sourceforge.net/projects/vmpk/files">SourceForge 项目网站</a> 找到最新的源代码、Windows 和 Mac OSX 软件包。</p>
+<p>还有准备安装的 Linux 软件包：
+<ul>
+  <li><a href="http://software.opensuse.org/package/vmpk">openSUSE</a></li>
+  <li><a href="http://www.archlinux.org/packages/?q=vmpk">Arch Linux</a></li>
+  <li><a href="http://packages.gentoo.org/package/media-sound/vmpk">Gentoo</a></li>
+  <li><a href="http://apps.fedoraproject.org/packages/vmpk">Fedora</a> (已过时)</li>
+  <li><a href="http://packages.debian.org/vmpk">Debian</a> (已过时)</li>
+  <li><a href="http://apps.ubuntu.com/cat/applications/vmpk/">Ubuntu</a> (已过时)</li>
+</ul>
+
+<h2><a name="Installation"></a>从源码安装</h2>
+
+<p>从 <a href="http://sourceforge.net/projects/vmpk/files">http://sourceforge.net/projects/vmpk/files</a>下载源代码。将源文件解压到主目录中，然后切换到解压后的目录。</p>
+
+<pre>
+$ cd vmpk-x.y.z
+</pre>
+
+<p>您可以选择 CMake 和 Qmake 来准备构建系统，但 qmake 倾向于仅用于测试和开发。</p>
+
+<pre>
+$ cmake .
+or
+$ ccmake .
+or
+$ qmake
+</pre>
+
+<p>之后，编译程序：</p>
+
+<pre>
+$ make
+</pre>
+
+<p>如果程序编译成功，你就可以安装它了：</p>
+
+<pre>
+$ sudo make install
+</pre>
+
+<h3><a name="Requirements"></a>构建需求</h3>
+
+<p>为了成功构建和使用 VMPK，您需要 Qt 5.1 或更高版本。 （为您的系统安装 -devel 软件包，或从 qt-project.org <a href="http://qt-project.org/downloads">下载开源版本</a></p>
+
+<p>所有平台都需要 <a href="http://drumstick.sourceforge.net/">Drumstick RT</a>。它在 Linux 中使用 ALSA 音序器，在 Windows 中使用 WinMM，在 Mac OSX 中使用 CoreMIDI，它们是每个受支持平台中的本地 MIDI 系统。 </p>
+
+<p>构建系统基于 <a href="http://www.cmake.org">CMake</a>.</p>
+
+<p>你还需要 <a href="http://gcc.gnu.org">GCC C++ 编译器</a>。 MinGW 是一个 <a href="http://www.mingw.org">Windows 移植</a>。</p>
+
+<p>可选地, 您可以使用 <a href="http://nsis.sourceforge.net">NSIS</a> 构建 Windows 安装程序。</p>
+
+<h3><a name="windows_notes"></a>Windows 用户注意事项</h3>
+
+<p>要在 Windows 中编译源代码，您需要下载 .bz2 或 .gz 存档，并使用支持该格式的任何实用程序（例如 <a href="http://www.7-zip.org">7-Zip</a>）将其解压缩。</p>
+
+<p>要配置源，您需要 qmake（来自 Qt5）或 CMake。您需要设置 PATH，包括 Qt5 二进制文件、MinGW 二进制文件以及 CMake 二进制文件的目录。CMake-GUI 程序是 CMake 的图形化版本。</p>
+
+<p>如果您需要合成器，也许您想看看 <a href="http://coolsoft.altervista.org/en/virtualmidisynth">Virtual MIDI Synth</a> 或 <a href="https://www.fluidsynth.org/">FluidSynth</a>。</p>
+
+<h3><a name="mac_notes"></a>Mac OSX 用户注意事项</h3>
+<p>您可以在<a href="http://sourceforge.net/projects/vmpk/files">项目下载区</a>找到预编译的通用应用程序包，包括 Qt5 运行时库。如果您更喜欢从源码安装，可以使用 CMake 或 Qmake 来构建链接到已安装系统库的应用程序包。您可以使用 qt-project.org 中的 Qt5 或使用 <a href="http://brew.sh/">Homebrew</a> 中的包。</p>
+
+<p>构建系统配置为创建应用程序包。您需要 Apple 开发工具和框架以及 <a href="http://qt-project.org/downloads">Qt5 库</a>。</p>
+
+<p>要使用 qmake 生成的 Makefile 编译 VMPK：</p>
+
+<pre>
+$ qmake vmpk.pro -spec macx-g++
+$ make
+optionally:
+$ macdeployqt build/vmpk.app
+</pre>
+
+<p>要使用 CMake 生成的 Makefile 进行编译：</p>
+
+<pre>
+$ cmake -G "Unix Makefiles" .
+$ make
+</pre>
+
+<p>创建 Xcode 项目文件：</p>
+<pre>
+$ qmake vmpk.pro -spec macx-xcode
+or
+$ cmake -G Xcode .
+</pre>
+
+<p>如果您需要一些东西来产生噪音，也许您想看看 <a href="https://notahat.com/simplesynth">SimpleSynth</a> 或 <a href="https://www.fluidsynth.org/">FluidSynth</a>。对于 MIDI 路由，还有 MIDI Patchbay。</p>
+
+<h3><a name="packager_notes"></a>打包人员和高级用户注意事项</h3>
+
+<p>你可以在构建程序时要求编译器进行一些优化。有两种方法：第一，使用预定义的构建类型。</p>
+
+<pre>
+$ cmake . -DCMAKE_BUILD_TYPE=Release
+</pre>
+
+<p>CMake“Release”类型使用编译器标志：“-O3 -DNDEBUG”。其他预定义的构建类型有“Debug”、“RelWithDebInfo”和“MinSizeRel”。第二种方法是自己选择编译器标志。</p>
+
+<pre>
+$ export CXXFLAGS="-O2 -march=native -mtune=native -DNDEBUG"
+$ cmake .
+</pre>
+
+<p>您需要为自己的系统找到更好的CXXFLAGS。</p>
+
+<p>如果您想将该程序安装在默认位置 (/usr/local) 之外的某个位置，请使用以下 CMake 选项：</p>
+
+<pre>
+$ cmake . -DCMAKE_INSTALL_PREFIX=/usr
+</pre>
+
+<p></p>
+
+<h2><a name="Acknowledgements"></a>致谢</h2>
+
+<p>除了上述工具之外，VMPK 还使用以下开源项目的工作成果。 </p>
+
+<ul>
+<li>来自 <a href="http://qtractor.sourceforge.net">Qtractor</a>，作者：Rui Nuno Capela<br>
+乐器定义数据类
+<li><a href="http://openclipart.org/detail/366/piano-by-theresaknott">图标和logo</a>，由 Theresa Knott
+设计</ul>
+
+<p>非常感谢你们！</p>
+
+</body>
+</html>

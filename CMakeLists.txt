@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project( VMPK
-    VERSION 0.8.9
+    VERSION 0.8.10
     LANGUAGES CXX
     DESCRIPTION "Virtual MIDI Piano Keyboard"
     HOMEPAGE_URL "https://vmpk.sourceforge.io/"
@@ -56,7 +56,7 @@ endif()
 #endif()
 
 # CMAKE_SYSTEM_PROCESSOR is broken on Windows with MSVC
-# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2022/04
+# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2023/08
 if(MSVC)
     string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
 endif()
@@ -132,6 +132,7 @@ set(vmpk_DATA_FILES
     data/help_es.html
     data/help_ru.html
     data/help_sr.html
+    data/help_zh_CN.html
     data/azerty.xml
     data/german.xml
     data/it-qwerty.xml
@@ -161,7 +162,7 @@ if(UNIX)
         COMMAND cp -r src vmpk-${PROJECT_VERSION}
         COMMAND cp -r man vmpk-${PROJECT_VERSION}
         COMMAND cp -r dbus vmpk-${PROJECT_VERSION}
-        COMMAND cp translations/vmpk_{cs,de,es,fr,gl,it,ru,sr,sv}.ts vmpk-${PROJECT_VERSION}/translations/
+        COMMAND cp translations/vmpk_{cs,de,es,fr,gl,it,ru,sr,sv,zh_CN}.ts vmpk-${PROJECT_VERSION}/translations/
         COMMAND cp translations/CMakeLists.txt vmpk-${PROJECT_VERSION}/translations/
         COMMAND cp AUTHORS ChangeLog CMakeLists.txt COPYING gpl.rtf NEWS README.md TODO *.nsi *.nsi.in net.sourceforge.VMPK.desktop net.sourceforge.VMPK.metainfo.xml vmpk.pro *.pri vmpk.spec.in qt.conf vmpk-${PROJECT_VERSION}
         COMMAND tar -cj --exclude=.* -f vmpk-${PROJECT_VERSION}.tar.bz2 vmpk-${PROJECT_VERSION}
