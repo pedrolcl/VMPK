@@ -65,6 +65,8 @@ set(vmpk_SRCS
     constants.h
     extracontrols.cpp
     extracontrols.h
+    iconutils.cpp
+    iconutils.h
     instrument.cpp
     instrument.h
     keyboardmap.cpp

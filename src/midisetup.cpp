@@ -16,11 +16,12 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "midisetup.h"
 #include <QMessageBox>
+#include "iconutils.h"
+#include "vpianosettings.h"
 #include <drumstick/configurationdialogs.h>
 #include <drumstick/settingsfactory.h>
-#include "vpianosettings.h"
-#include "midisetup.h"
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_settingsChanged(false),
@@ -30,6 +31,8 @@ MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_savedOut(nullptr)
 {
     ui.setupUi(this);
+    ui.btnConfigInput->setIcon(IconUtils::GetIcon("wrench"));
+    ui.btnConfigOutput->setIcon(IconUtils::GetIcon("wrench"));
     connect(ui.chkEnableInput, &QCheckBox::toggled, this, &MidiSetup::toggledInput);
     connect(ui.chkAdvanced, &QCheckBox::clicked, this, &MidiSetup::clickedAdvanced);
     connect(ui.comboinputBackends, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MidiSetup::refreshInputs);

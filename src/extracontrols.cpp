@@ -16,48 +16,60 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "extracontrols.h"
-#include "ui_extracontrols.h"
+#include <QComboBox>
 #include <QFileDialog>
+#include <QListWidget>
 #include <QPushButton>
+#include <QSpinBox>
+
+#include "extracontrols.h"
+#include "iconutils.h"
+#include "ui_extracontrols.h"
 
 DialogExtraControls::DialogExtraControls(QWidget *parent) :
     QDialog(parent),
     m_ui(new Ui::DialogExtraControls)
 {
+    using DLC = DialogExtraControls;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    void (QSpinBox::*valueChangedSignal)(int) = QOverload<int>::of(&QSpinBox::valueChanged);
+    void (QComboBox::*indexChangedSignal)(int) = QOverload<int>::of(&QComboBox::currentIndexChanged);
+#else
+    void (QSpinBox::*valueChangedSignal)(int) = &QSpinBox::valueChanged;
+    void (QComboBox::*indexChangedSignal)(int) = &QComboBox::currentIndexChanged;
+#endif
     m_ui->setupUi(this);
     m_ui->btnUp->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_ArrowUp)));
     m_ui->btnDown->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_ArrowDown)));
     m_ui->btnAdd->setIcon(QIcon::fromTheme("list-add", QIcon(":/vpiano/list-add.png")));
     m_ui->btnRemove->setIcon(QIcon::fromTheme("list-remove", QIcon(":/vpiano/list-remove.png")));
-    connect( m_ui->btnAdd, SIGNAL(clicked()), SLOT(addControl()) );
-    connect( m_ui->btnRemove, SIGNAL(clicked()), SLOT(removeControl()) );
-    connect( m_ui->btnUp, SIGNAL(clicked()), SLOT(controlUp()) );
-    connect( m_ui->btnDown, SIGNAL(clicked()), SLOT(controlDown()) );
-    connect( m_ui->extraList,
-             SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
-             SLOT(itemSelected(QListWidgetItem *, QListWidgetItem*)) );
-    connect( m_ui->txtLabel, SIGNAL(textEdited(QString)), SLOT(labelEdited(QString)) );
-    connect( m_ui->spinController, SIGNAL(valueChanged(int)), SLOT(controlChanged(int)) );
-    connect( m_ui->cboControlType, SIGNAL(currentIndexChanged(int)), SLOT(typeChanged(int)) );
-    connect( m_ui->chkSwitchDefOn, SIGNAL(toggled(bool)), SLOT(defOnChanged(bool)) );
-    connect( m_ui->spinKnobDef, SIGNAL(valueChanged(int)), SLOT(defaultChanged(int)) );
-    connect( m_ui->spinSpinDef, SIGNAL(valueChanged(int)), SLOT(defaultChanged(int)) );
-    connect( m_ui->spinSliderDef, SIGNAL(valueChanged(int)), SLOT(defaultChanged(int)) );
-    connect( m_ui->spinKnobMax, SIGNAL(valueChanged(int)), SLOT(maximumChanged(int)) );
-    connect( m_ui->spinSpinMax, SIGNAL(valueChanged(int)), SLOT(maximumChanged(int)) );
-    connect( m_ui->spinSliderMax, SIGNAL(valueChanged(int)), SLOT(maximumChanged(int)) );
-    connect( m_ui->spinKnobMin, SIGNAL(valueChanged(int)), SLOT(minimumChanged(int)) );
-    connect( m_ui->spinSpinMin, SIGNAL(valueChanged(int)), SLOT(minimumChanged(int)) );
-    connect( m_ui->spinSliderMin, SIGNAL(valueChanged(int)), SLOT(minimumChanged(int)) );
-    connect( m_ui->spinValueOff, SIGNAL(valueChanged(int)), SLOT(minimumChanged(int)) );
-    connect( m_ui->spinValueOn, SIGNAL(valueChanged(int)), SLOT(maximumChanged(int)) );
-    connect( m_ui->spinSliderSize, SIGNAL(valueChanged(int)), SLOT(sizeChanged(int)) );
-    connect( m_ui->spinValue, SIGNAL(valueChanged(int)), SLOT(minimumChanged(int)) );
-    connect( m_ui->keySeqBtnCtl, SIGNAL(valueChanged(QString)), SLOT(shortcutChanged(QString)) );
-    connect( m_ui->keySeqBtnSyx, SIGNAL(valueChanged(QString)), SLOT(shortcutChanged(QString)) );
-    connect( m_ui->keySeqSwitch, SIGNAL(valueChanged(QString)), SLOT(shortcutChanged(QString)) );
-    connect( m_ui->btnFileSyx, SIGNAL(clicked()), SLOT(openFile()) );
+    m_ui->btnFileSyx->setIcon(IconUtils::GetIcon("wrench"));
+    connect(m_ui->btnAdd, &QPushButton::clicked, this, &DLC::addControl);
+    connect(m_ui->btnRemove, &QPushButton::clicked, this, &DLC::removeControl);
+    connect(m_ui->btnUp, &QPushButton::clicked, this, &DLC::controlUp);
+    connect(m_ui->btnDown, &QPushButton::clicked, this, &DLC::controlDown);
+    connect(m_ui->extraList, &QListWidget::currentItemChanged, this, &DLC::itemSelected);
+    connect(m_ui->txtLabel, &QLineEdit::textEdited, this, &DLC::labelEdited);
+    connect(m_ui->spinController, valueChangedSignal, this, &DLC::controlChanged);
+    connect(m_ui->cboControlType, indexChangedSignal, this, &DLC::typeChanged);
+    connect(m_ui->chkSwitchDefOn, &QCheckBox::toggled, this, &DLC::defOnChanged);
+    connect(m_ui->spinKnobDef, valueChangedSignal, this, &DLC::defaultChanged);
+    connect(m_ui->spinSpinDef, valueChangedSignal, this, &DLC::defaultChanged);
+    connect(m_ui->spinSliderDef, valueChangedSignal, this, &DLC::defaultChanged);
+    connect(m_ui->spinKnobMax, valueChangedSignal, this, &DLC::maximumChanged);
+    connect(m_ui->spinSpinMax, valueChangedSignal, this, &DLC::maximumChanged);
+    connect(m_ui->spinSliderMax, valueChangedSignal, this, &DLC::maximumChanged);
+    connect(m_ui->spinKnobMin, valueChangedSignal, this, &DLC::minimumChanged);
+    connect(m_ui->spinSpinMin, valueChangedSignal, this, &DLC::minimumChanged);
+    connect(m_ui->spinSliderMin, valueChangedSignal, this, &DLC::minimumChanged);
+    connect(m_ui->spinValueOff, valueChangedSignal, this, &DLC::minimumChanged);
+    connect(m_ui->spinValueOn, valueChangedSignal, this, &DLC::maximumChanged);
+    connect(m_ui->spinSliderSize, valueChangedSignal, this, &DLC::sizeChanged);
+    connect(m_ui->spinValue, valueChangedSignal, this, &DLC::minimumChanged);
+    connect(m_ui->keySeqBtnCtl, &ShortcutTableItemEditor::valueChanged, this, &DLC::shortcutChanged);
+    connect(m_ui->keySeqBtnSyx, &ShortcutTableItemEditor::valueChanged, this, &DLC::shortcutChanged);
+    connect(m_ui->keySeqSwitch, &ShortcutTableItemEditor::valueChanged, this, &DLC::shortcutChanged);
+    connect(m_ui->btnFileSyx, &QPushButton::clicked, this, &DLC::openFile);
 #if defined(SMALL_SCREEN)
     setWindowState(Qt::WindowActive | Qt::WindowMaximized);
 #endif

@@ -23,6 +23,7 @@
 #include <QDesktopServices>
 #include <QStandardPaths>
 
+#include "iconutils.h"
 #include "riffimportdlg.h"
 #include "ui_riffimportdlg.h"
 
@@ -40,6 +41,8 @@ RiffImportDlg::RiffImportDlg(QWidget *parent)
     connect(m_riff, &Riff::signalDLS, this, &RiffImportDlg::slotCompleted);
 
     ui->setupUi(this);
+    ui->m_inputBtn->setIcon(IconUtils::GetIcon("wrench"));
+    ui->m_outputBtn->setIcon(IconUtils::GetIcon("wrench"));
     connect(ui->m_inputBtn, SIGNAL(clicked()), SLOT(openInput()));
     connect(ui->m_outputBtn, SIGNAL(clicked()), SLOT(openOutput()));
 }
