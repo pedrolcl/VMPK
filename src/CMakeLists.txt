@@ -109,7 +109,7 @@ endif()
 
 if(WIN32)
     include(CheckCXXSourceCompiles)
-    check_cxx_source_compiles("#include <Windows.h>
+    check_cxx_source_compiles("#include <windows.h>
         int main() { EnumWindows([](HWND, LPARAM) -> BOOL { return true; }, 0); return 0; }"
         COMPILER_SUPPORTED)
     if (NOT COMPILER_SUPPORTED)

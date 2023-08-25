@@ -50,9 +50,13 @@ Translators:
     Giovanni Mariani - Italian translation
         translations/vmpk_it.ts
 
+    Hycinth 听寒 - Chinese translation
+        translations/vmpk_zh_CN.ts
+        data/help_zh_CN.html
+
 Other copyright owners:
 
-    Rui Nuno Capela     Instrument definition data classes, Knob widget, 
+    Rui Nuno Capela     Instrument definition data classes, Knob widget,
                         Shortcuts Editor Dialog
         src/instrument.h
         src/instrument.cpp

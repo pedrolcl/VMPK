@@ -35,6 +35,17 @@
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.8.10" date="2023-08-27">
+     <url>https://sourceforge.net/p/vmpk/news/2023/08/virtual-midi-piano-keyboard-0810-released-/</url>
+     <description>
+       <p>This release includes the following changes</p>
+       <ul>
+          <li>Fixed ticket #84: Failure restoring portable settings.</li>
+          <li>Fixed ticket #83: Fail to build when mixing Qt6 and Qt5 libraries.</li>
+          <li>Chinese translation updated. Thanks to Hycinth 听寒.</li>
+       </ul>
+     </description>
+   </release>
    <release type="stable" version="0.8.9" date="2023-07-23">
      <url>https://sourceforge.net/p/vmpk/news/2023/07/virtual-midi-piano-keyboard-089-released-/</url>
      <description>
