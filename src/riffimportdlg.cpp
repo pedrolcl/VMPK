@@ -73,7 +73,7 @@ void RiffImportDlg::openOutput()
     dlg.setFileMode(QFileDialog::AnyFile);
     dlg.setAcceptMode(QFileDialog::AcceptSave);
     if (dlg.exec() == QFileDialog::Accepted) {
-        const QString& fileName = dlg.selectedFiles().constFirst();
+        const QString fileName = dlg.selectedFiles().constFirst();
         setOutput(fileName);
     }
 }
