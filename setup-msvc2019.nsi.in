@@ -68,6 +68,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Serbian"
+!insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_LANGUAGE "Swedish"
 
@@ -115,6 +116,7 @@ Section -Main SEC0000
     File ${VMPKBLD}\translations\vmpk_ru.qm
     File ${VMPKBLD}\translations\vmpk_sr.qm
     File ${VMPKBLD}\translations\vmpk_sv.qm
+    File ${VMPKBLD}\translations\vmpk_zh_CN.qm
     File ${QTLANG}\translations\qt_cs.qm
     File ${QTLANG}\translations\qt_de.qm
     File ${QTLANG}\translations\qt_es.qm
@@ -124,6 +126,7 @@ Section -Main SEC0000
     File ${QTLANG}\translations\qt_ru.qm
    #File ${QTLANG}\translations\qt_sr.qm
    #File ${QTLANG}\translations\qt_sv.qm
+    File ${QTLANG}\translations\qt_zh_CN.qm
 
     SetOutPath $INSTDIR
     File ${VMPKBLD}\src\vc_redist.${CPU}.exe
@@ -143,6 +146,7 @@ Section -Main SEC0000
     File ${VMPKSRC}\data\help_fr.html
     File ${VMPKSRC}\data\help_sr.html
     File ${VMPKSRC}\data\help_ru.html
+    File ${VMPKSRC}\data\help_zh_CN.html
     File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_cs.qm
     File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_de.qm
     File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_es.qm
@@ -152,6 +156,7 @@ Section -Main SEC0000
     File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_ru.qm
     File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_sr.qm
     File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_sv.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_zh_CN.qm
 
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Core.dll $INSTDIR\Qt5Core.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Gui.dll $INSTDIR\Qt5Gui.dll $INSTDIR
@@ -263,6 +268,7 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\translations\qt_ru.qm
    #Delete /REBOOTOK $INSTDIR\translations\qt_sv.qm
    #Delete /REBOOTOK $INSTDIR\translations\qt_sr.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_cs.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_de.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_es.qm
@@ -272,6 +278,7 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\translations\vmpk_ru.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_sv.qm
     Delete /REBOOTOK $INSTDIR\translations\vmpk_sr.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_zh_CN.qm
     Delete /REBOOTOK $INSTDIR\drumstick-widgets_cs.qm
     Delete /REBOOTOK $INSTDIR\drumstick-widgets_de.qm
     Delete /REBOOTOK $INSTDIR\drumstick-widgets_es.qm
@@ -281,6 +288,7 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\drumstick-widgets_ru.qm
     Delete /REBOOTOK $INSTDIR\drumstick-widgets_sr.qm
     Delete /REBOOTOK $INSTDIR\drumstick-widgets_sv.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_zh_CN.qm
 
     Delete /REBOOTOK $INSTDIR\vmpk.exe
     Delete /REBOOTOK $INSTDIR\vc_redist.${CPU}.exe
@@ -299,6 +307,7 @@ Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\help_fr.html
     Delete /REBOOTOK $INSTDIR\help_ru.html
     Delete /REBOOTOK $INSTDIR\help_sr.html
+    Delete /REBOOTOK $INSTDIR\help_zh_CN.html
 
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Core.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Gui.dll
