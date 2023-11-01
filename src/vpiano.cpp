@@ -925,17 +925,15 @@ void VPiano::slotPitchBend(const int chan, const int value)
 
 void VPiano::showEvent ( QShowEvent *event )
 {
-    static bool firstTime{true};
     //qDebug() << Q_FUNC_INFO << firstTime;
-    if (firstTime) {
+    std::call_once(m_firstTime, [=] {
         if (!restoreGeometry(VPianoSettings::instance()->geometry())) {
             qWarning() << "restoreGeometry() failed!";
         }
         if (!restoreState(VPianoSettings::instance()->state())) {
             qWarning() << "restoreState() failed!";
         }
-        firstTime = false;
-    }
+    });
     QMainWindow::showEvent(event);
 #if !defined(SMALL_SCREEN)
     if (m_initialized) {

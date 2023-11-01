@@ -22,6 +22,8 @@
 #include <QMainWindow>
 #include <QPointer>
 #include <drumstick/pianokeybd.h>
+#include <mutex>
+
 #if defined(ENABLE_NATIVE_FILTER)
 	#include "nativefilter.h"
 #endif
@@ -269,6 +271,8 @@ private:
 #if defined(Q_OS_WINDOWS)
     WinSnap m_snapper;
 #endif
+    std::once_flag m_firstTime;
+
     void connectMidiInSignals();
 };
 
