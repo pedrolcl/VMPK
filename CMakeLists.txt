@@ -1,20 +1,22 @@
-# Virtual MIDI Piano Keyboard
-# Copyright (C) 2008-2023 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License along
-# with this program; If not, see <http://www.gnu.org/licenses/>.
+#[===========================================================================[
+Virtual MIDI Piano Keyboard
+Copyright (C) 2008-2023 Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 
-cmake_minimum_required(VERSION 3.14)
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; If not, see <http://www.gnu.org/licenses/>.
+#]===========================================================================]
+
+cmake_minimum_required(VERSION 3.16)
 
 project( VMPK
     VERSION 0.8.11
@@ -35,12 +37,12 @@ option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 option(ENABLE_NATIVE_FILTER "Use a QAbstractNativeEventFilter to process raw keyboard events" ${FILTER_INIT})
 option(EMBED_TRANSLATIONS "Embed translations instead of installing" OFF)
 option(BUILD_DOCS "Build man page" ON)
-option(USE_QT "Choose which Qt major version (5 or 6) to prefer. By default uses whatever is found")
+option(USE_QT5 "Prefer building with Qt5 instead of Qt6")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 include(SCMRevision)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # cmake bug https://gitlab.kitware.com/cmake/cmake/issues/18396 closed in cmake 3.14
@@ -61,18 +63,10 @@ if(MSVC)
     string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
 endif()
 
-if (USE_QT)
-    if (NOT (USE_QT EQUAL 5 OR USE_QT EQUAL 6))
-        message(FATAL_ERROR "Wrong Qt major version. Only 5 and 6 are valid options")
-    endif()
-endif()
-
-if (USE_QT EQUAL 5)
-    find_package(QT NAMES Qt5)
-elseif (USE_QT EQUAL 6)
-    find_package(QT NAMES Qt6)
+if (USE_QT5)
+    find_package(QT NAMES Qt5 REQUIRED)
 else()
-    find_package(QT NAMES Qt5 Qt6)
+    find_package(QT NAMES Qt6 REQUIRED)
 endif()
 
 if (QT_VERSION VERSION_LESS 6.0)

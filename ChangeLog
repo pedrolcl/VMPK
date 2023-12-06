@@ -1,3 +1,10 @@
+2023-12-06
+    * Release 0.8.11 preparations
+        Build with Qt6 by default
+        For Qt6 compatibility, the USE_QT5 option must be set
+        C++ compiler and runtime requirements upgraded to C++17
+        CMake requirement upgraded to 3.16
+
 2023-11-01
     * using std::call_once for restoring settings
 
