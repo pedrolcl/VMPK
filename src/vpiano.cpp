@@ -781,6 +781,10 @@ void VPiano::writeSettings()
         }
     }
     settings->endGroup();
+
+    writeDriverSettings(settings.getQSettings(), m_midiin);
+    writeDriverSettings(settings.getQSettings(), m_midiout);
+
     settings->sync();
 }
 
@@ -1193,6 +1197,20 @@ void VPiano::connectMidiInSignals()
         connect(m_midiin, &MIDIInput::midiController, this, &VPiano::slotController, Qt::QueuedConnection);
         connect(m_midiin, &MIDIInput::midiProgram, this, &VPiano::slotProgram, Qt::QueuedConnection);
         connect(m_midiin, &MIDIInput::midiPitchBend, this, &VPiano::slotPitchBend, Qt::QueuedConnection);
+    }
+}
+
+void VPiano::writeDriverSettings(QSettings *settings, QObject *driver)
+{
+    if (settings != nullptr && driver != nullptr) {
+        const QMetaObject *mo = driver->metaObject();
+        //const auto signature = QMetaObject::normalizedSignature("writeSettings(QSettings*)");
+        const auto index = mo->indexOfMethod("writeSettings(QSettings*)");
+        if (index != -1) {
+            /*auto res =*/
+            QMetaObject::invokeMethod(driver, "writeSettings", Q_ARG(QSettings *, settings));
+            //qDebug() << Q_FUNC_INFO << mo->className() << res;
+        }
     }
 }
 
@@ -2266,7 +2284,7 @@ void VPiano::slotLoadConfiguration()
 void VPiano::slotSaveConfiguration()
 {
     releaseKb();
-    auto configDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+    const auto configDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
     QFileDialog dlg(this);
     dlg.setNameFilter(tr("Configuration files (*.conf *.ini)"));
     dlg.setDirectory(configDir);
@@ -2275,9 +2293,12 @@ void VPiano::slotSaveConfiguration()
     dlg.setFileMode(QFileDialog::AnyFile);
     dlg.setAcceptMode(QFileDialog::AcceptSave);
     if (dlg.exec() == QDialog::Accepted) {
-        auto selected = dlg.selectedFiles();
+        const auto selected = dlg.selectedFiles();
         if (!selected.isEmpty()) {
-            VPianoSettings::instance()->SaveToFile(selected.first());
+            const auto lastFileName = SettingsFactory::fileName();
+            SettingsFactory::setFileName(selected.constFirst());
+            writeSettings();
+            SettingsFactory::setFileName(lastFileName);
         }
     }
     grabKb();

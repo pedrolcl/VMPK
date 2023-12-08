@@ -1,3 +1,6 @@
+2023-12-08
+    * Fix for GH #18: Extra controllers not saved with configuration. Needs Drumstick v2.9
+
 2023-12-06
     * Release 0.8.11 preparations
         Build with Qt6 by default

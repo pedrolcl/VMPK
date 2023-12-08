@@ -274,6 +274,7 @@ private:
     std::once_flag m_firstTime;
 
     void connectMidiInSignals();
+    void writeDriverSettings(QSettings *settings, QObject *driver);
 };
 
 #endif // VPIANO_H

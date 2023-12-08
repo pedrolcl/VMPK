@@ -364,6 +364,7 @@ void VPianoSettings::internalSave(QSettings &settings)
     settings.endGroup();
 
     savePalettes();
+    settings.sync();
 }
 
 QString VPianoSettings::getRawMapFile() const
