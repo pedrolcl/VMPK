@@ -117,37 +117,50 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(orientationGroup, &QActionGroup::triggered, this, &VPiano::slotNameOrientation);
 
     connect(ui.pianokeybd, &PianoKeybd::signalName, this, &VPiano::slotNoteName);
-    connect(ui.actionAbout, SIGNAL(triggered()), SLOT(slotAbout()));
-    connect(ui.actionAboutQt, SIGNAL(triggered()), SLOT(slotAboutQt()));
-    connect(ui.actionAboutTranslation, SIGNAL(triggered()), SLOT(slotAboutTranslation()));
-    connect(ui.actionConnections, SIGNAL(triggered()), SLOT(slotConnections()));
-    connect(ui.actionPreferences, SIGNAL(triggered()), SLOT(slotPreferences()));
-    connect(ui.actionEditKM, SIGNAL(triggered()), SLOT(slotEditKeyboardMap()));
-    connect(ui.actionContents, SIGNAL(triggered()), SLOT(slotHelpContents()));
-    connect(ui.actionWebSite, SIGNAL(triggered()), SLOT(slotOpenWebSite()));
-    connect(ui.actionImportSoundFont, SIGNAL(triggered()), SLOT(slotImportSF()));
-    connect(ui.actionEditExtraControls, SIGNAL(triggered()), SLOT(slotEditExtraControls()));
-    connect(ui.actionShortcuts, SIGNAL(triggered()), SLOT(slotShortcuts()));
-    connect(ui.actionKeyboardInput, SIGNAL(toggled(bool)), SLOT(slotKeyboardInput(bool)));
-    connect(ui.actionMouseInput, SIGNAL(toggled(bool)), SLOT(slotMouseInput(bool)));
-    connect(ui.actionTouchScreenInput, SIGNAL(toggled(bool)), SLOT(slotTouchScreenInput(bool)));
-    connect(ui.actionColorPalette, SIGNAL(triggered()), SLOT(slotColorPolicy()));
-    connect(ui.actionColorScale, SIGNAL(toggled(bool)), SLOT(slotColorScale(bool)));
-    connect(ui.actionWindowFrame, SIGNAL(toggled(bool)), SLOT(toggleWindowFrame(bool)));
-    connect(ui.actionOctave_Subscript_Designation, SIGNAL(toggled(bool)), SLOT(slotOctaveSubscript(bool)));
+    connect(ui.actionAbout, &QAction::triggered, this, &VPiano::slotAbout);
+    connect(ui.actionAboutQt, &QAction::triggered, this, &VPiano::slotAboutQt);
+    connect(ui.actionAboutTranslation, &QAction::triggered, this, &VPiano::slotAboutTranslation);
+    connect(ui.actionConnections, &QAction::triggered, this, &VPiano::slotConnections);
+    connect(ui.actionPreferences, &QAction::triggered, this, &VPiano::slotPreferences);
+    connect(ui.actionEditKM, &QAction::triggered, this, &VPiano::slotEditKeyboardMap);
+    connect(ui.actionContents, &QAction::triggered, this, &VPiano::slotHelpContents);
+    connect(ui.actionWebSite, &QAction::triggered, this, &VPiano::slotOpenWebSite);
+    connect(ui.actionImportSoundFont, &QAction::triggered, this, &VPiano::slotImportSF);
+    connect(ui.actionEditExtraControls, &QAction::triggered, this, &VPiano::slotEditExtraControls);
+    connect(ui.actionShortcuts, &QAction::triggered, this, &VPiano::slotShortcuts);
+    connect(ui.actionKeyboardInput, &QAction::toggled, this, &VPiano::slotKeyboardInput);
+    connect(ui.actionMouseInput, &QAction::toggled, this, &VPiano::slotMouseInput);
+    connect(ui.actionTouchScreenInput, &QAction::toggled, this, &VPiano::slotTouchScreenInput);
+    connect(ui.actionColorPalette, &QAction::triggered, this, &VPiano::slotColorPolicy);
+    connect(ui.actionColorScale, &QAction::toggled, this, &VPiano::slotColorScale);
+    connect(ui.actionWindowFrame, &QAction::toggled, this, &VPiano::toggleWindowFrame);
+    connect(ui.actionOctave_Subscript_Designation,
+            &QAction::toggled,
+            this,
+            &VPiano::slotOctaveSubscript);
     connect(ui.actionLoad_Configuration, &QAction::triggered, this, &VPiano::slotLoadConfiguration);
     connect(ui.actionSave_Configuration, &QAction::triggered, this, &VPiano::slotSaveConfiguration);
     // Toolbars actions: toggle view
-    connect(ui.toolBarNotes->toggleViewAction(), SIGNAL(toggled(bool)),
-            ui.actionNotes, SLOT(setChecked(bool)));
-    connect(ui.toolBarControllers->toggleViewAction(), SIGNAL(toggled(bool)),
-            ui.actionControllers, SLOT(setChecked(bool)));
-    connect(ui.toolBarBender->toggleViewAction(), SIGNAL(toggled(bool)),
-            ui.actionBender, SLOT(setChecked(bool)));
-    connect(ui.toolBarPrograms->toggleViewAction(), SIGNAL(toggled(bool)),
-            ui.actionPrograms, SLOT(setChecked(bool)));
-    connect(ui.toolBarExtra->toggleViewAction(), SIGNAL(toggled(bool)),
-            ui.actionExtraControls, SLOT(setChecked(bool)));
+    connect(ui.toolBarNotes->toggleViewAction(),
+            &QAction::toggled,
+            ui.actionNotes,
+            &QAction::setChecked);
+    connect(ui.toolBarControllers->toggleViewAction(),
+            &QAction::toggled,
+            ui.actionControllers,
+            &QAction::setChecked);
+    connect(ui.toolBarBender->toggleViewAction(),
+            &QAction::toggled,
+            ui.actionBender,
+            &QAction::setChecked);
+    connect(ui.toolBarPrograms->toggleViewAction(),
+            &QAction::toggled,
+            ui.actionPrograms,
+            &QAction::setChecked);
+    connect(ui.toolBarExtra->toggleViewAction(),
+            &QAction::toggled,
+            ui.actionExtraControls,
+            &QAction::setChecked);
 #if defined(SMALL_SCREEN)
     ui.toolBarControllers->hide();
     ui.toolBarBender->hide();
@@ -325,30 +338,27 @@ void VPiano::initToolBars()
     m_Velocity->setToolTip(QString::number(VPianoSettings::instance()->velocity()));
     m_Velocity->setFocusPolicy(Qt::NoFocus);
     ui.toolBarNotes->addWidget(m_Velocity);
-    connect( m_sboxChannel, SIGNAL(valueChanged(int)),
-             SLOT(slotChannelValueChanged(int)));
-    connect( m_sboxOctave, SIGNAL(valueChanged(int)),
-             SLOT(slotBaseOctaveValueChanged(int)) );
-    connect( m_sboxTranspose, SIGNAL(valueChanged(int)),
-             SLOT(slotTransposeValueChanged(int)) );
-    connect( m_Velocity, SIGNAL(valueChanged(int)),
-             SLOT(slotVelocityValueChanged(int)) );
-    connect( ui.actionChannelUp, SIGNAL(triggered()),
-             m_sboxChannel, SLOT(stepUp()) );
-    connect( ui.actionChannelDown, SIGNAL(triggered()),
-             m_sboxChannel, SLOT(stepDown()) );
-    connect( ui.actionOctaveUp, SIGNAL(triggered()),
-             m_sboxOctave, SLOT(stepUp()) );
-    connect( ui.actionOctaveDown, SIGNAL(triggered()),
-             m_sboxOctave, SLOT(stepDown()) );
-    connect( ui.actionTransposeUp, SIGNAL(triggered()),
-             m_sboxTranspose, SLOT(stepUp()) );
-    connect( ui.actionTransposeDown, SIGNAL(triggered()),
-             m_sboxTranspose, SLOT(stepDown()) );
-    connect( ui.actionVelocityUp, SIGNAL(triggered()),
-             SLOT(slotVelocityUp()) );
-    connect( ui.actionVelocityDown, SIGNAL(triggered()),
-             SLOT(slotVelocityDown()) );
+    connect(m_sboxChannel,
+            QOverload<int>::of(&QSpinBox::valueChanged),
+            this,
+            &VPiano::slotChannelValueChanged);
+    connect(m_sboxOctave,
+            QOverload<int>::of(&QSpinBox::valueChanged),
+            this,
+            &VPiano::slotBaseOctaveValueChanged);
+    connect(m_sboxTranspose,
+            QOverload<int>::of(&QSpinBox::valueChanged),
+            this,
+            &VPiano::slotTransposeValueChanged);
+    connect(m_Velocity, &QAbstractSlider::valueChanged, this, &VPiano::slotVelocityValueChanged);
+    connect(ui.actionChannelUp, &QAction::triggered, m_sboxChannel, &QSpinBox::stepUp);
+    connect(ui.actionChannelDown, &QAction::triggered, m_sboxChannel, &QSpinBox::stepDown);
+    connect(ui.actionOctaveUp, &QAction::triggered, m_sboxOctave, &QSpinBox::stepUp);
+    connect(ui.actionOctaveDown, &QAction::triggered, m_sboxOctave, &QSpinBox::stepDown);
+    connect(ui.actionTransposeUp, &QAction::triggered, m_sboxTranspose, &QSpinBox::stepUp);
+    connect(ui.actionTransposeDown, &QAction::triggered, m_sboxTranspose, &QSpinBox::stepDown);
+    connect(ui.actionVelocityUp, &QAction::triggered, this, &VPiano::slotVelocityUp);
+    connect(ui.actionVelocityDown, &QAction::triggered, this, &VPiano::slotVelocityDown);
     // Controllers tool bar
     m_lblControl = new QLabel(this);
     ui.toolBarControllers->addWidget(m_lblControl);
@@ -370,10 +380,11 @@ void VPiano::initToolBars()
     m_Control->setToolTip("0");
     m_Control->setFocusPolicy(Qt::NoFocus);
     ui.toolBarControllers->addWidget(m_Control);
-    connect( m_comboControl, SIGNAL(currentIndexChanged(int)),
-             SLOT(slotComboControlCurrentIndexChanged(int)) );
-    connect( m_Control, SIGNAL(sliderMoved(int)),
-             SLOT(slotControlSliderMoved(int)) );
+    connect(m_comboControl,
+            QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this,
+            &VPiano::slotComboControlCurrentIndexChanged);
+    connect(m_Control, &QAbstractSlider::sliderMoved, this, &VPiano::slotControlSliderMoved);
     // Pitch bender tool bar
     m_lblBender = new QLabel(this);
     ui.toolBarBender->addWidget(m_lblBender);
@@ -387,10 +398,8 @@ void VPiano::initToolBars()
     m_bender->setToolTip("0");
     m_bender->setFocusPolicy(Qt::NoFocus);
     ui.toolBarBender->addWidget(m_bender);
-    connect( m_bender, SIGNAL(sliderMoved(int)),
-             SLOT(slotBenderSliderMoved(int)) );
-    connect( m_bender, SIGNAL(sliderReleased()),
-             SLOT(slotBenderSliderReleased()) );
+    connect(m_bender, &QAbstractSlider::sliderMoved, this, &VPiano::slotBenderSliderMoved);
+    connect(m_bender, &QAbstractSlider::sliderReleased, this, &VPiano::slotBenderSliderReleased);
     // Programs tool bar
     m_lblBank = new QLabel(this);
     ui.toolBarPrograms->addWidget(m_lblBank);
@@ -410,45 +419,36 @@ void VPiano::initToolBars()
     m_comboProg->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     m_comboProg->setFocusPolicy(Qt::NoFocus);
     ui.toolBarPrograms->addWidget(m_comboProg);
-    connect( m_comboBank, SIGNAL(activated(int)),
-             SLOT(slotComboBankActivated(int)) );
-    connect( m_comboProg, SIGNAL(activated(int)),
-             SLOT(slotComboProgActivated(int)) );
+    connect(m_comboBank,
+            QOverload<int>::of(&QComboBox::activated),
+            this,
+            &VPiano::slotComboBankActivated);
+    connect(m_comboProg,
+            QOverload<int>::of(&QComboBox::activated),
+            this,
+            &VPiano::slotComboProgActivated);
     // Toolbars actions: buttons
-    connect( ui.actionPanic, SIGNAL(triggered()),
-             SLOT(slotPanic()));
-    connect( ui.actionResetAll, SIGNAL(triggered()),
-             SLOT(slotResetAllControllers()));
-    connect( ui.actionReset, SIGNAL(triggered()),
-             SLOT(slotResetBender()));
-    connect( ui.actionEditExtra, SIGNAL(triggered()),
-             SLOT(slotEditExtraControls()));
+    connect(ui.actionPanic, &QAction::triggered, this, &VPiano::slotPanic);
+    connect(ui.actionResetAll, &QAction::triggered, this, &VPiano::slotResetAllControllers);
+    connect(ui.actionReset, &QAction::triggered, this, &VPiano::slotResetBender);
+    connect(ui.actionEditExtra, &QAction::triggered, this, &VPiano::slotEditExtraControls);
     // Tools actions
-    connect( ui.actionNextBank, SIGNAL(triggered()),
-             SLOT(slotBankNext()) );
-    connect( ui.actionPreviousBank, SIGNAL(triggered()),
-             SLOT(slotBankPrev()) );
-    connect( ui.actionNextProgram, SIGNAL(triggered()),
-             SLOT(slotProgramNext()) );
-    connect( ui.actionPreviousProgram, SIGNAL(triggered()),
-             SLOT(slotProgramPrev()) );
-    connect( ui.actionNextController, SIGNAL(triggered()),
-             SLOT(slotControllerNext()) );
-    connect( ui.actionPreviousController, SIGNAL(triggered()),
-             SLOT(slotControllerPrev()) );
-    connect( ui.actionControllerDown, SIGNAL(triggered()),
-             SLOT(slotControllerDown()) );
-    connect( ui.actionControllerUp, SIGNAL(triggered()),
-             SLOT(slotControllerUp()) );
-    /* connect( ui.actionEditPrograms, SIGNAL(triggered()),
-             SLOT(slotEditPrograms())); */
+    connect(ui.actionNextBank, &QAction::triggered, this, &VPiano::slotBankNext);
+    connect(ui.actionPreviousBank, &QAction::triggered, this, &VPiano::slotBankPrev);
+    connect(ui.actionNextProgram, &QAction::triggered, this, &VPiano::slotProgramNext);
+    connect(ui.actionPreviousProgram, &QAction::triggered, this, &VPiano::slotProgramPrev);
+    connect(ui.actionNextController, &QAction::triggered, this, &VPiano::slotControllerNext);
+    connect(ui.actionPreviousController, &QAction::triggered, this, &VPiano::slotControllerPrev);
+    connect(ui.actionControllerDown, &QAction::triggered, this, &VPiano::slotControllerDown);
+    connect(ui.actionControllerUp, &QAction::triggered, this, &VPiano::slotControllerUp);
+    /* connect( ui.actionEditPrograms, &QAction::triggered, this, &VPiano::slotEditPrograms); */
     retranslateToolbars();
 }
 
-//void VPiano::slotDebugDestroyed(QObject *obj)
-//{
-//    qDebug() << Q_FUNC_INFO << obj->metaObject()->className();
-//}
+/*void VPiano::slotDebugDestroyed(QObject *obj)
+{
+    qDebug() << Q_FUNC_INFO << obj->metaObject()->className();
+}*/
 
 void VPiano::clearExtraControllers()
 {
@@ -507,10 +507,10 @@ void VPiano::initExtraControllers()
             chkbox->setProperty(MIDICTLONVALUE, maxValue);
             chkbox->setProperty(MIDICTLOFFVALUE, minValue);
             chkbox->setChecked(bool(value));
-            connect(chkbox, SIGNAL(clicked(bool)), SLOT(slotControlClicked(bool)));
+            chkbox->setAutoRepeat(false);
+            connect(chkbox, &QCheckBox::clicked, this, &VPiano::slotControlClicked);
             if (!keySequence.isEmpty()) {
-                QShortcut *s = new QShortcut(QKeySequence(keySequence), chkbox, SLOT(click()));
-                s->setAutoRepeat(false);
+                chkbox->setShortcut(keySequence);
             }
             w = chkbox;
             break;
@@ -521,7 +521,7 @@ void VPiano::initExtraControllers()
             knob->setMaximum(maxValue);
             knob->setValue(value);
             knob->setToolTip(QString::number(value));
-            connect(knob, SIGNAL(sliderMoved(int)), SLOT(slotExtraController(int)));
+            connect(knob, &QAbstractSlider::sliderMoved, this, &VPiano::slotExtraController);
             w = knob;
             break;
         case ExtraControl::ControlType::SpinBoxControl:
@@ -529,7 +529,10 @@ void VPiano::initExtraControllers()
             spin->setMinimum(minValue);
             spin->setMaximum(maxValue);
             spin->setValue(value);
-            connect(spin, SIGNAL(valueChanged(int)), SLOT(slotExtraController(int)));
+            connect(spin,
+                    QOverload<int>::of(&QSpinBox::valueChanged),
+                    this,
+                    &VPiano::slotExtraController);
             w = spin;
             break;
         case ExtraControl::ControlType::SliderControl:
@@ -540,7 +543,7 @@ void VPiano::initExtraControllers()
             slider->setMaximum(maxValue);
             slider->setToolTip(QString::number(value));
             slider->setValue(value);
-            connect(slider, SIGNAL(sliderMoved(int)), SLOT(slotExtraController(int)));
+            connect(slider, &QAbstractSlider::sliderMoved, this, &VPiano::slotExtraController);
             w = slider;
             break;
         case ExtraControl::ControlType::ButtonCtlControl:
@@ -548,10 +551,10 @@ void VPiano::initExtraControllers()
             button->setText(lbl);
             button->setProperty(MIDICTLONVALUE, maxValue);
             button->setProperty(MIDICTLOFFVALUE, minValue);
-            connect(button, SIGNAL(clicked(bool)), SLOT(slotControlClicked(bool)));
+            button->setAutoRepeat(false);
+            connect(button, &QToolButton::clicked, this, &VPiano::slotControlClicked);
             if (!keySequence.isEmpty()) {
-                QShortcut *s = new QShortcut(QKeySequence(keySequence), button, SLOT(animateClick()));
-                s->setAutoRepeat(false);
+                button->setShortcut(keySequence);
             }
             w = button;
             break;
@@ -561,10 +564,10 @@ void VPiano::initExtraControllers()
             button->setText(lbl);
             button->setProperty(SYSEXFILENAME, fileName);
             button->setProperty(SYSEXFILEDATA, readSysexDataFile(fileName));
-            connect(button, SIGNAL(clicked(bool)), SLOT(slotControlClicked(bool)));
+            button->setAutoRepeat(false);
+            connect(button, &QToolButton::clicked, this, &VPiano::slotControlClicked);
             if (!keySequence.isEmpty()) {
-                QShortcut *s = new QShortcut(QKeySequence(keySequence), button, SLOT(animateClick()));
-                s->setAutoRepeat(false);
+                button->setShortcut(keySequence);
             }
             w = button;
             break;
@@ -576,12 +579,12 @@ void VPiano::initExtraControllers()
                 QLabel *qlbl = new QLabel(lbl, this);
                 qlbl->setMargin(TOOLBARLABELMARGIN);
                 ui.toolBarExtra->addWidget(qlbl);
-                //connect(qlbl, SIGNAL(destroyed(QObject*)), SLOT(slotDebugDestroyed(QObject*)));
+                //connect(qlbl, &QObject::destroyed, this, &VPiano::slotDebugDestroyed);
             }
             w->setProperty(MIDICTLNUMBER, control);
             w->setFocusPolicy(Qt::NoFocus);
             ui.toolBarExtra->addWidget(w);
-            //connect(w, SIGNAL(destroyed(QObject*)), SLOT(slotDebugDestroyed(QObject*)));
+            //connect(w, &QObject::destroyed, this, &VPiano::slotDebugDestroyed);
         }
     }
 }
@@ -1673,7 +1676,7 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
         layout->addWidget(buttonBox);
         browser->setSource(document);
-        connect(buttonBox, SIGNAL(accepted()), SLOT(close()));
+        connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::close);
     }
 };
 #endif

@@ -111,12 +111,11 @@ ShortcutTableItemEditor::ShortcutTableItemEditor (
 	QWidget::setFocusPolicy(Qt::StrongFocus);
 	QWidget::setFocusProxy(m_pLineEdit);
 
-	QObject::connect(m_pLineEdit,
-		SIGNAL(editingFinished()),
-		SLOT(finish()));
-	QObject::connect(m_pToolButton,
-		SIGNAL(clicked()),
-		SLOT(clear()));
+    connect(m_pLineEdit,
+            &ShortcutTableItemEdit::editingFinished,
+            this,
+            &ShortcutTableItemEditor::finish);
+    connect(m_pToolButton, &QToolButton::clicked, this, &ShortcutTableItemEditor::clear);
 }
 
 
@@ -202,10 +201,11 @@ QWidget *ShortcutTableItemDelegate::createEditor ( QWidget *pParent,
 		= new ShortcutTableItemEditor(pParent);
 	pItemEditor->setDefaultText(
 		index.model()->data(index, Qt::DisplayRole).toString());
-	QObject::connect(pItemEditor,
-		SIGNAL(editingFinished()),
-		SLOT(commitEditor()));
-	return pItemEditor;
+    connect(pItemEditor,
+            &ShortcutTableItemEditor::editingFinished,
+            this,
+            &ShortcutTableItemDelegate::commitEditor);
+    return pItemEditor;
 }
 
 
@@ -278,24 +278,18 @@ ShortcutDialog::ShortcutDialog ( QList<QAction *> actions,
 		++iRow;
 	}
 
-	QObject::connect(m_ui.ShortcutTable,
-		SIGNAL(itemActivated(QTableWidgetItem *)),
-		SLOT(actionActivated(QTableWidgetItem *)));
+    connect(m_ui.ShortcutTable,
+            &QTableWidget::itemActivated,
+            this,
+            &ShortcutDialog::actionActivated);
 
-	QObject::connect(m_ui.ShortcutTable,
-		SIGNAL(itemChanged(QTableWidgetItem *)),
-		SLOT(actionChanged(QTableWidgetItem *)));
+    connect(m_ui.ShortcutTable, &QTableWidget::itemChanged, this, &ShortcutDialog::actionChanged);
 
-	QObject::connect(m_ui.DialogButtonBox,
-		SIGNAL(accepted()),
-		SLOT(accept()));
-	QObject::connect(m_ui.DialogButtonBox,
-		SIGNAL(rejected()),
-		SLOT(reject()));
+    connect(m_ui.DialogButtonBox, &QDialogButtonBox::accepted, this, &ShortcutDialog::accept);
+    connect(m_ui.DialogButtonBox, &QDialogButtonBox::rejected, this, &ShortcutDialog::reject);
 
     QPushButton *btnDefaults = m_ui.DialogButtonBox->button(QDialogButtonBox::RestoreDefaults);
-    QObject::connect(btnDefaults, SIGNAL(clicked()), SLOT(slotRestoreDefaults()));
-
+    connect(btnDefaults, &QPushButton::clicked, this, &ShortcutDialog::slotRestoreDefaults);
 }
 
 

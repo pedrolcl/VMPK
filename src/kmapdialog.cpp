@@ -33,8 +33,8 @@ KMapDialog::KMapDialog(QWidget *parent)
     m_btnSave = ui.buttonBox->addButton(tr("Save As..."), QDialogButtonBox::ActionRole);
     m_btnOpen->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_DialogOpenButton)));
     m_btnSave->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_DialogSaveButton)));
-	connect(m_btnOpen, SIGNAL(clicked()), SLOT(slotOpen()));
-    connect(m_btnSave, SIGNAL(clicked()), SLOT(slotSave()));
+    connect(m_btnOpen, &QPushButton::clicked, this, &KMapDialog::slotOpen);
+    connect(m_btnSave, &QPushButton::clicked, this, &KMapDialog::slotSave);
 }
 
 void KMapDialog::displayMap(const VMPKKeyboardMap* map)

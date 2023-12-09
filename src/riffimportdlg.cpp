@@ -43,8 +43,8 @@ RiffImportDlg::RiffImportDlg(QWidget *parent)
     ui->setupUi(this);
     ui->m_inputBtn->setIcon(IconUtils::GetIcon("wrench"));
     ui->m_outputBtn->setIcon(IconUtils::GetIcon("wrench"));
-    connect(ui->m_inputBtn, SIGNAL(clicked()), SLOT(openInput()));
-    connect(ui->m_outputBtn, SIGNAL(clicked()), SLOT(openOutput()));
+    connect(ui->m_inputBtn, &QToolButton::clicked, this, &RiffImportDlg::openInput);
+    connect(ui->m_outputBtn, &QToolButton::clicked, this, &RiffImportDlg::openOutput);
 }
 
 RiffImportDlg::~RiffImportDlg()
