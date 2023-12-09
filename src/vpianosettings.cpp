@@ -728,7 +728,7 @@ void VPianoSettings::setInstruments( const QString fileName, const QString instr
         f.setFile(VPianoSettings::dataDirectory(), fileName);
     }
     if (f.isReadable()) {
-        m_insList.clear();
+        m_insList.clearAll();
         if (m_insList.load( f.absoluteFilePath() )) {
             m_insFileName = f.absoluteFilePath();
             if (m_insList.contains(instrumentName)) {
