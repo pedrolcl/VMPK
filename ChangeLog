@@ -1,10 +1,13 @@
+2023-12-09
+    * Fix for GH #17: Changing instrument file doesn't remove old instruments/controllers.
+
 2023-12-08
     * Fix for GH #18: Extra controllers not saved with configuration. Needs Drumstick v2.9
 
 2023-12-06
-    * Release 0.8.11 preparations
+    * Release 0.9.0 preparations
         Build with Qt6 by default
-        For Qt6 compatibility, the USE_QT5 option must be set
+        For Qt5 compatibility, the USE_QT5 option must be set ON
         C++ compiler and runtime requirements upgraded to C++17
         CMake requirement upgraded to 3.16
 

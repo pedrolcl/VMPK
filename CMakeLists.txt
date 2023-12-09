@@ -19,7 +19,7 @@ with this program; If not, see <http://www.gnu.org/licenses/>.
 cmake_minimum_required(VERSION 3.16)
 
 project( VMPK
-    VERSION 0.8.11
+    VERSION 0.9.0
     LANGUAGES CXX
     DESCRIPTION "Virtual MIDI Piano Keyboard"
     HOMEPAGE_URL "https://vmpk.sourceforge.io/"
