@@ -1005,17 +1005,17 @@ void VPiano::sendController(const int controller, const int value)
 
 void VPiano::resetAllControllers()
 {
-    sendController(CTL_RESET_ALL_CTL, 0);
     initializeAllControllers();
+    sendController(CTL_RESET_ALL_CTL, 0);
 }
 
 void VPiano::initializeAllControllers()
 {
     int channel = VPianoSettings::instance()->channel();
+    initControllers(channel);
     int index = m_comboControl->currentIndex();
     int ctl = m_comboControl->itemData(index).toInt();
     int val = m_ctlState[channel][ctl];
-    initControllers(channel);
     m_comboControl->setCurrentIndex(index);
     m_Control->setValue(val);
     m_Control->setToolTip(QString::number(val));
@@ -1251,10 +1251,8 @@ void VPiano::initControllers(int channel)
 {
     if (m_ins != nullptr) {
         InstrumentData controls = m_ins->control();
-        InstrumentData::ConstIterator it, end;
-        it = controls.constBegin();
-        end = controls.constEnd();
-        for( ; it != end; ++it ) {
+        InstrumentData::ConstIterator it;
+        for (it = controls.constBegin(); it != controls.constEnd(); ++it) {
             int ctl = it.key();
             switch (ctl) {
             case CTL_VOLUME:
