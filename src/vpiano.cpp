@@ -510,7 +510,9 @@ void VPiano::initExtraControllers()
             chkbox->setAutoRepeat(false);
             connect(chkbox, &QCheckBox::clicked, this, &VPiano::slotControlClicked);
             if (!keySequence.isEmpty()) {
-                chkbox->setShortcut(keySequence);
+                QShortcut *s = new QShortcut(keySequence, this);
+                s->setAutoRepeat(false);
+                connect(s, &QShortcut::activated, chkbox, [=] { chkbox->animateClick(); });
             }
             w = chkbox;
             break;
@@ -554,7 +556,9 @@ void VPiano::initExtraControllers()
             button->setAutoRepeat(false);
             connect(button, &QToolButton::clicked, this, &VPiano::slotControlClicked);
             if (!keySequence.isEmpty()) {
-                button->setShortcut(keySequence);
+                QShortcut *s = new QShortcut(keySequence, this);
+                s->setAutoRepeat(false);
+                connect(s, &QShortcut::activated, button, [=] { button->animateClick(); });
             }
             w = button;
             break;
@@ -567,7 +571,9 @@ void VPiano::initExtraControllers()
             button->setAutoRepeat(false);
             connect(button, &QToolButton::clicked, this, &VPiano::slotControlClicked);
             if (!keySequence.isEmpty()) {
-                button->setShortcut(keySequence);
+                QShortcut *s = new QShortcut(keySequence, this);
+                s->setAutoRepeat(false);
+                connect(s, &QShortcut::activated, button, [=] { button->animateClick(); });
             }
             w = button;
             break;
