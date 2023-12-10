@@ -384,7 +384,7 @@ void VPiano::initToolBars()
             QOverload<int>::of(&QComboBox::currentIndexChanged),
             this,
             &VPiano::slotComboControlCurrentIndexChanged);
-    connect(m_Control, &QAbstractSlider::sliderMoved, this, &VPiano::slotControlSliderMoved);
+    connect(m_Control, &QAbstractSlider::valueChanged, this, &VPiano::slotControlValueChanged);
     // Pitch bender tool bar
     m_lblBender = new QLabel(this);
     ui.toolBarBender->addWidget(m_lblBender);
@@ -521,7 +521,7 @@ void VPiano::initExtraControllers()
             knob->setMaximum(maxValue);
             knob->setValue(value);
             knob->setToolTip(QString::number(value));
-            connect(knob, &QAbstractSlider::sliderMoved, this, &VPiano::slotExtraController);
+            connect(knob, &QAbstractSlider::valueChanged, this, &VPiano::slotExtraController);
             w = knob;
             break;
         case ExtraControl::ControlType::SpinBoxControl:
@@ -543,7 +543,7 @@ void VPiano::initExtraControllers()
             slider->setMaximum(maxValue);
             slider->setToolTip(QString::number(value));
             slider->setValue(value);
-            connect(slider, &QAbstractSlider::sliderMoved, this, &VPiano::slotExtraController);
+            connect(slider, &QAbstractSlider::valueChanged, this, &VPiano::slotExtraController);
             w = slider;
             break;
         case ExtraControl::ControlType::ButtonCtlControl:
@@ -1150,7 +1150,7 @@ void VPiano::slotExtraController(const int value)
     }
 }
 
-void VPiano::slotControlSliderMoved(const int value)
+void VPiano::slotControlValueChanged(const int value)
 {
     int index = m_comboControl->currentIndex();
     int controller = m_comboControl->itemData(index).toInt();
@@ -1981,13 +1981,11 @@ void VPiano::slotVelocityDown()
 void VPiano::slotControllerUp()
 {
     m_Control->triggerAction(QDial::SliderPageStepAdd);
-    slotControlSliderMoved(m_Control->value());
 }
 
 void VPiano::slotControllerDown()
 {
     m_Control->triggerAction(QDial::SliderPageStepSub);
-    slotControlSliderMoved(m_Control->value());
 }
 
 void VPiano::slotSwitchLanguage(QAction *action)

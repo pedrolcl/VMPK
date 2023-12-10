@@ -124,7 +124,7 @@ protected Q_SLOTS:
     void slotNameOrientation(QAction* action);
     void slotNameVisibility(QAction* action);
     void slotNameVariant(QAction* action);
-    void slotControlSliderMoved(const int value);
+    void slotControlValueChanged(const int value);
     void slotExtraController(const int value);
     void slotControlClicked(const bool value);
     void slotBenderSliderMoved(const int pos);
