@@ -211,6 +211,7 @@ private:
     void sendSysex(const QByteArray& data);
     void updateController(int ctl, int val);
     void updateExtraController(int ctl, int val);
+    void removeExtraController(int ctl);
     void updateBankChange(int bank = -1);
     void updateProgramChange(int program = -1);
     void grabKb();

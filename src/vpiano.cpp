@@ -496,11 +496,16 @@ void VPiano::initExtraControllers()
         ExtraControl::decodeString( s, lbl, control, type,
                                     minValue, maxValue, defValue,
                                     size, fileName, keySequence );
+        for (int ch = 0; ch < MIDICHANNELS; ++ch) {
+            if (!m_ctlState[ch].contains(control)) {
+                m_ctlState[ch][control] = defValue;
+            }
+        }
         if (m_ctlState[channel].contains(control))
             value = m_ctlState[channel][control];
         else
             value = defValue;
-        switch(type) {
+        switch (type) {
         case ExtraControl::ControlType::SwitchControl:
             chkbox = new QCheckBox(this);
             chkbox->setStyleSheet(QSTR_CHKBOXSTYLE);
@@ -588,6 +593,7 @@ void VPiano::initExtraControllers()
                 //connect(qlbl, &QObject::destroyed, this, &VPiano::slotDebugDestroyed);
             }
             w->setProperty(MIDICTLNUMBER, control);
+            w->setProperty(MIDICTLDEFVALUE, defValue);
             w->setFocusPolicy(Qt::NoFocus);
             ui.toolBarExtra->addWidget(w);
             //connect(w, &QObject::destroyed, this, &VPiano::slotDebugDestroyed);
@@ -728,7 +734,10 @@ void VPiano::readMidiControllerSettings()
     }
     settings->endGroup();
     if (m_extraControls.isEmpty()) {
-        m_extraControls = QStringList{"Sustain,64,0,0,64,0,", "Sostenuto,66,0,0,64,0,", "Soft,67,0,0,64,0,"};
+        QString softPedal = tr("Soft") + ",67,0,0,64,0,";
+        QString sostenutoPedal = tr("Sostenuto") + ",66,0,0,64,0,";
+        QString sustainPedal = tr("Sustain") + ",64,0,0,64,0,";
+        m_extraControls << softPedal << sostenutoPedal << sustainPedal;
     }
 }
 
@@ -1026,7 +1035,12 @@ void VPiano::initializeAllControllers()
         if (c.isValid()) {
             ctl = c.toInt();
             if (m_ctlState[channel].contains(ctl)) {
-                val = m_ctlState[channel][ctl];
+                auto v = w->property(MIDICTLDEFVALUE);
+                if (v.isValid()) {
+                    val = v.toInt();
+                } else {
+                    val = m_ctlState[channel][ctl];
+                }
                 QVariant p = w->property("value");
                 if (p.isValid()) {
                     w->setProperty("value", val);
@@ -1394,9 +1408,7 @@ void VPiano::applyInitialSettings()
         i = m_ctlSettings[ch].begin();
         end = m_ctlSettings[ch].end();
         for (; i != end; ++i) {
-            j = m_ctlState[ch].find(i.key());
-            if (j != m_ctlState[ch].end())
-                m_ctlState[ch][i.key()] = i.value();
+            m_ctlState[ch][i.key()] = i.value();
         }
     }
     channel = VPianoSettings::instance()->channel();
@@ -1602,6 +1614,18 @@ void VPiano::updateExtraController(int ctl, int val)
     }
 }
 
+void VPiano::removeExtraController(int ctl)
+{
+    auto controls = m_ins->control();
+    if (!controls.contains(ctl)) {
+        for (int ch = 0; ch < MIDICHANNELS; ++ch) {
+            if (m_ctlState[ch].contains(ctl)) {
+                m_ctlState[ch].remove(ctl);
+            }
+        }
+    }
+}
+
 void VPiano::updateBankChange(int bank)
 {
     int idx;
@@ -1735,6 +1759,7 @@ void VPiano::slotImportSF()
 void VPiano::slotEditExtraControls()
 {
     QPointer<DialogExtraControls> dlgExtra = new DialogExtraControls(this);
+    connect(dlgExtra, &DialogExtraControls::controlRemoved, this, &VPiano::removeExtraController);
     dlgExtra->setControls(m_extraControls);
     releaseKb();
     if (dlgExtra->exec() == QDialog::Accepted) {
@@ -2154,13 +2179,16 @@ void VPiano::enforceMIDIChannelState()
         int channel = VPianoSettings::instance()->channel();
         //qDebug() << Q_FUNC_INFO << "channel=" << m_channel << endl;
         QMap<int,int>::Iterator i, end;
-        i = m_ctlSettings[channel].begin();
-        end = m_ctlSettings[channel].end();
+        i = m_ctlState[channel].begin();
+        end = m_ctlState[channel].end();
         for (; i != end; ++i) {
             //qDebug() << "ctl=" << i.key() << "val=" << i.value();
             sendController(i.key(), i.value());
         }
         //qDebug() << "bank=" << m_lastBank[m_channel];
+        if (m_lastBank[channel] < 0) {
+            m_lastBank[channel] = 0;
+        }
         sendBankChange(m_lastBank[channel]);
         //qDebug() << "prog=" << m_lastProg[m_channel];
         sendProgramChange(m_lastProg[channel]);

@@ -90,8 +90,11 @@ void DialogExtraControls::addControl()
 void DialogExtraControls::removeControl()
 {
     int row = m_ui->extraList->currentRow();
-    QListWidgetItem *e = m_ui->extraList->takeItem(row);
-    delete e;
+    ExtraControl *e = dynamic_cast<ExtraControl *>(m_ui->extraList->takeItem(row));
+    if (e != nullptr) {
+        emit controlRemoved(e->getControl());
+        delete e;
+    }
 }
 
 void DialogExtraControls::controlUp()

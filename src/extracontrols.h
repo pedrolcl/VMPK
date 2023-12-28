@@ -100,7 +100,7 @@ public:
     QStringList getControls();
     void retranslateUi();
 
-public slots:
+public Q_SLOTS:
     void addControl();
     void removeControl();
     void controlUp();
@@ -118,6 +118,9 @@ public slots:
     void sizeChanged(int size);
     void shortcutChanged(QString keySequence);
     void openFile();
+
+Q_SIGNALS:
+    void controlRemoved(int control);
 
 protected:
     void changeEvent(QEvent *e) override;
