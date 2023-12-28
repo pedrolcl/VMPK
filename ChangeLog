@@ -1,3 +1,10 @@
+2023-12-28
+    * Fix for GH #20: The option to keep the consistency of channels ignores the UI values
+
+2023-12-10:
+    * Fix for GH #19: Clicking or using the mouse-wheel over knobs moves them but doesn't generate events
+    * Fix for GH #21: Clicking MIDI reset doesn't reset all controllers
+
 2023-12-09
     * Fix for GH #17: Changing instrument file doesn't remove old instruments/controllers.
 
@@ -7,7 +14,7 @@
 2023-12-06
     * Release 0.9.0 preparations
         Build with Qt6 by default
-        For Qt5 compatibility, the USE_QT5 option must be set ON
+        For Qt5 compatibility, the option USE_QT5 must be set
         C++ compiler and runtime requirements upgraded to C++17
         CMake requirement upgraded to 3.16
 

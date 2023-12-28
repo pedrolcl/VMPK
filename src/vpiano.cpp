@@ -2177,20 +2177,16 @@ void VPiano::enforceMIDIChannelState()
 {
     if (VPianoSettings::instance()->enforceChannelState()) {
         int channel = VPianoSettings::instance()->channel();
-        //qDebug() << Q_FUNC_INFO << "channel=" << m_channel << endl;
         QMap<int,int>::Iterator i, end;
         i = m_ctlState[channel].begin();
         end = m_ctlState[channel].end();
         for (; i != end; ++i) {
-            //qDebug() << "ctl=" << i.key() << "val=" << i.value();
             sendController(i.key(), i.value());
         }
-        //qDebug() << "bank=" << m_lastBank[m_channel];
         if (m_lastBank[channel] < 0) {
             m_lastBank[channel] = 0;
         }
         sendBankChange(m_lastBank[channel]);
-        //qDebug() << "prog=" << m_lastProg[m_channel];
         sendProgramChange(m_lastProg[channel]);
     }
 }

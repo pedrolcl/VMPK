@@ -3,7 +3,7 @@
 <component type="desktop-application">
  <id>net.sourceforge.VMPK</id>
  <metadata_license>CC0-1.0</metadata_license>
- <project_license>GPL-3.0+</project_license>
+ <project_license>GPL-3.0-or-later</project_license>
  <name>VMPK</name>
  <summary>Virtual MIDI Piano Keyboard: a MIDI events generator and receiver</summary>
  <description>
@@ -24,204 +24,35 @@
  </recommends>
  <screenshots>
   <screenshot type="default">
-   <image>https://vmpk.sourceforge.io/images/vmpk_605x334.png</image>
+   <image>https://vmpk.sourceforge.io/images/VMPK_screenshot.png</image>
    <caption>The VMPK window</caption>
   </screenshot>
  </screenshots>
  <translation type="qt">vmpk</translation>
  <content_rating type="oars-1.1" />
  <launchable type="desktop-id">net.sourceforge.VMPK.desktop</launchable>
- <url type="homepage">https://vmpk.sourceforge.io/</url>
+ <url type="homepage">https://vmpk.sourceforge.io</url>
+ <url type="bugtracker">https://github.com/pedrolcl/VMPK/issues/</url>
+ <url type="translate">https://github.com/pedrolcl/VMPK/wiki/Translations</url>
+ <url type="vcs-browser">https://github.com/pedrolcl/VMPK/tree/master</url>
+ <url type="contact">https://sourceforge.net/projects/vmpk/lists/vmpk-devel</url>
  <developer_name>Pedro López-Cabanillas</developer_name>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
-   <release type="stable" version="0.8.10" date="2023-08-27">
-     <url>https://sourceforge.net/p/vmpk/news/2023/08/virtual-midi-piano-keyboard-0810-released-/</url>
-     <description>
-       <p>This release includes the following changes</p>
-       <ul>
-          <li>Fixed ticket #84: Failure restoring portable settings.</li>
-          <li>Fixed ticket #83: Fail to build when mixing Qt6 and Qt5 libraries.</li>
-          <li>Chinese translation updated. Thanks to Hycinth 听寒.</li>
-       </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.8.9" date="2023-07-23">
-     <url>https://sourceforge.net/p/vmpk/news/2023/07/virtual-midi-piano-keyboard-089-released-/</url>
-     <description>
-       <p>This release includes the following changes</p>
-       <ul>
-         <li>Fixed ticket #82: splash screen removed.</li>
-         <li>Closed ticket #65: Windows dark mode implemented in Qt 6.5.</li>
-         <li>New Italian translation. Thanks to Giovanni Mariani.</li>
-         <li>Import DLS instruments for the SonivoxEAS synth backend.</li>
-       </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.8.8" date="2022-08-28">
-     <url>https://sourceforge.net/p/vmpk/news/2022/08/virtual-midi-piano-keyboard-088-released-/</url>
-     <description>
-         <p>This release includes the following changes</p>
-         <ul>
-             <li>New View menu option: Subscript Octave Designation.</li>
-             <li>Fixed the wrong icon on KDE+Wayland</li>
-             <li>Checked MIDI backends at startup with diagnostic messages.</li>
-             <li>Requires: drumstick-2.7.</li>
-         </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.8.7" date="2022-04-04">
-     <url>https://sourceforge.net/p/vmpk/news/2022/04/virtual-midi-piano-keyboard-087-released-/</url>
-     <description>
-         <p>This release includes the following changes</p>
-         <ul>
-             <li>Fixed touch-screen events handling on Linux, on both X11 and Wayland.</li>
-             <li>Fixed raw (low level) keyboard events handling on Linux+Wayland.</li>
-             <li>New cmake build option: ENABLE_NATIVE_FILTER. Enabled by default on Windows, and disabled elsewere.</li>
-             <li>Fixed ticket #80: always-on-top preference hides main window.</li>
-             <li>Fixed command line option "file".</li>
-             <li>Fixed instruments definition "default.ins" file loading.</li>
-             <li>Requires: drumstick-2.6.</li>
-         </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.8.6" date="2021-12-22">
-     <url>https://sourceforge.net/p/vmpk/news/2021/12/virtual-midi-piano-keyboard-086-released-/</url>
-     <description>
-         <p>This release includes the following changes</p>
-         <ul>
-             <li>Fixed advanced setting on connections dialog.</li>
-             <li>Enabled empty input connection after a fix on drumstick-ALSA. This requires an external connections utility.</li>
-             <li>Better inverted piano colors after a fix on drumstick-widgets: changed the white keys background picture depending on the key background color.</li>
-             <li>Removed the Qt6::Core5Compat dependency when building with Qt6.</li>
-             <li>Requires: drumstick-2.5.</li>
-         </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.8.5" date="2021-10-24">
-     <url>https://sourceforge.net/p/vmpk/news/2021/06/virtual-midi-piano-keyboard-085-released-/</url>
-     <description>
-       <p>This release includes the following fixes and features</p>
-       <ul>
-            <li>New build option USE_QT with valid values 5 or 6, to choose which Qt major version to prefer.</li>
-            <li>Fixed ticket #74: crash under Linux using the MIDI Connections dialog. if there are no suitable MIDI inputs/outputs available.</li>
-            <li>Fixed error checking of DwmGetWindowAttribute() call. This caused a problem in Windows 7 running the "Windows Classic" theme.</li>
-            <li>Swedish translation updated. Thanks to Magnus Johansson</li>
-            <li>Czech translation updated. Thanks to Pavel Fric.</li>
-       </ul>
-       <p>required: drumstick-2.4.0</p>
-     </description>
-   </release>
-   <release type="stable" version="0.8.4" date="2021-06-29">
-     <url>https://sourceforge.net/p/vmpk/news/2021/06/virtual-midi-piano-keyboard-084-released-/</url>
-     <description>
-       <p>This release includes the following fixes and features</p>
-       <ul>
-         <li>Experimental support for building with Qt6</li>
-         <li>Applied drumstick ticket #31: fallback MIDI drivers</li>
-       </ul>
-       <p>required: drumstick-2.3.0</p>
-     </description>
-   </release>
-   <release type="stable" version="0.8.3" date="2021-05-09">
-     <url>https://sourceforge.net/p/vmpk/news/2021/05/virtual-midi-piano-keyboard-083-released-/</url>
-     <description>
-       <p>This release includes the following fixes and features</p>
-       <ul>
-         <li>French and German translations updated, thanks to Frank Kober</li>
-         <li>Documentation fixes (GitHub ticket #2, Thanks to Darío Hereñú)</li>
-         <li>Preferences dialog reorganization, options are now split into three tabs</li>
-         <li>New options: Qt Widgets style, and Forced dark mode</li>
-         <li>Windows: Fusion style assigned by default (option can be changed in the command line or the preferences dialog)</li>
-         <li>Added SCM Revision to the about box, when building from SVN or Git repositories</li>
-         <li>New CMake option: BUILD_DOCS, enabled by default in Unix. You can use it to avoid building the man page</li>
-        </ul>
-        <p>required: drumstick-2.2.0</p>
-     </description>
-   </release>
-   <release type="stable" version="0.8.2" date="2021-03-31">
-     <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-082-released-/</url>
-     <description>
-       <p>This release fixes the following tickets</p>
-       <ul>
-         <li>ticket #70: Note highlighting does not respond to MIDI input events at startup</li>
-         <li>ticket #72: The window no longer remembers its size</li>
-         <li>drumstick ticket #28: highlight color is wrong unless velocity tint is active</li>
-       </ul>
-       <p>required: drumstick-2.1.1</p>
-     </description>
-   </release>
-   <release type="stable" version="0.8.1" date="2021-03-20">
-     <url>https://sourceforge.net/p/vmpk/news/2021/03/virtual-midi-piano-keyboard-081-released-/</url>
-     <description>
-       <p>This release implements the following features</p>
-       <ul>
-         <li>ticket #66: Load and save configuration files (file menu options)</li>
-         <li>ticket #65: Highlight Color Chromatic scales</li>
-         <li>Sticky Window Snapping (Windows feature)</li>
-       </ul>
-       <p>and fixes the following tickets</p>
-       <ul>
-         <li>ticket #68: Keyboard maps not loaded at startup</li>
-         <li>Splash closed when main window is shown</li>
-         <li>Hide initialization messages when loading translations and the language is the default (en)</li>
-       </ul>
-       <p>required: drumstick-2.1</p>
-     </description>
-   </release>
-   <release type="stable" version="0.8.0" date="2020-12-30">
-     <url>https://sourceforge.net/p/vmpk/news/2020/12/virtual-midi-piano-keyboard-080-released-/</url>
-     <description>
-       <p>This release implements the following features</p>
-       <ul>
-         <li>ticket #60: Show midi notes on Status Bar</li>
-         <li>ticket #55: Flats or sharps</li>
-         <li>ticket #52: Adding Panic signal when change Base Octave and MIDI Channel</li>
-         <li>ticket #43: Show note names on note on</li>
-         <li>ticket #46: Exchange black and white for harpsichord keyboards (new palettes)</li>
-         <li>Configuration files in portable mode: new parameter -p for portable mode, with optional file name. Configuration saved in .INI format, even in Windows and macOS</li>
-         <li>Show note names always/never/minimal</li>
-         <li>Show note names orientation: horizontal/vertical/automatic</li>
-         <li>New preferences: font and size for note names. Octave naming C3,C4,C5</li>
-         <li>required: drumstick-2.0</li>
-       </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.7.2" date="2019-09-01">
-     <url>https://sourceforge.net/p/vmpk/news/2019/09/virtual-midi-piano-keyboard-072-released-/</url>
-     <description>
-       <p>This release fixes the following tickets</p>
-       <ul>
-         <li>Fixed ticket #53: complain at startup if a default drumstick-rt backend is missing</li>
-         <li>Fixed ticket #56: properly scale on HiDPI screens</li>
-         <li>Fixed ticket #57: removed all Google+ links</li>
-         <li>Fixed ticket #58: broken link to the instruments definition files</li>
-       </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.7.1" date="2018-12-03">
-     <url>https://sourceforge.net/p/vmpk/news/2018/12/virtual-midi-piano-keyboard-071-released-/</url>
-     <description>
-       <p>Fixes</p>
-       <ul>
-         <li>Fixed ticket #51: ignored note highlight color</li>
-         <li>Updated translatioons from Transifex</li>
-       </ul>
-     </description>
-   </release>
-   <release type="stable" version="0.7.0" date="2018-04-02">
-     <url>https://sourceforge.net/p/vmpk/news/2018/04/virtual-midi-piano-keyboard-070-released/</url>
-     <description>
-       <p>Fixes</p>
-       <ul>
-         <li>Splash screen</li>
-         <li>fix for ticket #37 Duplicate midi events on touch screen</li>
-         <li>Add Generic Name &amp; Keywords entry to desktop file. Patch by Ross Gammon</li>
-         <li>RFE #50: Assigning a keyboard shortcut to the button extra controls</li>
-         <li>settings for the new backends: Mac DLS Synth and Sonivox EAS</li>
-         <li>required: drumstick-1.1</li>
-       </ul>
-     </description>
-   </release>
+   <release type="stable" version="0.9.0" date="2023-12-30"/>
+   <release type="stable" version="0.8.10" date="2023-08-27" />
+   <release type="stable" version="0.8.9" date="2023-07-23" />
+   <release type="stable" version="0.8.8" date="2022-08-28" />
+   <release type="stable" version="0.8.7" date="2022-04-04" />
+   <release type="stable" version="0.8.6" date="2021-12-22" />
+   <release type="stable" version="0.8.5" date="2021-10-24" />
+   <release type="stable" version="0.8.4" date="2021-06-29" />
+   <release type="stable" version="0.8.3" date="2021-05-09" />
+   <release type="stable" version="0.8.2" date="2021-03-31" />
+   <release type="stable" version="0.8.1" date="2021-03-20" />
+   <release type="stable" version="0.8.0" date="2020-12-30" />
+   <release type="stable" version="0.7.2" date="2019-09-01" />
+   <release type="stable" version="0.7.1" date="2018-12-03" />
+   <release type="stable" version="0.7.0" date="2018-04-02" />
  </releases>
 </component>
