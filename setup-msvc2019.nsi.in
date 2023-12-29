@@ -163,10 +163,10 @@ Section -Main SEC0000
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Network.dll $INSTDIR\Qt5Network.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Svg.dll $INSTDIR\Qt5Svg.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt5Widgets.dll $INSTDIR\Qt5Widgets.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libEGL.dll $INSTDIR\libEGL.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libGLESV2.dll $INSTDIR\libGLESV2.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libEGL.dll $INSTDIR\libEGL.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libGLESV2.dll $INSTDIR\libGLESV2.dll $INSTDIR
    #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\opengl32sw.dll $INSTDIR\opengl32sw.dll $INSTDIR
-    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\d3dcompiler_47.dll $INSTDIR\d3dcompiler_47.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\d3dcompiler_47.dll $INSTDIR\d3dcompiler_47.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\iconengines\qsvgicon.dll $INSTDIR\iconengines\qsvgicon.dll $INSTDIR
     !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bearer\qgenericbearer.dll $INSTDIR\bearer\qgenericbearer.dll $INSTDIR
@@ -314,10 +314,10 @@ Section /o -un.Main UNSEC0000
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Network.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Svg.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt5Widgets.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libEGL.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libGLESV2.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libEGL.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libGLESV2.dll
    #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opengl32sw.dll
-    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\d3dcompiler_47.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\d3dcompiler_47.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconengines\qsvgicon.dll
     !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\bearer\qgenericbearer.dll
