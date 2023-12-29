@@ -6,14 +6,14 @@ This program is a MIDI events generator/receiver. It doesn't produce any sound b
 
 [![Screencast at YouTube](https://img.youtube.com/vi/3TGNSYKjEtg/0.jpg)](https://www.youtube.com/watch?v=3TGNSYKjEtg)
 
-VMPK has been tested in Linux, Windows and Mac, but maybe you can build it also other operating systems. If you can compile and test the program, please drop a mail to the author.
+VMPK has been tested in Linux, Windows and Mac, but maybe you can build it also on other operating systems. If you can compile and test the program, please drop a mail to the author.
 
 The Virtual Keyboard by Takashi Iway [vkeybd](https://github.com/tiwai/vkeybd) has been the inspiration for this one. It is a wonderful piece of software and has served us well for many years. Thanks!
 
 VMPK uses a modern GUI framework: Qt, that gives excellent features and performance. Drumstick-RT provides MIDI input/output features. Both frameworks are free and platform independent, available for Linux, Windows and Mac OSX.
 
 The alphanumeric keyboard mapping can be configured from inside the program using the GUI interface, and the settings are stored in XML files. Some maps
-for Spanish, German and French keyboard layouts are provided, translated from the ones provided by VKeybd. Raw keyboard mappings can also be defined,  
+for Spanish, German and French keyboard layouts are provided, translated from the ones provided by VKeybd. Raw keyboard mappings can also be defined
 translating X11, Windows or Mac keycodes to MIDI notes.
 
 VMPK can send program changes and controllers to a MIDI synth. The definitions for different standards and devices can be provided as .INS files, the same format used by QTractor and TSE3. It was developed by Cakewalk and used also in Sonar.
@@ -31,7 +31,7 @@ https://sourceforge.net/projects/vmpk/files
 
 [![Download Virtual MIDI Piano Keyboard](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/vmpk/files/latest/download)
 
-[<img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/>](https://flathub.org/apps/details/net.sourceforge.VMPK)
+[<img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/>](https://flathub.org/apps/details/net.sourceforge.VMPK)
 
 [![Packaging status](https://repology.org/badge/tiny-repos/vmpk.svg)](https://repology.org/project/vmpk/versions)
 
@@ -41,7 +41,7 @@ You need Qt 6.2 or newer (Qt5 >= 5.9 is also supported). Install the -devel pack
 
     https://www.qt.io/download
 
-Drumstick 2.7 is required in all platforms. It uses the ALSA sequencer in Linux, WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in all the supported platforms.
+Drumstick 2.9 is required in all platforms. It uses the ALSA sequencer in Linux, WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in all the supported platforms.
 
     https://drumstick.sourceforge.net
 
@@ -49,7 +49,7 @@ The build system is based on CMake (>= 3.16). You can download it from:
 
     https://www.cmake.org
 
-You need also the GCC C++ compiler.
+You need also a C++17 compiler.
 
     https://gcc.gnu.org/
     https://sourceforge.net/projects/mingw/
@@ -62,45 +62,46 @@ Optionally, you can build a Windows setup program using NSIS.
 
 Download the sources from https://sourceforge.net/projects/vmpk/files Unpack the sources in your home directory, and change to the unpacked dir.
 
-    $ cd vmpk-x.x.x
+    $ tar xvf vmpk-x.y.z.tar.gz
+    $ mkdir vmpk-x.y.z-build
 
 You can choose between CMake and Qmake to prepare the build system, but qmake is intended only for testing and development.
 
-    $ cmake .
+    $ cmake -S vmpk-x.y.z -B vmpk-x.y.z-build
     or
-    $ ccmake .
+    $ ccmake -S vmpk-x.y.z -B vmpk-x.y.z-build
     or
-    $ qmake
+    $ cmake-gui -S vmpk-x.y.z -B vmpk-x.y.z-build
 
 After that, compile the program:
 
-    $ make
+    $ cmake --build vmpk-x.y.z-build
 
 if the program has been compiled successfully, you can install it:
 
-    $ make install
+    $ cmake --install vmpk-x.y.z-build
 
-There are more commands available:
+There are more targets available:
 
-    $ make uninstall
-    $ make clean
+    $ cmake --build vmpk-x.y.z-build --target uninstall
+    $ cmake --build vmpk-x.y.z-build --target clean
 
 You can get some compiler optimisation when building the program, but don't expect too much improvement. There are two ways. First, using a predefined 
 configuration type:
 
-    $ cmake . -DCMAKE_BUILD_TYPE=Release
+    $ cmake -S vmpk-x.y.z -B vmpk-x.y.z-build -DCMAKE_BUILD_TYPE=Release
 
 The CMake "Release" type uses the compiler flags: `-O3 -DNDEBUG`. Other predefined build types are `Debug`, `RelWithDebInfo`, and `MinSizeRel`.
 The second way is to choose the compiler flags yourself:
 
     $ export CXXFLAGS="-O2 -march=native -mtune=native -DNDEBUG" 
-    $ cmake .
+    $ cmake -S vmpk-x.y.z -B vmpk-x.y.z-build
 
 You need to find the best `CXXFLAGS` for your own system.
 
 If you want to install the program at some place other than the default (`/usr/local`) use the following CMake option:
 
-    $ cmake . -DCMAKE_INSTALL_PREFIX=/usr
+    $ cmake  -S vmpk-x.y.z -B vmpk-x.y.z-build -DCMAKE_INSTALL_PREFIX=/usr
 
 Other optional configuration options are:
 
@@ -109,11 +110,11 @@ Other optional configuration options are:
 This option is OFF by default. Useful for portable builds.
 * BUILD_DOCS: create the man page from XML sources (ON by default). If OFF,
 then a pre-built man page included in the source tarball is installed.
-* USE_QT5: Choose Qt5 instead of Qt6 to build. Off by default.
+* USE_QT5: Prefer building with Qt5 instead of Qt6. Off by default.
 
 example:
 
-    $ cmake . -DENABLE_DBUS=No
+    $ cmake  -S vmpk-x.y.z -B vmpk-x.y.z-build -DENABLE_DBUS=No
 
 ## NOTES FOR LINUX USERS
 
@@ -152,14 +153,14 @@ To compile VMPK using Makefiles, generated by qmake:
 
 To compile using Makefiles, generated by CMake:
 
-    $ cmake -G "Unix Makefiles" .
+    $ cmake -G "Unix Makefiles" -S vmpk-x.y.z -B vmpk-x.y.z-build
     $ make
 
 To create Xcode project files:
 
     $ qmake vmpk.pro -spec macx-xcode
     or
-    $ cmake -G Xcode .
+    $ cmake -G Xcode -S vmpk-x.y.z -B vmpk-x.y.z-build
 
 You can use the MIDI synth library that is included in Mac OSX, with or without an external program like [SimpleSynth](https://notahat.com/simplesynth/). Also from the same author is [MIDI Patchbay](https://notahat.com/midi_patchbay/).
 

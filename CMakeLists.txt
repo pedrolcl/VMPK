@@ -65,16 +65,9 @@ endif()
 
 if (USE_QT5)
     find_package(QT NAMES Qt5 REQUIRED)
-else()
-    find_package(QT NAMES Qt6 REQUIRED)
-endif()
-
-if (QT_VERSION VERSION_LESS 6.0)
     find_package(Qt5 5.9 COMPONENTS Widgets Network LinguistTools REQUIRED)
 else()
-    if (QT_VERSION VERSION_LESS 6.2.0)
-       message (FATAL_ERROR "Qt6 >= 6.2 is required, or use Qt5 >= 5.9")
-    endif()
+    find_package(QT NAMES Qt6 REQUIRED)
     find_package(Qt6 6.2 COMPONENTS Gui Widgets Network LinguistTools REQUIRED)
 endif()
 
