@@ -688,7 +688,7 @@
 
 2008-09-13
     * implemented RFE: #2107732 mouse handling
-    * implemented RFE: #2106021 let the user to choose a custom highligh color
+    * implemented RFE: #2106021 let the user to choose a custom highlight color
     * reorganisations
 
 2008-09-11

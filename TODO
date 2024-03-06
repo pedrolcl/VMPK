@@ -24,7 +24,7 @@ MIDI CONNECTIONS
 
 PRESENTATION
 2106015 translation (Qt Linguist) support, and also Spanish translation
-2106021 let the user to choose a custom highligh color for the pressed keys
+2106021 let the user to choose a custom highlight color for the pressed keys
 2779744 keyboard window: always on top
 2488065 online help
 2107732 better mouse handling
