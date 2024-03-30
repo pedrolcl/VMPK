@@ -1,5 +1,7 @@
 # Virtual MIDI Piano Keyboard
 
+[![Build on Linux](https://github.com/pedrolcl/VMPK/actions/workflows/linux-build.yml/badge.svg)](https://github.com/pedrolcl/VMPK/actions/workflows/linux-build.yml)1
+
 This program is a MIDI events generator/receiver. It doesn't produce any sound by itself, but can be used to drive a MIDI synthesizer (either hardware or software, internal or external). You can use the computer's keyboard to play MIDI notes, and also the mouse. You can use the Virtual MIDI Piano Keyboard to display the played MIDI notes from another instrument or MIDI file player. To do so, connect the other MIDI port to the input port of VMPK.
 
 ![Screenshot](https://vmpk.sourceforge.io/images/vmpk_0.8_linux.png "main window")
