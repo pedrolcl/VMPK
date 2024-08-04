@@ -39,7 +39,6 @@ if (WIN32 AND WINDEPLOYQT_EXECUTABLE)
         COMMAND "${WINDEPLOYQT_EXECUTABLE}"
                 #--verbose=2
                 "-network"
-                "-no-angle"
                 "-no-opengl-sw"
                 "$<TARGET_FILE:${DEPLOYMENT_TARGET}>"
         COMMENT "Running windeployqt..."

@@ -1,6 +1,6 @@
 /*
     MIDI Virtual Piano Keyboard
-    Copyright (C) 2008-2023, Pedro Lopez-Cabanillas <plcl@users.sf.net>
+    Copyright (C) 2008-2024, Pedro Lopez-Cabanillas <plcl@users.sf.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -105,12 +105,13 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
 #if defined(Q_OS_WIN)
         bool isRepeat = false;
         MSG* msg = static_cast<MSG *>(message);
-        if (msg->message == WM_KEYDOWN || msg->message == WM_KEYUP) {
+        if (msg->message == WM_KEYDOWN || msg->message == WM_KEYUP ||
+            msg->message == WM_SYSKEYDOWN || msg->message == WM_SYSKEYUP) {
             int keycode = HIWORD(msg->lParam) & 0xff;
-            isRepeat = (msg->message == WM_KEYDOWN) &&
+            isRepeat = (msg->message == WM_KEYDOWN || msg->message == WM_SYSKEYDOWN) &&
                        ((HIWORD(msg->lParam) & 0x4000) != 0);
             if (!isRepeat) {
-                if ( msg->message == WM_KEYDOWN )
+                if ( msg->message == WM_KEYDOWN || msg->message == WM_SYSKEYDOWN )
                     return m_handler->handleKeyPressed(keycode);
                     //qDebug() << "key pressed:" << keycode;
                 else
