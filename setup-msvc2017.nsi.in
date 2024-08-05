@@ -83,7 +83,7 @@ VIAddVersionKey /LANG=0 CompanyName "${COMPANY}"
 VIAddVersionKey /LANG=0 CompanyWebsite "${URL}"
 VIAddVersionKey /LANG=0 FileVersion "${VERSION}"
 VIAddVersionKey /LANG=0 FileDescription "@PROJECT_DESCRIPTION@"
-VIAddVersionKey /LANG=0 LegalCopyright "Copyright (C) 2008-2023 Pedro Lopez-Cabanillas and others"
+VIAddVersionKey /LANG=0 LegalCopyright "Copyright (C) 2008-2024 Pedro Lopez-Cabanillas and others"
 InstallDirRegKey HKLM "${REGKEY}" Path
 ShowUninstDetails show
 Icon ${VMPKSRC}\src\vmpk.ico
