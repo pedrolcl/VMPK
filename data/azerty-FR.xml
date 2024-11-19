@@ -1,0 +1,46 @@
+<!--
+French keymap (azerty) for VMPK.
+AUTHOR: Bruno Duyé
+https://github.com/brunetton/VMPK-FR-keymap
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardmap>
+<keyboardmap version="1.0">
+    <mapping key="&lt;" note="35"/>
+    <mapping key="W" note="36"/>
+    <mapping key="S" note="37"/>
+    <mapping key="X" note="38"/>
+    <mapping key="D" note="39"/>
+    <mapping key="C" note="40"/>
+    <mapping key="V" note="41"/>
+    <mapping key="G" note="42"/>
+    <mapping key="B" note="43"/>
+    <mapping key="H" note="44"/>
+    <mapping key="N" note="45"/>
+    <mapping key="J" note="46"/>
+    <mapping key="," note="47"/>
+    <mapping key=";" note="48"/>
+    <mapping key="L" note="49"/>
+    <mapping key=":" note="50"/>
+    <mapping key="M" note="51"/>
+    <mapping key="!" note="52"/>
+    <mapping key="É" note="54"/>
+    <mapping key="Z" note="55"/>
+    <mapping key="&quot;" note="56"/>
+    <mapping key="E" note="57"/>
+    <mapping key="R" note="58"/>
+    <mapping key="(" note="59"/>
+    <mapping key="T" note="60"/>
+    <mapping key="-" note="61"/>
+    <mapping key="Y" note="62"/>
+    <mapping key="È" note="63"/>
+    <mapping key="U" note="64"/>
+    <mapping key="I" note="65"/>
+    <mapping key="Ç" note="66"/>
+    <mapping key="O" note="67"/>
+    <mapping key="À" note="68"/>
+    <mapping key="P" note="69"/>
+    <mapping key="¨" note="70"/>
+    <mapping key="=" note="71"/>
+    <mapping key="$" note="72"/>
+</keyboardmap>
