@@ -1,8 +1,14 @@
 2024-12-06
     * Fixed Qt style preferences ignored
 
+2024-11-19
+    * Add FR azerty keymap. Thanks to Bruno Duyé
+
 2024-08-04
     * Fix for GH ticket #27: Enable F10 key in Windows when using native filters
+
+2024-03-06
+    * Merge pull request #26 from RoboSchmied: fix 2 typo
 
 2023-12-30
     * Release 0.9.0
