@@ -129,6 +129,7 @@ void Preferences::showEvent ( QShowEvent *event )
         ui.chkRawKeyboard->setChecked( VPianoSettings::instance()->rawKeyboard() );
         ui.chkEnableMouse->setChecked( VPianoSettings::instance()->enableMouse() );
         ui.chkEnableTouch->setChecked( VPianoSettings::instance()->enableTouch() );
+        ui.cboStyle->setCurrentText(VPianoSettings::instance()->getStyle());
 #if defined(Q_OS_WINDOWS)
         ui.chkWinSnap->setChecked( VPianoSettings::instance()->getWinSnap() );
 #endif
@@ -154,6 +155,7 @@ void Preferences::apply()
     VPianoSettings::instance()->setRawKeyboard( ui.chkRawKeyboard->isChecked() );
     VPianoSettings::instance()->setEnableMouse( ui.chkEnableMouse->isChecked() );
     VPianoSettings::instance()->setEnableTouch( ui.chkEnableTouch->isChecked() );
+    VPianoSettings::instance()->setStyle(ui.cboStyle->currentText());
 #if defined(Q_OS_WINDOWS)
     VPianoSettings::instance()->setWinSnap( ui.chkWinSnap->isChecked() );
 #endif

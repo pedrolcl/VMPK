@@ -1,3 +1,6 @@
+2024-12-06
+    * Fixed Qt style preferences ignored
+
 2024-08-04
     * Fix for GH ticket #27: Enable F10 key in Windows when using native filters
 
