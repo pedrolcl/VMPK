@@ -1,0 +1,434 @@
+Name "@PROJECT_DESCRIPTION@"
+SetCompressor /SOLID lzma
+Unicode true
+# BrandingText " "
+# Request application privileges for Windows Vista
+RequestExecutionLevel admin
+
+# Defines
+!define SOURCE_FILES "@CMAKE_SOURCE_DIR@"
+!define BINARY_FILES "@CMAKE_BINARY_DIR@"
+!define FLUIDSYNTH_FILES "@FLUIDSYNTH_PREFIX@"
+!define DRUMSTICK_FILES "@Drumstick_DIR@"
+!define VERSION @PROJECT_VERSION@
+!define PROGNAME "@PROJECT_NAME@"
+!define CPU "@CMAKE_SYSTEM_PROCESSOR@"
+!define QTFILES "@CMAKE_BINARY_DIR@\src"
+!define QTLANG  "@CMAKE_BINARY_DIR@\src"
+!define VMPKSRC "@CMAKE_SOURCE_DIR@"
+!define VMPKBLD "@CMAKE_BINARY_DIR@"
+!define DRUMSTICK "@Drumstick_DIR@\lib"
+!define REGKEY "SOFTWARE\$(^Name)"
+!define COMPANY "@PROJECT_NAME@"
+!define URL http://vmpk.sourceforge.net/
+
+# Included files
+!include LogicLib.nsh
+!include Sections.nsh
+!include MUI2.nsh
+!include Library.nsh
+!include x64.nsh
+
+# MUI defines
+!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\nsis3-install.ico"
+!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\nsis3-uninstall.ico"
+!define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
+!define MUI_STARTMENUPAGE_NODISABLE
+!define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
+!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER vmpk
+
+# Variables
+Var StartMenuGroup
+
+# Installer pages
+!define MUI_WELCOMEPAGE_TITLE_3LINES
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "@CMAKE_SOURCE_DIR@\gpl.rtf"
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_STARTMENU Application $StartMenuGroup
+!insertmacro MUI_PAGE_INSTFILES
+!define MUI_FINISHPAGE_TITLE_3LINES
+!define MUI_FINISHPAGE_NOAUTOCLOSE
+!insertmacro MUI_PAGE_FINISH
+
+!define MUI_WELCOMEPAGE_TITLE_3LINES
+!insertmacro MUI_UNPAGE_WELCOME
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
+!define MUI_FINISHPAGE_TITLE_3LINES
+!insertmacro MUI_UNPAGE_FINISH
+
+# Installer languages
+!insertmacro MUI_LANGUAGE "English"
+!insertmacro MUI_LANGUAGE "Czech"
+!insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "Galician"
+!insertmacro MUI_LANGUAGE "German"
+!insertmacro MUI_LANGUAGE "Italian"
+!insertmacro MUI_LANGUAGE "Russian"
+!insertmacro MUI_LANGUAGE "Serbian"
+!insertmacro MUI_LANGUAGE "SimpChinese"
+!insertmacro MUI_LANGUAGE "Spanish"
+!insertmacro MUI_LANGUAGE "Swedish"
+
+# Installer attributes
+OutFile vmpk-${VERSION}-win-${CPU}-setup.exe
+#InstallDir $PROGRAMFILES\vmpk
+CRCCheck on
+XPStyle on
+ShowInstDetails show
+VIProductVersion @PROJECT_VERSION@.0
+VIAddVersionKey /LANG=0 ProductName "@PROJECT_NAME@"
+VIAddVersionKey /LANG=0 ProductVersion "${VERSION}"
+VIAddVersionKey /LANG=0 CompanyName "${COMPANY}"
+VIAddVersionKey /LANG=0 CompanyWebsite "${URL}"
+VIAddVersionKey /LANG=0 FileVersion "${VERSION}"
+VIAddVersionKey /LANG=0 FileDescription "@PROJECT_DESCRIPTION@"
+VIAddVersionKey /LANG=0 LegalCopyright "Copyright (C) 2008-2024 Pedro Lopez-Cabanillas and others"
+InstallDirRegKey HKLM "${REGKEY}" Path
+ShowUninstDetails show
+Icon ${VMPKSRC}\src\vmpk.ico
+UninstallIcon ${VMPKSRC}\src\vmpk.ico
+
+Section # hidden section
+    DetailPrint "Removing previous installation."
+    ExecWait '"$INSTDIR\uninstall.exe" /S _?=$INSTDIR'
+SectionEnd
+
+# Installer sections
+Section -Main SEC0000
+   #CreateDirectory $INSTDIR\bearer
+    CreateDirectory $INSTDIR\drumstick2
+    CreateDirectory $INSTDIR\iconengines
+    CreateDirectory $INSTDIR\imageformats
+    CreateDirectory $INSTDIR\platforms
+    CreateDirectory $INSTDIR\styles
+    CreateDirectory $INSTDIR\translations
+    SetOverwrite on
+    SetOutPath $INSTDIR\translations
+    File ${VMPKBLD}\translations\vmpk_cs.qm
+    File ${VMPKBLD}\translations\vmpk_de.qm
+    File ${VMPKBLD}\translations\vmpk_es.qm
+    File ${VMPKBLD}\translations\vmpk_fr.qm
+    File ${VMPKBLD}\translations\vmpk_gl.qm
+    File ${VMPKBLD}\translations\vmpk_it.qm
+    File ${VMPKBLD}\translations\vmpk_ru.qm
+    File ${VMPKBLD}\translations\vmpk_sr.qm
+    File ${VMPKBLD}\translations\vmpk_sv.qm
+    File ${VMPKBLD}\translations\vmpk_zh_CN.qm
+    File ${QTLANG}\translations\qt_cs.qm
+    File ${QTLANG}\translations\qt_de.qm
+    File ${QTLANG}\translations\qt_es.qm
+    File ${QTLANG}\translations\qt_fr.qm
+   #File ${QTLANG}\translations\qt_gl.qm
+    File ${QTLANG}\translations\qt_it.qm
+    File ${QTLANG}\translations\qt_ru.qm
+   #File ${QTLANG}\translations\qt_sr.qm
+   #File ${QTLANG}\translations\qt_sv.qm
+    File ${QTLANG}\translations\qt_zh_CN.qm
+
+    SetOutPath $INSTDIR
+    File ${VMPKBLD}\src\vc_redist.${CPU}.exe
+    File ${VMPKBLD}\src\vmpk.exe
+    File ${VMPKSRC}\data\spanish.xml
+    File ${VMPKSRC}\data\german.xml
+    File ${VMPKSRC}\data\azerty.xml
+    File ${VMPKSRC}\data\it-qwerty.xml
+    File ${VMPKSRC}\data\vkeybd-default.xml
+    File ${VMPKSRC}\data\pc102win.xml
+    File ${VMPKSRC}\data\Serbian-lat.xml
+    File ${VMPKSRC}\data\Serbian-cyr.xml
+    File ${VMPKSRC}\data\gmgsxg.ins
+    File ${VMPKSRC}\data\help.html
+    File ${VMPKSRC}\data\help_de.html
+    File ${VMPKSRC}\data\help_es.html
+    File ${VMPKSRC}\data\help_fr.html
+    File ${VMPKSRC}\data\help_sr.html
+    File ${VMPKSRC}\data\help_ru.html
+    File ${VMPKSRC}\data\help_zh_CN.html
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_cs.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_de.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_es.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_fr.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_gl.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_it.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_ru.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_sr.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_sv.qm
+    File ${DRUMSTICK_FILES}\library\widgets\drumstick-widgets_zh_CN.qm
+
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt6Core.dll $INSTDIR\Qt6Core.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt6Gui.dll $INSTDIR\Qt6Gui.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt6Network.dll $INSTDIR\Qt6Network.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt6Svg.dll $INSTDIR\Qt6Svg.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\Qt6Widgets.dll $INSTDIR\Qt6Widgets.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libEGL.dll $INSTDIR\libEGL.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\libGLESV2.dll $INSTDIR\libGLESV2.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\opengl32sw.dll $INSTDIR\opengl32sw.dll $INSTDIR
+   #insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\d3dcompiler_47.dll $INSTDIR\d3dcompiler_47.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\platforms\qwindows.dll $INSTDIR\platforms\qwindows.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\iconengines\qsvgicon.dll $INSTDIR\iconengines\qsvgicon.dll $INSTDIR
+   #!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\bearer\qgenericbearer.dll $INSTDIR\bearer\qgenericbearer.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qgif.dll $INSTDIR\imageformats\qgif.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qicns.dll $INSTDIR\imageformats\qicns.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qico.dll $INSTDIR\imageformats\qico.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qjpeg.dll $INSTDIR\imageformats\qjpeg.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\imageformats\qsvg.dll $INSTDIR\imageformats\qsvg.dll $INSTDIR
+   #!insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\styles\qwindowsvistastyle.dll $INSTDIR\styles\qwindowsvistastyle.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${QTFILES}\styles\qmodernwindowsstyle.dll $INSTDIR\styles\qmodernwindowsstyle.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-rt.dll $INSTDIR\drumstick-rt.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick-widgets.dll $INSTDIR\drumstick-widgets.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-net-in.dll $INSTDIR\drumstick2\drumstick-rt-net-in.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-net-out.dll $INSTDIR\drumstick2\drumstick-rt-net-out.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-win-in.dll $INSTDIR\drumstick2\drumstick-rt-win-in.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-win-out.dll $INSTDIR\drumstick2\drumstick-rt-win-out.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${DRUMSTICK}\drumstick2\drumstick-rt-fluidsynth.dll $INSTDIR\drumstick2\drumstick-rt-fluidsynth.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libfluidsynth-3.dll $INSTDIR\libfluidsynth-3.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\glib-2.0-0.dll $INSTDIR\glib-2.0-0.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\iconv-2.dll $INSTDIR\iconv-2.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\intl-8.dll $INSTDIR\intl-8.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre2-8.dll $INSTDIR\pcre2-8.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre2-16.dll $INSTDIR\pcre2-16.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\pcre2-32.dll $INSTDIR\pcre2-32.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\zlib1.dll $INSTDIR\zlib1.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\double-conversion.dll $INSTDIR\double-conversion.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\zstd.dll $INSTDIR\zstd.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\FLAC.dll $INSTDIR\FLAC.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\ogg.dll $INSTDIR\ogg.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\opus.dll $INSTDIR\opus.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\sndfile.dll $INSTDIR\sndfile.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\vorbis.dll $INSTDIR\vorbis.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\vorbisenc.dll $INSTDIR\vorbisenc.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libmp3lame.dll $INSTDIR\libmp3lame.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\mpg123.dll $INSTDIR\mpg123.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libpng16.dll $INSTDIR\libpng16.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\harfbuzz.dll $INSTDIR\harfbuzz.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\freetype.dll $INSTDIR\freetype.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\bz2.dll $INSTDIR\bz2.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\brotlidec.dll $INSTDIR\brotlidec.dll $INSTDIR
+    !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\brotlicommon.dll $INSTDIR\brotlicommon.dll $INSTDIR
+    !if ${CPU} == "arm64"
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libcrypto-3-arm64.dll $INSTDIR\libcrypto-3-arm64.dll $INSTDIR
+    !else
+	!if ${CPU} == "x64"
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libssl-3-x64.dll $INSTDIR\libssl-3-x64.dll $INSTDIR
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libcrypto-3-x64.dll $INSTDIR\libcrypto-3-x64.dll $INSTDIR
+    !else
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libssl-3.dll $INSTDIR\libssl-3.dll $INSTDIR
+        !insertmacro InstallLib DLL NOTSHARED REBOOT_PROTECTED ${FLUIDSYNTH_FILES}\bin\libcrypto-3.dll $INSTDIR\libcrypto-3.dll $INSTDIR
+    !endif
+    !endif
+
+    WriteRegStr HKLM "${REGKEY}\Components" Main 1
+SectionEnd
+
+Section -post SEC0001
+    WriteRegStr HKLM "${REGKEY}" Path $INSTDIR
+    SetOutPath $INSTDIR
+    WriteUninstaller $INSTDIR\uninstall.exe
+    !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+    CreateDirectory $SMPROGRAMS\$StartMenuGroup
+    SetOutPath $SMPROGRAMS\$StartMenuGroup
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall VMPK.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\VMPK.lnk" $INSTDIR\vmpk.exe
+    !insertmacro MUI_STARTMENU_WRITE_END
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" Publisher "${COMPANY}"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" URLInfoAbout "${URL}"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayIcon $INSTDIR\uninstall.exe
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
+    WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
+    WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
+    ;VS2015 Runtime
+    ;ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\${CPU}" "Version"
+    ;StrCmp $1 "v14.28.29914.00" installed
+    ;not installed, so run the installer
+    ExecWait '"$INSTDIR\vc_redist.${CPU}.exe" /install /quiet /norestart'
+    ;installed:
+SectionEnd
+
+# Macro for selecting uninstaller sections
+!macro SELECT_UNSECTION SECTION_NAME UNSECTION_ID
+    Push $R0
+    ReadRegStr $R0 HKLM "${REGKEY}\Components" "${SECTION_NAME}"
+    StrCmp $R0 1 0 next${UNSECTION_ID}
+    !insertmacro SelectSection "${UNSECTION_ID}"
+    GoTo done${UNSECTION_ID}
+next${UNSECTION_ID}:
+    !insertmacro UnselectSection "${UNSECTION_ID}"
+done${UNSECTION_ID}:
+    Pop $R0
+!macroend
+
+# Uninstaller sections
+Section /o -un.Main UNSEC0000
+    Delete /REBOOTOK $INSTDIR\translations\qt_cs.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_de.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_es.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_fr.qm
+   #Delete /REBOOTOK $INSTDIR\translations\qt_gl.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_it.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_ru.qm
+   #Delete /REBOOTOK $INSTDIR\translations\qt_sv.qm
+   #Delete /REBOOTOK $INSTDIR\translations\qt_sr.qm
+    Delete /REBOOTOK $INSTDIR\translations\qt_zh_CN.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_cs.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_de.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_es.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_fr.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_gl.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_it.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_ru.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_sv.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_sr.qm
+    Delete /REBOOTOK $INSTDIR\translations\vmpk_zh_CN.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_cs.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_de.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_es.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_fr.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_gl.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_it.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_ru.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_sr.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_sv.qm
+    Delete /REBOOTOK $INSTDIR\drumstick-widgets_zh_CN.qm
+
+    Delete /REBOOTOK $INSTDIR\vmpk.exe
+    Delete /REBOOTOK $INSTDIR\vc_redist.${CPU}.exe
+    Delete /REBOOTOK $INSTDIR\spanish.xml
+    Delete /REBOOTOK $INSTDIR\german.xml
+    Delete /REBOOTOK $INSTDIR\azerty.xml
+    Delete /REBOOTOK $INSTDIR\it-qwerty.xml
+    Delete /REBOOTOK $INSTDIR\vkeybd-default.xml
+    Delete /REBOOTOK $INSTDIR\pc102win.xml
+    Delete /REBOOTOK $INSTDIR\Serbian-lat.xml
+    Delete /REBOOTOK $INSTDIR\Serbian-cyr.xml
+    Delete /REBOOTOK $INSTDIR\gmgsxg.ins
+    Delete /REBOOTOK $INSTDIR\help.html
+    Delete /REBOOTOK $INSTDIR\help_de.html
+    Delete /REBOOTOK $INSTDIR\help_es.html
+    Delete /REBOOTOK $INSTDIR\help_fr.html
+    Delete /REBOOTOK $INSTDIR\help_ru.html
+    Delete /REBOOTOK $INSTDIR\help_sr.html
+    Delete /REBOOTOK $INSTDIR\help_zh_CN.html
+
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt6Core.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt6Gui.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt6Network.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt6Svg.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\Qt6Widgets.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libEGL.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libGLESV2.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opengl32sw.dll
+   #insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\d3dcompiler_47.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\platforms\qwindows.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconengines\qsvgicon.dll
+   #!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\bearer\qgenericbearer.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qgif.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qicns.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qico.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qjpeg.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\imageformats\qsvg.dll
+   #!insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\styles\qwindowsvistastyle.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\styles\qmodernwindowsstyle.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-rt.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick-widgets.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-net-in.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-net-out.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-win-in.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-win-out.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\drumstick2\drumstick-rt-fluidsynth.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libfluidsynth-3.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\glib-2.0-0.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\intl-8.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\iconv-2.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre2-8.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre2-16.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\pcre2-32.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\zlib1.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\double-conversion.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\zstd.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\FLAC.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\ogg.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\opus.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\sndfile.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\vorbis.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\vorbisenc.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libmp3lame.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\mpg123.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libpng16.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\harfbuzz.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\freetype.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\bz2.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\brotlidec.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\brotlicommon.dll
+!if ${CPU} == "arm64"
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libcrypto-3-arm64.dll
+!else
+!if ${CPU} == "x64"
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libssl-3-x64.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libcrypto-3-x64.dll
+!else
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libssl-3.dll
+    !insertmacro UnInstallLib DLL NOTSHARED REBOOT_PROTECTED $INSTDIR\libcrypto-3.dll
+!endif
+!endif
+
+    RMDir /REBOOTOK $INSTDIR\translations
+    RMDir /REBOOTOK $INSTDIR\styles
+    RMDir /REBOOTOK $INSTDIR\platforms
+    RMDir /REBOOTOK $INSTDIR\imageformats
+    RMDir /REBOOTOK $INSTDIR\iconengines
+    RMDir /REBOOTOK $INSTDIR\drumstick2
+   #RMDir /REBOOTOK $INSTDIR\bearer
+    DeleteRegValue HKLM "${REGKEY}\Components" Main
+SectionEnd
+
+Section -un.post UNSEC0001
+    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall VMPK.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\VMPK.lnk"
+    Delete /REBOOTOK $INSTDIR\uninstall.exe
+    DeleteRegValue HKLM "${REGKEY}" StartMenuGroup
+    DeleteRegValue HKLM "${REGKEY}" Path
+    DeleteRegKey /IfEmpty HKLM "${REGKEY}\Components"
+    DeleteRegKey /IfEmpty HKLM "${REGKEY}"
+    RMDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
+    RMDir /REBOOTOK $INSTDIR
+SectionEnd
+
+#Installer Functions
+Function .onInit
+    !insertmacro MUI_LANGDLL_DISPLAY
+	${If} ${CPU} == "arm64"
+		${IfNot} ${IsNativeARM64}
+			MessageBox MB_OK|MB_ICONSTOP "Sorry, this setup package is for arm64 systems only."
+			Quit
+		${EndIf}
+	${EndIf}
+	${If} ${RunningX64}
+        ${If} ${CPU} == "x86"
+            StrCpy $INSTDIR "$PROGRAMFILES32\${PROGNAME}"
+        ${Else}
+            StrCpy $INSTDIR "$PROGRAMFILES64\${PROGNAME}"
+        ${EndIf}
+    ${Else}
+		${If} ${IsNativeIA32}
+			${If} ${CPU} == "x64"
+				MessageBox MB_OK|MB_ICONSTOP "Sorry, this setup package is for 64 bit systems only."
+				Quit
+			${EndIf}
+        ${EndIf}
+        StrCpy $INSTDIR "$PROGRAMFILES\${PROGNAME}"
+    ${EndIf}
+FunctionEnd
+
+# Uninstaller functions
+Function un.onInit
+    !insertmacro MUI_UNGETLANGUAGE
+    ReadRegStr $INSTDIR HKLM "${REGKEY}" Path
+    !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
+    !insertmacro SELECT_UNSECTION Main ${UNSEC0000}
+FunctionEnd
