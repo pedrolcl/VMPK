@@ -241,9 +241,9 @@ Section -post SEC0001
     WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    ;VS2015 Runtime
+    ;VS2022 Runtime
     ;ReadRegStr $1 HKLM "SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\${CPU}" "Version"
-    ;StrCmp $1 "v14.28.29914.00" installed
+    ;StrCmp $1 "v14.42.34433.00" installed
     ;not installed, so run the installer
     ExecWait '"$INSTDIR\vc_redist.${CPU}.exe" /install /quiet /norestart'
     ;installed:
