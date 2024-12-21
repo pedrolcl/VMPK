@@ -58,7 +58,7 @@ endif()
 #endif()
 
 # CMAKE_SYSTEM_PROCESSOR is broken on Windows with MSVC
-# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2023/08
+# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2024/12
 if(MSVC)
     string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
 endif()
@@ -71,7 +71,7 @@ else()
     find_package(Qt6 6.2 COMPONENTS Gui Widgets Network LinguistTools REQUIRED)
 endif()
 
-find_package(Drumstick 2.9 COMPONENTS RT Widgets REQUIRED)
+find_package(Drumstick 2.10 COMPONENTS RT Widgets REQUIRED)
 
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
