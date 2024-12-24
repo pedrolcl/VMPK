@@ -13,10 +13,10 @@
 
 TEMPLATE = app
 TARGET = vmpk
-VERSION = 0.9.0
+VERSION = 0.9.1
 VER_MAJ = 0
 VER_MIN = 9
-VER_PAT = 0
+VER_PAT = 1
 DEFINES += RAWKBD_SUPPORT PALETTE_SUPPORT TRANSLATIONS_EMBEDDED
 CONFIG += lrelease embed_translations
 LRELEASE_DIR='.'
@@ -84,6 +84,7 @@ macx {
         data/spanish.xml \
         data/german.xml \
         data/azerty.xml \
+        data/azerty-FR.xml \
         data/it-qwerty.xml \
         data/vkeybd-default.xml \
         data/pc102mac.xml \
