@@ -46,9 +46,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # cmake bug https://gitlab.kitware.com/cmake/cmake/issues/18396 closed in cmake 3.14
-if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-endif()
+# if(APPLE AND ${CMAKE_VERSION} VERSION_LESS 3.14)
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+# endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra") #-Wzero-as-null-pointer-constant -Wsuggest-override
@@ -121,6 +121,7 @@ set(vmpk_DATA_FILES
     data/help_sr.html
     data/help_zh_CN.html
     data/azerty.xml
+    data/azerty-FR.xml
     data/german.xml
     data/it-qwerty.xml
     data/pc102mac.xml

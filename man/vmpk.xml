@@ -37,16 +37,16 @@
             <personblurb><para></para></personblurb>
         </author>
         <copyright>
-            <year>2010-2023</year>
+            <year>2010-2024</year>
             <holder>Pedro Lopez-Cabanillas</holder>
         </copyright>
-        <date>Dec 30, 2023</date>
+        <date>Dec 24, 2024</date>
     </refentryinfo>
 
     <refmeta>
         <refentrytitle>vmpk</refentrytitle>
         <manvolnum>1</manvolnum>
-        <refmiscinfo class="version">0.9</refmiscinfo>
+        <refmiscinfo class="version">0.9.1</refmiscinfo>
         <refmiscinfo class="software">vmpk</refmiscinfo>
         <refmiscinfo class="manual">User Commands</refmiscinfo>
     </refmeta>
