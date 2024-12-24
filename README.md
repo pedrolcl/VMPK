@@ -43,7 +43,7 @@ You need Qt 6.2 or newer (Qt5 >= 5.9 is also supported). Install the -devel pack
 
     https://www.qt.io/download
 
-Drumstick 2.9 is required in all platforms. It uses the ALSA sequencer in Linux, WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in all the supported platforms.
+Drumstick 2.10 is required in all platforms. It uses the ALSA sequencer in Linux, WinMM in Windows and CoreMIDI in Mac OSX, which are the native MIDI systems in all the supported platforms.
 
     https://drumstick.sourceforge.net
 
