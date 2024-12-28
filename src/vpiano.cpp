@@ -1272,8 +1272,11 @@ void VPiano::initControllers(int channel)
             case CTL_VOLUME:
                 m_ctlState[channel][CTL_VOLUME] = MIDIVOLUME;
                 break;
+            case CTL_BALANCE:
+                m_ctlState[channel][CTL_BALANCE] = MIDIMIDVALUE;
+                break;
             case CTL_PAN:
-                m_ctlState[channel][CTL_PAN] = MIDIPAN;
+                m_ctlState[channel][CTL_PAN] = MIDIMIDVALUE;
                 break;
             case CTL_EXPRESSION:
                 m_ctlState[channel][CTL_EXPRESSION] = MIDIMAXVALUE;

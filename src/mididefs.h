@@ -44,9 +44,10 @@
 #define CALC_LSB(x) (x % 0x80)
 #define CALC_MSB(x) (x / 0x80)
 
-#define CTL_VOLUME           7
-#define CTL_PAN             10
-#define CTL_EXPRESSION      11
-#define CTL_REVERB_SEND     91
+#define CTL_VOLUME 7
+#define CTL_BALANCE 8
+#define CTL_PAN 10
+#define CTL_EXPRESSION 11
+#define CTL_REVERB_SEND 91
 
 #endif /* MIDIDEFS_H */
