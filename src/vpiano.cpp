@@ -49,16 +49,17 @@
 #include <drumstick/settingsfactory.h>
 #include <drumstick/configurationdialogs.h>
 
-#include "vpiano.h"
+#include "about.h"
+#include "colordialog.h"
+#include "constants.h"
+#include "extracontrols.h"
+#include "iconutils.h"
 #include "instrument.h"
 #include "mididefs.h"
-#include "constants.h"
-#include "riffimportdlg.h"
-#include "extracontrols.h"
-#include "about.h"
-#include "preferences.h"
 #include "midisetup.h"
-#include "colordialog.h"
+#include "preferences.h"
+#include "riffimportdlg.h"
+#include "vpiano.h"
 #include "vpianosettings.h"
 
 #if !defined(SMALL_SCREEN)
@@ -116,6 +117,9 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     orientationGroup->addAction(ui.actionAutomatic);
     connect(orientationGroup, &QActionGroup::triggered, this, &VPiano::slotNameOrientation);
 
+    ui.actionConnections->setIcon(IconUtils::GetIcon("midicfg"));
+    ui.actionPreferences->setIcon(IconUtils::GetIcon("wrench"));
+
     connect(ui.pianokeybd, &PianoKeybd::signalName, this, &VPiano::slotNoteName);
     connect(ui.actionAbout, &QAction::triggered, this, &VPiano::slotAbout);
     connect(ui.actionAboutQt, &QAction::triggered, this, &VPiano::slotAboutQt);
@@ -141,6 +145,10 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     connect(ui.actionLoad_Configuration, &QAction::triggered, this, &VPiano::slotLoadConfiguration);
     connect(ui.actionSave_Configuration, &QAction::triggered, this, &VPiano::slotSaveConfiguration);
     // Toolbars actions: toggle view
+    connect(ui.toolBarSettings->toggleViewAction(),
+            &QAction::toggled,
+            ui.actionSettings,
+            &QAction::setChecked);
     connect(ui.toolBarNotes->toggleViewAction(),
             &QAction::toggled,
             ui.actionNotes,

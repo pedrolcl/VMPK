@@ -6,6 +6,7 @@
         <file>led_grey.png</file>
         <file>list-add.png</file>
         <file>list-remove.png</file>
+        <file>midicfg.png</file>
         <file>gmgsxg.ins</file>
         <file>wrench.png</file>
     </qresource>
