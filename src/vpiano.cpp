@@ -1457,7 +1457,7 @@ void VPiano::slotEditKeyboardMap()
         map->copyFrom(ui.pianokeybd->getKeyboardMap(), false);
     }
     QPointer<KMapDialog> dlgKeyMap = new KMapDialog(this);
-    dlgKeyMap->displayMap(map);
+    dlgKeyMap->displayMap(map, ui.pianokeybd->standardNoteNames());
     releaseKb();
     if (dlgKeyMap->exec() == QDialog::Accepted) {
         dlgKeyMap->getMap(map);

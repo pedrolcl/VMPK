@@ -31,31 +31,47 @@ KMapDialog::KMapDialog(QWidget *parent)
 	ui.setupUi(this);
 	m_btnOpen = ui.buttonBox->addButton(tr("Open..."), QDialogButtonBox::ActionRole);
     m_btnSave = ui.buttonBox->addButton(tr("Save As..."), QDialogButtonBox::ActionRole);
+    //m_btnApply = ui.buttonBox->addButton(tr("Apply"), QDialogButtonBox::ActionRole);
     m_btnOpen->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_DialogOpenButton)));
     m_btnSave->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_DialogSaveButton)));
+    //m_btnApply->setIcon(style()->standardIcon(QStyle::StandardPixmap(QStyle::SP_DialogApplyButton)));
     connect(m_btnOpen, &QPushButton::clicked, this, &KMapDialog::slotOpen);
     connect(m_btnSave, &QPushButton::clicked, this, &KMapDialog::slotSave);
+    //connect(m_btnApply, &QPushButton::clicked, this, &KMapDialog::slotApply);
 }
 
-void KMapDialog::displayMap(const VMPKKeyboardMap* map)
+void KMapDialog::displayMap(const VMPKKeyboardMap *map, const QStringList noteNames)
 {
     int row;
-    if (map != nullptr) m_map.copyFrom(map);
+    if (map != nullptr) {
+        m_map.copyFrom(map);
+    }
+    if (!noteNames.isEmpty()) {
+        m_names = noteNames;
+    }
     setWindowTitle(m_map.getRawMode() ? tr("Raw Key Map Editor") : tr("Key Map Editor"));
     ui.tableWidget->clearContents();
-    ui.tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem(m_map.getRawMode() ? tr("Key Code") : tr("Key")));
+    ui.tableWidget->setHorizontalHeaderItem(1,
+                                            new QTableWidgetItem(m_map.getRawMode() ? tr("Key Code")
+                                                                                    : tr("Key")));
     QFileInfo f(m_map.getFileName());
     ui.labelMapName->setText(f.fileName());
     KeyboardMap::ConstIterator it;
     for(it = m_map.constBegin(); it != m_map.constEnd(); ++it) {
         row = it.value();
+        if (m_names.size() == 12) {
+            auto noteItem = new QTableWidgetItem(m_names.at(row % 12));
+            noteItem->setFlags(noteItem->flags() ^ (Qt::ItemIsEditable | Qt::ItemIsSelectable));
+            ui.tableWidget->setItem(row, 0, noteItem);
+        }
         if (m_map.getRawMode()) {
-            ui.tableWidget->setItem(row, 0, new QTableWidgetItem(QString::number(it.key())));
+            ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(it.key())));
         } else {
             QKeySequence ks(it.key());
-            ui.tableWidget->setItem(row, 0, new QTableWidgetItem(ks.toString()));
+            ui.tableWidget->setItem(row, 1, new QTableWidgetItem(ks.toString()));
         }
     }
+    ui.tableWidget->resizeColumnsToContents();
 }
 
 void KMapDialog::updateMap()
@@ -64,7 +80,7 @@ void KMapDialog::updateMap()
     m_map.clear();
     QTableWidgetItem* item;
     for( int i=0; i<128; ++i) {
-        item = ui.tableWidget->item(i, 0);
+        item = ui.tableWidget->item(i, 1);
         if ((item != nullptr) && !item->text().isEmpty()) {
             if (m_map.getRawMode()) {
                 int keycode = item->text().toInt(&ok);
@@ -96,7 +112,7 @@ void KMapDialog::slotOpen()
     if (!fileName.isEmpty()) {
         m_map.clear();
         m_map.loadFromXMLFile(fileName);
-        displayMap(nullptr);
+        displayMap(nullptr, QStringList());
     }
 }
 
@@ -116,9 +132,12 @@ void KMapDialog::slotSave()
     }
 }
 
+//void KMapDialog::slotApply() {}
+
 void KMapDialog::retranslateUi()
 {
     ui.retranslateUi(this);
     m_btnOpen->setText(tr("Open..."));
     m_btnSave->setText(tr("Save As..."));
+    //m_btnApply->setText(tr("Apply"));
 }

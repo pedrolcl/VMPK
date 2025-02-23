@@ -31,19 +31,22 @@ public:
     KMapDialog(QWidget *parent = nullptr);
     void load(const QString fileName);
     void save(const QString fileName);
-    void displayMap(const VMPKKeyboardMap* map);
-    void getMap(VMPKKeyboardMap* map);
+    void displayMap(const VMPKKeyboardMap *map, const QStringList noteNames);
+    void getMap(VMPKKeyboardMap *map);
     void retranslateUi();
 
 public slots:
     void slotOpen();
     void slotSave();
+    //void slotApply();
 
 private:
     void updateMap();
 
-    QPushButton* m_btnOpen;
-    QPushButton* m_btnSave;
+    QPushButton *m_btnOpen;
+    QPushButton *m_btnSave;
+    //QPushButton *m_btnApply;
+    QStringList m_names;
     VMPKKeyboardMap m_map;
     Ui::KMapDialogClass ui;
 };
