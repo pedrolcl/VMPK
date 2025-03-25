@@ -86,17 +86,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DialogExtraControls</name>
     <message>
-        <location filename="../src/extracontrols.cpp" line="74"/>
+        <location filename="../src/extracontrols.cpp" line="86"/>
         <source>New Control</source>
         <translation>新控件</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="248"/>
+        <location filename="../src/extracontrols.cpp" line="263"/>
         <source>System Exclusive File</source>
         <translation>系统独有信息 文件</translation>
     </message>
     <message>
-        <location filename="../src/extracontrols.cpp" line="248"/>
+        <location filename="../src/extracontrols.cpp" line="263"/>
         <source>System Exclusive (*.syx)</source>
         <translation>系统独有信息 文件 (*.syx)</translation>
     </message>
@@ -233,49 +233,49 @@ p, li { white-space: pre-wrap; }
     <name>KMapDialog</name>
     <message>
         <location filename="../src/kmapdialog.cpp" line="32"/>
-        <location filename="../src/kmapdialog.cpp" line="122"/>
+        <location filename="../src/kmapdialog.cpp" line="140"/>
         <source>Open...</source>
         <translation>打开...</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="33"/>
-        <location filename="../src/kmapdialog.cpp" line="123"/>
+        <location filename="../src/kmapdialog.cpp" line="141"/>
         <source>Save As...</source>
         <translation>另存为...</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="44"/>
+        <location filename="../src/kmapdialog.cpp" line="52"/>
         <source>Raw Key Map Editor</source>
         <translation>原始键盘映射编辑器</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="44"/>
+        <location filename="../src/kmapdialog.cpp" line="52"/>
         <source>Key Map Editor</source>
         <translation>键盘映射编辑器</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="46"/>
+        <location filename="../src/kmapdialog.cpp" line="55"/>
         <source>Key Code</source>
         <translation>键码</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="46"/>
+        <location filename="../src/kmapdialog.cpp" line="56"/>
         <source>Key</source>
         <translation>键</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="93"/>
+        <location filename="../src/kmapdialog.cpp" line="109"/>
         <source>Open keyboard map definition</source>
         <translation>打开键盘映射文件</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="95"/>
-        <location filename="../src/kmapdialog.cpp" line="106"/>
+        <location filename="../src/kmapdialog.cpp" line="111"/>
+        <location filename="../src/kmapdialog.cpp" line="122"/>
         <source>Keyboard map (*.xml)</source>
         <translation>键盘映射文件 (*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.cpp" line="108"/>
+        <location filename="../src/kmapdialog.cpp" line="124"/>
         <source>Save keyboard map definition</source>
         <translation>保存键盘映射文件</translation>
     </message>
@@ -288,657 +288,662 @@ p, li { white-space: pre-wrap; }
         <translation>键盘映射编辑器</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="74"/>
+        <location filename="../src/kmapdialog.ui" line="79"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="79"/>
+        <location filename="../src/kmapdialog.ui" line="84"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="84"/>
+        <location filename="../src/kmapdialog.ui" line="89"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="89"/>
+        <location filename="../src/kmapdialog.ui" line="94"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="94"/>
+        <location filename="../src/kmapdialog.ui" line="99"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="99"/>
+        <location filename="../src/kmapdialog.ui" line="104"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="104"/>
+        <location filename="../src/kmapdialog.ui" line="109"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="109"/>
+        <location filename="../src/kmapdialog.ui" line="114"/>
         <source>7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="114"/>
+        <location filename="../src/kmapdialog.ui" line="119"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="119"/>
+        <location filename="../src/kmapdialog.ui" line="124"/>
         <source>9</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="124"/>
+        <location filename="../src/kmapdialog.ui" line="129"/>
         <source>10</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="129"/>
+        <location filename="../src/kmapdialog.ui" line="134"/>
         <source>11</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="134"/>
+        <location filename="../src/kmapdialog.ui" line="139"/>
         <source>12</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="139"/>
+        <location filename="../src/kmapdialog.ui" line="144"/>
         <source>13</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="144"/>
+        <location filename="../src/kmapdialog.ui" line="149"/>
         <source>14</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="149"/>
+        <location filename="../src/kmapdialog.ui" line="154"/>
         <source>15</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="154"/>
+        <location filename="../src/kmapdialog.ui" line="159"/>
         <source>16</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="159"/>
+        <location filename="../src/kmapdialog.ui" line="164"/>
         <source>17</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="164"/>
+        <location filename="../src/kmapdialog.ui" line="169"/>
         <source>18</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="169"/>
+        <location filename="../src/kmapdialog.ui" line="174"/>
         <source>19</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="174"/>
+        <location filename="../src/kmapdialog.ui" line="179"/>
         <source>20</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="179"/>
+        <location filename="../src/kmapdialog.ui" line="184"/>
         <source>21</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="184"/>
+        <location filename="../src/kmapdialog.ui" line="189"/>
         <source>22</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="189"/>
+        <location filename="../src/kmapdialog.ui" line="194"/>
         <source>23</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="194"/>
+        <location filename="../src/kmapdialog.ui" line="199"/>
         <source>24</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="199"/>
+        <location filename="../src/kmapdialog.ui" line="204"/>
         <source>25</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="204"/>
+        <location filename="../src/kmapdialog.ui" line="209"/>
         <source>26</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="209"/>
+        <location filename="../src/kmapdialog.ui" line="214"/>
         <source>27</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="214"/>
+        <location filename="../src/kmapdialog.ui" line="219"/>
         <source>28</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="219"/>
+        <location filename="../src/kmapdialog.ui" line="224"/>
         <source>29</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="224"/>
+        <location filename="../src/kmapdialog.ui" line="229"/>
         <source>30</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="229"/>
+        <location filename="../src/kmapdialog.ui" line="234"/>
         <source>31</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="234"/>
+        <location filename="../src/kmapdialog.ui" line="239"/>
         <source>32</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="239"/>
+        <location filename="../src/kmapdialog.ui" line="244"/>
         <source>33</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="244"/>
+        <location filename="../src/kmapdialog.ui" line="249"/>
         <source>34</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="249"/>
+        <location filename="../src/kmapdialog.ui" line="254"/>
         <source>35</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="254"/>
+        <location filename="../src/kmapdialog.ui" line="259"/>
         <source>36</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="259"/>
+        <location filename="../src/kmapdialog.ui" line="264"/>
         <source>37</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="264"/>
+        <location filename="../src/kmapdialog.ui" line="269"/>
         <source>38</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="269"/>
+        <location filename="../src/kmapdialog.ui" line="274"/>
         <source>39</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="274"/>
+        <location filename="../src/kmapdialog.ui" line="279"/>
         <source>40</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="279"/>
+        <location filename="../src/kmapdialog.ui" line="284"/>
         <source>41</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="284"/>
+        <location filename="../src/kmapdialog.ui" line="289"/>
         <source>42</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="289"/>
+        <location filename="../src/kmapdialog.ui" line="294"/>
         <source>43</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="294"/>
+        <location filename="../src/kmapdialog.ui" line="299"/>
         <source>44</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="299"/>
+        <location filename="../src/kmapdialog.ui" line="304"/>
         <source>45</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="304"/>
+        <location filename="../src/kmapdialog.ui" line="309"/>
         <source>46</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="309"/>
+        <location filename="../src/kmapdialog.ui" line="314"/>
         <source>47</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="314"/>
+        <location filename="../src/kmapdialog.ui" line="319"/>
         <source>48</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="319"/>
+        <location filename="../src/kmapdialog.ui" line="324"/>
         <source>49</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="324"/>
+        <location filename="../src/kmapdialog.ui" line="329"/>
         <source>50</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="329"/>
+        <location filename="../src/kmapdialog.ui" line="334"/>
         <source>51</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="334"/>
+        <location filename="../src/kmapdialog.ui" line="339"/>
         <source>52</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="339"/>
+        <location filename="../src/kmapdialog.ui" line="344"/>
         <source>53</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="344"/>
+        <location filename="../src/kmapdialog.ui" line="349"/>
         <source>54</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="349"/>
+        <location filename="../src/kmapdialog.ui" line="354"/>
         <source>55</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="354"/>
+        <location filename="../src/kmapdialog.ui" line="359"/>
         <source>56</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="359"/>
+        <location filename="../src/kmapdialog.ui" line="364"/>
         <source>57</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="364"/>
+        <location filename="../src/kmapdialog.ui" line="369"/>
         <source>58</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="369"/>
+        <location filename="../src/kmapdialog.ui" line="374"/>
         <source>59</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="374"/>
+        <location filename="../src/kmapdialog.ui" line="379"/>
         <source>60</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="379"/>
+        <location filename="../src/kmapdialog.ui" line="384"/>
         <source>61</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="384"/>
+        <location filename="../src/kmapdialog.ui" line="389"/>
         <source>62</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="389"/>
+        <location filename="../src/kmapdialog.ui" line="394"/>
         <source>63</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="394"/>
+        <location filename="../src/kmapdialog.ui" line="399"/>
         <source>64</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="399"/>
+        <location filename="../src/kmapdialog.ui" line="404"/>
         <source>65</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="404"/>
+        <location filename="../src/kmapdialog.ui" line="409"/>
         <source>66</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="409"/>
+        <location filename="../src/kmapdialog.ui" line="414"/>
         <source>67</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="414"/>
+        <location filename="../src/kmapdialog.ui" line="419"/>
         <source>68</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="419"/>
+        <location filename="../src/kmapdialog.ui" line="424"/>
         <source>69</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="424"/>
+        <location filename="../src/kmapdialog.ui" line="429"/>
         <source>70</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="429"/>
+        <location filename="../src/kmapdialog.ui" line="434"/>
         <source>71</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="434"/>
+        <location filename="../src/kmapdialog.ui" line="439"/>
         <source>72</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="439"/>
+        <location filename="../src/kmapdialog.ui" line="444"/>
         <source>73</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="444"/>
+        <location filename="../src/kmapdialog.ui" line="449"/>
         <source>74</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="449"/>
+        <location filename="../src/kmapdialog.ui" line="454"/>
         <source>75</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="454"/>
+        <location filename="../src/kmapdialog.ui" line="459"/>
         <source>76</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="459"/>
+        <location filename="../src/kmapdialog.ui" line="464"/>
         <source>77</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="464"/>
+        <location filename="../src/kmapdialog.ui" line="469"/>
         <source>78</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="469"/>
+        <location filename="../src/kmapdialog.ui" line="474"/>
         <source>79</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="474"/>
+        <location filename="../src/kmapdialog.ui" line="479"/>
         <source>80</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="479"/>
+        <location filename="../src/kmapdialog.ui" line="484"/>
         <source>81</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="484"/>
+        <location filename="../src/kmapdialog.ui" line="489"/>
         <source>82</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="489"/>
+        <location filename="../src/kmapdialog.ui" line="494"/>
         <source>83</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="494"/>
+        <location filename="../src/kmapdialog.ui" line="499"/>
         <source>84</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="499"/>
+        <location filename="../src/kmapdialog.ui" line="504"/>
         <source>85</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="504"/>
+        <location filename="../src/kmapdialog.ui" line="509"/>
         <source>86</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="509"/>
+        <location filename="../src/kmapdialog.ui" line="514"/>
         <source>87</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="514"/>
+        <location filename="../src/kmapdialog.ui" line="519"/>
         <source>88</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="519"/>
+        <location filename="../src/kmapdialog.ui" line="524"/>
         <source>89</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="524"/>
+        <location filename="../src/kmapdialog.ui" line="529"/>
         <source>90</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="529"/>
+        <location filename="../src/kmapdialog.ui" line="534"/>
         <source>91</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="534"/>
+        <location filename="../src/kmapdialog.ui" line="539"/>
         <source>92</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="539"/>
+        <location filename="../src/kmapdialog.ui" line="544"/>
         <source>93</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="544"/>
+        <location filename="../src/kmapdialog.ui" line="549"/>
         <source>94</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="549"/>
+        <location filename="../src/kmapdialog.ui" line="554"/>
         <source>95</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="554"/>
+        <location filename="../src/kmapdialog.ui" line="559"/>
         <source>96</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="559"/>
+        <location filename="../src/kmapdialog.ui" line="564"/>
         <source>97</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="564"/>
+        <location filename="../src/kmapdialog.ui" line="569"/>
         <source>98</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="569"/>
+        <location filename="../src/kmapdialog.ui" line="574"/>
         <source>99</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="574"/>
+        <location filename="../src/kmapdialog.ui" line="579"/>
         <source>100</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="579"/>
+        <location filename="../src/kmapdialog.ui" line="584"/>
         <source>101</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="584"/>
+        <location filename="../src/kmapdialog.ui" line="589"/>
         <source>102</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="589"/>
+        <location filename="../src/kmapdialog.ui" line="594"/>
         <source>103</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="594"/>
+        <location filename="../src/kmapdialog.ui" line="599"/>
         <source>104</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="599"/>
+        <location filename="../src/kmapdialog.ui" line="604"/>
         <source>105</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="604"/>
+        <location filename="../src/kmapdialog.ui" line="609"/>
         <source>106</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="609"/>
+        <location filename="../src/kmapdialog.ui" line="614"/>
         <source>107</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="614"/>
+        <location filename="../src/kmapdialog.ui" line="619"/>
         <source>108</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="619"/>
+        <location filename="../src/kmapdialog.ui" line="624"/>
         <source>109</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="624"/>
+        <location filename="../src/kmapdialog.ui" line="629"/>
         <source>110</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="629"/>
+        <location filename="../src/kmapdialog.ui" line="634"/>
         <source>111</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="634"/>
+        <location filename="../src/kmapdialog.ui" line="639"/>
         <source>112</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="639"/>
+        <location filename="../src/kmapdialog.ui" line="644"/>
         <source>113</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="644"/>
+        <location filename="../src/kmapdialog.ui" line="649"/>
         <source>114</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="649"/>
+        <location filename="../src/kmapdialog.ui" line="654"/>
         <source>115</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="654"/>
+        <location filename="../src/kmapdialog.ui" line="659"/>
         <source>116</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="659"/>
+        <location filename="../src/kmapdialog.ui" line="664"/>
         <source>117</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="664"/>
+        <location filename="../src/kmapdialog.ui" line="669"/>
         <source>118</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="669"/>
+        <location filename="../src/kmapdialog.ui" line="674"/>
         <source>119</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="674"/>
+        <location filename="../src/kmapdialog.ui" line="679"/>
         <source>120</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="679"/>
+        <location filename="../src/kmapdialog.ui" line="684"/>
         <source>121</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="684"/>
+        <location filename="../src/kmapdialog.ui" line="689"/>
         <source>122</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="689"/>
+        <location filename="../src/kmapdialog.ui" line="694"/>
         <source>123</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="694"/>
+        <location filename="../src/kmapdialog.ui" line="699"/>
         <source>124</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="699"/>
+        <location filename="../src/kmapdialog.ui" line="704"/>
         <source>125</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="704"/>
+        <location filename="../src/kmapdialog.ui" line="709"/>
         <source>126</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="709"/>
+        <location filename="../src/kmapdialog.ui" line="714"/>
         <source>127</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="714"/>
+        <location filename="../src/kmapdialog.ui" line="719"/>
+        <source>Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/kmapdialog.ui" line="724"/>
         <source>Key</source>
         <translation>键</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="48"/>
+        <location filename="../src/kmapdialog.ui" line="50"/>
         <source>This box displays the name of the current mapping file</source>
         <translation>此方框显示当前映射文件的文件名</translation>
     </message>
     <message>
-        <location filename="../src/kmapdialog.ui" line="67"/>
+        <location filename="../src/kmapdialog.ui" line="69"/>
         <source>This is the list of the PC keyboard mappings. Each row has a number corresponding to the MIDI note number, and you can type an alphanumeric Key name that will be translated to the given note</source>
         <translation>这是 PC 键盘的键值映射列表. 每一行包含一个对应 MIDI 音符的数字, 您可以输入键的文字名称, 程序将把它转换为对应的 MIDI 音符</translation>
     </message>
@@ -970,12 +975,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MidiSetup</name>
     <message>
-        <location filename="../src/midisetup.cpp" line="168"/>
+        <location filename="../src/midisetup.cpp" line="171"/>
         <source>MIDI Output</source>
         <translation>MIDI 输出</translation>
     </message>
     <message>
-        <location filename="../src/midisetup.cpp" line="189"/>
+        <location filename="../src/midisetup.cpp" line="192"/>
         <source>MIDI Input</source>
         <translation>MIDI 输入</translation>
     </message>
@@ -1057,29 +1062,29 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Preferences</name>
     <message>
-        <location filename="../src/preferences.cpp" line="172"/>
+        <location filename="../src/preferences.cpp" line="174"/>
         <source>Open instruments definition</source>
         <translation>打开乐器定义文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="174"/>
+        <location filename="../src/preferences.cpp" line="176"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>乐器定义文件 (*.ins)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="229"/>
-        <location filename="../src/preferences.cpp" line="240"/>
+        <location filename="../src/preferences.cpp" line="231"/>
+        <location filename="../src/preferences.cpp" line="242"/>
         <source>Open keyboard map definition</source>
         <translation>打开键盘映射文件</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="231"/>
-        <location filename="../src/preferences.cpp" line="242"/>
+        <location filename="../src/preferences.cpp" line="233"/>
+        <location filename="../src/preferences.cpp" line="244"/>
         <source>Keyboard map (*.xml)</source>
         <translation>键盘映射文件 (*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/preferences.cpp" line="253"/>
+        <location filename="../src/preferences.cpp" line="255"/>
         <source>Font to display note names</source>
         <translation>音名显示字体</translation>
     </message>
@@ -1388,12 +1393,12 @@ Copyright (C) 2006-2024 Pedro Lopez-Cabanillas
 详情请参见许可协议LICENSE文件。</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="65"/>
+        <location filename="../src/main.cpp" line="63"/>
         <source>Portable settings mode.</source>
         <translation>便携式设置模式。</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="66"/>
+        <location filename="../src/main.cpp" line="64"/>
         <source>Portable settings file name.</source>
         <translation>便携式设置文件名。</translation>
     </message>
@@ -1419,17 +1424,17 @@ Copyright (C) 2006-2024 Pedro Lopez-Cabanillas
 <context>
     <name>RiffImportDlg</name>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="55"/>
+        <location filename="../src/riffimportdlg.cpp" line="58"/>
         <source>Input SoundFont</source>
         <translation>输入音色库(SoundFont)</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="55"/>
+        <location filename="../src/riffimportdlg.cpp" line="58"/>
         <source>SoundFonts (*.sf2 *.sbk *.dls)</source>
         <translation>SoundFont 音色库文件 (*.sf2 *.sbk *.dls)</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="66"/>
+        <location filename="../src/riffimportdlg.cpp" line="69"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
@@ -1439,33 +1444,33 @@ Copyright (C) 2006-2024 Pedro Lopez-Cabanillas
         <translation>输入文件</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="88"/>
+        <location filename="../src/riffimportdlg.ui" line="139"/>
         <location filename="../src/riffimportdlg.ui" line="161"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="95"/>
+        <location filename="../src/riffimportdlg.ui" line="73"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="109"/>
+        <location filename="../src/riffimportdlg.ui" line="87"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="119"/>
+        <location filename="../src/riffimportdlg.ui" line="97"/>
         <source>Copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="129"/>
+        <location filename="../src/riffimportdlg.ui" line="107"/>
         <source>Output File</source>
         <translation>输出文件</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="139"/>
+        <location filename="../src/riffimportdlg.ui" line="117"/>
         <source>This text box displays the name of the output file in .INS format that will be created</source>
         <translation>此文本框显示将要创建的扩展名为 .INS 的输入文件名</translation>
     </message>
@@ -1475,7 +1480,7 @@ Copyright (C) 2006-2024 Pedro Lopez-Cabanillas
         <translation>按此按钮为输出文件选择路径和文件名</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.cpp" line="65"/>
+        <location filename="../src/riffimportdlg.cpp" line="68"/>
         <source>Instrument definitions (*.ins)</source>
         <translation>乐器定义文件 (*.ins)</translation>
     </message>
@@ -1490,7 +1495,7 @@ Copyright (C) 2006-2024 Pedro Lopez-Cabanillas
         <translation>此文本框显示要导入的 SoundFont 音色库文件的路径和文件名</translation>
     </message>
     <message>
-        <location filename="../src/riffimportdlg.ui" line="85"/>
+        <location filename="../src/riffimportdlg.ui" line="136"/>
         <source>Press this button to select a SoundFont file to be imported</source>
         <translation>按此按钮选择要导入的音色库 SoundFont 文件</translation>
     </message>
@@ -1518,12 +1523,12 @@ Copyright (C) 2006-2024 Pedro Lopez-Cabanillas
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.cpp" line="340"/>
+        <location filename="../src/shortcutdialog.cpp" line="334"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/shortcutdialog.cpp" line="341"/>
+        <location filename="../src/shortcutdialog.cpp" line="335"/>
         <source>Keyboard shortcuts have been changed.
 
 Do you want to apply the changes?</source>
@@ -1535,190 +1540,205 @@ Do you want to apply the changes?</source>
 <context>
     <name>VPiano</name>
     <message>
-        <location filename="../src/vpiano.cpp" line="1687"/>
+        <location filename="../src/vpiano.cpp" line="1745"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2076"/>
+        <location filename="../src/vpiano.cpp" line="2133"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2088"/>
+        <location filename="../src/vpiano.cpp" line="2145"/>
         <source>Chan:</source>
         <translation>通：</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2090"/>
+        <location filename="../src/vpiano.cpp" line="2147"/>
         <source>Channel:</source>
         <translation>通道:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2095"/>
+        <location filename="../src/vpiano.cpp" line="2152"/>
         <source>Oct:</source>
         <translation>八度:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2097"/>
+        <location filename="../src/vpiano.cpp" line="2154"/>
         <source>Base Octave:</source>
         <translation>基准八度:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2102"/>
+        <location filename="../src/vpiano.cpp" line="2159"/>
         <source>Trans:</source>
         <translation>移:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2104"/>
+        <location filename="../src/vpiano.cpp" line="2161"/>
         <source>Transpose:</source>
         <translation>移调:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2109"/>
+        <location filename="../src/vpiano.cpp" line="2166"/>
         <source>Vel:</source>
         <translation>力：</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2111"/>
+        <location filename="../src/vpiano.cpp" line="2168"/>
         <source>Velocity:</source>
         <translation>力度：</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2116"/>
+        <location filename="../src/vpiano.cpp" line="2173"/>
         <source>Control:</source>
         <translation>控制器:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2118"/>
+        <location filename="../src/vpiano.cpp" line="2175"/>
         <source>Value:</source>
         <translation>值:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2259"/>
+        <location filename="../src/vpiano.cpp" line="2315"/>
         <source>Open Configuration File</source>
         <translation>打开配置文件</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2260"/>
-        <location filename="../src/vpiano.cpp" line="2273"/>
+        <location filename="../src/vpiano.cpp" line="2316"/>
+        <location filename="../src/vpiano.cpp" line="2329"/>
         <source>Configuration files (*.conf *.ini)</source>
         <translation>配置文件 (*.conf *.ini)</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2275"/>
+        <location filename="../src/vpiano.cpp" line="2331"/>
         <source>Save Configuration File</source>
         <translation>保存配置文件</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2298"/>
+        <location filename="../src/vpiano.cpp" line="2357"/>
         <source>The important component called &apos;%1&apos; is missing.
 This probably means that your installation is corrupt, or the &apos;drumstick&apos; packages on which this program depends are incomplete, outdated or wrong. You may still use the program, but probably without sound.</source>
         <translation>缺少叫做&quot;%1 &quot;的重要组件。
 这可能意味着您的安装程序已损坏，或者该程序所依赖的 &quot;drumstick &quot;软件包不完整、过时或错误。您仍然可以使用该程序，但可能没有声音。</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2303"/>
+        <location filename="../src/vpiano.cpp" line="2362"/>
         <source>MIDI Output</source>
         <translation>MIDI 输出</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2115"/>
+        <location filename="../src/vpiano.cpp" line="2172"/>
         <source>Bender:</source>
         <translation>弯音轮:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2114"/>
+        <location filename="../src/vpiano.cpp" line="2171"/>
         <source>Bank:</source>
         <translation>音色库:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2117"/>
+        <location filename="../src/vpiano.cpp" line="2174"/>
         <source>Program:</source>
         <translation>音色:</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1978"/>
+        <location filename="../src/vpiano.cpp" line="2035"/>
         <source>The language for this application is going to change to %1. Do you want to continue?</source>
         <translation>应用程序的界面语言将要改变为 %1. 继续吗?</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2032"/>
+        <location filename="../src/vpiano.cpp" line="2089"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;VMPK 由来自全球的志愿者开发并翻译. 如果您想加入我们或有任何疑问, 请访问 &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;的论坛&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2053"/>
+        <location filename="../src/vpiano.cpp" line="2110"/>
         <source>Translation Information</source>
         <translation>翻译信息</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2079"/>
+        <location filename="../src/vpiano.cpp" line="2136"/>
         <source>Serbian</source>
         <translation>Српски</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2080"/>
+        <location filename="../src/vpiano.cpp" line="2137"/>
         <source>Swedish</source>
         <translation>Svenska</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2050"/>
+        <location filename="../src/vpiano.cpp" line="2107"/>
         <source>Translation</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2051"/>
+        <location filename="../src/vpiano.cpp" line="2108"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
         <translation>&lt;p&gt;译者 Rui Fan (&lt;a href=&apos;mailto:vanferry@gmail.com&apos;&gt;vanferry@gmail.com&lt;/a&gt;) 和 hycinth (&lt;a href=&apos;mailto:realhycinth@gmail.com&apos;&gt;realhycinth@gmail.com&lt;/a&gt;) &lt;/p&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2071"/>
+        <location filename="../src/vpiano.cpp" line="2128"/>
         <source>Czech</source>
         <translation>Česky</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2072"/>
+        <location filename="../src/vpiano.cpp" line="2129"/>
         <source>German</source>
         <translation>Deutsch</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2070"/>
+        <location filename="../src/vpiano.cpp" line="2127"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2073"/>
+        <location filename="../src/vpiano.cpp" line="745"/>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="746"/>
+        <source>Sostenuto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="747"/>
+        <source>Sustain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.cpp" line="2130"/>
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2074"/>
+        <location filename="../src/vpiano.cpp" line="2131"/>
         <source>French</source>
         <translation>Français</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2075"/>
+        <location filename="../src/vpiano.cpp" line="2132"/>
         <source>Galician</source>
         <translation>Galego</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2077"/>
+        <location filename="../src/vpiano.cpp" line="2134"/>
         <source>Dutch</source>
         <translation>Nederlands</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2078"/>
+        <location filename="../src/vpiano.cpp" line="2135"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="2081"/>
+        <location filename="../src/vpiano.cpp" line="2138"/>
         <source>Chinese</source>
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1977"/>
+        <location filename="../src/vpiano.cpp" line="2034"/>
         <source>Language Changed</source>
         <translation>语言已变更</translation>
     </message>
@@ -1748,51 +1768,51 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
         <translation>(&amp;V)查看</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="149"/>
+        <location filename="../src/vpiano.ui" line="150"/>
         <source>&amp;Tools</source>
         <translation>(&amp;T)工具</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="153"/>
+        <location filename="../src/vpiano.ui" line="154"/>
         <source>Notes</source>
         <translation>音符</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="164"/>
+        <location filename="../src/vpiano.ui" line="165"/>
         <source>Controllers</source>
         <translation>控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="173"/>
+        <location filename="../src/vpiano.ui" line="174"/>
         <source>Programs</source>
         <translation>音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="182"/>
+        <location filename="../src/vpiano.ui" line="183"/>
         <source>Note Input</source>
         <translation>音符输入</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="217"/>
-        <location filename="../src/vpiano.ui" line="405"/>
+        <location filename="../src/vpiano.ui" line="218"/>
+        <location filename="../src/vpiano.ui" line="431"/>
         <source>&amp;Notes</source>
         <translation>(&amp;N) 音符</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="272"/>
-        <location filename="../src/vpiano.ui" line="419"/>
+        <location filename="../src/vpiano.ui" line="273"/>
+        <location filename="../src/vpiano.ui" line="445"/>
         <source>&amp;Controllers</source>
         <translation>(&amp;C) 控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="328"/>
-        <location filename="../src/vpiano.ui" line="433"/>
+        <location filename="../src/vpiano.ui" line="329"/>
+        <location filename="../src/vpiano.ui" line="459"/>
         <source>Pitch &amp;Bender</source>
         <translation>(&amp;B) 弯音轮</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="245"/>
-        <location filename="../src/vpiano.ui" line="447"/>
+        <location filename="../src/vpiano.ui" line="246"/>
+        <location filename="../src/vpiano.ui" line="473"/>
         <source>&amp;Programs</source>
         <translation>(&amp;P) 音色</translation>
     </message>
@@ -1812,580 +1832,600 @@ This probably means that your installation is corrupt, or the &apos;drumstick&ap
         <translation>名称方向</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="300"/>
-        <location filename="../src/vpiano.ui" line="561"/>
+        <location filename="../src/vpiano.ui" line="301"/>
+        <location filename="../src/vpiano.ui" line="587"/>
         <source>&amp;Extra Controls</source>
         <translation>(&amp;E) 附加控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="347"/>
+        <location filename="../src/vpiano.ui" line="373"/>
         <source>&amp;Quit</source>
         <translation>(&amp;Q) 退出</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="350"/>
+        <location filename="../src/vpiano.ui" line="376"/>
         <source>Exit the program</source>
         <translation>退出程序</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="358"/>
+        <location filename="../src/vpiano.ui" line="384"/>
         <source>&amp;Preferences</source>
         <translation>(&amp;P) 首选项</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="361"/>
+        <location filename="../src/vpiano.ui" line="387"/>
         <source>Edit the program settings</source>
         <translation>编辑程序选项</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="369"/>
+        <location filename="../src/vpiano.ui" line="395"/>
         <source>MIDI &amp;Connections</source>
         <translation>(&amp;C) MIDI连接</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="743"/>
+        <location filename="../src/vpiano.ui" line="769"/>
         <source>Alt++</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="757"/>
+        <location filename="../src/vpiano.ui" line="783"/>
         <source>Alt+-</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="866"/>
+        <location filename="../src/vpiano.ui" line="892"/>
         <source>Computer Keyboard</source>
         <translation>计算机键盘</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="869"/>
+        <location filename="../src/vpiano.ui" line="895"/>
         <source>Enable computer keyboard triggered note input</source>
         <translation>启用计算机键盘触发音符输入</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="883"/>
+        <location filename="../src/vpiano.ui" line="909"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="886"/>
+        <location filename="../src/vpiano.ui" line="912"/>
         <source>Enable mouse triggered note input</source>
         <translation>启用鼠标触发音符输入</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="900"/>
+        <location filename="../src/vpiano.ui" line="926"/>
         <source>Touch Screen</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="903"/>
+        <location filename="../src/vpiano.ui" line="929"/>
         <source>Enable screen touch triggered note input</source>
         <translation>启用触摸屏触发音符输入</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="911"/>
+        <location filename="../src/vpiano.ui" line="937"/>
         <source>Color Palette</source>
         <translation>颜色面板</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="914"/>
+        <location filename="../src/vpiano.ui" line="940"/>
         <source>Open the color palette editor</source>
         <translation>打开颜色面板编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="925"/>
+        <location filename="../src/vpiano.ui" line="951"/>
         <source>Color Scale</source>
         <translation>色阶</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="928"/>
+        <location filename="../src/vpiano.ui" line="954"/>
         <source>Show or hide the colorized keys</source>
         <translation>显示或隐藏彩色按键</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="942"/>
+        <location filename="../src/vpiano.ui" line="968"/>
         <source>Window frame</source>
         <translation>窗口边框</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="945"/>
+        <location filename="../src/vpiano.ui" line="971"/>
         <source>Show or hide window decorations</source>
         <translation>显示或隐藏窗口装饰</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="962"/>
+        <location filename="../src/vpiano.ui" line="988"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="965"/>
+        <location filename="../src/vpiano.ui" line="991"/>
         <source>Don&apos;t show key labels</source>
         <translation>不显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="973"/>
+        <location filename="../src/vpiano.ui" line="1002"/>
         <source>When Activated</source>
         <translation>当激活时</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="976"/>
+        <location filename="../src/vpiano.ui" line="1005"/>
         <source>Show key labels when notes are activated</source>
         <translation>当音符激活时显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="984"/>
+        <location filename="../src/vpiano.ui" line="1016"/>
         <source>Always</source>
         <translation>总是</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="987"/>
+        <location filename="../src/vpiano.ui" line="1019"/>
         <source>Show key labels always</source>
         <translation>总是显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="998"/>
+        <location filename="../src/vpiano.ui" line="1033"/>
         <source>Sharps</source>
         <translation>升音</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1001"/>
+        <location filename="../src/vpiano.ui" line="1036"/>
         <source>Display sharps</source>
         <translation>显示升音</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1012"/>
+        <location filename="../src/vpiano.ui" line="1050"/>
         <source>Flats</source>
         <translation>降音</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1015"/>
+        <location filename="../src/vpiano.ui" line="1053"/>
         <source>Display flats</source>
         <translation>显示降音</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1023"/>
+        <location filename="../src/vpiano.ui" line="1064"/>
         <source>Nothing</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1026"/>
+        <location filename="../src/vpiano.ui" line="1067"/>
         <source>Don&apos;t display labels over black keys</source>
         <translation>不在黑键上显示标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1037"/>
+        <location filename="../src/vpiano.ui" line="1081"/>
         <source>Horizontal</source>
         <translation>水平</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1040"/>
+        <location filename="../src/vpiano.ui" line="1084"/>
         <source>Display key labels horizontally</source>
         <translation>水平显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1048"/>
+        <location filename="../src/vpiano.ui" line="1095"/>
         <source>Vertical</source>
         <translation>垂直</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1051"/>
+        <location filename="../src/vpiano.ui" line="1098"/>
         <source>Display key labels vertically</source>
         <translation>垂直显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1059"/>
+        <location filename="../src/vpiano.ui" line="1109"/>
         <source>Automatic</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1062"/>
+        <location filename="../src/vpiano.ui" line="1112"/>
         <source>Display key labels with automatic orientation</source>
         <translation>使用自动方向显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1070"/>
+        <location filename="../src/vpiano.ui" line="1123"/>
         <source>Minimal</source>
         <translation>最简</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="372"/>
+        <location filename="../src/vpiano.ui" line="398"/>
         <source>Edit the MIDI connections</source>
         <translation>编辑 MIDI 连接</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="220"/>
+        <location filename="../src/vpiano.ui" line="221"/>
         <source>Notes Tool Bar</source>
         <translation>音符工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="248"/>
+        <location filename="../src/vpiano.ui" line="249"/>
         <source>Programs Tool Bar</source>
         <translation>音色工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="275"/>
+        <location filename="../src/vpiano.ui" line="276"/>
         <source>Controllers Tool Bar</source>
         <translation>控制器工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="303"/>
+        <location filename="../src/vpiano.ui" line="304"/>
         <source>Extra Tool Bar</source>
         <translation>附加工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="331"/>
+        <location filename="../src/vpiano.ui" line="332"/>
         <source>Bender Tool Bar</source>
         <translation>弯音轮工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="380"/>
+        <location filename="../src/vpiano.ui" line="354"/>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="357"/>
+        <source>Settings Tool Bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="406"/>
         <source>&amp;About</source>
         <translation>(&amp;A) 关于</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="383"/>
+        <location filename="../src/vpiano.ui" line="409"/>
         <source>Show the About box</source>
         <translation>显示关于对话框</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="391"/>
+        <location filename="../src/vpiano.ui" line="417"/>
         <source>About &amp;Qt</source>
         <translation>关于 &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="394"/>
+        <location filename="../src/vpiano.ui" line="420"/>
         <source>Show the Qt about box</source>
         <translation>显示关于 Qt 对话框</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="408"/>
+        <location filename="../src/vpiano.ui" line="434"/>
         <source>Show or hide the Notes toolbar</source>
         <translation>显示或隐藏音符工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="422"/>
+        <location filename="../src/vpiano.ui" line="448"/>
         <source>Show or hide the Controller toolbar</source>
         <translation>显示或隐藏控制器工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="436"/>
+        <location filename="../src/vpiano.ui" line="462"/>
         <source>Show or hide the Pitch Bender toolbar</source>
         <translation>显示或隐藏弯音轮工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="450"/>
+        <location filename="../src/vpiano.ui" line="476"/>
         <source>Show or hide the Programs toolbar</source>
         <translation>显示或隐藏音符工具栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="464"/>
+        <location filename="../src/vpiano.ui" line="490"/>
         <source>&amp;Status Bar</source>
         <translation>(&amp;S) 状态栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="467"/>
+        <location filename="../src/vpiano.ui" line="493"/>
         <source>Show or hide the Status Bar</source>
         <translation>显示或隐藏状态栏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="475"/>
+        <location filename="../src/vpiano.ui" line="501"/>
         <source>Panic</source>
         <translation>终止发声</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="478"/>
+        <location filename="../src/vpiano.ui" line="504"/>
         <source>Stops all active notes</source>
         <translation>停止所有发声音符</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="489"/>
+        <location filename="../src/vpiano.ui" line="515"/>
         <source>Reset All</source>
         <translation>全部重置</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="492"/>
+        <location filename="../src/vpiano.ui" line="518"/>
         <source>Resets all the controllers</source>
         <translation>重置所有控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="500"/>
+        <location filename="../src/vpiano.ui" line="526"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="503"/>
+        <location filename="../src/vpiano.ui" line="529"/>
         <source>Resets the Bender value</source>
         <translation>重置弯音轮</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="550"/>
+        <location filename="../src/vpiano.ui" line="576"/>
         <source>Import SoundFont</source>
         <translation>导入 SoundFont</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="564"/>
+        <location filename="../src/vpiano.ui" line="590"/>
         <source>Show or hide the Extra Controls toolbar</source>
         <translation>显示或隐藏特别控制器工具条</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="572"/>
-        <location filename="../src/vpiano.ui" line="586"/>
+        <location filename="../src/vpiano.ui" line="598"/>
+        <location filename="../src/vpiano.ui" line="612"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="575"/>
-        <location filename="../src/vpiano.ui" line="606"/>
+        <location filename="../src/vpiano.ui" line="601"/>
+        <location filename="../src/vpiano.ui" line="632"/>
         <source>Open the Extra Controls editor</source>
         <translation>打开附加控制器编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="589"/>
+        <location filename="../src/vpiano.ui" line="615"/>
         <source>Open the Banks/Programs editor</source>
         <translation>打开 音色库/音色 编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="603"/>
+        <location filename="../src/vpiano.ui" line="629"/>
         <source>&amp;Extra Controllers</source>
         <translation>(&amp;E) 附加控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="614"/>
+        <location filename="../src/vpiano.ui" line="640"/>
         <source>&amp;Shortcuts</source>
         <translation>(&amp;S) 快捷键</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="617"/>
+        <location filename="../src/vpiano.ui" line="643"/>
         <source>Open the Shortcuts editor</source>
         <translation>打开快捷键编辑器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="625"/>
+        <location filename="../src/vpiano.ui" line="651"/>
         <source>Octave Up</source>
         <translation>八度 向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="628"/>
+        <location filename="../src/vpiano.ui" line="654"/>
         <source>Play one octave higher</source>
         <translation>高一个八度弹奏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="639"/>
+        <location filename="../src/vpiano.ui" line="665"/>
         <source>Octave Down</source>
         <translation>八度 向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="642"/>
+        <location filename="../src/vpiano.ui" line="668"/>
         <source>Play one octave lower</source>
         <translation>低一个八度弹奏</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="653"/>
+        <location filename="../src/vpiano.ui" line="679"/>
         <source>Transpose Up</source>
         <translation>移调 向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="656"/>
+        <location filename="../src/vpiano.ui" line="682"/>
         <source>Transpose one semitone higher</source>
         <translation>向上移调一个半音</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="667"/>
+        <location filename="../src/vpiano.ui" line="693"/>
         <source>Transpose Down</source>
         <translation>移调 向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="670"/>
+        <location filename="../src/vpiano.ui" line="696"/>
         <source>Transpose one semitone lower</source>
         <translation>向下移调一个半音</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="681"/>
+        <location filename="../src/vpiano.ui" line="707"/>
         <source>Next  Channel</source>
         <translation>下一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="684"/>
+        <location filename="../src/vpiano.ui" line="710"/>
         <source>Play and listen next channel</source>
         <translation>播放并监听下一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="695"/>
+        <location filename="../src/vpiano.ui" line="721"/>
         <source>Previous Channel</source>
         <translation>前一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="698"/>
+        <location filename="../src/vpiano.ui" line="724"/>
         <source>Play and listen previous channel</source>
         <translation>播放并监听前一个通道</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="849"/>
+        <location filename="../src/vpiano.ui" line="875"/>
         <source>About &amp;Translation</source>
         <translation>(&amp;T) 关于 翻译</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="852"/>
+        <location filename="../src/vpiano.ui" line="878"/>
         <source>Show information about the program language translation</source>
         <translation>显示软件的翻译信息</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1073"/>
+        <location filename="../src/vpiano.ui" line="1126"/>
         <source>Show key labels only over C notes</source>
         <translation>仅在 C 音符上显示琴键标签</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1078"/>
+        <location filename="../src/vpiano.ui" line="1134"/>
         <source>Load Configuration...</source>
         <translation>加载配置...</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1083"/>
+        <location filename="../src/vpiano.ui" line="1142"/>
         <source>Save Configuration...</source>
         <translation>保存配置...</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="1094"/>
+        <location filename="../src/vpiano.ui" line="1156"/>
         <source>Octave Subscript Designation</source>
         <translation>用下标表示八度</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="709"/>
+        <location filename="../src/vpiano.ui" line="1170"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="1173"/>
+        <source>Show or hide the Settings toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/vpiano.ui" line="735"/>
         <source>Next Controller</source>
         <translation>下一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="712"/>
+        <location filename="../src/vpiano.ui" line="738"/>
         <source>Select the next controller</source>
         <translation>选中下一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="723"/>
+        <location filename="../src/vpiano.ui" line="749"/>
         <source>Previous Controller</source>
         <translation>前一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="726"/>
+        <location filename="../src/vpiano.ui" line="752"/>
         <source>Select the previous controller</source>
         <translation>选中前一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="737"/>
+        <location filename="../src/vpiano.ui" line="763"/>
         <source>Controller Up</source>
         <translation>控制器向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="740"/>
+        <location filename="../src/vpiano.ui" line="766"/>
         <source>Increment the controller value</source>
         <translation>增加控制器的值</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="751"/>
+        <location filename="../src/vpiano.ui" line="777"/>
         <source>Controller Down</source>
         <translation>控制器向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="754"/>
+        <location filename="../src/vpiano.ui" line="780"/>
         <source>Decrement the controller value</source>
         <translation>减少控制器的值</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="765"/>
+        <location filename="../src/vpiano.ui" line="791"/>
         <source>Next Bank</source>
         <translation>下一个音色库</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="768"/>
+        <location filename="../src/vpiano.ui" line="794"/>
         <source>Select the next instrument bank</source>
         <translation>选中下一个乐器库</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="779"/>
+        <location filename="../src/vpiano.ui" line="805"/>
         <source>Previous Bank</source>
         <translation>前一个控制器</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="782"/>
+        <location filename="../src/vpiano.ui" line="808"/>
         <source>Select the previous instrument bank</source>
         <translation>选中前一个乐器库</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="793"/>
+        <location filename="../src/vpiano.ui" line="819"/>
         <source>Next Program</source>
         <translation>下一个音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="796"/>
+        <location filename="../src/vpiano.ui" line="822"/>
         <source>Select the next instrument program</source>
         <translation>选中下一个乐器音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="807"/>
+        <location filename="../src/vpiano.ui" line="833"/>
         <source>Previous Program</source>
         <translation>前一个音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="810"/>
+        <location filename="../src/vpiano.ui" line="836"/>
         <source>Select the previous instrument program</source>
         <translation>选中前一个乐器音色</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="821"/>
+        <location filename="../src/vpiano.ui" line="847"/>
         <source>Velocity Up</source>
         <translation>力度向上</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="824"/>
+        <location filename="../src/vpiano.ui" line="850"/>
         <source>Increment note velocity</source>
         <translation>增加音符力度</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="835"/>
+        <location filename="../src/vpiano.ui" line="861"/>
         <source>Velocity Down</source>
         <translation>力度向下</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="838"/>
+        <location filename="../src/vpiano.ui" line="864"/>
         <source>Decrement note velocity</source>
         <translation>减少音符力度</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="511"/>
+        <location filename="../src/vpiano.ui" line="537"/>
         <source>&amp;Keyboard Map</source>
         <translation>(&amp;K) 键盘映射</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="514"/>
+        <location filename="../src/vpiano.ui" line="540"/>
         <source>Edit the current keyboard layout</source>
         <translation>编辑当前键盘布局</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="522"/>
+        <location filename="../src/vpiano.ui" line="548"/>
         <source>&amp;Contents</source>
         <translation>(&amp;C) 内容</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="525"/>
+        <location filename="../src/vpiano.ui" line="551"/>
         <source>Open the index of the help document</source>
         <translation>打开帮助文档的索引</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="536"/>
+        <location filename="../src/vpiano.ui" line="562"/>
         <source>VMPK &amp;Web site</source>
         <translation>(&amp;W) VMPK 网站</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="539"/>
+        <location filename="../src/vpiano.ui" line="565"/>
         <source>Open the VMPK web site address using a web browser</source>
         <translation>使用网络浏览器打开 VMPK 网站</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.ui" line="547"/>
+        <location filename="../src/vpiano.ui" line="573"/>
         <source>&amp;Import SoundFont...</source>
         <translation>(&amp;I) 导入音色库(SoundFont)...</translation>
     </message>
     <message>
-        <location filename="../src/vpiano.cpp" line="1687"/>
+        <location filename="../src/vpiano.cpp" line="1745"/>
         <source>No help file found</source>
         <translation>未找到帮助文档</translation>
     </message>
