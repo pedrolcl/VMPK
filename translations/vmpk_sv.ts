@@ -1369,7 +1369,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna ruta för att använda PC-tangentbordshändelser på låg nivå. Detta system har flera fördelar:&lt;/p&gt;
 &lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Det är möjligt att använda &quot;döda tangenter&quot; (accenttecken, diakritiska tecken)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;avbildningsdefinitioner är oberoende av språket (men hårdvaru- och operativsystemspecifika)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Avbildningsdefinitioner är oberoende av språket (men hårdvaru- och operativsystemspecifika)&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Snabbare bearbetning&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -2224,7 +2224,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1109"/>
         <source>Automatic</source>
-        <translation>Automatiskt</translation>
+        <translation>Automatisk</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1112"/>
