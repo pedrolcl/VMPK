@@ -256,12 +256,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.cpp" line="52"/>
         <source>Raw Key Map Editor</source>
-        <translation>Rå tangentmappningsredigerare</translation>
+        <translation>Rå tangentavbildningsredigerare</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="52"/>
         <source>Key Map Editor</source>
-        <translation>Tangentmappningsredigerare</translation>
+        <translation>Tangentavbildningsredigerare</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="55"/>
@@ -276,18 +276,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.cpp" line="109"/>
         <source>Open keyboard map definition</source>
-        <translation>Öppna mappningsdefinition för tangentbord</translation>
+        <translation>Öppna avbildningsdefinition för tangentbord</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="111"/>
         <location filename="../src/kmapdialog.cpp" line="122"/>
         <source>Keyboard map (*.xml)</source>
-        <translation>Tangentbordsmappningar (*.xml)</translation>
+        <translation>Tangentbordsavbildningar (*.xml)</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="124"/>
         <source>Save keyboard map definition</source>
-        <translation>Spara definition av tangentbordsmappning</translation>
+        <translation>Spara definition av tangentbordsavbildning</translation>
     </message>
 </context>
 <context>
@@ -295,17 +295,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="31"/>
         <source>Key Map Editor</source>
-        <translation>Tangentmappningsredigerare</translation>
+        <translation>Tangentavbildningsredigerare</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="50"/>
         <source>This box displays the name of the current mapping file</source>
-        <translation>Denna ruta visar namnet på den aktuella mappningsfilen</translation>
+        <translation>Denna ruta visar namnet på den aktuella avbildningsfilen</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="69"/>
         <source>This is the list of the PC keyboard mappings. Each row has a number corresponding to the MIDI note number, and you can type an alphanumeric Key name that will be translated to the given note</source>
-        <translation>Detta är listan över PC-tangentbordsmappningar. Varje rad har ett nummer som motsvarar MIDI-tonnumret, och du kan skriva ett alfanumeriskt tangentnamn som kommer att översättas till den givna tonen</translation>
+        <translation>Detta är listan över PC-tangentbordsavbildningar. Varje rad har ett nummer som motsvarar MIDI-tonnumret, och du kan skriva ett alfanumeriskt tangentnamn som kommer att översättas till den givna tonen</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="79"/>
@@ -950,7 +950,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="719"/>
         <source>Note</source>
-        <translation type="unfinished"></translation>
+        <translation>Note</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="724"/>
@@ -1086,13 +1086,13 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/preferences.cpp" line="231"/>
         <location filename="../src/preferences.cpp" line="242"/>
         <source>Open keyboard map definition</source>
-        <translation>Öppna tangentmappningsdefinition</translation>
+        <translation>Öppna tangentavbildningsdefinition</translation>
     </message>
     <message>
         <location filename="../src/preferences.cpp" line="233"/>
         <location filename="../src/preferences.cpp" line="244"/>
         <source>Keyboard map (*.xml)</source>
-        <translation>Tangentbordsmappning (*.xml)</translation>
+        <translation>Tangentbordsavbildning (*.xml)</translation>
     </message>
     <message>
         <location filename="../src/preferences.cpp" line="255"/>
@@ -1172,7 +1172,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="51"/>
         <source>Keyboard Map</source>
-        <translation>Tangentmappning</translation>
+        <translation>Tangentavbildning</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="45"/>
@@ -1182,7 +1182,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="75"/>
         <source>Raw Keyboard Map</source>
-        <translation>Rå tangentmappning</translation>
+        <translation>Rå tangentavbildning</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="184"/>
@@ -1369,7 +1369,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Markera denna ruta för att använda PC-tangentbordshändelser på låg nivå. Detta system har flera fördelar:&lt;/p&gt;
 &lt;ul style=&quot;-qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Det är möjligt att använda &quot;döda tangenter&quot; (accenttecken, diakritiska tecken)&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mappningsdefinitioner är oberoende av språket (men hårdvaru- och operativsystemspecifika)&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;avbildningsdefinitioner är oberoende av språket (men hårdvaru- och operativsystemspecifika)&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Snabbare bearbetning&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -1553,7 +1553,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="67"/>
         <source>&amp;File</source>
-        <translation>&amp;Fil</translation>
+        <translation>&amp;Arkiv</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="78"/>
@@ -1616,7 +1616,7 @@ Vill du tillämpa ändringarna?</translation>
         <location filename="../src/vpiano.ui" line="329"/>
         <location filename="../src/vpiano.ui" line="459"/>
         <source>Pitch &amp;Bender</source>
-        <translation>Ton&amp;böjare</translation>
+        <translation>Ton&amp;bändare</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="246"/>
@@ -1673,12 +1673,12 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="354"/>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Inställningar</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="357"/>
         <source>Settings Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar Verktygsfält</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="373"/>
@@ -1743,7 +1743,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="462"/>
         <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>Visa eller dölj verktygsfältet Tonböjare</translation>
+        <translation>Visa eller dölj verktygsfältet Tonbändare</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="476"/>
@@ -1788,12 +1788,12 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="529"/>
         <source>Resets the Bender value</source>
-        <translation>Återställ tonböjningsvärdet</translation>
+        <translation>Återställ tonbändarvärdet</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="537"/>
         <source>&amp;Keyboard Map</source>
-        <translation>&amp;Tangentmappning</translation>
+        <translation>&amp;Tangentavbildning</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="540"/>
@@ -2130,12 +2130,12 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1170"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1173"/>
         <source>Show or hide the Settings toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa eller dölj verktygsfältet Inställningar</translation>
     </message>
     <message>
         <source>Alt+F</source>
@@ -2294,17 +2294,17 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="745"/>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Soft</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="746"/>
         <source>Sostenuto</source>
-        <translation type="unfinished"></translation>
+        <translation>Sostenuto</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="747"/>
         <source>Sustain</source>
-        <translation type="unfinished"></translation>
+        <translation>Sustain</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2130"/>
@@ -2399,7 +2399,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2172"/>
         <source>Bender:</source>
-        <translation>Böjare:</translation>
+        <translation>Bändare:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2173"/>
