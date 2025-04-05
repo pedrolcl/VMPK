@@ -143,7 +143,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/extracontrols.ui" line="177"/>
         <source>Spin box</source>
-        <translation>Bläddringsruta</translation>
+        <translation>Stegningsruta</translation>
     </message>
     <message>
         <location filename="../src/extracontrols.ui" line="182"/>
@@ -305,7 +305,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="69"/>
         <source>This is the list of the PC keyboard mappings. Each row has a number corresponding to the MIDI note number, and you can type an alphanumeric Key name that will be translated to the given note</source>
-        <translation>Detta är listan över PC-tangentbordsavbildningar. Varje rad har ett nummer som motsvarar MIDI-tonnumret, och du kan skriva ett alfanumeriskt tangentnamn som kommer att översättas till den givna tonen</translation>
+        <translation>Detta är listan över PC-tangentbordsavbildningar. Varje rad har ett nummer som motsvarar MIDI-notnumret, och du kan skriva ett alfanumeriskt tangentnamn som kommer att översättas till den givna tonen</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="79"/>
@@ -950,7 +950,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="719"/>
         <source>Note</source>
-        <translation>Note</translation>
+        <translation>Not</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="724"/>
@@ -1097,7 +1097,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.cpp" line="255"/>
         <source>Font to display note names</source>
-        <translation>Teckensnitt för att visa tonnamn</translation>
+        <translation>Teckensnitt för att visa notnamn</translation>
     </message>
 </context>
 <context>
@@ -1125,7 +1125,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="245"/>
         <source>Note highlight color</source>
-        <translation>Tonmarkeringsfärg</translation>
+        <translation>Notmarkeringsfärg</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="190"/>
@@ -1583,7 +1583,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="154"/>
         <source>Notes</source>
-        <translation>Toner</translation>
+        <translation>Noter</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="165"/>
@@ -1604,7 +1604,7 @@ Vill du tillämpa ändringarna?</translation>
         <location filename="../src/vpiano.ui" line="218"/>
         <location filename="../src/vpiano.ui" line="431"/>
         <source>&amp;Notes</source>
-        <translation>&amp;Toner</translation>
+        <translation>&amp;Noter</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="273"/>
@@ -1616,7 +1616,7 @@ Vill du tillämpa ändringarna?</translation>
         <location filename="../src/vpiano.ui" line="329"/>
         <location filename="../src/vpiano.ui" line="459"/>
         <source>Pitch &amp;Bender</source>
-        <translation>Ton&amp;bändare</translation>
+        <translation>Ton&amp;böjare</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="246"/>
@@ -1627,7 +1627,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="110"/>
         <source>Show Note Names</source>
-        <translation>Visa tonnamn</translation>
+        <translation>Visa notnamn</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="119"/>
@@ -1642,7 +1642,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="221"/>
         <source>Notes Tool Bar</source>
-        <translation>Tonverktygsfält</translation>
+        <translation>Notverktygsfält</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="249"/>
@@ -1668,7 +1668,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="332"/>
         <source>Bender Tool Bar</source>
-        <translation>Bändningsverktygslist</translation>
+        <translation>Böjarens verktygsfält</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="354"/>
@@ -1733,7 +1733,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="434"/>
         <source>Show or hide the Notes toolbar</source>
-        <translation>Visa eller dölj verktygsfältet Toner</translation>
+        <translation>Visa eller dölj verktygsfältet Noter</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="448"/>
@@ -1743,7 +1743,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="462"/>
         <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>Visa eller dölj verktygsfältet Tonbändare</translation>
+        <translation>Visa eller dölj verktygsfältet Tonböjare</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="476"/>
@@ -1788,7 +1788,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="529"/>
         <source>Resets the Bender value</source>
-        <translation>Återställ tonbändarvärdet</translation>
+        <translation>Återställ tonböjarvärdet</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="537"/>
@@ -2025,7 +2025,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="850"/>
         <source>Increment note velocity</source>
-        <translation>Öka tonhastigheten</translation>
+        <translation>Öka nothastigheten</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="861"/>
@@ -2035,7 +2035,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="864"/>
         <source>Decrement note velocity</source>
-        <translation>Minska tonhastigheten</translation>
+        <translation>Minska nothastigheten</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="875"/>
@@ -2224,7 +2224,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1109"/>
         <source>Automatic</source>
-        <translation>Automatisk</translation>
+        <translation>Automatiskt</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1112"/>
@@ -2399,7 +2399,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2172"/>
         <source>Bender:</source>
-        <translation>Bändare:</translation>
+        <translation>Böjare:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2173"/>
