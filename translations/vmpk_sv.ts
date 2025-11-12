@@ -50,7 +50,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Kopieringsrätt © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; och andra&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Copyright © 2008-2021, &lt;/span&gt;&lt;a href=&quot;mailto:plcl@users.sf.net?subject=VMPK&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0057ae;&quot;&gt;Pedro Lopez-Cabanillas &amp;lt;plcl@users.sf.net&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt; och andra&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program är fri programvara: du kan sprida det eller ändra det under villkoren i GNU General Public License såsom publicerat av Free Software Foundation, antingen licensversion 3, eller (om så önskas) någon senare version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;Detta program distributeras i hopp om det kan vara användbart, men UTAN NÅGON GARANTI;  även utan den underförstådda garantin om SÄLJBARHET eller LÄMPLIGHET FÖR ETT VISST ÄNDAMÅL. Se GNU General Public License för fler detaljer. Du bör ha fått en kopia av GNU General Public License  tillsammans med detta program. Om inte, se &lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -282,7 +282,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/kmapdialog.cpp" line="111"/>
         <location filename="../src/kmapdialog.cpp" line="122"/>
         <source>Keyboard map (*.xml)</source>
-        <translation>Tangentbordsavbildningar (*.xml)</translation>
+        <translation>Tangentbordsavbildning (*.xml)</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.cpp" line="124"/>
@@ -2100,7 +2100,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="968"/>
         <source>Window frame</source>
-        <translation>Fönsterkarm</translation>
+        <translation>Fönsterram</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="971"/>
@@ -2269,7 +2269,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2108"/>
         <source>&lt;p&gt;Translation by TRANSLATOR_NAME_AND_EMAIL&lt;/p&gt;%1</source>
-        <translation>&lt;p&gt;Översatt av Magnus Johansson (johanssongreppet@yahoo.se) &amp; Jonatan Nyberg&lt;/p&gt;%1</translation>
+        <translation>&lt;p&gt;Översatt av Magnus Johansson (johanssongreppet@yahoo.se) och Jonatan Nyberg&lt;/p&gt;%1</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2110"/>
@@ -2324,7 +2324,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2133"/>
         <source>Italian</source>
-        <translation>italienska</translation>
+        <translation>Italienska</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2134"/>
