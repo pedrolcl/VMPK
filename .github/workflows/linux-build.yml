@@ -22,9 +22,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v4
 
-    - uses: dawidd6/action-download-artifact@v12
+    - uses: dawidd6/action-download-artifact@v11
       with:
         name: ${{env.DRUMSTICKNAME}}
         github_token: ${{secrets.GH_PAT}}
@@ -38,7 +38,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
-        version: '6.10.*'
+        version: '6.10.1'
 
     - name: Dependencies
       run: sudo apt-get update && sudo apt-get install -yq pkg-config libasound2-dev
