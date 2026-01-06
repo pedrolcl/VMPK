@@ -1032,7 +1032,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="100"/>
         <source>Input MIDI Connection</source>
-        <translation>Ingångs MIDI-anslutning</translation>
+        <translation>MIDI-ingångsanslutning</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="122"/>
@@ -1057,7 +1057,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="172"/>
         <source>Output MIDI Connection</source>
-        <translation>Utgångs MIDI-anslutning</translation>
+        <translation>MIDI-utgångsanslutning</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="194"/>
@@ -1192,7 +1192,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="206"/>
         <source>Translate MIDI velocity to highlighting color tint</source>
-        <translation>Översätt MIDI-hastighet till att framhäva färgton</translation>
+        <translation>Översätt MIDI-anslagsstyrka till att framhäva färgton</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="219"/>
@@ -1207,7 +1207,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="326"/>
         <source>Central Octave Naming</source>
-        <translation>Central oktav namngivning</translation>
+        <translation>Namngivning av mittoktaven</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="337"/>
@@ -1336,7 +1336,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Translate MIDI velocity to key pressed color tint</source>
-        <translation type="vanished">Översätt MIDI-hastighet till tangenttryckt färgton</translation>
+        <translation type="vanished">Översätt MIDI-anslagsstyrka till tangenttryckt färgton</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="551"/>
@@ -1346,7 +1346,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="554"/>
         <source>Always On Top</source>
-        <translation>Alltid ovanpå</translation>
+        <translation>Alltid överst</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="105"/>
@@ -1385,7 +1385,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="160"/>
         <source>Enable Touch Screen Input</source>
-        <translation>Aktivera pekskärmsingång</translation>
+        <translation>Aktivera pekskärmsinmatning</translation>
     </message>
 </context>
 <context>
@@ -1598,7 +1598,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="183"/>
         <source>Note Input</source>
-        <translation>Toningång</translation>
+        <translation>Toninmatning</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="218"/>
@@ -1616,7 +1616,7 @@ Vill du tillämpa ändringarna?</translation>
         <location filename="../src/vpiano.ui" line="329"/>
         <location filename="../src/vpiano.ui" line="459"/>
         <source>Pitch &amp;Bender</source>
-        <translation>Ton&amp;böjare</translation>
+        <translation>Tonhöjds&amp;böjare</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="246"/>
@@ -1743,7 +1743,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="462"/>
         <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>Visa eller dölj verktygsfältet Tonböjare</translation>
+        <translation>Visa eller dölj verktygsfältet Tonhöjdsböjaren</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="476"/>
@@ -1788,7 +1788,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="529"/>
         <source>Resets the Bender value</source>
-        <translation>Återställ tonböjarvärdet</translation>
+        <translation>Återställ böjarvärdet</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="537"/>
@@ -2020,22 +2020,22 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="847"/>
         <source>Velocity Up</source>
-        <translation>Hastighet upp</translation>
+        <translation>Anslagsstyrka upp</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="850"/>
         <source>Increment note velocity</source>
-        <translation>Öka nothastigheten</translation>
+        <translation>Öka notanslagsstyrkan</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="861"/>
         <source>Velocity Down</source>
-        <translation>Hastighet ner</translation>
+        <translation>Anslagsstyrka ner</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="864"/>
         <source>Decrement note velocity</source>
-        <translation>Minska nothastigheten</translation>
+        <translation>Minska notanslagsstyrkan</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="875"/>
@@ -2125,7 +2125,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1156"/>
         <source>Octave Subscript Designation</source>
-        <translation>Octavsubscriptbeteckning</translation>
+        <translation>Oktavsubscriptbeteckning</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1170"/>
@@ -2389,7 +2389,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2168"/>
         <source>Velocity:</source>
-        <translation>Hastighet:</translation>
+        <translation>Anslagsstyrka:</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2171"/>
