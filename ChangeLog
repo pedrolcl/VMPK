@@ -1,6 +1,18 @@
+2026-01-06
+    * Release 0.9.2 preparations
+
 2025-03-25
     * Update Swedish translation, thanks to Karl Jonatan Nyberg
     * All translations refresh
+
+2025-02-23
+    * kmapdialog: new readonly column showing note names
+
+2025-01-04
+    * new settings toolbar
+
+2024-12-28
+    * Fix #35: wrong default initialization value for ctrl 8 (Balance)
 
 2024-12-24
     * Release 0.9.1

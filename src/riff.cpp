@@ -39,10 +39,12 @@ static QString toString(quint32 ckid)
 void Riff::readFromFile(QString fileName)
 {
     QFile file(m_fileName = fileName);
-    file.open(QIODevice::ReadOnly);
-    QDataStream ds(&file);
-    readFromStream(&ds);
-    file.close();
+    auto ok = file.open(QIODevice::ReadOnly);
+    if (ok) {
+        QDataStream ds(&file);
+        readFromStream(&ds);
+        file.close();
+    }
 }
 
 void Riff::readFromStream(QDataStream* ds)

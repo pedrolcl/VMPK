@@ -474,10 +474,13 @@ void VPiano::clearExtraControllers()
 
 QByteArray VPiano::readSysexDataFile(const QString& fileName)
 {
+    QByteArray res;
     QFile file(fileName);
-    file.open(QIODevice::ReadOnly);
-    QByteArray res = file.readAll();
-    file.close();
+    auto ok = file.open(QIODevice::ReadOnly);
+    if (ok) {
+        res = file.readAll();
+        file.close();
+    }
     return res;
 }
 
