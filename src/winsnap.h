@@ -3,7 +3,7 @@
 
 /*
  *  Sticky Window Snapper Class
- *  Copyright (C) 2021-2024 Pedro López-Cabanillas <plcl@users.sourceforge.net>
+ *  Copyright (C) 2021-2026 Pedro López-Cabanillas <plcl@users.sourceforge.net>
  *  Copyright (C) 2014 mmbob (Nicholas Cook)
  *
  *  This program is free software: you can redistribute it and/or modify
