@@ -138,7 +138,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/extracontrols.ui" line="172"/>
         <source>Knob</source>
-        <translation>Knopp</translation>
+        <translation>Ratt</translation>
     </message>
     <message>
         <location filename="../src/extracontrols.ui" line="177"/>
@@ -1001,7 +1001,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="37"/>
         <source>MIDI Setup</source>
-        <translation>MIDI-inställning</translation>
+        <translation>MIDI-inställningar</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="47"/>
@@ -1021,7 +1021,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="67"/>
         <source>MIDI IN Driver</source>
-        <translation>MIDI IN-drivrutin</translation>
+        <translation>MIDI-ingångsdrivrutin</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="87"/>
@@ -1052,7 +1052,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/midisetup.ui" line="139"/>
         <source>MIDI OUT Driver</source>
-        <translation>MIDI UT-drivrutin</translation>
+        <translation>MIDI-utgångsdrivrutin</translation>
     </message>
     <message>
         <location filename="../src/midisetup.ui" line="172"/>
@@ -1115,7 +1115,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="226"/>
         <source>The number of octaves, from 1 to 10. Each octave has 12 keys: 7 white and 5 black. The MIDI standard has 128 notes, but not all instruments can play all of them.</source>
-        <translation>Antalet oktaver, från 1 till 10. Varje oktav har 12 nycklar: 7 vita och 5 svarta. MIDI-standarden har 128 toner, men alla instrument kan inte spela alla.</translation>
+        <translation>Antalet oktaver, från 1 till 10. Varje oktav har 12 tangenter: 7 vita och 5 svarta. MIDI-standarden har 128 toner, men alla instrument kan inte spela alla.</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="255"/>
@@ -1375,7 +1375,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/preferences.ui" line="131"/>
         <source>Raw Computer Keyboard</source>
-        <translation>Rå datortangentbord</translation>
+        <translation>Rå tangentbordsinmatning</translation>
     </message>
     <message>
         <location filename="../src/preferences.ui" line="144"/>
@@ -1398,7 +1398,7 @@ This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it
 under certain conditions; see the LICENSE for details.</source>
         <translation>Virtual MIDI Piano Keyboard
-Kopieringsrättighet (C) 2006-2021 Pedro Lopez-Cabanillas
+Copyright (C) 2006-2021 Pedro Lopez-Cabanillas
 Detta program har ABSOLUT INGEN GARANTI;
 Detta är fri programvara, och du är välkommen att sprida den
 under vissa villkor; se LICENSEN för detaljer.</translation>
@@ -1473,7 +1473,7 @@ under vissa villkor; se LICENSEN för detaljer.</translation>
     <message>
         <location filename="../src/riffimportdlg.ui" line="97"/>
         <source>Copyright</source>
-        <translation>Upphovsrätt</translation>
+        <translation>Copyright</translation>
     </message>
     <message>
         <location filename="../src/riffimportdlg.ui" line="107"/>
@@ -1743,7 +1743,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="462"/>
         <source>Show or hide the Pitch Bender toolbar</source>
-        <translation>Visa eller dölj verktygsfältet Tonhöjdsböjaren</translation>
+        <translation>Visa eller dölj verktygsfältet Tonhöjdsböjare</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="476"/>
@@ -2045,7 +2045,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="878"/>
         <source>Show information about the program language translation</source>
-        <translation>Visa information om programspråkets översättning</translation>
+        <translation>Visa information om programmets översättning</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="892"/>
@@ -2055,7 +2055,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="895"/>
         <source>Enable computer keyboard triggered note input</source>
-        <translation>Aktivera datortangentbordsutlöst toninmatning</translation>
+        <translation>Aktivera toninmatning med datortangentbord</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="909"/>
@@ -2065,7 +2065,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="912"/>
         <source>Enable mouse triggered note input</source>
-        <translation>Aktivera musutlöst toninmatning</translation>
+        <translation>Aktivera toninmatning med mus</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="926"/>
@@ -2075,7 +2075,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="929"/>
         <source>Enable screen touch triggered note input</source>
-        <translation>Aktivera skärmberöringsutlöst notinmatning</translation>
+        <translation>Aktivera toninmatning via pekskärm</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="937"/>
@@ -2085,7 +2085,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="940"/>
         <source>Open the color palette editor</source>
-        <translation>Öppna färgpaletten</translation>
+        <translation>Öppna redigeraren för färgpaletten</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="951"/>
@@ -2125,7 +2125,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1156"/>
         <source>Octave Subscript Designation</source>
-        <translation>Oktavsubscriptbeteckning</translation>
+        <translation>Nedsänkt oktavbeteckning</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1170"/>
@@ -2214,7 +2214,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1095"/>
         <source>Vertical</source>
-        <translation>Vertikalt</translation>
+        <translation>Vertikal</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1098"/>
@@ -2224,7 +2224,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1109"/>
         <source>Automatic</source>
-        <translation>Automatiskt</translation>
+        <translation>Automatisk</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1112"/>
@@ -2259,7 +2259,7 @@ Vill du tillämpa ändringarna?</translation>
     <message>
         <location filename="../src/vpiano.cpp" line="2089"/>
         <source>&lt;p&gt;VMPK is developed and translated thanks to the volunteer work of many people from around the world. If you want to join the team or have any question, please visit the forums at &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</source>
-        <translation>VMPK utvecklas och översätts tack vare frivilligt arbete från många människor från hela världen. Om du vill gå med i laget eller har några frågor, besök forumet på &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
+        <translation>VMPK utvecklas och översätts tack vare frivilligt arbete från många människor från hela världen. Om du vill bidra till projektet eller har några frågor, besök forumet på &lt;a href=&apos;http://sourceforge.net/projects/vmpk/forums&apos;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2107"/>
@@ -2437,7 +2437,7 @@ Vill du tillämpa ändringarna?</translation>
         <source>The important component called &apos;%1&apos; is missing.
 This probably means that your installation is corrupt, or the &apos;drumstick&apos; packages on which this program depends are incomplete, outdated or wrong. You may still use the program, but probably without sound.</source>
         <translation>Den viktiga komponenten som kallas &apos;%1&apos; saknas.
-Detta betyder förmodligen att din installation är korrupt, eller att &apos;trumpinne&apos; paket som detta program beror på är ofullständiga, föråldrade eller felaktiga. Du kan fortfarande använda programmet, men förmodligen utan ljud.</translation>
+Detta betyder förmodligen att din installation är korrupt, eller att &apos;drumstick&apos;-paketen som detta program beror på är ofullständiga, föråldrade eller felaktiga. Du kan fortfarande använda programmet, men förmodligen utan ljud.</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2362"/>
