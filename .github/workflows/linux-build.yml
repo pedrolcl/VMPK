@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
 
-    - uses: dawidd6/action-download-artifact@v11
+    - uses: dawidd6/action-download-artifact@v24
       with:
         name: ${{env.DRUMSTICKNAME}}
         github_token: ${{secrets.GH_PAT}}
