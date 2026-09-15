@@ -41,6 +41,7 @@ bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message,
 bool NativeFilter::nativeEventFilter(const QByteArray &eventType, void *message, qintptr *)
 #endif
 {
+    qDebug() << Q_FUNC_INFO << eventType;
 
     if (!m_enabled || (m_handler == nullptr)) {
         return false;

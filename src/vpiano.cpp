@@ -75,16 +75,18 @@
 using namespace drumstick::rt;
 using namespace drumstick::widgets;
 
-VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
-    : QMainWindow(parent, flags),
-    m_midiout(nullptr),
-    m_midiin(nullptr),
-    m_backendManager(nullptr),
-    m_initialized(false),
-#if defined(ENABLE_NATIVE_FILTER)	
-    m_filter(nullptr),
-#endif	
-    m_currentLang(nullptr)
+VPiano::VPiano(QWidget *parent, Qt::WindowFlags flags)
+    : QMainWindow(parent, flags)
+    , m_midiout(nullptr)
+    , m_midiin(nullptr)
+    , m_backendManager(nullptr)
+    , m_initialized(false)
+#if defined(ENABLE_NATIVE_FILTER)
+    , m_filter(nullptr)
+#else
+    , m_eventFilter(nullptr)
+#endif
+    , m_currentLang(nullptr)
 {
 #if defined(ENABLE_DBUS)
     new VmpkAdaptor(this);
@@ -92,6 +94,7 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     dbus.registerObject("/", this);
     dbus.registerService("net.sourceforge.vmpk");
 #endif
+    setFocusPolicy(Qt::NoFocus);
     ui.setupUi(this);
     initLanguages();
 
@@ -189,6 +192,10 @@ VPiano::VPiano( QWidget * parent, Qt::WindowFlags flags )
     m_filter = new NativeFilter;
     m_filter->setRawKbdHandler(ui.pianokeybd);
     qApp->installNativeEventFilter(m_filter);
+#else
+    m_eventFilter = new EventFilter(this);
+    m_eventFilter->setRawKbdHandler(ui.pianokeybd);
+    installEventFilter(m_eventFilter);
 #endif
     initialization();
 }
@@ -199,6 +206,9 @@ VPiano::~VPiano()
     m_filter->setRawKbdEnabled(false);
     qApp->removeNativeEventFilter(m_filter);
     delete m_filter;
+#else
+    m_eventFilter->setRawKbdEnabled(false);
+    removeEventFilter(m_eventFilter);
 #endif
     delete m_backendManager;
 }
@@ -1331,6 +1341,9 @@ void VPiano::applyPreferences()
 #if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
     ui.pianokeybd->setUsingNativeFilter(VPianoSettings::instance()->rawKeyboard());
+#else
+    m_eventFilter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
+    ui.pianokeybd->setUsingNativeFilter(VPianoSettings::instance()->rawKeyboard());
 #endif
     ui.pianokeybd->setRawKeyboardMode(VPianoSettings::instance()->rawKeyboard());
     ui.pianokeybd->setVelocityTint(VPianoSettings::instance()->velocityColor());
@@ -1692,6 +1705,9 @@ void VPiano::grabKb()
 #if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
     ui.pianokeybd->setUsingNativeFilter(VPianoSettings::instance()->rawKeyboard());
+#else
+    m_eventFilter->setRawKbdEnabled(VPianoSettings::instance()->rawKeyboard());
+    ui.pianokeybd->setUsingNativeFilter(VPianoSettings::instance()->rawKeyboard());
 #endif
 }
 
@@ -1699,6 +1715,9 @@ void VPiano::releaseKb()
 {
 #if defined(RAWKBD_SUPPORT) && defined(ENABLE_NATIVE_FILTER)
     m_filter->setRawKbdEnabled(false);
+    ui.pianokeybd->setUsingNativeFilter(false);
+#else
+    m_eventFilter->setRawKbdEnabled(false);
     ui.pianokeybd->setUsingNativeFilter(false);
 #endif
 }

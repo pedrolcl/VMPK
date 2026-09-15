@@ -25,8 +25,11 @@
 #include <mutex>
 
 #if defined(ENABLE_NATIVE_FILTER)
-	#include "nativefilter.h"
+#include "nativefilter.h"
+#else
+#include "eventfilter.h"
 #endif
+
 #include "instrument.h"
 #include "ui_vpiano.h"
 
@@ -238,6 +241,8 @@ private:
 
 #if defined(ENABLE_NATIVE_FILTER)
     NativeFilter *m_filter;
+#else
+    EventFilter *m_eventFilter;
 #endif
 
     Ui::VPiano ui;

@@ -107,6 +107,11 @@ if (ENABLE_NATIVE_FILTER)
             maceventhelper.h
         )
     endif()
+else()
+    list(APPEND vmpk_SRCS
+        eventfilter.cpp
+        eventfilter.h
+    )
 endif()
 
 if(WIN32)
