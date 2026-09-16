@@ -56,6 +56,7 @@ public slots:
     void reopen();
     void accept() override;
     void reject() override;
+    void configureOutputDriverDefaults();
 
 private:
     void refreshInputDrivers(QString id, bool advanced);

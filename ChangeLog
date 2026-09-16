@@ -1,3 +1,8 @@
+2026-09-16
+    * implement default gain on Sonivox and Fluidsynth backends
+    * This change requires Drumstick 2.11
+    * The default gain is an application policy. The real gain applied by the synthesizers may be adjusted by the user in the backend configuration dialogs.
+
 2026-09-15
     * implemented a generic keyboard event filter
     * this class is simpler than a QAbstractNativeEventFilter subclass

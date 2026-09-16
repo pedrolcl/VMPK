@@ -16,12 +16,16 @@
     with this program; If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "midisetup.h"
 #include <QMessageBox>
-#include "iconutils.h"
-#include "vpianosettings.h"
+#include <QMetaObject>
+#include <QMetaProperty>
+
 #include <drumstick/configurationdialogs.h>
 #include <drumstick/settingsfactory.h>
+
+#include "iconutils.h"
+#include "midisetup.h"
+#include "vpianosettings.h"
 
 MidiSetup::MidiSetup(QWidget *parent) : QDialog(parent),
     m_settingsChanged(false),
@@ -136,6 +140,35 @@ void MidiSetup::reject()
     m_midiOut = m_savedOut;
     reopen();
     QDialog::reject();
+}
+
+void MidiSetup::configureOutputDriverDefaults()
+{
+    const int DEF_SVOX_GAIN{99};
+    const double DEF_FLUID_GAIN{0.99};
+    if (m_midiOut != nullptr) {
+        bool ok = false;
+        auto metaObj = m_midiOut->metaObject();
+        auto idx = metaObj->indexOfProperty("defaultGain");
+        const QString cname = QString::fromLatin1(metaObj->className());
+        if (idx != -1) {
+            QMetaProperty prop = metaObj->property(idx);
+            if (cname == "drumstick::rt::SynthController") {
+                int retVal = prop.read(m_midiOut).toInt();
+                if (retVal != DEF_SVOX_GAIN) {
+                    ok = prop.write(m_midiOut, DEF_SVOX_GAIN);
+                }
+            } else if (cname == "drumstick::rt::FluidSynthOutput") {
+                double retVal = prop.read(m_midiOut).toInt();
+                if (retVal != DEF_FLUID_GAIN) {
+                    ok = prop.write(m_midiOut, DEF_FLUID_GAIN);
+                }
+            }
+            if (!ok) {
+                qWarning() << Q_FUNC_INFO << cname << "property" << prop.name() << "write failed";
+            }
+        }
+    }
 }
 
 void MidiSetup::refresh()
@@ -278,6 +311,7 @@ void MidiSetup::configureOutput()
 {
     QString driver = ui.comboOutputBackends->currentText();
     if (drumstick::widgets::outputDriverIsConfigurable(driver)) {
+        configureOutputDriverDefaults();
         m_settingsChanged |= drumstick::widgets::configureOutputDriver(driver, this);
     }
 }
