@@ -45,7 +45,7 @@ jobs:
         tar xvzf ${{env.DRUMSTICKNAME}}-${{matrix.arch}}.tar.gz
 
     - name: '${{ matrix.icon }} Install Dependencies'
-      run: sudo apt-get update && sudo apt-get install -yq pkg-config libasound2-dev
+      run: sudo apt-get install -yq autoconf autoconf-archive automake libtool pkg-config libasound2-dev libpulse-dev libsndfile1-dev
 
     - name: '${{ matrix.icon }} Set up CMake'
       uses: jwlawson/actions-setup-cmake@v2
