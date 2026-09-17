@@ -16,14 +16,13 @@ You should have received a copy of the GNU General Public License along
 with this program; If not, see <http://www.gnu.org/licenses/>.
 #]===========================================================================]
 
+set(MANPAGE vmpk.1)
 if (BUILD_DOCS)
-    find_program(XSLTPROC_EXECUTABLE xsltproc)
-endif()
-
-if (XSLTPROC_EXECUTABLE)
-    message(STATUS "XSLTPROC Found: ${XSLTPROC_EXECUTABLE}")
-    include(CreateManpages)
-    create_manpages(vmpk.xml)
+    include(pandoc_manpage)
+    add_manpage(${MANPAGE})
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MANPAGE}
+            DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 else()
-    install( FILES vmpk.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1 )
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${MANPAGE}
+            DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 endif()
