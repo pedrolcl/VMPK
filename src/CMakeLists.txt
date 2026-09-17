@@ -187,6 +187,7 @@ target_link_libraries(vmpk PRIVATE
     Drumstick::RT
     Drumstick::Widgets
     Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Network
     $<$<BOOL:${ENABLE_DBUS}>:Qt${QT_VERSION_MAJOR}::DBus>
     $<$<BOOL:${Qt5X11Extras_FOUND}>:Qt5::X11Extras>
     $<$<BOOL:${XCB_FOUND}>:${XCB_LIBRARIES}>

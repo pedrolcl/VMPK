@@ -36,8 +36,9 @@ endif()
 option(ENABLE_DBUS "Enable VMPK DBus interface" ${DBUS_INIT})
 option(ENABLE_NATIVE_FILTER "Use a QAbstractNativeEventFilter to process raw keyboard events" ${FILTER_INIT})
 option(EMBED_TRANSLATIONS "Embed translations instead of installing" OFF)
-option(BUILD_DOCS "Build man page" ON)
-option(USE_QT5 "Prefer building with Qt5 instead of Qt6")
+option(BUILD_DOCS "Build man page" OFF)
+option(USE_QT5 "Prefer building with Qt5 instead of Qt6" OFF)
+option(INSTALL_DEPENDENCIES "Deploy dependency libraries" OFF)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
 include(SCMRevision)
@@ -90,6 +91,9 @@ endif ()
 
 if (UNIX AND NOT APPLE)
     if (ENABLE_NATIVE_FILTER)
+        if (LINUX)
+            message(WARNING "Native filter does not work on Wayland, it requires X11")
+        endif()
         if (QT_VERSION VERSION_LESS 6.0.0)
             find_package(Qt5X11Extras REQUIRED)
         endif()
@@ -104,9 +108,9 @@ if (UNIX AND NOT APPLE)
             message(STATUS "Found XCB development libs v${XCB_VERSION}")
         endif()
     endif()
-
-    include(GNUInstallDirs)
 endif()
+
+include(GNUInstallDirs)
 
 add_subdirectory(src)
 if (NOT EMBED_TRANSLATIONS)
@@ -190,6 +194,10 @@ if(UNIX AND NOT APPLE)
              DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/128x128/apps
              RENAME vmpk.png)
 
+    install (FILES data/vmpk_256x256.png
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/256x256/apps
+             RENAME vmpk.png)
+
     install (FILES data/vmpk.svgz
              DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps )
 
@@ -207,55 +215,154 @@ if(UNIX AND NOT APPLE)
      add_custom_target( uninstall
          "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 else()
-    if(WIN32)
-        include (InstallRequiredSystemLibraries)
-        install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}
-                 DESTINATION .)
-        install (FILES ${vmpk_DATA_FILES}
-                 DESTINATION .)
-        set(FLUIDSYNTH_PREFIX $ENV{FLUIDSYNTH})
-        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2022.nsi.in
-            ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2022.nsi IMMEDIATE @ONLY)
+    # if(WIN32)
+    #     include (InstallRequiredSystemLibraries)
+    #     install (FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}
+    #              DESTINATION .)
+    #     install (FILES ${vmpk_DATA_FILES}
+    #              DESTINATION .)
+    #     set(FLUIDSYNTH_PREFIX $ENV{FLUIDSYNTH})
+    #     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/setup-msvc2022.nsi.in
+    #         ${CMAKE_CURRENT_BINARY_DIR}/setup-msvc2022.nsi IMMEDIATE @ONLY)
+    # endif()
+endif()
+
+if (INSTALL_DEPENDENCIES)
+    if (CMAKE_SYSTEM MATCHES "Linux")
+        find_package(sonivox 4.0 CONFIG REQUIRED shared)
+        if (sonivox_FOUND)
+            install(IMPORTED_RUNTIME_ARTIFACTS sonivox::sonivox
+                    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+        else()
+            message(WARNING "Sonivox package not found")
+        endif()
+        find_package(Drumstick 2.11 CONFIG REQUIRED ALSA)
+        if (Drumstick_FOUND)
+            install(IMPORTED_RUNTIME_ARTIFACTS Drumstick::ALSA
+                    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+        else()
+            message(WARNING "Drumstick::ALSA package not found")
+        endif()
+    endif()
+    find_package(FluidSynth CONFIG REQUIRED shared)
+    if (FluidSynth_FOUND)
+        install(IMPORTED_RUNTIME_ARTIFACTS FluidSynth::libfluidsynth
+                LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    else()
+        message(WARNING "Fluidsynth package not found")
+    endif()
+    if (DEFINED Drumstick_DIR)
+        if (Drumstick_DIR MATCHES "cmake")
+            set(_drumstick_plugins ${Drumstick_DIR}/../../drumstick2)
+        else()
+            set(_drumstick_plugins ${Drumstick_DIR}/lib/drumstick2)
+        endif()
+        if (EXISTS ${_drumstick_plugins})
+            install(DIRECTORY ${_drumstick_plugins}
+                    DESTINATION plugins)
+        else()
+            message(WARNING "${_drumstick_plugins} does not exists")
+        endif()
+    else()
+        message(WARNING "Drumstick_DIR is not defined")
+    endif()
+    if (WIN32)
+        set ( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR})
+        get_target_property(RT_TARGET_CONFIG Drumstick::RT IMPORTED_CONFIGURATIONS)
+        get_target_property(DRUMSTICKRT_LIB Drumstick::RT IMPORTED_LOCATION_${RT_TARGET_CONFIG})
+        get_target_property(WIDGETS_TARGET_CONFIG Drumstick::Widgets IMPORTED_CONFIGURATIONS)
+        get_target_property(DRUMSTICKWIDGETS_LIB Drumstick::Widgets IMPORTED_LOCATION_${WIDGETS_TARGET_CONFIG})
+        set ( CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS ${DRUMSTICKRT_LIB} ${DRUMSTICKWIDGETS_LIB})
+    else()
+        set ( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    endif()
+
+    if (QT_VERSION VERSION_GREATER_EQUAL 6.3)
+        if(MSVC)
+            qt_generate_deploy_app_script(
+                TARGET vmpk
+                OUTPUT_SCRIPT deploy_script
+                NO_UNSUPPORTED_PLATFORM_ERROR
+                NO_COMPILER_RUNTIME
+                NO_TRANSLATIONS
+            )
+            include ( InstallRequiredSystemLibraries )
+        elseif(WIN32 AND NOT MSVC)
+            qt_generate_deploy_app_script(
+                TARGET vmpk
+                OUTPUT_SCRIPT deploy_script
+                NO_UNSUPPORTED_PLATFORM_ERROR
+                NO_TRANSLATIONS
+            )
+        elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+            qt_generate_deploy_app_script(
+                TARGET vmpk
+                OUTPUT_SCRIPT deploy_script
+                INCLUDE_PLUGINS xcb wayland
+                NO_UNSUPPORTED_PLATFORM_ERROR
+                NO_TRANSLATIONS
+            )
+        endif()
+        if (DEFINED deploy_script)
+            install(SCRIPT ${deploy_script})
+        endif()
+        # AppImage
+        if (UNIX AND NOT APPLE)
+            install( CODE
+              "include(${CMAKE_SOURCE_DIR}/cmake_admin/CreateAppImage.cmake)
+               create_appimage(
+                    EXE \"vmpk\"
+                    ICON \"vmpk.png\"
+                    DESKTOP \"net.sourceforge.VMPK.desktop\"
+                    WORKDIR \"${CMAKE_CURRENT_BINARY_DIR}\"
+                    APPDIR \"vmpk-v${PROJECT_VERSION}-${CMAKE_SYSTEM_PROCESSOR}.AppDir\"
+                    ARCH \"${CMAKE_SYSTEM_PROCESSOR}\"
+               )"
+            )
+        endif()
     endif()
 endif()
 
+if (DEFINED ENV{GITHUB_OUTPUT})
+    file(APPEND
+        "$ENV{GITHUB_OUTPUT}"
+        "config_version=${PROJECT_VERSION}\n"
+    )
+endif()
+
 # CPack support
-include (InstallRequiredSystemLibraries)
+set (CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
+set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/gpl.rtf")
 set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "Virtual MIDI Piano Keyboard")
 set (CPACK_PACKAGE_VENDOR "vmpk.sourceforge.net")
-set (CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/README.md")
-set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/gpl.rtf")
+set (CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 set (CPACK_PACKAGE_VERSION_MAJOR ${CMAKE_PROJECT_VERSION_MAJOR})
 set (CPACK_PACKAGE_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
 set (CPACK_PACKAGE_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
-set (CPACK_PACKAGE_INSTALL_DIRECTORY "vmpk")
-set (CPACK_PACKAGE_EXECUTABLES "vmpk" "Virtual MIDI Piano Keyboard")
+set (CPACK_PACKAGE_INSTALL_DIRECTORY "${PROJECT_NAME}-${PROJECT_VERSION}")
+set (CPACK_PACKAGE_EXECUTABLES "${PROJECT_NAME}" "Virtual MIDI Piano Keyboard")
+set (CPACK_PACKAGE_VERSION "v${PROJECT_VERSION}")
+set (CPACK_PACKAGE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/src/vmpk.ico")
+set (CPACK_PACKAGE_NAME "${PROJECT_NAME}")
 
-# source packages
-set (CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
+set (CPACK_STRIP_FILES ON)
+#   set (CPACK_INCLUDE_TOPLEVEL_DIRECTORY 0)
+#   set (CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+
 set (CPACK_SOURCE_IGNORE_FILES "/.svn/;/build/;/share/;~$;.cproject;.project;.user;${CPACK_SOURCE_IGNORE_FILES}")
 set (CPACK_SOURCE_PACKAGE_FILE_NAME "vmpk-${PROJECT_VERSION}")
 set (CPACK_SOURCE_STRIP_FILES OFF)
 
-# linux binary packages
-if (${CMAKE_SYSTEM} MATCHES "Linux")
-    set (CPACK_GENERATOR TGZ;TBZ2)
-    set (CPACK_PACKAGE_NAME "vmpk")
-    set (CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR})
-#   set (CPACK_INCLUDE_TOPLEVEL_DIRECTORY 0)
-#   set (CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-    set (CPACK_STRIP_FILES ON)
-endif ()
-
 # Windows NSIS setup package
-#if (WIN32)
-#    set (CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/src/vmpk.ico")
-#    set (CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\MyExecutable.exe")
-#    set (CPACK_NSIS_DISPLAY_NAME "Virtual MIDI Piano Keyboard")
-#    set (CPACK_NSIS_HELP_LINK "http://vmpk.sourceforge.net")
-#    set (CPACK_NSIS_URL_INFO_ABOUT "http://vmpk.sourceforge.net")
-#    set (CPACK_NSIS_CONTACT "plcl@users.sourceforge.net")
-#    set (CPACK_NSIS_MODIFY_PATH OFF)
-#endif ()
+if (WIN32)
+    set (CPACK_NSIS_DISPLAY_NAME "Virtual MIDI Piano Keyboard")
+    set (CPACK_NSIS_WELCOME_TITLE_3LINES ON)
+    set (CPACK_NSIS_FINISH_TITLE_3LINES ON)
+    set (CPACK_NSIS_HELP_LINK "https://vmpk.sourceforge.io")
+    set (CPACK_NSIS_URL_INFO_ABOUT "https://vmpk.sourceforge.io")
+    set (CPACK_NSIS_CONTACT "plcl@users.sourceforge.net")
+    set (CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
+    set (CPACK_NSIS_MODIFY_PATH OFF)
+endif()
 
-include (CPack)
+include(CPack)
