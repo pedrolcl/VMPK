@@ -44,6 +44,8 @@ jobs:
         fi
         tar xvzf ${{env.DRUMSTICKNAME}}-${{matrix.arch}}.tar.gz
 
+    - name: '${{ matrix.icon }} Install Dependencies'
+      run: sudo apt-get update && sudo apt-get install -yq pkg-config libasound2-dev
 
     - name: '${{ matrix.icon }} Set up CMake'
       uses: jwlawson/actions-setup-cmake@v2
@@ -63,9 +65,6 @@ jobs:
       uses: jurplel/install-qt-action@v4
       with:
         version: '6.11.1'
-
-    - name: '${{ matrix.icon }} Install Dependencies'
-      run: sudo apt-get update && sudo apt-get install -yq pkg-config libasound2-dev
 
     - name: '${{ matrix.icon }} Configure CMake'
       id: configuration
