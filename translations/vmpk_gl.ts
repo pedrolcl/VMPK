@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="gl">
+<TS version="2.1" language="gl_ES">
 <context>
     <name>About</name>
     <message>
@@ -966,7 +966,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/kmapdialog.ui" line="719"/>
         <source>Note</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota</translation>
     </message>
     <message>
         <location filename="../src/kmapdialog.ui" line="724"/>
@@ -1689,12 +1689,12 @@ Quere aplicar os cambios?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="354"/>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Axustes</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="357"/>
         <source>Settings Tool Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Barra de ferramentas de axustes</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="373"/>
@@ -2146,12 +2146,12 @@ Quere aplicar os cambios?</translation>
     <message>
         <location filename="../src/vpiano.ui" line="1170"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Axustes</translation>
     </message>
     <message>
         <location filename="../src/vpiano.ui" line="1173"/>
         <source>Show or hide the Settings toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosar ou agochar a barra de Axustes</translation>
     </message>
     <message>
         <source>Alt+F</source>
@@ -2311,17 +2311,17 @@ anterior: Miguel Anxo Bouzada &lt;mbouzada@gmail.com&gt;&lt;/p&gt;%1</translatio
     <message>
         <location filename="../src/vpiano.cpp" line="745"/>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Celeste</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="746"/>
         <source>Sostenuto</source>
-        <translation type="unfinished"></translation>
+        <translation>Sostenuto</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="747"/>
         <source>Sustain</source>
-        <translation type="unfinished"></translation>
+        <translation>Resonancia</translation>
     </message>
     <message>
         <location filename="../src/vpiano.cpp" line="2130"/>

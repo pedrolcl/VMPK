@@ -45,18 +45,18 @@ jobs:
         tar xvzf ${{env.DRUMSTICKNAME}}-${{matrix.arch}}.tar.gz
 
     - name: '${{ matrix.icon }} Install Dependencies'
-      run: sudo apt-get install -yq autoconf autoconf-archive automake libtool pkg-config libasound2-dev libpulse-dev libsndfile1-dev
+      run: sudo apt-get install -yq autoconf autoconf-archive automake libtool pkg-config libasound2-dev libpulse-dev libsndfile1-dev libltdl-dev
 
     - name: '${{ matrix.icon }} Set up CMake'
       uses: jwlawson/actions-setup-cmake@v2
       with:
-        cmake-version: '4.3.x' # https://github.com/microsoft/vcpkg/issues/53135
+        cmake-version: '4.4.x' # https://github.com/microsoft/vcpkg/issues/53135
 
     - name: '${{ matrix.icon }} VCPKG Build'
       uses: johnwason/vcpkg-action@v8
       id: vcpkg
       with:
-        pkgs: zlib sonivox fluidsynth[sndfile]
+        pkgs: zlib sonivox fluidsynth[pulseaudio,sndfile]
         triplet: ${{ matrix.triplet }}
         token: ${{ github.token }}
         revision: master
@@ -78,6 +78,7 @@ jobs:
         -DCMAKE_INSTALL_RPATH="\$ORIGIN/../lib"
         -DBUILD_DOCS=OFF
         -DINSTALL_DEPENDENCIES=ON
+        -DEMBED_TRANSLATIONS=ON
 
     - name: '${{ matrix.icon }} Build'
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
