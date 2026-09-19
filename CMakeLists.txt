@@ -66,10 +66,10 @@ if(MSVC)
 endif()
 
 if (WIN32)
+    # "flat" installation on Windows
     set(CMAKE_INSTALL_BINDIR ".")
     set(CMAKE_INSTALL_LIBDIR ".")
-    set(QT_DEPLOY_PLUGINS_DIR ".")
-    #set(QT_DEPLOY_TRANSLATIONS_DIR "i18n")
+    set(CMAKE_INSTALL_PLUGINS ".")
 else()
     include(GNUInstallDirs)
 endif()
@@ -92,7 +92,8 @@ message (STATUS "VMPK v${PROJECT_VERSION}
      D-Bus support: ${ENABLE_DBUS}
      Native Event Filter: ${ENABLE_NATIVE_FILTER}
      Qt${QT_VERSION_MAJOR} Version: ${QT_VERSION}
-     Drumstick Version: ${Drumstick_VERSION}"
+     Drumstick Version: ${Drumstick_VERSION}
+     CMake Version: ${CMAKE_VERSION}"
 )
 
 if (ENABLE_DBUS)
@@ -222,11 +223,9 @@ if(UNIX AND NOT APPLE)
          IMMEDIATE @ONLY)
      add_custom_target( uninstall
          "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-else()
-    if(WIN32)
-        install ( FILES ${vmpk_DATA_FILES}
-                  DESTINATION .)
-    endif()
+elseif(WIN32)
+    install ( FILES ${vmpk_DATA_FILES}
+              DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif()
 
 if (INSTALL_DEPENDENCIES)
@@ -249,10 +248,27 @@ if (INSTALL_DEPENDENCIES)
     find_package(FluidSynth CONFIG REQUIRED shared)
     if (FluidSynth_FOUND)
         install(IMPORTED_RUNTIME_ARTIFACTS FluidSynth::libfluidsynth
+                RUNTIME_DEPENDENCY_SET fluidsynth-dependencies
+                LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+        if(WIN32)
+          set(_pre_exclude api-ms ext-ms wpaxholder hvsi azureattest pdmutilities
+                           vcruntime msvcp concrt vccorlib ucrtbase )
+          set(_post_exclude [[.*(\\|/)system32(\\|/).*\.dll]])
+        elseif(APPLE)
+          set(_pre_exclude "/usr/lib" "/System/")
+          set(_post_exclude "")
+        else()
+          set(_pre_exclude "")
+          set(_post_exclude ".*/ld-linux-.*" ".*/linux-vdso.*" ".*/libm\\..*" ".*/libc\\..*" ".*/libpthread\\..*" ".*/libdl\\..*" ".*/libstdc\\+\\+\\..*" ".*/libgcc_s.*" ".*/libgomp\\..*" ".*/libQt6.*")
+        endif()
+        install(RUNTIME_DEPENDENCY_SET fluidsynth-dependencies
+                PRE_EXCLUDE_REGEXES ${_pre_exclude}
+                POST_EXCLUDE_REGEXES ${_post_exclude}
                 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
     else()
         message(WARNING "Fluidsynth package not found")
     endif()
+
     if (DEFINED Drumstick_DIR)
         if (Drumstick_DIR MATCHES "cmake")
             set(_drumstick_plugins ${Drumstick_DIR}/../../drumstick2)
@@ -261,7 +277,7 @@ if (INSTALL_DEPENDENCIES)
         endif()
         if (EXISTS ${_drumstick_plugins})
             install(DIRECTORY ${_drumstick_plugins}
-                    DESTINATION plugins)
+                    DESTINATION ${CMAKE_INSTALL_PLUGINS})
         else()
             message(WARNING "${_drumstick_plugins} does not exists")
         endif()
@@ -270,12 +286,25 @@ if (INSTALL_DEPENDENCIES)
     endif()
 
     if (WIN32)
-        set (CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR})
+        install(IMPORTED_RUNTIME_ARTIFACTS Drumstick::RT
+                LIBRARY DESTINATION ${CMAKE_INSTALL_BINDIR})
+        install(IMPORTED_RUNTIME_ARTIFACTS Drumstick::Widgets
+                LIBRARY DESTINATION ${CMAKE_INSTALL_BINDIR})
+        set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR})
     else()
-        set (CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_LIBDIR})
+        set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_LIBDIR})
     endif()
 
     if (QT_VERSION VERSION_GREATER_EQUAL 6.3)
+
+        set(_deploy_tool_options_arg "")
+        if (WIN32)
+            set(_deploy_tool_options_arg "
+                --plugindir \".\"
+                --translationdir \".\"
+            ")
+        endif()
+
         if(MSVC)
             qt_generate_deploy_app_script(
                 TARGET vmpk
@@ -283,6 +312,7 @@ if (INSTALL_DEPENDENCIES)
                 NO_UNSUPPORTED_PLATFORM_ERROR
                 NO_COMPILER_RUNTIME
                 NO_TRANSLATIONS
+                DEPLOY_TOOL_OPTIONS ${_deploy_tool_options_arg}
             )
             include ( InstallRequiredSystemLibraries )
         elseif(WIN32 AND NOT MSVC)
@@ -340,12 +370,8 @@ set (CPACK_PACKAGE_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 set (CPACK_PACKAGE_INSTALL_DIRECTORY "${PROJECT_NAME}-${PROJECT_VERSION}")
 set (CPACK_PACKAGE_EXECUTABLES "${PROJECT_NAME}" "Virtual MIDI Piano Keyboard")
 set (CPACK_PACKAGE_VERSION "v${PROJECT_VERSION}")
-#set (CPACK_PACKAGE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/src/vmpk.ico")
 set (CPACK_PACKAGE_NAME "${PROJECT_NAME}")
-
 set (CPACK_STRIP_FILES ON)
-#   set (CPACK_INCLUDE_TOPLEVEL_DIRECTORY 0)
-#   set (CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
 set (CPACK_SOURCE_IGNORE_FILES "/.svn/;/build/;/share/;~$;.cproject;.project;.user;${CPACK_SOURCE_IGNORE_FILES}")
 set (CPACK_SOURCE_PACKAGE_FILE_NAME "vmpk-${PROJECT_VERSION}")
@@ -359,7 +385,7 @@ if (WIN32)
     set (CPACK_NSIS_HELP_LINK "https://vmpk.sourceforge.io")
     set (CPACK_NSIS_URL_INFO_ABOUT "https://vmpk.sourceforge.io")
     set (CPACK_NSIS_CONTACT "plcl@users.sourceforge.net")
-    set (CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
+    set (CPACK_NSIS_EXECUTABLES_DIRECTORY ${CMAKE_INSTALL_BINDIR})
     set (CPACK_NSIS_MODIFY_PATH OFF)
 endif()
 
