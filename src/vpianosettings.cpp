@@ -107,7 +107,7 @@ QString VPianoSettings::drumstickLocales()
 #if defined(TRANSLATIONS_EMBEDDED)
     return QLatin1String(":/");
 #elif defined(Q_OS_WIN)
-    return QApplication::applicationDirPath() + "/";
+    return QApplication::applicationDirPath() + "/translations/";
 #elif defined(Q_OS_MAC)
     return QApplication::applicationDirPath() + "/../Resources/";
 #elif defined(Q_OS_UNIX)
