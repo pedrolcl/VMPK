@@ -72,6 +72,7 @@ if (WIN32)
     set(CMAKE_INSTALL_PLUGINS ".")
 else()
     include(GNUInstallDirs)
+    set(CMAKE_INSTALL_PLUGINS "plugins")
 endif()
 
 if (USE_QT5)
