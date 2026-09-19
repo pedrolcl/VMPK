@@ -23,12 +23,20 @@ endif()
 
 add_custom_target(translations ALL DEPENDS ${QM_FILES})
 
-if (UNIX AND NOT APPLE)
+if (WIN32)
+     install( FILES ${QM_FILES}
+              DESTINATION translations )
+elseif (UNIX AND NOT APPLE)
     install( FILES ${QM_FILES}
              DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/vmpk/locale )
 endif ()
 
+get_target_property(DRUMSTICK_LOCATION Drumstick::Widgets INTERFACE_INCLUDE_DIRECTORIES)
+get_filename_component(DRUMSTICK_PREFIX ${DRUMSTICK_LOCATION} DIRECTORY)
 if (WIN32)
-    install( FILES ${QM_FILES}
-             DESTINATION . )
-endif ()
+    file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/translations/drumstick-widgets_*.qm")
+    install(FILES ${WIDGETS_TRANS} DESTINATION translations )
+elseif(INSTALL_DEPENDENCIES)
+    file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/drumstick/drumstick-widgets_*.qm")
+    install(FILES ${WIDGETS_TRANS} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/drumstick )
+endif()

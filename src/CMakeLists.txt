@@ -42,7 +42,11 @@ if (EMBED_TRANSLATIONS)
     include(TranslationUtils)
     get_target_property(DRUMSTICK_LOCATION Drumstick::Widgets INTERFACE_INCLUDE_DIRECTORIES)
     get_filename_component(DRUMSTICK_PREFIX ${DRUMSTICK_LOCATION} DIRECTORY)
-    file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/drumstick/drumstick-widgets_*.qm")
+    if (WIN32)
+        file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/translations/drumstick-widgets_*.qm")
+    else()
+        file(GLOB WIDGETS_TRANS "${DRUMSTICK_PREFIX}/share/drumstick/drumstick-widgets_*.qm")
+    endif()
     file(COPY ${WIDGETS_TRANS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
     add_app_translations_resource(APP_RES ${QM_FILES} ${WIDGETS_TRANS})
     add_qt_translations_resource(QT_RES cs de es fr gl it ru sr sv zh_CN)
@@ -228,12 +232,7 @@ target_compile_definitions(vmpk PRIVATE
     $<$<BOOL:${EMBED_TRANSLATIONS}>:TRANSLATIONS_EMBEDDED>
 )
 
-if (UNIX AND NOT APPLE)
-    install (TARGETS vmpk
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        BUNDLE DESTINATION ~/Applications
-    )
-else()
-    set(DEPLOYMENT_TARGET vmpk)
-    include(DeploymentUtils)
-endif()
+install (TARGETS vmpk
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    BUNDLE DESTINATION ~/Applications
+)
