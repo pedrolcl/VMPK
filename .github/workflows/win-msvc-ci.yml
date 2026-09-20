@@ -74,7 +74,6 @@ jobs:
         -DCMAKE_PREFIX_PATH=${{github.workspace}}/${{env.DRUMSTICKNAME}};${{github.workspace}}/vcpkg/installed/${{matrix.triplet}}
         -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_LOCATION}}
         -DCPACK_SYSTEM_NAME=${{matrix.arch}}
-        -DDEPENDENCY_DIRS="${{github.workspace}}/vcpkg/installed/${{matrix.triplet}}/bin;${{github.workspace}}/${{env.DRUMSTICKNAME}}/bin"
         -DBUILD_DOCS=OFF
         -DINSTALL_DEPENDENCIES=ON
         -DEMBED_TRANSLATIONS=ON
@@ -91,7 +90,7 @@ jobs:
     - name: '${{ matrix.icon }} Upload Artifacts'
       uses: actions/upload-artifact@v7
       with:
-        name: SonivoxEAS-msvc-${{matrix.arch}}
+        name: VMPK-msvc-${{matrix.arch}}
         path: ${{env.INSTALL_LOCATION}}
         retention-days: 90
         overwrite: true
@@ -99,8 +98,8 @@ jobs:
     - name: '${{ matrix.icon }} Upload Installer'
       uses: actions/upload-artifact@v7
       with:
-        name: SonivoxEAS-msvc-installer-${{matrix.arch}}
-        path: ${{github.workspace}}/build/sonivoxeas-${{steps.configuration.outputs.config_version}}-${{matrix.arch}}.exe
+        name: VMPK-msvc-installer-${{matrix.arch}}
+        path: ${{github.workspace}}/build/VMPK-v${{steps.configuration.outputs.config_version}}-Windows-*.exe
         retention-days: 90
         overwrite: true
         archive: false

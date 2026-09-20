@@ -67,10 +67,6 @@ jobs:
         branch: devel
         skip_unpack: true
 
-    - name: '${{ matrix.icon }} Convert Drumstick location'
-      id: cnv
-      run: echo "dependencies=$(cygpath -m $MSYSTEM_PREFIX/bin);$(cygpath -m '${{github.workspace}}/${{env.DRUMSTICKNAME}}/bin')" >> $GITHUB_OUTPUT
-
     - name: '${{ matrix.icon }} Extract Drumstick'
       run: tar xvzf ${{env.DRUMSTICKNAME}}-msys2-${{matrix.sys}}.tar.gz
 
@@ -82,7 +78,6 @@ jobs:
         -DCMAKE_PREFIX_PATH="${{env.DRUMSTICKNAME}}"
         -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_LOCATION}}
         -DCPACK_SYSTEM_NAME=${{matrix.sys}}
-        -DDEPENDENCY_DIRS="${{steps.cnv.outputs.dependencies}}"
         -DBUILD_DOCS=OFF
         -DINSTALL_DEPENDENCIES=ON
         -DEMBED_TRANSLATIONS=ON
@@ -108,7 +103,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: vmpk-msys2-installer-${{matrix.sys}}
-        path: ${{github.workspace}}/build/vmpk-${{steps.configuration.outputs.config_version}}-${{matrix.sys}}.exe
+        path: ${{github.workspace}}/build/VMPK-v${{steps.configuration.outputs.config_version}}-Windows-${{matrix.sys}}.exe
         retention-days: 90
         overwrite: true
         archive: false
