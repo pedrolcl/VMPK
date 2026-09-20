@@ -1,0 +1,114 @@
+name: Windows MSYS2 CI
+
+on:
+  push:
+    branches: [ "devel", "master" ]
+  pull_request:
+    branches: [ "devel", "master" ]
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: RelWithDebInfo
+  DRUMSTICKNAME: DrumstickV2
+  DRUMSTICK_LOCATION: ${{github.workspace}}/DrumstickV2
+  INSTALL_LOCATION: VMPK
+
+jobs:
+  build:
+    strategy:
+        fail-fast: false
+        matrix:
+          include:
+            - { icon: '🟦', sys: mingw64,    os: windows-latest }
+            - { icon: '🟨', sys: ucrt64,     os: windows-latest }
+            - { icon: '🟧', sys: clang64,    os: windows-latest }
+            - { icon: '🟩', sys: clangarm64, os: windows-11-arm }
+    runs-on: ${{ matrix.os }}
+    name: 🚧${{ matrix.icon }} ${{ matrix.sys }}
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - name: '${{ matrix.icon }} Setup MSYS2'
+      uses: msys2/setup-msys2@v2
+      with:
+        release: true
+        update: true
+        msystem: ${{matrix.sys}}
+        install: >-
+          git
+          make
+        pacboy: >-
+          toolchain:p
+          cmake:p
+          ninja:p
+          fluidsynth:p
+          qt6-base:p
+          qt6-tools:p
+          qt6-translations:p
+
+    - name: '${{ matrix.icon }} Install NSIS'
+      uses: repolevedavaj/install-nsis@v1.3.0
+      with:
+        nsis-version: '3.12'
+
+    - name: '${{ matrix.icon }} Checkout'
+      uses: actions/checkout@v7
+
+    - name: '${{ matrix.icon }} Download Drumstick'
+      uses: dawidd6/action-download-artifact@v24
+      with:
+        name: ${{env.DRUMSTICKNAME}}-msys2-${{matrix.sys}}.tar.gz
+        github_token: ${{secrets.GH_PAT}}
+        repo: pedrolcl/drumstick
+        allow_forks: false
+        workflow: win-msys.yml
+        branch: devel
+        skip_unpack: true
+
+    - name: '${{ matrix.icon }} Convert Drumstick location'
+      id: cnv
+      run: echo "dependencies=$(cygpath -m $MSYSTEM_PREFIX/bin);$(cygpath -m '${{github.workspace}}/${{env.DRUMSTICKNAME}}/bin')" >> $GITHUB_OUTPUT
+
+    - name: '${{ matrix.icon }} Extract Drumstick'
+      run: tar xvzf ${{env.DRUMSTICKNAME}}-msys2-${{matrix.sys}}.tar.gz
+
+    - name: '${{ matrix.icon }} Configure CMake'
+      id: configuration
+      run: >
+        cmake -B build
+        -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        -DCMAKE_PREFIX_PATH="${{env.DRUMSTICKNAME}}"
+        -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_LOCATION}}
+        -DCPACK_SYSTEM_NAME=${{matrix.sys}}
+        -DDEPENDENCY_DIRS="${{steps.cnv.outputs.dependencies}}"
+        -DBUILD_DOCS=OFF
+        -DINSTALL_DEPENDENCIES=ON
+        -DEMBED_TRANSLATIONS=ON
+
+    - name: '${{ matrix.icon }} Build'
+      run: cmake --build build --config ${{env.BUILD_TYPE}}
+
+    - name: '${{ matrix.icon }} Package'
+      run: cmake --build build --target package
+
+    - name: '${{ matrix.icon }} Install'
+      run: cmake --install build --config ${{env.BUILD_TYPE}}
+
+    - name: '${{ matrix.icon }} Upload Artifacts'
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{env.INSTALL_LOCATION}}-msys2-${{matrix.sys}}
+        path: ${{env.INSTALL_LOCATION}}
+        retention-days: 90
+        overwrite: true
+
+    - name: '${{ matrix.icon }} Upload Installer'
+      uses: actions/upload-artifact@v7
+      with:
+        name: vmpk-msys2-installer-${{matrix.sys}}
+        path: ${{github.workspace}}/build/vmpk-${{steps.configuration.outputs.config_version}}-${{matrix.sys}}.exe
+        retention-days: 90
+        overwrite: true
+        archive: false
