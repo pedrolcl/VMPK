@@ -59,11 +59,11 @@ endif()
 #    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 #endif()
 
-# CMAKE_SYSTEM_PROCESSOR is broken on Windows with MSVC
-# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open in 2024/12
-if(MSVC)
-    string(TOLOWER ${MSVC_CXX_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
-endif()
+# CMAKE_SYSTEM_PROCESSOR is broken on Windows
+# cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open today
+ if(WIN32)
+      string(TOLOWER ${CMAKE_CXX_COMPILER_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
+ endif()
 
 if (WIN32)
     # "flat" installation on Windows
@@ -90,6 +90,7 @@ message (STATUS "VMPK v${PROJECT_VERSION}
      Build configuration: ${CMAKE_BUILD_TYPE}
      Operating System: ${CMAKE_SYSTEM_NAME}
      System Processor: ${CMAKE_SYSTEM_PROCESSOR}
+     Compiler ID: ${CMAKE_CXX_COMPILER_ID}
      D-Bus support: ${ENABLE_DBUS}
      Native Event Filter: ${ENABLE_NATIVE_FILTER}
      Qt${QT_VERSION_MAJOR} Version: ${QT_VERSION}
