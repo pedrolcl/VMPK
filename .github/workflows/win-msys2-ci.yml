@@ -103,7 +103,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: vmpk-msys2-installer-${{matrix.sys}}
-        path: ${{github.workspace}}/build/VMPK-v${{steps.configuration.outputs.config_version}}-Windows-${{matrix.sys}}.exe
+        path: ${{github.workspace}}/build/VMPK-v${{steps.configuration.outputs.config_version}}-Windows-*.exe
         retention-days: 90
         overwrite: true
-        archive: false
+        archive: true

@@ -61,7 +61,7 @@ endif()
 
 # CMAKE_SYSTEM_PROCESSOR is broken on Windows
 # cmake bug https://gitlab.kitware.com/cmake/cmake/-/issues/15170 still open today
- if(WIN32)
+if(WIN32 AND (CMAKE_VERSION VERSION_GREATER_EQUAL 4.1))
       string(TOLOWER ${CMAKE_CXX_COMPILER_ARCHITECTURE_ID} CMAKE_SYSTEM_PROCESSOR)
  endif()
 
