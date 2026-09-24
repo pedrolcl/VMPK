@@ -45,7 +45,20 @@ jobs:
         tar xvzf ${{env.DRUMSTICKNAME}}-${{matrix.arch}}.tar.gz
 
     - name: '${{ matrix.icon }} Install Dependencies'
-      run: sudo apt-get install -yq autoconf autoconf-archive automake libtool pkg-config libasound2-dev libpulse-dev libsndfile1-dev libltdl-dev
+      run: |
+        sudo rm -rf /var/lib/apt/lists/*
+        sudo apt-get clean
+        sudo apt-get update -y -o Acquire::Retries=3
+        sudo apt-get install -yq --fix-missing \
+          autoconf \
+          autoconf-archive \
+          automake \
+          libtool \
+          pkg-config \
+          libasound2-dev \
+          libpulse-dev \
+          libsndfile1-dev \
+          libltdl-dev
 
     - name: '${{ matrix.icon }} Set up CMake'
       uses: jwlawson/actions-setup-cmake@v2
