@@ -56,7 +56,7 @@ jobs:
       uses: johnwason/vcpkg-action@v8
       id: vcpkg
       with:
-        pkgs: zlib sonivox fluidsynth[pulseaudio,sndfile]
+        pkgs: zlib sonivox fluidsynth[pipewire,pulseaudio,sndfile]
         triplet: ${{ matrix.triplet }}
         token: ${{ github.token }}
         revision: master
