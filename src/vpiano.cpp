@@ -1808,7 +1808,7 @@ void VPiano::setWidgetTip(QWidget* w, int val)
 {
     QString tip = QString::number(val);
     w->setToolTip(tip);
-    QToolTip::showText(w->parentWidget()->mapToGlobal(w->pos()), tip);
+    QToolTip::showText(w->parentWidget()->mapToGlobal(w->pos()), tip, this);
 }
 
 void VPiano::checkBackends()
