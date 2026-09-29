@@ -18,6 +18,18 @@ with this program; If not, see <http://www.gnu.org/licenses/>.
 
 cmake_minimum_required(VERSION 3.16)
 
+if (POLICY CMP0072)
+    cmake_policy(SET CMP0072 NEW)
+endif()
+
+if (POLICY CMP0153)
+    cmake_policy(SET CMP0153 NEW)
+endif()
+
+if (POLICY CMP0207)
+    cmake_policy(SET CMP0207 NEW)
+endif()
+
 project( VMPK
     VERSION 0.9.3
     LANGUAGES CXX

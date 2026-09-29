@@ -7,11 +7,9 @@ string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling \"${file}\"")
   if(EXISTS "${file}")
-    exec_program(
-      "@CMAKE_COMMAND@" ARGS "-E remove \"${file}\""
-      OUTPUT_VARIABLE rm_out
-      RETURN_VALUE rm_retval
-	)
+    execute_process ( COMMAND @CMAKE_COMMAND@ -E remove "${file}"
+      OUTPUT_VARIABLE  rm_out
+      RESULTS_VARIABLE rm_retval )
     if(NOT "${rm_retval}" STREQUAL 0)
       message(FATAL_ERROR "Problem when removing \"${file}\"")
     endif()
