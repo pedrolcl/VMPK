@@ -28,7 +28,7 @@ jobs:
     - uses: actions/checkout@v7
 
     - name: '${{ matrix.icon }} Download Drumstick artifact'
-      uses: dawidd6/action-download-artifact@v24
+      uses: dawidd6/action-download-artifact@v27
       with:
         name: ${{env.DRUMSTICKNAME}}-${{matrix.arch}}.tar.gz
         github_token: ${{secrets.GH_PAT}}
