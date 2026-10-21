@@ -11,7 +11,7 @@ env:
   BUILD_TYPE: RelWithDebInfo
   DRUMSTICKNAME: DrumstickV2
   DRUMSTICK_LOCATION: ${{github.workspace}}/DrumstickV2
-  INSTALL_LOCATION: VMPK
+  # INSTALL_LOCATION: VMPK
 
 jobs:
   build:
@@ -19,7 +19,8 @@ jobs:
         fail-fast: false
         matrix:
           include:
-            - { icon: '🟦', sys: mingw64,    os: windows-latest }
+            # https://www.msys2.org/news/#2026-03-15-deprecating-the-mingw64-environment
+            # { icon: '🟦', sys: mingw64,    os: windows-latest }
             - { icon: '🟨', sys: ucrt64,     os: windows-latest }
             - { icon: '🟧', sys: clang64,    os: windows-latest }
             - { icon: '🟩', sys: clangarm64, os: windows-11-arm }
@@ -76,34 +77,37 @@ jobs:
         cmake -B build
         -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
         -DCMAKE_PREFIX_PATH="${{env.DRUMSTICKNAME}}"
-        -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_LOCATION}}
         -DCPACK_SYSTEM_NAME=${{matrix.sys}}
         -DBUILD_DOCS=OFF
-        -DINSTALL_DEPENDENCIES=ON
         -DEMBED_TRANSLATIONS=ON
+
+    # -DINSTALL_DEPENDENCIES=ON
+    # -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_LOCATION}}
 
     - name: '${{ matrix.icon }} Build'
       run: cmake --build build --config ${{env.BUILD_TYPE}}
 
-    - name: '${{ matrix.icon }} Package'
-      run: cmake --build build --target package
+    # Packaging is not functional and redundant
 
-    - name: '${{ matrix.icon }} Install'
-      run: cmake --install build --config ${{env.BUILD_TYPE}}
+    # - name: '${{ matrix.icon }} Package'
+    #   run: cmake --build build --target package
 
-    - name: '${{ matrix.icon }} Upload Artifacts'
-      uses: actions/upload-artifact@v7
-      with:
-        name: ${{env.INSTALL_LOCATION}}-msys2-${{matrix.sys}}
-        path: ${{env.INSTALL_LOCATION}}
-        retention-days: 90
-        overwrite: true
+    # - name: '${{ matrix.icon }} Install'
+    #   run: cmake --install build --config ${{env.BUILD_TYPE}}
 
-    - name: '${{ matrix.icon }} Upload Installer'
-      uses: actions/upload-artifact@v7
-      with:
-        name: vmpk-msys2-installer-${{matrix.sys}}
-        path: ${{github.workspace}}/build/VMPK-v${{steps.configuration.outputs.config_version}}-Windows-*.exe
-        retention-days: 90
-        overwrite: true
-        archive: true
+    # - name: '${{ matrix.icon }} Upload Artifacts'
+    #   uses: actions/upload-artifact@v7
+    #   with:
+    #     name: ${{env.INSTALL_LOCATION}}-msys2-${{matrix.sys}}
+    #     path: ${{env.INSTALL_LOCATION}}
+    #     retention-days: 90
+    #     overwrite: true
+
+    # - name: '${{ matrix.icon }} Upload Installer'
+    #   uses: actions/upload-artifact@v7
+    #   with:
+    #     name: vmpk-msys2-installer-${{matrix.sys}}
+    #     path: ${{github.workspace}}/build/VMPK-v${{steps.configuration.outputs.config_version}}-Windows-*.exe
+    #     retention-days: 90
+    #     overwrite: true
+    #     archive: true
