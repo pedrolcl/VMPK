@@ -1,0 +1,98 @@
+name: macOS CI
+
+on:
+  push:
+    branches: [ "devel", "master" ]
+  pull_request:
+    branches: [ "devel", "master" ]
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: Release
+  DRUMSTICKNAME: DrumstickV2
+  DRUMSTICK_LOCATION: ${{github.workspace}}/DrumstickV2
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - { arch: "x86_64", os: "macos-15-intel", triplet: "x64-osx" }
+        - { arch: "arm64", os: "macos-15", triplet: "arm64-osx" }
+    runs-on: ${{ matrix.os }}
+    name: 'macOS CI ${{ matrix.arch }}'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v7
+
+    - name: 'Clone vcpkg-custom-triplets repository'
+      uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+      with:
+        depth: 1
+        branch: 'master'
+        owner: 'pedrolcl'
+        repository: 'vcpkg-custom-triplets'
+
+    - name: 'Set up CMake'
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: '4.4.x' # https://github.com/microsoft/vcpkg/issues/53135
+
+    - name: 'VCPKG Build'
+      uses: johnwason/vcpkg-action@v8
+      id: vcpkg
+      with:
+        pkgs: fluidsynth[sndfile]
+        triplet: ${{ matrix.triplet }}
+        token: ${{ github.token }}
+        revision: master
+        extra-args: --overlay-triplets=${{ github.workspace }}/vcpkg-custom-triplets
+
+    - name: Download Drumstick
+      uses: dawidd6/action-download-artifact@v27
+      with:
+        name: ${{env.DRUMSTICKNAME}}-${{matrix.arch}}-macos.tar.gz
+        github_token: ${{secrets.GH_PAT}}
+        repo: pedrolcl/drumstick
+        workflow: mac-ci.yml
+        skip_unpack: true
+        allow_forks: false
+
+    - name: Extract downloaded artifact
+      run: tar xvzf ${{env.DRUMSTICKNAME}}-${{matrix.arch}}-macos.tar.gz
+
+    - name: 'Install Qt'
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.8.3'
+        modules: qt5compat
+
+    - name: 'Configure CMake'
+      id: configuration
+      run: >
+        cmake ${{ steps.vcpkg.outputs.vcpkg-cmake-config }}
+        -B ${{github.workspace}}/build
+        -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        -DCMAKE_OSX_DEPLOYMENT_TARGET="12.0"
+        -DCMAKE_OSX_ARCHITECTURES=${{matrix.arch}}
+        -DCMAKE_INSTALL_RPATH="@executable_path/../Frameworks"
+        -DCMAKE_PREFIX_PATH="${{env.DRUMSTICK_LOCATION}}"
+        -DEMBED_TRANSLATIONS=ON
+        -DINSTALL_DEPENDENCIES=ON
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Package
+      run: cmake --build ${{github.workspace}}/build --target package
+
+    - name: 'Upload Artifacts'
+      uses: actions/upload-artifact@v7
+      with:
+        name: vmpk-macOS-${{matrix.arch}}
+        path: ${{github.workspace}}/build/vmpk-v${{steps.configuration.outputs.config_version}}-macOS-${{matrix.arch}}.zip
+        retention-days: 90
+        overwrite: true
+        archive: false

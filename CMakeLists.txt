@@ -242,7 +242,7 @@ elseif(WIN32)
               DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif()
 
-if (INSTALL_DEPENDENCIES)
+if (INSTALL_DEPENDENCIES AND QT_VERSION VERSION_GREATER_EQUAL 6.5)
     if (CMAKE_SYSTEM MATCHES "Linux")
         find_package(sonivox 4.0 CONFIG REQUIRED shared)
         if (sonivox_FOUND)
@@ -329,18 +329,18 @@ if (INSTALL_DEPENDENCIES)
                 DEPLOY_TOOL_OPTIONS ${_deploy_tool_options_arg}
             )
             include ( InstallRequiredSystemLibraries )
-        elseif(WIN32 AND NOT MSVC)
-            qt_generate_deploy_app_script(
-                TARGET vmpk
-                OUTPUT_SCRIPT deploy_script
-                NO_UNSUPPORTED_PLATFORM_ERROR
-                NO_TRANSLATIONS
-            )
         elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
             qt_generate_deploy_app_script(
                 TARGET vmpk
                 OUTPUT_SCRIPT deploy_script
                 INCLUDE_PLUGINS xcb wayland
+                NO_UNSUPPORTED_PLATFORM_ERROR
+                NO_TRANSLATIONS
+            )
+        else()
+            qt_generate_deploy_app_script(
+                TARGET vmpk
+                OUTPUT_SCRIPT deploy_script
                 NO_UNSUPPORTED_PLATFORM_ERROR
                 NO_TRANSLATIONS
             )
@@ -401,6 +401,14 @@ if (WIN32)
     set (CPACK_NSIS_CONTACT "plcl@users.sourceforge.net")
     set (CPACK_NSIS_EXECUTABLES_DIRECTORY ${CMAKE_INSTALL_BINDIR})
     set (CPACK_NSIS_MODIFY_PATH OFF)
+endif()
+
+if(APPLE)
+    set (CPACK_SYSTEM_NAME "macOS")
+    set (CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${PROJECT_VERSION}-macOS-${CMAKE_SYSTEM_PROCESSOR}")
+    set (CPACK_BINARY_ZIP ON)
+    set (CPACK_BINARY_TGZ OFF)
+    set (CPACK_BINARY_STGZ OFF)
 endif()
 
 include(CPack)
