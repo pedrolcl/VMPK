@@ -22,6 +22,10 @@ if (POLICY CMP0072)
     cmake_policy(SET CMP0072 NEW)
 endif()
 
+if(POLICY CMP0077)
+    cmake_policy(SET CMP0077 NEW)
+endif()
+
 if (POLICY CMP0153)
     cmake_policy(SET CMP0153 NEW)
 endif()
@@ -82,6 +86,9 @@ if (WIN32)
     set(CMAKE_INSTALL_BINDIR ".")
     set(CMAKE_INSTALL_LIBDIR ".")
     set(CMAKE_INSTALL_PLUGINS ".")
+elseif (APPLE)
+    set(CMAKE_INSTALL_LIBDIR "${PROJECT_NAME}.app/Contents/Frameworks")
+    set(CMAKE_INSTALL_PLUGINS "${PROJECT_NAME}.app/Contents/PlugIns")
 else()
     include(GNUInstallDirs)
     set(CMAKE_INSTALL_PLUGINS "plugins")
@@ -100,11 +107,13 @@ find_package(Drumstick 2.11 COMPONENTS RT Widgets REQUIRED)
 message (STATUS "VMPK v${PROJECT_VERSION}
      install prefix: ${CMAKE_INSTALL_PREFIX}
      Build configuration: ${CMAKE_BUILD_TYPE}
-     Operating System: ${CMAKE_SYSTEM_NAME}
-     System Processor: ${CMAKE_SYSTEM_PROCESSOR}
-     Compiler ID: ${CMAKE_CXX_COMPILER_ID}
-     D-Bus support: ${ENABLE_DBUS}
+     Embed translations: ${EMBED_TRANSLATIONS}
+     Install dependencies: ${INSTALL_DEPENDENCIES}
      Native Event Filter: ${ENABLE_NATIVE_FILTER}
+     D-Bus support: ${ENABLE_DBUS}
+     Operating System: ${CMAKE_SYSTEM_NAME}
+     Processor: ${CMAKE_SYSTEM_PROCESSOR}
+     Compiler ID: ${CMAKE_CXX_COMPILER_ID}
      Qt${QT_VERSION_MAJOR} Version: ${QT_VERSION}
      Drumstick Version: ${Drumstick_VERSION}
      CMake Version: ${CMAKE_VERSION}"
@@ -261,6 +270,9 @@ if (INSTALL_DEPENDENCIES AND QT_VERSION VERSION_GREATER_EQUAL 6.5)
     endif()
     find_package(FluidSynth CONFIG REQUIRED shared)
     if (FluidSynth_FOUND)
+        if (APPLE)
+            set_target_properties(FluidSynth::libfluidsynth PROPERTIES IMPORTED_SONAME_RELEASE "@rpath/libfluidsynth.3.dylib")
+        endif()
         install(IMPORTED_RUNTIME_ARTIFACTS FluidSynth::libfluidsynth
                 RUNTIME_DEPENDENCY_SET fluidsynth-dependencies
                 LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -299,18 +311,21 @@ if (INSTALL_DEPENDENCIES AND QT_VERSION VERSION_GREATER_EQUAL 6.5)
         message(WARNING "Drumstick_DIR is not defined")
     endif()
 
-    if (WIN32)
+    if (WIN32 OR APPLE)
         install(IMPORTED_RUNTIME_ARTIFACTS Drumstick::RT
+                FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
                 LIBRARY DESTINATION ${CMAKE_INSTALL_BINDIR})
         install(IMPORTED_RUNTIME_ARTIFACTS Drumstick::Widgets
+                FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
                 LIBRARY DESTINATION ${CMAKE_INSTALL_BINDIR})
+    endif()
+    if (WIN32)
         set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR})
     else()
         set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_LIBDIR})
     endif()
 
-    if (QT_VERSION VERSION_GREATER_EQUAL 6.3)
-
+    if (QT_VERSION VERSION_GREATER_EQUAL 6.5)
         set(_deploy_tool_options_arg "")
         if (WIN32)
             set(_deploy_tool_options_arg "
@@ -318,7 +333,6 @@ if (INSTALL_DEPENDENCIES AND QT_VERSION VERSION_GREATER_EQUAL 6.5)
                 --translationdir \".\"
             ")
         endif()
-
         if(MSVC)
             qt_generate_deploy_app_script(
                 TARGET vmpk
