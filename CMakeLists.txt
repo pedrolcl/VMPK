@@ -57,7 +57,7 @@ option(INSTALL_DEPENDENCIES "Deploy dependency libraries" OFF)
 
 # set(PROJECT_RELEASE_DATE "September 20, 2026")
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_admin")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(SCMRevision)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -181,7 +181,7 @@ set(vmpk_DATA_FILES
 if(UNIX)
     add_custom_target (tarball
         COMMAND mkdir -p vmpk-${PROJECT_VERSION}/translations/
-        COMMAND cp -r cmake_admin vmpk-${PROJECT_VERSION}
+        COMMAND cp -r cmake vmpk-${PROJECT_VERSION}
         COMMAND cp -r data vmpk-${PROJECT_VERSION}
         COMMAND cp -r src vmpk-${PROJECT_VERSION}
         COMMAND cp -r man vmpk-${PROJECT_VERSION}
@@ -241,7 +241,7 @@ if(UNIX AND NOT APPLE)
 
      # uninstall custom target
      configure_file(
-         "${CMAKE_SOURCE_DIR}/cmake_admin/cmake_uninstall.cmake.in"
+         "${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
          "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
          IMMEDIATE @ONLY)
      add_custom_target( uninstall
@@ -365,7 +365,7 @@ if (INSTALL_DEPENDENCIES AND QT_VERSION VERSION_GREATER_EQUAL 6.5)
         # AppImage
         if (UNIX AND NOT APPLE)
             install( CODE
-              "include(${CMAKE_SOURCE_DIR}/cmake_admin/CreateAppImage.cmake)
+              "include(${CMAKE_SOURCE_DIR}/cmake/CreateAppImage.cmake)
                create_appimage(
                     EXE \"vmpk\"
                     ICON \"vmpk.png\"
