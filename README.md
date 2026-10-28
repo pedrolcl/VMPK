@@ -3,6 +3,7 @@
 [![Linux CI](https://github.com/pedrolcl/VMPK/actions/workflows/linux-build.yml/badge.svg)](https://github.com/pedrolcl/VMPK/actions/workflows/linux-build.yml)  
 [![Windows MSVC CI](https://github.com/pedrolcl/VMPK/actions/workflows/win-msvc-ci.yml/badge.svg)](https://github.com/pedrolcl/VMPK/actions/workflows/win-msvc-ci.yml)  
 [![Windows MSYS2 CI](https://github.com/pedrolcl/VMPK/actions/workflows/win-msys2-ci.yml/badge.svg)](https://github.com/pedrolcl/VMPK/actions/workflows/win-msys2-ci.yml)  
+[![macOS CI](https://github.com/pedrolcl/VMPK/actions/workflows/mac-ci.yml/badge.svg)](https://github.com/pedrolcl/VMPK/actions/workflows/mac-ci.yml)  
 
 This program is a MIDI events generator/receiver. It doesn't produce any sound by itself, but can be used to drive a MIDI synthesizer (either hardware or software, internal or external). You can use the computer's keyboard to play MIDI notes, and also the mouse. You can use the Virtual MIDI Piano Keyboard to display the played MIDI notes from another instrument or MIDI file player. To do so, connect the other MIDI port to the input port of VMPK.
 
