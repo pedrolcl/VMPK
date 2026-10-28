@@ -13,6 +13,14 @@ foreach(BINARY_PATH IN LISTS FRAMEWORK_FILES)
         continue()
     endif()
     execute_process(
+        COMMAND lipo -archs "${BINARY_PATH}"
+        OUTPUT_VARIABLE LIPO_OUTPUT
+    )
+    string(STRIP ${LIPO_OUTPUT} LIPO_OUTPUT)
+    if (LIPO_OUTPUT STREQUAL TARGET_ARCH)
+        continue()
+    endif()
+    execute_process(
         COMMAND lipo -thin ${TARGET_ARCH} "${BINARY_PATH}" -output "${BINARY_PATH}.thin"
         RESULT_VARIABLE LIPO_RESULT
         ERROR_VARIABLE LIPO_ERROR
