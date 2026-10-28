@@ -183,7 +183,7 @@ VPiano::VPiano(QWidget *parent, Qt::WindowFlags flags)
     ui.actionStatusBar->setVisible(false);
     setWindowTitle("VMPK " + PGM_VERSION);
 #endif
-#if defined (Q_OS_MACX)
+#if defined(Q_OS_MACOS)
     //ui.actionEnterFullScreen->setShortcut(QKeySequence::FullScreen);
     //ui.actionExitFullScreen->setShortcut(QKeySequence::FullScreen);
 #endif
