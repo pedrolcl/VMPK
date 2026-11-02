@@ -1,3 +1,9 @@
+2026-11-02
+    * Czech translation updated. Thanks to Pavel Fric.
+
+2026-10-29
+    * Spanish and Galician translations updated
+
 2026-09-16
     * implement default gain on Sonivox and Fluidsynth backends
     * This change requires Drumstick 2.11
