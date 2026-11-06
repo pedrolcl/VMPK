@@ -69,7 +69,7 @@ jobs:
       uses: johnwason/vcpkg-action@v8
       id: vcpkg
       with:
-        pkgs: zlib sonivox fluidsynth[pipewire,pulseaudio,sndfile]
+        pkgs: zlib sonivox fluidsynth[pulseaudio,sndfile]
         triplet: ${{ matrix.triplet }}
         token: ${{ github.token }}
         revision: master
@@ -77,7 +77,7 @@ jobs:
     - name: '${{ matrix.icon }} Install Qt'
       uses: jurplel/install-qt-action@v4
       with:
-        version: '6.11.2'
+        version: '6.12.0'
 
     - name: '${{ matrix.icon }} Configure CMake'
       id: configuration

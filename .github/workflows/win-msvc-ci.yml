@@ -54,6 +54,7 @@ jobs:
         pkgs: fluidsynth[sndfile]
         triplet: ${{ matrix.triplet }}
         token: ${{ github.token }}
+        revision: master
 
     - name: '${{ matrix.icon }} Install NSIS'
       uses: repolevedavaj/install-nsis@v1.3.0

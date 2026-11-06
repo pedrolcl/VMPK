@@ -55,7 +55,7 @@ option(BUILD_DOCS "Build man page" OFF)
 option(USE_QT5 "Prefer building with Qt5 instead of Qt6" OFF)
 option(INSTALL_DEPENDENCIES "Deploy dependency libraries" OFF)
 
-# set(PROJECT_RELEASE_DATE "September 20, 2026")
+set(PROJECT_RELEASE_DATE "November 6, 2026")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(SCMRevision)

@@ -17,11 +17,11 @@
      instrument or MIDI file player.
    </p>
  </description>
- <recommends>
+ <supports>
     <control>pointing</control>
     <control>keyboard</control>
     <control>touch</control>
- </recommends>
+ </supports>
  <screenshots>
   <screenshot type="default">
    <image>https://vmpk.sourceforge.io/images/VMPK_screenshot.png</image>
@@ -36,9 +36,12 @@
  <url type="translate">https://github.com/pedrolcl/VMPK/wiki/Translations</url>
  <url type="vcs-browser">https://github.com/pedrolcl/VMPK/tree/master</url>
  <url type="contact">https://sourceforge.net/projects/vmpk/lists/vmpk-devel</url>
- <developer_name>Pedro López-Cabanillas</developer_name>
+ <developer id="net.sourceforge.plcl">
+   <name>Pedro López-Cabanillas</name>
+ </developer>
  <update_contact>plcl_AT_users.sourceforge.net</update_contact>
  <releases>
+   <release type="stable" version="0.9.3" date="2026-11-06"/>
    <release type="stable" version="0.9.2" date="2026-01-06"/>
    <release type="stable" version="0.9.1" date="2024-12-24"/>
    <release type="stable" version="0.9.0" date="2023-12-30"/>
