@@ -51,7 +51,7 @@ jobs:
         extra-args: --overlay-triplets=${{ github.workspace }}/vcpkg-custom-triplets
 
     - name: Download Drumstick
-      uses: dawidd6/action-download-artifact@v27
+      uses: dawidd6/action-download-artifact@v28
       with:
         name: ${{env.DRUMSTICKNAME}}-${{matrix.arch}}-macos.tar.gz
         github_token: ${{secrets.GH_PAT}}
